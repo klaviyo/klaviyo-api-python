@@ -8,6 +8,7 @@
 - [API Reference](https://developers.klaviyo.com/en/v2022-10-17/reference)
 - [API Guides](https://developers.klaviyo.com/en/v2022-10-17/docs)
 - [Postman Workspace](https://www.postman.com/klaviyo/workspace/klaviyo-developers)
+- [Interactive Guide (Jupyter Notebook)](https://github.com/klaviyo-labs/klaviyo-api-guides)
 
 ## Design & Approach
 
