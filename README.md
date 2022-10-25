@@ -1,6 +1,6 @@
 # Klaviyo Python SDK
 
-- SDK version: 1.0.1
+- SDK version: 1.0.2
 - API revision: 2022-10-17
 
 ## Helpful Resources
@@ -1740,10 +1740,11 @@ klaviyo.Segments.get_segment(id, fields_segment=fields_segment);
 
 ## Keyword Arguments
 
+# fields_profile | [str]
 # filter | str
 # page_cursor | str
 
-klaviyo.Segments.get_segment_profiles(segment_id, filter=filter, page_cursor=page_cursor);
+klaviyo.Segments.get_segment_profiles(segment_id, fields_profile=fields_profile, filter=filter, page_cursor=page_cursor);
 ```
 
 

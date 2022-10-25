@@ -103,7 +103,7 @@ class SegmentsApi(object):
         )
         self.get_segment_profiles_endpoint = _Endpoint(
             settings={
-                'response_type': None,
+                'response_type': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),
                 'auth': [
                     'Klaviyo-API-Key'
                 ],
@@ -115,6 +115,7 @@ class SegmentsApi(object):
             params_map={
                 'all': [
                     'segment_id',
+                    'fields_profile',
                     'filter',
                     'page_cursor',
                 ],
@@ -124,6 +125,7 @@ class SegmentsApi(object):
                 'nullable': [
                 ],
                 'enum': [
+                    'fields_profile',
                 ],
                 'validation': [
                 ]
@@ -132,10 +134,38 @@ class SegmentsApi(object):
                 'validations': {
                 },
                 'allowed_values': {
+                    ('fields_profile',): {
+
+                        "EMAIL": "email",
+                        "PHONE_NUMBER": "phone_number",
+                        "EXTERNAL_ID": "external_id",
+                        "ANONYMOUS_ID": "anonymous_id",
+                        "FIRST_NAME": "first_name",
+                        "LAST_NAME": "last_name",
+                        "ORGANIZATION": "organization",
+                        "TITLE": "title",
+                        "IMAGE": "image",
+                        "CREATED": "created",
+                        "UPDATED": "updated",
+                        "LAST_EVENT_DATE": "last_event_date",
+                        "LOCATION": "location",
+                        "LOCATION.ADDRESS1": "location.address1",
+                        "LOCATION.ADDRESS2": "location.address2",
+                        "LOCATION.CITY": "location.city",
+                        "LOCATION.COUNTRY": "location.country",
+                        "LOCATION.LATITUDE": "location.latitude",
+                        "LOCATION.LONGITUDE": "location.longitude",
+                        "LOCATION.REGION": "location.region",
+                        "LOCATION.ZIP": "location.zip",
+                        "LOCATION.TIMEZONE": "location.timezone",
+                        "PROPERTIES": "properties"
+                    },
                 },
                 'openapi_types': {
                     'segment_id':
                         (str,),
+                    'fields_profile':
+                        ([str],),
                     'filter':
                         (str,),
                     'page_cursor':
@@ -143,15 +173,18 @@ class SegmentsApi(object):
                 },
                 'attribute_map': {
                     'segment_id': 'segment_id',
+                    'fields_profile': 'fields[profile]',
                     'filter': 'filter',
                     'page_cursor': 'page[cursor]',
                 },
                 'location_map': {
                     'segment_id': 'path',
+                    'fields_profile': 'query',
                     'filter': 'query',
                     'page_cursor': 'query',
                 },
                 'collection_format_map': {
+                    'fields_profile': 'csv',
                 }
             },
             headers_map={
@@ -457,6 +490,7 @@ class SegmentsApi(object):
             segment_id (str): 
 
         Keyword Args:
+            fields_profile ([str]): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#sparse-fieldsets. [optional]
             filter (str): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`email`: `any`<br>`phone_number`: `any`<br>`push_token`: `any`<br>`_kx`: `equals`. [optional]
             page_cursor (str): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#pagination. [optional]
             _return_http_data_only (bool): response data without head status
@@ -491,7 +525,7 @@ class SegmentsApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            None
+            {str: (bool, date, datetime, dict, float, int, list, str, none_type)}
                 If the method is called asynchronously, returns the request
                 thread.
         """
@@ -628,7 +662,7 @@ class SegmentsApi(object):
 
         Keyword Args:
             fields_segment ([str]): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#sparse-fieldsets. [optional]
-            filter (str): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`name`: `any`, `equals`<br>`created`: `greater-than`<br>`updated`: `greater-than`. [optional]
+            filter (str): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`name`: `any`, `equals`<br>`id`: `any`, `equals`<br>`created`: `greater-than`<br>`updated`: `greater-than`. [optional]
             page_cursor (str): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#pagination. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
