@@ -1362,7 +1362,7 @@ class FlowsApi(object):
     ):
         """Get Messages For Flow Action  # noqa: E501
 
-        Get all flow messages associated with the given action ID. Flow messages can be sorted by the following fields, in ascending and descending order: `id`,  `name`, `created`, `updated` Use filters to narrow your results. Request specific fields using [sparse fieldsets](https://developers.klaviyo.com/en/v2022-10-17/reference/api_overview#sparse-fieldsets). Returns a maximum of 50 flows per request, which can be paginated with [offset pagination](https://developers.klaviyo.com/en/v2022-10-17/reference/api_overview#pagination). Offset pagination uses the following parameters: `page[size]` and `page[number]`<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `Flows Read`  # noqa: E501
+        Get all flow messages associated with the given action ID.  Flow messages can be sorted by the following fields, in ascending and descending order:  ascending: `id`,  `name`, `created`, `updated` descending: `-id`,  `-name`, `-created`, `-updated`  Use filters to narrow your results. Request specific fields using [sparse fieldsets](https://developers.klaviyo.com/en/v2022-10-17/reference/api_overview#sparse-fieldsets).  Returns a maximum of 50 flows per request, which can be paginated with [offset pagination](https://developers.klaviyo.com/en/v2022-10-17/reference/api_overview#pagination). Offset pagination uses the following parameters: `page[size]` and `page[number]`<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `Flows Read`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
