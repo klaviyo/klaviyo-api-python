@@ -4750,10 +4750,10 @@ class CatalogsApi(object):
 
 
         Keyword Args:
-            fields_catalog_category ([str]): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#sparse-fieldsets. [optional]
-            filter (str): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item`: `equals`<br>`name`: `contains`. [optional]
-            page_cursor (str): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#pagination. [optional]
-            sort (str): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#sorting. [optional]
+            fields_catalog_category ([str]): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#sparse-fieldsets. [optional]
+            filter (str): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item`: `equals`<br>`name`: `contains`. [optional]
+            page_cursor (str): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#pagination. [optional]
+            sort (str): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#sorting. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -4835,7 +4835,7 @@ class CatalogsApi(object):
             id (str): 
 
         Keyword Args:
-            fields_catalog_category ([str]): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#sparse-fieldsets. [optional]
+            fields_catalog_category ([str]): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#sparse-fieldsets. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -4919,12 +4919,12 @@ class CatalogsApi(object):
             category_id (str): 
 
         Keyword Args:
-            fields_catalog_item ([str]): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#sparse-fieldsets. [optional]
-            fields_catalog_variant ([str]): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#sparse-fieldsets. [optional]
-            filter (str): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`category`: `equals`<br>`title`: `contains`<br>`published`: `equals`. [optional]
-            include ([str]): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#relationships. [optional]
-            page_cursor (str): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#pagination. [optional]
-            sort (str): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#sorting. [optional]
+            fields_catalog_item ([str]): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#sparse-fieldsets. [optional]
+            fields_catalog_variant ([str]): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#sparse-fieldsets. [optional]
+            filter (str): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`category`: `equals`<br>`title`: `contains`<br>`published`: `equals`. [optional]
+            include ([str]): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#relationships. [optional]
+            page_cursor (str): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#pagination. [optional]
+            sort (str): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#sorting. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -5010,7 +5010,7 @@ class CatalogsApi(object):
             related_resource (str): . defaults to "items", must be one of ["items"]
 
         Keyword Args:
-            page_cursor (str): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#pagination. [optional]
+            page_cursor (str): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#pagination. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -5096,9 +5096,9 @@ class CatalogsApi(object):
             id (str): 
 
         Keyword Args:
-            fields_catalog_item ([str]): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#sparse-fieldsets. [optional]
-            fields_catalog_variant ([str]): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#sparse-fieldsets. [optional]
-            include ([str]): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#relationships. [optional]
+            fields_catalog_item ([str]): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#sparse-fieldsets. [optional]
+            fields_catalog_variant ([str]): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#sparse-fieldsets. [optional]
+            include ([str]): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#relationships. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -5182,10 +5182,10 @@ class CatalogsApi(object):
             item_id (str): 
 
         Keyword Args:
-            fields_catalog_category ([str]): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#sparse-fieldsets. [optional]
-            filter (str): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item`: `equals`<br>`name`: `contains`. [optional]
-            page_cursor (str): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#pagination. [optional]
-            sort (str): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#sorting. [optional]
+            fields_catalog_category ([str]): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#sparse-fieldsets. [optional]
+            filter (str): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item`: `equals`<br>`name`: `contains`. [optional]
+            page_cursor (str): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#pagination. [optional]
+            sort (str): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#sorting. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -5271,7 +5271,7 @@ class CatalogsApi(object):
             related_resource (str): . defaults to "categories", must be one of ["categories"]
 
         Keyword Args:
-            page_cursor (str): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#pagination. [optional]
+            page_cursor (str): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#pagination. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -5357,10 +5357,10 @@ class CatalogsApi(object):
             item_id (str): 
 
         Keyword Args:
-            fields_catalog_variant ([str]): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#sparse-fieldsets. [optional]
-            filter (str): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item`: `equals`<br>`sku`: `equals`<br>`title`: `contains`<br>`published`: `equals`. [optional]
-            page_cursor (str): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#pagination. [optional]
-            sort (str): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#sorting. [optional]
+            fields_catalog_variant ([str]): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#sparse-fieldsets. [optional]
+            filter (str): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item`: `equals`<br>`sku`: `equals`<br>`title`: `contains`<br>`published`: `equals`. [optional]
+            page_cursor (str): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#pagination. [optional]
+            sort (str): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#sorting. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -5441,12 +5441,12 @@ class CatalogsApi(object):
 
 
         Keyword Args:
-            fields_catalog_item ([str]): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#sparse-fieldsets. [optional]
-            fields_catalog_variant ([str]): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#sparse-fieldsets. [optional]
-            filter (str): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`category`: `equals`<br>`title`: `contains`<br>`published`: `equals`. [optional]
-            include ([str]): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#relationships. [optional]
-            page_cursor (str): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#pagination. [optional]
-            sort (str): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#sorting. [optional]
+            fields_catalog_item ([str]): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#sparse-fieldsets. [optional]
+            fields_catalog_variant ([str]): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#sparse-fieldsets. [optional]
+            filter (str): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`category`: `equals`<br>`title`: `contains`<br>`published`: `equals`. [optional]
+            include ([str]): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#relationships. [optional]
+            page_cursor (str): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#pagination. [optional]
+            sort (str): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#sorting. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -5528,7 +5528,7 @@ class CatalogsApi(object):
             id (str): 
 
         Keyword Args:
-            fields_catalog_variant ([str]): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#sparse-fieldsets. [optional]
+            fields_catalog_variant ([str]): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#sparse-fieldsets. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -5609,10 +5609,10 @@ class CatalogsApi(object):
 
 
         Keyword Args:
-            fields_catalog_variant ([str]): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#sparse-fieldsets. [optional]
-            filter (str): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item`: `equals`<br>`sku`: `equals`<br>`title`: `contains`<br>`published`: `equals`. [optional]
-            page_cursor (str): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#pagination. [optional]
-            sort (str): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#sorting. [optional]
+            fields_catalog_variant ([str]): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#sparse-fieldsets. [optional]
+            filter (str): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item`: `equals`<br>`sku`: `equals`<br>`title`: `contains`<br>`published`: `equals`. [optional]
+            page_cursor (str): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#pagination. [optional]
+            sort (str): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#sorting. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -5694,9 +5694,9 @@ class CatalogsApi(object):
             job_id (str): 
 
         Keyword Args:
-            fields_catalog_category_bulk_create_job ([str]): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#sparse-fieldsets. [optional]
-            fields_catalog_category ([str]): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#sparse-fieldsets. [optional]
-            include ([str]): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#relationships. [optional]
+            fields_catalog_category_bulk_create_job ([str]): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#sparse-fieldsets. [optional]
+            fields_catalog_category ([str]): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#sparse-fieldsets. [optional]
+            include ([str]): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#relationships. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -5777,9 +5777,9 @@ class CatalogsApi(object):
 
 
         Keyword Args:
-            fields_catalog_category_bulk_create_job ([str]): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#sparse-fieldsets. [optional]
-            filter (str): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`. [optional]
-            page_cursor (str): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#pagination. [optional]
+            fields_catalog_category_bulk_create_job ([str]): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#sparse-fieldsets. [optional]
+            filter (str): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`. [optional]
+            page_cursor (str): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#pagination. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -5861,9 +5861,9 @@ class CatalogsApi(object):
             job_id (str): 
 
         Keyword Args:
-            fields_catalog_item_bulk_create_job ([str]): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#sparse-fieldsets. [optional]
-            fields_catalog_item ([str]): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#sparse-fieldsets. [optional]
-            include ([str]): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#relationships. [optional]
+            fields_catalog_item_bulk_create_job ([str]): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#sparse-fieldsets. [optional]
+            fields_catalog_item ([str]): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#sparse-fieldsets. [optional]
+            include ([str]): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#relationships. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -5944,9 +5944,9 @@ class CatalogsApi(object):
 
 
         Keyword Args:
-            fields_catalog_item_bulk_create_job ([str]): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#sparse-fieldsets. [optional]
-            filter (str): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`. [optional]
-            page_cursor (str): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#pagination. [optional]
+            fields_catalog_item_bulk_create_job ([str]): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#sparse-fieldsets. [optional]
+            filter (str): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`. [optional]
+            page_cursor (str): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#pagination. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -6028,9 +6028,9 @@ class CatalogsApi(object):
             job_id (str): 
 
         Keyword Args:
-            fields_catalog_variant_bulk_create_job ([str]): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#sparse-fieldsets. [optional]
-            fields_catalog_variant ([str]): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#sparse-fieldsets. [optional]
-            include ([str]): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#relationships. [optional]
+            fields_catalog_variant_bulk_create_job ([str]): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#sparse-fieldsets. [optional]
+            fields_catalog_variant ([str]): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#sparse-fieldsets. [optional]
+            include ([str]): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#relationships. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -6111,9 +6111,9 @@ class CatalogsApi(object):
 
 
         Keyword Args:
-            fields_catalog_variant_bulk_create_job ([str]): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#sparse-fieldsets. [optional]
-            filter (str): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`. [optional]
-            page_cursor (str): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#pagination. [optional]
+            fields_catalog_variant_bulk_create_job ([str]): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#sparse-fieldsets. [optional]
+            filter (str): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`. [optional]
+            page_cursor (str): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#pagination. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -6195,7 +6195,7 @@ class CatalogsApi(object):
             job_id (str): 
 
         Keyword Args:
-            fields_catalog_category_bulk_delete_job ([str]): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#sparse-fieldsets. [optional]
+            fields_catalog_category_bulk_delete_job ([str]): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#sparse-fieldsets. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -6276,9 +6276,9 @@ class CatalogsApi(object):
 
 
         Keyword Args:
-            fields_catalog_category_bulk_delete_job ([str]): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#sparse-fieldsets. [optional]
-            filter (str): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`. [optional]
-            page_cursor (str): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#pagination. [optional]
+            fields_catalog_category_bulk_delete_job ([str]): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#sparse-fieldsets. [optional]
+            filter (str): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`. [optional]
+            page_cursor (str): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#pagination. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -6360,7 +6360,7 @@ class CatalogsApi(object):
             job_id (str): 
 
         Keyword Args:
-            fields_catalog_item_bulk_delete_job ([str]): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#sparse-fieldsets. [optional]
+            fields_catalog_item_bulk_delete_job ([str]): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#sparse-fieldsets. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -6441,9 +6441,9 @@ class CatalogsApi(object):
 
 
         Keyword Args:
-            fields_catalog_item_bulk_delete_job ([str]): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#sparse-fieldsets. [optional]
-            filter (str): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`. [optional]
-            page_cursor (str): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#pagination. [optional]
+            fields_catalog_item_bulk_delete_job ([str]): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#sparse-fieldsets. [optional]
+            filter (str): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`. [optional]
+            page_cursor (str): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#pagination. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -6525,7 +6525,7 @@ class CatalogsApi(object):
             job_id (str): 
 
         Keyword Args:
-            fields_catalog_variant_bulk_delete_job ([str]): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#sparse-fieldsets. [optional]
+            fields_catalog_variant_bulk_delete_job ([str]): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#sparse-fieldsets. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -6606,9 +6606,9 @@ class CatalogsApi(object):
 
 
         Keyword Args:
-            fields_catalog_variant_bulk_delete_job ([str]): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#sparse-fieldsets. [optional]
-            filter (str): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`. [optional]
-            page_cursor (str): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#pagination. [optional]
+            fields_catalog_variant_bulk_delete_job ([str]): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#sparse-fieldsets. [optional]
+            filter (str): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`. [optional]
+            page_cursor (str): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#pagination. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -6690,9 +6690,9 @@ class CatalogsApi(object):
             job_id (str): 
 
         Keyword Args:
-            fields_catalog_category_bulk_update_job ([str]): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#sparse-fieldsets. [optional]
-            fields_catalog_category ([str]): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#sparse-fieldsets. [optional]
-            include ([str]): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#relationships. [optional]
+            fields_catalog_category_bulk_update_job ([str]): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#sparse-fieldsets. [optional]
+            fields_catalog_category ([str]): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#sparse-fieldsets. [optional]
+            include ([str]): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#relationships. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -6773,9 +6773,9 @@ class CatalogsApi(object):
 
 
         Keyword Args:
-            fields_catalog_category_bulk_update_job ([str]): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#sparse-fieldsets. [optional]
-            filter (str): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`. [optional]
-            page_cursor (str): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#pagination. [optional]
+            fields_catalog_category_bulk_update_job ([str]): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#sparse-fieldsets. [optional]
+            filter (str): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`. [optional]
+            page_cursor (str): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#pagination. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -6857,9 +6857,9 @@ class CatalogsApi(object):
             job_id (str): 
 
         Keyword Args:
-            fields_catalog_item_bulk_update_job ([str]): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#sparse-fieldsets. [optional]
-            fields_catalog_item ([str]): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#sparse-fieldsets. [optional]
-            include ([str]): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#relationships. [optional]
+            fields_catalog_item_bulk_update_job ([str]): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#sparse-fieldsets. [optional]
+            fields_catalog_item ([str]): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#sparse-fieldsets. [optional]
+            include ([str]): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#relationships. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -6940,9 +6940,9 @@ class CatalogsApi(object):
 
 
         Keyword Args:
-            fields_catalog_item_bulk_update_job ([str]): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#sparse-fieldsets. [optional]
-            filter (str): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`. [optional]
-            page_cursor (str): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#pagination. [optional]
+            fields_catalog_item_bulk_update_job ([str]): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#sparse-fieldsets. [optional]
+            filter (str): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`. [optional]
+            page_cursor (str): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#pagination. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -7024,9 +7024,9 @@ class CatalogsApi(object):
             job_id (str): 
 
         Keyword Args:
-            fields_catalog_variant_bulk_update_job ([str]): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#sparse-fieldsets. [optional]
-            fields_catalog_variant ([str]): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#sparse-fieldsets. [optional]
-            include ([str]): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#relationships. [optional]
+            fields_catalog_variant_bulk_update_job ([str]): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#sparse-fieldsets. [optional]
+            fields_catalog_variant ([str]): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#sparse-fieldsets. [optional]
+            include ([str]): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#relationships. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -7107,9 +7107,9 @@ class CatalogsApi(object):
 
 
         Keyword Args:
-            fields_catalog_variant_bulk_update_job ([str]): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#sparse-fieldsets. [optional]
-            filter (str): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`. [optional]
-            page_cursor (str): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#pagination. [optional]
+            fields_catalog_variant_bulk_update_job ([str]): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#sparse-fieldsets. [optional]
+            filter (str): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`. [optional]
+            page_cursor (str): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#pagination. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

@@ -241,7 +241,7 @@ class MetricsApi(object):
             id (str): 
 
         Keyword Args:
-            fields_metric ([str]): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#sparse-fieldsets. [optional]
+            fields_metric ([str]): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#sparse-fieldsets. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -322,9 +322,9 @@ class MetricsApi(object):
 
 
         Keyword Args:
-            fields_metric ([str]): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#sparse-fieldsets. [optional]
-            filter (str): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`integration.name`: `equals`<br>`integration.category`: `equals`. [optional]
-            page_cursor (str): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#pagination. [optional]
+            fields_metric ([str]): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#sparse-fieldsets. [optional]
+            filter (str): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`integration.name`: `equals`<br>`integration.category`: `equals`. [optional]
+            page_cursor (str): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#pagination. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
