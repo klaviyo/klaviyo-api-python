@@ -128,7 +128,8 @@ class ListsApi(object):
                 'allowed_values': {
                     ('related_resource',): {
 
-                        "PROFILES": "profiles"
+                        "PROFILES": "profiles",
+                        "TAGS": "tags"
                     },
                 },
                 'openapi_types': {
@@ -248,7 +249,8 @@ class ListsApi(object):
                 'allowed_values': {
                     ('related_resource',): {
 
-                        "PROFILES": "profiles"
+                        "PROFILES": "profiles",
+                        "TAGS": "tags"
                     },
                 },
                 'openapi_types': {
@@ -296,6 +298,8 @@ class ListsApi(object):
                 'all': [
                     'id',
                     'fields_list',
+                    'fields_tag',
+                    'include',
                 ],
                 'required': [
                     'id',
@@ -304,6 +308,8 @@ class ListsApi(object):
                 ],
                 'enum': [
                     'fields_list',
+                    'fields_tag',
+                    'include',
                 ],
                 'validation': [
                 ]
@@ -318,23 +324,41 @@ class ListsApi(object):
                         "CREATED": "created",
                         "UPDATED": "updated"
                     },
+                    ('fields_tag',): {
+
+                        "NAME": "name"
+                    },
+                    ('include',): {
+
+                        "TAGS": "tags"
+                    },
                 },
                 'openapi_types': {
                     'id':
                         (str,),
                     'fields_list':
                         ([str],),
+                    'fields_tag':
+                        ([str],),
+                    'include':
+                        ([str],),
                 },
                 'attribute_map': {
                     'id': 'id',
                     'fields_list': 'fields[list]',
+                    'fields_tag': 'fields[tag]',
+                    'include': 'include',
                 },
                 'location_map': {
                     'id': 'path',
                     'fields_list': 'query',
+                    'fields_tag': 'query',
+                    'include': 'query',
                 },
                 'collection_format_map': {
                     'fields_list': 'csv',
+                    'fields_tag': 'csv',
+                    'include': 'csv',
                 }
             },
             headers_map={
@@ -474,7 +498,8 @@ class ListsApi(object):
                 'allowed_values': {
                     ('related_resource',): {
 
-                        "PROFILES": "profiles"
+                        "PROFILES": "profiles",
+                        "TAGS": "tags"
                     },
                 },
                 'openapi_types': {
@@ -520,7 +545,9 @@ class ListsApi(object):
             params_map={
                 'all': [
                     'fields_list',
+                    'fields_tag',
                     'filter',
+                    'include',
                     'page_cursor',
                 ],
                 'required': [],
@@ -528,6 +555,8 @@ class ListsApi(object):
                 ],
                 'enum': [
                     'fields_list',
+                    'fields_tag',
+                    'include',
                 ],
                 'validation': [
                 ]
@@ -542,27 +571,45 @@ class ListsApi(object):
                         "CREATED": "created",
                         "UPDATED": "updated"
                     },
+                    ('fields_tag',): {
+
+                        "NAME": "name"
+                    },
+                    ('include',): {
+
+                        "TAGS": "tags"
+                    },
                 },
                 'openapi_types': {
                     'fields_list':
                         ([str],),
+                    'fields_tag':
+                        ([str],),
                     'filter':
                         (str,),
+                    'include':
+                        ([str],),
                     'page_cursor':
                         (str,),
                 },
                 'attribute_map': {
                     'fields_list': 'fields[list]',
+                    'fields_tag': 'fields[tag]',
                     'filter': 'filter',
+                    'include': 'include',
                     'page_cursor': 'page[cursor]',
                 },
                 'location_map': {
                     'fields_list': 'query',
+                    'fields_tag': 'query',
                     'filter': 'query',
+                    'include': 'query',
                     'page_cursor': 'query',
                 },
                 'collection_format_map': {
                     'fields_list': 'csv',
+                    'fields_tag': 'csv',
+                    'include': 'csv',
                 }
             },
             headers_map={
@@ -718,8 +765,8 @@ class ListsApi(object):
     def create_list_relationships(
         self,
         id,
+        related_resource,
         list_members_add_query,
-        related_resource="profiles",
         **kwargs
     ):
         """Add Profile to List  # noqa: E501
@@ -728,13 +775,13 @@ class ListsApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.create_list_relationships(id, list_members_add_query, related_resource="profiles", async_req=True)
+        >>> thread = api.create_list_relationships(id, related_resource, list_members_add_query, async_req=True)
         >>> result = thread.get()
 
         Args:
             id (str): 
+            related_resource (str): 
             list_members_add_query (ListMembersAddQuery):
-            related_resource (str): . defaults to "profiles", must be one of ["profiles"]
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -892,8 +939,8 @@ class ListsApi(object):
     def delete_list_relationships(
         self,
         id,
+        related_resource,
         list_members_delete_query,
-        related_resource="profiles",
         **kwargs
     ):
         """Remove Profile from List  # noqa: E501
@@ -902,13 +949,13 @@ class ListsApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.delete_list_relationships(id, list_members_delete_query, related_resource="profiles", async_req=True)
+        >>> thread = api.delete_list_relationships(id, related_resource, list_members_delete_query, async_req=True)
         >>> result = thread.get()
 
         Args:
             id (str): 
+            related_resource (str): 
             list_members_delete_query (ListMembersDeleteQuery):
-            related_resource (str): . defaults to "profiles", must be one of ["profiles"]
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -998,7 +1045,9 @@ class ListsApi(object):
             id (str): 
 
         Keyword Args:
-            fields_list ([str]): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#sparse-fieldsets. [optional]
+            fields_list ([str]): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#sparse-fieldsets. [optional]
+            fields_tag ([str]): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#sparse-fieldsets. [optional]
+            include ([str]): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#relationships. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1082,9 +1131,9 @@ class ListsApi(object):
             list_id (str): 
 
         Keyword Args:
-            fields_profile ([str]): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#sparse-fieldsets. [optional]
-            filter (str): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`email`: `any`<br>`phone_number`: `any`<br>`push_token`: `any`<br>`_kx`: `equals`. [optional]
-            page_cursor (str): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#pagination. [optional]
+            fields_profile ([str]): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#sparse-fieldsets. [optional]
+            filter (str): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`email`: `any`<br>`phone_number`: `any`<br>`push_token`: `any`<br>`_kx`: `equals`. [optional]
+            page_cursor (str): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#pagination. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1153,24 +1202,24 @@ class ListsApi(object):
     def get_list_relationships(
         self,
         id,
-        related_resource="profiles",
+        related_resource,
         **kwargs
     ):
-        """Get List Profile Relationships  # noqa: E501
+        """Get List Relationships  # noqa: E501
 
         Get profile membership [relationships](https://developers.klaviyo.com/en/v2022-10-17/reference/api_overview#relationships) for a list with the given list ID. Returns a maximum of 10 results per page, which can be paginated with [cursor-based pagination](https://developers.klaviyo.com/en/v2022-10-17/reference/api_overview#pagination).<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `List Read` `Profiles Read`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_list_relationships(id, related_resource="profiles", async_req=True)
+        >>> thread = api.get_list_relationships(id, related_resource, async_req=True)
         >>> result = thread.get()
 
         Args:
             id (str): 
-            related_resource (str): . defaults to "profiles", must be one of ["profiles"]
+            related_resource (str): 
 
         Keyword Args:
-            page_cursor (str): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#pagination. [optional]
+            page_cursor (str): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#pagination. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1253,9 +1302,11 @@ class ListsApi(object):
 
 
         Keyword Args:
-            fields_list ([str]): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#sparse-fieldsets. [optional]
-            filter (str): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`name`: `any`, `equals`<br>`id`: `any`, `equals`<br>`created`: `greater-than`<br>`updated`: `greater-than`. [optional]
-            page_cursor (str): For more information please visit https://developers.klaviyo.com/en/v2022-10-17/reference/api-overview#pagination. [optional]
+            fields_list ([str]): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#sparse-fieldsets. [optional]
+            fields_tag ([str]): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#sparse-fieldsets. [optional]
+            filter (str): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`name`: `any`, `equals`<br>`id`: `any`, `equals`<br>`created`: `greater-than`<br>`updated`: `greater-than`. [optional]
+            include ([str]): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#relationships. [optional]
+            page_cursor (str): For more information please visit https://developers.klaviyo.com/en/v/reference/api-overview#pagination. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

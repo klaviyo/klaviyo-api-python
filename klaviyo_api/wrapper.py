@@ -162,7 +162,6 @@ class KlaviyoAPI:
         self.Flows.get_flow_message=self._page_cursor_update(self.retry_logic(self.Flows.get_flow_message))
         self.Flows.get_flow_message_action=self._page_cursor_update(self.retry_logic(self.Flows.get_flow_message_action))
         self.Flows.get_flow_message_relationships=self._page_cursor_update(self.retry_logic(self.Flows.get_flow_message_relationships))
-        self.Flows.get_flow_relationships=self._page_cursor_update(self.retry_logic(self.Flows.get_flow_relationships))
         self.Flows.get_flows=self._page_cursor_update(self.retry_logic(self.Flows.get_flows))
         self.Flows.update_flow=self._page_cursor_update(self.retry_logic(self.Flows.update_flow))
         

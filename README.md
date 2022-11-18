@@ -1145,9 +1145,10 @@ klaviyo.Events.get_events(fields_event=fields_event, fields_metric=fields_metric
 
 # fields_flow_action | [str]
 # fields_flow | [str]
+# fields_tag | [str]
 # include | [str]
 
-klaviyo.Flows.get_flow(id, fields_flow_action=fields_flow_action, fields_flow=fields_flow, include=include);
+klaviyo.Flows.get_flow(id, fields_flow_action=fields_flow_action, fields_flow=fields_flow, fields_tag=fields_tag, include=include);
 ```
 
 
@@ -1297,25 +1298,6 @@ klaviyo.Flows.get_flow_message_relationships(id, related_resource);
 
 
 
-#### [Get Flow Relationships](https://developers.klaviyo.com/en/v2022-10-17/reference/get_flow_relationships)
-
-```python
-## Positional Arguments
-
-# id | str
-# related_resource | str
-
-## Keyword Arguments
-
-# filter | str
-# sort | str
-
-klaviyo.Flows.get_flow_relationships(id, related_resource, filter=filter, sort=sort);
-```
-
-
-
-
 #### [Get Flows](https://developers.klaviyo.com/en/v2022-10-17/reference/get_flows)
 
 ```python
@@ -1324,11 +1306,12 @@ klaviyo.Flows.get_flow_relationships(id, related_resource, filter=filter, sort=s
 
 # fields_flow_action | [str]
 # fields_flow | [str]
+# fields_tag | [str]
 # filter | str
 # include | [str]
 # sort | str
 
-klaviyo.Flows.get_flows(fields_flow_action=fields_flow_action, fields_flow=fields_flow, filter=filter, include=include, sort=sort);
+klaviyo.Flows.get_flows(fields_flow_action=fields_flow_action, fields_flow=fields_flow, fields_tag=fields_tag, filter=filter, include=include, sort=sort);
 ```
 
 
@@ -1418,8 +1401,10 @@ klaviyo.Lists.delete_list_relationships(id, related_resource, body);
 ## Keyword Arguments
 
 # fields_list | [str]
+# fields_tag | [str]
+# include | [str]
 
-klaviyo.Lists.get_list(id, fields_list=fields_list);
+klaviyo.Lists.get_list(id, fields_list=fields_list, fields_tag=fields_tag, include=include);
 ```
 
 
@@ -1444,7 +1429,7 @@ klaviyo.Lists.get_list_profiles(list_id, fields_profile=fields_profile, filter=f
 
 
 
-#### [Get List Profile Relationships](https://developers.klaviyo.com/en/v2022-10-17/reference/get_list_relationships)
+#### [Get List Relationships](https://developers.klaviyo.com/en/v2022-10-17/reference/get_list_relationships)
 
 ```python
 ## Positional Arguments
@@ -1469,10 +1454,12 @@ klaviyo.Lists.get_list_relationships(id, related_resource, page_cursor=page_curs
 ## Keyword Arguments
 
 # fields_list | [str]
+# fields_tag | [str]
 # filter | str
+# include | [str]
 # page_cursor | str
 
-klaviyo.Lists.get_lists(fields_list=fields_list, filter=filter, page_cursor=page_cursor);
+klaviyo.Lists.get_lists(fields_list=fields_list, fields_tag=fields_tag, filter=filter, include=include, page_cursor=page_cursor);
 ```
 
 
@@ -1724,8 +1711,10 @@ klaviyo.Profiles.update_profile(id, body);
 ## Keyword Arguments
 
 # fields_segment | [str]
+# fields_tag | [str]
+# include | [str]
 
-klaviyo.Segments.get_segment(id, fields_segment=fields_segment);
+klaviyo.Segments.get_segment(id, fields_segment=fields_segment, fields_tag=fields_tag, include=include);
 ```
 
 
@@ -1775,10 +1764,12 @@ klaviyo.Segments.get_segment_relationships(id, related_resource, page_cursor=pag
 ## Keyword Arguments
 
 # fields_segment | [str]
+# fields_tag | [str]
 # filter | str
+# include | [str]
 # page_cursor | str
 
-klaviyo.Segments.get_segments(fields_segment=fields_segment, filter=filter, page_cursor=page_cursor);
+klaviyo.Segments.get_segments(fields_segment=fields_segment, fields_tag=fields_tag, filter=filter, include=include, page_cursor=page_cursor);
 ```
 
 
