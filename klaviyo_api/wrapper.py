@@ -40,7 +40,6 @@ class KlaviyoAPI:
         _STATUS_CODE_A_TIMEOUT_OCCURED
         }
 
-    _CURSOR_LENGTH = 44
     _CURSOR_SEARCH_TOKENS = ['page%5Bcursor%5D','page[cursor]']
 
     def __post_init__(self):
