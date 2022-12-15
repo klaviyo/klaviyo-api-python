@@ -1,5 +1,7 @@
 # Changelog
 
+NOTE: For more granular API-specific changes, please see our [API Changelog](https://developers.klaviyo.com/en/docs/changelog_)
+
 ## 1.0.0
 
   * Initial release
@@ -13,3 +15,7 @@
     - Client variable name in readme examples: `client` → `klaviyo`
     - Some functions have changed name
   - New resources and endpoints: see [API Changelog](https://developers.klaviyo.com/en/docs/changelog_) for full details
+
+## 1.1.0
+
+  - added Data Privacy endpoint (previously in beta)
