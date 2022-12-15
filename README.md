@@ -150,7 +150,7 @@ An `ApiException` consists of the following attributes:
 
 # body | dict
 
-klaviyo.Catalogs.create_catalog_category(body);
+klaviyo.Catalogs.create_catalog_category(body)
 ```
 
 
@@ -165,7 +165,7 @@ klaviyo.Catalogs.create_catalog_category(body);
 # related_resource | str
 # body | dict
 
-klaviyo.Catalogs.create_catalog_category_relationships(id, related_resource, body);
+klaviyo.Catalogs.create_catalog_category_relationships(id, related_resource, body)
 ```
 
 
@@ -178,7 +178,7 @@ klaviyo.Catalogs.create_catalog_category_relationships(id, related_resource, bod
 
 # body | dict
 
-klaviyo.Catalogs.create_catalog_item(body);
+klaviyo.Catalogs.create_catalog_item(body)
 ```
 
 
@@ -193,7 +193,7 @@ klaviyo.Catalogs.create_catalog_item(body);
 # related_resource | str
 # body | dict
 
-klaviyo.Catalogs.create_catalog_item_relationships(id, related_resource, body);
+klaviyo.Catalogs.create_catalog_item_relationships(id, related_resource, body)
 ```
 
 
@@ -206,7 +206,7 @@ klaviyo.Catalogs.create_catalog_item_relationships(id, related_resource, body);
 
 # body | dict
 
-klaviyo.Catalogs.create_catalog_variant(body);
+klaviyo.Catalogs.create_catalog_variant(body)
 ```
 
 
@@ -219,7 +219,7 @@ klaviyo.Catalogs.create_catalog_variant(body);
 
 # id | str
 
-klaviyo.Catalogs.delete_catalog_category(id);
+klaviyo.Catalogs.delete_catalog_category(id)
 ```
 
 
@@ -234,7 +234,7 @@ klaviyo.Catalogs.delete_catalog_category(id);
 # related_resource | str
 # body | dict
 
-klaviyo.Catalogs.delete_catalog_category_relationships(id, related_resource, body);
+klaviyo.Catalogs.delete_catalog_category_relationships(id, related_resource, body)
 ```
 
 
@@ -247,7 +247,7 @@ klaviyo.Catalogs.delete_catalog_category_relationships(id, related_resource, bod
 
 # id | str
 
-klaviyo.Catalogs.delete_catalog_item(id);
+klaviyo.Catalogs.delete_catalog_item(id)
 ```
 
 
@@ -262,7 +262,7 @@ klaviyo.Catalogs.delete_catalog_item(id);
 # related_resource | str
 # body | dict
 
-klaviyo.Catalogs.delete_catalog_item_relationships(id, related_resource, body);
+klaviyo.Catalogs.delete_catalog_item_relationships(id, related_resource, body)
 ```
 
 
@@ -275,7 +275,7 @@ klaviyo.Catalogs.delete_catalog_item_relationships(id, related_resource, body);
 
 # id | str
 
-klaviyo.Catalogs.delete_catalog_variant(id);
+klaviyo.Catalogs.delete_catalog_variant(id)
 ```
 
 
@@ -292,7 +292,7 @@ klaviyo.Catalogs.delete_catalog_variant(id);
 # page_cursor | str
 # sort | str
 
-klaviyo.Catalogs.get_catalog_categories(fields_catalog_category=fields_catalog_category, filter=filter, page_cursor=page_cursor, sort=sort);
+klaviyo.Catalogs.get_catalog_categories(fields_catalog_category=fields_catalog_category, filter=filter, page_cursor=page_cursor, sort=sort)
 ```
 
 
@@ -309,7 +309,7 @@ klaviyo.Catalogs.get_catalog_categories(fields_catalog_category=fields_catalog_c
 
 # fields_catalog_category | [str]
 
-klaviyo.Catalogs.get_catalog_category(id, fields_catalog_category=fields_catalog_category);
+klaviyo.Catalogs.get_catalog_category(id, fields_catalog_category=fields_catalog_category)
 ```
 
 
@@ -331,7 +331,7 @@ klaviyo.Catalogs.get_catalog_category(id, fields_catalog_category=fields_catalog
 # page_cursor | str
 # sort | str
 
-klaviyo.Catalogs.get_catalog_category_items(category_id, fields_catalog_item=fields_catalog_item, fields_catalog_variant=fields_catalog_variant, filter=filter, include=include, page_cursor=page_cursor, sort=sort);
+klaviyo.Catalogs.get_catalog_category_items(category_id, fields_catalog_item=fields_catalog_item, fields_catalog_variant=fields_catalog_variant, filter=filter, include=include, page_cursor=page_cursor, sort=sort)
 ```
 
 
@@ -349,7 +349,7 @@ klaviyo.Catalogs.get_catalog_category_items(category_id, fields_catalog_item=fie
 
 # page_cursor | str
 
-klaviyo.Catalogs.get_catalog_category_relationships(id, related_resource, page_cursor=page_cursor);
+klaviyo.Catalogs.get_catalog_category_relationships(id, related_resource, page_cursor=page_cursor)
 ```
 
 
@@ -368,7 +368,7 @@ klaviyo.Catalogs.get_catalog_category_relationships(id, related_resource, page_c
 # fields_catalog_variant | [str]
 # include | [str]
 
-klaviyo.Catalogs.get_catalog_item(id, fields_catalog_item=fields_catalog_item, fields_catalog_variant=fields_catalog_variant, include=include);
+klaviyo.Catalogs.get_catalog_item(id, fields_catalog_item=fields_catalog_item, fields_catalog_variant=fields_catalog_variant, include=include)
 ```
 
 
@@ -388,7 +388,7 @@ klaviyo.Catalogs.get_catalog_item(id, fields_catalog_item=fields_catalog_item, f
 # page_cursor | str
 # sort | str
 
-klaviyo.Catalogs.get_catalog_item_categories(item_id, fields_catalog_category=fields_catalog_category, filter=filter, page_cursor=page_cursor, sort=sort);
+klaviyo.Catalogs.get_catalog_item_categories(item_id, fields_catalog_category=fields_catalog_category, filter=filter, page_cursor=page_cursor, sort=sort)
 ```
 
 
@@ -406,7 +406,7 @@ klaviyo.Catalogs.get_catalog_item_categories(item_id, fields_catalog_category=fi
 
 # page_cursor | str
 
-klaviyo.Catalogs.get_catalog_item_relationships(id, related_resource, page_cursor=page_cursor);
+klaviyo.Catalogs.get_catalog_item_relationships(id, related_resource, page_cursor=page_cursor)
 ```
 
 
@@ -426,7 +426,7 @@ klaviyo.Catalogs.get_catalog_item_relationships(id, related_resource, page_curso
 # page_cursor | str
 # sort | str
 
-klaviyo.Catalogs.get_catalog_item_variants(item_id, fields_catalog_variant=fields_catalog_variant, filter=filter, page_cursor=page_cursor, sort=sort);
+klaviyo.Catalogs.get_catalog_item_variants(item_id, fields_catalog_variant=fields_catalog_variant, filter=filter, page_cursor=page_cursor, sort=sort)
 ```
 
 
@@ -445,7 +445,7 @@ klaviyo.Catalogs.get_catalog_item_variants(item_id, fields_catalog_variant=field
 # page_cursor | str
 # sort | str
 
-klaviyo.Catalogs.get_catalog_items(fields_catalog_item=fields_catalog_item, fields_catalog_variant=fields_catalog_variant, filter=filter, include=include, page_cursor=page_cursor, sort=sort);
+klaviyo.Catalogs.get_catalog_items(fields_catalog_item=fields_catalog_item, fields_catalog_variant=fields_catalog_variant, filter=filter, include=include, page_cursor=page_cursor, sort=sort)
 ```
 
 
@@ -462,7 +462,7 @@ klaviyo.Catalogs.get_catalog_items(fields_catalog_item=fields_catalog_item, fiel
 
 # fields_catalog_variant | [str]
 
-klaviyo.Catalogs.get_catalog_variant(id, fields_catalog_variant=fields_catalog_variant);
+klaviyo.Catalogs.get_catalog_variant(id, fields_catalog_variant=fields_catalog_variant)
 ```
 
 
@@ -479,7 +479,7 @@ klaviyo.Catalogs.get_catalog_variant(id, fields_catalog_variant=fields_catalog_v
 # page_cursor | str
 # sort | str
 
-klaviyo.Catalogs.get_catalog_variants(fields_catalog_variant=fields_catalog_variant, filter=filter, page_cursor=page_cursor, sort=sort);
+klaviyo.Catalogs.get_catalog_variants(fields_catalog_variant=fields_catalog_variant, filter=filter, page_cursor=page_cursor, sort=sort)
 ```
 
 
@@ -498,7 +498,7 @@ klaviyo.Catalogs.get_catalog_variants(fields_catalog_variant=fields_catalog_vari
 # fields_catalog_category | [str]
 # include | [str]
 
-klaviyo.Catalogs.get_create_categories_job(job_id, fields_catalog_category_bulk_create_job=fields_catalog_category_bulk_create_job, fields_catalog_category=fields_catalog_category, include=include);
+klaviyo.Catalogs.get_create_categories_job(job_id, fields_catalog_category_bulk_create_job=fields_catalog_category_bulk_create_job, fields_catalog_category=fields_catalog_category, include=include)
 ```
 
 
@@ -514,7 +514,7 @@ klaviyo.Catalogs.get_create_categories_job(job_id, fields_catalog_category_bulk_
 # filter | str
 # page_cursor | str
 
-klaviyo.Catalogs.get_create_categories_jobs(fields_catalog_category_bulk_create_job=fields_catalog_category_bulk_create_job, filter=filter, page_cursor=page_cursor);
+klaviyo.Catalogs.get_create_categories_jobs(fields_catalog_category_bulk_create_job=fields_catalog_category_bulk_create_job, filter=filter, page_cursor=page_cursor)
 ```
 
 
@@ -533,7 +533,7 @@ klaviyo.Catalogs.get_create_categories_jobs(fields_catalog_category_bulk_create_
 # fields_catalog_item | [str]
 # include | [str]
 
-klaviyo.Catalogs.get_create_items_job(job_id, fields_catalog_item_bulk_create_job=fields_catalog_item_bulk_create_job, fields_catalog_item=fields_catalog_item, include=include);
+klaviyo.Catalogs.get_create_items_job(job_id, fields_catalog_item_bulk_create_job=fields_catalog_item_bulk_create_job, fields_catalog_item=fields_catalog_item, include=include)
 ```
 
 
@@ -549,7 +549,7 @@ klaviyo.Catalogs.get_create_items_job(job_id, fields_catalog_item_bulk_create_jo
 # filter | str
 # page_cursor | str
 
-klaviyo.Catalogs.get_create_items_jobs(fields_catalog_item_bulk_create_job=fields_catalog_item_bulk_create_job, filter=filter, page_cursor=page_cursor);
+klaviyo.Catalogs.get_create_items_jobs(fields_catalog_item_bulk_create_job=fields_catalog_item_bulk_create_job, filter=filter, page_cursor=page_cursor)
 ```
 
 
@@ -568,7 +568,7 @@ klaviyo.Catalogs.get_create_items_jobs(fields_catalog_item_bulk_create_job=field
 # fields_catalog_variant | [str]
 # include | [str]
 
-klaviyo.Catalogs.get_create_variants_job(job_id, fields_catalog_variant_bulk_create_job=fields_catalog_variant_bulk_create_job, fields_catalog_variant=fields_catalog_variant, include=include);
+klaviyo.Catalogs.get_create_variants_job(job_id, fields_catalog_variant_bulk_create_job=fields_catalog_variant_bulk_create_job, fields_catalog_variant=fields_catalog_variant, include=include)
 ```
 
 
@@ -584,7 +584,7 @@ klaviyo.Catalogs.get_create_variants_job(job_id, fields_catalog_variant_bulk_cre
 # filter | str
 # page_cursor | str
 
-klaviyo.Catalogs.get_create_variants_jobs(fields_catalog_variant_bulk_create_job=fields_catalog_variant_bulk_create_job, filter=filter, page_cursor=page_cursor);
+klaviyo.Catalogs.get_create_variants_jobs(fields_catalog_variant_bulk_create_job=fields_catalog_variant_bulk_create_job, filter=filter, page_cursor=page_cursor)
 ```
 
 
@@ -601,7 +601,7 @@ klaviyo.Catalogs.get_create_variants_jobs(fields_catalog_variant_bulk_create_job
 
 # fields_catalog_category_bulk_delete_job | [str]
 
-klaviyo.Catalogs.get_delete_categories_job(job_id, fields_catalog_category_bulk_delete_job=fields_catalog_category_bulk_delete_job);
+klaviyo.Catalogs.get_delete_categories_job(job_id, fields_catalog_category_bulk_delete_job=fields_catalog_category_bulk_delete_job)
 ```
 
 
@@ -617,7 +617,7 @@ klaviyo.Catalogs.get_delete_categories_job(job_id, fields_catalog_category_bulk_
 # filter | str
 # page_cursor | str
 
-klaviyo.Catalogs.get_delete_categories_jobs(fields_catalog_category_bulk_delete_job=fields_catalog_category_bulk_delete_job, filter=filter, page_cursor=page_cursor);
+klaviyo.Catalogs.get_delete_categories_jobs(fields_catalog_category_bulk_delete_job=fields_catalog_category_bulk_delete_job, filter=filter, page_cursor=page_cursor)
 ```
 
 
@@ -634,7 +634,7 @@ klaviyo.Catalogs.get_delete_categories_jobs(fields_catalog_category_bulk_delete_
 
 # fields_catalog_item_bulk_delete_job | [str]
 
-klaviyo.Catalogs.get_delete_items_job(job_id, fields_catalog_item_bulk_delete_job=fields_catalog_item_bulk_delete_job);
+klaviyo.Catalogs.get_delete_items_job(job_id, fields_catalog_item_bulk_delete_job=fields_catalog_item_bulk_delete_job)
 ```
 
 
@@ -650,7 +650,7 @@ klaviyo.Catalogs.get_delete_items_job(job_id, fields_catalog_item_bulk_delete_jo
 # filter | str
 # page_cursor | str
 
-klaviyo.Catalogs.get_delete_items_jobs(fields_catalog_item_bulk_delete_job=fields_catalog_item_bulk_delete_job, filter=filter, page_cursor=page_cursor);
+klaviyo.Catalogs.get_delete_items_jobs(fields_catalog_item_bulk_delete_job=fields_catalog_item_bulk_delete_job, filter=filter, page_cursor=page_cursor)
 ```
 
 
@@ -667,7 +667,7 @@ klaviyo.Catalogs.get_delete_items_jobs(fields_catalog_item_bulk_delete_job=field
 
 # fields_catalog_variant_bulk_delete_job | [str]
 
-klaviyo.Catalogs.get_delete_variants_job(job_id, fields_catalog_variant_bulk_delete_job=fields_catalog_variant_bulk_delete_job);
+klaviyo.Catalogs.get_delete_variants_job(job_id, fields_catalog_variant_bulk_delete_job=fields_catalog_variant_bulk_delete_job)
 ```
 
 
@@ -683,7 +683,7 @@ klaviyo.Catalogs.get_delete_variants_job(job_id, fields_catalog_variant_bulk_del
 # filter | str
 # page_cursor | str
 
-klaviyo.Catalogs.get_delete_variants_jobs(fields_catalog_variant_bulk_delete_job=fields_catalog_variant_bulk_delete_job, filter=filter, page_cursor=page_cursor);
+klaviyo.Catalogs.get_delete_variants_jobs(fields_catalog_variant_bulk_delete_job=fields_catalog_variant_bulk_delete_job, filter=filter, page_cursor=page_cursor)
 ```
 
 
@@ -702,7 +702,7 @@ klaviyo.Catalogs.get_delete_variants_jobs(fields_catalog_variant_bulk_delete_job
 # fields_catalog_category | [str]
 # include | [str]
 
-klaviyo.Catalogs.get_update_categories_job(job_id, fields_catalog_category_bulk_update_job=fields_catalog_category_bulk_update_job, fields_catalog_category=fields_catalog_category, include=include);
+klaviyo.Catalogs.get_update_categories_job(job_id, fields_catalog_category_bulk_update_job=fields_catalog_category_bulk_update_job, fields_catalog_category=fields_catalog_category, include=include)
 ```
 
 
@@ -718,7 +718,7 @@ klaviyo.Catalogs.get_update_categories_job(job_id, fields_catalog_category_bulk_
 # filter | str
 # page_cursor | str
 
-klaviyo.Catalogs.get_update_categories_jobs(fields_catalog_category_bulk_update_job=fields_catalog_category_bulk_update_job, filter=filter, page_cursor=page_cursor);
+klaviyo.Catalogs.get_update_categories_jobs(fields_catalog_category_bulk_update_job=fields_catalog_category_bulk_update_job, filter=filter, page_cursor=page_cursor)
 ```
 
 
@@ -737,7 +737,7 @@ klaviyo.Catalogs.get_update_categories_jobs(fields_catalog_category_bulk_update_
 # fields_catalog_item | [str]
 # include | [str]
 
-klaviyo.Catalogs.get_update_items_job(job_id, fields_catalog_item_bulk_update_job=fields_catalog_item_bulk_update_job, fields_catalog_item=fields_catalog_item, include=include);
+klaviyo.Catalogs.get_update_items_job(job_id, fields_catalog_item_bulk_update_job=fields_catalog_item_bulk_update_job, fields_catalog_item=fields_catalog_item, include=include)
 ```
 
 
@@ -753,7 +753,7 @@ klaviyo.Catalogs.get_update_items_job(job_id, fields_catalog_item_bulk_update_jo
 # filter | str
 # page_cursor | str
 
-klaviyo.Catalogs.get_update_items_jobs(fields_catalog_item_bulk_update_job=fields_catalog_item_bulk_update_job, filter=filter, page_cursor=page_cursor);
+klaviyo.Catalogs.get_update_items_jobs(fields_catalog_item_bulk_update_job=fields_catalog_item_bulk_update_job, filter=filter, page_cursor=page_cursor)
 ```
 
 
@@ -772,7 +772,7 @@ klaviyo.Catalogs.get_update_items_jobs(fields_catalog_item_bulk_update_job=field
 # fields_catalog_variant | [str]
 # include | [str]
 
-klaviyo.Catalogs.get_update_variants_job(job_id, fields_catalog_variant_bulk_update_job=fields_catalog_variant_bulk_update_job, fields_catalog_variant=fields_catalog_variant, include=include);
+klaviyo.Catalogs.get_update_variants_job(job_id, fields_catalog_variant_bulk_update_job=fields_catalog_variant_bulk_update_job, fields_catalog_variant=fields_catalog_variant, include=include)
 ```
 
 
@@ -788,7 +788,7 @@ klaviyo.Catalogs.get_update_variants_job(job_id, fields_catalog_variant_bulk_upd
 # filter | str
 # page_cursor | str
 
-klaviyo.Catalogs.get_update_variants_jobs(fields_catalog_variant_bulk_update_job=fields_catalog_variant_bulk_update_job, filter=filter, page_cursor=page_cursor);
+klaviyo.Catalogs.get_update_variants_jobs(fields_catalog_variant_bulk_update_job=fields_catalog_variant_bulk_update_job, filter=filter, page_cursor=page_cursor)
 ```
 
 
@@ -801,7 +801,7 @@ klaviyo.Catalogs.get_update_variants_jobs(fields_catalog_variant_bulk_update_job
 
 # body | dict
 
-klaviyo.Catalogs.spawn_create_categories_job(body);
+klaviyo.Catalogs.spawn_create_categories_job(body)
 ```
 
 
@@ -814,7 +814,7 @@ klaviyo.Catalogs.spawn_create_categories_job(body);
 
 # body | dict
 
-klaviyo.Catalogs.spawn_create_items_job(body);
+klaviyo.Catalogs.spawn_create_items_job(body)
 ```
 
 
@@ -827,7 +827,7 @@ klaviyo.Catalogs.spawn_create_items_job(body);
 
 # body | dict
 
-klaviyo.Catalogs.spawn_create_variants_job(body);
+klaviyo.Catalogs.spawn_create_variants_job(body)
 ```
 
 
@@ -840,7 +840,7 @@ klaviyo.Catalogs.spawn_create_variants_job(body);
 
 # body | dict
 
-klaviyo.Catalogs.spawn_delete_categories_job(body);
+klaviyo.Catalogs.spawn_delete_categories_job(body)
 ```
 
 
@@ -853,7 +853,7 @@ klaviyo.Catalogs.spawn_delete_categories_job(body);
 
 # body | dict
 
-klaviyo.Catalogs.spawn_delete_items_job(body);
+klaviyo.Catalogs.spawn_delete_items_job(body)
 ```
 
 
@@ -866,7 +866,7 @@ klaviyo.Catalogs.spawn_delete_items_job(body);
 
 # body | dict
 
-klaviyo.Catalogs.spawn_delete_variants_job(body);
+klaviyo.Catalogs.spawn_delete_variants_job(body)
 ```
 
 
@@ -879,7 +879,7 @@ klaviyo.Catalogs.spawn_delete_variants_job(body);
 
 # body | dict
 
-klaviyo.Catalogs.spawn_update_categories_job(body);
+klaviyo.Catalogs.spawn_update_categories_job(body)
 ```
 
 
@@ -892,7 +892,7 @@ klaviyo.Catalogs.spawn_update_categories_job(body);
 
 # body | dict
 
-klaviyo.Catalogs.spawn_update_items_job(body);
+klaviyo.Catalogs.spawn_update_items_job(body)
 ```
 
 
@@ -905,7 +905,7 @@ klaviyo.Catalogs.spawn_update_items_job(body);
 
 # body | dict
 
-klaviyo.Catalogs.spawn_update_variants_job(body);
+klaviyo.Catalogs.spawn_update_variants_job(body)
 ```
 
 
@@ -919,7 +919,7 @@ klaviyo.Catalogs.spawn_update_variants_job(body);
 # id | str
 # body | dict
 
-klaviyo.Catalogs.update_catalog_category(id, body);
+klaviyo.Catalogs.update_catalog_category(id, body)
 ```
 
 
@@ -934,7 +934,7 @@ klaviyo.Catalogs.update_catalog_category(id, body);
 # related_resource | str
 # body | dict
 
-klaviyo.Catalogs.update_catalog_category_relationships(id, related_resource, body);
+klaviyo.Catalogs.update_catalog_category_relationships(id, related_resource, body)
 ```
 
 
@@ -948,7 +948,7 @@ klaviyo.Catalogs.update_catalog_category_relationships(id, related_resource, bod
 # id | str
 # body | dict
 
-klaviyo.Catalogs.update_catalog_item(id, body);
+klaviyo.Catalogs.update_catalog_item(id, body)
 ```
 
 
@@ -963,7 +963,7 @@ klaviyo.Catalogs.update_catalog_item(id, body);
 # related_resource | str
 # body | dict
 
-klaviyo.Catalogs.update_catalog_item_relationships(id, related_resource, body);
+klaviyo.Catalogs.update_catalog_item_relationships(id, related_resource, body)
 ```
 
 
@@ -977,7 +977,7 @@ klaviyo.Catalogs.update_catalog_item_relationships(id, related_resource, body);
 # id | str
 # body | dict
 
-klaviyo.Catalogs.update_catalog_variant(id, body);
+klaviyo.Catalogs.update_catalog_variant(id, body)
 ```
 
 
@@ -995,7 +995,7 @@ klaviyo.Catalogs.update_catalog_variant(id, body);
 # company_id | str
 # body | dict
 
-klaviyo.Client.create_client_event(company_id, body);
+klaviyo.Client.create_client_event(company_id, body)
 ```
 
 
@@ -1009,7 +1009,7 @@ klaviyo.Client.create_client_event(company_id, body);
 # company_id | str
 # body | dict
 
-klaviyo.Client.create_client_profile(company_id, body);
+klaviyo.Client.create_client_profile(company_id, body)
 ```
 
 
@@ -1023,7 +1023,7 @@ klaviyo.Client.create_client_profile(company_id, body);
 # company_id | str
 # body | dict
 
-klaviyo.Client.create_client_subscription(company_id, body);
+klaviyo.Client.create_client_subscription(company_id, body)
 ```
 
 
@@ -1040,7 +1040,7 @@ klaviyo.Client.create_client_subscription(company_id, body);
 
 # body | dict
 
-klaviyo.Data_Privacy.create_data_privacy_deletion_job(body);
+klaviyo.Data_Privacy.create_data_privacy_deletion_job(body)
 ```
 
 
@@ -1057,7 +1057,7 @@ klaviyo.Data_Privacy.create_data_privacy_deletion_job(body);
 
 # body | dict
 
-klaviyo.Events.create_event(body);
+klaviyo.Events.create_event(body)
 ```
 
 
@@ -1077,7 +1077,7 @@ klaviyo.Events.create_event(body);
 # fields_profile | [str]
 # include | [str]
 
-klaviyo.Events.get_event(id, fields_event=fields_event, fields_metric=fields_metric, fields_profile=fields_profile, include=include);
+klaviyo.Events.get_event(id, fields_event=fields_event, fields_metric=fields_metric, fields_profile=fields_profile, include=include)
 ```
 
 
@@ -1094,7 +1094,7 @@ klaviyo.Events.get_event(id, fields_event=fields_event, fields_metric=fields_met
 
 # fields_metric | [str]
 
-klaviyo.Events.get_event_metrics(id, fields_metric=fields_metric);
+klaviyo.Events.get_event_metrics(id, fields_metric=fields_metric)
 ```
 
 
@@ -1111,7 +1111,7 @@ klaviyo.Events.get_event_metrics(id, fields_metric=fields_metric);
 
 # fields_profile | [str]
 
-klaviyo.Events.get_event_profiles(id, fields_profile=fields_profile);
+klaviyo.Events.get_event_profiles(id, fields_profile=fields_profile)
 ```
 
 
@@ -1125,7 +1125,7 @@ klaviyo.Events.get_event_profiles(id, fields_profile=fields_profile);
 # id | str
 # related_resource | str
 
-klaviyo.Events.get_event_relationships(id, related_resource);
+klaviyo.Events.get_event_relationships(id, related_resource)
 ```
 
 
@@ -1145,7 +1145,7 @@ klaviyo.Events.get_event_relationships(id, related_resource);
 # page_cursor | str
 # sort | str
 
-klaviyo.Events.get_events(fields_event=fields_event, fields_metric=fields_metric, fields_profile=fields_profile, filter=filter, include=include, page_cursor=page_cursor, sort=sort);
+klaviyo.Events.get_events(fields_event=fields_event, fields_metric=fields_metric, fields_profile=fields_profile, filter=filter, include=include, page_cursor=page_cursor, sort=sort)
 ```
 
 
@@ -1168,7 +1168,7 @@ klaviyo.Events.get_events(fields_event=fields_event, fields_metric=fields_metric
 # fields_flow | [str]
 # include | [str]
 
-klaviyo.Flows.get_flow(id, fields_flow_action=fields_flow_action, fields_flow=fields_flow, include=include);
+klaviyo.Flows.get_flow(id, fields_flow_action=fields_flow_action, fields_flow=fields_flow, include=include)
 ```
 
 
@@ -1188,7 +1188,7 @@ klaviyo.Flows.get_flow(id, fields_flow_action=fields_flow_action, fields_flow=fi
 # fields_flow | [str]
 # include | [str]
 
-klaviyo.Flows.get_flow_action(id, fields_flow_action=fields_flow_action, fields_flow_message=fields_flow_message, fields_flow=fields_flow, include=include);
+klaviyo.Flows.get_flow_action(id, fields_flow_action=fields_flow_action, fields_flow_message=fields_flow_message, fields_flow=fields_flow, include=include)
 ```
 
 
@@ -1205,7 +1205,7 @@ klaviyo.Flows.get_flow_action(id, fields_flow_action=fields_flow_action, fields_
 
 # fields_flow | [str]
 
-klaviyo.Flows.get_flow_action_flow(action_id, fields_flow=fields_flow);
+klaviyo.Flows.get_flow_action_flow(action_id, fields_flow=fields_flow)
 ```
 
 
@@ -1224,7 +1224,7 @@ klaviyo.Flows.get_flow_action_flow(action_id, fields_flow=fields_flow);
 # filter | str
 # sort | str
 
-klaviyo.Flows.get_flow_action_messages(action_id, fields_flow_message=fields_flow_message, filter=filter, sort=sort);
+klaviyo.Flows.get_flow_action_messages(action_id, fields_flow_message=fields_flow_message, filter=filter, sort=sort)
 ```
 
 
@@ -1243,7 +1243,7 @@ klaviyo.Flows.get_flow_action_messages(action_id, fields_flow_message=fields_flo
 # filter | str
 # sort | str
 
-klaviyo.Flows.get_flow_action_relationships(id, related_resource, filter=filter, sort=sort);
+klaviyo.Flows.get_flow_action_relationships(id, related_resource, filter=filter, sort=sort)
 ```
 
 
@@ -1262,7 +1262,7 @@ klaviyo.Flows.get_flow_action_relationships(id, related_resource, filter=filter,
 # filter | str
 # sort | str
 
-klaviyo.Flows.get_flow_flow_actions(flow_id, fields_flow_action=fields_flow_action, filter=filter, sort=sort);
+klaviyo.Flows.get_flow_flow_actions(flow_id, fields_flow_action=fields_flow_action, filter=filter, sort=sort)
 ```
 
 
@@ -1281,7 +1281,7 @@ klaviyo.Flows.get_flow_flow_actions(flow_id, fields_flow_action=fields_flow_acti
 # fields_flow_message | [str]
 # include | [str]
 
-klaviyo.Flows.get_flow_message(id, fields_flow_action=fields_flow_action, fields_flow_message=fields_flow_message, include=include);
+klaviyo.Flows.get_flow_message(id, fields_flow_action=fields_flow_action, fields_flow_message=fields_flow_message, include=include)
 ```
 
 
@@ -1298,7 +1298,7 @@ klaviyo.Flows.get_flow_message(id, fields_flow_action=fields_flow_action, fields
 
 # fields_flow_action | [str]
 
-klaviyo.Flows.get_flow_message_action(message_id, fields_flow_action=fields_flow_action);
+klaviyo.Flows.get_flow_message_action(message_id, fields_flow_action=fields_flow_action)
 ```
 
 
@@ -1312,7 +1312,7 @@ klaviyo.Flows.get_flow_message_action(message_id, fields_flow_action=fields_flow
 # id | str
 # related_resource | str
 
-klaviyo.Flows.get_flow_message_relationships(id, related_resource);
+klaviyo.Flows.get_flow_message_relationships(id, related_resource)
 ```
 
 
@@ -1330,7 +1330,7 @@ klaviyo.Flows.get_flow_message_relationships(id, related_resource);
 # include | [str]
 # sort | str
 
-klaviyo.Flows.get_flows(fields_flow_action=fields_flow_action, fields_flow=fields_flow, filter=filter, include=include, sort=sort);
+klaviyo.Flows.get_flows(fields_flow_action=fields_flow_action, fields_flow=fields_flow, filter=filter, include=include, sort=sort)
 ```
 
 
@@ -1344,7 +1344,7 @@ klaviyo.Flows.get_flows(fields_flow_action=fields_flow_action, fields_flow=field
 # id | str
 # body | dict
 
-klaviyo.Flows.update_flow(id, body);
+klaviyo.Flows.update_flow(id, body)
 ```
 
 
@@ -1361,7 +1361,7 @@ klaviyo.Flows.update_flow(id, body);
 
 # body | dict
 
-klaviyo.Lists.create_list(body);
+klaviyo.Lists.create_list(body)
 ```
 
 
@@ -1376,7 +1376,7 @@ klaviyo.Lists.create_list(body);
 # related_resource | str
 # body | dict
 
-klaviyo.Lists.create_list_relationships(id, related_resource, body);
+klaviyo.Lists.create_list_relationships(id, related_resource, body)
 ```
 
 
@@ -1389,7 +1389,7 @@ klaviyo.Lists.create_list_relationships(id, related_resource, body);
 
 # id | str
 
-klaviyo.Lists.delete_list(id);
+klaviyo.Lists.delete_list(id)
 ```
 
 
@@ -1404,7 +1404,7 @@ klaviyo.Lists.delete_list(id);
 # related_resource | str
 # body | dict
 
-klaviyo.Lists.delete_list_relationships(id, related_resource, body);
+klaviyo.Lists.delete_list_relationships(id, related_resource, body)
 ```
 
 
@@ -1421,7 +1421,7 @@ klaviyo.Lists.delete_list_relationships(id, related_resource, body);
 
 # fields_list | [str]
 
-klaviyo.Lists.get_list(id, fields_list=fields_list);
+klaviyo.Lists.get_list(id, fields_list=fields_list)
 ```
 
 
@@ -1440,7 +1440,7 @@ klaviyo.Lists.get_list(id, fields_list=fields_list);
 # filter | str
 # page_cursor | str
 
-klaviyo.Lists.get_list_profiles(list_id, fields_profile=fields_profile, filter=filter, page_cursor=page_cursor);
+klaviyo.Lists.get_list_profiles(list_id, fields_profile=fields_profile, filter=filter, page_cursor=page_cursor)
 ```
 
 
@@ -1458,7 +1458,7 @@ klaviyo.Lists.get_list_profiles(list_id, fields_profile=fields_profile, filter=f
 
 # page_cursor | str
 
-klaviyo.Lists.get_list_relationships(id, related_resource, page_cursor=page_cursor);
+klaviyo.Lists.get_list_relationships(id, related_resource, page_cursor=page_cursor)
 ```
 
 
@@ -1474,7 +1474,7 @@ klaviyo.Lists.get_list_relationships(id, related_resource, page_cursor=page_curs
 # filter | str
 # page_cursor | str
 
-klaviyo.Lists.get_lists(fields_list=fields_list, filter=filter, page_cursor=page_cursor);
+klaviyo.Lists.get_lists(fields_list=fields_list, filter=filter, page_cursor=page_cursor)
 ```
 
 
@@ -1488,7 +1488,7 @@ klaviyo.Lists.get_lists(fields_list=fields_list, filter=filter, page_cursor=page
 # id | str
 # body | dict
 
-klaviyo.Lists.update_list(id, body);
+klaviyo.Lists.update_list(id, body)
 ```
 
 
@@ -1509,7 +1509,7 @@ klaviyo.Lists.update_list(id, body);
 
 # fields_metric | [str]
 
-klaviyo.Metrics.get_metric(id, fields_metric=fields_metric);
+klaviyo.Metrics.get_metric(id, fields_metric=fields_metric)
 ```
 
 
@@ -1525,7 +1525,7 @@ klaviyo.Metrics.get_metric(id, fields_metric=fields_metric);
 # filter | str
 # page_cursor | str
 
-klaviyo.Metrics.get_metrics(fields_metric=fields_metric, filter=filter, page_cursor=page_cursor);
+klaviyo.Metrics.get_metrics(fields_metric=fields_metric, filter=filter, page_cursor=page_cursor)
 ```
 
 
@@ -1538,7 +1538,7 @@ klaviyo.Metrics.get_metrics(fields_metric=fields_metric, filter=filter, page_cur
 
 # body | dict
 
-klaviyo.Metrics.query_metric_aggregates(body);
+klaviyo.Metrics.query_metric_aggregates(body)
 ```
 
 
@@ -1555,7 +1555,7 @@ klaviyo.Metrics.query_metric_aggregates(body);
 
 # body | dict
 
-klaviyo.Profiles.create_profile(body);
+klaviyo.Profiles.create_profile(body)
 ```
 
 
@@ -1575,7 +1575,7 @@ klaviyo.Profiles.create_profile(body);
 # fields_segment | [str]
 # include | [str]
 
-klaviyo.Profiles.get_profile(id, fields_list=fields_list, fields_profile=fields_profile, fields_segment=fields_segment, include=include);
+klaviyo.Profiles.get_profile(id, fields_list=fields_list, fields_profile=fields_profile, fields_segment=fields_segment, include=include)
 ```
 
 
@@ -1592,7 +1592,7 @@ klaviyo.Profiles.get_profile(id, fields_list=fields_list, fields_profile=fields_
 
 # fields_list | [str]
 
-klaviyo.Profiles.get_profile_lists(profile_id, fields_list=fields_list);
+klaviyo.Profiles.get_profile_lists(profile_id, fields_list=fields_list)
 ```
 
 
@@ -1606,7 +1606,7 @@ klaviyo.Profiles.get_profile_lists(profile_id, fields_list=fields_list);
 # id | str
 # related_resource | str
 
-klaviyo.Profiles.get_profile_relationships(id, related_resource);
+klaviyo.Profiles.get_profile_relationships(id, related_resource)
 ```
 
 
@@ -1623,7 +1623,7 @@ klaviyo.Profiles.get_profile_relationships(id, related_resource);
 
 # fields_segment | [str]
 
-klaviyo.Profiles.get_profile_segments(profile_id, fields_segment=fields_segment);
+klaviyo.Profiles.get_profile_segments(profile_id, fields_segment=fields_segment)
 ```
 
 
@@ -1640,7 +1640,7 @@ klaviyo.Profiles.get_profile_segments(profile_id, fields_segment=fields_segment)
 # page_cursor | str
 # sort | str
 
-klaviyo.Profiles.get_profiles(fields_profile=fields_profile, filter=filter, page_cursor=page_cursor, sort=sort);
+klaviyo.Profiles.get_profiles(fields_profile=fields_profile, filter=filter, page_cursor=page_cursor, sort=sort)
 ```
 
 
@@ -1653,7 +1653,7 @@ klaviyo.Profiles.get_profiles(fields_profile=fields_profile, filter=filter, page
 
 # body | dict
 
-klaviyo.Profiles.subscribe_profiles(body);
+klaviyo.Profiles.subscribe_profiles(body)
 ```
 
 
@@ -1666,7 +1666,7 @@ klaviyo.Profiles.subscribe_profiles(body);
 
 # body | dict
 
-klaviyo.Profiles.suppress_profiles(body);
+klaviyo.Profiles.suppress_profiles(body)
 ```
 
 
@@ -1679,7 +1679,7 @@ klaviyo.Profiles.suppress_profiles(body);
 
 # body | dict
 
-klaviyo.Profiles.unsubscribe_profiles(body);
+klaviyo.Profiles.unsubscribe_profiles(body)
 ```
 
 
@@ -1692,7 +1692,7 @@ klaviyo.Profiles.unsubscribe_profiles(body);
 
 # body | dict
 
-klaviyo.Profiles.unsuppress_profiles(body);
+klaviyo.Profiles.unsuppress_profiles(body)
 ```
 
 
@@ -1706,7 +1706,7 @@ klaviyo.Profiles.unsuppress_profiles(body);
 # id | str
 # body | dict
 
-klaviyo.Profiles.update_profile(id, body);
+klaviyo.Profiles.update_profile(id, body)
 ```
 
 
@@ -1727,7 +1727,7 @@ klaviyo.Profiles.update_profile(id, body);
 
 # fields_segment | [str]
 
-klaviyo.Segments.get_segment(id, fields_segment=fields_segment);
+klaviyo.Segments.get_segment(id, fields_segment=fields_segment)
 ```
 
 
@@ -1746,7 +1746,7 @@ klaviyo.Segments.get_segment(id, fields_segment=fields_segment);
 # filter | str
 # page_cursor | str
 
-klaviyo.Segments.get_segment_profiles(segment_id, fields_profile=fields_profile, filter=filter, page_cursor=page_cursor);
+klaviyo.Segments.get_segment_profiles(segment_id, fields_profile=fields_profile, filter=filter, page_cursor=page_cursor)
 ```
 
 
@@ -1764,7 +1764,7 @@ klaviyo.Segments.get_segment_profiles(segment_id, fields_profile=fields_profile,
 
 # page_cursor | str
 
-klaviyo.Segments.get_segment_relationships(id, related_resource, page_cursor=page_cursor);
+klaviyo.Segments.get_segment_relationships(id, related_resource, page_cursor=page_cursor)
 ```
 
 
@@ -1780,7 +1780,7 @@ klaviyo.Segments.get_segment_relationships(id, related_resource, page_cursor=pag
 # filter | str
 # page_cursor | str
 
-klaviyo.Segments.get_segments(fields_segment=fields_segment, filter=filter, page_cursor=page_cursor);
+klaviyo.Segments.get_segments(fields_segment=fields_segment, filter=filter, page_cursor=page_cursor)
 ```
 
 
@@ -1794,7 +1794,7 @@ klaviyo.Segments.get_segments(fields_segment=fields_segment, filter=filter, page
 # id | str
 # body | dict
 
-klaviyo.Segments.update_segment(id, body);
+klaviyo.Segments.update_segment(id, body)
 ```
 
 
@@ -1811,7 +1811,7 @@ klaviyo.Segments.update_segment(id, body);
 
 # body | dict
 
-klaviyo.Templates.create_template(body);
+klaviyo.Templates.create_template(body)
 ```
 
 
@@ -1824,7 +1824,7 @@ klaviyo.Templates.create_template(body);
 
 # body | dict
 
-klaviyo.Templates.create_template_clone(body);
+klaviyo.Templates.create_template_clone(body)
 ```
 
 
@@ -1837,7 +1837,7 @@ klaviyo.Templates.create_template_clone(body);
 
 # body | dict
 
-klaviyo.Templates.create_template_render(body);
+klaviyo.Templates.create_template_render(body)
 ```
 
 
@@ -1850,7 +1850,7 @@ klaviyo.Templates.create_template_render(body);
 
 # id | str
 
-klaviyo.Templates.delete_template(id);
+klaviyo.Templates.delete_template(id)
 ```
 
 
@@ -1867,7 +1867,7 @@ klaviyo.Templates.delete_template(id);
 
 # fields_template | [str]
 
-klaviyo.Templates.get_template(id, fields_template=fields_template);
+klaviyo.Templates.get_template(id, fields_template=fields_template)
 ```
 
 
@@ -1884,7 +1884,7 @@ klaviyo.Templates.get_template(id, fields_template=fields_template);
 # page_cursor | str
 # sort | str
 
-klaviyo.Templates.get_templates(fields_template=fields_template, filter=filter, page_cursor=page_cursor, sort=sort);
+klaviyo.Templates.get_templates(fields_template=fields_template, filter=filter, page_cursor=page_cursor, sort=sort)
 ```
 
 
@@ -1898,7 +1898,7 @@ klaviyo.Templates.get_templates(fields_template=fields_template, filter=filter, 
 # id | str
 # body | dict
 
-klaviyo.Templates.update_template(id, body);
+klaviyo.Templates.update_template(id, body)
 ```
 
 
