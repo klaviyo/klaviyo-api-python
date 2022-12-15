@@ -236,11 +236,10 @@ class KlaviyoAPI:
     def _page_cursor_update(cls, func: Callable, *args, **kwargs) -> Callable: 
         def _wrapped_func(*args, **kwargs):
             if 'page_cursor' in kwargs:
-                page_cursor = kwargs['page_cursor']
+                page_cursor = kwargs['page_cursor']+'&'
                 if page_cursor:
                     if isinstance(page_cursor,str):
                         if 'https://' in page_cursor:
-
                             search_tokens = cls._CURSOR_SEARCH_TOKENS
                             found_token = None
                             for token in search_tokens:
@@ -249,7 +248,7 @@ class KlaviyoAPI:
                                     break
                             if found_token:
                                 start = page_cursor.find(found_token)+len(found_token)+1
-                                page_cursor = page_cursor[start:start+cls._CURSOR_LENGTH]
-                                kwargs['page_cursor'] = page_cursor
+                                end = page_cursor[start:].find('&')
+                                kwargs['page_cursor'] = page_cursor[start:start+end]                                
             return func(*args,**kwargs)
         return _wrapped_func
