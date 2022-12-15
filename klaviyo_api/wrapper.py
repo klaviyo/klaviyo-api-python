@@ -8,6 +8,7 @@ from dataclasses import dataclass
 from typing import Callable, ClassVar
 from openapi_client.api import catalogs_api
 from openapi_client.api import client_api
+from openapi_client.api import data_privacy_api
 from openapi_client.api import events_api
 from openapi_client.api import flows_api
 from openapi_client.api import lists_api
@@ -25,7 +26,7 @@ class KlaviyoAPI:
     max_retries: int = 3
     test_host: str = ''
 
-    _REVISION = "2022-10-17"
+    _REVISION = "2022-12-09"
 
     _STATUS_CODE_TOO_MANY_REQUESTS = 429
     _STATUS_CODE_SERVICE_UNAVAILABLE = 503
@@ -135,6 +136,13 @@ class KlaviyoAPI:
         self.Client.create_client_event=self._page_cursor_update(self.retry_logic(self.Client.create_client_event))
         self.Client.create_client_profile=self._page_cursor_update(self.retry_logic(self.Client.create_client_profile))
         self.Client.create_client_subscription=self._page_cursor_update(self.retry_logic(self.Client.create_client_subscription))
+        
+        
+        ## Adding Data_Privacy to Client
+        self.Data_Privacy=data_privacy_api.DataPrivacyApi(self.api_client)
+        
+        ## Applying tenacity retry decorator to each endpoint in Data_Privacy
+        self.Data_Privacy.create_data_privacy_deletion_job=self._page_cursor_update(self.retry_logic(self.Data_Privacy.create_data_privacy_deletion_job))
         
         
         ## Adding Events to Client
