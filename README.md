@@ -1816,6 +1816,34 @@ klaviyo.Templates.create_template(body)
 
 
 
+#### [Create Template Clone](https://developers.klaviyo.com/en/v2022-10-17/reference/create_template_clone)
+
+```python
+## Positional Arguments
+
+# id | str
+# body | dict
+
+klaviyo.Templates.create_template_clone(id, body)
+```
+
+
+
+
+#### [Create Template Render](https://developers.klaviyo.com/en/v2022-10-17/reference/create_template_render)
+
+```python
+## Positional Arguments
+
+# id | str
+# body | dict
+
+klaviyo.Templates.create_template_render(id, body)
+```
+
+
+
+
 #### [Delete Template](https://developers.klaviyo.com/en/v2022-10-17/reference/delete_template)
 
 ```python
