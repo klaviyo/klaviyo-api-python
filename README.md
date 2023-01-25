@@ -1005,7 +1005,7 @@ klaviyo.Client.create_client_event(company_id, body)
 
 
 
-#### [Create Client Profile](https://developers.klaviyo.com/en/v2023-01-24/reference/create_client_profile)
+#### [Create or Update Client Profile](https://developers.klaviyo.com/en/v2023-01-24/reference/create_client_profile)
 
 ```python
 ## Positional Arguments
@@ -2135,10 +2135,9 @@ klaviyo.Templates.create_template(body)
 ```python
 ## Positional Arguments
 
-# id | str
 # body | dict
 
-klaviyo.Templates.create_template_clone(id, body)
+klaviyo.Templates.create_template_clone(body)
 ```
 
 
@@ -2149,10 +2148,9 @@ klaviyo.Templates.create_template_clone(id, body)
 ```python
 ## Positional Arguments
 
-# id | str
 # body | dict
 
-klaviyo.Templates.create_template_render(id, body)
+klaviyo.Templates.create_template_render(body)
 ```
 
 

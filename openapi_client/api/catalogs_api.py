@@ -4741,7 +4741,7 @@ class CatalogsApi(object):
     ):
         """Get Catalog Categories  # noqa: E501
 
-        Get all catalog categories in an account. Catalog categories can be sorted by the following fields, in ascending and descending order: `created` Use filters to return specific fields. Request specific fields [sparse fieldsets](https://developers.klaviyo.com/en/v2022-10-17/reference/api_overview#sparse-fieldsets). Returns a maximum of 100 categories per request, which can be paginated with [cursor-based pagination](https://developers.klaviyo.com/en/v2022-10-17/reference/api_overview#pagination).<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `Catalogs Read`  # noqa: E501
+        Get all catalog categories in an account. Catalog categories can be sorted by the following fields, in ascending and descending order: `created` Returns a maximum of 100 categories per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `Catalogs Read`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -4908,7 +4908,7 @@ class CatalogsApi(object):
     ):
         """Get Catalog Category Items  # noqa: E501
 
-        Get all items in a category with the given category ID. Items can be sorted by the following fields, in ascending and descending order: `created` Use filters to return specific fields and any variants. Request specific fields using [sparse fieldsets](https://developers.klaviyo.com/en/v2022-10-17/reference/api_overview#sparse-fieldsets). Include parameters can be provided to get the following related resource data: `variants` Returns a maximum of 100 items per request, which can be paginated with [cursor-based pagination](https://developers.klaviyo.com/en/v2022-10-17/reference/api_overview#pagination).<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `Catalogs Read`  # noqa: E501
+        Get all items in a category with the given category ID. Items can be sorted by the following fields, in ascending and descending order: `created` Include parameters can be provided to get the following related resource data: `variants` Returns a maximum of 100 items per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `Catalogs Read`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -4998,7 +4998,7 @@ class CatalogsApi(object):
     ):
         """Get Catalog Category Relationships  # noqa: E501
 
-        Get all items in the given category ID. Returns a maximum of 100 items per request, which can be paginated with [cursor-based pagination](https://developers.klaviyo.com/en/v2022-10-17/reference/api_overview#pagination).<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `Catalogs Read`  # noqa: E501
+        Get all items in the given category ID. Returns a maximum of 100 items per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `Catalogs Read`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -5085,7 +5085,7 @@ class CatalogsApi(object):
     ):
         """Get Catalog Item  # noqa: E501
 
-        Get a specific catalog item with the given item ID. Request specific fields and variants using [sparse fieldsets](https://developers.klaviyo.com/en/v2022-10-17/reference/api_overview#sparse-fieldsets). Include parameters can be provided to get the following related resource data: `variants`<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `Catalogs Read`  # noqa: E501
+        Get a specific catalog item with the given item ID. Include parameters can be provided to get the following related resource data: `variants`<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `Catalogs Read`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -5171,7 +5171,7 @@ class CatalogsApi(object):
     ):
         """Get Catalog Item Categories  # noqa: E501
 
-        Get all catalog categories that an item with the given item ID is in. Catalog categories can be sorted by the following fields, in ascending and descending order: `created` Use filters to return specific fields. Request specific fields [sparse fieldsets](https://developers.klaviyo.com/en/v2022-10-17/reference/api_overview#sparse-fieldsets). Returns a maximum of 100 categories per request, which can be paginated with [cursor-based pagination](https://developers.klaviyo.com/en/v2022-10-17/reference/api_overview#pagination).<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `Catalogs Read`  # noqa: E501
+        Get all catalog categories that an item with the given item ID is in. Catalog categories can be sorted by the following fields, in ascending and descending order: `created` Returns a maximum of 100 categories per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `Catalogs Read`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -5259,7 +5259,7 @@ class CatalogsApi(object):
     ):
         """Get Catalog Item Relationships  # noqa: E501
 
-        Get all catalog categories that a particular item is in. Returns a maximum of 100 categories per request, which can be paginated with [cursor-based pagination](https://developers.klaviyo.com/en/v2022-10-17/reference/api_overview#pagination).<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `Catalogs Read`  # noqa: E501
+        Get all catalog categories that a particular item is in. Returns a maximum of 100 categories per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `Catalogs Read`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -5346,7 +5346,7 @@ class CatalogsApi(object):
     ):
         """Get Catalog Item Variants  # noqa: E501
 
-        Get all variants related to the given item ID. Use filters to return specific fields. Request specific fields [sparse fieldsets](https://developers.klaviyo.com/en/v2022-10-17/reference/api_overview#sparse-fieldsets). Variants can be sorted by the following fields, in ascending and descending order: `created` Returns a maximum of 100 variants per request, which can be paginated with [cursor-based pagination](https://developers.klaviyo.com/en/v2022-10-17/reference/api_overview#pagination).<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `Catalogs Read`  # noqa: E501
+        Get all variants related to the given item ID. Variants can be sorted by the following fields, in ascending and descending order: `created` Returns a maximum of 100 variants per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `Catalogs Read`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -5432,7 +5432,7 @@ class CatalogsApi(object):
     ):
         """Get Catalog Items  # noqa: E501
 
-        Get all catalog items in an account. Catalog items can be sorted by the following fields, in ascending and descending order: `created` Use filters to return specific fields and any variants. Request specific fields using [sparse fieldsets](https://developers.klaviyo.com/en/v2022-10-17/reference/api_overview#sparse-fieldsets). Include parameters can be provided to get the following related resource data: `variants` Returns a maximum of 100 items per request, which can be paginated with [cursor-based pagination](https://developers.klaviyo.com/en/v2022-10-17/reference/api_overview#pagination).<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `Catalogs Read`  # noqa: E501
+        Get all catalog items in an account. Catalog items can be sorted by the following fields, in ascending and descending order: `created` Include parameters can be provided to get the following related resource data: `variants` Returns a maximum of 100 items per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `Catalogs Read`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -5600,7 +5600,7 @@ class CatalogsApi(object):
     ):
         """Get Catalog Variants  # noqa: E501
 
-        Get all variants in an account. Use filters to return specific fields. Request specific fields [sparse fieldsets](https://developers.klaviyo.com/en/v2022-10-17/reference/api_overview#sparse-fieldsets). Variants can be sorted by the following fields, in ascending and descending order: `created` Returns a maximum of 100 variants per request, which can be paginated with [cursor-based pagination](https://developers.klaviyo.com/en/v2022-10-17/reference/api_overview#pagination).<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `Catalogs Read`  # noqa: E501
+        Get all variants in an account. Variants can be sorted by the following fields, in ascending and descending order: `created` Returns a maximum of 100 variants per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `Catalogs Read`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -5768,7 +5768,7 @@ class CatalogsApi(object):
     ):
         """Get Create Categories Jobs  # noqa: E501
 
-        Get all catalog category bulk create jobs. Returns a maximum of 100 jobs per request, which can be paginated with [cursor-based pagination](https://developers.klaviyo.com/en/v2022-10-17/reference/api_overview#pagination).<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `Catalogs Read`  # noqa: E501
+        Get all catalog category bulk create jobs. Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `Catalogs Read`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -5935,7 +5935,7 @@ class CatalogsApi(object):
     ):
         """Get Create Items Jobs  # noqa: E501
 
-        Get all catalog item bulk create jobs. Returns a maximum of 100 jobs per request, which can be paginated with [cursor-based pagination](https://developers.klaviyo.com/en/v2022-10-17/reference/api_overview#pagination).<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `Catalogs Read`  # noqa: E501
+        Get all catalog item bulk create jobs. Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `Catalogs Read`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -6102,7 +6102,7 @@ class CatalogsApi(object):
     ):
         """Get Create Variants Jobs  # noqa: E501
 
-        Get all catalog variant bulk create jobs. Returns a maximum of 100 jobs per request, which can be paginated with [cursor-based pagination](https://developers.klaviyo.com/en/v2022-10-17/reference/api_overview#pagination).<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `Catalogs Read`  # noqa: E501
+        Get all catalog variant bulk create jobs. Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `Catalogs Read`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -6267,7 +6267,7 @@ class CatalogsApi(object):
     ):
         """Get Delete Categories Jobs  # noqa: E501
 
-        Get all catalog category bulk delete jobs. Returns a maximum of 100 jobs per request, which can be paginated with [cursor-based pagination](https://developers.klaviyo.com/en/v2022-10-17/reference/api_overview#pagination).<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `Catalogs Read`  # noqa: E501
+        Get all catalog category bulk delete jobs. Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `Catalogs Read`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -6432,7 +6432,7 @@ class CatalogsApi(object):
     ):
         """Get Delete Items Jobs  # noqa: E501
 
-        Get all catalog item bulk delete jobs. Returns a maximum of 100 jobs per request, which can be paginated with [cursor-based pagination](https://developers.klaviyo.com/en/v2022-10-17/reference/api_overview#pagination).<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `Catalogs Read`  # noqa: E501
+        Get all catalog item bulk delete jobs. Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `Catalogs Read`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -6597,7 +6597,7 @@ class CatalogsApi(object):
     ):
         """Get Delete Variants Jobs  # noqa: E501
 
-        Get all catalog variant bulk delete jobs. Returns a maximum of 100 jobs per request, which can be paginated with [cursor-based pagination](https://developers.klaviyo.com/en/v2022-10-17/reference/api_overview#pagination).<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `Catalogs Read`  # noqa: E501
+        Get all catalog variant bulk delete jobs. Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `Catalogs Read`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -6764,7 +6764,7 @@ class CatalogsApi(object):
     ):
         """Get Update Categories Jobs  # noqa: E501
 
-        Get all catalog category bulk update jobs. Returns a maximum of 100 jobs per request, which can be paginated with [cursor-based pagination](https://developers.klaviyo.com/en/v2022-10-17/reference/api_overview#pagination).<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `Catalogs Read`  # noqa: E501
+        Get all catalog category bulk update jobs. Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `Catalogs Read`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -6931,7 +6931,7 @@ class CatalogsApi(object):
     ):
         """Get Update Items Jobs  # noqa: E501
 
-        Get all catalog item bulk update jobs. Returns a maximum of 100 jobs per request, which can be paginated with [cursor-based pagination](https://developers.klaviyo.com/en/v2022-10-17/reference/api_overview#pagination).<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `Catalogs Read`  # noqa: E501
+        Get all catalog item bulk update jobs. Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `Catalogs Read`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -7098,7 +7098,7 @@ class CatalogsApi(object):
     ):
         """Get Update Variants Jobs  # noqa: E501
 
-        Get all catalog variant bulk update jobs. Returns a maximum of 100 jobs per request, which can be paginated with [cursor-based pagination](https://developers.klaviyo.com/en/v2022-10-17/reference/api_overview#pagination).<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `Catalogs Read`  # noqa: E501
+        Get all catalog variant bulk update jobs. Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `Catalogs Read`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

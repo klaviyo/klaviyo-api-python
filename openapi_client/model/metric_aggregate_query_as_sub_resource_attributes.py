@@ -234,7 +234,7 @@ class MetricAggregateQueryAsSubResourceAttributes(ModelNormal):
         """MetricAggregateQueryAsSubResourceAttributes - a model defined in OpenAPI
 
         Args:
-            metric_id (str): The metric ID used in the aggregation. A metric ID is the `id` field for a metric, as returned by the [Get Metrics endpoint](https://developers.klaviyo.com/en/reference/get_metrics).
+            metric_id (str): The metric ID used in the aggregation.
             measurements ([str]): Measurement key, e.g. `unique`, `sum_value`, `count`
             interval (str): Aggregation interval, e.g. \"hour\", \"day\", \"week\", \"month\"
             filter ([str]): List of filters, must include time range using ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm).             These filters follow a similar format to those in `GET` requests, the primary difference is that this endpoint asks for a list.             The time range can be filtered by providing a `greater_or_equal` and a `less-than` filter on the `datetime` field.
@@ -335,7 +335,7 @@ class MetricAggregateQueryAsSubResourceAttributes(ModelNormal):
         """MetricAggregateQueryAsSubResourceAttributes - a model defined in OpenAPI
 
         Args:
-            metric_id (str): The metric ID used in the aggregation. A metric ID is the `id` field for a metric, as returned by the [Get Metrics endpoint](https://developers.klaviyo.com/en/reference/get_metrics).
+            metric_id (str): The metric ID used in the aggregation.
             measurements ([str]): Measurement key, e.g. `unique`, `sum_value`, `count`
             interval (str): Aggregation interval, e.g. \"hour\", \"day\", \"week\", \"month\"
             filter ([str]): List of filters, must include time range using ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm).             These filters follow a similar format to those in `GET` requests, the primary difference is that this endpoint asks for a list.             The time range can be filtered by providing a `greater_or_equal` and a `less-than` filter on the `datetime` field.

@@ -660,7 +660,7 @@ class EventsApi(object):
     ):
         """Get Event  # noqa: E501
 
-        Get an event with the given event ID. Request specific fields using [sparse fieldsets](https://developers.klaviyo.com/en/v2022-10-17/reference/api_overview#sparse-fieldsets). Include parameters can be provided to get the following related resource data: `metrics`, `profiles`<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `Events Read`  # noqa: E501
+        Get an event with the given event ID. Include parameters can be provided to get the following related resource data: `metrics`, `profiles`<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `Events Read`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -916,7 +916,7 @@ class EventsApi(object):
     ):
         """Get Event Relationships  # noqa: E501
 
-        Get metrics or profile [relationships](https://developers.klaviyo.com/en/v2022-10-17/reference/api_overview#relationships) for an event with the given event ID.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `Events Read` `Metrics Read` `Profiles Read`  # noqa: E501
+        Get metrics or profile [relationships](https://developers.klaviyo.com/en/reference/api_overview#relationships) for an event with the given event ID.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `Events Read` `Metrics Read` `Profiles Read`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1001,7 +1001,7 @@ class EventsApi(object):
     ):
         """Get Events  # noqa: E501
 
-        Get all events in an account Requests can be sorted by the following fields: `datetime`, `timestamp` Use filters to narrow your results to specific metrics. Request specific fields using [sparse fieldsets](https://developers.klaviyo.com/en/v2022-10-17/reference/api_overview#sparse-fieldsets). Include parameters can be provided to get the following related resource data: `metrics`, `profiles` Returns a maximum of 200 events per page, which can be paginated with [cursor-based pagination](https://developers.klaviyo.com/en/v2022-10-17/reference/api_overview#pagination).<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `Events Read`  # noqa: E501
+        Get all events in an account Requests can be sorted by the following fields: `datetime`, `timestamp` Include parameters can be provided to get the following related resource data: `metrics`, `profiles` Returns a maximum of 200 events per page.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `Events Read`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

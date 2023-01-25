@@ -214,7 +214,7 @@ class ClientApi(object):
     ):
         """Create Client Event  # noqa: E501
 
-        Create a new event to track a profile's activity. This endpoint is specifically designed to be called from publicly-browseable, client-side environments only. To create [events] from server-based applications, please use [POST /api/events](https://developers.klaviyo.com/en/v2022-10-17/reference/create_event)<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `Events Write`  # noqa: E501
+        Create a new event to track a profile's activity. This endpoint is specifically designed to be called from publicly-browseable, client-side environments only. To create events from server-based applications, please use [POST /api/events](https://developers.klaviyo.com/en/reference/create_event)<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `Events Write`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -299,7 +299,7 @@ class ClientApi(object):
         onsite_profile_create_query,
         **kwargs
     ):
-        """Create Client Profile  # noqa: E501
+        """Create or Update Client Profile  # noqa: E501
 
         Create and update properties about a profile without tracking an associated event. This endpoint is specifically designed to be called from publicly-browseable, client-side environments only. To create profiles from server applications (e.g. custom server-side scripts / applications), please use [POST /api/profiles](https://developers.klaviyo.com/en/reference/create_profile)<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `Profiles Write`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an

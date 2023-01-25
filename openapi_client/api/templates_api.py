@@ -98,18 +98,16 @@ class TemplatesApi(object):
                 'auth': [
                     'Klaviyo-API-Key'
                 ],
-                'endpoint_path': '/api/templates/{id}/clone/',
+                'endpoint_path': '/api/template-clone/',
                 'operation_id': 'create_template_clone',
                 'http_method': 'POST',
                 'servers': None,
             },
             params_map={
                 'all': [
-                    'id',
                     'template_clone_query',
                 ],
                 'required': [
-                    'id',
                     'template_clone_query',
                 ],
                 'nullable': [
@@ -125,16 +123,12 @@ class TemplatesApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'id':
-                        (str,),
                     'template_clone_query':
                         (TemplateCloneQuery,),
                 },
                 'attribute_map': {
-                    'id': 'id',
                 },
                 'location_map': {
-                    'id': 'path',
                     'template_clone_query': 'body',
                 },
                 'collection_format_map': {
@@ -156,18 +150,16 @@ class TemplatesApi(object):
                 'auth': [
                     'Klaviyo-API-Key'
                 ],
-                'endpoint_path': '/api/templates/{id}/render/',
+                'endpoint_path': '/api/template-render/',
                 'operation_id': 'create_template_render',
                 'http_method': 'POST',
                 'servers': None,
             },
             params_map={
                 'all': [
-                    'id',
                     'template_render_query',
                 ],
                 'required': [
-                    'id',
                     'template_render_query',
                 ],
                 'nullable': [
@@ -183,16 +175,12 @@ class TemplatesApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'id':
-                        (str,),
                     'template_render_query':
                         (TemplateRenderQuery,),
                 },
                 'attribute_map': {
-                    'id': 'id',
                 },
                 'location_map': {
-                    'id': 'path',
                     'template_render_query': 'body',
                 },
                 'collection_format_map': {
@@ -481,7 +469,7 @@ class TemplatesApi(object):
     ):
         """Create Template  # noqa: E501
 
-        Create a new custom HTML template. If there are 1,000 or more templates in an account, creation will fail as there is a limit of 1,000 templates that can be created via the API. Request specific fields using [sparse fieldsets](https://developers.klaviyo.com/en/v2022-10-17/reference/api_overview#sparse-fieldsets).<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `Templates Write`  # noqa: E501
+        Create a new custom HTML template. If there are 1,000 or more templates in an account, creation will fail as there is a limit of 1,000 templates that can be created via the API. Request specific fields using [sparse fieldsets](https://developers.klaviyo.com/en/reference/api_overview#sparse-fieldsets).<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `Templates Write`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -559,21 +547,19 @@ class TemplatesApi(object):
 
     def create_template_clone(
         self,
-        id,
         template_clone_query,
         **kwargs
     ):
         """Create Template Clone  # noqa: E501
 
-        Create a clone of a template with the given template ID. Request specific fields using [sparse fieldsets](https://developers.klaviyo.com/en/v2022-10-17/reference/api_overview#sparse-fieldsets).<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `Templates Write`  # noqa: E501
+        Create a clone of a template with the given template ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `Templates Write`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.create_template_clone(id, template_clone_query, async_req=True)
+        >>> thread = api.create_template_clone(template_clone_query, async_req=True)
         >>> result = thread.get()
 
         Args:
-            id (str): The ID of template to be cloned
             template_clone_query (TemplateCloneQuery):
 
         Keyword Args:
@@ -638,29 +624,25 @@ class TemplatesApi(object):
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
-        kwargs['id'] = \
-            id
         kwargs['template_clone_query'] = \
             template_clone_query
         return self.create_template_clone_endpoint.call_with_http_info(**kwargs)
 
     def create_template_render(
         self,
-        id,
         template_render_query,
         **kwargs
     ):
         """Create Template Render  # noqa: E501
 
-        Render a template with the given template ID and context attribute. Returns the HTML and plain text versions of the email template.  **Request body parameters** (nested under `attributes`):  * `return_fields`: Request specific fields using [sparse fieldsets](https://developers.klaviyo.com/en/v2022-10-17/reference/api_overview#sparse-fieldsets). * `context`: This is the context your email template will be rendered with. You must pass in a `context` object as a JSON object.  Email templates are rendered with contexts in a similar manner to Django templates. Nested template variables can be referenced via dot notation. Template variables without corresponding `context` values are treated as `FALSE` and output nothing.  Ex. `{ \"name\" : \"George Washington\", \"state\" : \"VA\" }`<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `Templates Read`  # noqa: E501
+        Render a template with the given template ID and context attribute. Returns the HTML and plain text versions of the email template.  **Request body parameters** (nested under `attributes`):  * `return_fields`: Request specific fields using [sparse fieldsets](https://developers.klaviyo.com/en/reference/api_overview#sparse-fieldsets). * `context`: This is the context your email template will be rendered with. You must pass in a `context` object as a JSON object.  Email templates are rendered with contexts in a similar manner to Django templates. Nested template variables can be referenced via dot notation. Template variables without corresponding `context` values are treated as `FALSE` and output nothing.  Ex. `{ \"name\" : \"George Washington\", \"state\" : \"VA\" }`<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `Templates Read`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.create_template_render(id, template_render_query, async_req=True)
+        >>> thread = api.create_template_render(template_render_query, async_req=True)
         >>> result = thread.get()
 
         Args:
-            id (str): The ID of template
             template_render_query (TemplateRenderQuery):
 
         Keyword Args:
@@ -725,8 +707,6 @@ class TemplatesApi(object):
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
-        kwargs['id'] = \
-            id
         kwargs['template_render_query'] = \
             template_render_query
         return self.create_template_render_endpoint.call_with_http_info(**kwargs)
@@ -821,7 +801,7 @@ class TemplatesApi(object):
     ):
         """Get Template  # noqa: E501
 
-        Get a template with the given template ID. Request specific fields using [sparse fieldsets](https://developers.klaviyo.com/en/v2022-10-17/reference/api_overview#sparse-fieldsets).<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `Templates Read`  # noqa: E501
+        Get a template with the given template ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `Templates Read`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -904,7 +884,7 @@ class TemplatesApi(object):
     ):
         """Get Templates  # noqa: E501
 
-        Get all templates in an account. Filter to request a subset of all templates. Templates can be sorted by the following fields, in ascending and descending order: `id`, `name`, `created`, `updated` Request specific fields using [sparse fieldsets](https://developers.klaviyo.com/en/v2022-10-17/reference/api_overview#sparse-fieldsets). Returns a maximum of 20 results per page. Results can be paginated with [cursor-based pagination](https://developers.klaviyo.com/en/v2022-10-17/reference/api_overview#pagination).<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `Templates Read`  # noqa: E501
+        Get all templates in an account. Filter to request a subset of all templates. Templates can be sorted by the following fields, in ascending and descending order: `id`, `name`, `created`, `updated` Returns a maximum of 20 results per page.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `Templates Read`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -988,7 +968,7 @@ class TemplatesApi(object):
     ):
         """Update Template  # noqa: E501
 
-        Update a template with the given template ID. Request specific fields using [sparse fieldsets](https://developers.klaviyo.com/en/v2022-10-17/reference/api_overview#sparse-fieldsets).<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `Templates Write`  # noqa: E501
+        Update a template with the given template ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `Templates Write`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

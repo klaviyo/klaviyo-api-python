@@ -139,7 +139,7 @@ class DataPrivacyCreateDeletionJobQueryAsSubResourceAttributes(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            profile_id (str): The profile ID of the profile to delete. This is the `id` field on the profile, as it is returned by the [Get Profiles endpoint](https://developers.klaviyo.com/en/reference/get_profiles).. [optional]  # noqa: E501
+            profile_id (str): The ID of the profile to delete. This is the `id` field on the profile object.. [optional]  # noqa: E501
             email (str): The email address of the profile to delete.. [optional]  # noqa: E501
             phone_number (str): The phone number of the profile to delete.. [optional]  # noqa: E501
         """
@@ -227,7 +227,7 @@ class DataPrivacyCreateDeletionJobQueryAsSubResourceAttributes(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            profile_id (str): The profile ID of the profile to delete. This is the `id` field on the profile, as it is returned by the [Get Profiles endpoint](https://developers.klaviyo.com/en/reference/get_profiles).. [optional]  # noqa: E501
+            profile_id (str): The ID of the profile to delete. This is the `id` field on the profile object.. [optional]  # noqa: E501
             email (str): The email address of the profile to delete.. [optional]  # noqa: E501
             phone_number (str): The phone number of the profile to delete.. [optional]  # noqa: E501
         """
