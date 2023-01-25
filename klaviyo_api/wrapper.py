@@ -8,12 +8,14 @@ from dataclasses import dataclass
 from typing import Callable, ClassVar
 from openapi_client.api import catalogs_api
 from openapi_client.api import client_api
+from openapi_client.api import data_privacy_api
 from openapi_client.api import events_api
 from openapi_client.api import flows_api
 from openapi_client.api import lists_api
 from openapi_client.api import metrics_api
 from openapi_client.api import profiles_api
 from openapi_client.api import segments_api
+from openapi_client.api import tags_api
 from openapi_client.api import templates_api
 
 
@@ -25,7 +27,7 @@ class KlaviyoAPI:
     max_retries: int = 3
     test_host: str = ''
 
-    _REVISION = "2022-10-17"
+    _REVISION = "2023-01-24"
 
     _STATUS_CODE_TOO_MANY_REQUESTS = 429
     _STATUS_CODE_SERVICE_UNAVAILABLE = 503
@@ -39,7 +41,6 @@ class KlaviyoAPI:
         _STATUS_CODE_A_TIMEOUT_OCCURED
         }
 
-    _CURSOR_LENGTH = 44
     _CURSOR_SEARCH_TOKENS = ['page%5Bcursor%5D','page[cursor]']
 
     def __post_init__(self):
@@ -137,6 +138,13 @@ class KlaviyoAPI:
         self.Client.create_client_subscription=self._page_cursor_update(self.retry_logic(self.Client.create_client_subscription))
         
         
+        ## Adding Data_Privacy to Client
+        self.Data_Privacy=data_privacy_api.DataPrivacyApi(self.api_client)
+        
+        ## Applying tenacity retry decorator to each endpoint in Data_Privacy
+        self.Data_Privacy.request_profile_deletion=self._page_cursor_update(self.retry_logic(self.Data_Privacy.request_profile_deletion))
+        
+        
         ## Adding Events to Client
         self.Events=events_api.EventsApi(self.api_client)
         
@@ -162,6 +170,8 @@ class KlaviyoAPI:
         self.Flows.get_flow_message=self._page_cursor_update(self.retry_logic(self.Flows.get_flow_message))
         self.Flows.get_flow_message_action=self._page_cursor_update(self.retry_logic(self.Flows.get_flow_message_action))
         self.Flows.get_flow_message_relationships=self._page_cursor_update(self.retry_logic(self.Flows.get_flow_message_relationships))
+        self.Flows.get_flow_relationships=self._page_cursor_update(self.retry_logic(self.Flows.get_flow_relationships))
+        self.Flows.get_flow_tags=self._page_cursor_update(self.retry_logic(self.Flows.get_flow_tags))
         self.Flows.get_flows=self._page_cursor_update(self.retry_logic(self.Flows.get_flows))
         self.Flows.update_flow=self._page_cursor_update(self.retry_logic(self.Flows.update_flow))
         
@@ -177,6 +187,7 @@ class KlaviyoAPI:
         self.Lists.get_list=self._page_cursor_update(self.retry_logic(self.Lists.get_list))
         self.Lists.get_list_profiles=self._page_cursor_update(self.retry_logic(self.Lists.get_list_profiles))
         self.Lists.get_list_relationships=self._page_cursor_update(self.retry_logic(self.Lists.get_list_relationships))
+        self.Lists.get_list_tags=self._page_cursor_update(self.retry_logic(self.Lists.get_list_tags))
         self.Lists.get_lists=self._page_cursor_update(self.retry_logic(self.Lists.get_lists))
         self.Lists.update_list=self._page_cursor_update(self.retry_logic(self.Lists.update_list))
         
@@ -214,8 +225,31 @@ class KlaviyoAPI:
         self.Segments.get_segment=self._page_cursor_update(self.retry_logic(self.Segments.get_segment))
         self.Segments.get_segment_profiles=self._page_cursor_update(self.retry_logic(self.Segments.get_segment_profiles))
         self.Segments.get_segment_relationships=self._page_cursor_update(self.retry_logic(self.Segments.get_segment_relationships))
+        self.Segments.get_segment_tags=self._page_cursor_update(self.retry_logic(self.Segments.get_segment_tags))
         self.Segments.get_segments=self._page_cursor_update(self.retry_logic(self.Segments.get_segments))
         self.Segments.update_segment=self._page_cursor_update(self.retry_logic(self.Segments.update_segment))
+        
+        
+        ## Adding Tags to Client
+        self.Tags=tags_api.TagsApi(self.api_client)
+        
+        ## Applying tenacity retry decorator to each endpoint in Tags
+        self.Tags.create_tag=self._page_cursor_update(self.retry_logic(self.Tags.create_tag))
+        self.Tags.create_tag_group=self._page_cursor_update(self.retry_logic(self.Tags.create_tag_group))
+        self.Tags.create_tag_relationships=self._page_cursor_update(self.retry_logic(self.Tags.create_tag_relationships))
+        self.Tags.delete_tag=self._page_cursor_update(self.retry_logic(self.Tags.delete_tag))
+        self.Tags.delete_tag_group=self._page_cursor_update(self.retry_logic(self.Tags.delete_tag_group))
+        self.Tags.delete_tag_relationships=self._page_cursor_update(self.retry_logic(self.Tags.delete_tag_relationships))
+        self.Tags.get_tag=self._page_cursor_update(self.retry_logic(self.Tags.get_tag))
+        self.Tags.get_tag_group=self._page_cursor_update(self.retry_logic(self.Tags.get_tag_group))
+        self.Tags.get_tag_group_relationships=self._page_cursor_update(self.retry_logic(self.Tags.get_tag_group_relationships))
+        self.Tags.get_tag_group_tags=self._page_cursor_update(self.retry_logic(self.Tags.get_tag_group_tags))
+        self.Tags.get_tag_groups=self._page_cursor_update(self.retry_logic(self.Tags.get_tag_groups))
+        self.Tags.get_tag_relationships=self._page_cursor_update(self.retry_logic(self.Tags.get_tag_relationships))
+        self.Tags.get_tag_tag_group=self._page_cursor_update(self.retry_logic(self.Tags.get_tag_tag_group))
+        self.Tags.get_tags=self._page_cursor_update(self.retry_logic(self.Tags.get_tags))
+        self.Tags.update_tag=self._page_cursor_update(self.retry_logic(self.Tags.update_tag))
+        self.Tags.update_tag_group=self._page_cursor_update(self.retry_logic(self.Tags.update_tag_group))
         
         
         ## Adding Templates to Client
@@ -236,11 +270,10 @@ class KlaviyoAPI:
     def _page_cursor_update(cls, func: Callable, *args, **kwargs) -> Callable: 
         def _wrapped_func(*args, **kwargs):
             if 'page_cursor' in kwargs:
-                page_cursor = kwargs['page_cursor']
+                page_cursor = kwargs['page_cursor']+'&'
                 if page_cursor:
                     if isinstance(page_cursor,str):
                         if 'https://' in page_cursor:
-
                             search_tokens = cls._CURSOR_SEARCH_TOKENS
                             found_token = None
                             for token in search_tokens:
@@ -249,7 +282,7 @@ class KlaviyoAPI:
                                     break
                             if found_token:
                                 start = page_cursor.find(found_token)+len(found_token)+1
-                                page_cursor = page_cursor[start:start+cls._CURSOR_LENGTH]
-                                kwargs['page_cursor'] = page_cursor
+                                end = page_cursor[start:].find('&')
+                                kwargs['page_cursor'] = page_cursor[start:start+end]                                
             return func(*args,**kwargs)
         return _wrapped_func
