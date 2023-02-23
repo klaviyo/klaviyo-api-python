@@ -27,5 +27,9 @@ NOTE: For more granular API-specific changes, please see our [API Changelog](htt
 
 ## 1.2.0
 
-  - Added the following endpoints (which were previously in our Beta API/SDKs):
-    - Campaigns
+### Added
+- Campaigns (which were previously in our Beta API/SDKs)
+
+### Changes
+- Flows
+    - Pagination changed from page offset to cursor
