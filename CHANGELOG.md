@@ -24,3 +24,8 @@ NOTE: For more granular API-specific changes, please see our [API Changelog](htt
       - Get Flow Tags
       - Get List Tags
       - Get Segment Tags
+
+## 1.2.0
+
+  - Added the following endpoints (which were previously in our Beta API/SDKs):
+    - Campaigns
