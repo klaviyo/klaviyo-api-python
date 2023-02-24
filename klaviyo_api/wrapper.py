@@ -2,6 +2,8 @@ from __future__ import absolute_import
 
 from __future__ import print_function
 import tenacity
+from urllib.parse import quote, unquote
+
 import openapi_client
 import klaviyo_api.custom_retry as custom_retry
 from dataclasses import dataclass
@@ -294,7 +296,7 @@ class KlaviyoAPI:
     def _page_cursor_update(cls, func: Callable, *args, **kwargs) -> Callable: 
         def _wrapped_func(*args, **kwargs):
             if 'page_cursor' in kwargs:
-                page_cursor = kwargs['page_cursor']+'&'
+                page_cursor = kwargs['page_cursor']
                 if page_cursor:
                     if isinstance(page_cursor,str):
                         if 'https://' in page_cursor:
@@ -305,8 +307,9 @@ class KlaviyoAPI:
                                     found_token = token
                                     break
                             if found_token:
-                                start = page_cursor.find(found_token)+len(found_token)+1
-                                end = page_cursor[start:].find('&')
-                                kwargs['page_cursor'] = page_cursor[start:start+end]                                
+                                page_cursor=page_cursor.split(found_token)[-1]
+                                page_cursor = page_cursor.split('&')[0]                                
+                        page_cursor = unquote(page_cursor)
+                        kwargs['page_cursor'] = page_cursor   
             return func(*args,**kwargs)
         return _wrapped_func

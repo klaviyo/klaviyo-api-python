@@ -11,7 +11,7 @@
 """
 
 
-__version__ = "1.2.0"
+__version__ = "1.2.1"
 
 # import ApiClient
 from openapi_client.api_client import ApiClient
