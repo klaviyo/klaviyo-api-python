@@ -118,6 +118,7 @@ class SegmentsApi(object):
                     'fields_profile',
                     'filter',
                     'page_cursor',
+                    'page_size',
                 ],
                 'required': [
                     'segment_id',
@@ -170,18 +171,22 @@ class SegmentsApi(object):
                         (str,),
                     'page_cursor':
                         (str,),
+                    'page_size':
+                        (int,),
                 },
                 'attribute_map': {
                     'segment_id': 'segment_id',
                     'fields_profile': 'fields[profile]',
                     'filter': 'filter',
                     'page_cursor': 'page[cursor]',
+                    'page_size': 'page[size]',
                 },
                 'location_map': {
                     'segment_id': 'path',
                     'fields_profile': 'query',
                     'filter': 'query',
                     'page_cursor': 'query',
+                    'page_size': 'query',
                 },
                 'collection_format_map': {
                     'fields_profile': 'csv',
@@ -556,6 +561,7 @@ class SegmentsApi(object):
             fields_profile ([str]): For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sparse-fieldsets. [optional]
             filter (str): For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`email`: `any`<br>`phone_number`: `any`<br>`push_token`: `any`<br>`_kx`: `equals`. [optional]
             page_cursor (str): For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination. [optional]
+            page_size (int): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

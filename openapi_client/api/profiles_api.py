@@ -424,6 +424,7 @@ class ProfilesApi(object):
                     'filter',
                     'page_cursor',
                     'sort',
+                    'page_size',
                 ],
                 'required': [],
                 'nullable': [
@@ -472,7 +473,9 @@ class ProfilesApi(object):
                         "EMAIL": "email",
                         "-EMAIL": "-email",
                         "ID": "id",
-                        "-ID": "-id"
+                        "-ID": "-id",
+                        "UPDATED": "updated",
+                        "-UPDATED": "-updated"
                     },
                 },
                 'openapi_types': {
@@ -484,18 +487,22 @@ class ProfilesApi(object):
                         (str,),
                     'sort':
                         (str,),
+                    'page_size':
+                        (int,),
                 },
                 'attribute_map': {
                     'fields_profile': 'fields[profile]',
                     'filter': 'filter',
                     'page_cursor': 'page[cursor]',
                     'sort': 'sort',
+                    'page_size': 'page[size]',
                 },
                 'location_map': {
                     'fields_profile': 'query',
                     'filter': 'query',
                     'page_cursor': 'query',
                     'sort': 'query',
+                    'page_size': 'query',
                 },
                 'collection_format_map': {
                     'fields_profile': 'csv',
@@ -1207,7 +1214,7 @@ class ProfilesApi(object):
     ):
         """Get Profiles  # noqa: E501
 
-        Get all profiles in an account. Profiles can be sorted by the following fields in ascending and descending order: `id`, `created`, `email` You can adjust the number of results per page via the `page[size]` query parameter, e.g. `?page[size]=25`. **Default**: 20. **Max**: 100.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `Profiles Read`  # noqa: E501
+        Get all profiles in an account. Profiles can be sorted by the following fields in ascending and descending order: `id`, `created`, `updated`, `email` You can adjust the number of results per page via the `page[size]` query parameter, e.g. `?page[size]=25`. **Default**: 20. **Max**: 100.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `Profiles Read`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1217,9 +1224,10 @@ class ProfilesApi(object):
 
         Keyword Args:
             fields_profile ([str]): For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sparse-fieldsets. [optional]
-            filter (str): For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`, `equals`<br>`email`: `any`, `equals`<br>`phone_number`: `any`, `equals`<br>`external_id`: `any`, `equals`<br>`anonymous_id`: `any`, `equals`<br>`_kx`: `equals`<br>`created`: `greater-than`, `less-than`. [optional]
+            filter (str): For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`, `equals`<br>`email`: `any`, `equals`<br>`phone_number`: `any`, `equals`<br>`external_id`: `any`, `equals`<br>`anonymous_id`: `any`, `equals`<br>`_kx`: `equals`<br>`created`: `greater-than`, `less-than`<br>`updated`: `greater-than`, `less-than`. [optional]
             page_cursor (str): For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination. [optional]
             sort (str): For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sorting. [optional]
+            page_size (int): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

@@ -4324,7 +4324,7 @@ class CatalogsApi(object):
         >>> result = thread.get()
 
         Args:
-            id (str): The catalog category ID is a compound ID (string), with format: `${integration}:::${catalog}:::${external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.
+            id (str): The catalog category ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -4498,7 +4498,7 @@ class CatalogsApi(object):
         >>> result = thread.get()
 
         Args:
-            id (str): The catalog item ID is a compound ID (string), with format: `${integration}:::${catalog}:::${external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.
+            id (str): The catalog item ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -4672,7 +4672,7 @@ class CatalogsApi(object):
         >>> result = thread.get()
 
         Args:
-            id (str): The catalog variant ID is a compound ID (string), with format: `${integration}:::${catalog}:::${external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.
+            id (str): The catalog variant ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -4837,7 +4837,7 @@ class CatalogsApi(object):
         >>> result = thread.get()
 
         Args:
-            id (str): The catalog category ID is a compound ID (string), with format: `${integration}:::${catalog}:::${external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.
+            id (str): The catalog category ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.
 
         Keyword Args:
             fields_catalog_category ([str]): For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sparse-fieldsets. [optional]
@@ -4921,7 +4921,7 @@ class CatalogsApi(object):
         >>> result = thread.get()
 
         Args:
-            category_id (str): The catalog category ID is a compound ID (string), with format: `${integration}:::${catalog}:::${external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.
+            category_id (str): The catalog category ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.
 
         Keyword Args:
             fields_catalog_item ([str]): For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sparse-fieldsets. [optional]
@@ -5098,7 +5098,7 @@ class CatalogsApi(object):
         >>> result = thread.get()
 
         Args:
-            id (str): The catalog item ID is a compound ID (string), with format: `${integration}:::${catalog}:::${external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.
+            id (str): The catalog item ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.
 
         Keyword Args:
             fields_catalog_item ([str]): For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sparse-fieldsets. [optional]
@@ -5184,7 +5184,7 @@ class CatalogsApi(object):
         >>> result = thread.get()
 
         Args:
-            item_id (str): The catalog item ID is a compound ID (string), with format: `${integration}:::${catalog}:::${external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.
+            item_id (str): The catalog item ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.
 
         Keyword Args:
             fields_catalog_category ([str]): For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sparse-fieldsets. [optional]
@@ -5359,7 +5359,7 @@ class CatalogsApi(object):
         >>> result = thread.get()
 
         Args:
-            item_id (str): The catalog item ID is a compound ID (string), with format: `${integration}:::${catalog}:::${external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.
+            item_id (str): The catalog item ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.
 
         Keyword Args:
             fields_catalog_variant ([str]): For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sparse-fieldsets. [optional]
@@ -5530,7 +5530,7 @@ class CatalogsApi(object):
         >>> result = thread.get()
 
         Args:
-            id (str): The catalog variant ID is a compound ID (string), with format: `${integration}:::${catalog}:::${external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.
+            id (str): The catalog variant ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.
 
         Keyword Args:
             fields_catalog_variant ([str]): For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sparse-fieldsets. [optional]
@@ -7941,7 +7941,7 @@ class CatalogsApi(object):
         >>> result = thread.get()
 
         Args:
-            id (str): The catalog category ID is a compound ID (string), with format: `${integration}:::${catalog}:::${external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.
+            id (str): The catalog category ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.
             catalog_category_update_query (CatalogCategoryUpdateQuery):
 
         Keyword Args:
@@ -8119,7 +8119,7 @@ class CatalogsApi(object):
         >>> result = thread.get()
 
         Args:
-            id (str): The catalog item ID is a compound ID (string), with format: `${integration}:::${catalog}:::${external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.
+            id (str): The catalog item ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.
             catalog_item_update_query (CatalogItemUpdateQuery):
 
         Keyword Args:
@@ -8297,7 +8297,7 @@ class CatalogsApi(object):
         >>> result = thread.get()
 
         Args:
-            id (str): The catalog variant ID is a compound ID (string), with format: `${integration}:::${catalog}:::${external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.
+            id (str): The catalog variant ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.
             catalog_variant_update_query (CatalogVariantUpdateQuery):
 
         Keyword Args:

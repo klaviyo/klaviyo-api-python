@@ -110,7 +110,7 @@ class CatalogCategoryDeleteQueryAsSubResource(ModelNormal):
         """CatalogCategoryDeleteQueryAsSubResource - a model defined in OpenAPI
 
         Args:
-            id (str): The catalog category ID is a compound ID (string), with format: `${integration}:::${catalog}:::${external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.
+            id (str): The catalog category ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.
 
         Keyword Args:
             type (str): defaults to "catalog-category", must be one of ["catalog-category", ]  # noqa: E501
@@ -202,7 +202,7 @@ class CatalogCategoryDeleteQueryAsSubResource(ModelNormal):
         """CatalogCategoryDeleteQueryAsSubResource - a model defined in OpenAPI
 
         Args:
-            id (str): The catalog category ID is a compound ID (string), with format: `${integration}:::${catalog}:::${external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.
+            id (str): The catalog category ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.
 
         Keyword Args:
             type (str): defaults to "catalog-category", must be one of ["catalog-category", ]  # noqa: E501
