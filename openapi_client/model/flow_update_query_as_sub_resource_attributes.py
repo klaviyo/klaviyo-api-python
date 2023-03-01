@@ -105,7 +105,7 @@ class FlowUpdateQueryAsSubResourceAttributes(ModelNormal):
         """FlowUpdateQueryAsSubResourceAttributes - a model defined in OpenAPI
 
         Args:
-            status (str):
+            status (str): Status you want to update the flow to. ['draft', 'manual', or 'live']
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -194,7 +194,7 @@ class FlowUpdateQueryAsSubResourceAttributes(ModelNormal):
         """FlowUpdateQueryAsSubResourceAttributes - a model defined in OpenAPI
 
         Args:
-            status (str):
+            status (str): Status you want to update the flow to. ['draft', 'manual', or 'live']
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

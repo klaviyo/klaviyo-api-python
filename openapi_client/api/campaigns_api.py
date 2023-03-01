@@ -1328,7 +1328,7 @@ class CampaignsApi(object):
         campaign_message_assign_template_query,
         **kwargs
     ):
-        """Create Campaign Message Assign Template  # noqa: E501
+        """Assign Campaign Message Template  # noqa: E501
 
         Creates a non-reusable version of the template and assigns it to the message.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `Campaigns Write`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an

@@ -1,6 +1,6 @@
 # Klaviyo Python SDK
 
-- SDK version: 1.2.1
+- SDK version: 1.3.0
 - API revision: 2023-02-22
 
 ## Helpful Resources
@@ -177,7 +177,7 @@ klaviyo.Campaigns.create_campaign_clone(body)
 
 
 
-#### [Create Campaign Message Assign Template](https://developers.klaviyo.com/en/v2023-02-22/reference/create_campaign_message_assign_template)
+#### [Assign Campaign Message Template](https://developers.klaviyo.com/en/v2023-02-22/reference/create_campaign_message_assign_template)
 
 ```python
 ## Positional Arguments
@@ -1743,8 +1743,9 @@ klaviyo.Lists.get_list(id, fields_list=fields_list)
 # fields_profile | [str]
 # filter | str
 # page_cursor | str
+# page_size | int
 
-klaviyo.Lists.get_list_profiles(list_id, fields_profile=fields_profile, filter=filter, page_cursor=page_cursor)
+klaviyo.Lists.get_list_profiles(list_id, fields_profile=fields_profile, filter=filter, page_cursor=page_cursor, page_size=page_size)
 ```
 
 
@@ -1960,8 +1961,9 @@ klaviyo.Profiles.get_profile_segments(profile_id, fields_segment=fields_segment)
 # filter | str
 # page_cursor | str
 # sort | str
+# page_size | int
 
-klaviyo.Profiles.get_profiles(fields_profile=fields_profile, filter=filter, page_cursor=page_cursor, sort=sort)
+klaviyo.Profiles.get_profiles(fields_profile=fields_profile, filter=filter, page_cursor=page_cursor, sort=sort, page_size=page_size)
 ```
 
 
@@ -2066,8 +2068,9 @@ klaviyo.Segments.get_segment(id, fields_segment=fields_segment)
 # fields_profile | [str]
 # filter | str
 # page_cursor | str
+# page_size | int
 
-klaviyo.Segments.get_segment_profiles(segment_id, fields_profile=fields_profile, filter=filter, page_cursor=page_cursor)
+klaviyo.Segments.get_segment_profiles(segment_id, fields_profile=fields_profile, filter=filter, page_cursor=page_cursor, page_size=page_size)
 ```
 
 

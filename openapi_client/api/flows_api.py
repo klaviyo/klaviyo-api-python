@@ -2208,7 +2208,7 @@ class FlowsApi(object):
         >>> result = thread.get()
 
         Args:
-            id (str): 
+            id (str): ID of the Flow to update. Ex: XVTP5Q
             flow_update_query (FlowUpdateQuery):
 
         Keyword Args:

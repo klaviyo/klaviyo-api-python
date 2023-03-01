@@ -122,7 +122,7 @@ class IncludedVariants(ModelNormal):
         """IncludedVariants - a model defined in OpenAPI
 
         Args:
-            id (str): The catalog variant ID is a compound ID (string), with format: `${integration}:::${catalog}:::${external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.
+            id (str): The catalog variant ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.
             attributes (IncludedVariantsAttributes):
             links (IncludedVariantsLinks):
 
@@ -218,7 +218,7 @@ class IncludedVariants(ModelNormal):
         """IncludedVariants - a model defined in OpenAPI
 
         Args:
-            id (str): The catalog variant ID is a compound ID (string), with format: `${integration}:::${catalog}:::${external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.
+            id (str): The catalog variant ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.
             attributes (IncludedVariantsAttributes):
             links (IncludedVariantsLinks):
 

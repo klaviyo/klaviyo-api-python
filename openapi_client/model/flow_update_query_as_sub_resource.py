@@ -118,7 +118,7 @@ class FlowUpdateQueryAsSubResource(ModelNormal):
         """FlowUpdateQueryAsSubResource - a model defined in OpenAPI
 
         Args:
-            id (str):
+            id (str): ID of the Flow to update. Ex: XVTP5Q
             attributes (FlowUpdateQueryAsSubResourceAttributes):
 
         Keyword Args:
@@ -212,7 +212,7 @@ class FlowUpdateQueryAsSubResource(ModelNormal):
         """FlowUpdateQueryAsSubResource - a model defined in OpenAPI
 
         Args:
-            id (str):
+            id (str): ID of the Flow to update. Ex: XVTP5Q
             attributes (FlowUpdateQueryAsSubResourceAttributes):
 
         Keyword Args:
