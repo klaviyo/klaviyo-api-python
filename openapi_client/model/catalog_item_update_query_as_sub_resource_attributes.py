@@ -82,15 +82,15 @@ class CatalogItemUpdateQueryAsSubResourceAttributes(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'title': (str,),  # noqa: E501
+            'description': (str, none_type,),  # noqa: E501
+            'title': (str, none_type,),  # noqa: E501
+            'url': (str, none_type,),  # noqa: E501
             'price': (float,),  # noqa: E501
-            'description': (str,),  # noqa: E501
-            'url': (str,),  # noqa: E501
-            'image_full_url': (str,),  # noqa: E501
-            'image_thumbnail_url': (str,),  # noqa: E501
-            'images': ([str],),  # noqa: E501
             'custom_metadata': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
+            'image_full_url': (str, none_type,),  # noqa: E501
             'published': (bool,),  # noqa: E501
+            'images': ([str],),  # noqa: E501
+            'image_thumbnail_url': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -99,15 +99,15 @@ class CatalogItemUpdateQueryAsSubResourceAttributes(ModelNormal):
 
 
     attribute_map = {
-        'title': 'title',  # noqa: E501
-        'price': 'price',  # noqa: E501
         'description': 'description',  # noqa: E501
+        'title': 'title',  # noqa: E501
         'url': 'url',  # noqa: E501
-        'image_full_url': 'image_full_url',  # noqa: E501
-        'image_thumbnail_url': 'image_thumbnail_url',  # noqa: E501
-        'images': 'images',  # noqa: E501
+        'price': 'price',  # noqa: E501
         'custom_metadata': 'custom_metadata',  # noqa: E501
+        'image_full_url': 'image_full_url',  # noqa: E501
         'published': 'published',  # noqa: E501
+        'images': 'images',  # noqa: E501
+        'image_thumbnail_url': 'image_thumbnail_url',  # noqa: E501
     }
 
     read_only_vars = {
@@ -151,15 +151,15 @@ class CatalogItemUpdateQueryAsSubResourceAttributes(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            title (str): The title of the catalog item.. [optional]  # noqa: E501
+            description (str, none_type): A description of the catalog item.. [optional]  # noqa: E501
+            title (str, none_type): The title of the catalog item.. [optional]  # noqa: E501
+            url (str, none_type): URL pointing to the location of the catalog item on your website.. [optional]  # noqa: E501
             price (float): This field can be used to set the price on the catalog item, which is what gets displayed for the item when included in emails. For most price-update use cases, you will also want to update the `price` on any child variants, using the [Update Catalog Variant Endpoint](https://developers.klaviyo.com/en/reference/update_catalog_variant).. [optional]  # noqa: E501
-            description (str): A description of the catalog item.. [optional]  # noqa: E501
-            url (str): URL pointing to the location of the catalog item on your website.. [optional]  # noqa: E501
-            image_full_url (str): URL pointing to the location of a full image of the catalog item.. [optional]  # noqa: E501
-            image_thumbnail_url (str): URL pointing to the location of an image thumbnail of the catalog item. [optional]  # noqa: E501
-            images ([str]): List of URLs pointing to the locations of images of the catalog item.. [optional]  # noqa: E501
             custom_metadata ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): Flat JSON blob to provide custom metadata about the catalog item. May not exceed 100kb.. [optional]  # noqa: E501
+            image_full_url (str, none_type): URL pointing to the location of a full image of the catalog item.. [optional]  # noqa: E501
             published (bool): Boolean value indicating whether the catalog item is published.. [optional]  # noqa: E501
+            images ([str]): List of URLs pointing to the locations of images of the catalog item.. [optional]  # noqa: E501
+            image_thumbnail_url (str, none_type): URL pointing to the location of an image thumbnail of the catalog item. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -245,15 +245,15 @@ class CatalogItemUpdateQueryAsSubResourceAttributes(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            title (str): The title of the catalog item.. [optional]  # noqa: E501
+            description (str, none_type): A description of the catalog item.. [optional]  # noqa: E501
+            title (str, none_type): The title of the catalog item.. [optional]  # noqa: E501
+            url (str, none_type): URL pointing to the location of the catalog item on your website.. [optional]  # noqa: E501
             price (float): This field can be used to set the price on the catalog item, which is what gets displayed for the item when included in emails. For most price-update use cases, you will also want to update the `price` on any child variants, using the [Update Catalog Variant Endpoint](https://developers.klaviyo.com/en/reference/update_catalog_variant).. [optional]  # noqa: E501
-            description (str): A description of the catalog item.. [optional]  # noqa: E501
-            url (str): URL pointing to the location of the catalog item on your website.. [optional]  # noqa: E501
-            image_full_url (str): URL pointing to the location of a full image of the catalog item.. [optional]  # noqa: E501
-            image_thumbnail_url (str): URL pointing to the location of an image thumbnail of the catalog item. [optional]  # noqa: E501
-            images ([str]): List of URLs pointing to the locations of images of the catalog item.. [optional]  # noqa: E501
             custom_metadata ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): Flat JSON blob to provide custom metadata about the catalog item. May not exceed 100kb.. [optional]  # noqa: E501
+            image_full_url (str, none_type): URL pointing to the location of a full image of the catalog item.. [optional]  # noqa: E501
             published (bool): Boolean value indicating whether the catalog item is published.. [optional]  # noqa: E501
+            images ([str]): List of URLs pointing to the locations of images of the catalog item.. [optional]  # noqa: E501
+            image_thumbnail_url (str, none_type): URL pointing to the location of an image thumbnail of the catalog item. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

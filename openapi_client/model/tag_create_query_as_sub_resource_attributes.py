@@ -82,8 +82,8 @@ class TagCreateQueryAsSubResourceAttributes(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'name': (str,),  # noqa: E501
-            'tag_group_id': (str,),  # noqa: E501
+            'name': (str, none_type,),  # noqa: E501
+            'tag_group_id': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -107,7 +107,7 @@ class TagCreateQueryAsSubResourceAttributes(ModelNormal):
         """TagCreateQueryAsSubResourceAttributes - a model defined in OpenAPI
 
         Args:
-            name (str): The Tag name
+            name (str, none_type): The Tag name
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -140,7 +140,7 @@ class TagCreateQueryAsSubResourceAttributes(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            tag_group_id (str): The ID of the Tag Group to associate the Tag with. If this field is not specified, the Tag will be associated with the company's Default Tag Group.. [optional]  # noqa: E501
+            tag_group_id (str, none_type): The ID of the Tag Group to associate the Tag with. If this field is not specified, the Tag will be associated with the company's Default Tag Group.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -197,7 +197,7 @@ class TagCreateQueryAsSubResourceAttributes(ModelNormal):
         """TagCreateQueryAsSubResourceAttributes - a model defined in OpenAPI
 
         Args:
-            name (str): The Tag name
+            name (str, none_type): The Tag name
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -230,7 +230,7 @@ class TagCreateQueryAsSubResourceAttributes(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            tag_group_id (str): The ID of the Tag Group to associate the Tag with. If this field is not specified, the Tag will be associated with the company's Default Tag Group.. [optional]  # noqa: E501
+            tag_group_id (str, none_type): The ID of the Tag Group to associate the Tag with. If this field is not specified, the Tag will be associated with the company's Default Tag Group.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -82,10 +82,10 @@ class EmailMessageContent(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'subject': (str,),  # noqa: E501
             'preview_text': (str,),  # noqa: E501
             'from_email': (str,),  # noqa: E501
             'from_name': (str,),  # noqa: E501
+            'subject': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -94,10 +94,10 @@ class EmailMessageContent(ModelNormal):
 
 
     attribute_map = {
-        'subject': 'subject',  # noqa: E501
         'preview_text': 'preview_text',  # noqa: E501
         'from_email': 'from_email',  # noqa: E501
         'from_name': 'from_name',  # noqa: E501
+        'subject': 'subject',  # noqa: E501
     }
 
     read_only_vars = {
@@ -107,14 +107,14 @@ class EmailMessageContent(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, subject, preview_text, from_email, from_name, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, preview_text, from_email, from_name, subject, *args, **kwargs):  # noqa: E501
         """EmailMessageContent - a model defined in OpenAPI
 
         Args:
-            subject (str):
             preview_text (str):
             from_email (str):
             from_name (str):
+            subject (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -178,10 +178,10 @@ class EmailMessageContent(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.subject = subject
         self.preview_text = preview_text
         self.from_email = from_email
         self.from_name = from_name
+        self.subject = subject
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -202,14 +202,14 @@ class EmailMessageContent(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, subject, preview_text, from_email, from_name, *args, **kwargs):  # noqa: E501
+    def __init__(self, preview_text, from_email, from_name, subject, *args, **kwargs):  # noqa: E501
         """EmailMessageContent - a model defined in OpenAPI
 
         Args:
-            subject (str):
             preview_text (str):
             from_email (str):
             from_name (str):
+            subject (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -271,10 +271,10 @@ class EmailMessageContent(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.subject = subject
         self.preview_text = preview_text
         self.from_email = from_email
         self.from_name = from_name
+        self.subject = subject
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

@@ -93,9 +93,9 @@ class SendStrategySubObject(ModelNormal):
         lazy_import()
         return {
             'method': (str,),  # noqa: E501
-            'options_static': (StaticScheduleOptions,),  # noqa: E501
-            'options_throttled': (ThrottledScheduleOptions,),  # noqa: E501
             'options_sto': (STOScheduleOptions,),  # noqa: E501
+            'options_throttled': (ThrottledScheduleOptions,),  # noqa: E501
+            'options_static': (StaticScheduleOptions,),  # noqa: E501
         }
 
     @cached_property
@@ -105,9 +105,9 @@ class SendStrategySubObject(ModelNormal):
 
     attribute_map = {
         'method': 'method',  # noqa: E501
-        'options_static': 'options_static',  # noqa: E501
-        'options_throttled': 'options_throttled',  # noqa: E501
         'options_sto': 'options_sto',  # noqa: E501
+        'options_throttled': 'options_throttled',  # noqa: E501
+        'options_static': 'options_static',  # noqa: E501
     }
 
     read_only_vars = {
@@ -154,9 +154,9 @@ class SendStrategySubObject(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            options_static (StaticScheduleOptions): [optional]  # noqa: E501
-            options_throttled (ThrottledScheduleOptions): [optional]  # noqa: E501
             options_sto (STOScheduleOptions): [optional]  # noqa: E501
+            options_throttled (ThrottledScheduleOptions): [optional]  # noqa: E501
+            options_static (StaticScheduleOptions): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -246,9 +246,9 @@ class SendStrategySubObject(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            options_static (StaticScheduleOptions): [optional]  # noqa: E501
-            options_throttled (ThrottledScheduleOptions): [optional]  # noqa: E501
             options_sto (STOScheduleOptions): [optional]  # noqa: E501
+            options_throttled (ThrottledScheduleOptions): [optional]  # noqa: E501
+            options_static (StaticScheduleOptions): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

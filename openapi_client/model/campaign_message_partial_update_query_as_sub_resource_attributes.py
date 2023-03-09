@@ -88,8 +88,8 @@ class CampaignMessagePartialUpdateQueryAsSubResourceAttributes(ModelNormal):
         """
         lazy_import()
         return {
-            'label': (str,),  # noqa: E501
             'content': (ContentSubObject,),  # noqa: E501
+            'label': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -98,8 +98,8 @@ class CampaignMessagePartialUpdateQueryAsSubResourceAttributes(ModelNormal):
 
 
     attribute_map = {
-        'label': 'label',  # noqa: E501
         'content': 'content',  # noqa: E501
+        'label': 'label',  # noqa: E501
     }
 
     read_only_vars = {
@@ -143,8 +143,8 @@ class CampaignMessagePartialUpdateQueryAsSubResourceAttributes(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            label (str): The label or name on the message. [optional]  # noqa: E501
             content (ContentSubObject): [optional]  # noqa: E501
+            label (str, none_type): The label or name on the message. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -230,8 +230,8 @@ class CampaignMessagePartialUpdateQueryAsSubResourceAttributes(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            label (str): The label or name on the message. [optional]  # noqa: E501
             content (ContentSubObject): [optional]  # noqa: E501
+            label (str, none_type): The label or name on the message. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

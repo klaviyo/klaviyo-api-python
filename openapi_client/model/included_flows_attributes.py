@@ -82,12 +82,12 @@ class IncludedFlowsAttributes(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'name': (str,),  # noqa: E501
-            'status': (str,),  # noqa: E501
+            'status': (str, none_type,),  # noqa: E501
             'archived': (bool,),  # noqa: E501
-            'created': (datetime,),  # noqa: E501
-            'updated': (datetime,),  # noqa: E501
-            'trigger_type': (str,),  # noqa: E501
+            'name': (str, none_type,),  # noqa: E501
+            'trigger_type': (str, none_type,),  # noqa: E501
+            'created': (datetime, none_type,),  # noqa: E501
+            'updated': (datetime, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -96,12 +96,12 @@ class IncludedFlowsAttributes(ModelNormal):
 
 
     attribute_map = {
-        'name': 'name',  # noqa: E501
         'status': 'status',  # noqa: E501
         'archived': 'archived',  # noqa: E501
+        'name': 'name',  # noqa: E501
+        'trigger_type': 'trigger_type',  # noqa: E501
         'created': 'created',  # noqa: E501
         'updated': 'updated',  # noqa: E501
-        'trigger_type': 'trigger_type',  # noqa: E501
     }
 
     read_only_vars = {
@@ -145,12 +145,12 @@ class IncludedFlowsAttributes(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str): [optional]  # noqa: E501
-            status (str): [optional]  # noqa: E501
+            status (str, none_type): [optional]  # noqa: E501
             archived (bool): [optional]  # noqa: E501
-            created (datetime): [optional]  # noqa: E501
-            updated (datetime): [optional]  # noqa: E501
-            trigger_type (str): [optional]  # noqa: E501
+            name (str, none_type): [optional]  # noqa: E501
+            trigger_type (str, none_type): [optional]  # noqa: E501
+            created (datetime, none_type): [optional]  # noqa: E501
+            updated (datetime, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -236,12 +236,12 @@ class IncludedFlowsAttributes(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str): [optional]  # noqa: E501
-            status (str): [optional]  # noqa: E501
+            status (str, none_type): [optional]  # noqa: E501
             archived (bool): [optional]  # noqa: E501
-            created (datetime): [optional]  # noqa: E501
-            updated (datetime): [optional]  # noqa: E501
-            trigger_type (str): [optional]  # noqa: E501
+            name (str, none_type): [optional]  # noqa: E501
+            trigger_type (str, none_type): [optional]  # noqa: E501
+            created (datetime, none_type): [optional]  # noqa: E501
+            updated (datetime, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

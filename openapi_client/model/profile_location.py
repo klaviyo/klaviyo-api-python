@@ -90,15 +90,15 @@ class ProfileLocation(ModelNormal):
         """
         lazy_import()
         return {
+            'city': (str,),  # noqa: E501
+            'zip': (str,),  # noqa: E501
             'address1': (str,),  # noqa: E501
             'address2': (str,),  # noqa: E501
-            'city': (str,),  # noqa: E501
+            'longitude': (ProfileLocationLongitude,),  # noqa: E501
             'country': (str,),  # noqa: E501
             'latitude': (ProfileLocationLatitude,),  # noqa: E501
-            'longitude': (ProfileLocationLongitude,),  # noqa: E501
-            'region': (str,),  # noqa: E501
-            'zip': (str,),  # noqa: E501
             'timezone': (str,),  # noqa: E501
+            'region': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -107,15 +107,15 @@ class ProfileLocation(ModelNormal):
 
 
     attribute_map = {
+        'city': 'city',  # noqa: E501
+        'zip': 'zip',  # noqa: E501
         'address1': 'address1',  # noqa: E501
         'address2': 'address2',  # noqa: E501
-        'city': 'city',  # noqa: E501
+        'longitude': 'longitude',  # noqa: E501
         'country': 'country',  # noqa: E501
         'latitude': 'latitude',  # noqa: E501
-        'longitude': 'longitude',  # noqa: E501
-        'region': 'region',  # noqa: E501
-        'zip': 'zip',  # noqa: E501
         'timezone': 'timezone',  # noqa: E501
+        'region': 'region',  # noqa: E501
     }
 
     read_only_vars = {
@@ -159,15 +159,15 @@ class ProfileLocation(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            city (str): City name. [optional]  # noqa: E501
+            zip (str): Zip code. [optional]  # noqa: E501
             address1 (str): First line of street address. [optional]  # noqa: E501
             address2 (str): Second line of street address. [optional]  # noqa: E501
-            city (str): City name. [optional]  # noqa: E501
+            longitude (ProfileLocationLongitude): [optional]  # noqa: E501
             country (str): Country name. [optional]  # noqa: E501
             latitude (ProfileLocationLatitude): [optional]  # noqa: E501
-            longitude (ProfileLocationLongitude): [optional]  # noqa: E501
-            region (str): Region within a country, such as state or province. [optional]  # noqa: E501
-            zip (str): Zip code. [optional]  # noqa: E501
             timezone (str): Time zone name. We recommend using time zones from the IANA Time Zone Database.. [optional]  # noqa: E501
+            region (str): Region within a country, such as state or province. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -253,15 +253,15 @@ class ProfileLocation(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            city (str): City name. [optional]  # noqa: E501
+            zip (str): Zip code. [optional]  # noqa: E501
             address1 (str): First line of street address. [optional]  # noqa: E501
             address2 (str): Second line of street address. [optional]  # noqa: E501
-            city (str): City name. [optional]  # noqa: E501
+            longitude (ProfileLocationLongitude): [optional]  # noqa: E501
             country (str): Country name. [optional]  # noqa: E501
             latitude (ProfileLocationLatitude): [optional]  # noqa: E501
-            longitude (ProfileLocationLongitude): [optional]  # noqa: E501
-            region (str): Region within a country, such as state or province. [optional]  # noqa: E501
-            zip (str): Zip code. [optional]  # noqa: E501
             timezone (str): Time zone name. We recommend using time zones from the IANA Time Zone Database.. [optional]  # noqa: E501
+            region (str): Region within a country, such as state or province. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

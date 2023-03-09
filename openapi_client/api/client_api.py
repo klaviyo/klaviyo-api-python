@@ -23,7 +23,7 @@ from openapi_client.model_utils import (  # noqa: F401
     validate_and_convert_types
 )
 from openapi_client.model.event_create_query import EventCreateQuery
-from openapi_client.model.get_campaigns4_xx_response import GetCampaigns4XXResponse
+from openapi_client.model.get_create_variants_jobs5_xx_response import GetCreateVariantsJobs5XXResponse
 from openapi_client.model.onsite_profile_create_query import OnsiteProfileCreateQuery
 from openapi_client.model.onsite_subscription_create_query import OnsiteSubscriptionCreateQuery
 

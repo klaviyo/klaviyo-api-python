@@ -82,9 +82,9 @@ class IncludedCategoriesAttributes(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'external_id': (str,),  # noqa: E501
-            'name': (str,),  # noqa: E501
-            'updated': (datetime,),  # noqa: E501
+            'updated': (datetime, none_type,),  # noqa: E501
+            'external_id': (str, none_type,),  # noqa: E501
+            'name': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -93,9 +93,9 @@ class IncludedCategoriesAttributes(ModelNormal):
 
 
     attribute_map = {
+        'updated': 'updated',  # noqa: E501
         'external_id': 'external_id',  # noqa: E501
         'name': 'name',  # noqa: E501
-        'updated': 'updated',  # noqa: E501
     }
 
     read_only_vars = {
@@ -139,9 +139,9 @@ class IncludedCategoriesAttributes(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            external_id (str): The ID of the catalog category in an external system.. [optional]  # noqa: E501
-            name (str): The name of the catalog category.. [optional]  # noqa: E501
-            updated (datetime): Date and time when the catalog category was last updated, in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm).. [optional]  # noqa: E501
+            updated (datetime, none_type): Date and time when the catalog category was last updated, in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm).. [optional]  # noqa: E501
+            external_id (str, none_type): The ID of the catalog category in an external system.. [optional]  # noqa: E501
+            name (str, none_type): The name of the catalog category.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -227,9 +227,9 @@ class IncludedCategoriesAttributes(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            external_id (str): The ID of the catalog category in an external system.. [optional]  # noqa: E501
-            name (str): The name of the catalog category.. [optional]  # noqa: E501
-            updated (datetime): Date and time when the catalog category was last updated, in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm).. [optional]  # noqa: E501
+            updated (datetime, none_type): Date and time when the catalog category was last updated, in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm).. [optional]  # noqa: E501
+            external_id (str, none_type): The ID of the catalog category in an external system.. [optional]  # noqa: E501
+            name (str, none_type): The name of the catalog category.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

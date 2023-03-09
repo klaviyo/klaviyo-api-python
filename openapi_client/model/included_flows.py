@@ -32,9 +32,9 @@ from openapi_client.exceptions import ApiAttributeError
 
 def lazy_import():
     from openapi_client.model.included_flows_attributes import IncludedFlowsAttributes
-    from openapi_client.model.included_variants_links import IncludedVariantsLinks
+    from openapi_client.model.object_links import ObjectLinks
     globals()['IncludedFlowsAttributes'] = IncludedFlowsAttributes
-    globals()['IncludedVariantsLinks'] = IncludedVariantsLinks
+    globals()['ObjectLinks'] = ObjectLinks
 
 
 class IncludedFlows(ModelNormal):
@@ -93,10 +93,10 @@ class IncludedFlows(ModelNormal):
         """
         lazy_import()
         return {
+            'attributes': (IncludedFlowsAttributes,),  # noqa: E501
             'type': (str,),  # noqa: E501
             'id': (str,),  # noqa: E501
-            'attributes': (IncludedFlowsAttributes,),  # noqa: E501
-            'links': (IncludedVariantsLinks,),  # noqa: E501
+            'links': (ObjectLinks,),  # noqa: E501
         }
 
     @cached_property
@@ -105,9 +105,9 @@ class IncludedFlows(ModelNormal):
 
 
     attribute_map = {
+        'attributes': 'attributes',  # noqa: E501
         'type': 'type',  # noqa: E501
         'id': 'id',  # noqa: E501
-        'attributes': 'attributes',  # noqa: E501
         'links': 'links',  # noqa: E501
     }
 
@@ -118,13 +118,13 @@ class IncludedFlows(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, attributes, links, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, attributes, id, links, *args, **kwargs):  # noqa: E501
         """IncludedFlows - a model defined in OpenAPI
 
         Args:
-            id (str):
             attributes (IncludedFlowsAttributes):
-            links (IncludedVariantsLinks):
+            id (str):
+            links (ObjectLinks):
 
         Keyword Args:
             type (str): defaults to "flow", must be one of ["flow", ]  # noqa: E501
@@ -190,9 +190,9 @@ class IncludedFlows(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.attributes = attributes
         self.type = type
         self.id = id
-        self.attributes = attributes
         self.links = links
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
@@ -214,13 +214,13 @@ class IncludedFlows(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, attributes, links, *args, **kwargs):  # noqa: E501
+    def __init__(self, attributes, id, links, *args, **kwargs):  # noqa: E501
         """IncludedFlows - a model defined in OpenAPI
 
         Args:
-            id (str):
             attributes (IncludedFlowsAttributes):
-            links (IncludedVariantsLinks):
+            id (str):
+            links (ObjectLinks):
 
         Keyword Args:
             type (str): defaults to "flow", must be one of ["flow", ]  # noqa: E501
@@ -284,9 +284,9 @@ class IncludedFlows(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.attributes = attributes
         self.type = type
         self.id = id
-        self.attributes = attributes
         self.links = links
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \

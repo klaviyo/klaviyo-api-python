@@ -82,8 +82,8 @@ class SendOptions(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'use_smart_sending': (bool,),  # noqa: E501
             'is_transactional': (bool,),  # noqa: E501
+            'use_smart_sending': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -92,8 +92,8 @@ class SendOptions(ModelNormal):
 
 
     attribute_map = {
-        'use_smart_sending': 'use_smart_sending',  # noqa: E501
         'is_transactional': 'is_transactional',  # noqa: E501
+        'use_smart_sending': 'use_smart_sending',  # noqa: E501
     }
 
     read_only_vars = {
@@ -103,12 +103,12 @@ class SendOptions(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, use_smart_sending, is_transactional, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, is_transactional, use_smart_sending, *args, **kwargs):  # noqa: E501
         """SendOptions - a model defined in OpenAPI
 
         Args:
-            use_smart_sending (bool):
             is_transactional (bool):
+            use_smart_sending (bool):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -172,8 +172,8 @@ class SendOptions(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.use_smart_sending = use_smart_sending
         self.is_transactional = is_transactional
+        self.use_smart_sending = use_smart_sending
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -194,12 +194,12 @@ class SendOptions(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, use_smart_sending, is_transactional, *args, **kwargs):  # noqa: E501
+    def __init__(self, is_transactional, use_smart_sending, *args, **kwargs):  # noqa: E501
         """SendOptions - a model defined in OpenAPI
 
         Args:
-            use_smart_sending (bool):
             is_transactional (bool):
+            use_smart_sending (bool):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -261,8 +261,8 @@ class SendOptions(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.use_smart_sending = use_smart_sending
         self.is_transactional = is_transactional
+        self.use_smart_sending = use_smart_sending
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

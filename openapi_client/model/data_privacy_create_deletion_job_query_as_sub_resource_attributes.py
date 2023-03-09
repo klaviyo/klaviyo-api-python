@@ -82,9 +82,9 @@ class DataPrivacyCreateDeletionJobQueryAsSubResourceAttributes(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'profile_id': (str,),  # noqa: E501
-            'email': (str,),  # noqa: E501
-            'phone_number': (str,),  # noqa: E501
+            'phone_number': (str, none_type,),  # noqa: E501
+            'profile_id': (str, none_type,),  # noqa: E501
+            'email': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -93,9 +93,9 @@ class DataPrivacyCreateDeletionJobQueryAsSubResourceAttributes(ModelNormal):
 
 
     attribute_map = {
+        'phone_number': 'phone_number',  # noqa: E501
         'profile_id': 'profile_id',  # noqa: E501
         'email': 'email',  # noqa: E501
-        'phone_number': 'phone_number',  # noqa: E501
     }
 
     read_only_vars = {
@@ -139,9 +139,9 @@ class DataPrivacyCreateDeletionJobQueryAsSubResourceAttributes(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            profile_id (str): The ID of the profile to delete. This is the `id` field on the profile object.. [optional]  # noqa: E501
-            email (str): The email address of the profile to delete.. [optional]  # noqa: E501
-            phone_number (str): The phone number of the profile to delete.. [optional]  # noqa: E501
+            phone_number (str, none_type): The phone number of the profile to delete.. [optional]  # noqa: E501
+            profile_id (str, none_type): The ID of the profile to delete. This is the `id` field on the profile object.. [optional]  # noqa: E501
+            email (str, none_type): The email address of the profile to delete.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -227,9 +227,9 @@ class DataPrivacyCreateDeletionJobQueryAsSubResourceAttributes(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            profile_id (str): The ID of the profile to delete. This is the `id` field on the profile object.. [optional]  # noqa: E501
-            email (str): The email address of the profile to delete.. [optional]  # noqa: E501
-            phone_number (str): The phone number of the profile to delete.. [optional]  # noqa: E501
+            phone_number (str, none_type): The phone number of the profile to delete.. [optional]  # noqa: E501
+            profile_id (str, none_type): The ID of the profile to delete. This is the `id` field on the profile object.. [optional]  # noqa: E501
+            email (str, none_type): The email address of the profile to delete.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

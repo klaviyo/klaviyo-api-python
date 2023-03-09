@@ -93,9 +93,9 @@ class CatalogItemUpdateQueryAsSubResource(ModelNormal):
         """
         lazy_import()
         return {
+            'attributes': (CatalogItemUpdateQueryAsSubResourceAttributes,),  # noqa: E501
             'type': (str,),  # noqa: E501
             'id': (str,),  # noqa: E501
-            'attributes': (CatalogItemUpdateQueryAsSubResourceAttributes,),  # noqa: E501
             'relationships': (CatalogItemCreateQueryAsSubResourceRelationships,),  # noqa: E501
         }
 
@@ -105,9 +105,9 @@ class CatalogItemUpdateQueryAsSubResource(ModelNormal):
 
 
     attribute_map = {
+        'attributes': 'attributes',  # noqa: E501
         'type': 'type',  # noqa: E501
         'id': 'id',  # noqa: E501
-        'attributes': 'attributes',  # noqa: E501
         'relationships': 'relationships',  # noqa: E501
     }
 
@@ -118,12 +118,12 @@ class CatalogItemUpdateQueryAsSubResource(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, attributes, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, attributes, id, *args, **kwargs):  # noqa: E501
         """CatalogItemUpdateQueryAsSubResource - a model defined in OpenAPI
 
         Args:
-            id (str): The catalog item ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.
             attributes (CatalogItemUpdateQueryAsSubResourceAttributes):
+            id (str): The catalog item ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.
 
         Keyword Args:
             type (str): defaults to "catalog-item", must be one of ["catalog-item", ]  # noqa: E501
@@ -190,9 +190,9 @@ class CatalogItemUpdateQueryAsSubResource(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.attributes = attributes
         self.type = type
         self.id = id
-        self.attributes = attributes
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -213,12 +213,12 @@ class CatalogItemUpdateQueryAsSubResource(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, attributes, *args, **kwargs):  # noqa: E501
+    def __init__(self, attributes, id, *args, **kwargs):  # noqa: E501
         """CatalogItemUpdateQueryAsSubResource - a model defined in OpenAPI
 
         Args:
-            id (str): The catalog item ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.
             attributes (CatalogItemUpdateQueryAsSubResourceAttributes):
+            id (str): The catalog item ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.
 
         Keyword Args:
             type (str): defaults to "catalog-item", must be one of ["catalog-item", ]  # noqa: E501
@@ -283,9 +283,9 @@ class CatalogItemUpdateQueryAsSubResource(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.attributes = attributes
         self.type = type
         self.id = id
-        self.attributes = attributes
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

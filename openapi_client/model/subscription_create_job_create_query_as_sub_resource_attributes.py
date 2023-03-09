@@ -88,9 +88,9 @@ class SubscriptionCreateJobCreateQueryAsSubResourceAttributes(ModelNormal):
         """
         lazy_import()
         return {
-            'list_id': (str,),  # noqa: E501
             'subscriptions': ([Subscription],),  # noqa: E501
-            'custom_source': (str,),  # noqa: E501
+            'list_id': (str, none_type,),  # noqa: E501
+            'custom_source': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -99,8 +99,8 @@ class SubscriptionCreateJobCreateQueryAsSubResourceAttributes(ModelNormal):
 
 
     attribute_map = {
-        'list_id': 'list_id',  # noqa: E501
         'subscriptions': 'subscriptions',  # noqa: E501
+        'list_id': 'list_id',  # noqa: E501
         'custom_source': 'custom_source',  # noqa: E501
     }
 
@@ -111,12 +111,12 @@ class SubscriptionCreateJobCreateQueryAsSubResourceAttributes(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, list_id, subscriptions, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, subscriptions, list_id, *args, **kwargs):  # noqa: E501
         """SubscriptionCreateJobCreateQueryAsSubResourceAttributes - a model defined in OpenAPI
 
         Args:
-            list_id (str): The list to add the newly subscribed profiles to
             subscriptions ([Subscription]): One or more subscriptions to be created.
+            list_id (str, none_type): The list to add the newly subscribed profiles to
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -149,7 +149,7 @@ class SubscriptionCreateJobCreateQueryAsSubResourceAttributes(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            custom_source (str): A custom method detail or source to store on the consent records.. [optional]  # noqa: E501
+            custom_source (str, none_type): A custom method detail or source to store on the consent records.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -181,8 +181,8 @@ class SubscriptionCreateJobCreateQueryAsSubResourceAttributes(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.list_id = list_id
         self.subscriptions = subscriptions
+        self.list_id = list_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -203,12 +203,12 @@ class SubscriptionCreateJobCreateQueryAsSubResourceAttributes(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, list_id, subscriptions, *args, **kwargs):  # noqa: E501
+    def __init__(self, subscriptions, list_id, *args, **kwargs):  # noqa: E501
         """SubscriptionCreateJobCreateQueryAsSubResourceAttributes - a model defined in OpenAPI
 
         Args:
-            list_id (str): The list to add the newly subscribed profiles to
             subscriptions ([Subscription]): One or more subscriptions to be created.
+            list_id (str, none_type): The list to add the newly subscribed profiles to
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -241,7 +241,7 @@ class SubscriptionCreateJobCreateQueryAsSubResourceAttributes(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            custom_source (str): A custom method detail or source to store on the consent records.. [optional]  # noqa: E501
+            custom_source (str, none_type): A custom method detail or source to store on the consent records.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -271,8 +271,8 @@ class SubscriptionCreateJobCreateQueryAsSubResourceAttributes(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.list_id = list_id
         self.subscriptions = subscriptions
+        self.list_id = list_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

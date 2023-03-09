@@ -88,10 +88,10 @@ class TrackingOptionsSubObject(ModelNormal):
         """
         lazy_import()
         return {
-            'is_tracking_opens': (bool,),  # noqa: E501
             'is_tracking_clicks': (bool,),  # noqa: E501
             'is_add_utm': (bool,),  # noqa: E501
             'utm_params': ([UTMParamsSubObject],),  # noqa: E501
+            'is_tracking_opens': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -100,10 +100,10 @@ class TrackingOptionsSubObject(ModelNormal):
 
 
     attribute_map = {
-        'is_tracking_opens': 'is_tracking_opens',  # noqa: E501
         'is_tracking_clicks': 'is_tracking_clicks',  # noqa: E501
         'is_add_utm': 'is_add_utm',  # noqa: E501
         'utm_params': 'utm_params',  # noqa: E501
+        'is_tracking_opens': 'is_tracking_opens',  # noqa: E501
     }
 
     read_only_vars = {
@@ -147,10 +147,10 @@ class TrackingOptionsSubObject(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            is_tracking_opens (bool): Whether the campaign is tracking open events. If not specified, uses company defaults.. [optional]  # noqa: E501
             is_tracking_clicks (bool): Whether the campaign is tracking click events. If not specified, uses company defaults.. [optional]  # noqa: E501
             is_add_utm (bool): Whether the campaign needs UTM parameters. If set to False, UTM params will not be used.. [optional]  # noqa: E501
             utm_params ([UTMParamsSubObject]): A list of UTM parameters. If an empty list is given and is_add_utm is True, uses company defaults.. [optional]  # noqa: E501
+            is_tracking_opens (bool): Whether the campaign is tracking open events. If not specified, uses company defaults.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -236,10 +236,10 @@ class TrackingOptionsSubObject(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            is_tracking_opens (bool): Whether the campaign is tracking open events. If not specified, uses company defaults.. [optional]  # noqa: E501
             is_tracking_clicks (bool): Whether the campaign is tracking click events. If not specified, uses company defaults.. [optional]  # noqa: E501
             is_add_utm (bool): Whether the campaign needs UTM parameters. If set to False, UTM params will not be used.. [optional]  # noqa: E501
             utm_params ([UTMParamsSubObject]): A list of UTM parameters. If an empty list is given and is_add_utm is True, uses company defaults.. [optional]  # noqa: E501
+            is_tracking_opens (bool): Whether the campaign is tracking open events. If not specified, uses company defaults.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

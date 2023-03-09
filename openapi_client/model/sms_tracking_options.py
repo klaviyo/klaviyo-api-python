@@ -88,8 +88,8 @@ class SMSTrackingOptions(ModelNormal):
         """
         lazy_import()
         return {
-            'add_utm': (bool,),  # noqa: E501
             'utm_params': ([UtmParamInfo],),  # noqa: E501
+            'add_utm': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -98,8 +98,8 @@ class SMSTrackingOptions(ModelNormal):
 
 
     attribute_map = {
-        'add_utm': 'add_utm',  # noqa: E501
         'utm_params': 'utm_params',  # noqa: E501
+        'add_utm': 'add_utm',  # noqa: E501
     }
 
     read_only_vars = {
@@ -109,12 +109,12 @@ class SMSTrackingOptions(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, add_utm, utm_params, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, utm_params, add_utm, *args, **kwargs):  # noqa: E501
         """SMSTrackingOptions - a model defined in OpenAPI
 
         Args:
-            add_utm (bool):
             utm_params ([UtmParamInfo]):
+            add_utm (bool):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -178,8 +178,8 @@ class SMSTrackingOptions(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.add_utm = add_utm
         self.utm_params = utm_params
+        self.add_utm = add_utm
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -200,12 +200,12 @@ class SMSTrackingOptions(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, add_utm, utm_params, *args, **kwargs):  # noqa: E501
+    def __init__(self, utm_params, add_utm, *args, **kwargs):  # noqa: E501
         """SMSTrackingOptions - a model defined in OpenAPI
 
         Args:
-            add_utm (bool):
             utm_params ([UtmParamInfo]):
+            add_utm (bool):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -267,8 +267,8 @@ class SMSTrackingOptions(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.add_utm = add_utm
         self.utm_params = utm_params
+        self.add_utm = add_utm
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

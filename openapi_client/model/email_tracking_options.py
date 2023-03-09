@@ -88,10 +88,10 @@ class EmailTrackingOptions(ModelNormal):
         """
         lazy_import()
         return {
-            'add_utm': (bool,),  # noqa: E501
+            'is_tracking_clicks': (bool,),  # noqa: E501
             'utm_params': ([UtmParamInfo],),  # noqa: E501
             'is_tracking_opens': (bool,),  # noqa: E501
-            'is_tracking_clicks': (bool,),  # noqa: E501
+            'add_utm': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -100,10 +100,10 @@ class EmailTrackingOptions(ModelNormal):
 
 
     attribute_map = {
-        'add_utm': 'add_utm',  # noqa: E501
+        'is_tracking_clicks': 'is_tracking_clicks',  # noqa: E501
         'utm_params': 'utm_params',  # noqa: E501
         'is_tracking_opens': 'is_tracking_opens',  # noqa: E501
-        'is_tracking_clicks': 'is_tracking_clicks',  # noqa: E501
+        'add_utm': 'add_utm',  # noqa: E501
     }
 
     read_only_vars = {
@@ -113,14 +113,14 @@ class EmailTrackingOptions(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, add_utm, utm_params, is_tracking_opens, is_tracking_clicks, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, is_tracking_clicks, utm_params, is_tracking_opens, add_utm, *args, **kwargs):  # noqa: E501
         """EmailTrackingOptions - a model defined in OpenAPI
 
         Args:
-            add_utm (bool):
+            is_tracking_clicks (bool):
             utm_params ([UtmParamInfo]):
             is_tracking_opens (bool):
-            is_tracking_clicks (bool):
+            add_utm (bool):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -184,10 +184,10 @@ class EmailTrackingOptions(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.add_utm = add_utm
+        self.is_tracking_clicks = is_tracking_clicks
         self.utm_params = utm_params
         self.is_tracking_opens = is_tracking_opens
-        self.is_tracking_clicks = is_tracking_clicks
+        self.add_utm = add_utm
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -208,14 +208,14 @@ class EmailTrackingOptions(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, add_utm, utm_params, is_tracking_opens, is_tracking_clicks, *args, **kwargs):  # noqa: E501
+    def __init__(self, is_tracking_clicks, utm_params, is_tracking_opens, add_utm, *args, **kwargs):  # noqa: E501
         """EmailTrackingOptions - a model defined in OpenAPI
 
         Args:
-            add_utm (bool):
+            is_tracking_clicks (bool):
             utm_params ([UtmParamInfo]):
             is_tracking_opens (bool):
-            is_tracking_clicks (bool):
+            add_utm (bool):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -277,10 +277,10 @@ class EmailTrackingOptions(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.add_utm = add_utm
+        self.is_tracking_clicks = is_tracking_clicks
         self.utm_params = utm_params
         self.is_tracking_opens = is_tracking_opens
-        self.is_tracking_clicks = is_tracking_clicks
+        self.add_utm = add_utm
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

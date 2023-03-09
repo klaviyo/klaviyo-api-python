@@ -82,7 +82,7 @@ class SegmentPartialUpdateQueryAsSubResourceAttributes(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'name': (str,),  # noqa: E501
+            'name': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -105,7 +105,7 @@ class SegmentPartialUpdateQueryAsSubResourceAttributes(ModelNormal):
         """SegmentPartialUpdateQueryAsSubResourceAttributes - a model defined in OpenAPI
 
         Args:
-            name (str):
+            name (str, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -194,7 +194,7 @@ class SegmentPartialUpdateQueryAsSubResourceAttributes(ModelNormal):
         """SegmentPartialUpdateQueryAsSubResourceAttributes - a model defined in OpenAPI
 
         Args:
-            name (str):
+            name (str, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

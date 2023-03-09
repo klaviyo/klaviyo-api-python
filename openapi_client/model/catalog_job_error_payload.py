@@ -88,11 +88,11 @@ class CatalogJobErrorPayload(ModelNormal):
         """
         lazy_import()
         return {
-            'id': (str,),  # noqa: E501
-            'code': (str,),  # noqa: E501
-            'title': (str,),  # noqa: E501
-            'detail': (str,),  # noqa: E501
             'source': (ErrorSource,),  # noqa: E501
+            'detail': (str,),  # noqa: E501
+            'code': (str,),  # noqa: E501
+            'id': (str,),  # noqa: E501
+            'title': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -101,11 +101,11 @@ class CatalogJobErrorPayload(ModelNormal):
 
 
     attribute_map = {
-        'id': 'id',  # noqa: E501
-        'code': 'code',  # noqa: E501
-        'title': 'title',  # noqa: E501
-        'detail': 'detail',  # noqa: E501
         'source': 'source',  # noqa: E501
+        'detail': 'detail',  # noqa: E501
+        'code': 'code',  # noqa: E501
+        'id': 'id',  # noqa: E501
+        'title': 'title',  # noqa: E501
     }
 
     read_only_vars = {
@@ -115,15 +115,15 @@ class CatalogJobErrorPayload(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, code, title, detail, source, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, source, detail, code, id, title, *args, **kwargs):  # noqa: E501
         """CatalogJobErrorPayload - a model defined in OpenAPI
 
         Args:
-            id (str): Unique identifier for the error.
-            code (str): A code for classifying the error type.
-            title (str): A high-level message about the error.
-            detail (str): Specific details about the error.
             source (ErrorSource):
+            detail (str): Specific details about the error.
+            code (str): A code for classifying the error type.
+            id (str): Unique identifier for the error.
+            title (str): A high-level message about the error.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -187,11 +187,11 @@ class CatalogJobErrorPayload(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.id = id
-        self.code = code
-        self.title = title
-        self.detail = detail
         self.source = source
+        self.detail = detail
+        self.code = code
+        self.id = id
+        self.title = title
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -212,15 +212,15 @@ class CatalogJobErrorPayload(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, code, title, detail, source, *args, **kwargs):  # noqa: E501
+    def __init__(self, source, detail, code, id, title, *args, **kwargs):  # noqa: E501
         """CatalogJobErrorPayload - a model defined in OpenAPI
 
         Args:
-            id (str): Unique identifier for the error.
-            code (str): A code for classifying the error type.
-            title (str): A high-level message about the error.
-            detail (str): Specific details about the error.
             source (ErrorSource):
+            detail (str): Specific details about the error.
+            code (str): A code for classifying the error type.
+            id (str): Unique identifier for the error.
+            title (str): A high-level message about the error.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -282,11 +282,11 @@ class CatalogJobErrorPayload(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.id = id
-        self.code = code
-        self.title = title
-        self.detail = detail
         self.source = source
+        self.detail = detail
+        self.code = code
+        self.id = id
+        self.title = title
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

@@ -82,8 +82,8 @@ class MetricAggregateRowDTO(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'dimensions': ([str],),  # noqa: E501
             'measurements': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
+            'dimensions': ([str],),  # noqa: E501
         }
 
     @cached_property
@@ -92,8 +92,8 @@ class MetricAggregateRowDTO(ModelNormal):
 
 
     attribute_map = {
-        'dimensions': 'dimensions',  # noqa: E501
         'measurements': 'measurements',  # noqa: E501
+        'dimensions': 'dimensions',  # noqa: E501
     }
 
     read_only_vars = {
@@ -103,12 +103,12 @@ class MetricAggregateRowDTO(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, dimensions, measurements, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, measurements, dimensions, *args, **kwargs):  # noqa: E501
         """MetricAggregateRowDTO - a model defined in OpenAPI
 
         Args:
-            dimensions ([str]): List of dimensions associated with this set of measurements
             measurements ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): Dictionary of measurement_key, values
+            dimensions ([str]): List of dimensions associated with this set of measurements
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -172,8 +172,8 @@ class MetricAggregateRowDTO(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.dimensions = dimensions
         self.measurements = measurements
+        self.dimensions = dimensions
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -194,12 +194,12 @@ class MetricAggregateRowDTO(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, dimensions, measurements, *args, **kwargs):  # noqa: E501
+    def __init__(self, measurements, dimensions, *args, **kwargs):  # noqa: E501
         """MetricAggregateRowDTO - a model defined in OpenAPI
 
         Args:
-            dimensions ([str]): List of dimensions associated with this set of measurements
             measurements ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): Dictionary of measurement_key, values
+            dimensions ([str]): List of dimensions associated with this set of measurements
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -261,8 +261,8 @@ class MetricAggregateRowDTO(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.dimensions = dimensions
         self.measurements = measurements
+        self.dimensions = dimensions
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

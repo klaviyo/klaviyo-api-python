@@ -82,7 +82,7 @@ class FlowUpdateQueryAsSubResourceAttributes(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'status': (str,),  # noqa: E501
+            'status': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -105,7 +105,7 @@ class FlowUpdateQueryAsSubResourceAttributes(ModelNormal):
         """FlowUpdateQueryAsSubResourceAttributes - a model defined in OpenAPI
 
         Args:
-            status (str): Status you want to update the flow to. ['draft', 'manual', or 'live']
+            status (str, none_type): Status you want to update the flow to. ['draft', 'manual', or 'live']
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -194,7 +194,7 @@ class FlowUpdateQueryAsSubResourceAttributes(ModelNormal):
         """FlowUpdateQueryAsSubResourceAttributes - a model defined in OpenAPI
 
         Args:
-            status (str): Status you want to update the flow to. ['draft', 'manual', or 'live']
+            status (str, none_type): Status you want to update the flow to. ['draft', 'manual', or 'live']
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

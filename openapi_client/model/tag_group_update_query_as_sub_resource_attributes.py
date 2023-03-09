@@ -82,7 +82,7 @@ class TagGroupUpdateQueryAsSubResourceAttributes(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'name': (str,),  # noqa: E501
+            'name': (str, none_type,),  # noqa: E501
             'return_fields': ([str],),  # noqa: E501
         }
 
@@ -107,7 +107,7 @@ class TagGroupUpdateQueryAsSubResourceAttributes(ModelNormal):
         """TagGroupUpdateQueryAsSubResourceAttributes - a model defined in OpenAPI
 
         Args:
-            name (str): The Tag Group name
+            name (str, none_type): The Tag Group name
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -197,7 +197,7 @@ class TagGroupUpdateQueryAsSubResourceAttributes(ModelNormal):
         """TagGroupUpdateQueryAsSubResourceAttributes - a model defined in OpenAPI
 
         Args:
-            name (str): The Tag Group name
+            name (str, none_type): The Tag Group name
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

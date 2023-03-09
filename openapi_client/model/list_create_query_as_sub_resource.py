@@ -31,8 +31,8 @@ from openapi_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from openapi_client.model.list_create_query_as_sub_resource_attributes import ListCreateQueryAsSubResourceAttributes
-    globals()['ListCreateQueryAsSubResourceAttributes'] = ListCreateQueryAsSubResourceAttributes
+    from openapi_client.model.list_partial_update_query_as_sub_resource_attributes import ListPartialUpdateQueryAsSubResourceAttributes
+    globals()['ListPartialUpdateQueryAsSubResourceAttributes'] = ListPartialUpdateQueryAsSubResourceAttributes
 
 
 class ListCreateQueryAsSubResource(ModelNormal):
@@ -91,8 +91,8 @@ class ListCreateQueryAsSubResource(ModelNormal):
         """
         lazy_import()
         return {
+            'attributes': (ListPartialUpdateQueryAsSubResourceAttributes,),  # noqa: E501
             'type': (str,),  # noqa: E501
-            'attributes': (ListCreateQueryAsSubResourceAttributes,),  # noqa: E501
         }
 
     @cached_property
@@ -101,8 +101,8 @@ class ListCreateQueryAsSubResource(ModelNormal):
 
 
     attribute_map = {
-        'type': 'type',  # noqa: E501
         'attributes': 'attributes',  # noqa: E501
+        'type': 'type',  # noqa: E501
     }
 
     read_only_vars = {
@@ -116,7 +116,7 @@ class ListCreateQueryAsSubResource(ModelNormal):
         """ListCreateQueryAsSubResource - a model defined in OpenAPI
 
         Args:
-            attributes (ListCreateQueryAsSubResourceAttributes):
+            attributes (ListPartialUpdateQueryAsSubResourceAttributes):
 
         Keyword Args:
             type (str): defaults to "list", must be one of ["list", ]  # noqa: E501
@@ -182,8 +182,8 @@ class ListCreateQueryAsSubResource(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.type = type
         self.attributes = attributes
+        self.type = type
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -208,7 +208,7 @@ class ListCreateQueryAsSubResource(ModelNormal):
         """ListCreateQueryAsSubResource - a model defined in OpenAPI
 
         Args:
-            attributes (ListCreateQueryAsSubResourceAttributes):
+            attributes (ListPartialUpdateQueryAsSubResourceAttributes):
 
         Keyword Args:
             type (str): defaults to "list", must be one of ["list", ]  # noqa: E501
@@ -272,8 +272,8 @@ class ListCreateQueryAsSubResource(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.type = type
         self.attributes = attributes
+        self.type = type
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

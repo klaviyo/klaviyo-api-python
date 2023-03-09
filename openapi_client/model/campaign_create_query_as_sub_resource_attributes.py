@@ -94,11 +94,11 @@ class CampaignCreateQueryAsSubResourceAttributes(ModelNormal):
         """
         lazy_import()
         return {
-            'name': (str,),  # noqa: E501
-            'channel': (str,),  # noqa: E501
-            'audiences': (AudiencesSubObject,),  # noqa: E501
-            'send_strategy': (SendStrategySubObject,),  # noqa: E501
+            'name': (str, none_type,),  # noqa: E501
             'send_options': (SendOptionsSubObject,),  # noqa: E501
+            'audiences': (AudiencesSubObject,),  # noqa: E501
+            'channel': (str, none_type,),  # noqa: E501
+            'send_strategy': (SendStrategySubObject,),  # noqa: E501
             'tracking_options': (TrackingOptionsSubObject,),  # noqa: E501
         }
 
@@ -109,10 +109,10 @@ class CampaignCreateQueryAsSubResourceAttributes(ModelNormal):
 
     attribute_map = {
         'name': 'name',  # noqa: E501
-        'channel': 'channel',  # noqa: E501
-        'audiences': 'audiences',  # noqa: E501
-        'send_strategy': 'send_strategy',  # noqa: E501
         'send_options': 'send_options',  # noqa: E501
+        'audiences': 'audiences',  # noqa: E501
+        'channel': 'channel',  # noqa: E501
+        'send_strategy': 'send_strategy',  # noqa: E501
         'tracking_options': 'tracking_options',  # noqa: E501
     }
 
@@ -123,15 +123,15 @@ class CampaignCreateQueryAsSubResourceAttributes(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, name, channel, audiences, send_strategy, send_options, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, name, send_options, audiences, channel, send_strategy, *args, **kwargs):  # noqa: E501
         """CampaignCreateQueryAsSubResourceAttributes - a model defined in OpenAPI
 
         Args:
-            name (str): The campaign name
-            channel (str): The type of campaign (email or sms, for example)
-            audiences (AudiencesSubObject):
-            send_strategy (SendStrategySubObject):
+            name (str, none_type): The campaign name
             send_options (SendOptionsSubObject):
+            audiences (AudiencesSubObject):
+            channel (str, none_type): The type of campaign (email or sms, for example)
+            send_strategy (SendStrategySubObject):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -197,10 +197,10 @@ class CampaignCreateQueryAsSubResourceAttributes(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.name = name
-        self.channel = channel
-        self.audiences = audiences
-        self.send_strategy = send_strategy
         self.send_options = send_options
+        self.audiences = audiences
+        self.channel = channel
+        self.send_strategy = send_strategy
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -221,15 +221,15 @@ class CampaignCreateQueryAsSubResourceAttributes(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, name, channel, audiences, send_strategy, send_options, *args, **kwargs):  # noqa: E501
+    def __init__(self, name, send_options, audiences, channel, send_strategy, *args, **kwargs):  # noqa: E501
         """CampaignCreateQueryAsSubResourceAttributes - a model defined in OpenAPI
 
         Args:
-            name (str): The campaign name
-            channel (str): The type of campaign (email or sms, for example)
-            audiences (AudiencesSubObject):
-            send_strategy (SendStrategySubObject):
+            name (str, none_type): The campaign name
             send_options (SendOptionsSubObject):
+            audiences (AudiencesSubObject):
+            channel (str, none_type): The type of campaign (email or sms, for example)
+            send_strategy (SendStrategySubObject):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -293,10 +293,10 @@ class CampaignCreateQueryAsSubResourceAttributes(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.name = name
-        self.channel = channel
-        self.audiences = audiences
-        self.send_strategy = send_strategy
         self.send_options = send_options
+        self.audiences = audiences
+        self.channel = channel
+        self.send_strategy = send_strategy
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

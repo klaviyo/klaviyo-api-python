@@ -88,11 +88,11 @@ class IncludedFlowMessagesAttributes(ModelNormal):
         """
         lazy_import()
         return {
-            'name': (str,),  # noqa: E501
-            'channel': (str,),  # noqa: E501
             'content': (IncludedFlowMessagesAttributesContent,),  # noqa: E501
-            'created': (datetime,),  # noqa: E501
-            'updated': (datetime,),  # noqa: E501
+            'name': (str, none_type,),  # noqa: E501
+            'channel': (str, none_type,),  # noqa: E501
+            'updated': (datetime, none_type,),  # noqa: E501
+            'created': (datetime, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -101,11 +101,11 @@ class IncludedFlowMessagesAttributes(ModelNormal):
 
 
     attribute_map = {
+        'content': 'content',  # noqa: E501
         'name': 'name',  # noqa: E501
         'channel': 'channel',  # noqa: E501
-        'content': 'content',  # noqa: E501
-        'created': 'created',  # noqa: E501
         'updated': 'updated',  # noqa: E501
+        'created': 'created',  # noqa: E501
     }
 
     read_only_vars = {
@@ -115,13 +115,13 @@ class IncludedFlowMessagesAttributes(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, name, channel, content, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, content, name, channel, *args, **kwargs):  # noqa: E501
         """IncludedFlowMessagesAttributes - a model defined in OpenAPI
 
         Args:
-            name (str):
-            channel (str):
             content (IncludedFlowMessagesAttributesContent):
+            name (str, none_type):
+            channel (str, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -154,8 +154,8 @@ class IncludedFlowMessagesAttributes(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            created (datetime): [optional]  # noqa: E501
-            updated (datetime): [optional]  # noqa: E501
+            updated (datetime, none_type): [optional]  # noqa: E501
+            created (datetime, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -187,9 +187,9 @@ class IncludedFlowMessagesAttributes(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.content = content
         self.name = name
         self.channel = channel
-        self.content = content
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -210,13 +210,13 @@ class IncludedFlowMessagesAttributes(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, name, channel, content, *args, **kwargs):  # noqa: E501
+    def __init__(self, content, name, channel, *args, **kwargs):  # noqa: E501
         """IncludedFlowMessagesAttributes - a model defined in OpenAPI
 
         Args:
-            name (str):
-            channel (str):
             content (IncludedFlowMessagesAttributesContent):
+            name (str, none_type):
+            channel (str, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -249,8 +249,8 @@ class IncludedFlowMessagesAttributes(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            created (datetime): [optional]  # noqa: E501
-            updated (datetime): [optional]  # noqa: E501
+            updated (datetime, none_type): [optional]  # noqa: E501
+            created (datetime, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -280,9 +280,9 @@ class IncludedFlowMessagesAttributes(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.content = content
         self.name = name
         self.channel = channel
-        self.content = content
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

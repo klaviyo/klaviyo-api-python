@@ -82,10 +82,10 @@ class SMSRenderOptions(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'shorten_links': (bool,),  # noqa: E501
-            'add_org_prefix': (bool,),  # noqa: E501
-            'add_info_link': (bool,),  # noqa: E501
             'add_opt_out_language': (bool,),  # noqa: E501
+            'shorten_links': (bool,),  # noqa: E501
+            'add_info_link': (bool,),  # noqa: E501
+            'add_org_prefix': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -94,10 +94,10 @@ class SMSRenderOptions(ModelNormal):
 
 
     attribute_map = {
-        'shorten_links': 'shorten_links',  # noqa: E501
-        'add_org_prefix': 'add_org_prefix',  # noqa: E501
-        'add_info_link': 'add_info_link',  # noqa: E501
         'add_opt_out_language': 'add_opt_out_language',  # noqa: E501
+        'shorten_links': 'shorten_links',  # noqa: E501
+        'add_info_link': 'add_info_link',  # noqa: E501
+        'add_org_prefix': 'add_org_prefix',  # noqa: E501
     }
 
     read_only_vars = {
@@ -107,14 +107,14 @@ class SMSRenderOptions(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, shorten_links, add_org_prefix, add_info_link, add_opt_out_language, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, add_opt_out_language, shorten_links, add_info_link, add_org_prefix, *args, **kwargs):  # noqa: E501
         """SMSRenderOptions - a model defined in OpenAPI
 
         Args:
-            shorten_links (bool):
-            add_org_prefix (bool):
-            add_info_link (bool):
             add_opt_out_language (bool):
+            shorten_links (bool):
+            add_info_link (bool):
+            add_org_prefix (bool):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -178,10 +178,10 @@ class SMSRenderOptions(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.shorten_links = shorten_links
-        self.add_org_prefix = add_org_prefix
-        self.add_info_link = add_info_link
         self.add_opt_out_language = add_opt_out_language
+        self.shorten_links = shorten_links
+        self.add_info_link = add_info_link
+        self.add_org_prefix = add_org_prefix
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -202,14 +202,14 @@ class SMSRenderOptions(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, shorten_links, add_org_prefix, add_info_link, add_opt_out_language, *args, **kwargs):  # noqa: E501
+    def __init__(self, add_opt_out_language, shorten_links, add_info_link, add_org_prefix, *args, **kwargs):  # noqa: E501
         """SMSRenderOptions - a model defined in OpenAPI
 
         Args:
-            shorten_links (bool):
-            add_org_prefix (bool):
-            add_info_link (bool):
             add_opt_out_language (bool):
+            shorten_links (bool):
+            add_info_link (bool):
+            add_org_prefix (bool):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -271,10 +271,10 @@ class SMSRenderOptions(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.shorten_links = shorten_links
-        self.add_org_prefix = add_org_prefix
-        self.add_info_link = add_info_link
         self.add_opt_out_language = add_opt_out_language
+        self.shorten_links = shorten_links
+        self.add_info_link = add_info_link
+        self.add_org_prefix = add_org_prefix
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

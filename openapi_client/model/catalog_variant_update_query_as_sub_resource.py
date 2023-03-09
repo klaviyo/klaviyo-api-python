@@ -91,9 +91,9 @@ class CatalogVariantUpdateQueryAsSubResource(ModelNormal):
         """
         lazy_import()
         return {
+            'attributes': (CatalogVariantUpdateQueryAsSubResourceAttributes,),  # noqa: E501
             'type': (str,),  # noqa: E501
             'id': (str,),  # noqa: E501
-            'attributes': (CatalogVariantUpdateQueryAsSubResourceAttributes,),  # noqa: E501
         }
 
     @cached_property
@@ -102,9 +102,9 @@ class CatalogVariantUpdateQueryAsSubResource(ModelNormal):
 
 
     attribute_map = {
+        'attributes': 'attributes',  # noqa: E501
         'type': 'type',  # noqa: E501
         'id': 'id',  # noqa: E501
-        'attributes': 'attributes',  # noqa: E501
     }
 
     read_only_vars = {
@@ -114,12 +114,12 @@ class CatalogVariantUpdateQueryAsSubResource(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, id, attributes, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, attributes, id, *args, **kwargs):  # noqa: E501
         """CatalogVariantUpdateQueryAsSubResource - a model defined in OpenAPI
 
         Args:
-            id (str): The catalog variant ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.
             attributes (CatalogVariantUpdateQueryAsSubResourceAttributes):
+            id (str): The catalog variant ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.
 
         Keyword Args:
             type (str): defaults to "catalog-variant", must be one of ["catalog-variant", ]  # noqa: E501
@@ -185,9 +185,9 @@ class CatalogVariantUpdateQueryAsSubResource(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.attributes = attributes
         self.type = type
         self.id = id
-        self.attributes = attributes
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -208,12 +208,12 @@ class CatalogVariantUpdateQueryAsSubResource(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, id, attributes, *args, **kwargs):  # noqa: E501
+    def __init__(self, attributes, id, *args, **kwargs):  # noqa: E501
         """CatalogVariantUpdateQueryAsSubResource - a model defined in OpenAPI
 
         Args:
-            id (str): The catalog variant ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.
             attributes (CatalogVariantUpdateQueryAsSubResourceAttributes):
+            id (str): The catalog variant ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.
 
         Keyword Args:
             type (str): defaults to "catalog-variant", must be one of ["catalog-variant", ]  # noqa: E501
@@ -277,9 +277,9 @@ class CatalogVariantUpdateQueryAsSubResource(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.attributes = attributes
         self.type = type
         self.id = id
-        self.attributes = attributes
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

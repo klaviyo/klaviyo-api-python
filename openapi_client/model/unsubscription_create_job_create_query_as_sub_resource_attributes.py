@@ -82,9 +82,9 @@ class UnsubscriptionCreateJobCreateQueryAsSubResourceAttributes(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'list_id': (str,),  # noqa: E501
-            'emails': ([str],),  # noqa: E501
             'phone_numbers': ([str],),  # noqa: E501
+            'emails': ([str],),  # noqa: E501
+            'list_id': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -93,9 +93,9 @@ class UnsubscriptionCreateJobCreateQueryAsSubResourceAttributes(ModelNormal):
 
 
     attribute_map = {
-        'list_id': 'list_id',  # noqa: E501
-        'emails': 'emails',  # noqa: E501
         'phone_numbers': 'phone_numbers',  # noqa: E501
+        'emails': 'emails',  # noqa: E501
+        'list_id': 'list_id',  # noqa: E501
     }
 
     read_only_vars = {
@@ -139,9 +139,9 @@ class UnsubscriptionCreateJobCreateQueryAsSubResourceAttributes(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            list_id (str): Optional, the list to remove the profiles from. [optional]  # noqa: E501
-            emails ([str]): The emails to unsubscribe if any.. [optional]  # noqa: E501
             phone_numbers ([str]): The phone numbers to unsubscribe if any.. [optional]  # noqa: E501
+            emails ([str]): The emails to unsubscribe if any.. [optional]  # noqa: E501
+            list_id (str, none_type): Optional, the list to remove the profiles from. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -227,9 +227,9 @@ class UnsubscriptionCreateJobCreateQueryAsSubResourceAttributes(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            list_id (str): Optional, the list to remove the profiles from. [optional]  # noqa: E501
-            emails ([str]): The emails to unsubscribe if any.. [optional]  # noqa: E501
             phone_numbers ([str]): The phone numbers to unsubscribe if any.. [optional]  # noqa: E501
+            emails ([str]): The emails to unsubscribe if any.. [optional]  # noqa: E501
+            list_id (str, none_type): Optional, the list to remove the profiles from. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
