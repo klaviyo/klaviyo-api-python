@@ -32,9 +32,9 @@ from openapi_client.exceptions import ApiAttributeError
 
 def lazy_import():
     from openapi_client.model.onsite_profile_meta import OnsiteProfileMeta
-    from openapi_client.model.profile_create_query_as_sub_resource_attributes import ProfileCreateQueryAsSubResourceAttributes
+    from openapi_client.model.profile_partial_update_query_as_sub_resource_attributes import ProfilePartialUpdateQueryAsSubResourceAttributes
     globals()['OnsiteProfileMeta'] = OnsiteProfileMeta
-    globals()['ProfileCreateQueryAsSubResourceAttributes'] = ProfileCreateQueryAsSubResourceAttributes
+    globals()['ProfilePartialUpdateQueryAsSubResourceAttributes'] = ProfilePartialUpdateQueryAsSubResourceAttributes
 
 
 class OnsiteProfileCreateQueryAsSubResource(ModelNormal):
@@ -93,8 +93,8 @@ class OnsiteProfileCreateQueryAsSubResource(ModelNormal):
         """
         lazy_import()
         return {
+            'attributes': (ProfilePartialUpdateQueryAsSubResourceAttributes,),  # noqa: E501
             'type': (str,),  # noqa: E501
-            'attributes': (ProfileCreateQueryAsSubResourceAttributes,),  # noqa: E501
             'meta': (OnsiteProfileMeta,),  # noqa: E501
         }
 
@@ -104,8 +104,8 @@ class OnsiteProfileCreateQueryAsSubResource(ModelNormal):
 
 
     attribute_map = {
-        'type': 'type',  # noqa: E501
         'attributes': 'attributes',  # noqa: E501
+        'type': 'type',  # noqa: E501
         'meta': 'meta',  # noqa: E501
     }
 
@@ -120,7 +120,7 @@ class OnsiteProfileCreateQueryAsSubResource(ModelNormal):
         """OnsiteProfileCreateQueryAsSubResource - a model defined in OpenAPI
 
         Args:
-            attributes (ProfileCreateQueryAsSubResourceAttributes):
+            attributes (ProfilePartialUpdateQueryAsSubResourceAttributes):
 
         Keyword Args:
             type (str): defaults to "profile", must be one of ["profile", ]  # noqa: E501
@@ -187,8 +187,8 @@ class OnsiteProfileCreateQueryAsSubResource(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.type = type
         self.attributes = attributes
+        self.type = type
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -213,7 +213,7 @@ class OnsiteProfileCreateQueryAsSubResource(ModelNormal):
         """OnsiteProfileCreateQueryAsSubResource - a model defined in OpenAPI
 
         Args:
-            attributes (ProfileCreateQueryAsSubResourceAttributes):
+            attributes (ProfilePartialUpdateQueryAsSubResourceAttributes):
 
         Keyword Args:
             type (str): defaults to "profile", must be one of ["profile", ]  # noqa: E501
@@ -278,8 +278,8 @@ class OnsiteProfileCreateQueryAsSubResource(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.type = type
         self.attributes = attributes
+        self.type = type
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

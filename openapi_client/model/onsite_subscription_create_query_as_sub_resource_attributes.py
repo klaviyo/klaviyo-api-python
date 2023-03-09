@@ -82,11 +82,11 @@ class OnsiteSubscriptionCreateQueryAsSubResourceAttributes(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'list_id': (str,),  # noqa: E501
-            'custom_source': (str,),  # noqa: E501
-            'email': (str,),  # noqa: E501
-            'phone_number': (str,),  # noqa: E501
+            'list_id': (str, none_type,),  # noqa: E501
+            'phone_number': (str, none_type,),  # noqa: E501
             'properties': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
+            'email': (str, none_type,),  # noqa: E501
+            'custom_source': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -96,10 +96,10 @@ class OnsiteSubscriptionCreateQueryAsSubResourceAttributes(ModelNormal):
 
     attribute_map = {
         'list_id': 'list_id',  # noqa: E501
-        'custom_source': 'custom_source',  # noqa: E501
-        'email': 'email',  # noqa: E501
         'phone_number': 'phone_number',  # noqa: E501
         'properties': 'properties',  # noqa: E501
+        'email': 'email',  # noqa: E501
+        'custom_source': 'custom_source',  # noqa: E501
     }
 
     read_only_vars = {
@@ -113,7 +113,7 @@ class OnsiteSubscriptionCreateQueryAsSubResourceAttributes(ModelNormal):
         """OnsiteSubscriptionCreateQueryAsSubResourceAttributes - a model defined in OpenAPI
 
         Args:
-            list_id (str): The list ID to add the newly subscribed profile to.
+            list_id (str, none_type): The list ID to add the newly subscribed profile to.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -146,10 +146,10 @@ class OnsiteSubscriptionCreateQueryAsSubResourceAttributes(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            custom_source (str): A custom method detail or source to store on the consent records for this subscription.. [optional]  # noqa: E501
-            email (str): Email address to create subscription and email consent record for.. [optional]  # noqa: E501
-            phone_number (str): Phone number to create subscription and SMS consent record for, in E.164 format.. [optional]  # noqa: E501
+            phone_number (str, none_type): Phone number to create subscription and SMS consent record for, in E.164 format.. [optional]  # noqa: E501
             properties ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): Profile properties to set on the newly subscribed profile.. [optional]  # noqa: E501
+            email (str, none_type): Email address to create subscription and email consent record for.. [optional]  # noqa: E501
+            custom_source (str, none_type): A custom method detail or source to store on the consent records for this subscription.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -206,7 +206,7 @@ class OnsiteSubscriptionCreateQueryAsSubResourceAttributes(ModelNormal):
         """OnsiteSubscriptionCreateQueryAsSubResourceAttributes - a model defined in OpenAPI
 
         Args:
-            list_id (str): The list ID to add the newly subscribed profile to.
+            list_id (str, none_type): The list ID to add the newly subscribed profile to.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -239,10 +239,10 @@ class OnsiteSubscriptionCreateQueryAsSubResourceAttributes(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            custom_source (str): A custom method detail or source to store on the consent records for this subscription.. [optional]  # noqa: E501
-            email (str): Email address to create subscription and email consent record for.. [optional]  # noqa: E501
-            phone_number (str): Phone number to create subscription and SMS consent record for, in E.164 format.. [optional]  # noqa: E501
+            phone_number (str, none_type): Phone number to create subscription and SMS consent record for, in E.164 format.. [optional]  # noqa: E501
             properties ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): Profile properties to set on the newly subscribed profile.. [optional]  # noqa: E501
+            email (str, none_type): Email address to create subscription and email consent record for.. [optional]  # noqa: E501
+            custom_source (str, none_type): A custom method detail or source to store on the consent records for this subscription.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

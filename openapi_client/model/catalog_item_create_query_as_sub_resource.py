@@ -93,8 +93,8 @@ class CatalogItemCreateQueryAsSubResource(ModelNormal):
         """
         lazy_import()
         return {
-            'type': (str,),  # noqa: E501
             'attributes': (CatalogItemCreateQueryAsSubResourceAttributes,),  # noqa: E501
+            'type': (str,),  # noqa: E501
             'relationships': (CatalogItemCreateQueryAsSubResourceRelationships,),  # noqa: E501
         }
 
@@ -104,8 +104,8 @@ class CatalogItemCreateQueryAsSubResource(ModelNormal):
 
 
     attribute_map = {
-        'type': 'type',  # noqa: E501
         'attributes': 'attributes',  # noqa: E501
+        'type': 'type',  # noqa: E501
         'relationships': 'relationships',  # noqa: E501
     }
 
@@ -187,8 +187,8 @@ class CatalogItemCreateQueryAsSubResource(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.type = type
         self.attributes = attributes
+        self.type = type
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -278,8 +278,8 @@ class CatalogItemCreateQueryAsSubResource(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.type = type
         self.attributes = attributes
+        self.type = type
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

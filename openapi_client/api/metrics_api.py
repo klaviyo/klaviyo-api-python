@@ -22,7 +22,7 @@ from openapi_client.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from openapi_client.model.get_campaigns4_xx_response import GetCampaigns4XXResponse
+from openapi_client.model.get_create_variants_jobs5_xx_response import GetCreateVariantsJobs5XXResponse
 from openapi_client.model.metric_aggregate_query import MetricAggregateQuery
 
 

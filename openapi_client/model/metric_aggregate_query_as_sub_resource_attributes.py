@@ -56,50 +56,20 @@ class MetricAggregateQueryAsSubResourceAttributes(ModelNormal):
     """
 
     allowed_values = {
-        ('measurements',): {
-            'COUNT': "count",
-            'SUM_VALUE': "sum_value",
-            'UNIQUE': "unique",
-        },
         ('interval',): {
+            'None': None,
             'DAY': "day",
             'HOUR': "hour",
             'MONTH': "month",
             'WEEK': "week",
         },
-        ('by',): {
-            '$ATTRIBUTED_CHANNEL': "$attributed_channel",
-            '$ATTRIBUTED_FLOW': "$attributed_flow",
-            '$ATTRIBUTED_MESSAGE': "$attributed_message",
-            '$ATTRIBUTED_VARIATION': "$attributed_variation",
-            '$CAMPAIGN_CHANNEL': "$campaign_channel",
-            '$FLOW': "$flow",
-            '$FLOW_CHANNEL': "$flow_channel",
-            '$MESSAGE': "$message",
-            '$MESSAGE_SEND_COHORT': "$message_send_cohort",
-            '$VARIATION': "$variation",
-            '$VARIATION_SEND_COHORT': "$variation_send_cohort",
-            'BOUNCE_TYPE': "Bounce Type",
-            'CAMPAIGN_NAME': "Campaign Name",
-            'CLIENT_CANONICAL': "Client Canonical",
-            'CLIENT_NAME': "Client Name",
-            'CLIENT_TYPE': "Client Type",
-            'EMAIL_DOMAIN': "Email Domain",
-            'FAILURE_SOURCE': "Failure Source",
-            'FAILURE_TYPE': "Failure Type",
-            'FROM_NUMBER': "From Number",
-            'FROM_PHONE_REGION': "From Phone Region",
-            'LIST': "List",
-            'MESSAGE_NAME': "Message Name",
-            'MESSAGE_TYPE': "Message Type",
-            'METHOD': "Method",
-            'SUBJECT': "Subject",
-            'TO_NUMBER': "To Number",
-            'TO_PHONE_REGION': "To Phone Region",
-            'URL': "URL",
-            'FORM_ID': "form_id",
+        ('measurements',): {
+            'COUNT': "count",
+            'SUM_VALUE': "sum_value",
+            'UNIQUE': "unique",
         },
         ('sort',): {
+            'None': None,
             '$ATTRIBUTED_CHANNEL': "$attributed_channel",
             '-$ATTRIBUTED_CHANNEL': "-$attributed_channel",
             '$ATTRIBUTED_FLOW': "$attributed_flow",
@@ -167,6 +137,38 @@ class MetricAggregateQueryAsSubResourceAttributes(ModelNormal):
             'UNIQUE': "unique",
             '-UNIQUE': "-unique",
         },
+        ('by',): {
+            '$ATTRIBUTED_CHANNEL': "$attributed_channel",
+            '$ATTRIBUTED_FLOW': "$attributed_flow",
+            '$ATTRIBUTED_MESSAGE': "$attributed_message",
+            '$ATTRIBUTED_VARIATION': "$attributed_variation",
+            '$CAMPAIGN_CHANNEL': "$campaign_channel",
+            '$FLOW': "$flow",
+            '$FLOW_CHANNEL': "$flow_channel",
+            '$MESSAGE': "$message",
+            '$MESSAGE_SEND_COHORT': "$message_send_cohort",
+            '$VARIATION': "$variation",
+            '$VARIATION_SEND_COHORT': "$variation_send_cohort",
+            'BOUNCE_TYPE': "Bounce Type",
+            'CAMPAIGN_NAME': "Campaign Name",
+            'CLIENT_CANONICAL': "Client Canonical",
+            'CLIENT_NAME': "Client Name",
+            'CLIENT_TYPE': "Client Type",
+            'EMAIL_DOMAIN': "Email Domain",
+            'FAILURE_SOURCE': "Failure Source",
+            'FAILURE_TYPE': "Failure Type",
+            'FROM_NUMBER': "From Number",
+            'FROM_PHONE_REGION': "From Phone Region",
+            'LIST': "List",
+            'MESSAGE_NAME': "Message Name",
+            'MESSAGE_TYPE': "Message Type",
+            'METHOD': "Method",
+            'SUBJECT': "Subject",
+            'TO_NUMBER': "To Number",
+            'TO_PHONE_REGION': "To Phone Region",
+            'URL': "URL",
+            'FORM_ID': "form_id",
+        },
     }
 
     validations = {
@@ -193,16 +195,16 @@ class MetricAggregateQueryAsSubResourceAttributes(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'metric_id': (str,),  # noqa: E501
+            'interval': (str, none_type,),  # noqa: E501
+            'metric_id': (str, none_type,),  # noqa: E501
             'measurements': ([str],),  # noqa: E501
-            'interval': (str,),  # noqa: E501
             'filter': ([str],),  # noqa: E501
-            'page_cursor': (str,),  # noqa: E501
-            'page_size': (int,),  # noqa: E501
-            'by': ([str],),  # noqa: E501
+            'sort': (str, none_type,),  # noqa: E501
+            'page_cursor': (str, none_type,),  # noqa: E501
             'return_fields': ([str],),  # noqa: E501
-            'timezone': (str,),  # noqa: E501
-            'sort': (str,),  # noqa: E501
+            'page_size': (int,),  # noqa: E501
+            'timezone': (str, none_type,),  # noqa: E501
+            'by': ([str],),  # noqa: E501
         }
 
     @cached_property
@@ -211,16 +213,16 @@ class MetricAggregateQueryAsSubResourceAttributes(ModelNormal):
 
 
     attribute_map = {
+        'interval': 'interval',  # noqa: E501
         'metric_id': 'metric_id',  # noqa: E501
         'measurements': 'measurements',  # noqa: E501
-        'interval': 'interval',  # noqa: E501
         'filter': 'filter',  # noqa: E501
-        'page_cursor': 'page_cursor',  # noqa: E501
-        'page_size': 'page_size',  # noqa: E501
-        'by': 'by',  # noqa: E501
-        'return_fields': 'return_fields',  # noqa: E501
-        'timezone': 'timezone',  # noqa: E501
         'sort': 'sort',  # noqa: E501
+        'page_cursor': 'page_cursor',  # noqa: E501
+        'return_fields': 'return_fields',  # noqa: E501
+        'page_size': 'page_size',  # noqa: E501
+        'timezone': 'timezone',  # noqa: E501
+        'by': 'by',  # noqa: E501
     }
 
     read_only_vars = {
@@ -230,13 +232,13 @@ class MetricAggregateQueryAsSubResourceAttributes(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, metric_id, measurements, interval, filter, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, interval, metric_id, measurements, filter, *args, **kwargs):  # noqa: E501
         """MetricAggregateQueryAsSubResourceAttributes - a model defined in OpenAPI
 
         Args:
-            metric_id (str): The metric ID used in the aggregation.
+            interval (str, none_type): Aggregation interval, e.g. \"hour\", \"day\", \"week\", \"month\"
+            metric_id (str, none_type): The metric ID used in the aggregation.
             measurements ([str]): Measurement key, e.g. `unique`, `sum_value`, `count`
-            interval (str): Aggregation interval, e.g. \"hour\", \"day\", \"week\", \"month\"
             filter ([str]): List of filters, must include time range using ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm).             These filters follow a similar format to those in `GET` requests, the primary difference is that this endpoint asks for a list.             The time range can be filtered by providing a `greater-or-equal` and a `less-than` filter on the `datetime` field.
 
         Keyword Args:
@@ -270,12 +272,12 @@ class MetricAggregateQueryAsSubResourceAttributes(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            page_cursor (str): Optional pagination cursor to iterate over large result sets. [optional]  # noqa: E501
-            page_size (int): Alter the maximum number of returned rows in a single page of aggregation results. [optional] if omitted the server will use the default value of 500  # noqa: E501
-            by ([str]): Optional attribute(s) used for partitioning by the aggregation function. [optional]  # noqa: E501
+            sort (str, none_type): Provide a sort key (e.g. -$message). [optional]  # noqa: E501
+            page_cursor (str, none_type): Optional pagination cursor to iterate over large result sets. [optional]  # noqa: E501
             return_fields ([str]): Provide fields to limit the returned data. [optional]  # noqa: E501
-            timezone (str): The timezone used for processing the query, e.g. `'America/New_York'`.             This field is validated against a list of common timezones from the [IANA Time Zone Database](https://www.iana.org/time-zones).             While most are supported, a few notable exceptions are `Factory`, `Europe/Kyiv` and `Pacific/Kanton`. This field is case-sensitive.. [optional] if omitted the server will use the default value of "UTC"  # noqa: E501
-            sort (str): Provide a sort key (e.g. -$message). [optional]  # noqa: E501
+            page_size (int): Alter the maximum number of returned rows in a single page of aggregation results. [optional] if omitted the server will use the default value of 500  # noqa: E501
+            timezone (str, none_type): The timezone used for processing the query, e.g. `'America/New_York'`.             This field is validated against a list of common timezones from the [IANA Time Zone Database](https://www.iana.org/time-zones).             While most are supported, a few notable exceptions are `Factory`, `Europe/Kyiv` and `Pacific/Kanton`. This field is case-sensitive.. [optional] if omitted the server will use the default value of "UTC"  # noqa: E501
+            by ([str]): Optional attribute(s) used for partitioning by the aggregation function. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -307,9 +309,9 @@ class MetricAggregateQueryAsSubResourceAttributes(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.interval = interval
         self.metric_id = metric_id
         self.measurements = measurements
-        self.interval = interval
         self.filter = filter
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
@@ -331,13 +333,13 @@ class MetricAggregateQueryAsSubResourceAttributes(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, metric_id, measurements, interval, filter, *args, **kwargs):  # noqa: E501
+    def __init__(self, interval, metric_id, measurements, filter, *args, **kwargs):  # noqa: E501
         """MetricAggregateQueryAsSubResourceAttributes - a model defined in OpenAPI
 
         Args:
-            metric_id (str): The metric ID used in the aggregation.
+            interval (str, none_type): Aggregation interval, e.g. \"hour\", \"day\", \"week\", \"month\"
+            metric_id (str, none_type): The metric ID used in the aggregation.
             measurements ([str]): Measurement key, e.g. `unique`, `sum_value`, `count`
-            interval (str): Aggregation interval, e.g. \"hour\", \"day\", \"week\", \"month\"
             filter ([str]): List of filters, must include time range using ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm).             These filters follow a similar format to those in `GET` requests, the primary difference is that this endpoint asks for a list.             The time range can be filtered by providing a `greater-or-equal` and a `less-than` filter on the `datetime` field.
 
         Keyword Args:
@@ -371,12 +373,12 @@ class MetricAggregateQueryAsSubResourceAttributes(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            page_cursor (str): Optional pagination cursor to iterate over large result sets. [optional]  # noqa: E501
-            page_size (int): Alter the maximum number of returned rows in a single page of aggregation results. [optional] if omitted the server will use the default value of 500  # noqa: E501
-            by ([str]): Optional attribute(s) used for partitioning by the aggregation function. [optional]  # noqa: E501
+            sort (str, none_type): Provide a sort key (e.g. -$message). [optional]  # noqa: E501
+            page_cursor (str, none_type): Optional pagination cursor to iterate over large result sets. [optional]  # noqa: E501
             return_fields ([str]): Provide fields to limit the returned data. [optional]  # noqa: E501
-            timezone (str): The timezone used for processing the query, e.g. `'America/New_York'`.             This field is validated against a list of common timezones from the [IANA Time Zone Database](https://www.iana.org/time-zones).             While most are supported, a few notable exceptions are `Factory`, `Europe/Kyiv` and `Pacific/Kanton`. This field is case-sensitive.. [optional] if omitted the server will use the default value of "UTC"  # noqa: E501
-            sort (str): Provide a sort key (e.g. -$message). [optional]  # noqa: E501
+            page_size (int): Alter the maximum number of returned rows in a single page of aggregation results. [optional] if omitted the server will use the default value of 500  # noqa: E501
+            timezone (str, none_type): The timezone used for processing the query, e.g. `'America/New_York'`.             This field is validated against a list of common timezones from the [IANA Time Zone Database](https://www.iana.org/time-zones).             While most are supported, a few notable exceptions are `Factory`, `Europe/Kyiv` and `Pacific/Kanton`. This field is case-sensitive.. [optional] if omitted the server will use the default value of "UTC"  # noqa: E501
+            by ([str]): Optional attribute(s) used for partitioning by the aggregation function. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -406,9 +408,9 @@ class MetricAggregateQueryAsSubResourceAttributes(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.interval = interval
         self.metric_id = metric_id
         self.measurements = measurements
-        self.interval = interval
         self.filter = filter
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \

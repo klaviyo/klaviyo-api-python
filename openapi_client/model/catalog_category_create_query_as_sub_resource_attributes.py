@@ -57,6 +57,7 @@ class CatalogCategoryCreateQueryAsSubResourceAttributes(ModelNormal):
 
     allowed_values = {
         ('integration_type',): {
+            'None': None,
             '$CUSTOM': "$custom",
         },
     }
@@ -85,10 +86,10 @@ class CatalogCategoryCreateQueryAsSubResourceAttributes(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'external_id': (str,),  # noqa: E501
-            'name': (str,),  # noqa: E501
-            'integration_type': (str,),  # noqa: E501
-            'catalog_type': (str,),  # noqa: E501
+            'external_id': (str, none_type,),  # noqa: E501
+            'name': (str, none_type,),  # noqa: E501
+            'catalog_type': (str, none_type,),  # noqa: E501
+            'integration_type': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -99,8 +100,8 @@ class CatalogCategoryCreateQueryAsSubResourceAttributes(ModelNormal):
     attribute_map = {
         'external_id': 'external_id',  # noqa: E501
         'name': 'name',  # noqa: E501
-        'integration_type': 'integration_type',  # noqa: E501
         'catalog_type': 'catalog_type',  # noqa: E501
+        'integration_type': 'integration_type',  # noqa: E501
     }
 
     read_only_vars = {
@@ -114,8 +115,8 @@ class CatalogCategoryCreateQueryAsSubResourceAttributes(ModelNormal):
         """CatalogCategoryCreateQueryAsSubResourceAttributes - a model defined in OpenAPI
 
         Args:
-            external_id (str): The ID of the catalog category in an external system.
-            name (str): The name of the catalog category.
+            external_id (str, none_type): The ID of the catalog category in an external system.
+            name (str, none_type): The name of the catalog category.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -148,8 +149,8 @@ class CatalogCategoryCreateQueryAsSubResourceAttributes(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            integration_type (str): The integration type. Currently only \"$custom\" is supported.. [optional] if omitted the server will use the default value of "$custom"  # noqa: E501
-            catalog_type (str): The type of catalog. Currently only \"$default\" is supported.. [optional] if omitted the server will use the default value of "$default"  # noqa: E501
+            catalog_type (str, none_type): The type of catalog. Currently only \"$default\" is supported.. [optional] if omitted the server will use the default value of "$default"  # noqa: E501
+            integration_type (str, none_type): The integration type. Currently only \"$custom\" is supported.. [optional] if omitted the server will use the default value of "$custom"  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -207,8 +208,8 @@ class CatalogCategoryCreateQueryAsSubResourceAttributes(ModelNormal):
         """CatalogCategoryCreateQueryAsSubResourceAttributes - a model defined in OpenAPI
 
         Args:
-            external_id (str): The ID of the catalog category in an external system.
-            name (str): The name of the catalog category.
+            external_id (str, none_type): The ID of the catalog category in an external system.
+            name (str, none_type): The name of the catalog category.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -241,8 +242,8 @@ class CatalogCategoryCreateQueryAsSubResourceAttributes(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            integration_type (str): The integration type. Currently only \"$custom\" is supported.. [optional] if omitted the server will use the default value of "$custom"  # noqa: E501
-            catalog_type (str): The type of catalog. Currently only \"$default\" is supported.. [optional] if omitted the server will use the default value of "$default"  # noqa: E501
+            catalog_type (str, none_type): The type of catalog. Currently only \"$default\" is supported.. [optional] if omitted the server will use the default value of "$default"  # noqa: E501
+            integration_type (str, none_type): The integration type. Currently only \"$custom\" is supported.. [optional] if omitted the server will use the default value of "$custom"  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

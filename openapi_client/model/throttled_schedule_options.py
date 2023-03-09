@@ -82,8 +82,8 @@ class ThrottledScheduleOptions(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'datetime': (datetime,),  # noqa: E501
             'throttle_percentage': (int,),  # noqa: E501
+            'datetime': (datetime,),  # noqa: E501
         }
 
     @cached_property
@@ -92,8 +92,8 @@ class ThrottledScheduleOptions(ModelNormal):
 
 
     attribute_map = {
-        'datetime': 'datetime',  # noqa: E501
         'throttle_percentage': 'throttle_percentage',  # noqa: E501
+        'datetime': 'datetime',  # noqa: E501
     }
 
     read_only_vars = {
@@ -103,12 +103,12 @@ class ThrottledScheduleOptions(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, datetime, throttle_percentage, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, throttle_percentage, datetime, *args, **kwargs):  # noqa: E501
         """ThrottledScheduleOptions - a model defined in OpenAPI
 
         Args:
-            datetime (datetime): The time to send at
             throttle_percentage (int): The percentage of recipients per hour to send to. Allowed values: [10, 11, 13, 14, 17, 20, 25, 33, 50]
+            datetime (datetime): The time to send at
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -172,8 +172,8 @@ class ThrottledScheduleOptions(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.datetime = datetime
         self.throttle_percentage = throttle_percentage
+        self.datetime = datetime
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -194,12 +194,12 @@ class ThrottledScheduleOptions(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, datetime, throttle_percentage, *args, **kwargs):  # noqa: E501
+    def __init__(self, throttle_percentage, datetime, *args, **kwargs):  # noqa: E501
         """ThrottledScheduleOptions - a model defined in OpenAPI
 
         Args:
-            datetime (datetime): The time to send at
             throttle_percentage (int): The percentage of recipients per hour to send to. Allowed values: [10, 11, 13, 14, 17, 20, 25, 33, 50]
+            datetime (datetime): The time to send at
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -261,8 +261,8 @@ class ThrottledScheduleOptions(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.datetime = datetime
         self.throttle_percentage = throttle_percentage
+        self.datetime = datetime
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

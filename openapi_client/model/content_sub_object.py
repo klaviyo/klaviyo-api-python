@@ -82,12 +82,12 @@ class ContentSubObject(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'subject': (str,),  # noqa: E501
-            'preview_text': (str,),  # noqa: E501
-            'from_email': (str,),  # noqa: E501
-            'from_label': (str,),  # noqa: E501
-            'template_id': (str,),  # noqa: E501
             'template_name': (str,),  # noqa: E501
+            'from_label': (str,),  # noqa: E501
+            'from_email': (str,),  # noqa: E501
+            'preview_text': (str,),  # noqa: E501
+            'template_id': (str,),  # noqa: E501
+            'subject': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -96,12 +96,12 @@ class ContentSubObject(ModelNormal):
 
 
     attribute_map = {
-        'subject': 'subject',  # noqa: E501
-        'preview_text': 'preview_text',  # noqa: E501
-        'from_email': 'from_email',  # noqa: E501
-        'from_label': 'from_label',  # noqa: E501
-        'template_id': 'template_id',  # noqa: E501
         'template_name': 'template_name',  # noqa: E501
+        'from_label': 'from_label',  # noqa: E501
+        'from_email': 'from_email',  # noqa: E501
+        'preview_text': 'preview_text',  # noqa: E501
+        'template_id': 'template_id',  # noqa: E501
+        'subject': 'subject',  # noqa: E501
     }
 
     read_only_vars = {
@@ -145,12 +145,12 @@ class ContentSubObject(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            subject (str): The subject of the message. [optional]  # noqa: E501
-            preview_text (str): Preview text associated with the message. [optional]  # noqa: E501
-            from_email (str): The email the message should be sent from. [optional]  # noqa: E501
-            from_label (str): The label associated with the from_email. [optional]  # noqa: E501
-            template_id (str): The ID of the template associated to the message. [optional]  # noqa: E501
             template_name (str): The name of the template associated to the message. [optional]  # noqa: E501
+            from_label (str): The label associated with the from_email. [optional]  # noqa: E501
+            from_email (str): The email the message should be sent from. [optional]  # noqa: E501
+            preview_text (str): Preview text associated with the message. [optional]  # noqa: E501
+            template_id (str): The ID of the template associated to the message. [optional]  # noqa: E501
+            subject (str): The subject of the message. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -236,12 +236,12 @@ class ContentSubObject(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            subject (str): The subject of the message. [optional]  # noqa: E501
-            preview_text (str): Preview text associated with the message. [optional]  # noqa: E501
-            from_email (str): The email the message should be sent from. [optional]  # noqa: E501
-            from_label (str): The label associated with the from_email. [optional]  # noqa: E501
-            template_id (str): The ID of the template associated to the message. [optional]  # noqa: E501
             template_name (str): The name of the template associated to the message. [optional]  # noqa: E501
+            from_label (str): The label associated with the from_email. [optional]  # noqa: E501
+            from_email (str): The email the message should be sent from. [optional]  # noqa: E501
+            preview_text (str): Preview text associated with the message. [optional]  # noqa: E501
+            template_id (str): The ID of the template associated to the message. [optional]  # noqa: E501
+            subject (str): The subject of the message. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

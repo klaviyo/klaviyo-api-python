@@ -82,7 +82,7 @@ class CampaignRecipientEstimationJobCreateQueryAsSubResourceAttributes(ModelNorm
                 and the value is attribute type.
         """
         return {
-            'id': (str,),  # noqa: E501
+            'id': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -105,7 +105,7 @@ class CampaignRecipientEstimationJobCreateQueryAsSubResourceAttributes(ModelNorm
         """CampaignRecipientEstimationJobCreateQueryAsSubResourceAttributes - a model defined in OpenAPI
 
         Args:
-            id (str): The ID of the campaign to perform recipient estimation
+            id (str, none_type): The ID of the campaign to perform recipient estimation
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -194,7 +194,7 @@ class CampaignRecipientEstimationJobCreateQueryAsSubResourceAttributes(ModelNorm
         """CampaignRecipientEstimationJobCreateQueryAsSubResourceAttributes - a model defined in OpenAPI
 
         Args:
-            id (str): The ID of the campaign to perform recipient estimation
+            id (str, none_type): The ID of the campaign to perform recipient estimation
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

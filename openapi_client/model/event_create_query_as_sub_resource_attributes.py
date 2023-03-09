@@ -91,9 +91,9 @@ class EventCreateQueryAsSubResourceAttributes(ModelNormal):
             'profile': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
             'metric': (MetricCreateQuery,),  # noqa: E501
             'properties': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
-            'time': (datetime,),  # noqa: E501
             'value': (float,),  # noqa: E501
-            'unique_id': (str,),  # noqa: E501
+            'time': (datetime, none_type,),  # noqa: E501
+            'unique_id': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -105,8 +105,8 @@ class EventCreateQueryAsSubResourceAttributes(ModelNormal):
         'profile': 'profile',  # noqa: E501
         'metric': 'metric',  # noqa: E501
         'properties': 'properties',  # noqa: E501
-        'time': 'time',  # noqa: E501
         'value': 'value',  # noqa: E501
+        'time': 'time',  # noqa: E501
         'unique_id': 'unique_id',  # noqa: E501
     }
 
@@ -156,9 +156,9 @@ class EventCreateQueryAsSubResourceAttributes(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            time (datetime):  When this event occurred. By default, the time the request was received will be used. The time is truncated to the second. The time must be after the year 2000 and can only be up to 1 year in the future. . [optional]  # noqa: E501
             value (float): A numeric value to associate with this event. For example, the dollar amount of a purchase.. [optional]  # noqa: E501
-            unique_id (str):  A unique identifier for an event. If the unique_id is repeated for the same profile and metric, only the first processed event will be recorded. If this is not present, this will use the time to the second. Using the default, this limits only one event per profile per second. . [optional]  # noqa: E501
+            time (datetime, none_type):  When this event occurred. By default, the time the request was received will be used. The time is truncated to the second. The time must be after the year 2000 and can only be up to 1 year in the future. . [optional]  # noqa: E501
+            unique_id (str, none_type):  A unique identifier for an event. If the unique_id is repeated for the same profile and metric, only the first processed event will be recorded. If this is not present, this will use the time to the second. Using the default, this limits only one event per profile per second. . [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -252,9 +252,9 @@ class EventCreateQueryAsSubResourceAttributes(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            time (datetime):  When this event occurred. By default, the time the request was received will be used. The time is truncated to the second. The time must be after the year 2000 and can only be up to 1 year in the future. . [optional]  # noqa: E501
             value (float): A numeric value to associate with this event. For example, the dollar amount of a purchase.. [optional]  # noqa: E501
-            unique_id (str):  A unique identifier for an event. If the unique_id is repeated for the same profile and metric, only the first processed event will be recorded. If this is not present, this will use the time to the second. Using the default, this limits only one event per profile per second. . [optional]  # noqa: E501
+            time (datetime, none_type):  When this event occurred. By default, the time the request was received will be used. The time is truncated to the second. The time must be after the year 2000 and can only be up to 1 year in the future. . [optional]  # noqa: E501
+            unique_id (str, none_type):  A unique identifier for an event. If the unique_id is repeated for the same profile and metric, only the first processed event will be recorded. If this is not present, this will use the time to the second. Using the default, this limits only one event per profile per second. . [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

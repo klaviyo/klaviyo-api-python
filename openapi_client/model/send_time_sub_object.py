@@ -82,8 +82,8 @@ class SendTimeSubObject(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'datetime': (datetime,),  # noqa: E501
             'is_local': (bool,),  # noqa: E501
+            'datetime': (datetime,),  # noqa: E501
         }
 
     @cached_property
@@ -92,8 +92,8 @@ class SendTimeSubObject(ModelNormal):
 
 
     attribute_map = {
-        'datetime': 'datetime',  # noqa: E501
         'is_local': 'is_local',  # noqa: E501
+        'datetime': 'datetime',  # noqa: E501
     }
 
     read_only_vars = {
@@ -103,12 +103,12 @@ class SendTimeSubObject(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, datetime, is_local, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, is_local, datetime, *args, **kwargs):  # noqa: E501
         """SendTimeSubObject - a model defined in OpenAPI
 
         Args:
-            datetime (datetime): The datetime that the message is to be sent
             is_local (bool): Whether that datetime is to be a local datetime for the recipient
+            datetime (datetime): The datetime that the message is to be sent
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -172,8 +172,8 @@ class SendTimeSubObject(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.datetime = datetime
         self.is_local = is_local
+        self.datetime = datetime
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -194,12 +194,12 @@ class SendTimeSubObject(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, datetime, is_local, *args, **kwargs):  # noqa: E501
+    def __init__(self, is_local, datetime, *args, **kwargs):  # noqa: E501
         """SendTimeSubObject - a model defined in OpenAPI
 
         Args:
-            datetime (datetime): The datetime that the message is to be sent
             is_local (bool): Whether that datetime is to be a local datetime for the recipient
+            datetime (datetime): The datetime that the message is to be sent
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -261,8 +261,8 @@ class SendTimeSubObject(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.datetime = datetime
         self.is_local = is_local
+        self.datetime = datetime
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

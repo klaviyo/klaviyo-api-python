@@ -82,9 +82,9 @@ class TemplateCloneQueryAsSubResourceAttributes(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'id': (str,),  # noqa: E501
-            'name': (str,),  # noqa: E501
+            'id': (str, none_type,),  # noqa: E501
             'return_fields': ([str],),  # noqa: E501
+            'name': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -94,8 +94,8 @@ class TemplateCloneQueryAsSubResourceAttributes(ModelNormal):
 
     attribute_map = {
         'id': 'id',  # noqa: E501
-        'name': 'name',  # noqa: E501
         'return_fields': 'return_fields',  # noqa: E501
+        'name': 'name',  # noqa: E501
     }
 
     read_only_vars = {
@@ -109,7 +109,7 @@ class TemplateCloneQueryAsSubResourceAttributes(ModelNormal):
         """TemplateCloneQueryAsSubResourceAttributes - a model defined in OpenAPI
 
         Args:
-            id (str): The ID of template to be cloned
+            id (str, none_type): The ID of template to be cloned
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -142,8 +142,8 @@ class TemplateCloneQueryAsSubResourceAttributes(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str): The name of the template. [optional]  # noqa: E501
             return_fields ([str]): Any subset of TemplateResponse fields. [optional]  # noqa: E501
+            name (str, none_type): The name of the template. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -200,7 +200,7 @@ class TemplateCloneQueryAsSubResourceAttributes(ModelNormal):
         """TemplateCloneQueryAsSubResourceAttributes - a model defined in OpenAPI
 
         Args:
-            id (str): The ID of template to be cloned
+            id (str, none_type): The ID of template to be cloned
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -233,8 +233,8 @@ class TemplateCloneQueryAsSubResourceAttributes(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str): The name of the template. [optional]  # noqa: E501
             return_fields ([str]): Any subset of TemplateResponse fields. [optional]  # noqa: E501
+            name (str, none_type): The name of the template. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

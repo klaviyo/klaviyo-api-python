@@ -32,9 +32,9 @@ from openapi_client.exceptions import ApiAttributeError
 
 def lazy_import():
     from openapi_client.model.catalog_category_create_query_as_sub_resource_attributes import CatalogCategoryCreateQueryAsSubResourceAttributes
-    from openapi_client.model.catalog_variant_create_query_as_sub_resource_relationships import CatalogVariantCreateQueryAsSubResourceRelationships
+    from openapi_client.model.catalog_category_update_query_as_sub_resource_relationships import CatalogCategoryUpdateQueryAsSubResourceRelationships
     globals()['CatalogCategoryCreateQueryAsSubResourceAttributes'] = CatalogCategoryCreateQueryAsSubResourceAttributes
-    globals()['CatalogVariantCreateQueryAsSubResourceRelationships'] = CatalogVariantCreateQueryAsSubResourceRelationships
+    globals()['CatalogCategoryUpdateQueryAsSubResourceRelationships'] = CatalogCategoryUpdateQueryAsSubResourceRelationships
 
 
 class CatalogCategoryCreateQueryAsSubResource(ModelNormal):
@@ -93,9 +93,9 @@ class CatalogCategoryCreateQueryAsSubResource(ModelNormal):
         """
         lazy_import()
         return {
-            'type': (str,),  # noqa: E501
             'attributes': (CatalogCategoryCreateQueryAsSubResourceAttributes,),  # noqa: E501
-            'relationships': (CatalogVariantCreateQueryAsSubResourceRelationships,),  # noqa: E501
+            'type': (str,),  # noqa: E501
+            'relationships': (CatalogCategoryUpdateQueryAsSubResourceRelationships,),  # noqa: E501
         }
 
     @cached_property
@@ -104,8 +104,8 @@ class CatalogCategoryCreateQueryAsSubResource(ModelNormal):
 
 
     attribute_map = {
-        'type': 'type',  # noqa: E501
         'attributes': 'attributes',  # noqa: E501
+        'type': 'type',  # noqa: E501
         'relationships': 'relationships',  # noqa: E501
     }
 
@@ -154,7 +154,7 @@ class CatalogCategoryCreateQueryAsSubResource(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            relationships (CatalogVariantCreateQueryAsSubResourceRelationships): [optional]  # noqa: E501
+            relationships (CatalogCategoryUpdateQueryAsSubResourceRelationships): [optional]  # noqa: E501
         """
 
         type = kwargs.get('type', "catalog-category")
@@ -187,8 +187,8 @@ class CatalogCategoryCreateQueryAsSubResource(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.type = type
         self.attributes = attributes
+        self.type = type
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -247,7 +247,7 @@ class CatalogCategoryCreateQueryAsSubResource(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            relationships (CatalogVariantCreateQueryAsSubResourceRelationships): [optional]  # noqa: E501
+            relationships (CatalogCategoryUpdateQueryAsSubResourceRelationships): [optional]  # noqa: E501
         """
 
         type = kwargs.get('type', "catalog-category")
@@ -278,8 +278,8 @@ class CatalogCategoryCreateQueryAsSubResource(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.type = type
         self.attributes = attributes
+        self.type = type
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

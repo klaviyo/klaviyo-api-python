@@ -39,7 +39,7 @@ from openapi_client.model.catalog_variant_create_query import CatalogVariantCrea
 from openapi_client.model.catalog_variant_delete_job_create_query import CatalogVariantDeleteJobCreateQuery
 from openapi_client.model.catalog_variant_update_job_create_query import CatalogVariantUpdateJobCreateQuery
 from openapi_client.model.catalog_variant_update_query import CatalogVariantUpdateQuery
-from openapi_client.model.get_campaigns4_xx_response import GetCampaigns4XXResponse
+from openapi_client.model.get_create_variants_jobs5_xx_response import GetCreateVariantsJobs5XXResponse
 
 
 class CatalogsApi(object):

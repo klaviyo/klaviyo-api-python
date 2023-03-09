@@ -31,8 +31,8 @@ from openapi_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from openapi_client.model.catalog_variant_create_query_as_sub_resource_relationships_items_data_inner import CatalogVariantCreateQueryAsSubResourceRelationshipsItemsDataInner
-    globals()['CatalogVariantCreateQueryAsSubResourceRelationshipsItemsDataInner'] = CatalogVariantCreateQueryAsSubResourceRelationshipsItemsDataInner
+    from openapi_client.model.catalog_category_update_query_as_sub_resource_relationships_items_data_inner import CatalogCategoryUpdateQueryAsSubResourceRelationshipsItemsDataInner
+    globals()['CatalogCategoryUpdateQueryAsSubResourceRelationshipsItemsDataInner'] = CatalogCategoryUpdateQueryAsSubResourceRelationshipsItemsDataInner
 
 
 class CatalogCategoryItemOp(ModelNormal):
@@ -88,7 +88,7 @@ class CatalogCategoryItemOp(ModelNormal):
         """
         lazy_import()
         return {
-            'data': ([CatalogVariantCreateQueryAsSubResourceRelationshipsItemsDataInner],),  # noqa: E501
+            'data': ([CatalogCategoryUpdateQueryAsSubResourceRelationshipsItemsDataInner],),  # noqa: E501
         }
 
     @cached_property
@@ -111,7 +111,7 @@ class CatalogCategoryItemOp(ModelNormal):
         """CatalogCategoryItemOp - a model defined in OpenAPI
 
         Args:
-            data ([CatalogVariantCreateQueryAsSubResourceRelationshipsItemsDataInner]):
+            data ([CatalogCategoryUpdateQueryAsSubResourceRelationshipsItemsDataInner]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -200,7 +200,7 @@ class CatalogCategoryItemOp(ModelNormal):
         """CatalogCategoryItemOp - a model defined in OpenAPI
 
         Args:
-            data ([CatalogVariantCreateQueryAsSubResourceRelationshipsItemsDataInner]):
+            data ([CatalogCategoryUpdateQueryAsSubResourceRelationshipsItemsDataInner]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

@@ -89,9 +89,9 @@ class Subscription(ModelNormal):
         lazy_import()
         return {
             'channels': (SubscriptionChannels,),  # noqa: E501
-            'email': (str,),  # noqa: E501
             'phone_number': (str,),  # noqa: E501
             'profile_id': (str,),  # noqa: E501
+            'email': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -101,9 +101,9 @@ class Subscription(ModelNormal):
 
     attribute_map = {
         'channels': 'channels',  # noqa: E501
-        'email': 'email',  # noqa: E501
         'phone_number': 'phone_number',  # noqa: E501
         'profile_id': 'profile_id',  # noqa: E501
+        'email': 'email',  # noqa: E501
     }
 
     read_only_vars = {
@@ -148,9 +148,9 @@ class Subscription(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             channels (SubscriptionChannels): [optional]  # noqa: E501
-            email (str): The email address to subscribe or to set on the profile if `channels` is specified and the email channel is omitted.. [optional]  # noqa: E501
             phone_number (str): The phone number to subscribe or to set on the profile if `channels` is specified and the SMS channel is omitted.. [optional]  # noqa: E501
             profile_id (str): The ID of the profile to subscribe. If provided, this will be used to perform the lookup.. [optional]  # noqa: E501
+            email (str): The email address to subscribe or to set on the profile if `channels` is specified and the email channel is omitted.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -237,9 +237,9 @@ class Subscription(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             channels (SubscriptionChannels): [optional]  # noqa: E501
-            email (str): The email address to subscribe or to set on the profile if `channels` is specified and the email channel is omitted.. [optional]  # noqa: E501
             phone_number (str): The phone number to subscribe or to set on the profile if `channels` is specified and the SMS channel is omitted.. [optional]  # noqa: E501
             profile_id (str): The ID of the profile to subscribe. If provided, this will be used to perform the lookup.. [optional]  # noqa: E501
+            email (str): The email address to subscribe or to set on the profile if `channels` is specified and the email channel is omitted.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -56,10 +56,10 @@ class SubscriptionChannels(ModelNormal):
     """
 
     allowed_values = {
-        ('email',): {
+        ('sms',): {
             'MARKETING': "MARKETING",
         },
-        ('sms',): {
+        ('email',): {
             'MARKETING': "MARKETING",
         },
     }
@@ -88,8 +88,8 @@ class SubscriptionChannels(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'email': ([str],),  # noqa: E501
             'sms': ([str],),  # noqa: E501
+            'email': ([str],),  # noqa: E501
         }
 
     @cached_property
@@ -98,8 +98,8 @@ class SubscriptionChannels(ModelNormal):
 
 
     attribute_map = {
-        'email': 'email',  # noqa: E501
         'sms': 'sms',  # noqa: E501
+        'email': 'email',  # noqa: E501
     }
 
     read_only_vars = {
@@ -143,8 +143,8 @@ class SubscriptionChannels(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            email ([str]): The communication types to subscribe to on the \"EMAIL\" Channel. Currently supports \"MARKETING\".. [optional]  # noqa: E501
             sms ([str]): The communication types to subscribe to on the \"SMS\" Channel. Currently supports \"MARKETING\".. [optional]  # noqa: E501
+            email ([str]): The communication types to subscribe to on the \"EMAIL\" Channel. Currently supports \"MARKETING\".. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -230,8 +230,8 @@ class SubscriptionChannels(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            email ([str]): The communication types to subscribe to on the \"EMAIL\" Channel. Currently supports \"MARKETING\".. [optional]  # noqa: E501
             sms ([str]): The communication types to subscribe to on the \"SMS\" Channel. Currently supports \"MARKETING\".. [optional]  # noqa: E501
+            email ([str]): The communication types to subscribe to on the \"EMAIL\" Channel. Currently supports \"MARKETING\".. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

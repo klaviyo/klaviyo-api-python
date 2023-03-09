@@ -82,7 +82,7 @@ class TemplateRenderQueryAsSubResourceAttributes(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'id': (str,),  # noqa: E501
+            'id': (str, none_type,),  # noqa: E501
             'context': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
             'return_fields': ([str],),  # noqa: E501
         }
@@ -109,7 +109,7 @@ class TemplateRenderQueryAsSubResourceAttributes(ModelNormal):
         """TemplateRenderQueryAsSubResourceAttributes - a model defined in OpenAPI
 
         Args:
-            id (str): The ID of template
+            id (str, none_type): The ID of template
             context ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): The context for the template render. This must be a JSON object which has values for any tags used in the template. See [this doc](https://help.klaviyo.com/hc/en-us/articles/115005084927-Template-tags-and-variable-syntax-reference-classic-editor-) for more details.
 
         Keyword Args:
@@ -201,7 +201,7 @@ class TemplateRenderQueryAsSubResourceAttributes(ModelNormal):
         """TemplateRenderQueryAsSubResourceAttributes - a model defined in OpenAPI
 
         Args:
-            id (str): The ID of template
+            id (str, none_type): The ID of template
             context ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): The context for the template render. This must be a JSON object which has values for any tags used in the template. See [this doc](https://help.klaviyo.com/hc/en-us/articles/115005084927-Template-tags-and-variable-syntax-reference-classic-editor-) for more details.
 
         Keyword Args:

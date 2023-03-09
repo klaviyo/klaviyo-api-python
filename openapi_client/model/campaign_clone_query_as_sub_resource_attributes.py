@@ -82,8 +82,8 @@ class CampaignCloneQueryAsSubResourceAttributes(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'id': (str,),  # noqa: E501
-            'new_name': (str,),  # noqa: E501
+            'id': (str, none_type,),  # noqa: E501
+            'new_name': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -107,7 +107,7 @@ class CampaignCloneQueryAsSubResourceAttributes(ModelNormal):
         """CampaignCloneQueryAsSubResourceAttributes - a model defined in OpenAPI
 
         Args:
-            id (str): The campaign ID to be cloned
+            id (str, none_type): The campaign ID to be cloned
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -140,7 +140,7 @@ class CampaignCloneQueryAsSubResourceAttributes(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            new_name (str): The name for the new cloned campaign. [optional]  # noqa: E501
+            new_name (str, none_type): The name for the new cloned campaign. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -197,7 +197,7 @@ class CampaignCloneQueryAsSubResourceAttributes(ModelNormal):
         """CampaignCloneQueryAsSubResourceAttributes - a model defined in OpenAPI
 
         Args:
-            id (str): The campaign ID to be cloned
+            id (str, none_type): The campaign ID to be cloned
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -230,7 +230,7 @@ class CampaignCloneQueryAsSubResourceAttributes(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            new_name (str): The name for the new cloned campaign. [optional]  # noqa: E501
+            new_name (str, none_type): The name for the new cloned campaign. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

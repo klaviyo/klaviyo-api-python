@@ -23,7 +23,7 @@ from openapi_client.model_utils import (  # noqa: F401
     validate_and_convert_types
 )
 from openapi_client.model.event_create_query import EventCreateQuery
-from openapi_client.model.get_campaigns4_xx_response import GetCampaigns4XXResponse
+from openapi_client.model.get_create_variants_jobs5_xx_response import GetCreateVariantsJobs5XXResponse
 
 
 class EventsApi(object):
@@ -147,7 +147,6 @@ class EventsApi(object):
                         "EMAIL": "email",
                         "PHONE_NUMBER": "phone_number",
                         "EXTERNAL_ID": "external_id",
-                        "ANONYMOUS_ID": "anonymous_id",
                         "FIRST_NAME": "first_name",
                         "LAST_NAME": "last_name",
                         "ORGANIZATION": "organization",
@@ -166,7 +165,29 @@ class EventsApi(object):
                         "LOCATION.REGION": "location.region",
                         "LOCATION.ZIP": "location.zip",
                         "LOCATION.TIMEZONE": "location.timezone",
-                        "PROPERTIES": "properties"
+                        "PROPERTIES": "properties",
+                        "SUBSCRIPTIONS": "subscriptions",
+                        "SUBSCRIPTIONS.EMAIL": "subscriptions.email",
+                        "SUBSCRIPTIONS.EMAIL.MARKETING": "subscriptions.email.marketing",
+                        "SUBSCRIPTIONS.EMAIL.MARKETING.CONSENT": "subscriptions.email.marketing.consent",
+                        "SUBSCRIPTIONS.EMAIL.MARKETING.TIMESTAMP": "subscriptions.email.marketing.timestamp",
+                        "SUBSCRIPTIONS.EMAIL.MARKETING.METHOD": "subscriptions.email.marketing.method",
+                        "SUBSCRIPTIONS.EMAIL.MARKETING.METHOD_DETAIL": "subscriptions.email.marketing.method_detail",
+                        "SUBSCRIPTIONS.EMAIL.MARKETING.CUSTOM_METHOD_DETAIL": "subscriptions.email.marketing.custom_method_detail",
+                        "SUBSCRIPTIONS.EMAIL.MARKETING.DOUBLE_OPTIN": "subscriptions.email.marketing.double_optin",
+                        "SUBSCRIPTIONS.EMAIL.MARKETING.SUPPRESSIONS": "subscriptions.email.marketing.suppressions",
+                        "SUBSCRIPTIONS.EMAIL.MARKETING.SUPPRESSIONS.REASON": "subscriptions.email.marketing.suppressions.reason",
+                        "SUBSCRIPTIONS.EMAIL.MARKETING.SUPPRESSIONS.TIMESTAMP": "subscriptions.email.marketing.suppressions.timestamp",
+                        "SUBSCRIPTIONS.EMAIL.MARKETING.LIST_SUPPRESSIONS": "subscriptions.email.marketing.list_suppressions",
+                        "SUBSCRIPTIONS.EMAIL.MARKETING.LIST_SUPPRESSIONS.LIST_ID": "subscriptions.email.marketing.list_suppressions.list_id",
+                        "SUBSCRIPTIONS.EMAIL.MARKETING.LIST_SUPPRESSIONS.REASON": "subscriptions.email.marketing.list_suppressions.reason",
+                        "SUBSCRIPTIONS.EMAIL.MARKETING.LIST_SUPPRESSIONS.TIMESTAMP": "subscriptions.email.marketing.list_suppressions.timestamp",
+                        "SUBSCRIPTIONS.SMS": "subscriptions.sms",
+                        "SUBSCRIPTIONS.SMS.MARKETING": "subscriptions.sms.marketing",
+                        "SUBSCRIPTIONS.SMS.MARKETING.CONSENT": "subscriptions.sms.marketing.consent",
+                        "SUBSCRIPTIONS.SMS.MARKETING.TIMESTAMP": "subscriptions.sms.marketing.timestamp",
+                        "SUBSCRIPTIONS.SMS.MARKETING.METHOD": "subscriptions.sms.marketing.method",
+                        "SUBSCRIPTIONS.SMS.MARKETING.METHOD_DETAIL": "subscriptions.sms.marketing.method_detail"
                     },
                     ('include',): {
 
@@ -316,7 +337,6 @@ class EventsApi(object):
                         "EMAIL": "email",
                         "PHONE_NUMBER": "phone_number",
                         "EXTERNAL_ID": "external_id",
-                        "ANONYMOUS_ID": "anonymous_id",
                         "FIRST_NAME": "first_name",
                         "LAST_NAME": "last_name",
                         "ORGANIZATION": "organization",
@@ -335,7 +355,29 @@ class EventsApi(object):
                         "LOCATION.REGION": "location.region",
                         "LOCATION.ZIP": "location.zip",
                         "LOCATION.TIMEZONE": "location.timezone",
-                        "PROPERTIES": "properties"
+                        "PROPERTIES": "properties",
+                        "SUBSCRIPTIONS": "subscriptions",
+                        "SUBSCRIPTIONS.EMAIL": "subscriptions.email",
+                        "SUBSCRIPTIONS.EMAIL.MARKETING": "subscriptions.email.marketing",
+                        "SUBSCRIPTIONS.EMAIL.MARKETING.CONSENT": "subscriptions.email.marketing.consent",
+                        "SUBSCRIPTIONS.EMAIL.MARKETING.TIMESTAMP": "subscriptions.email.marketing.timestamp",
+                        "SUBSCRIPTIONS.EMAIL.MARKETING.METHOD": "subscriptions.email.marketing.method",
+                        "SUBSCRIPTIONS.EMAIL.MARKETING.METHOD_DETAIL": "subscriptions.email.marketing.method_detail",
+                        "SUBSCRIPTIONS.EMAIL.MARKETING.CUSTOM_METHOD_DETAIL": "subscriptions.email.marketing.custom_method_detail",
+                        "SUBSCRIPTIONS.EMAIL.MARKETING.DOUBLE_OPTIN": "subscriptions.email.marketing.double_optin",
+                        "SUBSCRIPTIONS.EMAIL.MARKETING.SUPPRESSIONS": "subscriptions.email.marketing.suppressions",
+                        "SUBSCRIPTIONS.EMAIL.MARKETING.SUPPRESSIONS.REASON": "subscriptions.email.marketing.suppressions.reason",
+                        "SUBSCRIPTIONS.EMAIL.MARKETING.SUPPRESSIONS.TIMESTAMP": "subscriptions.email.marketing.suppressions.timestamp",
+                        "SUBSCRIPTIONS.EMAIL.MARKETING.LIST_SUPPRESSIONS": "subscriptions.email.marketing.list_suppressions",
+                        "SUBSCRIPTIONS.EMAIL.MARKETING.LIST_SUPPRESSIONS.LIST_ID": "subscriptions.email.marketing.list_suppressions.list_id",
+                        "SUBSCRIPTIONS.EMAIL.MARKETING.LIST_SUPPRESSIONS.REASON": "subscriptions.email.marketing.list_suppressions.reason",
+                        "SUBSCRIPTIONS.EMAIL.MARKETING.LIST_SUPPRESSIONS.TIMESTAMP": "subscriptions.email.marketing.list_suppressions.timestamp",
+                        "SUBSCRIPTIONS.SMS": "subscriptions.sms",
+                        "SUBSCRIPTIONS.SMS.MARKETING": "subscriptions.sms.marketing",
+                        "SUBSCRIPTIONS.SMS.MARKETING.CONSENT": "subscriptions.sms.marketing.consent",
+                        "SUBSCRIPTIONS.SMS.MARKETING.TIMESTAMP": "subscriptions.sms.marketing.timestamp",
+                        "SUBSCRIPTIONS.SMS.MARKETING.METHOD": "subscriptions.sms.marketing.method",
+                        "SUBSCRIPTIONS.SMS.MARKETING.METHOD_DETAIL": "subscriptions.sms.marketing.method_detail"
                     },
                 },
                 'openapi_types': {
@@ -486,7 +528,6 @@ class EventsApi(object):
                         "EMAIL": "email",
                         "PHONE_NUMBER": "phone_number",
                         "EXTERNAL_ID": "external_id",
-                        "ANONYMOUS_ID": "anonymous_id",
                         "FIRST_NAME": "first_name",
                         "LAST_NAME": "last_name",
                         "ORGANIZATION": "organization",
@@ -505,7 +546,29 @@ class EventsApi(object):
                         "LOCATION.REGION": "location.region",
                         "LOCATION.ZIP": "location.zip",
                         "LOCATION.TIMEZONE": "location.timezone",
-                        "PROPERTIES": "properties"
+                        "PROPERTIES": "properties",
+                        "SUBSCRIPTIONS": "subscriptions",
+                        "SUBSCRIPTIONS.EMAIL": "subscriptions.email",
+                        "SUBSCRIPTIONS.EMAIL.MARKETING": "subscriptions.email.marketing",
+                        "SUBSCRIPTIONS.EMAIL.MARKETING.CONSENT": "subscriptions.email.marketing.consent",
+                        "SUBSCRIPTIONS.EMAIL.MARKETING.TIMESTAMP": "subscriptions.email.marketing.timestamp",
+                        "SUBSCRIPTIONS.EMAIL.MARKETING.METHOD": "subscriptions.email.marketing.method",
+                        "SUBSCRIPTIONS.EMAIL.MARKETING.METHOD_DETAIL": "subscriptions.email.marketing.method_detail",
+                        "SUBSCRIPTIONS.EMAIL.MARKETING.CUSTOM_METHOD_DETAIL": "subscriptions.email.marketing.custom_method_detail",
+                        "SUBSCRIPTIONS.EMAIL.MARKETING.DOUBLE_OPTIN": "subscriptions.email.marketing.double_optin",
+                        "SUBSCRIPTIONS.EMAIL.MARKETING.SUPPRESSIONS": "subscriptions.email.marketing.suppressions",
+                        "SUBSCRIPTIONS.EMAIL.MARKETING.SUPPRESSIONS.REASON": "subscriptions.email.marketing.suppressions.reason",
+                        "SUBSCRIPTIONS.EMAIL.MARKETING.SUPPRESSIONS.TIMESTAMP": "subscriptions.email.marketing.suppressions.timestamp",
+                        "SUBSCRIPTIONS.EMAIL.MARKETING.LIST_SUPPRESSIONS": "subscriptions.email.marketing.list_suppressions",
+                        "SUBSCRIPTIONS.EMAIL.MARKETING.LIST_SUPPRESSIONS.LIST_ID": "subscriptions.email.marketing.list_suppressions.list_id",
+                        "SUBSCRIPTIONS.EMAIL.MARKETING.LIST_SUPPRESSIONS.REASON": "subscriptions.email.marketing.list_suppressions.reason",
+                        "SUBSCRIPTIONS.EMAIL.MARKETING.LIST_SUPPRESSIONS.TIMESTAMP": "subscriptions.email.marketing.list_suppressions.timestamp",
+                        "SUBSCRIPTIONS.SMS": "subscriptions.sms",
+                        "SUBSCRIPTIONS.SMS.MARKETING": "subscriptions.sms.marketing",
+                        "SUBSCRIPTIONS.SMS.MARKETING.CONSENT": "subscriptions.sms.marketing.consent",
+                        "SUBSCRIPTIONS.SMS.MARKETING.TIMESTAMP": "subscriptions.sms.marketing.timestamp",
+                        "SUBSCRIPTIONS.SMS.MARKETING.METHOD": "subscriptions.sms.marketing.method",
+                        "SUBSCRIPTIONS.SMS.MARKETING.METHOD_DETAIL": "subscriptions.sms.marketing.method_detail"
                     },
                     ('include',): {
 

@@ -82,8 +82,8 @@ class CampaignMessageAssignTemplateQueryAsSubResourceAttributes(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'id': (str,),  # noqa: E501
-            'template_id': (str,),  # noqa: E501
+            'id': (str, none_type,),  # noqa: E501
+            'template_id': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -107,8 +107,8 @@ class CampaignMessageAssignTemplateQueryAsSubResourceAttributes(ModelNormal):
         """CampaignMessageAssignTemplateQueryAsSubResourceAttributes - a model defined in OpenAPI
 
         Args:
-            id (str): The message ID to be assigned to
-            template_id (str): The template ID to assign
+            id (str, none_type): The message ID to be assigned to
+            template_id (str, none_type): The template ID to assign
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -198,8 +198,8 @@ class CampaignMessageAssignTemplateQueryAsSubResourceAttributes(ModelNormal):
         """CampaignMessageAssignTemplateQueryAsSubResourceAttributes - a model defined in OpenAPI
 
         Args:
-            id (str): The message ID to be assigned to
-            template_id (str): The template ID to assign
+            id (str, none_type): The message ID to be assigned to
+            template_id (str, none_type): The template ID to assign
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

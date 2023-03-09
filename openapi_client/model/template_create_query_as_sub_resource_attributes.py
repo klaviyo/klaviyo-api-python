@@ -82,10 +82,10 @@ class TemplateCreateQueryAsSubResourceAttributes(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'name': (str,),  # noqa: E501
-            'editor_type': (str,),  # noqa: E501
-            'html': (str,),  # noqa: E501
-            'text': (str,),  # noqa: E501
+            'name': (str, none_type,),  # noqa: E501
+            'editor_type': (str, none_type,),  # noqa: E501
+            'text': (str, none_type,),  # noqa: E501
+            'html': (str, none_type,),  # noqa: E501
             'return_fields': ([str],),  # noqa: E501
         }
 
@@ -97,8 +97,8 @@ class TemplateCreateQueryAsSubResourceAttributes(ModelNormal):
     attribute_map = {
         'name': 'name',  # noqa: E501
         'editor_type': 'editor_type',  # noqa: E501
-        'html': 'html',  # noqa: E501
         'text': 'text',  # noqa: E501
+        'html': 'html',  # noqa: E501
         'return_fields': 'return_fields',  # noqa: E501
     }
 
@@ -113,8 +113,8 @@ class TemplateCreateQueryAsSubResourceAttributes(ModelNormal):
         """TemplateCreateQueryAsSubResourceAttributes - a model defined in OpenAPI
 
         Args:
-            name (str): The name of the template
-            editor_type (str): Restricted to CODE
+            name (str, none_type): The name of the template
+            editor_type (str, none_type): Restricted to CODE
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -147,8 +147,8 @@ class TemplateCreateQueryAsSubResourceAttributes(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            html (str): The HTML contents of the template. [optional]  # noqa: E501
-            text (str): The plaintext version of the template. [optional]  # noqa: E501
+            text (str, none_type): The plaintext version of the template. [optional]  # noqa: E501
+            html (str, none_type): The HTML contents of the template. [optional]  # noqa: E501
             return_fields ([str]): Provide fields to limit the returned data. [optional]  # noqa: E501
         """
 
@@ -207,8 +207,8 @@ class TemplateCreateQueryAsSubResourceAttributes(ModelNormal):
         """TemplateCreateQueryAsSubResourceAttributes - a model defined in OpenAPI
 
         Args:
-            name (str): The name of the template
-            editor_type (str): Restricted to CODE
+            name (str, none_type): The name of the template
+            editor_type (str, none_type): Restricted to CODE
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -241,8 +241,8 @@ class TemplateCreateQueryAsSubResourceAttributes(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            html (str): The HTML contents of the template. [optional]  # noqa: E501
-            text (str): The plaintext version of the template. [optional]  # noqa: E501
+            text (str, none_type): The plaintext version of the template. [optional]  # noqa: E501
+            html (str, none_type): The HTML contents of the template. [optional]  # noqa: E501
             return_fields ([str]): Provide fields to limit the returned data. [optional]  # noqa: E501
         """
 

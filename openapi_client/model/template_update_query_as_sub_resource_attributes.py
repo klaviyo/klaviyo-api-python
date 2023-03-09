@@ -82,9 +82,9 @@ class TemplateUpdateQueryAsSubResourceAttributes(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'name': (str,),  # noqa: E501
-            'html': (str,),  # noqa: E501
-            'text': (str,),  # noqa: E501
+            'text': (str, none_type,),  # noqa: E501
+            'html': (str, none_type,),  # noqa: E501
+            'name': (str, none_type,),  # noqa: E501
             'return_fields': ([str],),  # noqa: E501
         }
 
@@ -94,9 +94,9 @@ class TemplateUpdateQueryAsSubResourceAttributes(ModelNormal):
 
 
     attribute_map = {
-        'name': 'name',  # noqa: E501
-        'html': 'html',  # noqa: E501
         'text': 'text',  # noqa: E501
+        'html': 'html',  # noqa: E501
+        'name': 'name',  # noqa: E501
         'return_fields': 'return_fields',  # noqa: E501
     }
 
@@ -141,9 +141,9 @@ class TemplateUpdateQueryAsSubResourceAttributes(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str): The name of the template. [optional]  # noqa: E501
-            html (str): The HTML of the template. [optional]  # noqa: E501
-            text (str): The plaintext of the template. [optional]  # noqa: E501
+            text (str, none_type): The plaintext of the template. [optional]  # noqa: E501
+            html (str, none_type): The HTML of the template. [optional]  # noqa: E501
+            name (str, none_type): The name of the template. [optional]  # noqa: E501
             return_fields ([str]): Provide fields to limit the returned data. [optional]  # noqa: E501
         """
 
@@ -230,9 +230,9 @@ class TemplateUpdateQueryAsSubResourceAttributes(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str): The name of the template. [optional]  # noqa: E501
-            html (str): The HTML of the template. [optional]  # noqa: E501
-            text (str): The plaintext of the template. [optional]  # noqa: E501
+            text (str, none_type): The plaintext of the template. [optional]  # noqa: E501
+            html (str, none_type): The HTML of the template. [optional]  # noqa: E501
+            name (str, none_type): The name of the template. [optional]  # noqa: E501
             return_fields ([str]): Provide fields to limit the returned data. [optional]  # noqa: E501
         """
 

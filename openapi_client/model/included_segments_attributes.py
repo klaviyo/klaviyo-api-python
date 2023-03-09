@@ -82,9 +82,9 @@ class IncludedSegmentsAttributes(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'name': (str,),  # noqa: E501
-            'created': (datetime,),  # noqa: E501
-            'updated': (datetime,),  # noqa: E501
+            'updated': (datetime, none_type,),  # noqa: E501
+            'name': (str, none_type,),  # noqa: E501
+            'created': (datetime, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -93,9 +93,9 @@ class IncludedSegmentsAttributes(ModelNormal):
 
 
     attribute_map = {
+        'updated': 'updated',  # noqa: E501
         'name': 'name',  # noqa: E501
         'created': 'created',  # noqa: E501
-        'updated': 'updated',  # noqa: E501
     }
 
     read_only_vars = {
@@ -139,9 +139,9 @@ class IncludedSegmentsAttributes(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str): A helpful name to label the segment . [optional]  # noqa: E501
-            created (datetime): Date and time when the segment was created, in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm). [optional]  # noqa: E501
-            updated (datetime): Date and time when the segment was last updated, in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm). [optional]  # noqa: E501
+            updated (datetime, none_type): Date and time when the segment was last updated, in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm). [optional]  # noqa: E501
+            name (str, none_type): A helpful name to label the segment . [optional]  # noqa: E501
+            created (datetime, none_type): Date and time when the segment was created, in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm). [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -227,9 +227,9 @@ class IncludedSegmentsAttributes(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str): A helpful name to label the segment . [optional]  # noqa: E501
-            created (datetime): Date and time when the segment was created, in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm). [optional]  # noqa: E501
-            updated (datetime): Date and time when the segment was last updated, in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm). [optional]  # noqa: E501
+            updated (datetime, none_type): Date and time when the segment was last updated, in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm). [optional]  # noqa: E501
+            name (str, none_type): A helpful name to label the segment . [optional]  # noqa: E501
+            created (datetime, none_type): Date and time when the segment was created, in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm). [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

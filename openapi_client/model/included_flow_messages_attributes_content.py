@@ -90,10 +90,10 @@ class IncludedFlowMessagesAttributesContent(ModelComposed):
         """
         lazy_import()
         return {
-            'subject': (str,),  # noqa: E501
             'preview_text': (str,),  # noqa: E501
             'from_email': (str,),  # noqa: E501
             'from_name': (str,),  # noqa: E501
+            'subject': (str,),  # noqa: E501
             'body': (str,),  # noqa: E501
             'media': (str,),  # noqa: E501
         }
@@ -104,10 +104,10 @@ class IncludedFlowMessagesAttributesContent(ModelComposed):
 
 
     attribute_map = {
-        'subject': 'subject',  # noqa: E501
         'preview_text': 'preview_text',  # noqa: E501
         'from_email': 'from_email',  # noqa: E501
         'from_name': 'from_name',  # noqa: E501
+        'subject': 'subject',  # noqa: E501
         'body': 'body',  # noqa: E501
         'media': 'media',  # noqa: E501
     }
@@ -151,10 +151,10 @@ class IncludedFlowMessagesAttributesContent(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            subject (str): [optional]  # noqa: E501
             preview_text (str): [optional]  # noqa: E501
             from_email (str): [optional]  # noqa: E501
             from_name (str): [optional]  # noqa: E501
+            subject (str): [optional]  # noqa: E501
             body (str): [optional]  # noqa: E501
             media (str): [optional]  # noqa: E501
         """
@@ -260,10 +260,10 @@ class IncludedFlowMessagesAttributesContent(ModelComposed):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            subject (str): [optional]  # noqa: E501
             preview_text (str): [optional]  # noqa: E501
             from_email (str): [optional]  # noqa: E501
             from_name (str): [optional]  # noqa: E501
+            subject (str): [optional]  # noqa: E501
             body (str): [optional]  # noqa: E501
             media (str): [optional]  # noqa: E501
         """

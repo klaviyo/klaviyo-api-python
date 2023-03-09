@@ -32,7 +32,9 @@ from openapi_client.exceptions import ApiAttributeError
 
 def lazy_import():
     from openapi_client.model.profile_location import ProfileLocation
+    from openapi_client.model.subscriptions import Subscriptions
     globals()['ProfileLocation'] = ProfileLocation
+    globals()['Subscriptions'] = Subscriptions
 
 
 class IncludedProfilesAttributes(ModelNormal):
@@ -88,20 +90,20 @@ class IncludedProfilesAttributes(ModelNormal):
         """
         lazy_import()
         return {
-            'email': (str,),  # noqa: E501
-            'phone_number': (str,),  # noqa: E501
-            'external_id': (str,),  # noqa: E501
-            'anonymous_id': (str,),  # noqa: E501
-            'first_name': (str,),  # noqa: E501
-            'last_name': (str,),  # noqa: E501
-            'organization': (str,),  # noqa: E501
-            'title': (str,),  # noqa: E501
-            'image': (str,),  # noqa: E501
-            'created': (datetime,),  # noqa: E501
-            'updated': (datetime,),  # noqa: E501
-            'last_event_date': (datetime,),  # noqa: E501
-            'location': (ProfileLocation,),  # noqa: E501
+            'phone_number': (str, none_type,),  # noqa: E501
+            'first_name': (str, none_type,),  # noqa: E501
+            'last_name': (str, none_type,),  # noqa: E501
+            'title': (str, none_type,),  # noqa: E501
+            'image': (str, none_type,),  # noqa: E501
+            'created': (datetime, none_type,),  # noqa: E501
+            'updated': (datetime, none_type,),  # noqa: E501
+            'subscriptions': (Subscriptions,),  # noqa: E501
             'properties': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
+            'location': (ProfileLocation,),  # noqa: E501
+            'organization': (str, none_type,),  # noqa: E501
+            'last_event_date': (datetime, none_type,),  # noqa: E501
+            'external_id': (str, none_type,),  # noqa: E501
+            'email': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -110,20 +112,20 @@ class IncludedProfilesAttributes(ModelNormal):
 
 
     attribute_map = {
-        'email': 'email',  # noqa: E501
         'phone_number': 'phone_number',  # noqa: E501
-        'external_id': 'external_id',  # noqa: E501
-        'anonymous_id': 'anonymous_id',  # noqa: E501
         'first_name': 'first_name',  # noqa: E501
         'last_name': 'last_name',  # noqa: E501
-        'organization': 'organization',  # noqa: E501
         'title': 'title',  # noqa: E501
         'image': 'image',  # noqa: E501
         'created': 'created',  # noqa: E501
         'updated': 'updated',  # noqa: E501
-        'last_event_date': 'last_event_date',  # noqa: E501
-        'location': 'location',  # noqa: E501
+        'subscriptions': 'subscriptions',  # noqa: E501
         'properties': 'properties',  # noqa: E501
+        'location': 'location',  # noqa: E501
+        'organization': 'organization',  # noqa: E501
+        'last_event_date': 'last_event_date',  # noqa: E501
+        'external_id': 'external_id',  # noqa: E501
+        'email': 'email',  # noqa: E501
     }
 
     read_only_vars = {
@@ -167,20 +169,20 @@ class IncludedProfilesAttributes(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            email (str): Individual's email address. [optional]  # noqa: E501
-            phone_number (str): Individual's phone number in E.164 format. [optional]  # noqa: E501
-            external_id (str): A unique identifier used by customers to associate Klaviyo profiles with profiles in an external system, such as a point-of-sale system. Format varies based on the external system.. [optional]  # noqa: E501
-            anonymous_id (str): [optional]  # noqa: E501
-            first_name (str): Individual's first name. [optional]  # noqa: E501
-            last_name (str): Individual's last name. [optional]  # noqa: E501
-            organization (str): Name of the company or organization within the company for whom the individual works. [optional]  # noqa: E501
-            title (str): Individual's job title. [optional]  # noqa: E501
-            image (str): URL pointing to the location of a profile image. [optional]  # noqa: E501
-            created (datetime): Date and time when the profile was created, in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm). [optional]  # noqa: E501
-            updated (datetime): Date and time when the profile was last updated, in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm). [optional]  # noqa: E501
-            last_event_date (datetime): Date and time of the most recent event the triggered an update to the profile, in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm). [optional]  # noqa: E501
-            location (ProfileLocation): [optional]  # noqa: E501
+            phone_number (str, none_type): Individual's phone number in E.164 format. [optional]  # noqa: E501
+            first_name (str, none_type): Individual's first name. [optional]  # noqa: E501
+            last_name (str, none_type): Individual's last name. [optional]  # noqa: E501
+            title (str, none_type): Individual's job title. [optional]  # noqa: E501
+            image (str, none_type): URL pointing to the location of a profile image. [optional]  # noqa: E501
+            created (datetime, none_type): Date and time when the profile was created, in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm). [optional]  # noqa: E501
+            updated (datetime, none_type): Date and time when the profile was last updated, in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm). [optional]  # noqa: E501
+            subscriptions (Subscriptions): [optional]  # noqa: E501
             properties ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): An object containing key/value pairs for any custom properties assigned to this profile. [optional]  # noqa: E501
+            location (ProfileLocation): [optional]  # noqa: E501
+            organization (str, none_type): Name of the company or organization within the company for whom the individual works. [optional]  # noqa: E501
+            last_event_date (datetime, none_type): Date and time of the most recent event the triggered an update to the profile, in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm). [optional]  # noqa: E501
+            external_id (str, none_type): A unique identifier used by customers to associate Klaviyo profiles with profiles in an external system, such as a point-of-sale system. Format varies based on the external system.. [optional]  # noqa: E501
+            email (str, none_type): Individual's email address. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -266,20 +268,20 @@ class IncludedProfilesAttributes(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            email (str): Individual's email address. [optional]  # noqa: E501
-            phone_number (str): Individual's phone number in E.164 format. [optional]  # noqa: E501
-            external_id (str): A unique identifier used by customers to associate Klaviyo profiles with profiles in an external system, such as a point-of-sale system. Format varies based on the external system.. [optional]  # noqa: E501
-            anonymous_id (str): [optional]  # noqa: E501
-            first_name (str): Individual's first name. [optional]  # noqa: E501
-            last_name (str): Individual's last name. [optional]  # noqa: E501
-            organization (str): Name of the company or organization within the company for whom the individual works. [optional]  # noqa: E501
-            title (str): Individual's job title. [optional]  # noqa: E501
-            image (str): URL pointing to the location of a profile image. [optional]  # noqa: E501
-            created (datetime): Date and time when the profile was created, in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm). [optional]  # noqa: E501
-            updated (datetime): Date and time when the profile was last updated, in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm). [optional]  # noqa: E501
-            last_event_date (datetime): Date and time of the most recent event the triggered an update to the profile, in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm). [optional]  # noqa: E501
-            location (ProfileLocation): [optional]  # noqa: E501
+            phone_number (str, none_type): Individual's phone number in E.164 format. [optional]  # noqa: E501
+            first_name (str, none_type): Individual's first name. [optional]  # noqa: E501
+            last_name (str, none_type): Individual's last name. [optional]  # noqa: E501
+            title (str, none_type): Individual's job title. [optional]  # noqa: E501
+            image (str, none_type): URL pointing to the location of a profile image. [optional]  # noqa: E501
+            created (datetime, none_type): Date and time when the profile was created, in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm). [optional]  # noqa: E501
+            updated (datetime, none_type): Date and time when the profile was last updated, in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm). [optional]  # noqa: E501
+            subscriptions (Subscriptions): [optional]  # noqa: E501
             properties ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): An object containing key/value pairs for any custom properties assigned to this profile. [optional]  # noqa: E501
+            location (ProfileLocation): [optional]  # noqa: E501
+            organization (str, none_type): Name of the company or organization within the company for whom the individual works. [optional]  # noqa: E501
+            last_event_date (datetime, none_type): Date and time of the most recent event the triggered an update to the profile, in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm). [optional]  # noqa: E501
+            external_id (str, none_type): A unique identifier used by customers to associate Klaviyo profiles with profiles in an external system, such as a point-of-sale system. Format varies based on the external system.. [optional]  # noqa: E501
+            email (str, none_type): Individual's email address. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

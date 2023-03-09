@@ -94,11 +94,11 @@ class CampaignPartialUpdateQueryAsSubResourceAttributes(ModelNormal):
         """
         lazy_import()
         return {
-            'name': (str,),  # noqa: E501
-            'audiences': (AudiencesSubObject,),  # noqa: E501
             'send_options': (SendOptionsSubObject,),  # noqa: E501
-            'tracking_options': (TrackingOptionsSubObject,),  # noqa: E501
             'send_strategy': (SendStrategySubObject,),  # noqa: E501
+            'audiences': (AudiencesSubObject,),  # noqa: E501
+            'name': (str, none_type,),  # noqa: E501
+            'tracking_options': (TrackingOptionsSubObject,),  # noqa: E501
         }
 
     @cached_property
@@ -107,11 +107,11 @@ class CampaignPartialUpdateQueryAsSubResourceAttributes(ModelNormal):
 
 
     attribute_map = {
-        'name': 'name',  # noqa: E501
-        'audiences': 'audiences',  # noqa: E501
         'send_options': 'send_options',  # noqa: E501
-        'tracking_options': 'tracking_options',  # noqa: E501
         'send_strategy': 'send_strategy',  # noqa: E501
+        'audiences': 'audiences',  # noqa: E501
+        'name': 'name',  # noqa: E501
+        'tracking_options': 'tracking_options',  # noqa: E501
     }
 
     read_only_vars = {
@@ -155,11 +155,11 @@ class CampaignPartialUpdateQueryAsSubResourceAttributes(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str): The campaign name. [optional]  # noqa: E501
-            audiences (AudiencesSubObject): [optional]  # noqa: E501
             send_options (SendOptionsSubObject): [optional]  # noqa: E501
-            tracking_options (TrackingOptionsSubObject): [optional]  # noqa: E501
             send_strategy (SendStrategySubObject): [optional]  # noqa: E501
+            audiences (AudiencesSubObject): [optional]  # noqa: E501
+            name (str, none_type): The campaign name. [optional]  # noqa: E501
+            tracking_options (TrackingOptionsSubObject): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -245,11 +245,11 @@ class CampaignPartialUpdateQueryAsSubResourceAttributes(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (str): The campaign name. [optional]  # noqa: E501
-            audiences (AudiencesSubObject): [optional]  # noqa: E501
             send_options (SendOptionsSubObject): [optional]  # noqa: E501
-            tracking_options (TrackingOptionsSubObject): [optional]  # noqa: E501
             send_strategy (SendStrategySubObject): [optional]  # noqa: E501
+            audiences (AudiencesSubObject): [optional]  # noqa: E501
+            name (str, none_type): The campaign name. [optional]  # noqa: E501
+            tracking_options (TrackingOptionsSubObject): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

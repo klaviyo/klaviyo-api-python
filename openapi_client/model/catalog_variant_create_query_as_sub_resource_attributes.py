@@ -56,13 +56,14 @@ class CatalogVariantCreateQueryAsSubResourceAttributes(ModelNormal):
     """
 
     allowed_values = {
-        ('integration_type',): {
-            '$CUSTOM': "$custom",
-        },
         ('inventory_policy',): {
             '0': 0,
             '1': 1,
             '2': 2,
+        },
+        ('integration_type',): {
+            'None': None,
+            '$CUSTOM': "$custom",
         },
     }
 
@@ -90,21 +91,21 @@ class CatalogVariantCreateQueryAsSubResourceAttributes(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'external_id': (str,),  # noqa: E501
-            'title': (str,),  # noqa: E501
-            'description': (str,),  # noqa: E501
-            'sku': (str,),  # noqa: E501
-            'inventory_quantity': (float,),  # noqa: E501
+            'sku': (str, none_type,),  # noqa: E501
+            'description': (str, none_type,),  # noqa: E501
+            'title': (str, none_type,),  # noqa: E501
+            'url': (str, none_type,),  # noqa: E501
             'price': (float,),  # noqa: E501
-            'url': (str,),  # noqa: E501
-            'catalog_type': (str,),  # noqa: E501
-            'integration_type': (str,),  # noqa: E501
+            'inventory_quantity': (float,),  # noqa: E501
+            'external_id': (str, none_type,),  # noqa: E501
             'inventory_policy': (int,),  # noqa: E501
-            'image_full_url': (str,),  # noqa: E501
-            'image_thumbnail_url': (str,),  # noqa: E501
-            'images': ([str],),  # noqa: E501
             'custom_metadata': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
+            'catalog_type': (str, none_type,),  # noqa: E501
+            'image_full_url': (str, none_type,),  # noqa: E501
             'published': (bool,),  # noqa: E501
+            'images': ([str],),  # noqa: E501
+            'image_thumbnail_url': (str, none_type,),  # noqa: E501
+            'integration_type': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -113,21 +114,21 @@ class CatalogVariantCreateQueryAsSubResourceAttributes(ModelNormal):
 
 
     attribute_map = {
-        'external_id': 'external_id',  # noqa: E501
-        'title': 'title',  # noqa: E501
-        'description': 'description',  # noqa: E501
         'sku': 'sku',  # noqa: E501
-        'inventory_quantity': 'inventory_quantity',  # noqa: E501
-        'price': 'price',  # noqa: E501
+        'description': 'description',  # noqa: E501
+        'title': 'title',  # noqa: E501
         'url': 'url',  # noqa: E501
-        'catalog_type': 'catalog_type',  # noqa: E501
-        'integration_type': 'integration_type',  # noqa: E501
+        'price': 'price',  # noqa: E501
+        'inventory_quantity': 'inventory_quantity',  # noqa: E501
+        'external_id': 'external_id',  # noqa: E501
         'inventory_policy': 'inventory_policy',  # noqa: E501
-        'image_full_url': 'image_full_url',  # noqa: E501
-        'image_thumbnail_url': 'image_thumbnail_url',  # noqa: E501
-        'images': 'images',  # noqa: E501
         'custom_metadata': 'custom_metadata',  # noqa: E501
+        'catalog_type': 'catalog_type',  # noqa: E501
+        'image_full_url': 'image_full_url',  # noqa: E501
         'published': 'published',  # noqa: E501
+        'images': 'images',  # noqa: E501
+        'image_thumbnail_url': 'image_thumbnail_url',  # noqa: E501
+        'integration_type': 'integration_type',  # noqa: E501
     }
 
     read_only_vars = {
@@ -137,17 +138,17 @@ class CatalogVariantCreateQueryAsSubResourceAttributes(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, external_id, title, description, sku, inventory_quantity, price, url, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, sku, description, title, url, price, inventory_quantity, external_id, *args, **kwargs):  # noqa: E501
         """CatalogVariantCreateQueryAsSubResourceAttributes - a model defined in OpenAPI
 
         Args:
-            external_id (str): The ID of the catalog item variant in an external system.
-            title (str): The title of the catalog item variant.
-            description (str): A description of the catalog item variant.
-            sku (str): The SKU of the catalog item variant.
-            inventory_quantity (float): The quantity of the catalog item variant currently in stock.
+            sku (str, none_type): The SKU of the catalog item variant.
+            description (str, none_type): A description of the catalog item variant.
+            title (str, none_type): The title of the catalog item variant.
+            url (str, none_type): URL pointing to the location of the catalog item variant on your website.
             price (float): This field can be used to set the price on the catalog item variant, which is what gets displayed for the item variant when included in emails. For most price-update use cases, you will also want to update the `price` on any parent items using the [Update Catalog Item Endpoint](https://developers.klaviyo.com/en/reference/update_catalog_item).
-            url (str): URL pointing to the location of the catalog item variant on your website.
+            inventory_quantity (float): The quantity of the catalog item variant currently in stock.
+            external_id (str, none_type): The ID of the catalog item variant in an external system.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -180,14 +181,14 @@ class CatalogVariantCreateQueryAsSubResourceAttributes(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            catalog_type (str): The type of catalog. Currently only \"$default\" is supported.. [optional] if omitted the server will use the default value of "$default"  # noqa: E501
-            integration_type (str): The integration type. Currently only \"$custom\" is supported.. [optional] if omitted the server will use the default value of "$custom"  # noqa: E501
             inventory_policy (int): This field controls the visibility of this catalog item variant in product feeds/blocks. This field supports the following values: `1`: a product will not appear in dynamic product recommendation feeds and blocks if it is out of stock. `0` or `2`: a product can appear in dynamic product recommendation feeds and blocks regardless of inventory quantity. . [optional]  # noqa: E501
-            image_full_url (str): URL pointing to the location of a full image of the catalog item variant.. [optional]  # noqa: E501
-            image_thumbnail_url (str): URL pointing to the location of an image thumbnail of the catalog item variant.. [optional]  # noqa: E501
-            images ([str]): List of URLs pointing to the locations of images of the catalog item variant.. [optional]  # noqa: E501
             custom_metadata ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): Flat JSON blob to provide custom metadata about the catalog item variant. May not exceed 100kb.. [optional]  # noqa: E501
+            catalog_type (str, none_type): The type of catalog. Currently only \"$default\" is supported.. [optional] if omitted the server will use the default value of "$default"  # noqa: E501
+            image_full_url (str, none_type): URL pointing to the location of a full image of the catalog item variant.. [optional]  # noqa: E501
             published (bool): Boolean value indicating whether the catalog item variant is published.. [optional] if omitted the server will use the default value of True  # noqa: E501
+            images ([str]): List of URLs pointing to the locations of images of the catalog item variant.. [optional]  # noqa: E501
+            image_thumbnail_url (str, none_type): URL pointing to the location of an image thumbnail of the catalog item variant.. [optional]  # noqa: E501
+            integration_type (str, none_type): The integration type. Currently only \"$custom\" is supported.. [optional] if omitted the server will use the default value of "$custom"  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -219,13 +220,13 @@ class CatalogVariantCreateQueryAsSubResourceAttributes(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.external_id = external_id
-        self.title = title
-        self.description = description
         self.sku = sku
-        self.inventory_quantity = inventory_quantity
-        self.price = price
+        self.description = description
+        self.title = title
         self.url = url
+        self.price = price
+        self.inventory_quantity = inventory_quantity
+        self.external_id = external_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -246,17 +247,17 @@ class CatalogVariantCreateQueryAsSubResourceAttributes(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, external_id, title, description, sku, inventory_quantity, price, url, *args, **kwargs):  # noqa: E501
+    def __init__(self, sku, description, title, url, price, inventory_quantity, external_id, *args, **kwargs):  # noqa: E501
         """CatalogVariantCreateQueryAsSubResourceAttributes - a model defined in OpenAPI
 
         Args:
-            external_id (str): The ID of the catalog item variant in an external system.
-            title (str): The title of the catalog item variant.
-            description (str): A description of the catalog item variant.
-            sku (str): The SKU of the catalog item variant.
-            inventory_quantity (float): The quantity of the catalog item variant currently in stock.
+            sku (str, none_type): The SKU of the catalog item variant.
+            description (str, none_type): A description of the catalog item variant.
+            title (str, none_type): The title of the catalog item variant.
+            url (str, none_type): URL pointing to the location of the catalog item variant on your website.
             price (float): This field can be used to set the price on the catalog item variant, which is what gets displayed for the item variant when included in emails. For most price-update use cases, you will also want to update the `price` on any parent items using the [Update Catalog Item Endpoint](https://developers.klaviyo.com/en/reference/update_catalog_item).
-            url (str): URL pointing to the location of the catalog item variant on your website.
+            inventory_quantity (float): The quantity of the catalog item variant currently in stock.
+            external_id (str, none_type): The ID of the catalog item variant in an external system.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -289,14 +290,14 @@ class CatalogVariantCreateQueryAsSubResourceAttributes(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            catalog_type (str): The type of catalog. Currently only \"$default\" is supported.. [optional] if omitted the server will use the default value of "$default"  # noqa: E501
-            integration_type (str): The integration type. Currently only \"$custom\" is supported.. [optional] if omitted the server will use the default value of "$custom"  # noqa: E501
             inventory_policy (int): This field controls the visibility of this catalog item variant in product feeds/blocks. This field supports the following values: `1`: a product will not appear in dynamic product recommendation feeds and blocks if it is out of stock. `0` or `2`: a product can appear in dynamic product recommendation feeds and blocks regardless of inventory quantity. . [optional]  # noqa: E501
-            image_full_url (str): URL pointing to the location of a full image of the catalog item variant.. [optional]  # noqa: E501
-            image_thumbnail_url (str): URL pointing to the location of an image thumbnail of the catalog item variant.. [optional]  # noqa: E501
-            images ([str]): List of URLs pointing to the locations of images of the catalog item variant.. [optional]  # noqa: E501
             custom_metadata ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): Flat JSON blob to provide custom metadata about the catalog item variant. May not exceed 100kb.. [optional]  # noqa: E501
+            catalog_type (str, none_type): The type of catalog. Currently only \"$default\" is supported.. [optional] if omitted the server will use the default value of "$default"  # noqa: E501
+            image_full_url (str, none_type): URL pointing to the location of a full image of the catalog item variant.. [optional]  # noqa: E501
             published (bool): Boolean value indicating whether the catalog item variant is published.. [optional] if omitted the server will use the default value of True  # noqa: E501
+            images ([str]): List of URLs pointing to the locations of images of the catalog item variant.. [optional]  # noqa: E501
+            image_thumbnail_url (str, none_type): URL pointing to the location of an image thumbnail of the catalog item variant.. [optional]  # noqa: E501
+            integration_type (str, none_type): The integration type. Currently only \"$custom\" is supported.. [optional] if omitted the server will use the default value of "$custom"  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -326,13 +327,13 @@ class CatalogVariantCreateQueryAsSubResourceAttributes(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.external_id = external_id
-        self.title = title
-        self.description = description
         self.sku = sku
-        self.inventory_quantity = inventory_quantity
-        self.price = price
+        self.description = description
+        self.title = title
         self.url = url
+        self.price = price
+        self.inventory_quantity = inventory_quantity
+        self.external_id = external_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

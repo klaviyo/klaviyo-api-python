@@ -82,7 +82,7 @@ class CampaignSendJobPartialUpdateQueryAsSubResourceAttributes(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'action': (str,),  # noqa: E501
+            'action': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -105,7 +105,7 @@ class CampaignSendJobPartialUpdateQueryAsSubResourceAttributes(ModelNormal):
         """CampaignSendJobPartialUpdateQueryAsSubResourceAttributes - a model defined in OpenAPI
 
         Args:
-            action (str): The action you would like to take with this send job from among 'cancel' and 'revert'
+            action (str, none_type): The action you would like to take with this send job from among 'cancel' and 'revert'
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -194,7 +194,7 @@ class CampaignSendJobPartialUpdateQueryAsSubResourceAttributes(ModelNormal):
         """CampaignSendJobPartialUpdateQueryAsSubResourceAttributes - a model defined in OpenAPI
 
         Args:
-            action (str): The action you would like to take with this send job from among 'cancel' and 'revert'
+            action (str, none_type): The action you would like to take with this send job from among 'cancel' and 'revert'
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
