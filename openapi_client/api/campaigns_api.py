@@ -1994,7 +1994,7 @@ class CampaignsApi(object):
     ):
         """Get Campaign Relationships Tags  # noqa: E501
 
-        If the `related_resource` is `tags`, returns the IDs of all tags associated with the given campaign.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `Campaigns Read` `Tags Read`  # noqa: E501
+        Returns the IDs of all tags associated with the given campaign.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `Campaigns Read` `Tags Read`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

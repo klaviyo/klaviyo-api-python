@@ -424,7 +424,7 @@ klaviyo.Catalogs.create_catalog_category(body)
 
 
 
-#### [Create Catalog Category Relationships Item](https://developers.klaviyo.com/en/v2023-02-22/reference/create_catalog_category_relationships_item)
+#### [Create Catalog Category Relationships Items](https://developers.klaviyo.com/en/v2023-02-22/reference/create_catalog_category_relationships_items)
 
 ```python
 ## Positional Arguments
@@ -432,7 +432,7 @@ klaviyo.Catalogs.create_catalog_category(body)
 # id | str
 # body | dict
 
-klaviyo.Catalogs.create_catalog_category_relationships_item(id, body)
+klaviyo.Catalogs.create_catalog_category_relationships_items(id, body)
 ```
 
 
@@ -451,7 +451,7 @@ klaviyo.Catalogs.create_catalog_item(body)
 
 
 
-#### [Create Catalog Item Relationships Category](https://developers.klaviyo.com/en/v2023-02-22/reference/create_catalog_item_relationships_category)
+#### [Create Catalog Item Relationships Categories](https://developers.klaviyo.com/en/v2023-02-22/reference/create_catalog_item_relationships_categories)
 
 ```python
 ## Positional Arguments
@@ -459,7 +459,7 @@ klaviyo.Catalogs.create_catalog_item(body)
 # id | str
 # body | dict
 
-klaviyo.Catalogs.create_catalog_item_relationships_category(id, body)
+klaviyo.Catalogs.create_catalog_item_relationships_categories(id, body)
 ```
 
 
@@ -1504,6 +1504,19 @@ klaviyo.Flows.get_flow_action_messages(action_id, fields_flow_message=fields_flo
 
 
 
+#### [Get Flow Action Relationships Flow](https://developers.klaviyo.com/en/v2023-02-22/reference/get_flow_action_relationships_flow)
+
+```python
+## Positional Arguments
+
+# id | str
+
+klaviyo.Flows.get_flow_action_relationships_flow(id)
+```
+
+
+
+
 #### [Get Flow Action Relationships Messages](https://developers.klaviyo.com/en/v2023-02-22/reference/get_flow_action_relationships_messages)
 
 ```python
@@ -1538,19 +1551,6 @@ klaviyo.Flows.get_flow_action_relationships_messages(id, filter=filter, page_cur
 # sort | str
 
 klaviyo.Flows.get_flow_flow_actions(flow_id, fields_flow_action=fields_flow_action, filter=filter, page_cursor=page_cursor, sort=sort)
-```
-
-
-
-
-#### [Get Flow For Flow Action](https://developers.klaviyo.com/en/v2023-02-22/reference/get_flow_for_flow_action)
-
-```python
-## Positional Arguments
-
-# id | str
-
-klaviyo.Flows.get_flow_for_flow_action(id)
 ```
 
 
@@ -1782,7 +1782,7 @@ klaviyo.Lists.get_list_profiles(list_id, additional_fields_profile=additional_fi
 
 
 
-#### [Get List Relationships](https://developers.klaviyo.com/en/v2023-02-22/reference/get_list_relationships)
+#### [Get List Relationships Profiles](https://developers.klaviyo.com/en/v2023-02-22/reference/get_list_relationships_profiles)
 
 ```python
 ## Positional Arguments
@@ -1793,7 +1793,7 @@ klaviyo.Lists.get_list_profiles(list_id, additional_fields_profile=additional_fi
 
 # page_cursor | str
 
-klaviyo.Lists.get_list_relationships(id, page_cursor=page_cursor)
+klaviyo.Lists.get_list_relationships_profiles(id, page_cursor=page_cursor)
 ```
 
 
@@ -2249,7 +2249,7 @@ klaviyo.Tags.create_tag_group(body)
 
 
 
-#### [Create Tag Relationships Campaign](https://developers.klaviyo.com/en/v2023-02-22/reference/create_tag_relationships_campaign)
+#### [Create Tag Relationships Campaigns](https://developers.klaviyo.com/en/v2023-02-22/reference/create_tag_relationships_campaigns)
 
 ```python
 ## Positional Arguments
@@ -2257,13 +2257,13 @@ klaviyo.Tags.create_tag_group(body)
 # id | str
 # body | dict
 
-klaviyo.Tags.create_tag_relationships_campaign(id, body)
+klaviyo.Tags.create_tag_relationships_campaigns(id, body)
 ```
 
 
 
 
-#### [Create Tag Relationships Flow](https://developers.klaviyo.com/en/v2023-02-22/reference/create_tag_relationships_flow)
+#### [Create Tag Relationships Flows](https://developers.klaviyo.com/en/v2023-02-22/reference/create_tag_relationships_flows)
 
 ```python
 ## Positional Arguments
@@ -2271,13 +2271,13 @@ klaviyo.Tags.create_tag_relationships_campaign(id, body)
 # id | str
 # body | dict
 
-klaviyo.Tags.create_tag_relationships_flow(id, body)
+klaviyo.Tags.create_tag_relationships_flows(id, body)
 ```
 
 
 
 
-#### [Create Tag Relationships List](https://developers.klaviyo.com/en/v2023-02-22/reference/create_tag_relationships_list)
+#### [Create Tag Relationships Lists](https://developers.klaviyo.com/en/v2023-02-22/reference/create_tag_relationships_lists)
 
 ```python
 ## Positional Arguments
@@ -2285,13 +2285,13 @@ klaviyo.Tags.create_tag_relationships_flow(id, body)
 # id | str
 # body | dict
 
-klaviyo.Tags.create_tag_relationships_list(id, body)
+klaviyo.Tags.create_tag_relationships_lists(id, body)
 ```
 
 
 
 
-#### [Create Tag Relationships Segment](https://developers.klaviyo.com/en/v2023-02-22/reference/create_tag_relationships_segment)
+#### [Create Tag Relationships Segments](https://developers.klaviyo.com/en/v2023-02-22/reference/create_tag_relationships_segments)
 
 ```python
 ## Positional Arguments
@@ -2299,7 +2299,7 @@ klaviyo.Tags.create_tag_relationships_list(id, body)
 # id | str
 # body | dict
 
-klaviyo.Tags.create_tag_relationships_segment(id, body)
+klaviyo.Tags.create_tag_relationships_segments(id, body)
 ```
 
 

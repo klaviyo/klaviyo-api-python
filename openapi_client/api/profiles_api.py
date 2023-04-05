@@ -1274,7 +1274,7 @@ class ProfilesApi(object):
     ):
         """Get Profile Relationships Segments  # noqa: E501
 
-        Get list membership or segment membership relationships for a profile with the given profile ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `Profiles Read` `Segments Read`  # noqa: E501
+        Get segment membership relationships for a profile with the given profile ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `Profiles Read` `Segments Read`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

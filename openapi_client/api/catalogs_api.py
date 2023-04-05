@@ -105,14 +105,14 @@ class CatalogsApi(object):
             },
             api_client=api_client
         )
-        self.create_catalog_category_relationships_item_endpoint = _Endpoint(
+        self.create_catalog_category_relationships_items_endpoint = _Endpoint(
             settings={
                 'response_type': None,
                 'auth': [
                     'Klaviyo-API-Key'
                 ],
                 'endpoint_path': '/api/catalog-categories/{id}/relationships/items/',
-                'operation_id': 'create_catalog_category_relationships_item',
+                'operation_id': 'create_catalog_category_relationships_items',
                 'http_method': 'POST',
                 'servers': None,
             },
@@ -215,14 +215,14 @@ class CatalogsApi(object):
             },
             api_client=api_client
         )
-        self.create_catalog_item_relationships_category_endpoint = _Endpoint(
+        self.create_catalog_item_relationships_categories_endpoint = _Endpoint(
             settings={
                 'response_type': None,
                 'auth': [
                     'Klaviyo-API-Key'
                 ],
                 'endpoint_path': '/api/catalog-items/{id}/relationships/categories/',
-                'operation_id': 'create_catalog_item_relationships_category',
+                'operation_id': 'create_catalog_item_relationships_categories',
                 'http_method': 'POST',
                 'servers': None,
             },
@@ -3873,19 +3873,19 @@ class CatalogsApi(object):
             catalog_category_create_query
         return self.create_catalog_category_endpoint.call_with_http_info(**kwargs)
 
-    def create_catalog_category_relationships_item(
+    def create_catalog_category_relationships_items(
         self,
         id,
         catalog_category_item_op,
         **kwargs
     ):
-        """Create Catalog Category Relationships Item  # noqa: E501
+        """Create Catalog Category Relationships Items  # noqa: E501
 
         Create a new item relationship for the given category ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `Catalogs Write`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.create_catalog_category_relationships_item(id, catalog_category_item_op, async_req=True)
+        >>> thread = api.create_catalog_category_relationships_items(id, catalog_category_item_op, async_req=True)
         >>> result = thread.get()
 
         Args:
@@ -3958,7 +3958,7 @@ class CatalogsApi(object):
             id
         kwargs['catalog_category_item_op'] = \
             catalog_category_item_op
-        return self.create_catalog_category_relationships_item_endpoint.call_with_http_info(**kwargs)
+        return self.create_catalog_category_relationships_items_endpoint.call_with_http_info(**kwargs)
 
     def create_catalog_item(
         self,
@@ -4043,19 +4043,19 @@ class CatalogsApi(object):
             catalog_item_create_query
         return self.create_catalog_item_endpoint.call_with_http_info(**kwargs)
 
-    def create_catalog_item_relationships_category(
+    def create_catalog_item_relationships_categories(
         self,
         id,
         catalog_item_category_op,
         **kwargs
     ):
-        """Create Catalog Item Relationships Category  # noqa: E501
+        """Create Catalog Item Relationships Categories  # noqa: E501
 
         Create a new catalog category relationship for the given item ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `Catalogs Write`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.create_catalog_item_relationships_category(id, catalog_item_category_op, async_req=True)
+        >>> thread = api.create_catalog_item_relationships_categories(id, catalog_item_category_op, async_req=True)
         >>> result = thread.get()
 
         Args:
@@ -4128,7 +4128,7 @@ class CatalogsApi(object):
             id
         kwargs['catalog_item_category_op'] = \
             catalog_item_category_op
-        return self.create_catalog_item_relationships_category_endpoint.call_with_http_info(**kwargs)
+        return self.create_catalog_item_relationships_categories_endpoint.call_with_http_info(**kwargs)
 
     def create_catalog_variant(
         self,

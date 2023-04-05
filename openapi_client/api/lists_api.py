@@ -464,14 +464,14 @@ class ListsApi(object):
             },
             api_client=api_client
         )
-        self.get_list_relationships_endpoint = _Endpoint(
+        self.get_list_relationships_profiles_endpoint = _Endpoint(
             settings={
                 'response_type': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),
                 'auth': [
                     'Klaviyo-API-Key'
                 ],
                 'endpoint_path': '/api/lists/{id}/relationships/profiles/',
-                'operation_id': 'get_list_relationships',
+                'operation_id': 'get_list_relationships_profiles',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -1271,18 +1271,18 @@ class ListsApi(object):
             list_id
         return self.get_list_profiles_endpoint.call_with_http_info(**kwargs)
 
-    def get_list_relationships(
+    def get_list_relationships_profiles(
         self,
         id,
         **kwargs
     ):
-        """Get List Relationships  # noqa: E501
+        """Get List Relationships Profiles  # noqa: E501
 
         Get profile membership [relationships](https://developers.klaviyo.com/en/reference/api_overview#relationships) for a list with the given list ID. You can adjust the number of results per page via the `page[size]` query parameter, e.g. `?page[size]=25`. **Default**: 20. **Max**: 100.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `List Read` `Profiles Read`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_list_relationships(id, async_req=True)
+        >>> thread = api.get_list_relationships_profiles(id, async_req=True)
         >>> result = thread.get()
 
         Args:
@@ -1353,7 +1353,7 @@ class ListsApi(object):
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['id'] = \
             id
-        return self.get_list_relationships_endpoint.call_with_http_info(**kwargs)
+        return self.get_list_relationships_profiles_endpoint.call_with_http_info(**kwargs)
 
     def get_list_relationships_tags(
         self,
@@ -1362,7 +1362,7 @@ class ListsApi(object):
     ):
         """Get List Relationships Tags  # noqa: E501
 
-        If `related_resource` is `tags`, returns the tag IDs of all tags associated with the given list.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `List Read` `Tags Read`  # noqa: E501
+        Returns the tag IDs of all tags associated with the given list.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `List Read` `Tags Read`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
