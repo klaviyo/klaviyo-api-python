@@ -7,8 +7,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 NOTE: For more granular API-specific changes, please see our [API Changelog](https://developers.klaviyo.com/en/docs/changelog_)
 
-## [Unreleased]
-
 ## [2.0.0] - 2023-04-06
 ### Added
 - Profiles API now returns predictive analytics when calling `get_profile` and `get_profiles` by passing in `additional_fields_profile = "predictive_analytics"`.
