@@ -31,8 +31,8 @@ from openapi_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from openapi_client.model.catalog_variant_create_job_create_query_as_sub_resource import CatalogVariantCreateJobCreateQueryAsSubResource
-    globals()['CatalogVariantCreateJobCreateQueryAsSubResource'] = CatalogVariantCreateJobCreateQueryAsSubResource
+    from openapi_client.model.catalog_variant_create_job_create_query_resource_object import CatalogVariantCreateJobCreateQueryResourceObject
+    globals()['CatalogVariantCreateJobCreateQueryResourceObject'] = CatalogVariantCreateJobCreateQueryResourceObject
 
 
 class CatalogVariantCreateJobCreateQuery(ModelNormal):
@@ -88,7 +88,7 @@ class CatalogVariantCreateJobCreateQuery(ModelNormal):
         """
         lazy_import()
         return {
-            'data': (CatalogVariantCreateJobCreateQueryAsSubResource,),  # noqa: E501
+            'data': (CatalogVariantCreateJobCreateQueryResourceObject,),  # noqa: E501
         }
 
     @cached_property
@@ -111,7 +111,7 @@ class CatalogVariantCreateJobCreateQuery(ModelNormal):
         """CatalogVariantCreateJobCreateQuery - a model defined in OpenAPI
 
         Args:
-            data (CatalogVariantCreateJobCreateQueryAsSubResource):
+            data (CatalogVariantCreateJobCreateQueryResourceObject):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -200,7 +200,7 @@ class CatalogVariantCreateJobCreateQuery(ModelNormal):
         """CatalogVariantCreateJobCreateQuery - a model defined in OpenAPI
 
         Args:
-            data (CatalogVariantCreateJobCreateQueryAsSubResource):
+            data (CatalogVariantCreateJobCreateQueryResourceObject):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

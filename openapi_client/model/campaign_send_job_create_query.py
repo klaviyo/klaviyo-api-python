@@ -31,8 +31,8 @@ from openapi_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from openapi_client.model.campaign_send_job_create_query_as_sub_resource import CampaignSendJobCreateQueryAsSubResource
-    globals()['CampaignSendJobCreateQueryAsSubResource'] = CampaignSendJobCreateQueryAsSubResource
+    from openapi_client.model.campaign_send_job_create_query_resource_object import CampaignSendJobCreateQueryResourceObject
+    globals()['CampaignSendJobCreateQueryResourceObject'] = CampaignSendJobCreateQueryResourceObject
 
 
 class CampaignSendJobCreateQuery(ModelNormal):
@@ -88,7 +88,7 @@ class CampaignSendJobCreateQuery(ModelNormal):
         """
         lazy_import()
         return {
-            'data': (CampaignSendJobCreateQueryAsSubResource,),  # noqa: E501
+            'data': (CampaignSendJobCreateQueryResourceObject,),  # noqa: E501
         }
 
     @cached_property
@@ -111,7 +111,7 @@ class CampaignSendJobCreateQuery(ModelNormal):
         """CampaignSendJobCreateQuery - a model defined in OpenAPI
 
         Args:
-            data (CampaignSendJobCreateQueryAsSubResource):
+            data (CampaignSendJobCreateQueryResourceObject):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -200,7 +200,7 @@ class CampaignSendJobCreateQuery(ModelNormal):
         """CampaignSendJobCreateQuery - a model defined in OpenAPI
 
         Args:
-            data (CampaignSendJobCreateQueryAsSubResource):
+            data (CampaignSendJobCreateQueryResourceObject):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

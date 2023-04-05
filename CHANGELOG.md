@@ -2,6 +2,18 @@
 
 NOTE: For more granular API-specific changes, please see our [API Changelog](https://developers.klaviyo.com/en/docs/changelog_)
 
+## 2.0.0
+Breaking Changes:
+  - Relationship endpoints that were previously grouped together are now split into related-resource-specific endpoints
+  - To migrate to this latest version, all calls to relationship endpoints need to be updated, as in the following example:
+    - `get_campaign_relationships(campaign_id, "tags")` will become `get_campaign_relationships_tags(campaign_id)`
+
+
+Additive updates:
+- Our Profiles API can now return predictive analytics when calling get_profile and get_profiles, by passing in the following keyword arg to those methods:
+  - `additional_fields_profile = "predictive_analytics"`
+
+
 ## 1.3.0
 
 ### Added

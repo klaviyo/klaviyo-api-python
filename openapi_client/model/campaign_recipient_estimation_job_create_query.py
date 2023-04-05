@@ -31,8 +31,8 @@ from openapi_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from openapi_client.model.campaign_recipient_estimation_job_create_query_as_sub_resource import CampaignRecipientEstimationJobCreateQueryAsSubResource
-    globals()['CampaignRecipientEstimationJobCreateQueryAsSubResource'] = CampaignRecipientEstimationJobCreateQueryAsSubResource
+    from openapi_client.model.campaign_recipient_estimation_job_create_query_resource_object import CampaignRecipientEstimationJobCreateQueryResourceObject
+    globals()['CampaignRecipientEstimationJobCreateQueryResourceObject'] = CampaignRecipientEstimationJobCreateQueryResourceObject
 
 
 class CampaignRecipientEstimationJobCreateQuery(ModelNormal):
@@ -88,7 +88,7 @@ class CampaignRecipientEstimationJobCreateQuery(ModelNormal):
         """
         lazy_import()
         return {
-            'data': (CampaignRecipientEstimationJobCreateQueryAsSubResource,),  # noqa: E501
+            'data': (CampaignRecipientEstimationJobCreateQueryResourceObject,),  # noqa: E501
         }
 
     @cached_property
@@ -111,7 +111,7 @@ class CampaignRecipientEstimationJobCreateQuery(ModelNormal):
         """CampaignRecipientEstimationJobCreateQuery - a model defined in OpenAPI
 
         Args:
-            data (CampaignRecipientEstimationJobCreateQueryAsSubResource):
+            data (CampaignRecipientEstimationJobCreateQueryResourceObject):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -200,7 +200,7 @@ class CampaignRecipientEstimationJobCreateQuery(ModelNormal):
         """CampaignRecipientEstimationJobCreateQuery - a model defined in OpenAPI
 
         Args:
-            data (CampaignRecipientEstimationJobCreateQueryAsSubResource):
+            data (CampaignRecipientEstimationJobCreateQueryResourceObject):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

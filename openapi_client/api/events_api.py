@@ -315,6 +315,7 @@ class EventsApi(object):
             params_map={
                 'all': [
                     'id',
+                    'additional_fields_profile',
                     'fields_profile',
                 ],
                 'required': [
@@ -323,6 +324,7 @@ class EventsApi(object):
                 'nullable': [
                 ],
                 'enum': [
+                    'additional_fields_profile',
                     'fields_profile',
                 ],
                 'validation': [
@@ -332,6 +334,10 @@ class EventsApi(object):
                 'validations': {
                 },
                 'allowed_values': {
+                    ('additional_fields_profile',): {
+
+                        "PREDICTIVE_ANALYTICS": "predictive_analytics"
+                    },
                     ('fields_profile',): {
 
                         "EMAIL": "email",
@@ -377,24 +383,39 @@ class EventsApi(object):
                         "SUBSCRIPTIONS.SMS.MARKETING.CONSENT": "subscriptions.sms.marketing.consent",
                         "SUBSCRIPTIONS.SMS.MARKETING.TIMESTAMP": "subscriptions.sms.marketing.timestamp",
                         "SUBSCRIPTIONS.SMS.MARKETING.METHOD": "subscriptions.sms.marketing.method",
-                        "SUBSCRIPTIONS.SMS.MARKETING.METHOD_DETAIL": "subscriptions.sms.marketing.method_detail"
+                        "SUBSCRIPTIONS.SMS.MARKETING.METHOD_DETAIL": "subscriptions.sms.marketing.method_detail",
+                        "PREDICTIVE_ANALYTICS": "predictive_analytics",
+                        "PREDICTIVE_ANALYTICS.HISTORIC_CLV": "predictive_analytics.historic_clv",
+                        "PREDICTIVE_ANALYTICS.PREDICTED_CLV": "predictive_analytics.predicted_clv",
+                        "PREDICTIVE_ANALYTICS.TOTAL_CLV": "predictive_analytics.total_clv",
+                        "PREDICTIVE_ANALYTICS.HISTORIC_NUMBER_OF_ORDERS": "predictive_analytics.historic_number_of_orders",
+                        "PREDICTIVE_ANALYTICS.PREDICTED_NUMBER_OF_ORDERS": "predictive_analytics.predicted_number_of_orders",
+                        "PREDICTIVE_ANALYTICS.AVERAGE_DAYS_BETWEEN_ORDERS": "predictive_analytics.average_days_between_orders",
+                        "PREDICTIVE_ANALYTICS.AVERAGE_ORDER_VALUE": "predictive_analytics.average_order_value",
+                        "PREDICTIVE_ANALYTICS.CHURN_PROBABILITY": "predictive_analytics.churn_probability",
+                        "PREDICTIVE_ANALYTICS.EXPECTED_DATE_OF_NEXT_ORDER": "predictive_analytics.expected_date_of_next_order"
                     },
                 },
                 'openapi_types': {
                     'id':
                         (str,),
+                    'additional_fields_profile':
+                        ([str],),
                     'fields_profile':
                         ([str],),
                 },
                 'attribute_map': {
                     'id': 'id',
+                    'additional_fields_profile': 'additional-fields[profile]',
                     'fields_profile': 'fields[profile]',
                 },
                 'location_map': {
                     'id': 'path',
+                    'additional_fields_profile': 'query',
                     'fields_profile': 'query',
                 },
                 'collection_format_map': {
+                    'additional_fields_profile': 'csv',
                     'fields_profile': 'csv',
                 }
             },
@@ -406,30 +427,27 @@ class EventsApi(object):
             },
             api_client=api_client
         )
-        self.get_event_relationships_endpoint = _Endpoint(
+        self.get_event_relationships_metrics_endpoint = _Endpoint(
             settings={
                 'response_type': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),
                 'auth': [
                     'Klaviyo-API-Key'
                 ],
-                'endpoint_path': '/api/events/{id}/relationships/{related_resource}/',
-                'operation_id': 'get_event_relationships',
+                'endpoint_path': '/api/events/{id}/relationships/metrics/',
+                'operation_id': 'get_event_relationships_metrics',
                 'http_method': 'GET',
                 'servers': None,
             },
             params_map={
                 'all': [
                     'id',
-                    'related_resource',
                 ],
                 'required': [
                     'id',
-                    'related_resource',
                 ],
                 'nullable': [
                 ],
                 'enum': [
-                    'related_resource',
                 ],
                 'validation': [
                 ]
@@ -438,25 +456,67 @@ class EventsApi(object):
                 'validations': {
                 },
                 'allowed_values': {
-                    ('related_resource',): {
-
-                        "METRICS": "metrics",
-                        "PROFILES": "profiles"
-                    },
                 },
                 'openapi_types': {
                     'id':
                         (str,),
-                    'related_resource':
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_event_relationships_profiles_endpoint = _Endpoint(
+            settings={
+                'response_type': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),
+                'auth': [
+                    'Klaviyo-API-Key'
+                ],
+                'endpoint_path': '/api/events/{id}/relationships/profiles/',
+                'operation_id': 'get_event_relationships_profiles',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
                         (str,),
                 },
                 'attribute_map': {
                     'id': 'id',
-                    'related_resource': 'related_resource',
                 },
                 'location_map': {
                     'id': 'path',
-                    'related_resource': 'path',
                 },
                 'collection_format_map': {
                 }
@@ -905,6 +965,7 @@ class EventsApi(object):
             id (str): ID of the event
 
         Keyword Args:
+            additional_fields_profile ([str]): Request additional fields not included by default in the response. Supported values: 'predictive_analytics'. [optional]
             fields_profile ([str]): For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sparse-fieldsets. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
@@ -971,24 +1032,22 @@ class EventsApi(object):
             id
         return self.get_event_profiles_endpoint.call_with_http_info(**kwargs)
 
-    def get_event_relationships(
+    def get_event_relationships_metrics(
         self,
         id,
-        related_resource,
         **kwargs
     ):
-        """Get Event Relationships  # noqa: E501
+        """Get Event Relationships Metrics  # noqa: E501
 
-        Get metrics or profile [relationships](https://developers.klaviyo.com/en/reference/api_overview#relationships) for an event with the given event ID.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `Events Read` `Metrics Read` `Profiles Read`  # noqa: E501
+        Get a list of related Metrics for an Event<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `Events Read` `Metrics Read`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_event_relationships(id, related_resource, async_req=True)
+        >>> thread = api.get_event_relationships_metrics(id, async_req=True)
         >>> result = thread.get()
 
         Args:
             id (str): 
-            related_resource (str): 
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -1054,9 +1113,90 @@ class EventsApi(object):
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['id'] = \
             id
-        kwargs['related_resource'] = \
-            related_resource
-        return self.get_event_relationships_endpoint.call_with_http_info(**kwargs)
+        return self.get_event_relationships_metrics_endpoint.call_with_http_info(**kwargs)
+
+    def get_event_relationships_profiles(
+        self,
+        id,
+        **kwargs
+    ):
+        """Get Event Relationships Profiles  # noqa: E501
+
+        Get metrics or profile [relationships](https://developers.klaviyo.com/en/reference/api_overview#relationships) for an event with the given event ID.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `Events Read` `Profiles Read`  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_event_relationships_profiles(id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (str): 
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            {str: (bool, date, datetime, dict, float, int, list, str, none_type)}
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['id'] = \
+            id
+        return self.get_event_relationships_profiles_endpoint.call_with_http_info(**kwargs)
 
     def get_events(
         self,
@@ -1076,7 +1216,7 @@ class EventsApi(object):
             fields_event ([str]): For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sparse-fieldsets. [optional]
             fields_metric ([str]): For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sparse-fieldsets. [optional]
             fields_profile ([str]): For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sparse-fieldsets. [optional]
-            filter (str): For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`metric_id`: `equals`<br>`datetime`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`timestamp`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`. [optional]
+            filter (str): For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`metric_id`: `equals`<br>`profile_id`: `equals`<br>`datetime`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`timestamp`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`. [optional]
             include ([str]): For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#relationships. [optional]
             page_cursor (str): For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination. [optional]
             sort (str): For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sorting. [optional]

@@ -31,8 +31,8 @@ from openapi_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from openapi_client.model.template_render_query_as_sub_resource import TemplateRenderQueryAsSubResource
-    globals()['TemplateRenderQueryAsSubResource'] = TemplateRenderQueryAsSubResource
+    from openapi_client.model.template_render_query_resource_object import TemplateRenderQueryResourceObject
+    globals()['TemplateRenderQueryResourceObject'] = TemplateRenderQueryResourceObject
 
 
 class TemplateRenderQuery(ModelNormal):
@@ -88,7 +88,7 @@ class TemplateRenderQuery(ModelNormal):
         """
         lazy_import()
         return {
-            'data': (TemplateRenderQueryAsSubResource,),  # noqa: E501
+            'data': (TemplateRenderQueryResourceObject,),  # noqa: E501
         }
 
     @cached_property
@@ -111,7 +111,7 @@ class TemplateRenderQuery(ModelNormal):
         """TemplateRenderQuery - a model defined in OpenAPI
 
         Args:
-            data (TemplateRenderQueryAsSubResource):
+            data (TemplateRenderQueryResourceObject):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -200,7 +200,7 @@ class TemplateRenderQuery(ModelNormal):
         """TemplateRenderQuery - a model defined in OpenAPI
 
         Args:
-            data (TemplateRenderQueryAsSubResource):
+            data (TemplateRenderQueryResourceObject):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

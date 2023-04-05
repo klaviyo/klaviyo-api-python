@@ -31,8 +31,8 @@ from openapi_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from openapi_client.model.onsite_subscription_create_query_as_sub_resource import OnsiteSubscriptionCreateQueryAsSubResource
-    globals()['OnsiteSubscriptionCreateQueryAsSubResource'] = OnsiteSubscriptionCreateQueryAsSubResource
+    from openapi_client.model.onsite_subscription_create_query_resource_object import OnsiteSubscriptionCreateQueryResourceObject
+    globals()['OnsiteSubscriptionCreateQueryResourceObject'] = OnsiteSubscriptionCreateQueryResourceObject
 
 
 class OnsiteSubscriptionCreateQuery(ModelNormal):
@@ -88,7 +88,7 @@ class OnsiteSubscriptionCreateQuery(ModelNormal):
         """
         lazy_import()
         return {
-            'data': (OnsiteSubscriptionCreateQueryAsSubResource,),  # noqa: E501
+            'data': (OnsiteSubscriptionCreateQueryResourceObject,),  # noqa: E501
         }
 
     @cached_property
@@ -111,7 +111,7 @@ class OnsiteSubscriptionCreateQuery(ModelNormal):
         """OnsiteSubscriptionCreateQuery - a model defined in OpenAPI
 
         Args:
-            data (OnsiteSubscriptionCreateQueryAsSubResource):
+            data (OnsiteSubscriptionCreateQueryResourceObject):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -200,7 +200,7 @@ class OnsiteSubscriptionCreateQuery(ModelNormal):
         """OnsiteSubscriptionCreateQuery - a model defined in OpenAPI
 
         Args:
-            data (OnsiteSubscriptionCreateQueryAsSubResource):
+            data (OnsiteSubscriptionCreateQueryResourceObject):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

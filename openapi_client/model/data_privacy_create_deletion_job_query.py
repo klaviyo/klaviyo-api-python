@@ -31,8 +31,8 @@ from openapi_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from openapi_client.model.data_privacy_create_deletion_job_query_as_sub_resource import DataPrivacyCreateDeletionJobQueryAsSubResource
-    globals()['DataPrivacyCreateDeletionJobQueryAsSubResource'] = DataPrivacyCreateDeletionJobQueryAsSubResource
+    from openapi_client.model.data_privacy_create_deletion_job_query_resource_object import DataPrivacyCreateDeletionJobQueryResourceObject
+    globals()['DataPrivacyCreateDeletionJobQueryResourceObject'] = DataPrivacyCreateDeletionJobQueryResourceObject
 
 
 class DataPrivacyCreateDeletionJobQuery(ModelNormal):
@@ -88,7 +88,7 @@ class DataPrivacyCreateDeletionJobQuery(ModelNormal):
         """
         lazy_import()
         return {
-            'data': (DataPrivacyCreateDeletionJobQueryAsSubResource,),  # noqa: E501
+            'data': (DataPrivacyCreateDeletionJobQueryResourceObject,),  # noqa: E501
         }
 
     @cached_property
@@ -111,7 +111,7 @@ class DataPrivacyCreateDeletionJobQuery(ModelNormal):
         """DataPrivacyCreateDeletionJobQuery - a model defined in OpenAPI
 
         Args:
-            data (DataPrivacyCreateDeletionJobQueryAsSubResource):
+            data (DataPrivacyCreateDeletionJobQueryResourceObject):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -200,7 +200,7 @@ class DataPrivacyCreateDeletionJobQuery(ModelNormal):
         """DataPrivacyCreateDeletionJobQuery - a model defined in OpenAPI
 
         Args:
-            data (DataPrivacyCreateDeletionJobQueryAsSubResource):
+            data (DataPrivacyCreateDeletionJobQueryResourceObject):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

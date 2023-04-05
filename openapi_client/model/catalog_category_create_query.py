@@ -31,8 +31,8 @@ from openapi_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from openapi_client.model.catalog_category_create_query_as_sub_resource import CatalogCategoryCreateQueryAsSubResource
-    globals()['CatalogCategoryCreateQueryAsSubResource'] = CatalogCategoryCreateQueryAsSubResource
+    from openapi_client.model.catalog_category_create_query_resource_object import CatalogCategoryCreateQueryResourceObject
+    globals()['CatalogCategoryCreateQueryResourceObject'] = CatalogCategoryCreateQueryResourceObject
 
 
 class CatalogCategoryCreateQuery(ModelNormal):
@@ -88,7 +88,7 @@ class CatalogCategoryCreateQuery(ModelNormal):
         """
         lazy_import()
         return {
-            'data': (CatalogCategoryCreateQueryAsSubResource,),  # noqa: E501
+            'data': (CatalogCategoryCreateQueryResourceObject,),  # noqa: E501
         }
 
     @cached_property
@@ -111,7 +111,7 @@ class CatalogCategoryCreateQuery(ModelNormal):
         """CatalogCategoryCreateQuery - a model defined in OpenAPI
 
         Args:
-            data (CatalogCategoryCreateQueryAsSubResource):
+            data (CatalogCategoryCreateQueryResourceObject):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -200,7 +200,7 @@ class CatalogCategoryCreateQuery(ModelNormal):
         """CatalogCategoryCreateQuery - a model defined in OpenAPI
 
         Args:
-            data (CatalogCategoryCreateQueryAsSubResource):
+            data (CatalogCategoryCreateQueryResourceObject):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

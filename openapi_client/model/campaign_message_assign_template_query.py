@@ -31,8 +31,8 @@ from openapi_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from openapi_client.model.campaign_message_assign_template_query_as_sub_resource import CampaignMessageAssignTemplateQueryAsSubResource
-    globals()['CampaignMessageAssignTemplateQueryAsSubResource'] = CampaignMessageAssignTemplateQueryAsSubResource
+    from openapi_client.model.campaign_message_assign_template_query_resource_object import CampaignMessageAssignTemplateQueryResourceObject
+    globals()['CampaignMessageAssignTemplateQueryResourceObject'] = CampaignMessageAssignTemplateQueryResourceObject
 
 
 class CampaignMessageAssignTemplateQuery(ModelNormal):
@@ -88,7 +88,7 @@ class CampaignMessageAssignTemplateQuery(ModelNormal):
         """
         lazy_import()
         return {
-            'data': (CampaignMessageAssignTemplateQueryAsSubResource,),  # noqa: E501
+            'data': (CampaignMessageAssignTemplateQueryResourceObject,),  # noqa: E501
         }
 
     @cached_property
@@ -111,7 +111,7 @@ class CampaignMessageAssignTemplateQuery(ModelNormal):
         """CampaignMessageAssignTemplateQuery - a model defined in OpenAPI
 
         Args:
-            data (CampaignMessageAssignTemplateQueryAsSubResource):
+            data (CampaignMessageAssignTemplateQueryResourceObject):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -200,7 +200,7 @@ class CampaignMessageAssignTemplateQuery(ModelNormal):
         """CampaignMessageAssignTemplateQuery - a model defined in OpenAPI
 
         Args:
-            data (CampaignMessageAssignTemplateQueryAsSubResource):
+            data (CampaignMessageAssignTemplateQueryResourceObject):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

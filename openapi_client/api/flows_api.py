@@ -417,33 +417,30 @@ class FlowsApi(object):
             },
             api_client=api_client
         )
-        self.get_flow_action_relationships_endpoint = _Endpoint(
+        self.get_flow_action_relationships_messages_endpoint = _Endpoint(
             settings={
                 'response_type': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),
                 'auth': [
                     'Klaviyo-API-Key'
                 ],
-                'endpoint_path': '/api/flow-actions/{id}/relationships/{related_resource}/',
-                'operation_id': 'get_flow_action_relationships',
+                'endpoint_path': '/api/flow-actions/{id}/relationships/flow-messages/',
+                'operation_id': 'get_flow_action_relationships_messages',
                 'http_method': 'GET',
                 'servers': None,
             },
             params_map={
                 'all': [
                     'id',
-                    'related_resource',
                     'filter',
                     'page_cursor',
                     'sort',
                 ],
                 'required': [
                     'id',
-                    'related_resource',
                 ],
                 'nullable': [
                 ],
                 'enum': [
-                    'related_resource',
                     'sort',
                 ],
                 'validation': [
@@ -453,11 +450,6 @@ class FlowsApi(object):
                 'validations': {
                 },
                 'allowed_values': {
-                    ('related_resource',): {
-
-                        "FLOW": "flow",
-                        "FLOW-MESSAGES": "flow-messages"
-                    },
                     ('sort',): {
 
                         "CREATED": "created",
@@ -473,8 +465,6 @@ class FlowsApi(object):
                 'openapi_types': {
                     'id':
                         (str,),
-                    'related_resource':
-                        (str,),
                     'filter':
                         (str,),
                     'page_cursor':
@@ -484,14 +474,12 @@ class FlowsApi(object):
                 },
                 'attribute_map': {
                     'id': 'id',
-                    'related_resource': 'related_resource',
                     'filter': 'filter',
                     'page_cursor': 'page[cursor]',
                     'sort': 'sort',
                 },
                 'location_map': {
                     'id': 'path',
-                    'related_resource': 'path',
                     'filter': 'query',
                     'page_cursor': 'query',
                     'sort': 'query',
@@ -601,6 +589,57 @@ class FlowsApi(object):
                 },
                 'collection_format_map': {
                     'fields_flow_action': 'csv',
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_flow_for_flow_action_endpoint = _Endpoint(
+            settings={
+                'response_type': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),
+                'auth': [
+                    'Klaviyo-API-Key'
+                ],
+                'endpoint_path': '/api/flow-actions/{id}/relationships/flow/',
+                'operation_id': 'get_flow_for_flow_action',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                },
+                'collection_format_map': {
                 }
             },
             headers_map={
@@ -787,30 +826,27 @@ class FlowsApi(object):
             },
             api_client=api_client
         )
-        self.get_flow_message_relationships_endpoint = _Endpoint(
+        self.get_flow_message_relationships_action_endpoint = _Endpoint(
             settings={
                 'response_type': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),
                 'auth': [
                     'Klaviyo-API-Key'
                 ],
-                'endpoint_path': '/api/flow-messages/{id}/relationships/{related_resource}/',
-                'operation_id': 'get_flow_message_relationships',
+                'endpoint_path': '/api/flow-messages/{id}/relationships/flow-action/',
+                'operation_id': 'get_flow_message_relationships_action',
                 'http_method': 'GET',
                 'servers': None,
             },
             params_map={
                 'all': [
                     'id',
-                    'related_resource',
                 ],
                 'required': [
                     'id',
-                    'related_resource',
                 ],
                 'nullable': [
                 ],
                 'enum': [
-                    'related_resource',
                 ],
                 'validation': [
                 ]
@@ -819,24 +855,16 @@ class FlowsApi(object):
                 'validations': {
                 },
                 'allowed_values': {
-                    ('related_resource',): {
-
-                        "FLOW-ACTION": "flow-action"
-                    },
                 },
                 'openapi_types': {
                     'id':
                         (str,),
-                    'related_resource':
-                        (str,),
                 },
                 'attribute_map': {
                     'id': 'id',
-                    'related_resource': 'related_resource',
                 },
                 'location_map': {
                     'id': 'path',
-                    'related_resource': 'path',
                 },
                 'collection_format_map': {
                 }
@@ -849,30 +877,30 @@ class FlowsApi(object):
             },
             api_client=api_client
         )
-        self.get_flow_relationships_endpoint = _Endpoint(
+        self.get_flow_relationships_flow_actions_endpoint = _Endpoint(
             settings={
                 'response_type': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),
                 'auth': [
                     'Klaviyo-API-Key'
                 ],
-                'endpoint_path': '/api/flows/{id}/relationships/{related_resource}/',
-                'operation_id': 'get_flow_relationships',
+                'endpoint_path': '/api/flows/{id}/relationships/flow-actions/',
+                'operation_id': 'get_flow_relationships_flow_actions',
                 'http_method': 'GET',
                 'servers': None,
             },
             params_map={
                 'all': [
                     'id',
-                    'related_resource',
+                    'filter',
+                    'sort',
                 ],
                 'required': [
                     'id',
-                    'related_resource',
                 ],
                 'nullable': [
                 ],
                 'enum': [
-                    'related_resource',
+                    'sort',
                 ],
                 'validation': [
                 ]
@@ -881,25 +909,86 @@ class FlowsApi(object):
                 'validations': {
                 },
                 'allowed_values': {
-                    ('related_resource',): {
+                    ('sort',): {
 
-                        "FLOW-ACTIONS": "flow-actions",
-                        "TAGS": "tags"
+                        "CREATED": "created",
+                        "-CREATED": "-created",
+                        "ID": "id",
+                        "-ID": "-id",
+                        "STATUS": "status",
+                        "-STATUS": "-status",
+                        "UPDATED": "updated",
+                        "-UPDATED": "-updated"
                     },
                 },
                 'openapi_types': {
                     'id':
                         (str,),
-                    'related_resource':
+                    'filter':
+                        (str,),
+                    'sort':
                         (str,),
                 },
                 'attribute_map': {
                     'id': 'id',
-                    'related_resource': 'related_resource',
+                    'filter': 'filter',
+                    'sort': 'sort',
                 },
                 'location_map': {
                     'id': 'path',
-                    'related_resource': 'path',
+                    'filter': 'query',
+                    'sort': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_flow_relationships_tags_endpoint = _Endpoint(
+            settings={
+                'response_type': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),
+                'auth': [
+                    'Klaviyo-API-Key'
+                ],
+                'endpoint_path': '/api/flows/{id}/relationships/tags/',
+                'operation_id': 'get_flow_relationships_tags',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
                 },
                 'collection_format_map': {
                 }
@@ -1503,24 +1592,22 @@ class FlowsApi(object):
             action_id
         return self.get_flow_action_messages_endpoint.call_with_http_info(**kwargs)
 
-    def get_flow_action_relationships(
+    def get_flow_action_relationships_messages(
         self,
         id,
-        related_resource,
         **kwargs
     ):
-        """Get Flow Action Relationships  # noqa: E501
+        """Get Flow Action Relationships Messages  # noqa: E501
 
         Get all relationships for flow messages associated with the given flow action ID.  Returns a maximum of 50 flow message relationships per request, which can be paginated with cursor-based pagination.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `Flows Read`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_flow_action_relationships(id, related_resource, async_req=True)
+        >>> thread = api.get_flow_action_relationships_messages(id, async_req=True)
         >>> result = thread.get()
 
         Args:
             id (str): 
-            related_resource (str): 
 
         Keyword Args:
             filter (str): For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`name`: `contains`, `ends-with`, `equals`, `starts-with`<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`. [optional]
@@ -1589,9 +1676,7 @@ class FlowsApi(object):
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['id'] = \
             id
-        kwargs['related_resource'] = \
-            related_resource
-        return self.get_flow_action_relationships_endpoint.call_with_http_info(**kwargs)
+        return self.get_flow_action_relationships_messages_endpoint.call_with_http_info(**kwargs)
 
     def get_flow_flow_actions(
         self,
@@ -1679,6 +1764,89 @@ class FlowsApi(object):
         kwargs['flow_id'] = \
             flow_id
         return self.get_flow_flow_actions_endpoint.call_with_http_info(**kwargs)
+
+    def get_flow_for_flow_action(
+        self,
+        id,
+        **kwargs
+    ):
+        """Get Flow For Flow Action  # noqa: E501
+
+        Get the flow associated with the given action ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `Flows Read`  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_flow_for_flow_action(id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (str): 
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            {str: (bool, date, datetime, dict, float, int, list, str, none_type)}
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['id'] = \
+            id
+        return self.get_flow_for_flow_action_endpoint.call_with_http_info(**kwargs)
 
     def get_flow_message(
         self,
@@ -1850,24 +2018,22 @@ class FlowsApi(object):
             message_id
         return self.get_flow_message_action_endpoint.call_with_http_info(**kwargs)
 
-    def get_flow_message_relationships(
+    def get_flow_message_relationships_action(
         self,
         id,
-        related_resource="flow-action",
         **kwargs
     ):
-        """Get Flow Message Relationships  # noqa: E501
+        """Get Flow Message Relationships Action  # noqa: E501
 
         Get the [relationship](https://developers.klaviyo.com/en/reference/api_overview#relationships) for a flow message's flow action, given the flow ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `Flows Read`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_flow_message_relationships(id, related_resource="flow-action", async_req=True)
+        >>> thread = api.get_flow_message_relationships_action(id, async_req=True)
         >>> result = thread.get()
 
         Args:
             id (str): 
-            related_resource (str): . defaults to "flow-action", must be one of ["flow-action"]
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -1933,28 +2099,109 @@ class FlowsApi(object):
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['id'] = \
             id
-        kwargs['related_resource'] = \
-            related_resource
-        return self.get_flow_message_relationships_endpoint.call_with_http_info(**kwargs)
+        return self.get_flow_message_relationships_action_endpoint.call_with_http_info(**kwargs)
 
-    def get_flow_relationships(
+    def get_flow_relationships_flow_actions(
         self,
         id,
-        related_resource,
         **kwargs
     ):
-        """Get Flow Relationships  # noqa: E501
+        """Get Flow Relationships Flow Actions  # noqa: E501
+
+        Get all [relationships](https://developers.klaviyo.com/en/reference/api_overview#relationships) for flow actions associated with the given flow ID. Flow action relationships can be sorted by the following fields, in ascending and descending order: `id`,  `status`, `created`, `updated` Use filters to narrow your results. Returns a maximum of 50 flow action relationships per request, which can be paginated with offset pagination. Offset pagination uses the following parameters: `page[size]` and `page[number]`.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `Flows Read`  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_flow_relationships_flow_actions(id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (str): 
+
+        Keyword Args:
+            filter (str): For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`action_type`: `equals`<br>`status`: `equals`<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`. [optional]
+            sort (str): For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sorting. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            {str: (bool, date, datetime, dict, float, int, list, str, none_type)}
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['id'] = \
+            id
+        return self.get_flow_relationships_flow_actions_endpoint.call_with_http_info(**kwargs)
+
+    def get_flow_relationships_tags(
+        self,
+        id,
+        **kwargs
+    ):
+        """Get Flow Relationships Tags  # noqa: E501
 
         If the `related_resource` is `tags`, returns the tag IDs of all tags associated with the given flow.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `Flows Read` `Tags Read`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_flow_relationships(id, related_resource, async_req=True)
+        >>> thread = api.get_flow_relationships_tags(id, async_req=True)
         >>> result = thread.get()
 
         Args:
             id (str): 
-            related_resource (str): 
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -2020,9 +2267,7 @@ class FlowsApi(object):
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['id'] = \
             id
-        kwargs['related_resource'] = \
-            related_resource
-        return self.get_flow_relationships_endpoint.call_with_http_info(**kwargs)
+        return self.get_flow_relationships_tags_endpoint.call_with_http_info(**kwargs)
 
     def get_flow_tags(
         self,

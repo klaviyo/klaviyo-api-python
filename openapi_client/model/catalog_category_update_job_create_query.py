@@ -31,8 +31,8 @@ from openapi_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from openapi_client.model.catalog_category_update_job_create_query_as_sub_resource import CatalogCategoryUpdateJobCreateQueryAsSubResource
-    globals()['CatalogCategoryUpdateJobCreateQueryAsSubResource'] = CatalogCategoryUpdateJobCreateQueryAsSubResource
+    from openapi_client.model.catalog_category_update_job_create_query_resource_object import CatalogCategoryUpdateJobCreateQueryResourceObject
+    globals()['CatalogCategoryUpdateJobCreateQueryResourceObject'] = CatalogCategoryUpdateJobCreateQueryResourceObject
 
 
 class CatalogCategoryUpdateJobCreateQuery(ModelNormal):
@@ -88,7 +88,7 @@ class CatalogCategoryUpdateJobCreateQuery(ModelNormal):
         """
         lazy_import()
         return {
-            'data': (CatalogCategoryUpdateJobCreateQueryAsSubResource,),  # noqa: E501
+            'data': (CatalogCategoryUpdateJobCreateQueryResourceObject,),  # noqa: E501
         }
 
     @cached_property
@@ -111,7 +111,7 @@ class CatalogCategoryUpdateJobCreateQuery(ModelNormal):
         """CatalogCategoryUpdateJobCreateQuery - a model defined in OpenAPI
 
         Args:
-            data (CatalogCategoryUpdateJobCreateQueryAsSubResource):
+            data (CatalogCategoryUpdateJobCreateQueryResourceObject):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -200,7 +200,7 @@ class CatalogCategoryUpdateJobCreateQuery(ModelNormal):
         """CatalogCategoryUpdateJobCreateQuery - a model defined in OpenAPI
 
         Args:
-            data (CatalogCategoryUpdateJobCreateQueryAsSubResource):
+            data (CatalogCategoryUpdateJobCreateQueryResourceObject):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

@@ -31,8 +31,8 @@ from openapi_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from openapi_client.model.campaign_message_partial_update_query_as_sub_resource import CampaignMessagePartialUpdateQueryAsSubResource
-    globals()['CampaignMessagePartialUpdateQueryAsSubResource'] = CampaignMessagePartialUpdateQueryAsSubResource
+    from openapi_client.model.campaign_message_partial_update_query_resource_object import CampaignMessagePartialUpdateQueryResourceObject
+    globals()['CampaignMessagePartialUpdateQueryResourceObject'] = CampaignMessagePartialUpdateQueryResourceObject
 
 
 class CampaignMessagePartialUpdateQuery(ModelNormal):
@@ -88,7 +88,7 @@ class CampaignMessagePartialUpdateQuery(ModelNormal):
         """
         lazy_import()
         return {
-            'data': (CampaignMessagePartialUpdateQueryAsSubResource,),  # noqa: E501
+            'data': (CampaignMessagePartialUpdateQueryResourceObject,),  # noqa: E501
         }
 
     @cached_property
@@ -111,7 +111,7 @@ class CampaignMessagePartialUpdateQuery(ModelNormal):
         """CampaignMessagePartialUpdateQuery - a model defined in OpenAPI
 
         Args:
-            data (CampaignMessagePartialUpdateQueryAsSubResource):
+            data (CampaignMessagePartialUpdateQueryResourceObject):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -200,7 +200,7 @@ class CampaignMessagePartialUpdateQuery(ModelNormal):
         """CampaignMessagePartialUpdateQuery - a model defined in OpenAPI
 
         Args:
-            data (CampaignMessagePartialUpdateQueryAsSubResource):
+            data (CampaignMessagePartialUpdateQueryResourceObject):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

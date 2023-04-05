@@ -31,8 +31,8 @@ from openapi_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from openapi_client.model.campaign_create_query_as_sub_resource import CampaignCreateQueryAsSubResource
-    globals()['CampaignCreateQueryAsSubResource'] = CampaignCreateQueryAsSubResource
+    from openapi_client.model.campaign_create_query_resource_object import CampaignCreateQueryResourceObject
+    globals()['CampaignCreateQueryResourceObject'] = CampaignCreateQueryResourceObject
 
 
 class CampaignCreateQuery(ModelNormal):
@@ -88,7 +88,7 @@ class CampaignCreateQuery(ModelNormal):
         """
         lazy_import()
         return {
-            'data': (CampaignCreateQueryAsSubResource,),  # noqa: E501
+            'data': (CampaignCreateQueryResourceObject,),  # noqa: E501
         }
 
     @cached_property
@@ -111,7 +111,7 @@ class CampaignCreateQuery(ModelNormal):
         """CampaignCreateQuery - a model defined in OpenAPI
 
         Args:
-            data (CampaignCreateQueryAsSubResource):
+            data (CampaignCreateQueryResourceObject):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -200,7 +200,7 @@ class CampaignCreateQuery(ModelNormal):
         """CampaignCreateQuery - a model defined in OpenAPI
 
         Args:
-            data (CampaignCreateQueryAsSubResource):
+            data (CampaignCreateQueryResourceObject):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

@@ -31,8 +31,8 @@ from openapi_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from openapi_client.model.template_clone_query_as_sub_resource import TemplateCloneQueryAsSubResource
-    globals()['TemplateCloneQueryAsSubResource'] = TemplateCloneQueryAsSubResource
+    from openapi_client.model.template_clone_query_resource_object import TemplateCloneQueryResourceObject
+    globals()['TemplateCloneQueryResourceObject'] = TemplateCloneQueryResourceObject
 
 
 class TemplateCloneQuery(ModelNormal):
@@ -88,7 +88,7 @@ class TemplateCloneQuery(ModelNormal):
         """
         lazy_import()
         return {
-            'data': (TemplateCloneQueryAsSubResource,),  # noqa: E501
+            'data': (TemplateCloneQueryResourceObject,),  # noqa: E501
         }
 
     @cached_property
@@ -111,7 +111,7 @@ class TemplateCloneQuery(ModelNormal):
         """TemplateCloneQuery - a model defined in OpenAPI
 
         Args:
-            data (TemplateCloneQueryAsSubResource):
+            data (TemplateCloneQueryResourceObject):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -200,7 +200,7 @@ class TemplateCloneQuery(ModelNormal):
         """TemplateCloneQuery - a model defined in OpenAPI
 
         Args:
-            data (TemplateCloneQueryAsSubResource):
+            data (TemplateCloneQueryResourceObject):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

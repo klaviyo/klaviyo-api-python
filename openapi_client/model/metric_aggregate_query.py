@@ -31,8 +31,8 @@ from openapi_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from openapi_client.model.metric_aggregate_query_as_sub_resource import MetricAggregateQueryAsSubResource
-    globals()['MetricAggregateQueryAsSubResource'] = MetricAggregateQueryAsSubResource
+    from openapi_client.model.metric_aggregate_query_resource_object import MetricAggregateQueryResourceObject
+    globals()['MetricAggregateQueryResourceObject'] = MetricAggregateQueryResourceObject
 
 
 class MetricAggregateQuery(ModelNormal):
@@ -88,7 +88,7 @@ class MetricAggregateQuery(ModelNormal):
         """
         lazy_import()
         return {
-            'data': (MetricAggregateQueryAsSubResource,),  # noqa: E501
+            'data': (MetricAggregateQueryResourceObject,),  # noqa: E501
         }
 
     @cached_property
@@ -111,7 +111,7 @@ class MetricAggregateQuery(ModelNormal):
         """MetricAggregateQuery - a model defined in OpenAPI
 
         Args:
-            data (MetricAggregateQueryAsSubResource):
+            data (MetricAggregateQueryResourceObject):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -200,7 +200,7 @@ class MetricAggregateQuery(ModelNormal):
         """MetricAggregateQuery - a model defined in OpenAPI
 
         Args:
-            data (MetricAggregateQueryAsSubResource):
+            data (MetricAggregateQueryResourceObject):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

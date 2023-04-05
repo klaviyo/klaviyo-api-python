@@ -31,8 +31,8 @@ from openapi_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from openapi_client.model.tag_group_create_query_as_sub_resource import TagGroupCreateQueryAsSubResource
-    globals()['TagGroupCreateQueryAsSubResource'] = TagGroupCreateQueryAsSubResource
+    from openapi_client.model.tag_group_create_query_resource_object import TagGroupCreateQueryResourceObject
+    globals()['TagGroupCreateQueryResourceObject'] = TagGroupCreateQueryResourceObject
 
 
 class TagGroupCreateQuery(ModelNormal):
@@ -88,7 +88,7 @@ class TagGroupCreateQuery(ModelNormal):
         """
         lazy_import()
         return {
-            'data': (TagGroupCreateQueryAsSubResource,),  # noqa: E501
+            'data': (TagGroupCreateQueryResourceObject,),  # noqa: E501
         }
 
     @cached_property
@@ -111,7 +111,7 @@ class TagGroupCreateQuery(ModelNormal):
         """TagGroupCreateQuery - a model defined in OpenAPI
 
         Args:
-            data (TagGroupCreateQueryAsSubResource):
+            data (TagGroupCreateQueryResourceObject):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -200,7 +200,7 @@ class TagGroupCreateQuery(ModelNormal):
         """TagGroupCreateQuery - a model defined in OpenAPI
 
         Args:
-            data (TagGroupCreateQueryAsSubResource):
+            data (TagGroupCreateQueryResourceObject):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
