@@ -31,8 +31,8 @@ from openapi_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from openapi_client.model.list_create_query_as_sub_resource import ListCreateQueryAsSubResource
-    globals()['ListCreateQueryAsSubResource'] = ListCreateQueryAsSubResource
+    from openapi_client.model.list_create_query_resource_object import ListCreateQueryResourceObject
+    globals()['ListCreateQueryResourceObject'] = ListCreateQueryResourceObject
 
 
 class ListCreateQuery(ModelNormal):
@@ -88,7 +88,7 @@ class ListCreateQuery(ModelNormal):
         """
         lazy_import()
         return {
-            'data': (ListCreateQueryAsSubResource,),  # noqa: E501
+            'data': (ListCreateQueryResourceObject,),  # noqa: E501
         }
 
     @cached_property
@@ -111,7 +111,7 @@ class ListCreateQuery(ModelNormal):
         """ListCreateQuery - a model defined in OpenAPI
 
         Args:
-            data (ListCreateQueryAsSubResource):
+            data (ListCreateQueryResourceObject):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -200,7 +200,7 @@ class ListCreateQuery(ModelNormal):
         """ListCreateQuery - a model defined in OpenAPI
 
         Args:
-            data (ListCreateQueryAsSubResource):
+            data (ListCreateQueryResourceObject):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

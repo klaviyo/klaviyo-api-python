@@ -31,8 +31,8 @@ from openapi_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from openapi_client.model.event_create_query_as_sub_resource import EventCreateQueryAsSubResource
-    globals()['EventCreateQueryAsSubResource'] = EventCreateQueryAsSubResource
+    from openapi_client.model.event_create_query_resource_object import EventCreateQueryResourceObject
+    globals()['EventCreateQueryResourceObject'] = EventCreateQueryResourceObject
 
 
 class EventCreateQuery(ModelNormal):
@@ -88,7 +88,7 @@ class EventCreateQuery(ModelNormal):
         """
         lazy_import()
         return {
-            'data': (EventCreateQueryAsSubResource,),  # noqa: E501
+            'data': (EventCreateQueryResourceObject,),  # noqa: E501
         }
 
     @cached_property
@@ -111,7 +111,7 @@ class EventCreateQuery(ModelNormal):
         """EventCreateQuery - a model defined in OpenAPI
 
         Args:
-            data (EventCreateQueryAsSubResource):
+            data (EventCreateQueryResourceObject):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -200,7 +200,7 @@ class EventCreateQuery(ModelNormal):
         """EventCreateQuery - a model defined in OpenAPI
 
         Args:
-            data (EventCreateQueryAsSubResource):
+            data (EventCreateQueryResourceObject):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

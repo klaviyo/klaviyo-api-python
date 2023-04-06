@@ -31,8 +31,8 @@ from openapi_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from openapi_client.model.list_partial_update_query_as_sub_resource import ListPartialUpdateQueryAsSubResource
-    globals()['ListPartialUpdateQueryAsSubResource'] = ListPartialUpdateQueryAsSubResource
+    from openapi_client.model.list_partial_update_query_resource_object import ListPartialUpdateQueryResourceObject
+    globals()['ListPartialUpdateQueryResourceObject'] = ListPartialUpdateQueryResourceObject
 
 
 class ListPartialUpdateQuery(ModelNormal):
@@ -88,7 +88,7 @@ class ListPartialUpdateQuery(ModelNormal):
         """
         lazy_import()
         return {
-            'data': (ListPartialUpdateQueryAsSubResource,),  # noqa: E501
+            'data': (ListPartialUpdateQueryResourceObject,),  # noqa: E501
         }
 
     @cached_property
@@ -111,7 +111,7 @@ class ListPartialUpdateQuery(ModelNormal):
         """ListPartialUpdateQuery - a model defined in OpenAPI
 
         Args:
-            data (ListPartialUpdateQueryAsSubResource):
+            data (ListPartialUpdateQueryResourceObject):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -200,7 +200,7 @@ class ListPartialUpdateQuery(ModelNormal):
         """ListPartialUpdateQuery - a model defined in OpenAPI
 
         Args:
-            data (ListPartialUpdateQueryAsSubResource):
+            data (ListPartialUpdateQueryResourceObject):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

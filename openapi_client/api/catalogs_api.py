@@ -105,32 +105,29 @@ class CatalogsApi(object):
             },
             api_client=api_client
         )
-        self.create_catalog_category_relationships_endpoint = _Endpoint(
+        self.create_catalog_category_relationships_items_endpoint = _Endpoint(
             settings={
                 'response_type': None,
                 'auth': [
                     'Klaviyo-API-Key'
                 ],
-                'endpoint_path': '/api/catalog-categories/{id}/relationships/{related_resource}/',
-                'operation_id': 'create_catalog_category_relationships',
+                'endpoint_path': '/api/catalog-categories/{id}/relationships/items/',
+                'operation_id': 'create_catalog_category_relationships_items',
                 'http_method': 'POST',
                 'servers': None,
             },
             params_map={
                 'all': [
                     'id',
-                    'related_resource',
                     'catalog_category_item_op',
                 ],
                 'required': [
                     'id',
-                    'related_resource',
                     'catalog_category_item_op',
                 ],
                 'nullable': [
                 ],
                 'enum': [
-                    'related_resource',
                 ],
                 'validation': [
                 ]
@@ -139,26 +136,18 @@ class CatalogsApi(object):
                 'validations': {
                 },
                 'allowed_values': {
-                    ('related_resource',): {
-
-                        "ITEMS": "items"
-                    },
                 },
                 'openapi_types': {
                     'id':
-                        (str,),
-                    'related_resource':
                         (str,),
                     'catalog_category_item_op':
                         (CatalogCategoryItemOp,),
                 },
                 'attribute_map': {
                     'id': 'id',
-                    'related_resource': 'related_resource',
                 },
                 'location_map': {
                     'id': 'path',
-                    'related_resource': 'path',
                     'catalog_category_item_op': 'body',
                 },
                 'collection_format_map': {
@@ -226,32 +215,29 @@ class CatalogsApi(object):
             },
             api_client=api_client
         )
-        self.create_catalog_item_relationships_endpoint = _Endpoint(
+        self.create_catalog_item_relationships_categories_endpoint = _Endpoint(
             settings={
                 'response_type': None,
                 'auth': [
                     'Klaviyo-API-Key'
                 ],
-                'endpoint_path': '/api/catalog-items/{id}/relationships/{related_resource}/',
-                'operation_id': 'create_catalog_item_relationships',
+                'endpoint_path': '/api/catalog-items/{id}/relationships/categories/',
+                'operation_id': 'create_catalog_item_relationships_categories',
                 'http_method': 'POST',
                 'servers': None,
             },
             params_map={
                 'all': [
                     'id',
-                    'related_resource',
                     'catalog_item_category_op',
                 ],
                 'required': [
                     'id',
-                    'related_resource',
                     'catalog_item_category_op',
                 ],
                 'nullable': [
                 ],
                 'enum': [
-                    'related_resource',
                 ],
                 'validation': [
                 ]
@@ -260,26 +246,18 @@ class CatalogsApi(object):
                 'validations': {
                 },
                 'allowed_values': {
-                    ('related_resource',): {
-
-                        "CATEGORIES": "categories"
-                    },
                 },
                 'openapi_types': {
                     'id':
-                        (str,),
-                    'related_resource':
                         (str,),
                     'catalog_item_category_op':
                         (CatalogItemCategoryOp,),
                 },
                 'attribute_map': {
                     'id': 'id',
-                    'related_resource': 'related_resource',
                 },
                 'location_map': {
                     'id': 'path',
-                    'related_resource': 'path',
                     'catalog_item_category_op': 'body',
                 },
                 'collection_format_map': {
@@ -398,32 +376,29 @@ class CatalogsApi(object):
             },
             api_client=api_client
         )
-        self.delete_catalog_category_relationships_endpoint = _Endpoint(
+        self.delete_catalog_category_relationships_items_endpoint = _Endpoint(
             settings={
                 'response_type': None,
                 'auth': [
                     'Klaviyo-API-Key'
                 ],
-                'endpoint_path': '/api/catalog-categories/{id}/relationships/{related_resource}/',
-                'operation_id': 'delete_catalog_category_relationships',
+                'endpoint_path': '/api/catalog-categories/{id}/relationships/items/',
+                'operation_id': 'delete_catalog_category_relationships_items',
                 'http_method': 'DELETE',
                 'servers': None,
             },
             params_map={
                 'all': [
                     'id',
-                    'related_resource',
                     'catalog_category_item_op',
                 ],
                 'required': [
                     'id',
-                    'related_resource',
                     'catalog_category_item_op',
                 ],
                 'nullable': [
                 ],
                 'enum': [
-                    'related_resource',
                 ],
                 'validation': [
                 ]
@@ -432,26 +407,18 @@ class CatalogsApi(object):
                 'validations': {
                 },
                 'allowed_values': {
-                    ('related_resource',): {
-
-                        "ITEMS": "items"
-                    },
                 },
                 'openapi_types': {
                     'id':
-                        (str,),
-                    'related_resource':
                         (str,),
                     'catalog_category_item_op':
                         (CatalogCategoryItemOp,),
                 },
                 'attribute_map': {
                     'id': 'id',
-                    'related_resource': 'related_resource',
                 },
                 'location_map': {
                     'id': 'path',
-                    'related_resource': 'path',
                     'catalog_category_item_op': 'body',
                 },
                 'collection_format_map': {
@@ -518,32 +485,29 @@ class CatalogsApi(object):
             },
             api_client=api_client
         )
-        self.delete_catalog_item_relationships_endpoint = _Endpoint(
+        self.delete_catalog_item_relationships_categories_endpoint = _Endpoint(
             settings={
                 'response_type': None,
                 'auth': [
                     'Klaviyo-API-Key'
                 ],
-                'endpoint_path': '/api/catalog-items/{id}/relationships/{related_resource}/',
-                'operation_id': 'delete_catalog_item_relationships',
+                'endpoint_path': '/api/catalog-items/{id}/relationships/categories/',
+                'operation_id': 'delete_catalog_item_relationships_categories',
                 'http_method': 'DELETE',
                 'servers': None,
             },
             params_map={
                 'all': [
                     'id',
-                    'related_resource',
                     'catalog_item_category_op',
                 ],
                 'required': [
                     'id',
-                    'related_resource',
                     'catalog_item_category_op',
                 ],
                 'nullable': [
                 ],
                 'enum': [
-                    'related_resource',
                 ],
                 'validation': [
                 ]
@@ -552,26 +516,18 @@ class CatalogsApi(object):
                 'validations': {
                 },
                 'allowed_values': {
-                    ('related_resource',): {
-
-                        "CATEGORIES": "categories"
-                    },
                 },
                 'openapi_types': {
                     'id':
-                        (str,),
-                    'related_resource':
                         (str,),
                     'catalog_item_category_op':
                         (CatalogItemCategoryOp,),
                 },
                 'attribute_map': {
                     'id': 'id',
-                    'related_resource': 'related_resource',
                 },
                 'location_map': {
                     'id': 'path',
-                    'related_resource': 'path',
                     'catalog_item_category_op': 'body',
                 },
                 'collection_format_map': {
@@ -910,31 +866,28 @@ class CatalogsApi(object):
             },
             api_client=api_client
         )
-        self.get_catalog_category_relationships_endpoint = _Endpoint(
+        self.get_catalog_category_relationships_items_endpoint = _Endpoint(
             settings={
                 'response_type': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),
                 'auth': [
                     'Klaviyo-API-Key'
                 ],
-                'endpoint_path': '/api/catalog-categories/{id}/relationships/{related_resource}/',
-                'operation_id': 'get_catalog_category_relationships',
+                'endpoint_path': '/api/catalog-categories/{id}/relationships/items/',
+                'operation_id': 'get_catalog_category_relationships_items',
                 'http_method': 'GET',
                 'servers': None,
             },
             params_map={
                 'all': [
                     'id',
-                    'related_resource',
                     'page_cursor',
                 ],
                 'required': [
                     'id',
-                    'related_resource',
                 ],
                 'nullable': [
                 ],
                 'enum': [
-                    'related_resource',
                 ],
                 'validation': [
                 ]
@@ -943,27 +896,19 @@ class CatalogsApi(object):
                 'validations': {
                 },
                 'allowed_values': {
-                    ('related_resource',): {
-
-                        "ITEMS": "items"
-                    },
                 },
                 'openapi_types': {
                     'id':
-                        (str,),
-                    'related_resource':
                         (str,),
                     'page_cursor':
                         (str,),
                 },
                 'attribute_map': {
                     'id': 'id',
-                    'related_resource': 'related_resource',
                     'page_cursor': 'page[cursor]',
                 },
                 'location_map': {
                     'id': 'path',
-                    'related_resource': 'path',
                     'page_cursor': 'query',
                 },
                 'collection_format_map': {
@@ -1171,31 +1116,28 @@ class CatalogsApi(object):
             },
             api_client=api_client
         )
-        self.get_catalog_item_relationships_endpoint = _Endpoint(
+        self.get_catalog_item_relationships_categories_endpoint = _Endpoint(
             settings={
                 'response_type': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),
                 'auth': [
                     'Klaviyo-API-Key'
                 ],
-                'endpoint_path': '/api/catalog-items/{id}/relationships/{related_resource}/',
-                'operation_id': 'get_catalog_item_relationships',
+                'endpoint_path': '/api/catalog-items/{id}/relationships/categories/',
+                'operation_id': 'get_catalog_item_relationships_categories',
                 'http_method': 'GET',
                 'servers': None,
             },
             params_map={
                 'all': [
                     'id',
-                    'related_resource',
                     'page_cursor',
                 ],
                 'required': [
                     'id',
-                    'related_resource',
                 ],
                 'nullable': [
                 ],
                 'enum': [
-                    'related_resource',
                 ],
                 'validation': [
                 ]
@@ -1204,27 +1146,19 @@ class CatalogsApi(object):
                 'validations': {
                 },
                 'allowed_values': {
-                    ('related_resource',): {
-
-                        "CATEGORIES": "categories"
-                    },
                 },
                 'openapi_types': {
                     'id':
-                        (str,),
-                    'related_resource':
                         (str,),
                     'page_cursor':
                         (str,),
                 },
                 'attribute_map': {
                     'id': 'id',
-                    'related_resource': 'related_resource',
                     'page_cursor': 'page[cursor]',
                 },
                 'location_map': {
                     'id': 'path',
-                    'related_resource': 'path',
                     'page_cursor': 'query',
                 },
                 'collection_format_map': {
@@ -3623,32 +3557,29 @@ class CatalogsApi(object):
             },
             api_client=api_client
         )
-        self.update_catalog_category_relationships_endpoint = _Endpoint(
+        self.update_catalog_category_relationships_items_endpoint = _Endpoint(
             settings={
                 'response_type': None,
                 'auth': [
                     'Klaviyo-API-Key'
                 ],
-                'endpoint_path': '/api/catalog-categories/{id}/relationships/{related_resource}/',
-                'operation_id': 'update_catalog_category_relationships',
+                'endpoint_path': '/api/catalog-categories/{id}/relationships/items/',
+                'operation_id': 'update_catalog_category_relationships_items',
                 'http_method': 'PATCH',
                 'servers': None,
             },
             params_map={
                 'all': [
                     'id',
-                    'related_resource',
                     'catalog_category_item_op',
                 ],
                 'required': [
                     'id',
-                    'related_resource',
                     'catalog_category_item_op',
                 ],
                 'nullable': [
                 ],
                 'enum': [
-                    'related_resource',
                 ],
                 'validation': [
                 ]
@@ -3657,26 +3588,18 @@ class CatalogsApi(object):
                 'validations': {
                 },
                 'allowed_values': {
-                    ('related_resource',): {
-
-                        "ITEMS": "items"
-                    },
                 },
                 'openapi_types': {
                     'id':
-                        (str,),
-                    'related_resource':
                         (str,),
                     'catalog_category_item_op':
                         (CatalogCategoryItemOp,),
                 },
                 'attribute_map': {
                     'id': 'id',
-                    'related_resource': 'related_resource',
                 },
                 'location_map': {
                     'id': 'path',
-                    'related_resource': 'path',
                     'catalog_category_item_op': 'body',
                 },
                 'collection_format_map': {
@@ -3750,32 +3673,29 @@ class CatalogsApi(object):
             },
             api_client=api_client
         )
-        self.update_catalog_item_relationships_endpoint = _Endpoint(
+        self.update_catalog_item_relationships_categories_endpoint = _Endpoint(
             settings={
                 'response_type': None,
                 'auth': [
                     'Klaviyo-API-Key'
                 ],
-                'endpoint_path': '/api/catalog-items/{id}/relationships/{related_resource}/',
-                'operation_id': 'update_catalog_item_relationships',
+                'endpoint_path': '/api/catalog-items/{id}/relationships/categories/',
+                'operation_id': 'update_catalog_item_relationships_categories',
                 'http_method': 'PATCH',
                 'servers': None,
             },
             params_map={
                 'all': [
                     'id',
-                    'related_resource',
                     'catalog_item_category_op',
                 ],
                 'required': [
                     'id',
-                    'related_resource',
                     'catalog_item_category_op',
                 ],
                 'nullable': [
                 ],
                 'enum': [
-                    'related_resource',
                 ],
                 'validation': [
                 ]
@@ -3784,26 +3704,18 @@ class CatalogsApi(object):
                 'validations': {
                 },
                 'allowed_values': {
-                    ('related_resource',): {
-
-                        "CATEGORIES": "categories"
-                    },
                 },
                 'openapi_types': {
                     'id':
-                        (str,),
-                    'related_resource':
                         (str,),
                     'catalog_item_category_op':
                         (CatalogItemCategoryOp,),
                 },
                 'attribute_map': {
                     'id': 'id',
-                    'related_resource': 'related_resource',
                 },
                 'location_map': {
                     'id': 'path',
-                    'related_resource': 'path',
                     'catalog_item_category_op': 'body',
                 },
                 'collection_format_map': {
@@ -3961,26 +3873,24 @@ class CatalogsApi(object):
             catalog_category_create_query
         return self.create_catalog_category_endpoint.call_with_http_info(**kwargs)
 
-    def create_catalog_category_relationships(
+    def create_catalog_category_relationships_items(
         self,
         id,
         catalog_category_item_op,
-        related_resource="items",
         **kwargs
     ):
-        """Create Catalog Category Relationships  # noqa: E501
+        """Create Catalog Category Relationships Items  # noqa: E501
 
         Create a new item relationship for the given category ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `Catalogs Write`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.create_catalog_category_relationships(id, catalog_category_item_op, related_resource="items", async_req=True)
+        >>> thread = api.create_catalog_category_relationships_items(id, catalog_category_item_op, async_req=True)
         >>> result = thread.get()
 
         Args:
             id (str): 
             catalog_category_item_op (CatalogCategoryItemOp):
-            related_resource (str): . defaults to "items", must be one of ["items"]
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -4046,11 +3956,9 @@ class CatalogsApi(object):
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['id'] = \
             id
-        kwargs['related_resource'] = \
-            related_resource
         kwargs['catalog_category_item_op'] = \
             catalog_category_item_op
-        return self.create_catalog_category_relationships_endpoint.call_with_http_info(**kwargs)
+        return self.create_catalog_category_relationships_items_endpoint.call_with_http_info(**kwargs)
 
     def create_catalog_item(
         self,
@@ -4135,26 +4043,24 @@ class CatalogsApi(object):
             catalog_item_create_query
         return self.create_catalog_item_endpoint.call_with_http_info(**kwargs)
 
-    def create_catalog_item_relationships(
+    def create_catalog_item_relationships_categories(
         self,
         id,
         catalog_item_category_op,
-        related_resource="categories",
         **kwargs
     ):
-        """Create Catalog Item Relationships  # noqa: E501
+        """Create Catalog Item Relationships Categories  # noqa: E501
 
         Create a new catalog category relationship for the given item ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `Catalogs Write`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.create_catalog_item_relationships(id, catalog_item_category_op, related_resource="categories", async_req=True)
+        >>> thread = api.create_catalog_item_relationships_categories(id, catalog_item_category_op, async_req=True)
         >>> result = thread.get()
 
         Args:
             id (str): 
             catalog_item_category_op (CatalogItemCategoryOp):
-            related_resource (str): . defaults to "categories", must be one of ["categories"]
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -4220,11 +4126,9 @@ class CatalogsApi(object):
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['id'] = \
             id
-        kwargs['related_resource'] = \
-            related_resource
         kwargs['catalog_item_category_op'] = \
             catalog_item_category_op
-        return self.create_catalog_item_relationships_endpoint.call_with_http_info(**kwargs)
+        return self.create_catalog_item_relationships_categories_endpoint.call_with_http_info(**kwargs)
 
     def create_catalog_variant(
         self,
@@ -4392,26 +4296,24 @@ class CatalogsApi(object):
             id
         return self.delete_catalog_category_endpoint.call_with_http_info(**kwargs)
 
-    def delete_catalog_category_relationships(
+    def delete_catalog_category_relationships_items(
         self,
         id,
         catalog_category_item_op,
-        related_resource="items",
         **kwargs
     ):
-        """Delete Catalog Category Relationships  # noqa: E501
+        """Delete Catalog Category Relationships Items  # noqa: E501
 
         Delete item relationships for the given category ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `Catalogs Write`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.delete_catalog_category_relationships(id, catalog_category_item_op, related_resource="items", async_req=True)
+        >>> thread = api.delete_catalog_category_relationships_items(id, catalog_category_item_op, async_req=True)
         >>> result = thread.get()
 
         Args:
             id (str): 
             catalog_category_item_op (CatalogCategoryItemOp):
-            related_resource (str): . defaults to "items", must be one of ["items"]
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -4477,11 +4379,9 @@ class CatalogsApi(object):
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['id'] = \
             id
-        kwargs['related_resource'] = \
-            related_resource
         kwargs['catalog_category_item_op'] = \
             catalog_category_item_op
-        return self.delete_catalog_category_relationships_endpoint.call_with_http_info(**kwargs)
+        return self.delete_catalog_category_relationships_items_endpoint.call_with_http_info(**kwargs)
 
     def delete_catalog_item(
         self,
@@ -4566,26 +4466,24 @@ class CatalogsApi(object):
             id
         return self.delete_catalog_item_endpoint.call_with_http_info(**kwargs)
 
-    def delete_catalog_item_relationships(
+    def delete_catalog_item_relationships_categories(
         self,
         id,
         catalog_item_category_op,
-        related_resource="categories",
         **kwargs
     ):
-        """Delete Catalog Item Relationships  # noqa: E501
+        """Delete Catalog Item Relationships Categories  # noqa: E501
 
         Delete catalog category relationships for the given item ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `Catalogs Write`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.delete_catalog_item_relationships(id, catalog_item_category_op, related_resource="categories", async_req=True)
+        >>> thread = api.delete_catalog_item_relationships_categories(id, catalog_item_category_op, async_req=True)
         >>> result = thread.get()
 
         Args:
             id (str): 
             catalog_item_category_op (CatalogItemCategoryOp):
-            related_resource (str): . defaults to "categories", must be one of ["categories"]
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -4651,11 +4549,9 @@ class CatalogsApi(object):
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['id'] = \
             id
-        kwargs['related_resource'] = \
-            related_resource
         kwargs['catalog_item_category_op'] = \
             catalog_item_category_op
-        return self.delete_catalog_item_relationships_endpoint.call_with_http_info(**kwargs)
+        return self.delete_catalog_item_relationships_categories_endpoint.call_with_http_info(**kwargs)
 
     def delete_catalog_variant(
         self,
@@ -4995,24 +4891,22 @@ class CatalogsApi(object):
             category_id
         return self.get_catalog_category_items_endpoint.call_with_http_info(**kwargs)
 
-    def get_catalog_category_relationships(
+    def get_catalog_category_relationships_items(
         self,
         id,
-        related_resource="items",
         **kwargs
     ):
-        """Get Catalog Category Relationships  # noqa: E501
+        """Get Catalog Category Relationships Items  # noqa: E501
 
         Get all items in the given category ID. Returns a maximum of 100 items per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `Catalogs Read`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_catalog_category_relationships(id, related_resource="items", async_req=True)
+        >>> thread = api.get_catalog_category_relationships_items(id, async_req=True)
         >>> result = thread.get()
 
         Args:
             id (str): 
-            related_resource (str): . defaults to "items", must be one of ["items"]
 
         Keyword Args:
             page_cursor (str): For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination. [optional]
@@ -5079,9 +4973,7 @@ class CatalogsApi(object):
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['id'] = \
             id
-        kwargs['related_resource'] = \
-            related_resource
-        return self.get_catalog_category_relationships_endpoint.call_with_http_info(**kwargs)
+        return self.get_catalog_category_relationships_items_endpoint.call_with_http_info(**kwargs)
 
     def get_catalog_item(
         self,
@@ -5256,24 +5148,22 @@ class CatalogsApi(object):
             item_id
         return self.get_catalog_item_categories_endpoint.call_with_http_info(**kwargs)
 
-    def get_catalog_item_relationships(
+    def get_catalog_item_relationships_categories(
         self,
         id,
-        related_resource="categories",
         **kwargs
     ):
-        """Get Catalog Item Relationships  # noqa: E501
+        """Get Catalog Item Relationships Categories  # noqa: E501
 
         Get all catalog categories that a particular item is in. Returns a maximum of 100 categories per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `Catalogs Read`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_catalog_item_relationships(id, related_resource="categories", async_req=True)
+        >>> thread = api.get_catalog_item_relationships_categories(id, async_req=True)
         >>> result = thread.get()
 
         Args:
             id (str): 
-            related_resource (str): . defaults to "categories", must be one of ["categories"]
 
         Keyword Args:
             page_cursor (str): For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination. [optional]
@@ -5340,9 +5230,7 @@ class CatalogsApi(object):
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['id'] = \
             id
-        kwargs['related_resource'] = \
-            related_resource
-        return self.get_catalog_item_relationships_endpoint.call_with_http_info(**kwargs)
+        return self.get_catalog_item_relationships_categories_endpoint.call_with_http_info(**kwargs)
 
     def get_catalog_item_variants(
         self,
@@ -8012,26 +7900,24 @@ class CatalogsApi(object):
             catalog_category_update_query
         return self.update_catalog_category_endpoint.call_with_http_info(**kwargs)
 
-    def update_catalog_category_relationships(
+    def update_catalog_category_relationships_items(
         self,
         id,
         catalog_category_item_op,
-        related_resource="items",
         **kwargs
     ):
-        """Update Catalog Category Relationships  # noqa: E501
+        """Update Catalog Category Relationships Items  # noqa: E501
 
         Update item relationships for the given category ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `Catalogs Write`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.update_catalog_category_relationships(id, catalog_category_item_op, related_resource="items", async_req=True)
+        >>> thread = api.update_catalog_category_relationships_items(id, catalog_category_item_op, async_req=True)
         >>> result = thread.get()
 
         Args:
             id (str): 
             catalog_category_item_op (CatalogCategoryItemOp):
-            related_resource (str): . defaults to "items", must be one of ["items"]
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -8097,11 +7983,9 @@ class CatalogsApi(object):
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['id'] = \
             id
-        kwargs['related_resource'] = \
-            related_resource
         kwargs['catalog_category_item_op'] = \
             catalog_category_item_op
-        return self.update_catalog_category_relationships_endpoint.call_with_http_info(**kwargs)
+        return self.update_catalog_category_relationships_items_endpoint.call_with_http_info(**kwargs)
 
     def update_catalog_item(
         self,
@@ -8190,26 +8074,24 @@ class CatalogsApi(object):
             catalog_item_update_query
         return self.update_catalog_item_endpoint.call_with_http_info(**kwargs)
 
-    def update_catalog_item_relationships(
+    def update_catalog_item_relationships_categories(
         self,
         id,
         catalog_item_category_op,
-        related_resource="categories",
         **kwargs
     ):
-        """Update Catalog Item Relationships  # noqa: E501
+        """Update Catalog Item Relationships Categories  # noqa: E501
 
         Update catalog category relationships for the given item ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `Catalogs Write`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.update_catalog_item_relationships(id, catalog_item_category_op, related_resource="categories", async_req=True)
+        >>> thread = api.update_catalog_item_relationships_categories(id, catalog_item_category_op, async_req=True)
         >>> result = thread.get()
 
         Args:
             id (str): 
             catalog_item_category_op (CatalogItemCategoryOp):
-            related_resource (str): . defaults to "categories", must be one of ["categories"]
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -8275,11 +8157,9 @@ class CatalogsApi(object):
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['id'] = \
             id
-        kwargs['related_resource'] = \
-            related_resource
         kwargs['catalog_item_category_op'] = \
             catalog_item_category_op
-        return self.update_catalog_item_relationships_endpoint.call_with_http_info(**kwargs)
+        return self.update_catalog_item_relationships_categories_endpoint.call_with_http_info(**kwargs)
 
     def update_catalog_variant(
         self,

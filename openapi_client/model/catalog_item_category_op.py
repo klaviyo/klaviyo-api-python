@@ -31,8 +31,8 @@ from openapi_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from openapi_client.model.catalog_item_create_query_as_sub_resource_relationships_categories_data_inner import CatalogItemCreateQueryAsSubResourceRelationshipsCategoriesDataInner
-    globals()['CatalogItemCreateQueryAsSubResourceRelationshipsCategoriesDataInner'] = CatalogItemCreateQueryAsSubResourceRelationshipsCategoriesDataInner
+    from openapi_client.model.catalog_item_create_query_resource_object_relationships_categories_data_inner import CatalogItemCreateQueryResourceObjectRelationshipsCategoriesDataInner
+    globals()['CatalogItemCreateQueryResourceObjectRelationshipsCategoriesDataInner'] = CatalogItemCreateQueryResourceObjectRelationshipsCategoriesDataInner
 
 
 class CatalogItemCategoryOp(ModelNormal):
@@ -88,7 +88,7 @@ class CatalogItemCategoryOp(ModelNormal):
         """
         lazy_import()
         return {
-            'data': ([CatalogItemCreateQueryAsSubResourceRelationshipsCategoriesDataInner],),  # noqa: E501
+            'data': ([CatalogItemCreateQueryResourceObjectRelationshipsCategoriesDataInner],),  # noqa: E501
         }
 
     @cached_property
@@ -111,7 +111,7 @@ class CatalogItemCategoryOp(ModelNormal):
         """CatalogItemCategoryOp - a model defined in OpenAPI
 
         Args:
-            data ([CatalogItemCreateQueryAsSubResourceRelationshipsCategoriesDataInner]):
+            data ([CatalogItemCreateQueryResourceObjectRelationshipsCategoriesDataInner]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -200,7 +200,7 @@ class CatalogItemCategoryOp(ModelNormal):
         """CatalogItemCategoryOp - a model defined in OpenAPI
 
         Args:
-            data ([CatalogItemCreateQueryAsSubResourceRelationshipsCategoriesDataInner]):
+            data ([CatalogItemCreateQueryResourceObjectRelationshipsCategoriesDataInner]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

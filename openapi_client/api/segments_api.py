@@ -115,6 +115,7 @@ class SegmentsApi(object):
             params_map={
                 'all': [
                     'segment_id',
+                    'additional_fields_profile',
                     'fields_profile',
                     'filter',
                     'page_cursor',
@@ -126,6 +127,7 @@ class SegmentsApi(object):
                 'nullable': [
                 ],
                 'enum': [
+                    'additional_fields_profile',
                     'fields_profile',
                 ],
                 'validation': [
@@ -135,6 +137,10 @@ class SegmentsApi(object):
                 'validations': {
                 },
                 'allowed_values': {
+                    ('additional_fields_profile',): {
+
+                        "PREDICTIVE_ANALYTICS": "predictive_analytics"
+                    },
                     ('fields_profile',): {
 
                         "EMAIL": "email",
@@ -180,12 +186,24 @@ class SegmentsApi(object):
                         "SUBSCRIPTIONS.SMS.MARKETING.CONSENT": "subscriptions.sms.marketing.consent",
                         "SUBSCRIPTIONS.SMS.MARKETING.TIMESTAMP": "subscriptions.sms.marketing.timestamp",
                         "SUBSCRIPTIONS.SMS.MARKETING.METHOD": "subscriptions.sms.marketing.method",
-                        "SUBSCRIPTIONS.SMS.MARKETING.METHOD_DETAIL": "subscriptions.sms.marketing.method_detail"
+                        "SUBSCRIPTIONS.SMS.MARKETING.METHOD_DETAIL": "subscriptions.sms.marketing.method_detail",
+                        "PREDICTIVE_ANALYTICS": "predictive_analytics",
+                        "PREDICTIVE_ANALYTICS.HISTORIC_CLV": "predictive_analytics.historic_clv",
+                        "PREDICTIVE_ANALYTICS.PREDICTED_CLV": "predictive_analytics.predicted_clv",
+                        "PREDICTIVE_ANALYTICS.TOTAL_CLV": "predictive_analytics.total_clv",
+                        "PREDICTIVE_ANALYTICS.HISTORIC_NUMBER_OF_ORDERS": "predictive_analytics.historic_number_of_orders",
+                        "PREDICTIVE_ANALYTICS.PREDICTED_NUMBER_OF_ORDERS": "predictive_analytics.predicted_number_of_orders",
+                        "PREDICTIVE_ANALYTICS.AVERAGE_DAYS_BETWEEN_ORDERS": "predictive_analytics.average_days_between_orders",
+                        "PREDICTIVE_ANALYTICS.AVERAGE_ORDER_VALUE": "predictive_analytics.average_order_value",
+                        "PREDICTIVE_ANALYTICS.CHURN_PROBABILITY": "predictive_analytics.churn_probability",
+                        "PREDICTIVE_ANALYTICS.EXPECTED_DATE_OF_NEXT_ORDER": "predictive_analytics.expected_date_of_next_order"
                     },
                 },
                 'openapi_types': {
                     'segment_id':
                         (str,),
+                    'additional_fields_profile':
+                        ([str],),
                     'fields_profile':
                         ([str],),
                     'filter':
@@ -197,6 +215,7 @@ class SegmentsApi(object):
                 },
                 'attribute_map': {
                     'segment_id': 'segment_id',
+                    'additional_fields_profile': 'additional-fields[profile]',
                     'fields_profile': 'fields[profile]',
                     'filter': 'filter',
                     'page_cursor': 'page[cursor]',
@@ -204,12 +223,14 @@ class SegmentsApi(object):
                 },
                 'location_map': {
                     'segment_id': 'path',
+                    'additional_fields_profile': 'query',
                     'fields_profile': 'query',
                     'filter': 'query',
                     'page_cursor': 'query',
                     'page_size': 'query',
                 },
                 'collection_format_map': {
+                    'additional_fields_profile': 'csv',
                     'fields_profile': 'csv',
                 }
             },
@@ -221,31 +242,28 @@ class SegmentsApi(object):
             },
             api_client=api_client
         )
-        self.get_segment_relationships_endpoint = _Endpoint(
+        self.get_segment_relationships_profiles_endpoint = _Endpoint(
             settings={
                 'response_type': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),
                 'auth': [
                     'Klaviyo-API-Key'
                 ],
-                'endpoint_path': '/api/segments/{id}/relationships/{related_resource}/',
-                'operation_id': 'get_segment_relationships',
+                'endpoint_path': '/api/segments/{id}/relationships/profiles/',
+                'operation_id': 'get_segment_relationships_profiles',
                 'http_method': 'GET',
                 'servers': None,
             },
             params_map={
                 'all': [
                     'id',
-                    'related_resource',
                     'page_cursor',
                 ],
                 'required': [
                     'id',
-                    'related_resource',
                 ],
                 'nullable': [
                 ],
                 'enum': [
-                    'related_resource',
                 ],
                 'validation': [
                 ]
@@ -254,29 +272,71 @@ class SegmentsApi(object):
                 'validations': {
                 },
                 'allowed_values': {
-                    ('related_resource',): {
-
-                        "PROFILES": "profiles",
-                        "TAGS": "tags"
-                    },
                 },
                 'openapi_types': {
                     'id':
-                        (str,),
-                    'related_resource':
                         (str,),
                     'page_cursor':
                         (str,),
                 },
                 'attribute_map': {
                     'id': 'id',
-                    'related_resource': 'related_resource',
                     'page_cursor': 'page[cursor]',
                 },
                 'location_map': {
                     'id': 'path',
-                    'related_resource': 'path',
                     'page_cursor': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_segment_relationships_tags_endpoint = _Endpoint(
+            settings={
+                'response_type': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),
+                'auth': [
+                    'Klaviyo-API-Key'
+                ],
+                'endpoint_path': '/api/segments/{id}/relationships/tags/',
+                'operation_id': 'get_segment_relationships_tags',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
                 },
                 'collection_format_map': {
                 }
@@ -579,6 +639,7 @@ class SegmentsApi(object):
             segment_id (str): 
 
         Keyword Args:
+            additional_fields_profile ([str]): Request additional fields not included by default in the response. Supported values: 'predictive_analytics'. [optional]
             fields_profile ([str]): For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sparse-fieldsets. [optional]
             filter (str): For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`email`: `any`<br>`phone_number`: `any`<br>`push_token`: `any`<br>`_kx`: `equals`. [optional]
             page_cursor (str): For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination. [optional]
@@ -648,24 +709,22 @@ class SegmentsApi(object):
             segment_id
         return self.get_segment_profiles_endpoint.call_with_http_info(**kwargs)
 
-    def get_segment_relationships(
+    def get_segment_relationships_profiles(
         self,
         id,
-        related_resource,
         **kwargs
     ):
-        """Get Segment Relationships  # noqa: E501
+        """Get Segment Relationships Profiles  # noqa: E501
 
         Get all profile membership [relationships](https://developers.klaviyo.com/en/reference/api_overview#relationships) for the given segment ID. You can adjust the number of results per page via the `page[size]` query parameter, e.g. `?page[size]=25`. **Default**: 20. **Max**: 100.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `Profiles Read` `Segments Read`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_segment_relationships(id, related_resource, async_req=True)
+        >>> thread = api.get_segment_relationships_profiles(id, async_req=True)
         >>> result = thread.get()
 
         Args:
             id (str): 
-            related_resource (str): 
 
         Keyword Args:
             page_cursor (str): For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination. [optional]
@@ -732,9 +791,90 @@ class SegmentsApi(object):
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['id'] = \
             id
-        kwargs['related_resource'] = \
-            related_resource
-        return self.get_segment_relationships_endpoint.call_with_http_info(**kwargs)
+        return self.get_segment_relationships_profiles_endpoint.call_with_http_info(**kwargs)
+
+    def get_segment_relationships_tags(
+        self,
+        id,
+        **kwargs
+    ):
+        """Get Segment Relationships Tags  # noqa: E501
+
+        If `related_resource` is `tags`, returns the tag IDs of all tags associated with the given segment ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `Segments Read` `Tags Read`  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_segment_relationships_tags(id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (str): 
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            {str: (bool, date, datetime, dict, float, int, list, str, none_type)}
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['id'] = \
+            id
+        return self.get_segment_relationships_tags_endpoint.call_with_http_info(**kwargs)
 
     def get_segment_tags(
         self,

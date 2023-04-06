@@ -23,9 +23,12 @@ from openapi_client.model_utils import (  # noqa: F401
     validate_and_convert_types
 )
 from openapi_client.model.get_create_variants_jobs5_xx_response import GetCreateVariantsJobs5XXResponse
+from openapi_client.model.tag_campaign_op import TagCampaignOp
 from openapi_client.model.tag_create_query import TagCreateQuery
+from openapi_client.model.tag_flow_op import TagFlowOp
 from openapi_client.model.tag_group_create_query import TagGroupCreateQuery
 from openapi_client.model.tag_group_update_query import TagGroupUpdateQuery
+from openapi_client.model.tag_list_op import TagListOp
 from openapi_client.model.tag_segment_op import TagSegmentOp
 from openapi_client.model.tag_update_query import TagUpdateQuery
 
@@ -145,32 +148,29 @@ class TagsApi(object):
             },
             api_client=api_client
         )
-        self.create_tag_relationships_endpoint = _Endpoint(
+        self.create_tag_relationships_campaigns_endpoint = _Endpoint(
             settings={
                 'response_type': None,
                 'auth': [
                     'Klaviyo-API-Key'
                 ],
-                'endpoint_path': '/api/tags/{id}/relationships/{related_resource}/',
-                'operation_id': 'create_tag_relationships',
+                'endpoint_path': '/api/tags/{id}/relationships/campaigns/',
+                'operation_id': 'create_tag_relationships_campaigns',
                 'http_method': 'POST',
                 'servers': None,
             },
             params_map={
                 'all': [
                     'id',
-                    'related_resource',
-                    'tag_segment_op',
+                    'tag_campaign_op',
                 ],
                 'required': [
                     'id',
-                    'related_resource',
-                    'tag_segment_op',
+                    'tag_campaign_op',
                 ],
                 'nullable': [
                 ],
                 'enum': [
-                    'related_resource',
                 ],
                 'validation': [
                 ]
@@ -179,29 +179,192 @@ class TagsApi(object):
                 'validations': {
                 },
                 'allowed_values': {
-                    ('related_resource',): {
-
-                        "FLOWS": "flows",
-                        "LISTS": "lists",
-                        "SEGMENTS": "segments",
-                        "TAG-GROUPS": "tag-groups"
-                    },
                 },
                 'openapi_types': {
                     'id':
                         (str,),
-                    'related_resource':
+                    'tag_campaign_op':
+                        (TagCampaignOp,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                    'tag_campaign_op': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.create_tag_relationships_flows_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'Klaviyo-API-Key'
+                ],
+                'endpoint_path': '/api/tags/{id}/relationships/flows/',
+                'operation_id': 'create_tag_relationships_flows',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                    'tag_flow_op',
+                ],
+                'required': [
+                    'id',
+                    'tag_flow_op',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (str,),
+                    'tag_flow_op':
+                        (TagFlowOp,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                    'tag_flow_op': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.create_tag_relationships_lists_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'Klaviyo-API-Key'
+                ],
+                'endpoint_path': '/api/tags/{id}/relationships/lists/',
+                'operation_id': 'create_tag_relationships_lists',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                    'tag_list_op',
+                ],
+                'required': [
+                    'id',
+                    'tag_list_op',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (str,),
+                    'tag_list_op':
+                        (TagListOp,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                    'tag_list_op': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.create_tag_relationships_segments_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'Klaviyo-API-Key'
+                ],
+                'endpoint_path': '/api/tags/{id}/relationships/segments/',
+                'operation_id': 'create_tag_relationships_segments',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                    'tag_segment_op',
+                ],
+                'required': [
+                    'id',
+                    'tag_segment_op',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
                         (str,),
                     'tag_segment_op':
                         (TagSegmentOp,),
                 },
                 'attribute_map': {
                     'id': 'id',
-                    'related_resource': 'related_resource',
                 },
                 'location_map': {
                     'id': 'path',
-                    'related_resource': 'path',
                     'tag_segment_op': 'body',
                 },
                 'collection_format_map': {
@@ -319,32 +482,29 @@ class TagsApi(object):
             },
             api_client=api_client
         )
-        self.delete_tag_relationships_endpoint = _Endpoint(
+        self.delete_tag_relationships_campaigns_endpoint = _Endpoint(
             settings={
                 'response_type': None,
                 'auth': [
                     'Klaviyo-API-Key'
                 ],
-                'endpoint_path': '/api/tags/{id}/relationships/{related_resource}/',
-                'operation_id': 'delete_tag_relationships',
+                'endpoint_path': '/api/tags/{id}/relationships/campaigns/',
+                'operation_id': 'delete_tag_relationships_campaigns',
                 'http_method': 'DELETE',
                 'servers': None,
             },
             params_map={
                 'all': [
                     'id',
-                    'related_resource',
-                    'tag_segment_op',
+                    'tag_campaign_op',
                 ],
                 'required': [
                     'id',
-                    'related_resource',
-                    'tag_segment_op',
+                    'tag_campaign_op',
                 ],
                 'nullable': [
                 ],
                 'enum': [
-                    'related_resource',
                 ],
                 'validation': [
                 ]
@@ -353,29 +513,192 @@ class TagsApi(object):
                 'validations': {
                 },
                 'allowed_values': {
-                    ('related_resource',): {
-
-                        "FLOWS": "flows",
-                        "LISTS": "lists",
-                        "SEGMENTS": "segments",
-                        "TAG-GROUPS": "tag-groups"
-                    },
                 },
                 'openapi_types': {
                     'id':
                         (str,),
-                    'related_resource':
+                    'tag_campaign_op':
+                        (TagCampaignOp,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                    'tag_campaign_op': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.delete_tag_relationships_flows_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'Klaviyo-API-Key'
+                ],
+                'endpoint_path': '/api/tags/{id}/relationships/flows/',
+                'operation_id': 'delete_tag_relationships_flows',
+                'http_method': 'DELETE',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                    'tag_flow_op',
+                ],
+                'required': [
+                    'id',
+                    'tag_flow_op',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (str,),
+                    'tag_flow_op':
+                        (TagFlowOp,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                    'tag_flow_op': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.delete_tag_relationships_lists_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'Klaviyo-API-Key'
+                ],
+                'endpoint_path': '/api/tags/{id}/relationships/lists/',
+                'operation_id': 'delete_tag_relationships_lists',
+                'http_method': 'DELETE',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                    'tag_list_op',
+                ],
+                'required': [
+                    'id',
+                    'tag_list_op',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (str,),
+                    'tag_list_op':
+                        (TagListOp,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                    'tag_list_op': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.delete_tag_relationships_segments_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'Klaviyo-API-Key'
+                ],
+                'endpoint_path': '/api/tags/{id}/relationships/segments/',
+                'operation_id': 'delete_tag_relationships_segments',
+                'http_method': 'DELETE',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                    'tag_segment_op',
+                ],
+                'required': [
+                    'id',
+                    'tag_segment_op',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
                         (str,),
                     'tag_segment_op':
                         (TagSegmentOp,),
                 },
                 'attribute_map': {
                     'id': 'id',
-                    'related_resource': 'related_resource',
                 },
                 'location_map': {
                     'id': 'path',
-                    'related_resource': 'path',
                     'tag_segment_op': 'body',
                 },
                 'collection_format_map': {
@@ -517,30 +840,27 @@ class TagsApi(object):
             },
             api_client=api_client
         )
-        self.get_tag_group_relationships_endpoint = _Endpoint(
+        self.get_tag_group_relationships_tags_endpoint = _Endpoint(
             settings={
                 'response_type': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),
                 'auth': [
                     'Klaviyo-API-Key'
                 ],
-                'endpoint_path': '/api/tag-groups/{id}/relationships/{related_resource}/',
-                'operation_id': 'get_tag_group_relationships',
+                'endpoint_path': '/api/tag-groups/{id}/relationships/tags/',
+                'operation_id': 'get_tag_group_relationships_tags',
                 'http_method': 'GET',
                 'servers': None,
             },
             params_map={
                 'all': [
                     'id',
-                    'related_resource',
                 ],
                 'required': [
                     'id',
-                    'related_resource',
                 ],
                 'nullable': [
                 ],
                 'enum': [
-                    'related_resource',
                 ],
                 'validation': [
                 ]
@@ -549,24 +869,16 @@ class TagsApi(object):
                 'validations': {
                 },
                 'allowed_values': {
-                    ('related_resource',): {
-
-                        "TAGS": "tags"
-                    },
                 },
                 'openapi_types': {
                     'id':
                         (str,),
-                    'related_resource':
-                        (str,),
                 },
                 'attribute_map': {
                     'id': 'id',
-                    'related_resource': 'related_resource',
                 },
                 'location_map': {
                     'id': 'path',
-                    'related_resource': 'path',
                 },
                 'collection_format_map': {
                 }
@@ -721,30 +1033,27 @@ class TagsApi(object):
             },
             api_client=api_client
         )
-        self.get_tag_relationships_endpoint = _Endpoint(
+        self.get_tag_relationships_campaigns_endpoint = _Endpoint(
             settings={
                 'response_type': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),
                 'auth': [
                     'Klaviyo-API-Key'
                 ],
-                'endpoint_path': '/api/tags/{id}/relationships/{related_resource}/',
-                'operation_id': 'get_tag_relationships',
+                'endpoint_path': '/api/tags/{id}/relationships/campaigns/',
+                'operation_id': 'get_tag_relationships_campaigns',
                 'http_method': 'GET',
                 'servers': None,
             },
             params_map={
                 'all': [
                     'id',
-                    'related_resource',
                 ],
                 'required': [
                     'id',
-                    'related_resource',
                 ],
                 'nullable': [
                 ],
                 'enum': [
-                    'related_resource',
                 ],
                 'validation': [
                 ]
@@ -753,27 +1062,220 @@ class TagsApi(object):
                 'validations': {
                 },
                 'allowed_values': {
-                    ('related_resource',): {
-
-                        "FLOWS": "flows",
-                        "LISTS": "lists",
-                        "SEGMENTS": "segments",
-                        "TAG-GROUPS": "tag-groups"
-                    },
                 },
                 'openapi_types': {
                     'id':
                         (str,),
-                    'related_resource':
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_tag_relationships_flows_endpoint = _Endpoint(
+            settings={
+                'response_type': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),
+                'auth': [
+                    'Klaviyo-API-Key'
+                ],
+                'endpoint_path': '/api/tags/{id}/relationships/flows/',
+                'operation_id': 'get_tag_relationships_flows',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
                         (str,),
                 },
                 'attribute_map': {
                     'id': 'id',
-                    'related_resource': 'related_resource',
                 },
                 'location_map': {
                     'id': 'path',
-                    'related_resource': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_tag_relationships_lists_endpoint = _Endpoint(
+            settings={
+                'response_type': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),
+                'auth': [
+                    'Klaviyo-API-Key'
+                ],
+                'endpoint_path': '/api/tags/{id}/relationships/lists/',
+                'operation_id': 'get_tag_relationships_lists',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_tag_relationships_segments_endpoint = _Endpoint(
+            settings={
+                'response_type': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),
+                'auth': [
+                    'Klaviyo-API-Key'
+                ],
+                'endpoint_path': '/api/tags/{id}/relationships/segments/',
+                'operation_id': 'get_tag_relationships_segments',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_tag_relationships_tag_group_endpoint = _Endpoint(
+            settings={
+                'response_type': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),
+                'auth': [
+                    'Klaviyo-API-Key'
+                ],
+                'endpoint_path': '/api/tags/{id}/relationships/tag-group/',
+                'operation_id': 'get_tag_relationships_tag_group',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
                 },
                 'collection_format_map': {
                 }
@@ -1211,25 +1713,284 @@ class TagsApi(object):
             tag_group_create_query
         return self.create_tag_group_endpoint.call_with_http_info(**kwargs)
 
-    def create_tag_relationships(
+    def create_tag_relationships_campaigns(
         self,
         id,
-        related_resource,
-        tag_segment_op,
+        tag_campaign_op,
         **kwargs
     ):
-        """Create Tag Relationships  # noqa: E501
+        """Create Tag Relationships Campaigns  # noqa: E501
 
-        Associate a tag with other resources. Any given resource cannot be associated with more than **100** tags. The `related_resource` can be one of `campaigns`, `flows`, `lists`, or `segments`. Use the request body to pass in the ID(s) of the related resource(s) that will be associated with the tag. The scopes listed below are conditionally required depending on the specified related resource.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `Flows Write` `Lists Write` `Segments Write` `Tags Write`  # noqa: E501
+        Associate a tag with one or more campaigns. Any campaign cannot be associated with more than **100** tags.  Use the request body to pass in the ID(s) of the campaign(s) that will be associated with the tag.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `Campaigns Write` `Tags Write`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.create_tag_relationships(id, related_resource, tag_segment_op, async_req=True)
+        >>> thread = api.create_tag_relationships_campaigns(id, tag_campaign_op, async_req=True)
         >>> result = thread.get()
 
         Args:
             id (str): 
-            related_resource (str): 
+            tag_campaign_op (TagCampaignOp):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['id'] = \
+            id
+        kwargs['tag_campaign_op'] = \
+            tag_campaign_op
+        return self.create_tag_relationships_campaigns_endpoint.call_with_http_info(**kwargs)
+
+    def create_tag_relationships_flows(
+        self,
+        id,
+        tag_flow_op,
+        **kwargs
+    ):
+        """Create Tag Relationships Flows  # noqa: E501
+
+        Associate a tag with one or more flows. Any flow cannot be associated with more than **100** tags.  Use the request body to pass in the ID(s) of the flow(s) that will be associated with the tag.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `Flows Write` `Tags Write`  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.create_tag_relationships_flows(id, tag_flow_op, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (str): 
+            tag_flow_op (TagFlowOp):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['id'] = \
+            id
+        kwargs['tag_flow_op'] = \
+            tag_flow_op
+        return self.create_tag_relationships_flows_endpoint.call_with_http_info(**kwargs)
+
+    def create_tag_relationships_lists(
+        self,
+        id,
+        tag_list_op,
+        **kwargs
+    ):
+        """Create Tag Relationships Lists  # noqa: E501
+
+        Associate a tag with one or more lists. Any list cannot be associated with more than **100** tags.  Use the request body to pass in the ID(s) of the lists(s) that will be associated with the tag.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `List Write` `Tags Write`  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.create_tag_relationships_lists(id, tag_list_op, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (str): 
+            tag_list_op (TagListOp):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['id'] = \
+            id
+        kwargs['tag_list_op'] = \
+            tag_list_op
+        return self.create_tag_relationships_lists_endpoint.call_with_http_info(**kwargs)
+
+    def create_tag_relationships_segments(
+        self,
+        id,
+        tag_segment_op,
+        **kwargs
+    ):
+        """Create Tag Relationships Segments  # noqa: E501
+
+        Associate a tag with one or more segments. Any segment cannot be associated with more than **100** tags.  Use the request body to pass in the ID(s) of the segments(s) that will be associated with the tag.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `Segments Write` `Tags Write`  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.create_tag_relationships_segments(id, tag_segment_op, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (str): 
             tag_segment_op (TagSegmentOp):
 
         Keyword Args:
@@ -1296,11 +2057,9 @@ class TagsApi(object):
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['id'] = \
             id
-        kwargs['related_resource'] = \
-            related_resource
         kwargs['tag_segment_op'] = \
             tag_segment_op
-        return self.create_tag_relationships_endpoint.call_with_http_info(**kwargs)
+        return self.create_tag_relationships_segments_endpoint.call_with_http_info(**kwargs)
 
     def delete_tag(
         self,
@@ -1468,25 +2227,284 @@ class TagsApi(object):
             id
         return self.delete_tag_group_endpoint.call_with_http_info(**kwargs)
 
-    def delete_tag_relationships(
+    def delete_tag_relationships_campaigns(
         self,
         id,
-        related_resource,
-        tag_segment_op,
+        tag_campaign_op,
         **kwargs
     ):
-        """Delete Tag Relationships  # noqa: E501
+        """Delete Tag Relationships Campaigns  # noqa: E501
 
-        Remove a tag's association with other resources. The `related_resource` can be one of `campaigns`, `flows`, `lists`, or `segments`. Use the request body to pass in the ID(s) of the related resource(s) whose association with the tag will be removed. The scopes listed below are conditionally required depending on the specified related resource.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `Flows Write` `Lists Write` `Segments Write` `Tags Write`  # noqa: E501
+        Remove a tag's association with one or more campaigns.  Use the request body to pass in the ID(s) of the campaign(s) whose association with the tag will be removed.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `Campaigns Write` `Tags Write`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.delete_tag_relationships(id, related_resource, tag_segment_op, async_req=True)
+        >>> thread = api.delete_tag_relationships_campaigns(id, tag_campaign_op, async_req=True)
         >>> result = thread.get()
 
         Args:
             id (str): 
-            related_resource (str): 
+            tag_campaign_op (TagCampaignOp):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['id'] = \
+            id
+        kwargs['tag_campaign_op'] = \
+            tag_campaign_op
+        return self.delete_tag_relationships_campaigns_endpoint.call_with_http_info(**kwargs)
+
+    def delete_tag_relationships_flows(
+        self,
+        id,
+        tag_flow_op,
+        **kwargs
+    ):
+        """Delete Tag Relationships Flows  # noqa: E501
+
+        Remove a tag's association with one or more flows.  Use the request body to pass in the ID(s) of the flows(s) whose association with the tag will be removed.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `Flows Write` `Tags Write`  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.delete_tag_relationships_flows(id, tag_flow_op, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (str): 
+            tag_flow_op (TagFlowOp):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['id'] = \
+            id
+        kwargs['tag_flow_op'] = \
+            tag_flow_op
+        return self.delete_tag_relationships_flows_endpoint.call_with_http_info(**kwargs)
+
+    def delete_tag_relationships_lists(
+        self,
+        id,
+        tag_list_op,
+        **kwargs
+    ):
+        """Delete Tag Relationships Lists  # noqa: E501
+
+        Remove a tag's association with one or more lists.  Use the request body to pass in the ID(s) of the list(s) whose association with the tag will be removed.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `List Write` `Tags Write`  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.delete_tag_relationships_lists(id, tag_list_op, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (str): 
+            tag_list_op (TagListOp):
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['id'] = \
+            id
+        kwargs['tag_list_op'] = \
+            tag_list_op
+        return self.delete_tag_relationships_lists_endpoint.call_with_http_info(**kwargs)
+
+    def delete_tag_relationships_segments(
+        self,
+        id,
+        tag_segment_op,
+        **kwargs
+    ):
+        """Delete Tag Relationships Segments  # noqa: E501
+
+        Remove a tag's association with one or more segments.  Use the request body to pass in the ID(s) of the segments(s) whose association with the tag will be removed.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `Segments Write` `Tags Write`  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.delete_tag_relationships_segments(id, tag_segment_op, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (str): 
             tag_segment_op (TagSegmentOp):
 
         Keyword Args:
@@ -1553,11 +2571,9 @@ class TagsApi(object):
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['id'] = \
             id
-        kwargs['related_resource'] = \
-            related_resource
         kwargs['tag_segment_op'] = \
             tag_segment_op
-        return self.delete_tag_relationships_endpoint.call_with_http_info(**kwargs)
+        return self.delete_tag_relationships_segments_endpoint.call_with_http_info(**kwargs)
 
     def get_tag(
         self,
@@ -1727,24 +2743,22 @@ class TagsApi(object):
             id
         return self.get_tag_group_endpoint.call_with_http_info(**kwargs)
 
-    def get_tag_group_relationships(
+    def get_tag_group_relationships_tags(
         self,
         id,
-        related_resource="tags",
         **kwargs
     ):
-        """Get Tag Group Relationships  # noqa: E501
+        """Get Tag Group Relationships Tags  # noqa: E501
 
-        When `related_resource` is `tags`, returns the tag IDs of all tags inside the given tag group.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `Tags Read`  # noqa: E501
+        Returns the tag IDs of all tags inside the given tag group.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `Tags Read`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_tag_group_relationships(id, related_resource="tags", async_req=True)
+        >>> thread = api.get_tag_group_relationships_tags(id, async_req=True)
         >>> result = thread.get()
 
         Args:
             id (str): 
-            related_resource (str): . defaults to "tags", must be one of ["tags"]
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -1810,9 +2824,7 @@ class TagsApi(object):
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['id'] = \
             id
-        kwargs['related_resource'] = \
-            related_resource
-        return self.get_tag_group_relationships_endpoint.call_with_http_info(**kwargs)
+        return self.get_tag_group_relationships_tags_endpoint.call_with_http_info(**kwargs)
 
     def get_tag_group_tags(
         self,
@@ -1980,24 +2992,22 @@ class TagsApi(object):
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         return self.get_tag_groups_endpoint.call_with_http_info(**kwargs)
 
-    def get_tag_relationships(
+    def get_tag_relationships_campaigns(
         self,
         id,
-        related_resource,
         **kwargs
     ):
-        """Get Tag Relationships  # noqa: E501
+        """Get Tag Relationships Campaigns  # noqa: E501
 
-        Get the relationships for a tag. If `related_resource` is `tag-group`, the request will return the `tag_group_id` of the tag group to which the tag belongs. If `related_resource` is set to `campaigns`, `flows`, `lists`, or `segments`, the request will return the IDs of all associated resources of that type. The scopes listed below are conditionally required depending on the specified related resource.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `Flows Read` `Lists Read` `Segments Read` `Tags Read`  # noqa: E501
+        Returns the IDs of all campaigns associated with the given tag.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `Campaigns Read` `Tags Read`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_tag_relationships(id, related_resource, async_req=True)
+        >>> thread = api.get_tag_relationships_campaigns(id, async_req=True)
         >>> result = thread.get()
 
         Args:
             id (str): 
-            related_resource (str): 
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -2063,9 +3073,339 @@ class TagsApi(object):
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['id'] = \
             id
-        kwargs['related_resource'] = \
-            related_resource
-        return self.get_tag_relationships_endpoint.call_with_http_info(**kwargs)
+        return self.get_tag_relationships_campaigns_endpoint.call_with_http_info(**kwargs)
+
+    def get_tag_relationships_flows(
+        self,
+        id,
+        **kwargs
+    ):
+        """Get Tag Relationships Flows  # noqa: E501
+
+        Returns the IDs of all flows associated with the given tag.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `Flows Read` `Tags Read`  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_tag_relationships_flows(id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (str): 
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            {str: (bool, date, datetime, dict, float, int, list, str, none_type)}
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['id'] = \
+            id
+        return self.get_tag_relationships_flows_endpoint.call_with_http_info(**kwargs)
+
+    def get_tag_relationships_lists(
+        self,
+        id,
+        **kwargs
+    ):
+        """Get Tag Relationships Lists  # noqa: E501
+
+        Returns the IDs of all lists associated with the given tag.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `List Read` `Tags Read`  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_tag_relationships_lists(id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (str): 
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            {str: (bool, date, datetime, dict, float, int, list, str, none_type)}
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['id'] = \
+            id
+        return self.get_tag_relationships_lists_endpoint.call_with_http_info(**kwargs)
+
+    def get_tag_relationships_segments(
+        self,
+        id,
+        **kwargs
+    ):
+        """Get Tag Relationships Segments  # noqa: E501
+
+        Returns the IDs of all segments associated with the given tag.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `Segments Read` `Tags Read`  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_tag_relationships_segments(id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (str): 
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            {str: (bool, date, datetime, dict, float, int, list, str, none_type)}
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['id'] = \
+            id
+        return self.get_tag_relationships_segments_endpoint.call_with_http_info(**kwargs)
+
+    def get_tag_relationships_tag_group(
+        self,
+        id,
+        **kwargs
+    ):
+        """Get Tag Relationships Tag Group  # noqa: E501
+
+        Returns the ids of all tag groups related to the given tag.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `Tags Read`  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_tag_relationships_tag_group(id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (str): 
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            {str: (bool, date, datetime, dict, float, int, list, str, none_type)}
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['id'] = \
+            id
+        return self.get_tag_relationships_tag_group_endpoint.call_with_http_info(**kwargs)
 
     def get_tag_tag_group(
         self,

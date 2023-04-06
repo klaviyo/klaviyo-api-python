@@ -56,6 +56,7 @@ class ProfilesApi(object):
             params_map={
                 'all': [
                     'profile_create_query',
+                    'additional_fields_profile',
                 ],
                 'required': [
                     'profile_create_query',
@@ -63,6 +64,7 @@ class ProfilesApi(object):
                 'nullable': [
                 ],
                 'enum': [
+                    'additional_fields_profile',
                 ],
                 'validation': [
                 ]
@@ -71,17 +73,26 @@ class ProfilesApi(object):
                 'validations': {
                 },
                 'allowed_values': {
+                    ('additional_fields_profile',): {
+
+                        "PREDICTIVE_ANALYTICS": "predictive_analytics"
+                    },
                 },
                 'openapi_types': {
                     'profile_create_query':
                         (ProfileCreateQuery,),
+                    'additional_fields_profile':
+                        ([str],),
                 },
                 'attribute_map': {
+                    'additional_fields_profile': 'additional-fields[profile]',
                 },
                 'location_map': {
                     'profile_create_query': 'body',
+                    'additional_fields_profile': 'query',
                 },
                 'collection_format_map': {
+                    'additional_fields_profile': 'csv',
                 }
             },
             headers_map={
@@ -108,6 +119,7 @@ class ProfilesApi(object):
             params_map={
                 'all': [
                     'id',
+                    'additional_fields_profile',
                     'fields_list',
                     'fields_profile',
                     'fields_segment',
@@ -119,6 +131,7 @@ class ProfilesApi(object):
                 'nullable': [
                 ],
                 'enum': [
+                    'additional_fields_profile',
                     'fields_list',
                     'fields_profile',
                     'fields_segment',
@@ -131,6 +144,10 @@ class ProfilesApi(object):
                 'validations': {
                 },
                 'allowed_values': {
+                    ('additional_fields_profile',): {
+
+                        "PREDICTIVE_ANALYTICS": "predictive_analytics"
+                    },
                     ('fields_list',): {
 
                         "NAME": "name",
@@ -182,7 +199,17 @@ class ProfilesApi(object):
                         "SUBSCRIPTIONS.SMS.MARKETING.CONSENT": "subscriptions.sms.marketing.consent",
                         "SUBSCRIPTIONS.SMS.MARKETING.TIMESTAMP": "subscriptions.sms.marketing.timestamp",
                         "SUBSCRIPTIONS.SMS.MARKETING.METHOD": "subscriptions.sms.marketing.method",
-                        "SUBSCRIPTIONS.SMS.MARKETING.METHOD_DETAIL": "subscriptions.sms.marketing.method_detail"
+                        "SUBSCRIPTIONS.SMS.MARKETING.METHOD_DETAIL": "subscriptions.sms.marketing.method_detail",
+                        "PREDICTIVE_ANALYTICS": "predictive_analytics",
+                        "PREDICTIVE_ANALYTICS.HISTORIC_CLV": "predictive_analytics.historic_clv",
+                        "PREDICTIVE_ANALYTICS.PREDICTED_CLV": "predictive_analytics.predicted_clv",
+                        "PREDICTIVE_ANALYTICS.TOTAL_CLV": "predictive_analytics.total_clv",
+                        "PREDICTIVE_ANALYTICS.HISTORIC_NUMBER_OF_ORDERS": "predictive_analytics.historic_number_of_orders",
+                        "PREDICTIVE_ANALYTICS.PREDICTED_NUMBER_OF_ORDERS": "predictive_analytics.predicted_number_of_orders",
+                        "PREDICTIVE_ANALYTICS.AVERAGE_DAYS_BETWEEN_ORDERS": "predictive_analytics.average_days_between_orders",
+                        "PREDICTIVE_ANALYTICS.AVERAGE_ORDER_VALUE": "predictive_analytics.average_order_value",
+                        "PREDICTIVE_ANALYTICS.CHURN_PROBABILITY": "predictive_analytics.churn_probability",
+                        "PREDICTIVE_ANALYTICS.EXPECTED_DATE_OF_NEXT_ORDER": "predictive_analytics.expected_date_of_next_order"
                     },
                     ('fields_segment',): {
 
@@ -199,6 +226,8 @@ class ProfilesApi(object):
                 'openapi_types': {
                     'id':
                         (str,),
+                    'additional_fields_profile':
+                        ([str],),
                     'fields_list':
                         ([str],),
                     'fields_profile':
@@ -210,6 +239,7 @@ class ProfilesApi(object):
                 },
                 'attribute_map': {
                     'id': 'id',
+                    'additional_fields_profile': 'additional-fields[profile]',
                     'fields_list': 'fields[list]',
                     'fields_profile': 'fields[profile]',
                     'fields_segment': 'fields[segment]',
@@ -217,12 +247,14 @@ class ProfilesApi(object):
                 },
                 'location_map': {
                     'id': 'path',
+                    'additional_fields_profile': 'query',
                     'fields_list': 'query',
                     'fields_profile': 'query',
                     'fields_segment': 'query',
                     'include': 'query',
                 },
                 'collection_format_map': {
+                    'additional_fields_profile': 'csv',
                     'fields_list': 'csv',
                     'fields_profile': 'csv',
                     'fields_segment': 'csv',
@@ -301,30 +333,27 @@ class ProfilesApi(object):
             },
             api_client=api_client
         )
-        self.get_profile_relationships_endpoint = _Endpoint(
+        self.get_profile_relationships_lists_endpoint = _Endpoint(
             settings={
                 'response_type': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),
                 'auth': [
                     'Klaviyo-API-Key'
                 ],
-                'endpoint_path': '/api/profiles/{id}/relationships/{related_resource}/',
-                'operation_id': 'get_profile_relationships',
+                'endpoint_path': '/api/profiles/{id}/relationships/lists/',
+                'operation_id': 'get_profile_relationships_lists',
                 'http_method': 'GET',
                 'servers': None,
             },
             params_map={
                 'all': [
                     'id',
-                    'related_resource',
                 ],
                 'required': [
                     'id',
-                    'related_resource',
                 ],
                 'nullable': [
                 ],
                 'enum': [
-                    'related_resource',
                 ],
                 'validation': [
                 ]
@@ -333,25 +362,67 @@ class ProfilesApi(object):
                 'validations': {
                 },
                 'allowed_values': {
-                    ('related_resource',): {
-
-                        "LISTS": "lists",
-                        "SEGMENTS": "segments"
-                    },
                 },
                 'openapi_types': {
                     'id':
                         (str,),
-                    'related_resource':
+                },
+                'attribute_map': {
+                    'id': 'id',
+                },
+                'location_map': {
+                    'id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_profile_relationships_segments_endpoint = _Endpoint(
+            settings={
+                'response_type': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),
+                'auth': [
+                    'Klaviyo-API-Key'
+                ],
+                'endpoint_path': '/api/profiles/{id}/relationships/segments/',
+                'operation_id': 'get_profile_relationships_segments',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'id',
+                ],
+                'required': [
+                    'id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'id':
                         (str,),
                 },
                 'attribute_map': {
                     'id': 'id',
-                    'related_resource': 'related_resource',
                 },
                 'location_map': {
                     'id': 'path',
-                    'related_resource': 'path',
                 },
                 'collection_format_map': {
                 }
@@ -441,6 +512,7 @@ class ProfilesApi(object):
             },
             params_map={
                 'all': [
+                    'additional_fields_profile',
                     'fields_profile',
                     'filter',
                     'page_cursor',
@@ -451,6 +523,7 @@ class ProfilesApi(object):
                 'nullable': [
                 ],
                 'enum': [
+                    'additional_fields_profile',
                     'fields_profile',
                     'sort',
                 ],
@@ -461,6 +534,10 @@ class ProfilesApi(object):
                 'validations': {
                 },
                 'allowed_values': {
+                    ('additional_fields_profile',): {
+
+                        "PREDICTIVE_ANALYTICS": "predictive_analytics"
+                    },
                     ('fields_profile',): {
 
                         "EMAIL": "email",
@@ -506,7 +583,17 @@ class ProfilesApi(object):
                         "SUBSCRIPTIONS.SMS.MARKETING.CONSENT": "subscriptions.sms.marketing.consent",
                         "SUBSCRIPTIONS.SMS.MARKETING.TIMESTAMP": "subscriptions.sms.marketing.timestamp",
                         "SUBSCRIPTIONS.SMS.MARKETING.METHOD": "subscriptions.sms.marketing.method",
-                        "SUBSCRIPTIONS.SMS.MARKETING.METHOD_DETAIL": "subscriptions.sms.marketing.method_detail"
+                        "SUBSCRIPTIONS.SMS.MARKETING.METHOD_DETAIL": "subscriptions.sms.marketing.method_detail",
+                        "PREDICTIVE_ANALYTICS": "predictive_analytics",
+                        "PREDICTIVE_ANALYTICS.HISTORIC_CLV": "predictive_analytics.historic_clv",
+                        "PREDICTIVE_ANALYTICS.PREDICTED_CLV": "predictive_analytics.predicted_clv",
+                        "PREDICTIVE_ANALYTICS.TOTAL_CLV": "predictive_analytics.total_clv",
+                        "PREDICTIVE_ANALYTICS.HISTORIC_NUMBER_OF_ORDERS": "predictive_analytics.historic_number_of_orders",
+                        "PREDICTIVE_ANALYTICS.PREDICTED_NUMBER_OF_ORDERS": "predictive_analytics.predicted_number_of_orders",
+                        "PREDICTIVE_ANALYTICS.AVERAGE_DAYS_BETWEEN_ORDERS": "predictive_analytics.average_days_between_orders",
+                        "PREDICTIVE_ANALYTICS.AVERAGE_ORDER_VALUE": "predictive_analytics.average_order_value",
+                        "PREDICTIVE_ANALYTICS.CHURN_PROBABILITY": "predictive_analytics.churn_probability",
+                        "PREDICTIVE_ANALYTICS.EXPECTED_DATE_OF_NEXT_ORDER": "predictive_analytics.expected_date_of_next_order"
                     },
                     ('sort',): {
 
@@ -521,6 +608,8 @@ class ProfilesApi(object):
                     },
                 },
                 'openapi_types': {
+                    'additional_fields_profile':
+                        ([str],),
                     'fields_profile':
                         ([str],),
                     'filter':
@@ -533,6 +622,7 @@ class ProfilesApi(object):
                         (int,),
                 },
                 'attribute_map': {
+                    'additional_fields_profile': 'additional-fields[profile]',
                     'fields_profile': 'fields[profile]',
                     'filter': 'filter',
                     'page_cursor': 'page[cursor]',
@@ -540,6 +630,7 @@ class ProfilesApi(object):
                     'page_size': 'page[size]',
                 },
                 'location_map': {
+                    'additional_fields_profile': 'query',
                     'fields_profile': 'query',
                     'filter': 'query',
                     'page_cursor': 'query',
@@ -547,6 +638,7 @@ class ProfilesApi(object):
                     'page_size': 'query',
                 },
                 'collection_format_map': {
+                    'additional_fields_profile': 'csv',
                     'fields_profile': 'csv',
                 }
             },
@@ -781,6 +873,7 @@ class ProfilesApi(object):
                 'all': [
                     'id',
                     'profile_partial_update_query',
+                    'additional_fields_profile',
                 ],
                 'required': [
                     'id',
@@ -789,6 +882,7 @@ class ProfilesApi(object):
                 'nullable': [
                 ],
                 'enum': [
+                    'additional_fields_profile',
                 ],
                 'validation': [
                 ]
@@ -797,21 +891,30 @@ class ProfilesApi(object):
                 'validations': {
                 },
                 'allowed_values': {
+                    ('additional_fields_profile',): {
+
+                        "PREDICTIVE_ANALYTICS": "predictive_analytics"
+                    },
                 },
                 'openapi_types': {
                     'id':
                         (str,),
                     'profile_partial_update_query':
                         (ProfilePartialUpdateQuery,),
+                    'additional_fields_profile':
+                        ([str],),
                 },
                 'attribute_map': {
                     'id': 'id',
+                    'additional_fields_profile': 'additional-fields[profile]',
                 },
                 'location_map': {
                     'id': 'path',
                     'profile_partial_update_query': 'body',
+                    'additional_fields_profile': 'query',
                 },
                 'collection_format_map': {
+                    'additional_fields_profile': 'csv',
                 }
             },
             headers_map={
@@ -843,6 +946,7 @@ class ProfilesApi(object):
             profile_create_query (ProfileCreateQuery):
 
         Keyword Args:
+            additional_fields_profile ([str]): Request additional fields not included by default in the response. Supported values: 'predictive_analytics'. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -915,7 +1019,7 @@ class ProfilesApi(object):
     ):
         """Get Profile  # noqa: E501
 
-        Get the profile with the given profile ID. Include parameters can be provided to get the following related resource data: `lists` memberships, `segments` memberships\"<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `Profiles Read`  # noqa: E501
+        Get the profile with the given profile ID. Include parameters can be provided to get the following related resource data: `lists` memberships, `segments` memberships\"<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `Profiles Read`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -926,6 +1030,7 @@ class ProfilesApi(object):
             id (str): 
 
         Keyword Args:
+            additional_fields_profile ([str]): Request additional fields not included by default in the response. Supported values: 'predictive_analytics'. [optional]
             fields_list ([str]): For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sparse-fieldsets. [optional]
             fields_profile ([str]): For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sparse-fieldsets. [optional]
             fields_segment ([str]): For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sparse-fieldsets. [optional]
@@ -1079,24 +1184,22 @@ class ProfilesApi(object):
             profile_id
         return self.get_profile_lists_endpoint.call_with_http_info(**kwargs)
 
-    def get_profile_relationships(
+    def get_profile_relationships_lists(
         self,
         id,
-        related_resource,
         **kwargs
     ):
-        """Get Profile Relationships  # noqa: E501
+        """Get Profile Relationships Lists  # noqa: E501
 
-        Get list membership or segment membership relationships for a profile with the given profile ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `Lists Read` `Profiles Read` `Segments Read`  # noqa: E501
+        Get list memberships for a profile with the given profile ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `List Read` `Profiles Read`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_profile_relationships(id, related_resource, async_req=True)
+        >>> thread = api.get_profile_relationships_lists(id, async_req=True)
         >>> result = thread.get()
 
         Args:
             id (str): 
-            related_resource (str): 
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -1162,9 +1265,90 @@ class ProfilesApi(object):
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['id'] = \
             id
-        kwargs['related_resource'] = \
-            related_resource
-        return self.get_profile_relationships_endpoint.call_with_http_info(**kwargs)
+        return self.get_profile_relationships_lists_endpoint.call_with_http_info(**kwargs)
+
+    def get_profile_relationships_segments(
+        self,
+        id,
+        **kwargs
+    ):
+        """Get Profile Relationships Segments  # noqa: E501
+
+        Get segment membership relationships for a profile with the given profile ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `Profiles Read` `Segments Read`  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_profile_relationships_segments(id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            id (str): 
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            {str: (bool, date, datetime, dict, float, int, list, str, none_type)}
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['id'] = \
+            id
+        return self.get_profile_relationships_segments_endpoint.call_with_http_info(**kwargs)
 
     def get_profile_segments(
         self,
@@ -1256,7 +1440,7 @@ class ProfilesApi(object):
     ):
         """Get Profiles  # noqa: E501
 
-        Get all profiles in an account. Profiles can be sorted by the following fields in ascending and descending order: `id`, `created`, `updated`, `email` You can adjust the number of results per page via the `page[size]` query parameter, e.g. `?page[size]=25`. **Default**: 20. **Max**: 100.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `Profiles Read`  # noqa: E501
+        Get all profiles in an account. Profiles can be sorted by the following fields in ascending and descending order: `id`, `created`, `updated`, `email` You can adjust the number of results per page via the `page[size]` query parameter, e.g. `?page[size]=25`. **Default**: 20. **Max**: 100.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `Profiles Read`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1265,6 +1449,7 @@ class ProfilesApi(object):
 
 
         Keyword Args:
+            additional_fields_profile ([str]): Request additional fields not included by default in the response. Supported values: 'predictive_analytics'. [optional]
             fields_profile ([str]): For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sparse-fieldsets. [optional]
             filter (str): For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`, `equals`<br>`email`: `any`, `equals`<br>`phone_number`: `any`, `equals`<br>`external_id`: `any`, `equals`<br>`_kx`: `equals`<br>`created`: `greater-than`, `less-than`<br>`updated`: `greater-than`, `less-than`. [optional]
             page_cursor (str): For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination. [optional]
@@ -1340,7 +1525,7 @@ class ProfilesApi(object):
     ):
         """Subscribe Profiles  # noqa: E501
 
-        Subscribe one or more profiles to email marketing, SMS marketing, or both. If the list has double opt-in enabled, profiles will receive a message requiring their confirmation before subscribing. Otherwise, profiles will be immediately subscribed without receiving a confirmation message. To add someone to a list without changing their subscription status, use [Add Profile to List](https://developers.klaviyo.com/en/reference/create_list_relationships). Maximum number of profile can be submitted for subscription: 100<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `List Write` `Profiles Write` `Subscriptions Write`  # noqa: E501
+        Subscribe one or more profiles to email marketing, SMS marketing, or both. If the list has double opt-in enabled, profiles will receive a message requiring their confirmation before subscribing. Otherwise, profiles will be immediately subscribed without receiving a confirmation message. To add someone to a list without changing their subscription status, use [Add Profile to List](https://developers.klaviyo.com/en/reference/create_list_relationships). This API will remove any `UNSUBSCRIBE`, `SPAM_REPORT` or `USER_SUPPRESSED` suppressions from the provided profiles. Learn more about suppressed profiles in [this document](https://help.klaviyo.com/hc/en-us/articles/115005246108-Understanding-suppressed-email-profiles#what-is-a-suppressed-profile-1). Maximum number of profile can be submitted for subscription: 100<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `List Write` `Profiles Write` `Subscriptions Write`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1423,7 +1608,7 @@ class ProfilesApi(object):
     ):
         """Suppress Profiles  # noqa: E501
 
-        Manually suppress one or more profiles. Manually suppressed profiles will not receive email marketing. Not supported for SMS marketing. Maximum number of profile can be submitted for suppression: 100<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `Profiles Write` `Subscriptions Write`  # noqa: E501
+        Manually suppress one or more profiles. Such profiles will have `USER_SUPPRESSED` as their suppression reason. Manually suppressed profiles _will not_ receive email marketing. Learn more about suppressed profiles [in this document](https://help.klaviyo.com/hc/en-us/articles/115005246108-Understanding-suppressed-email-profiles#what-is-a-suppressed-profile-1). Not supported for SMS marketing. Maximum number of profile can be submitted for suppression: 100<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `Profiles Write` `Subscriptions Write`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1589,7 +1774,7 @@ class ProfilesApi(object):
     ):
         """Unsuppress Profiles  # noqa: E501
 
-        Unsuppress one or more profiles. Unsuppressed profiles will receive email marketing. Not supported for SMS marketing. Profiles suppressed due to a hard bounced email will not be unsuppressed. Maximum number of profile can be submitted for unsuppression: 100<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `Subscriptions Write`  # noqa: E501
+        Unsuppress one or more profiles, this will remove any Manual Suppressions (USER_SUPPRESSED) on these profiles. A profile may receive email marketing after a manual suppression is removed so long as they have not revoked consent, i.e. unsubscribed. Not supported for SMS marketing. Only manual suppressions (USER_SUPPRESSED) will be removed. `UNSUBSCRIBE` and `SPAM_REPORT` suppressions are removed whenever a [profile resubscribes](https://developers.klaviyo.com/en/reference/subscribe_profiles). `INVALID_EMAIL` and `HARD_BOUNCE` suppressions cannot be removed by the API. Maximum number of profile can be submitted for unsuppression: 100<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `Subscriptions Write`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1685,6 +1870,7 @@ class ProfilesApi(object):
             profile_partial_update_query (ProfilePartialUpdateQuery):
 
         Keyword Args:
+            additional_fields_profile ([str]): Request additional fields not included by default in the response. Supported values: 'predictive_analytics'. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

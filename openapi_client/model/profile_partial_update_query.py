@@ -31,8 +31,8 @@ from openapi_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from openapi_client.model.profile_partial_update_query_as_sub_resource import ProfilePartialUpdateQueryAsSubResource
-    globals()['ProfilePartialUpdateQueryAsSubResource'] = ProfilePartialUpdateQueryAsSubResource
+    from openapi_client.model.profile_partial_update_query_resource_object import ProfilePartialUpdateQueryResourceObject
+    globals()['ProfilePartialUpdateQueryResourceObject'] = ProfilePartialUpdateQueryResourceObject
 
 
 class ProfilePartialUpdateQuery(ModelNormal):
@@ -88,7 +88,7 @@ class ProfilePartialUpdateQuery(ModelNormal):
         """
         lazy_import()
         return {
-            'data': (ProfilePartialUpdateQueryAsSubResource,),  # noqa: E501
+            'data': (ProfilePartialUpdateQueryResourceObject,),  # noqa: E501
         }
 
     @cached_property
@@ -111,7 +111,7 @@ class ProfilePartialUpdateQuery(ModelNormal):
         """ProfilePartialUpdateQuery - a model defined in OpenAPI
 
         Args:
-            data (ProfilePartialUpdateQueryAsSubResource):
+            data (ProfilePartialUpdateQueryResourceObject):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -200,7 +200,7 @@ class ProfilePartialUpdateQuery(ModelNormal):
         """ProfilePartialUpdateQuery - a model defined in OpenAPI
 
         Args:
-            data (ProfilePartialUpdateQueryAsSubResource):
+            data (ProfilePartialUpdateQueryResourceObject):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

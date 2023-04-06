@@ -31,8 +31,8 @@ from openapi_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from openapi_client.model.unsuppression_create_job_create_query_as_sub_resource import UnsuppressionCreateJobCreateQueryAsSubResource
-    globals()['UnsuppressionCreateJobCreateQueryAsSubResource'] = UnsuppressionCreateJobCreateQueryAsSubResource
+    from openapi_client.model.unsuppression_create_job_create_query_resource_object import UnsuppressionCreateJobCreateQueryResourceObject
+    globals()['UnsuppressionCreateJobCreateQueryResourceObject'] = UnsuppressionCreateJobCreateQueryResourceObject
 
 
 class UnsuppressionCreateJobCreateQuery(ModelNormal):
@@ -88,7 +88,7 @@ class UnsuppressionCreateJobCreateQuery(ModelNormal):
         """
         lazy_import()
         return {
-            'data': (UnsuppressionCreateJobCreateQueryAsSubResource,),  # noqa: E501
+            'data': (UnsuppressionCreateJobCreateQueryResourceObject,),  # noqa: E501
         }
 
     @cached_property
@@ -111,7 +111,7 @@ class UnsuppressionCreateJobCreateQuery(ModelNormal):
         """UnsuppressionCreateJobCreateQuery - a model defined in OpenAPI
 
         Args:
-            data (UnsuppressionCreateJobCreateQueryAsSubResource):
+            data (UnsuppressionCreateJobCreateQueryResourceObject):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -200,7 +200,7 @@ class UnsuppressionCreateJobCreateQuery(ModelNormal):
         """UnsuppressionCreateJobCreateQuery - a model defined in OpenAPI
 
         Args:
-            data (UnsuppressionCreateJobCreateQueryAsSubResource):
+            data (UnsuppressionCreateJobCreateQueryResourceObject):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

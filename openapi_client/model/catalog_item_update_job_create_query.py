@@ -31,8 +31,8 @@ from openapi_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from openapi_client.model.catalog_item_update_job_create_query_as_sub_resource import CatalogItemUpdateJobCreateQueryAsSubResource
-    globals()['CatalogItemUpdateJobCreateQueryAsSubResource'] = CatalogItemUpdateJobCreateQueryAsSubResource
+    from openapi_client.model.catalog_item_update_job_create_query_resource_object import CatalogItemUpdateJobCreateQueryResourceObject
+    globals()['CatalogItemUpdateJobCreateQueryResourceObject'] = CatalogItemUpdateJobCreateQueryResourceObject
 
 
 class CatalogItemUpdateJobCreateQuery(ModelNormal):
@@ -88,7 +88,7 @@ class CatalogItemUpdateJobCreateQuery(ModelNormal):
         """
         lazy_import()
         return {
-            'data': (CatalogItemUpdateJobCreateQueryAsSubResource,),  # noqa: E501
+            'data': (CatalogItemUpdateJobCreateQueryResourceObject,),  # noqa: E501
         }
 
     @cached_property
@@ -111,7 +111,7 @@ class CatalogItemUpdateJobCreateQuery(ModelNormal):
         """CatalogItemUpdateJobCreateQuery - a model defined in OpenAPI
 
         Args:
-            data (CatalogItemUpdateJobCreateQueryAsSubResource):
+            data (CatalogItemUpdateJobCreateQueryResourceObject):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -200,7 +200,7 @@ class CatalogItemUpdateJobCreateQuery(ModelNormal):
         """CatalogItemUpdateJobCreateQuery - a model defined in OpenAPI
 
         Args:
-            data (CatalogItemUpdateJobCreateQueryAsSubResource):
+            data (CatalogItemUpdateJobCreateQueryResourceObject):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

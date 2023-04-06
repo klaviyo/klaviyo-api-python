@@ -31,8 +31,8 @@ from openapi_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from openapi_client.model.flow_update_query_as_sub_resource import FlowUpdateQueryAsSubResource
-    globals()['FlowUpdateQueryAsSubResource'] = FlowUpdateQueryAsSubResource
+    from openapi_client.model.flow_update_query_resource_object import FlowUpdateQueryResourceObject
+    globals()['FlowUpdateQueryResourceObject'] = FlowUpdateQueryResourceObject
 
 
 class FlowUpdateQuery(ModelNormal):
@@ -88,7 +88,7 @@ class FlowUpdateQuery(ModelNormal):
         """
         lazy_import()
         return {
-            'data': (FlowUpdateQueryAsSubResource,),  # noqa: E501
+            'data': (FlowUpdateQueryResourceObject,),  # noqa: E501
         }
 
     @cached_property
@@ -111,7 +111,7 @@ class FlowUpdateQuery(ModelNormal):
         """FlowUpdateQuery - a model defined in OpenAPI
 
         Args:
-            data (FlowUpdateQueryAsSubResource):
+            data (FlowUpdateQueryResourceObject):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -200,7 +200,7 @@ class FlowUpdateQuery(ModelNormal):
         """FlowUpdateQuery - a model defined in OpenAPI
 
         Args:
-            data (FlowUpdateQueryAsSubResource):
+            data (FlowUpdateQueryResourceObject):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

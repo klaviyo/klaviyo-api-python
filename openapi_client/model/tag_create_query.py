@@ -31,8 +31,8 @@ from openapi_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from openapi_client.model.tag_create_query_as_sub_resource import TagCreateQueryAsSubResource
-    globals()['TagCreateQueryAsSubResource'] = TagCreateQueryAsSubResource
+    from openapi_client.model.tag_create_query_resource_object import TagCreateQueryResourceObject
+    globals()['TagCreateQueryResourceObject'] = TagCreateQueryResourceObject
 
 
 class TagCreateQuery(ModelNormal):
@@ -88,7 +88,7 @@ class TagCreateQuery(ModelNormal):
         """
         lazy_import()
         return {
-            'data': (TagCreateQueryAsSubResource,),  # noqa: E501
+            'data': (TagCreateQueryResourceObject,),  # noqa: E501
         }
 
     @cached_property
@@ -111,7 +111,7 @@ class TagCreateQuery(ModelNormal):
         """TagCreateQuery - a model defined in OpenAPI
 
         Args:
-            data (TagCreateQueryAsSubResource):
+            data (TagCreateQueryResourceObject):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -200,7 +200,7 @@ class TagCreateQuery(ModelNormal):
         """TagCreateQuery - a model defined in OpenAPI
 
         Args:
-            data (TagCreateQueryAsSubResource):
+            data (TagCreateQueryResourceObject):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

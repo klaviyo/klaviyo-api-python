@@ -31,8 +31,8 @@ from openapi_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from openapi_client.model.catalog_variant_update_query_as_sub_resource import CatalogVariantUpdateQueryAsSubResource
-    globals()['CatalogVariantUpdateQueryAsSubResource'] = CatalogVariantUpdateQueryAsSubResource
+    from openapi_client.model.catalog_variant_update_query_resource_object import CatalogVariantUpdateQueryResourceObject
+    globals()['CatalogVariantUpdateQueryResourceObject'] = CatalogVariantUpdateQueryResourceObject
 
 
 class CatalogVariantUpdateQuery(ModelNormal):
@@ -88,7 +88,7 @@ class CatalogVariantUpdateQuery(ModelNormal):
         """
         lazy_import()
         return {
-            'data': (CatalogVariantUpdateQueryAsSubResource,),  # noqa: E501
+            'data': (CatalogVariantUpdateQueryResourceObject,),  # noqa: E501
         }
 
     @cached_property
@@ -111,7 +111,7 @@ class CatalogVariantUpdateQuery(ModelNormal):
         """CatalogVariantUpdateQuery - a model defined in OpenAPI
 
         Args:
-            data (CatalogVariantUpdateQueryAsSubResource):
+            data (CatalogVariantUpdateQueryResourceObject):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -200,7 +200,7 @@ class CatalogVariantUpdateQuery(ModelNormal):
         """CatalogVariantUpdateQuery - a model defined in OpenAPI
 
         Args:
-            data (CatalogVariantUpdateQueryAsSubResource):
+            data (CatalogVariantUpdateQueryResourceObject):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

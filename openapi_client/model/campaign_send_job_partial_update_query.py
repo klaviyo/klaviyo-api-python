@@ -31,8 +31,8 @@ from openapi_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from openapi_client.model.campaign_send_job_partial_update_query_as_sub_resource import CampaignSendJobPartialUpdateQueryAsSubResource
-    globals()['CampaignSendJobPartialUpdateQueryAsSubResource'] = CampaignSendJobPartialUpdateQueryAsSubResource
+    from openapi_client.model.campaign_send_job_partial_update_query_resource_object import CampaignSendJobPartialUpdateQueryResourceObject
+    globals()['CampaignSendJobPartialUpdateQueryResourceObject'] = CampaignSendJobPartialUpdateQueryResourceObject
 
 
 class CampaignSendJobPartialUpdateQuery(ModelNormal):
@@ -88,7 +88,7 @@ class CampaignSendJobPartialUpdateQuery(ModelNormal):
         """
         lazy_import()
         return {
-            'data': (CampaignSendJobPartialUpdateQueryAsSubResource,),  # noqa: E501
+            'data': (CampaignSendJobPartialUpdateQueryResourceObject,),  # noqa: E501
         }
 
     @cached_property
@@ -111,7 +111,7 @@ class CampaignSendJobPartialUpdateQuery(ModelNormal):
         """CampaignSendJobPartialUpdateQuery - a model defined in OpenAPI
 
         Args:
-            data (CampaignSendJobPartialUpdateQueryAsSubResource):
+            data (CampaignSendJobPartialUpdateQueryResourceObject):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -200,7 +200,7 @@ class CampaignSendJobPartialUpdateQuery(ModelNormal):
         """CampaignSendJobPartialUpdateQuery - a model defined in OpenAPI
 
         Args:
-            data (CampaignSendJobPartialUpdateQueryAsSubResource):
+            data (CampaignSendJobPartialUpdateQueryResourceObject):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

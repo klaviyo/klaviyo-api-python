@@ -31,8 +31,8 @@ from openapi_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from openapi_client.model.profile_create_query_as_sub_resource import ProfileCreateQueryAsSubResource
-    globals()['ProfileCreateQueryAsSubResource'] = ProfileCreateQueryAsSubResource
+    from openapi_client.model.profile_create_query_resource_object import ProfileCreateQueryResourceObject
+    globals()['ProfileCreateQueryResourceObject'] = ProfileCreateQueryResourceObject
 
 
 class ProfileCreateQuery(ModelNormal):
@@ -88,7 +88,7 @@ class ProfileCreateQuery(ModelNormal):
         """
         lazy_import()
         return {
-            'data': (ProfileCreateQueryAsSubResource,),  # noqa: E501
+            'data': (ProfileCreateQueryResourceObject,),  # noqa: E501
         }
 
     @cached_property
@@ -111,7 +111,7 @@ class ProfileCreateQuery(ModelNormal):
         """ProfileCreateQuery - a model defined in OpenAPI
 
         Args:
-            data (ProfileCreateQueryAsSubResource):
+            data (ProfileCreateQueryResourceObject):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -200,7 +200,7 @@ class ProfileCreateQuery(ModelNormal):
         """ProfileCreateQuery - a model defined in OpenAPI
 
         Args:
-            data (ProfileCreateQueryAsSubResource):
+            data (ProfileCreateQueryResourceObject):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

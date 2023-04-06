@@ -31,8 +31,8 @@ from openapi_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from openapi_client.model.unsubscription_create_job_create_query_as_sub_resource import UnsubscriptionCreateJobCreateQueryAsSubResource
-    globals()['UnsubscriptionCreateJobCreateQueryAsSubResource'] = UnsubscriptionCreateJobCreateQueryAsSubResource
+    from openapi_client.model.unsubscription_create_job_create_query_resource_object import UnsubscriptionCreateJobCreateQueryResourceObject
+    globals()['UnsubscriptionCreateJobCreateQueryResourceObject'] = UnsubscriptionCreateJobCreateQueryResourceObject
 
 
 class UnsubscriptionCreateJobCreateQuery(ModelNormal):
@@ -88,7 +88,7 @@ class UnsubscriptionCreateJobCreateQuery(ModelNormal):
         """
         lazy_import()
         return {
-            'data': (UnsubscriptionCreateJobCreateQueryAsSubResource,),  # noqa: E501
+            'data': (UnsubscriptionCreateJobCreateQueryResourceObject,),  # noqa: E501
         }
 
     @cached_property
@@ -111,7 +111,7 @@ class UnsubscriptionCreateJobCreateQuery(ModelNormal):
         """UnsubscriptionCreateJobCreateQuery - a model defined in OpenAPI
 
         Args:
-            data (UnsubscriptionCreateJobCreateQueryAsSubResource):
+            data (UnsubscriptionCreateJobCreateQueryResourceObject):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -200,7 +200,7 @@ class UnsubscriptionCreateJobCreateQuery(ModelNormal):
         """UnsubscriptionCreateJobCreateQuery - a model defined in OpenAPI
 
         Args:
-            data (UnsubscriptionCreateJobCreateQueryAsSubResource):
+            data (UnsubscriptionCreateJobCreateQueryResourceObject):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

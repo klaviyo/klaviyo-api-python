@@ -31,8 +31,8 @@ from openapi_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from openapi_client.model.template_update_query_as_sub_resource import TemplateUpdateQueryAsSubResource
-    globals()['TemplateUpdateQueryAsSubResource'] = TemplateUpdateQueryAsSubResource
+    from openapi_client.model.template_update_query_resource_object import TemplateUpdateQueryResourceObject
+    globals()['TemplateUpdateQueryResourceObject'] = TemplateUpdateQueryResourceObject
 
 
 class TemplateUpdateQuery(ModelNormal):
@@ -88,7 +88,7 @@ class TemplateUpdateQuery(ModelNormal):
         """
         lazy_import()
         return {
-            'data': (TemplateUpdateQueryAsSubResource,),  # noqa: E501
+            'data': (TemplateUpdateQueryResourceObject,),  # noqa: E501
         }
 
     @cached_property
@@ -111,7 +111,7 @@ class TemplateUpdateQuery(ModelNormal):
         """TemplateUpdateQuery - a model defined in OpenAPI
 
         Args:
-            data (TemplateUpdateQueryAsSubResource):
+            data (TemplateUpdateQueryResourceObject):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -200,7 +200,7 @@ class TemplateUpdateQuery(ModelNormal):
         """TemplateUpdateQuery - a model defined in OpenAPI
 
         Args:
-            data (TemplateUpdateQueryAsSubResource):
+            data (TemplateUpdateQueryResourceObject):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
