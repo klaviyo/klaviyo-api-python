@@ -107,6 +107,71 @@ klaviyo = KlaviyoAPI("YOUR API KEY HERE", max_delay=60, max_retries=3, test_host
 klaviyo.Metrics.get_metrics() 
 ```
 
+### Use Case Examples
+
+#### How to use filtering, sorting, and spare fieldset JSON API features
+
+**Use Case**: Get events associated with a specific metric, then return just the event properties sorted by oldest to newest datetime.
+
+```python
+klaviyo.Events.get_events(
+    fields_event=['event_properties'], 
+    filter="equals(metric_id,\"aBc123\")", 
+    sort='-datetime'
+    )
+```
+
+#### How to filter based on datetime
+
+**Use Case**: Get profiles that have been updated between two datetimes.
+
+```python
+klaviyo.Profiles.get_profiles(
+    filter='less-than(updated,2023-04-26T00:00:00Z),greater-than(updated,2023-04-19T00:00:00Z)'
+    )
+```
+
+#### How to use pagination and the page[size] param
+
+**Use Case**: Use cursor-based pagination to get the next 20 profile records.
+
+```python
+klaviyo.Profiles.get_profiles(
+    page_cursor="https://a.klaviyo.com/api/profiles/?page%5Bcursor%5D=bmV4dDo6aWQ6OjAxRjNaWk5ITlRYMUtFVEhQMzJTUzRBN0ZY",
+    page_size=20
+)
+```
+
+NOTE: This page cursor value is exactly what is returned in the `self`/`next`/`prev` response values
+
+#### How to add additional information to your API response via additional-fields and the `includes` parameter
+
+**Use Case**: Get a specific profile, return an additional predictive analytics field, and also return the list objects associated with the profile.
+
+```python
+klaviyo.Profiles.get_profile(
+    '01GDDKASAP8TKDDA2GRZDSVP4H', 
+    additional_fields_profile=['predictive_analytics'], 
+    include=['lists']
+)
+```
+
+#### How to use our relationship endpoints to see related resources
+
+**Use Case**: Get all list memberships for a profile with the given `profile_id`.
+
+```python
+klaviyo.Profiles.get_profile_relationships_lists('01GDDKASAP8TKDDA2GRZDSVP4H')
+```
+
+#### How to see what Klaviyo objects are associated with a specific tag
+
+**Use Case**: Get all campaigns associated with the given `tag_id`.
+
+```python
+klaviyo.Tags.get_tag_relationships_campaigns('9c8db7a0-5ab5-4e3c-9a37-a3224fd14382')
+```
+
 ## Error Handling
 
 This SDK throws an `ApiException` error when the server returns a non-`2XX` response. 
