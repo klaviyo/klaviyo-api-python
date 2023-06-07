@@ -2090,11 +2090,7 @@ klaviyo.Profiles.unsuppress_profiles(body)
 # id | str
 # body | dict
 
-## Keyword Arguments
-
-# additional_fields_profile | [str]
-
-klaviyo.Profiles.update_profile(id, body, additional_fields_profile=additional_fields_profile)
+klaviyo.Profiles.update_profile(id, body)
 ```
 
 
