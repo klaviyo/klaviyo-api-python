@@ -56,7 +56,6 @@ class ProfilesApi(object):
             params_map={
                 'all': [
                     'profile_create_query',
-                    'additional_fields_profile',
                 ],
                 'required': [
                     'profile_create_query',
@@ -64,7 +63,6 @@ class ProfilesApi(object):
                 'nullable': [
                 ],
                 'enum': [
-                    'additional_fields_profile',
                 ],
                 'validation': [
                 ]
@@ -73,26 +71,17 @@ class ProfilesApi(object):
                 'validations': {
                 },
                 'allowed_values': {
-                    ('additional_fields_profile',): {
-
-                        "PREDICTIVE_ANALYTICS": "predictive_analytics"
-                    },
                 },
                 'openapi_types': {
                     'profile_create_query':
                         (ProfileCreateQuery,),
-                    'additional_fields_profile':
-                        ([str],),
                 },
                 'attribute_map': {
-                    'additional_fields_profile': 'additional-fields[profile]',
                 },
                 'location_map': {
                     'profile_create_query': 'body',
-                    'additional_fields_profile': 'query',
                 },
                 'collection_format_map': {
-                    'additional_fields_profile': 'csv',
                 }
             },
             headers_map={
@@ -516,8 +505,8 @@ class ProfilesApi(object):
                     'fields_profile',
                     'filter',
                     'page_cursor',
-                    'sort',
                     'page_size',
+                    'sort',
                 ],
                 'required': [],
                 'nullable': [
@@ -528,10 +517,16 @@ class ProfilesApi(object):
                     'sort',
                 ],
                 'validation': [
+                    'page_size',
                 ]
             },
             root_map={
                 'validations': {
+                    ('page_size',): {
+
+                        'inclusive_maximum': 100,
+                        'inclusive_minimum': 1,
+                    },
                 },
                 'allowed_values': {
                     ('additional_fields_profile',): {
@@ -616,26 +611,26 @@ class ProfilesApi(object):
                         (str,),
                     'page_cursor':
                         (str,),
-                    'sort':
-                        (str,),
                     'page_size':
                         (int,),
+                    'sort':
+                        (str,),
                 },
                 'attribute_map': {
                     'additional_fields_profile': 'additional-fields[profile]',
                     'fields_profile': 'fields[profile]',
                     'filter': 'filter',
                     'page_cursor': 'page[cursor]',
-                    'sort': 'sort',
                     'page_size': 'page[size]',
+                    'sort': 'sort',
                 },
                 'location_map': {
                     'additional_fields_profile': 'query',
                     'fields_profile': 'query',
                     'filter': 'query',
                     'page_cursor': 'query',
-                    'sort': 'query',
                     'page_size': 'query',
+                    'sort': 'query',
                 },
                 'collection_format_map': {
                     'additional_fields_profile': 'csv',
@@ -873,7 +868,6 @@ class ProfilesApi(object):
                 'all': [
                     'id',
                     'profile_partial_update_query',
-                    'additional_fields_profile',
                 ],
                 'required': [
                     'id',
@@ -882,7 +876,6 @@ class ProfilesApi(object):
                 'nullable': [
                 ],
                 'enum': [
-                    'additional_fields_profile',
                 ],
                 'validation': [
                 ]
@@ -891,30 +884,21 @@ class ProfilesApi(object):
                 'validations': {
                 },
                 'allowed_values': {
-                    ('additional_fields_profile',): {
-
-                        "PREDICTIVE_ANALYTICS": "predictive_analytics"
-                    },
                 },
                 'openapi_types': {
                     'id':
                         (str,),
                     'profile_partial_update_query':
                         (ProfilePartialUpdateQuery,),
-                    'additional_fields_profile':
-                        ([str],),
                 },
                 'attribute_map': {
                     'id': 'id',
-                    'additional_fields_profile': 'additional-fields[profile]',
                 },
                 'location_map': {
                     'id': 'path',
                     'profile_partial_update_query': 'body',
-                    'additional_fields_profile': 'query',
                 },
                 'collection_format_map': {
-                    'additional_fields_profile': 'csv',
                 }
             },
             headers_map={
@@ -935,7 +919,7 @@ class ProfilesApi(object):
     ):
         """Create Profile  # noqa: E501
 
-        Create a new profile. If you use a phone number as the profile identifier and SMS is not set up in the Klaviyo account, you'll need to include at least one other identifier attribute (`email` or `external_id`) in addition to the `phone_number` attribute for the API call to work.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `Profiles Write`  # noqa: E501
+        Create a new profile. If you use a phone number as the profile identifier and SMS is not set up in the Klaviyo account, you'll need to include at least one other identifier attribute (`email` or `external_id`) in addition to the `phone_number` attribute for the API call to work.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `profiles:write`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -946,7 +930,6 @@ class ProfilesApi(object):
             profile_create_query (ProfileCreateQuery):
 
         Keyword Args:
-            additional_fields_profile ([str]): Request additional fields not included by default in the response. Supported values: 'predictive_analytics'. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1019,7 +1002,7 @@ class ProfilesApi(object):
     ):
         """Get Profile  # noqa: E501
 
-        Get the profile with the given profile ID. Include parameters can be provided to get the following related resource data: `lists` memberships, `segments` memberships\"<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `Profiles Read`  # noqa: E501
+        Get the profile with the given profile ID. Include parameters can be provided to get the following related resource data: `lists` memberships, `segments` memberships\"<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `profiles:read`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1107,7 +1090,7 @@ class ProfilesApi(object):
     ):
         """Get Profile Lists  # noqa: E501
 
-        Get list memberships for a profile with the given profile ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `List Read` `Profiles Read`  # noqa: E501
+        Get list memberships for a profile with the given profile ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `list:read` `profiles:read`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1191,7 +1174,7 @@ class ProfilesApi(object):
     ):
         """Get Profile Relationships Lists  # noqa: E501
 
-        Get list memberships for a profile with the given profile ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `List Read` `Profiles Read`  # noqa: E501
+        Get list memberships for a profile with the given profile ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `list:read` `profiles:read`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1274,7 +1257,7 @@ class ProfilesApi(object):
     ):
         """Get Profile Relationships Segments  # noqa: E501
 
-        Get segment membership relationships for a profile with the given profile ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `Profiles Read` `Segments Read`  # noqa: E501
+        Get segment membership relationships for a profile with the given profile ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `profiles:read` `segments:read`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1357,7 +1340,7 @@ class ProfilesApi(object):
     ):
         """Get Profile Segments  # noqa: E501
 
-        Get segment memberships for a profile with the given profile ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `Profiles Read` `Segments Read`  # noqa: E501
+        Get segment memberships for a profile with the given profile ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `profiles:read` `segments:read`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1440,7 +1423,7 @@ class ProfilesApi(object):
     ):
         """Get Profiles  # noqa: E501
 
-        Get all profiles in an account. Profiles can be sorted by the following fields in ascending and descending order: `id`, `created`, `updated`, `email` You can adjust the number of results per page via the `page[size]` query parameter, e.g. `?page[size]=25`. **Default**: 20. **Max**: 100.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `Profiles Read`  # noqa: E501
+        Get all profiles in an account. Profiles can be sorted by the following fields in ascending and descending order: `id`, `created`, `updated`, `email`<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `profiles:read`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1453,8 +1436,8 @@ class ProfilesApi(object):
             fields_profile ([str]): For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sparse-fieldsets. [optional]
             filter (str): For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`, `equals`<br>`email`: `any`, `equals`<br>`phone_number`: `any`, `equals`<br>`external_id`: `any`, `equals`<br>`_kx`: `equals`<br>`created`: `greater-than`, `less-than`<br>`updated`: `greater-than`, `less-than`. [optional]
             page_cursor (str): For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination. [optional]
+            page_size (int): Default: 20. Min: 1. Max: 100.. [optional] if omitted the server will use the default value of 20
             sort (str): For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sorting. [optional]
-            page_size (int): The number of results to return per page. Default = 20. Max = 100. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1525,7 +1508,7 @@ class ProfilesApi(object):
     ):
         """Subscribe Profiles  # noqa: E501
 
-        Subscribe one or more profiles to email marketing, SMS marketing, or both. If the list has double opt-in enabled, profiles will receive a message requiring their confirmation before subscribing. Otherwise, profiles will be immediately subscribed without receiving a confirmation message. To add someone to a list without changing their subscription status, use [Add Profile to List](https://developers.klaviyo.com/en/reference/create_list_relationships). This API will remove any `UNSUBSCRIBE`, `SPAM_REPORT` or `USER_SUPPRESSED` suppressions from the provided profiles. Learn more about suppressed profiles in [this document](https://help.klaviyo.com/hc/en-us/articles/115005246108-Understanding-suppressed-email-profiles#what-is-a-suppressed-profile-1). Maximum number of profile can be submitted for subscription: 100<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `List Write` `Profiles Write` `Subscriptions Write`  # noqa: E501
+        Subscribe one or more profiles to email marketing, SMS marketing, or both. If the list has double opt-in enabled, profiles will receive a message requiring their confirmation before subscribing. Otherwise, profiles will be immediately subscribed without receiving a confirmation message. To add someone to a list without changing their subscription status, use [Add Profile to List](https://developers.klaviyo.com/en/reference/create_list_relationships). This API will remove any `UNSUBSCRIBE`, `SPAM_REPORT` or `USER_SUPPRESSED` suppressions from the provided profiles. Learn more about suppressed profiles in [this document](https://help.klaviyo.com/hc/en-us/articles/115005246108-Understanding-suppressed-email-profiles#what-is-a-suppressed-profile-1). Maximum number of profile can be submitted for subscription: 100<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `list:write` `profiles:write` `subscriptions:write`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1608,7 +1591,7 @@ class ProfilesApi(object):
     ):
         """Suppress Profiles  # noqa: E501
 
-        Manually suppress one or more profiles. Such profiles will have `USER_SUPPRESSED` as their suppression reason. Manually suppressed profiles _will not_ receive email marketing. Learn more about suppressed profiles [in this document](https://help.klaviyo.com/hc/en-us/articles/115005246108-Understanding-suppressed-email-profiles#what-is-a-suppressed-profile-1). Not supported for SMS marketing. Maximum number of profile can be submitted for suppression: 100<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `Profiles Write` `Subscriptions Write`  # noqa: E501
+        Manually suppress one or more profiles. Such profiles will have `USER_SUPPRESSED` as their suppression reason. Manually suppressed profiles _will not_ receive email marketing. Learn more about suppressed profiles [in this document](https://help.klaviyo.com/hc/en-us/articles/115005246108-Understanding-suppressed-email-profiles#what-is-a-suppressed-profile-1). Not supported for SMS marketing. Maximum number of profile can be submitted for suppression: 100<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `profiles:write` `subscriptions:write`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1691,7 +1674,7 @@ class ProfilesApi(object):
     ):
         """Unsubscribe Profiles  # noqa: E501
 
-        Unsubscribe one or more profiles to email marketing, SMS marketing, or both. To remove someone from a list without changing their subscription status, use [Remove Profile from List](https://developers.klaviyo.com/en/reference/delete_list_relationships). Maximum number of profile can be submitted for unsubscription: 100<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `List Write` `Profiles Write` `Subscriptions Write`  # noqa: E501
+        Unsubscribe one or more profiles to email marketing, SMS marketing, or both. To remove someone from a list without changing their subscription status, use [Remove Profile from List](https://developers.klaviyo.com/en/reference/delete_list_relationships). Maximum number of profile can be submitted for unsubscription: 100<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `list:write` `profiles:write` `subscriptions:write`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1774,7 +1757,7 @@ class ProfilesApi(object):
     ):
         """Unsuppress Profiles  # noqa: E501
 
-        Unsuppress one or more profiles, this will remove any Manual Suppressions (USER_SUPPRESSED) on these profiles. A profile may receive email marketing after a manual suppression is removed so long as they have not revoked consent, i.e. unsubscribed. Not supported for SMS marketing. Only manual suppressions (USER_SUPPRESSED) will be removed. `UNSUBSCRIBE` and `SPAM_REPORT` suppressions are removed whenever a [profile resubscribes](https://developers.klaviyo.com/en/reference/subscribe_profiles). `INVALID_EMAIL` and `HARD_BOUNCE` suppressions cannot be removed by the API. Maximum number of profile can be submitted for unsuppression: 100<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `Subscriptions Write`  # noqa: E501
+        Unsuppress one or more profiles, this will remove any Manual Suppressions (USER_SUPPRESSED) on these profiles. A profile may receive email marketing after a manual suppression is removed so long as they have not revoked consent, i.e. unsubscribed. Not supported for SMS marketing. Only manual suppressions (USER_SUPPRESSED) will be removed. `UNSUBSCRIBE` and `SPAM_REPORT` suppressions are removed whenever a [profile resubscribes](https://developers.klaviyo.com/en/reference/subscribe_profiles). `INVALID_EMAIL` and `HARD_BOUNCE` suppressions cannot be removed by the API. Maximum number of profile can be submitted for unsuppression: 100<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `subscriptions:write`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1858,7 +1841,7 @@ class ProfilesApi(object):
     ):
         """Update Profile  # noqa: E501
 
-        Update the profile with the given profile ID. If you use a phone number as the profile identifier and SMS is not set up in the Klaviyo account, you'll need to include at least one other identifier attribute (`email` or `external_id`) in addition to the `phone_number` attribute for the API call to work.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `Profiles Write`  # noqa: E501
+        Update the profile with the given profile ID. If you use a phone number as the profile identifier and SMS is not set up in the Klaviyo account, you'll need to include at least one other identifier attribute (`email` or `external_id`) in addition to the `phone_number` attribute for the API call to work.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `profiles:write`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1870,7 +1853,6 @@ class ProfilesApi(object):
             profile_partial_update_query (ProfilePartialUpdateQuery):
 
         Keyword Args:
-            additional_fields_profile ([str]): Request additional fields not included by default in the response. Supported values: 'predictive_analytics'. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

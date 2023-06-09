@@ -1,6 +1,6 @@
 # Klaviyo Python SDK
 
-- SDK version: 2.0.1
+- SDK version: 2.0.2
 - API revision: 2023-02-22
 
 ## Helpful Resources
@@ -105,6 +105,73 @@ klaviyo = KlaviyoAPI("YOUR API KEY HERE", max_delay=60, max_retries=3, test_host
 
 ```python
 klaviyo.Metrics.get_metrics() 
+```
+
+### Use Case Examples
+
+#### How to use filtering, sorting, and spare fieldset JSON API features
+
+**Use Case**: Get events associated with a specific metric, then return just the event properties sorted by oldest to newest datetime.
+
+```python
+klaviyo.Events.get_events(
+    fields_event=['event_properties'], 
+    filter="equals(metric_id,\"aBc123\")", 
+    sort='-datetime'
+    )
+```
+
+NOTE: the filter param values need to be url-encoded
+
+#### How to filter based on datetime
+
+**Use Case**: Get profiles that have been updated between two datetimes.
+
+```python
+klaviyo.Profiles.get_profiles(
+    filter='less-than(updated,2023-04-26T00:00:00Z),greater-than(updated,2023-04-19T00:00:00Z)'
+    )
+```
+
+#### How to use pagination and the page[size] param
+
+**Use Case**: Use cursor-based pagination to get the next 20 profile records.
+
+```python
+klaviyo.Profiles.get_profiles(
+    page_cursor="https://a.klaviyo.com/api/profiles/?page%5Bcursor%5D=bmV4dDo6aWQ6OjAxRjNaWk5ITlRYMUtFVEhQMzJTUzRBN0ZY",
+    page_size=20
+)
+```
+
+NOTE: This page cursor value is exactly what is returned in the `self`/`next`/`prev` response values
+
+#### How to add additional information to your API response via additional-fields and the `includes` parameter
+
+**Use Case**: Get a specific profile, return an additional predictive analytics field, and also return the list objects associated with the profile.
+
+```python
+klaviyo.Profiles.get_profile(
+    '01GDDKASAP8TKDDA2GRZDSVP4H', 
+    additional_fields_profile=['predictive_analytics'], 
+    include=['lists']
+)
+```
+
+#### How to use our relationship endpoints to see related resources
+
+**Use Case**: Get all list memberships for a profile with the given `profile_id`.
+
+```python
+klaviyo.Profiles.get_profile_relationships_lists('01GDDKASAP8TKDDA2GRZDSVP4H')
+```
+
+#### How to see what Klaviyo objects are associated with a specific tag
+
+**Use Case**: Get all campaigns associated with the given `tag_id`.
+
+```python
+klaviyo.Tags.get_tag_relationships_campaigns('9c8db7a0-5ab5-4e3c-9a37-a3224fd14382')
 ```
 
 ## Error Handling
@@ -1496,9 +1563,10 @@ klaviyo.Flows.get_flow_action_flow(action_id, fields_flow=fields_flow)
 # fields_flow_message | [str]
 # filter | str
 # page_cursor | str
+# page_size | int
 # sort | str
 
-klaviyo.Flows.get_flow_action_messages(action_id, fields_flow_message=fields_flow_message, filter=filter, page_cursor=page_cursor, sort=sort)
+klaviyo.Flows.get_flow_action_messages(action_id, fields_flow_message=fields_flow_message, filter=filter, page_cursor=page_cursor, page_size=page_size, sort=sort)
 ```
 
 
@@ -1528,9 +1596,10 @@ klaviyo.Flows.get_flow_action_relationships_flow(id)
 
 # filter | str
 # page_cursor | str
+# page_size | int
 # sort | str
 
-klaviyo.Flows.get_flow_action_relationships_messages(id, filter=filter, page_cursor=page_cursor, sort=sort)
+klaviyo.Flows.get_flow_action_relationships_messages(id, filter=filter, page_cursor=page_cursor, page_size=page_size, sort=sort)
 ```
 
 
@@ -1548,9 +1617,10 @@ klaviyo.Flows.get_flow_action_relationships_messages(id, filter=filter, page_cur
 # fields_flow_action | [str]
 # filter | str
 # page_cursor | str
+# page_size | int
 # sort | str
 
-klaviyo.Flows.get_flow_flow_actions(flow_id, fields_flow_action=fields_flow_action, filter=filter, page_cursor=page_cursor, sort=sort)
+klaviyo.Flows.get_flow_flow_actions(flow_id, fields_flow_action=fields_flow_action, filter=filter, page_cursor=page_cursor, page_size=page_size, sort=sort)
 ```
 
 
@@ -1615,9 +1685,10 @@ klaviyo.Flows.get_flow_message_relationships_action(id)
 ## Keyword Arguments
 
 # filter | str
+# page_size | int
 # sort | str
 
-klaviyo.Flows.get_flow_relationships_flow_actions(id, filter=filter, sort=sort)
+klaviyo.Flows.get_flow_relationships_flow_actions(id, filter=filter, page_size=page_size, sort=sort)
 ```
 
 
@@ -1664,9 +1735,10 @@ klaviyo.Flows.get_flow_tags(flow_id, fields_tag=fields_tag)
 # filter | str
 # include | [str]
 # page_cursor | str
+# page_size | int
 # sort | str
 
-klaviyo.Flows.get_flows(fields_flow_action=fields_flow_action, fields_flow=fields_flow, filter=filter, include=include, page_cursor=page_cursor, sort=sort)
+klaviyo.Flows.get_flows(fields_flow_action=fields_flow_action, fields_flow=fields_flow, filter=filter, include=include, page_cursor=page_cursor, page_size=page_size, sort=sort)
 ```
 
 
@@ -1920,11 +1992,7 @@ klaviyo.Metrics.query_metric_aggregates(body)
 
 # body | dict
 
-## Keyword Arguments
-
-# additional_fields_profile | [str]
-
-klaviyo.Profiles.create_profile(body, additional_fields_profile=additional_fields_profile)
+klaviyo.Profiles.create_profile(body)
 ```
 
 
@@ -2021,10 +2089,10 @@ klaviyo.Profiles.get_profile_segments(profile_id, fields_segment=fields_segment)
 # fields_profile | [str]
 # filter | str
 # page_cursor | str
-# sort | str
 # page_size | int
+# sort | str
 
-klaviyo.Profiles.get_profiles(additional_fields_profile=additional_fields_profile, fields_profile=fields_profile, filter=filter, page_cursor=page_cursor, sort=sort, page_size=page_size)
+klaviyo.Profiles.get_profiles(additional_fields_profile=additional_fields_profile, fields_profile=fields_profile, filter=filter, page_cursor=page_cursor, page_size=page_size, sort=sort)
 ```
 
 

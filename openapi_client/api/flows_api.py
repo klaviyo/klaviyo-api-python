@@ -341,6 +341,7 @@ class FlowsApi(object):
                     'fields_flow_message',
                     'filter',
                     'page_cursor',
+                    'page_size',
                     'sort',
                 ],
                 'required': [
@@ -353,10 +354,16 @@ class FlowsApi(object):
                     'sort',
                 ],
                 'validation': [
+                    'page_size',
                 ]
             },
             root_map={
                 'validations': {
+                    ('page_size',): {
+
+                        'inclusive_maximum': 50,
+                        'inclusive_minimum': 1,
+                    },
                 },
                 'allowed_values': {
                     ('fields_flow_message',): {
@@ -388,6 +395,8 @@ class FlowsApi(object):
                         (str,),
                     'page_cursor':
                         (str,),
+                    'page_size':
+                        (int,),
                     'sort':
                         (str,),
                 },
@@ -396,6 +405,7 @@ class FlowsApi(object):
                     'fields_flow_message': 'fields[flow-message]',
                     'filter': 'filter',
                     'page_cursor': 'page[cursor]',
+                    'page_size': 'page[size]',
                     'sort': 'sort',
                 },
                 'location_map': {
@@ -403,6 +413,7 @@ class FlowsApi(object):
                     'fields_flow_message': 'query',
                     'filter': 'query',
                     'page_cursor': 'query',
+                    'page_size': 'query',
                     'sort': 'query',
                 },
                 'collection_format_map': {
@@ -484,6 +495,7 @@ class FlowsApi(object):
                     'id',
                     'filter',
                     'page_cursor',
+                    'page_size',
                     'sort',
                 ],
                 'required': [
@@ -495,10 +507,16 @@ class FlowsApi(object):
                     'sort',
                 ],
                 'validation': [
+                    'page_size',
                 ]
             },
             root_map={
                 'validations': {
+                    ('page_size',): {
+
+                        'inclusive_maximum': 50,
+                        'inclusive_minimum': 1,
+                    },
                 },
                 'allowed_values': {
                     ('sort',): {
@@ -520,6 +538,8 @@ class FlowsApi(object):
                         (str,),
                     'page_cursor':
                         (str,),
+                    'page_size':
+                        (int,),
                     'sort':
                         (str,),
                 },
@@ -527,12 +547,14 @@ class FlowsApi(object):
                     'id': 'id',
                     'filter': 'filter',
                     'page_cursor': 'page[cursor]',
+                    'page_size': 'page[size]',
                     'sort': 'sort',
                 },
                 'location_map': {
                     'id': 'path',
                     'filter': 'query',
                     'page_cursor': 'query',
+                    'page_size': 'query',
                     'sort': 'query',
                 },
                 'collection_format_map': {
@@ -563,6 +585,7 @@ class FlowsApi(object):
                     'fields_flow_action',
                     'filter',
                     'page_cursor',
+                    'page_size',
                     'sort',
                 ],
                 'required': [
@@ -575,10 +598,16 @@ class FlowsApi(object):
                     'sort',
                 ],
                 'validation': [
+                    'page_size',
                 ]
             },
             root_map={
                 'validations': {
+                    ('page_size',): {
+
+                        'inclusive_maximum': 50,
+                        'inclusive_minimum': 1,
+                    },
                 },
                 'allowed_values': {
                     ('fields_flow_action',): {
@@ -621,6 +650,8 @@ class FlowsApi(object):
                         (str,),
                     'page_cursor':
                         (str,),
+                    'page_size':
+                        (int,),
                     'sort':
                         (str,),
                 },
@@ -629,6 +660,7 @@ class FlowsApi(object):
                     'fields_flow_action': 'fields[flow-action]',
                     'filter': 'filter',
                     'page_cursor': 'page[cursor]',
+                    'page_size': 'page[size]',
                     'sort': 'sort',
                 },
                 'location_map': {
@@ -636,6 +668,7 @@ class FlowsApi(object):
                     'fields_flow_action': 'query',
                     'filter': 'query',
                     'page_cursor': 'query',
+                    'page_size': 'query',
                     'sort': 'query',
                 },
                 'collection_format_map': {
@@ -892,6 +925,7 @@ class FlowsApi(object):
                 'all': [
                     'id',
                     'filter',
+                    'page_size',
                     'sort',
                 ],
                 'required': [
@@ -903,10 +937,16 @@ class FlowsApi(object):
                     'sort',
                 ],
                 'validation': [
+                    'page_size',
                 ]
             },
             root_map={
                 'validations': {
+                    ('page_size',): {
+
+                        'inclusive_maximum': 100,
+                        'inclusive_minimum': 1,
+                    },
                 },
                 'allowed_values': {
                     ('sort',): {
@@ -926,17 +966,21 @@ class FlowsApi(object):
                         (str,),
                     'filter':
                         (str,),
+                    'page_size':
+                        (int,),
                     'sort':
                         (str,),
                 },
                 'attribute_map': {
                     'id': 'id',
                     'filter': 'filter',
+                    'page_size': 'page[size]',
                     'sort': 'sort',
                 },
                 'location_map': {
                     'id': 'path',
                     'filter': 'query',
+                    'page_size': 'query',
                     'sort': 'query',
                 },
                 'collection_format_map': {
@@ -1081,6 +1125,7 @@ class FlowsApi(object):
                     'filter',
                     'include',
                     'page_cursor',
+                    'page_size',
                     'sort',
                 ],
                 'required': [],
@@ -1093,10 +1138,16 @@ class FlowsApi(object):
                     'sort',
                 ],
                 'validation': [
+                    'page_size',
                 ]
             },
             root_map={
                 'validations': {
+                    ('page_size',): {
+
+                        'inclusive_maximum': 50,
+                        'inclusive_minimum': 1,
+                    },
                 },
                 'allowed_values': {
                     ('fields_flow_action',): {
@@ -1156,6 +1207,8 @@ class FlowsApi(object):
                         ([str],),
                     'page_cursor':
                         (str,),
+                    'page_size':
+                        (int,),
                     'sort':
                         (str,),
                 },
@@ -1165,6 +1218,7 @@ class FlowsApi(object):
                     'filter': 'filter',
                     'include': 'include',
                     'page_cursor': 'page[cursor]',
+                    'page_size': 'page[size]',
                     'sort': 'sort',
                 },
                 'location_map': {
@@ -1173,6 +1227,7 @@ class FlowsApi(object):
                     'filter': 'query',
                     'include': 'query',
                     'page_cursor': 'query',
+                    'page_size': 'query',
                     'sort': 'query',
                 },
                 'collection_format_map': {
@@ -1255,7 +1310,7 @@ class FlowsApi(object):
     ):
         """Get Flow  # noqa: E501
 
-        Get a flow with the given flow ID. Include parameters can be provided to get the following related resource data: `flow-actions`<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `Flows Read`  # noqa: E501
+        Get a flow with the given flow ID. Include parameters can be provided to get the following related resource data: `flow-actions`<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `flows:read`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1341,7 +1396,7 @@ class FlowsApi(object):
     ):
         """Get Flow Action  # noqa: E501
 
-        Get a flow action from a flow with the given flow action ID. Include parameters can be provided to get the following related resource data: `flows`, `flow-messages`<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `Flows Read`  # noqa: E501
+        Get a flow action from a flow with the given flow action ID. Include parameters can be provided to get the following related resource data: `flows`, `flow-messages`<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `flows:read`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1428,7 +1483,7 @@ class FlowsApi(object):
     ):
         """Get Flow For Flow Action  # noqa: E501
 
-        Get the flow associated with the given action ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `Flows Read`  # noqa: E501
+        Get the flow associated with the given action ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `flows:read`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1512,7 +1567,7 @@ class FlowsApi(object):
     ):
         """Get Messages For Flow Action  # noqa: E501
 
-        Get all flow messages associated with the given flow action ID.  Returns a maximum of 50 flow message relationships per request, which can be paginated with cursor-based pagination.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `Flows Read`  # noqa: E501
+        Get all flow messages associated with the given flow action ID.  Returns a maximum of 50 flow message relationships per request, which can be paginated with cursor-based pagination.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `flows:read`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1526,6 +1581,7 @@ class FlowsApi(object):
             fields_flow_message ([str]): For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sparse-fieldsets. [optional]
             filter (str): For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`<br>`name`: `contains`, `ends-with`, `equals`, `starts-with`<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`. [optional]
             page_cursor (str): For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination. [optional]
+            page_size (int): Default: 50. Min: 1. Max: 50.. [optional] if omitted the server will use the default value of 50
             sort (str): For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sorting. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
@@ -1599,7 +1655,7 @@ class FlowsApi(object):
     ):
         """Get Flow Action Relationships Flow  # noqa: E501
 
-        Get the flow associated with the given action ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `Flows Read`  # noqa: E501
+        Get the flow associated with the given action ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `flows:read`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1682,7 +1738,7 @@ class FlowsApi(object):
     ):
         """Get Flow Action Relationships Messages  # noqa: E501
 
-        Get all relationships for flow messages associated with the given flow action ID.  Returns a maximum of 50 flow message relationships per request, which can be paginated with cursor-based pagination.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `Flows Read`  # noqa: E501
+        Get all relationships for flow messages associated with the given flow action ID.  Returns a maximum of 50 flow message relationships per request, which can be paginated with cursor-based pagination.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `flows:read`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1695,6 +1751,7 @@ class FlowsApi(object):
         Keyword Args:
             filter (str): For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`name`: `contains`, `ends-with`, `equals`, `starts-with`<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`. [optional]
             page_cursor (str): For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination. [optional]
+            page_size (int): Default: 50. Min: 1. Max: 50.. [optional] if omitted the server will use the default value of 50
             sort (str): For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sorting. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
@@ -1768,7 +1825,7 @@ class FlowsApi(object):
     ):
         """Get Flow Actions For Flow  # noqa: E501
 
-        Get all flow actions associated with the given flow ID.  Returns a maximum of 50 flows per request, which can be paginated with cursor-based pagination.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `Flows Read`  # noqa: E501
+        Get all flow actions associated with the given flow ID.  Returns a maximum of 50 flows per request, which can be paginated with cursor-based pagination.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `flows:read`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1782,6 +1839,7 @@ class FlowsApi(object):
             fields_flow_action ([str]): For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sparse-fieldsets. [optional]
             filter (str): For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`<br>`action_type`: `any`, `equals`<br>`status`: `equals`<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`. [optional]
             page_cursor (str): For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination. [optional]
+            page_size (int): Default: 50. Min: 1. Max: 50.. [optional] if omitted the server will use the default value of 50
             sort (str): For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sorting. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
@@ -1855,7 +1913,7 @@ class FlowsApi(object):
     ):
         """Get Flow Message  # noqa: E501
 
-        Get the flow message of a flow with the given message ID. Include parameters can be provided to get the following related resource data: 'flow-actions'<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `Flows Read`  # noqa: E501
+        Get the flow message of a flow with the given message ID. Include parameters can be provided to get the following related resource data: 'flow-actions'<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `flows:read`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1941,7 +1999,7 @@ class FlowsApi(object):
     ):
         """Get Flow Action For Message  # noqa: E501
 
-        Get the flow action for a flow message with the given message ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `Flows Read`  # noqa: E501
+        Get the flow action for a flow message with the given message ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `flows:read`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2025,7 +2083,7 @@ class FlowsApi(object):
     ):
         """Get Flow Message Relationships Action  # noqa: E501
 
-        Get the [relationship](https://developers.klaviyo.com/en/reference/api_overview#relationships) for a flow message's flow action, given the flow ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `Flows Read`  # noqa: E501
+        Get the [relationship](https://developers.klaviyo.com/en/reference/api_overview#relationships) for a flow message's flow action, given the flow ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `flows:read`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2108,7 +2166,7 @@ class FlowsApi(object):
     ):
         """Get Flow Relationships Flow Actions  # noqa: E501
 
-        Get all [relationships](https://developers.klaviyo.com/en/reference/api_overview#relationships) for flow actions associated with the given flow ID. Flow action relationships can be sorted by the following fields, in ascending and descending order: `id`,  `status`, `created`, `updated` Use filters to narrow your results. Returns a maximum of 50 flow action relationships per request, which can be paginated with offset pagination. Offset pagination uses the following parameters: `page[size]` and `page[number]`.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `Flows Read`  # noqa: E501
+        Get all [relationships](https://developers.klaviyo.com/en/reference/api_overview#relationships) for flow actions associated with the given flow ID. Flow action relationships can be sorted by the following fields, in ascending and descending order: `id`,  `status`, `created`, `updated` Use filters to narrow your results. Returns a maximum of 50 flow action relationships per request, which can be paginated with offset pagination. Offset pagination uses the following parameters: `page[size]` and `page[number]`.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `flows:read`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2120,6 +2178,7 @@ class FlowsApi(object):
 
         Keyword Args:
             filter (str): For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`action_type`: `equals`<br>`status`: `equals`<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`. [optional]
+            page_size (int): Default: 50. Min: 1. Max: 100.. [optional] if omitted the server will use the default value of 50
             sort (str): For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sorting. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
@@ -2193,7 +2252,7 @@ class FlowsApi(object):
     ):
         """Get Flow Relationships Tags  # noqa: E501
 
-        Return the tag IDs of all tags associated with the given flow.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `Flows Read` `Tags Read`  # noqa: E501
+        Return the tag IDs of all tags associated with the given flow.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `flows:read` `tags:read`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2276,7 +2335,7 @@ class FlowsApi(object):
     ):
         """Get Flow Tags  # noqa: E501
 
-        Return all tags associated with the given flow ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `Flows Read` `Tags Read`  # noqa: E501
+        Return all tags associated with the given flow ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `flows:read` `tags:read`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2359,7 +2418,7 @@ class FlowsApi(object):
     ):
         """Get Flows  # noqa: E501
 
-        Get all flows in an account.  Returns a maximum of 50 flows per request, which can be paginated with cursor-based pagination.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `Flows Read`  # noqa: E501
+        Get all flows in an account.  Returns a maximum of 50 flows per request, which can be paginated with cursor-based pagination.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `flows:read`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2373,6 +2432,7 @@ class FlowsApi(object):
             filter (str): For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`<br>`name`: `contains`, `ends-with`, `equals`, `starts-with`<br>`status`: `equals`<br>`archived`: `equals`<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`trigger_type`: `equals`. [optional]
             include ([str]): For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#relationships. [optional]
             page_cursor (str): For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination. [optional]
+            page_size (int): Default: 50. Min: 1. Max: 50.. [optional] if omitted the server will use the default value of 50
             sort (str): For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sorting. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
@@ -2445,7 +2505,7 @@ class FlowsApi(object):
     ):
         """Update Flow Status  # noqa: E501
 
-        Update the status of a flow with the given flow ID, and all actions in that flow.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `Flows Write`  # noqa: E501
+        Update the status of a flow with the given flow ID, and all actions in that flow.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `flows:write`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

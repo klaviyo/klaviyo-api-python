@@ -131,10 +131,16 @@ class SegmentsApi(object):
                     'fields_profile',
                 ],
                 'validation': [
+                    'page_size',
                 ]
             },
             root_map={
                 'validations': {
+                    ('page_size',): {
+
+                        'inclusive_maximum': 100,
+                        'inclusive_minimum': 1,
+                    },
                 },
                 'allowed_values': {
                     ('additional_fields_profile',): {
@@ -544,7 +550,7 @@ class SegmentsApi(object):
     ):
         """Get Segment  # noqa: E501
 
-        Get a segment with the given segment ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `Segments Read`  # noqa: E501
+        Get a segment with the given segment ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `segments:read`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -628,7 +634,7 @@ class SegmentsApi(object):
     ):
         """Get Segment Profiles  # noqa: E501
 
-        Get all profiles within the given segment ID. Filter to request a subset of all profiles. Profiles can be filtered by `email`, `phone_number`, and `push_token` fields. You can adjust the number of results per page via the `page[size]` query parameter, e.g. `?page[size]=25`. **Default**: 20. **Max**: 100.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `Profiles Read` `Segments Read`  # noqa: E501
+        Get all profiles within the given segment ID. Filter to request a subset of all profiles. Profiles can be filtered by `email`, `phone_number`, and `push_token` fields.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `profiles:read` `segments:read`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -643,7 +649,7 @@ class SegmentsApi(object):
             fields_profile ([str]): For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#sparse-fieldsets. [optional]
             filter (str): For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`email`: `any`<br>`phone_number`: `any`<br>`push_token`: `any`<br>`_kx`: `equals`. [optional]
             page_cursor (str): For more information please visit https://developers.klaviyo.com/en/v2023-02-22/reference/api-overview#pagination. [optional]
-            page_size (int): The number of results to return per page. Default = 20. Max = 100. [optional]
+            page_size (int): Default: 20. Min: 1. Max: 100.. [optional] if omitted the server will use the default value of 20
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -716,7 +722,7 @@ class SegmentsApi(object):
     ):
         """Get Segment Relationships Profiles  # noqa: E501
 
-        Get all profile membership [relationships](https://developers.klaviyo.com/en/reference/api_overview#relationships) for the given segment ID. You can adjust the number of results per page via the `page[size]` query parameter, e.g. `?page[size]=25`. **Default**: 20. **Max**: 100.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `Profiles Read` `Segments Read`  # noqa: E501
+        Get all profile membership [relationships](https://developers.klaviyo.com/en/reference/api_overview#relationships) for the given segment ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `profiles:read` `segments:read`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -800,7 +806,7 @@ class SegmentsApi(object):
     ):
         """Get Segment Relationships Tags  # noqa: E501
 
-        If `related_resource` is `tags`, returns the tag IDs of all tags associated with the given segment ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `Segments Read` `Tags Read`  # noqa: E501
+        If `related_resource` is `tags`, returns the tag IDs of all tags associated with the given segment ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `segments:read` `tags:read`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -883,7 +889,7 @@ class SegmentsApi(object):
     ):
         """Get Segment Tags  # noqa: E501
 
-        Return all tags associated with the given segment ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `Segments Read` `Tags Read`  # noqa: E501
+        Return all tags associated with the given segment ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `segments:read` `tags:read`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -966,7 +972,7 @@ class SegmentsApi(object):
     ):
         """Get Segments  # noqa: E501
 
-        Get all segments in an account. Filter to request a subset of all segments. Segments can be filtered by `name`, `created`, and `updated` fields. Returns a maximum of 10 results per page.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `Segments Read`  # noqa: E501
+        Get all segments in an account. Filter to request a subset of all segments. Segments can be filtered by `name`, `created`, and `updated` fields. Returns a maximum of 10 results per page.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `segments:read`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1049,7 +1055,7 @@ class SegmentsApi(object):
     ):
         """Update Segment  # noqa: E501
 
-        Update the name of a segment with the given segment ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `Segments Write`  # noqa: E501
+        Update the name of a segment with the given segment ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `segments:write`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
