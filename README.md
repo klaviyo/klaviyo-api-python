@@ -121,6 +121,8 @@ klaviyo.Events.get_events(
     )
 ```
 
+NOTE: the filter param values need to be url-encoded
+
 #### How to filter based on datetime
 
 **Use Case**: Get profiles that have been updated between two datetimes.
@@ -1561,9 +1563,10 @@ klaviyo.Flows.get_flow_action_flow(action_id, fields_flow=fields_flow)
 # fields_flow_message | [str]
 # filter | str
 # page_cursor | str
+# page_size | int
 # sort | str
 
-klaviyo.Flows.get_flow_action_messages(action_id, fields_flow_message=fields_flow_message, filter=filter, page_cursor=page_cursor, sort=sort)
+klaviyo.Flows.get_flow_action_messages(action_id, fields_flow_message=fields_flow_message, filter=filter, page_cursor=page_cursor, page_size=page_size, sort=sort)
 ```
 
 
@@ -1593,9 +1596,10 @@ klaviyo.Flows.get_flow_action_relationships_flow(id)
 
 # filter | str
 # page_cursor | str
+# page_size | int
 # sort | str
 
-klaviyo.Flows.get_flow_action_relationships_messages(id, filter=filter, page_cursor=page_cursor, sort=sort)
+klaviyo.Flows.get_flow_action_relationships_messages(id, filter=filter, page_cursor=page_cursor, page_size=page_size, sort=sort)
 ```
 
 
@@ -1613,9 +1617,10 @@ klaviyo.Flows.get_flow_action_relationships_messages(id, filter=filter, page_cur
 # fields_flow_action | [str]
 # filter | str
 # page_cursor | str
+# page_size | int
 # sort | str
 
-klaviyo.Flows.get_flow_flow_actions(flow_id, fields_flow_action=fields_flow_action, filter=filter, page_cursor=page_cursor, sort=sort)
+klaviyo.Flows.get_flow_flow_actions(flow_id, fields_flow_action=fields_flow_action, filter=filter, page_cursor=page_cursor, page_size=page_size, sort=sort)
 ```
 
 
@@ -1680,9 +1685,10 @@ klaviyo.Flows.get_flow_message_relationships_action(id)
 ## Keyword Arguments
 
 # filter | str
+# page_size | int
 # sort | str
 
-klaviyo.Flows.get_flow_relationships_flow_actions(id, filter=filter, sort=sort)
+klaviyo.Flows.get_flow_relationships_flow_actions(id, filter=filter, page_size=page_size, sort=sort)
 ```
 
 
@@ -1729,9 +1735,10 @@ klaviyo.Flows.get_flow_tags(flow_id, fields_tag=fields_tag)
 # filter | str
 # include | [str]
 # page_cursor | str
+# page_size | int
 # sort | str
 
-klaviyo.Flows.get_flows(fields_flow_action=fields_flow_action, fields_flow=fields_flow, filter=filter, include=include, page_cursor=page_cursor, sort=sort)
+klaviyo.Flows.get_flows(fields_flow_action=fields_flow_action, fields_flow=fields_flow, filter=filter, include=include, page_cursor=page_cursor, page_size=page_size, sort=sort)
 ```
 
 
@@ -1985,11 +1992,7 @@ klaviyo.Metrics.query_metric_aggregates(body)
 
 # body | dict
 
-## Keyword Arguments
-
-# additional_fields_profile | [str]
-
-klaviyo.Profiles.create_profile(body, additional_fields_profile=additional_fields_profile)
+klaviyo.Profiles.create_profile(body)
 ```
 
 
@@ -2086,10 +2089,10 @@ klaviyo.Profiles.get_profile_segments(profile_id, fields_segment=fields_segment)
 # fields_profile | [str]
 # filter | str
 # page_cursor | str
-# sort | str
 # page_size | int
+# sort | str
 
-klaviyo.Profiles.get_profiles(additional_fields_profile=additional_fields_profile, fields_profile=fields_profile, filter=filter, page_cursor=page_cursor, sort=sort, page_size=page_size)
+klaviyo.Profiles.get_profiles(additional_fields_profile=additional_fields_profile, fields_profile=fields_profile, filter=filter, page_cursor=page_cursor, page_size=page_size, sort=sort)
 ```
 
 
@@ -2155,11 +2158,7 @@ klaviyo.Profiles.unsuppress_profiles(body)
 # id | str
 # body | dict
 
-## Keyword Arguments
-
-# additional_fields_profile | [str]
-
-klaviyo.Profiles.update_profile(id, body, additional_fields_profile=additional_fields_profile)
+klaviyo.Profiles.update_profile(id, body)
 ```
 
 

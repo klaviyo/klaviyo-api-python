@@ -214,7 +214,7 @@ class ClientApi(object):
     ):
         """Create Client Event  # noqa: E501
 
-        Create a new event to track a profile's activity. This endpoint is specifically designed to be called from publicly-browseable, client-side environments only. To create events from server-based applications, please use [POST /api/events](https://developers.klaviyo.com/en/reference/create_event)<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `Events Write`  # noqa: E501
+        Create a new event to track a profile's activity. This endpoint is specifically designed to be called from publicly-browseable, client-side environments only. To create events from server-based applications, please use [POST /api/events](https://developers.klaviyo.com/en/reference/create_event)<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `events:write`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -222,7 +222,7 @@ class ClientApi(object):
         >>> result = thread.get()
 
         Args:
-            company_id (str): ID of the Company to create event
+            company_id (str): Your Public API Key / Site ID. See [this article](https://help.klaviyo.com/hc/en-us/articles/115005062267) for more details.
             event_create_query (EventCreateQuery): Event to create.
 
         Keyword Args:
@@ -301,7 +301,7 @@ class ClientApi(object):
     ):
         """Create or Update Client Profile  # noqa: E501
 
-        Create and update properties about a profile without tracking an associated event. This endpoint is specifically designed to be called from publicly-browseable, client-side environments only. To create profiles from server applications (e.g. custom server-side scripts / applications), please use [POST /api/profiles](https://developers.klaviyo.com/en/reference/create_profile)<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `Profiles Write`  # noqa: E501
+        Create and update properties about a profile without tracking an associated event. This endpoint is specifically designed to be called from publicly-browseable, client-side environments only. To create profiles from server applications (e.g. custom server-side scripts / applications), please use [POST /api/profiles](https://developers.klaviyo.com/en/reference/create_profile)<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `profiles:write`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -309,7 +309,7 @@ class ClientApi(object):
         >>> result = thread.get()
 
         Args:
-            company_id (str): 
+            company_id (str): Your Public API Key / Site ID. See [this article](https://help.klaviyo.com/hc/en-us/articles/115005062267) for more details.
             onsite_profile_create_query (OnsiteProfileCreateQuery):
 
         Keyword Args:
@@ -388,7 +388,7 @@ class ClientApi(object):
     ):
         """Create Client Subscription  # noqa: E501
 
-        Create a new subscription for the given list ID and channel:  * Email `email` * SMS `phone_number`  This endpoint is specifically designed to be called from publicly-browseable, client-side environments only. To create subscriptions from server-based applications, please use [POST /api/profile-subscription-bulk-create-jobs](https://developers.klaviyo.com/en/reference/subscribe_profiles)<br><br>*Rate limits*:<br>Burst: `100/s`<br>Steady: `100/m`  **Scopes:** `Subscriptions Write`  # noqa: E501
+        Create a new subscription for the given list ID and channel:  * Email `email` * SMS `phone_number`  This endpoint is specifically designed to be called from publicly-browseable, client-side environments only. To create subscriptions from server-based applications, please use [POST /api/profile-subscription-bulk-create-jobs](https://developers.klaviyo.com/en/reference/subscribe_profiles)<br><br>*Rate limits*:<br>Burst: `100/s`<br>Steady: `700/m`  **Scopes:** `subscriptions:write`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -396,7 +396,7 @@ class ClientApi(object):
         >>> result = thread.get()
 
         Args:
-            company_id (str): Your company ID.
+            company_id (str): Your Public API Key / Site ID. See [this article](https://help.klaviyo.com/hc/en-us/articles/115005062267) for more details.
             onsite_subscription_create_query (OnsiteSubscriptionCreateQuery): Creates a subscription and consent records for Email and or SMS channels based on the provided email and phone_number attributes respectively. One of either email or phone_number must be provided. To create a subscription and consent record for only one channel but still include the other channel as a profile property the consent channel can be provided as a top level attribute and the other channel can be included in the properties object.
 
         Keyword Args:

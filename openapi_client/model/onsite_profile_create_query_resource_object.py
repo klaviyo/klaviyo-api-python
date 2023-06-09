@@ -32,10 +32,8 @@ from openapi_client.exceptions import ApiAttributeError
 
 def lazy_import():
     from openapi_client.model.onsite_profile_create_query_resource_object_attributes import OnsiteProfileCreateQueryResourceObjectAttributes
-    from openapi_client.model.onsite_profile_meta import OnsiteProfileMeta
     from openapi_client.model.profile_enum import ProfileEnum
     globals()['OnsiteProfileCreateQueryResourceObjectAttributes'] = OnsiteProfileCreateQueryResourceObjectAttributes
-    globals()['OnsiteProfileMeta'] = OnsiteProfileMeta
     globals()['ProfileEnum'] = ProfileEnum
 
 
@@ -94,7 +92,6 @@ class OnsiteProfileCreateQueryResourceObject(ModelNormal):
         return {
             'attributes': (OnsiteProfileCreateQueryResourceObjectAttributes,),  # noqa: E501
             'type': (ProfileEnum,),  # noqa: E501
-            'meta': (OnsiteProfileMeta,),  # noqa: E501
         }
 
     @cached_property
@@ -105,7 +102,6 @@ class OnsiteProfileCreateQueryResourceObject(ModelNormal):
     attribute_map = {
         'attributes': 'attributes',  # noqa: E501
         'type': 'type',  # noqa: E501
-        'meta': 'meta',  # noqa: E501
     }
 
     read_only_vars = {
@@ -153,7 +149,6 @@ class OnsiteProfileCreateQueryResourceObject(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            meta (OnsiteProfileMeta): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -245,7 +240,6 @@ class OnsiteProfileCreateQueryResourceObject(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            meta (OnsiteProfileMeta): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
