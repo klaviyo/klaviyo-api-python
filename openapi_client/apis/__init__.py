@@ -6,7 +6,7 @@
 # raise a `RecursionError`.
 # In order to avoid this, import only the API that you directly need like:
 #
-#   from openapi_client.api.campaigns_api import CampaignsApi
+#   from openapi_client.api.accounts_api import AccountsApi
 #
 # or import this package, but before doing it, use:
 #
@@ -14,9 +14,9 @@
 #   sys.setrecursionlimit(n)
 
 # Import APIs into API package:
+from openapi_client.api.accounts_api import AccountsApi
 from openapi_client.api.campaigns_api import CampaignsApi
 from openapi_client.api.catalogs_api import CatalogsApi
-from openapi_client.api.client_api import ClientApi
 from openapi_client.api.data_privacy_api import DataPrivacyApi
 from openapi_client.api.events_api import EventsApi
 from openapi_client.api.flows_api import FlowsApi
