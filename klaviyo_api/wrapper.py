@@ -8,9 +8,9 @@ import openapi_client
 import klaviyo_api.custom_retry as custom_retry
 from dataclasses import dataclass
 from typing import Callable, ClassVar
+from openapi_client.api import accounts_api
 from openapi_client.api import campaigns_api
 from openapi_client.api import catalogs_api
-from openapi_client.api import client_api
 from openapi_client.api import data_privacy_api
 from openapi_client.api import events_api
 from openapi_client.api import flows_api
@@ -30,7 +30,7 @@ class KlaviyoAPI:
     max_retries: int = 3
     test_host: str = ''
 
-    _REVISION = "2023-02-22"
+    _REVISION = "2023-06-15"
 
     _STATUS_CODE_CONNECTION_RESET_BY_PEER = 104
     _STATUS_CODE_TOO_MANY_REQUESTS = 429
@@ -74,6 +74,14 @@ class KlaviyoAPI:
             stop=tenacity.stop.stop_after_attempt(self.max_retries)
         )
 
+        
+        ## Adding Accounts to Client
+        self.Accounts=accounts_api.AccountsApi(self.api_client)
+        
+        ## Applying tenacity retry decorator to each endpoint in Accounts
+        self.Accounts.get_account=self._page_cursor_update(self.retry_logic(self.Accounts.get_account))
+        self.Accounts.get_accounts=self._page_cursor_update(self.retry_logic(self.Accounts.get_accounts))
+        
         
         ## Adding Campaigns to Client
         self.Campaigns=campaigns_api.CampaignsApi(self.api_client)
@@ -155,15 +163,6 @@ class KlaviyoAPI:
         self.Catalogs.update_catalog_item=self._page_cursor_update(self.retry_logic(self.Catalogs.update_catalog_item))
         self.Catalogs.update_catalog_item_relationships_categories=self._page_cursor_update(self.retry_logic(self.Catalogs.update_catalog_item_relationships_categories))
         self.Catalogs.update_catalog_variant=self._page_cursor_update(self.retry_logic(self.Catalogs.update_catalog_variant))
-        
-        
-        ## Adding Client to Client
-        self.Client=client_api.ClientApi(self.api_client)
-        
-        ## Applying tenacity retry decorator to each endpoint in Client
-        self.Client.create_client_event=self._page_cursor_update(self.retry_logic(self.Client.create_client_event))
-        self.Client.create_client_profile=self._page_cursor_update(self.retry_logic(self.Client.create_client_profile))
-        self.Client.create_client_subscription=self._page_cursor_update(self.retry_logic(self.Client.create_client_subscription))
         
         
         ## Adding Data_Privacy to Client
