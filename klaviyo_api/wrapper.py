@@ -30,7 +30,7 @@ class KlaviyoAPI:
     max_retries: int = 3
     test_host: str = ''
 
-    _REVISION = "2023-06-15"
+    _REVISION = "2023-07-15"
 
     _STATUS_CODE_CONNECTION_RESET_BY_PEER = 104
     _STATUS_CODE_TOO_MANY_REQUESTS = 429
@@ -94,9 +94,15 @@ class KlaviyoAPI:
         self.Campaigns.create_campaign_send_job=self._page_cursor_update(self.retry_logic(self.Campaigns.create_campaign_send_job))
         self.Campaigns.delete_campaign=self._page_cursor_update(self.retry_logic(self.Campaigns.delete_campaign))
         self.Campaigns.get_campaign=self._page_cursor_update(self.retry_logic(self.Campaigns.get_campaign))
+        self.Campaigns.get_campaign_campaign_messages=self._page_cursor_update(self.retry_logic(self.Campaigns.get_campaign_campaign_messages))
         self.Campaigns.get_campaign_message=self._page_cursor_update(self.retry_logic(self.Campaigns.get_campaign_message))
+        self.Campaigns.get_campaign_message_campaign=self._page_cursor_update(self.retry_logic(self.Campaigns.get_campaign_message_campaign))
+        self.Campaigns.get_campaign_message_relationships_campaign=self._page_cursor_update(self.retry_logic(self.Campaigns.get_campaign_message_relationships_campaign))
+        self.Campaigns.get_campaign_message_relationships_template=self._page_cursor_update(self.retry_logic(self.Campaigns.get_campaign_message_relationships_template))
+        self.Campaigns.get_campaign_message_template=self._page_cursor_update(self.retry_logic(self.Campaigns.get_campaign_message_template))
         self.Campaigns.get_campaign_recipient_estimation=self._page_cursor_update(self.retry_logic(self.Campaigns.get_campaign_recipient_estimation))
         self.Campaigns.get_campaign_recipient_estimation_job=self._page_cursor_update(self.retry_logic(self.Campaigns.get_campaign_recipient_estimation_job))
+        self.Campaigns.get_campaign_relationships_campaign_messages=self._page_cursor_update(self.retry_logic(self.Campaigns.get_campaign_relationships_campaign_messages))
         self.Campaigns.get_campaign_relationships_tags=self._page_cursor_update(self.retry_logic(self.Campaigns.get_campaign_relationships_tags))
         self.Campaigns.get_campaign_send_job=self._page_cursor_update(self.retry_logic(self.Campaigns.get_campaign_send_job))
         self.Campaigns.get_campaign_tags=self._page_cursor_update(self.retry_logic(self.Campaigns.get_campaign_tags))
@@ -110,6 +116,7 @@ class KlaviyoAPI:
         self.Catalogs=catalogs_api.CatalogsApi(self.api_client)
         
         ## Applying tenacity retry decorator to each endpoint in Catalogs
+        self.Catalogs.create_back_in_stock_subscription=self._page_cursor_update(self.retry_logic(self.Catalogs.create_back_in_stock_subscription))
         self.Catalogs.create_catalog_category=self._page_cursor_update(self.retry_logic(self.Catalogs.create_catalog_category))
         self.Catalogs.create_catalog_category_relationships_items=self._page_cursor_update(self.retry_logic(self.Catalogs.create_catalog_category_relationships_items))
         self.Catalogs.create_catalog_item=self._page_cursor_update(self.retry_logic(self.Catalogs.create_catalog_item))
@@ -178,10 +185,10 @@ class KlaviyoAPI:
         ## Applying tenacity retry decorator to each endpoint in Events
         self.Events.create_event=self._page_cursor_update(self.retry_logic(self.Events.create_event))
         self.Events.get_event=self._page_cursor_update(self.retry_logic(self.Events.get_event))
-        self.Events.get_event_metrics=self._page_cursor_update(self.retry_logic(self.Events.get_event_metrics))
-        self.Events.get_event_profiles=self._page_cursor_update(self.retry_logic(self.Events.get_event_profiles))
-        self.Events.get_event_relationships_metrics=self._page_cursor_update(self.retry_logic(self.Events.get_event_relationships_metrics))
-        self.Events.get_event_relationships_profiles=self._page_cursor_update(self.retry_logic(self.Events.get_event_relationships_profiles))
+        self.Events.get_event_metric=self._page_cursor_update(self.retry_logic(self.Events.get_event_metric))
+        self.Events.get_event_profile=self._page_cursor_update(self.retry_logic(self.Events.get_event_profile))
+        self.Events.get_event_relationships_metric=self._page_cursor_update(self.retry_logic(self.Events.get_event_relationships_metric))
+        self.Events.get_event_relationships_profile=self._page_cursor_update(self.retry_logic(self.Events.get_event_relationships_profile))
         self.Events.get_events=self._page_cursor_update(self.retry_logic(self.Events.get_events))
         
         
