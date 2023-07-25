@@ -1,4 +1,4 @@
-NOTE: we recently found a bug in the latest version, v4.0.0, that causes requests to `create_campaign` and `update_campaign` to error out. If you need to use those, we recommend using 3.0.0 for those until we have a patch in place. For folks using v3.0.0, you will need to refer to the API Reference Revision = `2023-06-15` (the previous API revision corresponding to SDK v3.0.0).
+NOTE: we recently found a bug in the latest version, `v4.0.0`, that causes requests to `create_campaign` and `update_campaign` to error out. If you need to use those, we recommend using `v3.0.0` for those until we have a patch in place. For folks using `v3.0.0`, you will need to refer to the API Reference Revision = `2023-06-15` (the previous API revision corresponding to SDK `v3.0.0`).
 
 # Klaviyo Python SDK
 
