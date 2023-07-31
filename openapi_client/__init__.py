@@ -15,7 +15,7 @@
 """
 
 
-__version__ = "4.0.0"
+__version__ = "5.0.0"
 
 # import apis into sdk package
 from openapi_client.api.accounts_api import AccountsApi
