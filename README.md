@@ -1,5 +1,3 @@
-BUG NOTE: we are working on fixing a bug in the latest version, `v4.0.0`, that causes some requests to `create`/`update` `campaign`/`profile` that use `oneOf` params (see our [OpenAPI spec](https://github.com/klaviyo/openapi/blob/main/openapi/stable.json) for details) to error out with the following message: `TypeError: <SOME_RESOURCE>._from_openapi_data() missing <N> required positional argument: <SOME_ARGUMENT>`.  If you run into such an error, we recommend replacing that specific SDK call with an outright API call (see the example calls in our [API Reference](https://developers.klaviyo.com/en/reference/create_campaign), on the right-hand side, for full details). We are currently working on a fix for `v4.0.1`, which should be out shortly.
-
 # Klaviyo Python SDK
 
 - SDK version: 4.0.0
@@ -100,7 +98,7 @@ NOTE:
 ```python
 from klaviyo_api import KlaviyoAPI
 
-klaviyo = KlaviyoAPI("YOUR API KEY HERE", max_delay=60, max_retries=3, test_host=None)
+klaviyo = KlaviyoAPI("YOUR_API_KEY_HERE", max_delay=60, max_retries=3, test_host=None)
 ```
 
 ### Example request
@@ -208,7 +206,7 @@ An `ApiException` consists of the following attributes:
 - For example values / data types, as well as whether parameters are required/optional, please reference the corresponding API Reference link.
 - Some keyword args may potentially be required for the API call to succeed, the linked API docs are the source of truth regarding which keyword params are required.
 - JSON payloads should be passed in as native python dictionaries.
-- You can override the client private key by passing in an optional `api_key` keyword arg to any API call that takes a private key. As a reminder: do NOT do this client-side/onsite.
+- You can override the client private key by passing in an optional `_request_auth` keyword arg to any API call that takes a private key. As a reminder: do NOT do this client-side/onsite.
 
 # Comprehensive list of Operations & Parameters
 
@@ -227,7 +225,7 @@ An `ApiException` consists of the following attributes:
 
 ## Keyword Arguments
 
-# fields_account | [str]
+# fields_account | List[str]
 
 klaviyo.Accounts.get_account(id, fields_account=fields_account)
 ```
@@ -241,7 +239,7 @@ klaviyo.Accounts.get_account(id, fields_account=fields_account)
 
 ## Keyword Arguments
 
-# fields_account | [str]
+# fields_account | List[str]
 
 klaviyo.Accounts.get_accounts(fields_account=fields_account)
 ```
@@ -340,10 +338,10 @@ klaviyo.Campaigns.delete_campaign(id)
 
 ## Keyword Arguments
 
-# fields_campaign_message | [str]
-# fields_campaign | [str]
-# fields_tag | [str]
-# include | [str]
+# fields_campaign_message | List[str]
+# fields_campaign | List[str]
+# fields_tag | List[str]
+# include | List[str]
 
 klaviyo.Campaigns.get_campaign(id, fields_campaign_message=fields_campaign_message, fields_campaign=fields_campaign, fields_tag=fields_tag, include=include)
 ```
@@ -360,10 +358,10 @@ klaviyo.Campaigns.get_campaign(id, fields_campaign_message=fields_campaign_messa
 
 ## Keyword Arguments
 
-# fields_campaign_message | [str]
-# fields_campaign | [str]
-# fields_template | [str]
-# include | [str]
+# fields_campaign_message | List[str]
+# fields_campaign | List[str]
+# fields_template | List[str]
+# include | List[str]
 
 klaviyo.Campaigns.get_campaign_campaign_messages(id, fields_campaign_message=fields_campaign_message, fields_campaign=fields_campaign, fields_template=fields_template, include=include)
 ```
@@ -380,10 +378,10 @@ klaviyo.Campaigns.get_campaign_campaign_messages(id, fields_campaign_message=fie
 
 ## Keyword Arguments
 
-# fields_campaign_message | [str]
-# fields_campaign | [str]
-# fields_template | [str]
-# include | [str]
+# fields_campaign_message | List[str]
+# fields_campaign | List[str]
+# fields_template | List[str]
+# include | List[str]
 
 klaviyo.Campaigns.get_campaign_message(id, fields_campaign_message=fields_campaign_message, fields_campaign=fields_campaign, fields_template=fields_template, include=include)
 ```
@@ -400,7 +398,7 @@ klaviyo.Campaigns.get_campaign_message(id, fields_campaign_message=fields_campai
 
 ## Keyword Arguments
 
-# fields_campaign_message | [str]
+# fields_campaign_message | List[str]
 
 klaviyo.Campaigns.get_campaign_message_campaign(id, fields_campaign_message=fields_campaign_message)
 ```
@@ -443,7 +441,7 @@ klaviyo.Campaigns.get_campaign_message_relationships_template(id)
 
 ## Keyword Arguments
 
-# fields_campaign_message | [str]
+# fields_campaign_message | List[str]
 
 klaviyo.Campaigns.get_campaign_message_template(id, fields_campaign_message=fields_campaign_message)
 ```
@@ -460,7 +458,7 @@ klaviyo.Campaigns.get_campaign_message_template(id, fields_campaign_message=fiel
 
 ## Keyword Arguments
 
-# fields_campaign_recipient_estimation | [str]
+# fields_campaign_recipient_estimation | List[str]
 
 klaviyo.Campaigns.get_campaign_recipient_estimation(id, fields_campaign_recipient_estimation=fields_campaign_recipient_estimation)
 ```
@@ -477,7 +475,7 @@ klaviyo.Campaigns.get_campaign_recipient_estimation(id, fields_campaign_recipien
 
 ## Keyword Arguments
 
-# fields_campaign_recipient_estimation_job | [str]
+# fields_campaign_recipient_estimation_job | List[str]
 
 klaviyo.Campaigns.get_campaign_recipient_estimation_job(id, fields_campaign_recipient_estimation_job=fields_campaign_recipient_estimation_job)
 ```
@@ -520,7 +518,7 @@ klaviyo.Campaigns.get_campaign_relationships_tags(id)
 
 ## Keyword Arguments
 
-# fields_campaign_send_job | [str]
+# fields_campaign_send_job | List[str]
 
 klaviyo.Campaigns.get_campaign_send_job(id, fields_campaign_send_job=fields_campaign_send_job)
 ```
@@ -537,7 +535,7 @@ klaviyo.Campaigns.get_campaign_send_job(id, fields_campaign_send_job=fields_camp
 
 ## Keyword Arguments
 
-# fields_tag | [str]
+# fields_tag | List[str]
 
 klaviyo.Campaigns.get_campaign_tags(id, fields_tag=fields_tag)
 ```
@@ -554,10 +552,10 @@ klaviyo.Campaigns.get_campaign_tags(id, fields_tag=fields_tag)
 
 ## Keyword Arguments
 
-# fields_campaign_message | [str]
-# fields_campaign | [str]
-# fields_tag | [str]
-# include | [str]
+# fields_campaign_message | List[str]
+# fields_campaign | List[str]
+# fields_tag | List[str]
+# include | List[str]
 # page_cursor | str
 # sort | str
 
@@ -766,7 +764,7 @@ klaviyo.Catalogs.delete_catalog_variant(id)
 
 ## Keyword Arguments
 
-# fields_catalog_category | [str]
+# fields_catalog_category | List[str]
 # filter | str
 # page_cursor | str
 # sort | str
@@ -786,7 +784,7 @@ klaviyo.Catalogs.get_catalog_categories(fields_catalog_category=fields_catalog_c
 
 ## Keyword Arguments
 
-# fields_catalog_category | [str]
+# fields_catalog_category | List[str]
 
 klaviyo.Catalogs.get_catalog_category(id, fields_catalog_category=fields_catalog_category)
 ```
@@ -803,10 +801,10 @@ klaviyo.Catalogs.get_catalog_category(id, fields_catalog_category=fields_catalog
 
 ## Keyword Arguments
 
-# fields_catalog_item | [str]
-# fields_catalog_variant | [str]
+# fields_catalog_item | List[str]
+# fields_catalog_variant | List[str]
 # filter | str
-# include | [str]
+# include | List[str]
 # page_cursor | str
 # sort | str
 
@@ -842,9 +840,9 @@ klaviyo.Catalogs.get_catalog_category_relationships_items(id, page_cursor=page_c
 
 ## Keyword Arguments
 
-# fields_catalog_item | [str]
-# fields_catalog_variant | [str]
-# include | [str]
+# fields_catalog_item | List[str]
+# fields_catalog_variant | List[str]
+# include | List[str]
 
 klaviyo.Catalogs.get_catalog_item(id, fields_catalog_item=fields_catalog_item, fields_catalog_variant=fields_catalog_variant, include=include)
 ```
@@ -861,7 +859,7 @@ klaviyo.Catalogs.get_catalog_item(id, fields_catalog_item=fields_catalog_item, f
 
 ## Keyword Arguments
 
-# fields_catalog_category | [str]
+# fields_catalog_category | List[str]
 # filter | str
 # page_cursor | str
 # sort | str
@@ -898,7 +896,7 @@ klaviyo.Catalogs.get_catalog_item_relationships_categories(id, page_cursor=page_
 
 ## Keyword Arguments
 
-# fields_catalog_variant | [str]
+# fields_catalog_variant | List[str]
 # filter | str
 # page_cursor | str
 # sort | str
@@ -915,10 +913,10 @@ klaviyo.Catalogs.get_catalog_item_variants(id, fields_catalog_variant=fields_cat
 
 ## Keyword Arguments
 
-# fields_catalog_item | [str]
-# fields_catalog_variant | [str]
+# fields_catalog_item | List[str]
+# fields_catalog_variant | List[str]
 # filter | str
-# include | [str]
+# include | List[str]
 # page_cursor | str
 # sort | str
 
@@ -937,7 +935,7 @@ klaviyo.Catalogs.get_catalog_items(fields_catalog_item=fields_catalog_item, fiel
 
 ## Keyword Arguments
 
-# fields_catalog_variant | [str]
+# fields_catalog_variant | List[str]
 
 klaviyo.Catalogs.get_catalog_variant(id, fields_catalog_variant=fields_catalog_variant)
 ```
@@ -951,7 +949,7 @@ klaviyo.Catalogs.get_catalog_variant(id, fields_catalog_variant=fields_catalog_v
 
 ## Keyword Arguments
 
-# fields_catalog_variant | [str]
+# fields_catalog_variant | List[str]
 # filter | str
 # page_cursor | str
 # sort | str
@@ -971,9 +969,9 @@ klaviyo.Catalogs.get_catalog_variants(fields_catalog_variant=fields_catalog_vari
 
 ## Keyword Arguments
 
-# fields_catalog_category_bulk_create_job | [str]
-# fields_catalog_category | [str]
-# include | [str]
+# fields_catalog_category_bulk_create_job | List[str]
+# fields_catalog_category | List[str]
+# include | List[str]
 
 klaviyo.Catalogs.get_create_categories_job(job_id, fields_catalog_category_bulk_create_job=fields_catalog_category_bulk_create_job, fields_catalog_category=fields_catalog_category, include=include)
 ```
@@ -987,7 +985,7 @@ klaviyo.Catalogs.get_create_categories_job(job_id, fields_catalog_category_bulk_
 
 ## Keyword Arguments
 
-# fields_catalog_category_bulk_create_job | [str]
+# fields_catalog_category_bulk_create_job | List[str]
 # filter | str
 # page_cursor | str
 
@@ -1006,9 +1004,9 @@ klaviyo.Catalogs.get_create_categories_jobs(fields_catalog_category_bulk_create_
 
 ## Keyword Arguments
 
-# fields_catalog_item_bulk_create_job | [str]
-# fields_catalog_item | [str]
-# include | [str]
+# fields_catalog_item_bulk_create_job | List[str]
+# fields_catalog_item | List[str]
+# include | List[str]
 
 klaviyo.Catalogs.get_create_items_job(job_id, fields_catalog_item_bulk_create_job=fields_catalog_item_bulk_create_job, fields_catalog_item=fields_catalog_item, include=include)
 ```
@@ -1022,7 +1020,7 @@ klaviyo.Catalogs.get_create_items_job(job_id, fields_catalog_item_bulk_create_jo
 
 ## Keyword Arguments
 
-# fields_catalog_item_bulk_create_job | [str]
+# fields_catalog_item_bulk_create_job | List[str]
 # filter | str
 # page_cursor | str
 
@@ -1041,9 +1039,9 @@ klaviyo.Catalogs.get_create_items_jobs(fields_catalog_item_bulk_create_job=field
 
 ## Keyword Arguments
 
-# fields_catalog_variant_bulk_create_job | [str]
-# fields_catalog_variant | [str]
-# include | [str]
+# fields_catalog_variant_bulk_create_job | List[str]
+# fields_catalog_variant | List[str]
+# include | List[str]
 
 klaviyo.Catalogs.get_create_variants_job(job_id, fields_catalog_variant_bulk_create_job=fields_catalog_variant_bulk_create_job, fields_catalog_variant=fields_catalog_variant, include=include)
 ```
@@ -1057,7 +1055,7 @@ klaviyo.Catalogs.get_create_variants_job(job_id, fields_catalog_variant_bulk_cre
 
 ## Keyword Arguments
 
-# fields_catalog_variant_bulk_create_job | [str]
+# fields_catalog_variant_bulk_create_job | List[str]
 # filter | str
 # page_cursor | str
 
@@ -1076,7 +1074,7 @@ klaviyo.Catalogs.get_create_variants_jobs(fields_catalog_variant_bulk_create_job
 
 ## Keyword Arguments
 
-# fields_catalog_category_bulk_delete_job | [str]
+# fields_catalog_category_bulk_delete_job | List[str]
 
 klaviyo.Catalogs.get_delete_categories_job(job_id, fields_catalog_category_bulk_delete_job=fields_catalog_category_bulk_delete_job)
 ```
@@ -1090,7 +1088,7 @@ klaviyo.Catalogs.get_delete_categories_job(job_id, fields_catalog_category_bulk_
 
 ## Keyword Arguments
 
-# fields_catalog_category_bulk_delete_job | [str]
+# fields_catalog_category_bulk_delete_job | List[str]
 # filter | str
 # page_cursor | str
 
@@ -1109,7 +1107,7 @@ klaviyo.Catalogs.get_delete_categories_jobs(fields_catalog_category_bulk_delete_
 
 ## Keyword Arguments
 
-# fields_catalog_item_bulk_delete_job | [str]
+# fields_catalog_item_bulk_delete_job | List[str]
 
 klaviyo.Catalogs.get_delete_items_job(job_id, fields_catalog_item_bulk_delete_job=fields_catalog_item_bulk_delete_job)
 ```
@@ -1123,7 +1121,7 @@ klaviyo.Catalogs.get_delete_items_job(job_id, fields_catalog_item_bulk_delete_jo
 
 ## Keyword Arguments
 
-# fields_catalog_item_bulk_delete_job | [str]
+# fields_catalog_item_bulk_delete_job | List[str]
 # filter | str
 # page_cursor | str
 
@@ -1142,7 +1140,7 @@ klaviyo.Catalogs.get_delete_items_jobs(fields_catalog_item_bulk_delete_job=field
 
 ## Keyword Arguments
 
-# fields_catalog_variant_bulk_delete_job | [str]
+# fields_catalog_variant_bulk_delete_job | List[str]
 
 klaviyo.Catalogs.get_delete_variants_job(job_id, fields_catalog_variant_bulk_delete_job=fields_catalog_variant_bulk_delete_job)
 ```
@@ -1156,7 +1154,7 @@ klaviyo.Catalogs.get_delete_variants_job(job_id, fields_catalog_variant_bulk_del
 
 ## Keyword Arguments
 
-# fields_catalog_variant_bulk_delete_job | [str]
+# fields_catalog_variant_bulk_delete_job | List[str]
 # filter | str
 # page_cursor | str
 
@@ -1175,9 +1173,9 @@ klaviyo.Catalogs.get_delete_variants_jobs(fields_catalog_variant_bulk_delete_job
 
 ## Keyword Arguments
 
-# fields_catalog_category_bulk_update_job | [str]
-# fields_catalog_category | [str]
-# include | [str]
+# fields_catalog_category_bulk_update_job | List[str]
+# fields_catalog_category | List[str]
+# include | List[str]
 
 klaviyo.Catalogs.get_update_categories_job(job_id, fields_catalog_category_bulk_update_job=fields_catalog_category_bulk_update_job, fields_catalog_category=fields_catalog_category, include=include)
 ```
@@ -1191,7 +1189,7 @@ klaviyo.Catalogs.get_update_categories_job(job_id, fields_catalog_category_bulk_
 
 ## Keyword Arguments
 
-# fields_catalog_category_bulk_update_job | [str]
+# fields_catalog_category_bulk_update_job | List[str]
 # filter | str
 # page_cursor | str
 
@@ -1210,9 +1208,9 @@ klaviyo.Catalogs.get_update_categories_jobs(fields_catalog_category_bulk_update_
 
 ## Keyword Arguments
 
-# fields_catalog_item_bulk_update_job | [str]
-# fields_catalog_item | [str]
-# include | [str]
+# fields_catalog_item_bulk_update_job | List[str]
+# fields_catalog_item | List[str]
+# include | List[str]
 
 klaviyo.Catalogs.get_update_items_job(job_id, fields_catalog_item_bulk_update_job=fields_catalog_item_bulk_update_job, fields_catalog_item=fields_catalog_item, include=include)
 ```
@@ -1226,7 +1224,7 @@ klaviyo.Catalogs.get_update_items_job(job_id, fields_catalog_item_bulk_update_jo
 
 ## Keyword Arguments
 
-# fields_catalog_item_bulk_update_job | [str]
+# fields_catalog_item_bulk_update_job | List[str]
 # filter | str
 # page_cursor | str
 
@@ -1245,9 +1243,9 @@ klaviyo.Catalogs.get_update_items_jobs(fields_catalog_item_bulk_update_job=field
 
 ## Keyword Arguments
 
-# fields_catalog_variant_bulk_update_job | [str]
-# fields_catalog_variant | [str]
-# include | [str]
+# fields_catalog_variant_bulk_update_job | List[str]
+# fields_catalog_variant | List[str]
+# include | List[str]
 
 klaviyo.Catalogs.get_update_variants_job(job_id, fields_catalog_variant_bulk_update_job=fields_catalog_variant_bulk_update_job, fields_catalog_variant=fields_catalog_variant, include=include)
 ```
@@ -1261,7 +1259,7 @@ klaviyo.Catalogs.get_update_variants_job(job_id, fields_catalog_variant_bulk_upd
 
 ## Keyword Arguments
 
-# fields_catalog_variant_bulk_update_job | [str]
+# fields_catalog_variant_bulk_update_job | List[str]
 # filter | str
 # page_cursor | str
 
@@ -1501,10 +1499,10 @@ klaviyo.Events.create_event(body)
 
 ## Keyword Arguments
 
-# fields_event | [str]
-# fields_metric | [str]
-# fields_profile | [str]
-# include | [str]
+# fields_event | List[str]
+# fields_metric | List[str]
+# fields_profile | List[str]
+# include | List[str]
 
 klaviyo.Events.get_event(id, fields_event=fields_event, fields_metric=fields_metric, fields_profile=fields_profile, include=include)
 ```
@@ -1521,7 +1519,7 @@ klaviyo.Events.get_event(id, fields_event=fields_event, fields_metric=fields_met
 
 ## Keyword Arguments
 
-# fields_metric | [str]
+# fields_metric | List[str]
 
 klaviyo.Events.get_event_metric(id, fields_metric=fields_metric)
 ```
@@ -1538,8 +1536,8 @@ klaviyo.Events.get_event_metric(id, fields_metric=fields_metric)
 
 ## Keyword Arguments
 
-# additional_fields_profile | [str]
-# fields_profile | [str]
+# additional_fields_profile | List[str]
+# fields_profile | List[str]
 
 klaviyo.Events.get_event_profile(id, additional_fields_profile=additional_fields_profile, fields_profile=fields_profile)
 ```
@@ -1579,11 +1577,11 @@ klaviyo.Events.get_event_relationships_profile(id)
 
 ## Keyword Arguments
 
-# fields_event | [str]
-# fields_metric | [str]
-# fields_profile | [str]
+# fields_event | List[str]
+# fields_metric | List[str]
+# fields_profile | List[str]
 # filter | str
-# include | [str]
+# include | List[str]
 # page_cursor | str
 # sort | str
 
@@ -1606,10 +1604,10 @@ klaviyo.Events.get_events(fields_event=fields_event, fields_metric=fields_metric
 
 ## Keyword Arguments
 
-# fields_flow_action | [str]
-# fields_flow | [str]
-# fields_tag | [str]
-# include | [str]
+# fields_flow_action | List[str]
+# fields_flow | List[str]
+# fields_tag | List[str]
+# include | List[str]
 
 klaviyo.Flows.get_flow(id, fields_flow_action=fields_flow_action, fields_flow=fields_flow, fields_tag=fields_tag, include=include)
 ```
@@ -1626,10 +1624,10 @@ klaviyo.Flows.get_flow(id, fields_flow_action=fields_flow_action, fields_flow=fi
 
 ## Keyword Arguments
 
-# fields_flow_action | [str]
-# fields_flow_message | [str]
-# fields_flow | [str]
-# include | [str]
+# fields_flow_action | List[str]
+# fields_flow_message | List[str]
+# fields_flow | List[str]
+# include | List[str]
 
 klaviyo.Flows.get_flow_action(id, fields_flow_action=fields_flow_action, fields_flow_message=fields_flow_message, fields_flow=fields_flow, include=include)
 ```
@@ -1646,7 +1644,7 @@ klaviyo.Flows.get_flow_action(id, fields_flow_action=fields_flow_action, fields_
 
 ## Keyword Arguments
 
-# fields_flow | [str]
+# fields_flow | List[str]
 
 klaviyo.Flows.get_flow_action_flow(id, fields_flow=fields_flow)
 ```
@@ -1663,7 +1661,7 @@ klaviyo.Flows.get_flow_action_flow(id, fields_flow=fields_flow)
 
 ## Keyword Arguments
 
-# fields_flow_message | [str]
+# fields_flow_message | List[str]
 # filter | str
 # page_size | int
 # sort | str
@@ -1716,7 +1714,7 @@ klaviyo.Flows.get_flow_action_relationships_messages(id, filter=filter, page_cur
 
 ## Keyword Arguments
 
-# fields_flow_action | [str]
+# fields_flow_action | List[str]
 # filter | str
 # page_cursor | str
 # page_size | int
@@ -1737,9 +1735,9 @@ klaviyo.Flows.get_flow_flow_actions(id, fields_flow_action=fields_flow_action, f
 
 ## Keyword Arguments
 
-# fields_flow_action | [str]
-# fields_flow_message | [str]
-# include | [str]
+# fields_flow_action | List[str]
+# fields_flow_message | List[str]
+# include | List[str]
 
 klaviyo.Flows.get_flow_message(id, fields_flow_action=fields_flow_action, fields_flow_message=fields_flow_message, include=include)
 ```
@@ -1756,7 +1754,7 @@ klaviyo.Flows.get_flow_message(id, fields_flow_action=fields_flow_action, fields
 
 ## Keyword Arguments
 
-# fields_flow_action | [str]
+# fields_flow_action | List[str]
 
 klaviyo.Flows.get_flow_message_action(id, fields_flow_action=fields_flow_action)
 ```
@@ -1818,7 +1816,7 @@ klaviyo.Flows.get_flow_relationships_tags(id)
 
 ## Keyword Arguments
 
-# fields_tag | [str]
+# fields_tag | List[str]
 
 klaviyo.Flows.get_flow_tags(id, fields_tag=fields_tag)
 ```
@@ -1832,11 +1830,11 @@ klaviyo.Flows.get_flow_tags(id, fields_tag=fields_tag)
 
 ## Keyword Arguments
 
-# fields_flow_action | [str]
-# fields_flow | [str]
-# fields_tag | [str]
+# fields_flow_action | List[str]
+# fields_flow | List[str]
+# fields_tag | List[str]
 # filter | str
-# include | [str]
+# include | List[str]
 # page_cursor | str
 # page_size | int
 # sort | str
@@ -1928,10 +1926,10 @@ klaviyo.Lists.delete_list_relationships(id, body)
 
 ## Keyword Arguments
 
-# additional_fields_list | [str]
-# fields_list | [str]
-# fields_tag | [str]
-# include | [str]
+# additional_fields_list | List[str]
+# fields_list | List[str]
+# fields_tag | List[str]
+# include | List[str]
 
 klaviyo.Lists.get_list(id, additional_fields_list=additional_fields_list, fields_list=fields_list, fields_tag=fields_tag, include=include)
 ```
@@ -1948,8 +1946,8 @@ klaviyo.Lists.get_list(id, additional_fields_list=additional_fields_list, fields
 
 ## Keyword Arguments
 
-# additional_fields_profile | [str]
-# fields_profile | [str]
+# additional_fields_profile | List[str]
+# fields_profile | List[str]
 # filter | str
 # page_cursor | str
 # page_size | int
@@ -1999,7 +1997,7 @@ klaviyo.Lists.get_list_relationships_tags(id)
 
 ## Keyword Arguments
 
-# fields_tag | [str]
+# fields_tag | List[str]
 
 klaviyo.Lists.get_list_tags(id, fields_tag=fields_tag)
 ```
@@ -2013,10 +2011,10 @@ klaviyo.Lists.get_list_tags(id, fields_tag=fields_tag)
 
 ## Keyword Arguments
 
-# fields_list | [str]
-# fields_tag | [str]
+# fields_list | List[str]
+# fields_tag | List[str]
 # filter | str
-# include | [str]
+# include | List[str]
 # page_cursor | str
 
 klaviyo.Lists.get_lists(fields_list=fields_list, fields_tag=fields_tag, filter=filter, include=include, page_cursor=page_cursor)
@@ -2052,7 +2050,7 @@ klaviyo.Lists.update_list(id, body)
 
 ## Keyword Arguments
 
-# fields_metric | [str]
+# fields_metric | List[str]
 
 klaviyo.Metrics.get_metric(id, fields_metric=fields_metric)
 ```
@@ -2066,7 +2064,7 @@ klaviyo.Metrics.get_metric(id, fields_metric=fields_metric)
 
 ## Keyword Arguments
 
-# fields_metric | [str]
+# fields_metric | List[str]
 # filter | str
 # page_cursor | str
 
@@ -2115,11 +2113,11 @@ klaviyo.Profiles.create_profile(body)
 
 ## Keyword Arguments
 
-# additional_fields_profile | [str]
-# fields_list | [str]
-# fields_profile | [str]
-# fields_segment | [str]
-# include | [str]
+# additional_fields_profile | List[str]
+# fields_list | List[str]
+# fields_profile | List[str]
+# fields_segment | List[str]
+# include | List[str]
 
 klaviyo.Profiles.get_profile(id, additional_fields_profile=additional_fields_profile, fields_list=fields_list, fields_profile=fields_profile, fields_segment=fields_segment, include=include)
 ```
@@ -2136,7 +2134,7 @@ klaviyo.Profiles.get_profile(id, additional_fields_profile=additional_fields_pro
 
 ## Keyword Arguments
 
-# fields_list | [str]
+# fields_list | List[str]
 
 klaviyo.Profiles.get_profile_lists(id, fields_list=fields_list)
 ```
@@ -2179,7 +2177,7 @@ klaviyo.Profiles.get_profile_relationships_segments(id)
 
 ## Keyword Arguments
 
-# fields_segment | [str]
+# fields_segment | List[str]
 
 klaviyo.Profiles.get_profile_segments(id, fields_segment=fields_segment)
 ```
@@ -2193,8 +2191,8 @@ klaviyo.Profiles.get_profile_segments(id, fields_segment=fields_segment)
 
 ## Keyword Arguments
 
-# additional_fields_profile | [str]
-# fields_profile | [str]
+# additional_fields_profile | List[str]
+# fields_profile | List[str]
 # filter | str
 # page_cursor | str
 # page_size | int
@@ -2285,10 +2283,10 @@ klaviyo.Profiles.update_profile(id, body)
 
 ## Keyword Arguments
 
-# additional_fields_segment | [str]
-# fields_segment | [str]
-# fields_tag | [str]
-# include | [str]
+# additional_fields_segment | List[str]
+# fields_segment | List[str]
+# fields_tag | List[str]
+# include | List[str]
 
 klaviyo.Segments.get_segment(id, additional_fields_segment=additional_fields_segment, fields_segment=fields_segment, fields_tag=fields_tag, include=include)
 ```
@@ -2305,8 +2303,8 @@ klaviyo.Segments.get_segment(id, additional_fields_segment=additional_fields_seg
 
 ## Keyword Arguments
 
-# additional_fields_profile | [str]
-# fields_profile | [str]
+# additional_fields_profile | List[str]
+# fields_profile | List[str]
 # filter | str
 # page_cursor | str
 # page_size | int
@@ -2356,7 +2354,7 @@ klaviyo.Segments.get_segment_relationships_tags(id)
 
 ## Keyword Arguments
 
-# fields_tag | [str]
+# fields_tag | List[str]
 
 klaviyo.Segments.get_segment_tags(id, fields_tag=fields_tag)
 ```
@@ -2370,10 +2368,10 @@ klaviyo.Segments.get_segment_tags(id, fields_tag=fields_tag)
 
 ## Keyword Arguments
 
-# fields_segment | [str]
-# fields_tag | [str]
+# fields_segment | List[str]
+# fields_tag | List[str]
 # filter | str
-# include | [str]
+# include | List[str]
 # page_cursor | str
 
 klaviyo.Segments.get_segments(fields_segment=fields_segment, fields_tag=fields_tag, filter=filter, include=include, page_cursor=page_cursor)
@@ -2573,9 +2571,9 @@ klaviyo.Tags.delete_tag_relationships_segments(id, body)
 
 ## Keyword Arguments
 
-# fields_tag_group | [str]
-# fields_tag | [str]
-# include | [str]
+# fields_tag_group | List[str]
+# fields_tag | List[str]
+# include | List[str]
 
 klaviyo.Tags.get_tag(id, fields_tag_group=fields_tag_group, fields_tag=fields_tag, include=include)
 ```
@@ -2592,7 +2590,7 @@ klaviyo.Tags.get_tag(id, fields_tag_group=fields_tag_group, fields_tag=fields_ta
 
 ## Keyword Arguments
 
-# fields_tag_group | [str]
+# fields_tag_group | List[str]
 
 klaviyo.Tags.get_tag_group(id, fields_tag_group=fields_tag_group)
 ```
@@ -2622,7 +2620,7 @@ klaviyo.Tags.get_tag_group_relationships_tags(id)
 
 ## Keyword Arguments
 
-# fields_tag | [str]
+# fields_tag | List[str]
 
 klaviyo.Tags.get_tag_group_tags(id, fields_tag=fields_tag)
 ```
@@ -2636,7 +2634,7 @@ klaviyo.Tags.get_tag_group_tags(id, fields_tag=fields_tag)
 
 ## Keyword Arguments
 
-# fields_tag_group | [str]
+# fields_tag_group | List[str]
 # filter | str
 # page_cursor | str
 # sort | str
@@ -2721,7 +2719,7 @@ klaviyo.Tags.get_tag_relationships_tag_group(id)
 
 ## Keyword Arguments
 
-# fields_tag_group | [str]
+# fields_tag_group | List[str]
 
 klaviyo.Tags.get_tag_tag_group(id, fields_tag_group=fields_tag_group)
 ```
@@ -2735,10 +2733,10 @@ klaviyo.Tags.get_tag_tag_group(id, fields_tag_group=fields_tag_group)
 
 ## Keyword Arguments
 
-# fields_tag_group | [str]
-# fields_tag | [str]
+# fields_tag_group | List[str]
+# fields_tag | List[str]
 # filter | str
-# include | [str]
+# include | List[str]
 # page_cursor | str
 # sort | str
 
@@ -2841,7 +2839,7 @@ klaviyo.Templates.delete_template(id)
 
 ## Keyword Arguments
 
-# fields_template | [str]
+# fields_template | List[str]
 
 klaviyo.Templates.get_template(id, fields_template=fields_template)
 ```
@@ -2855,7 +2853,7 @@ klaviyo.Templates.get_template(id, fields_template=fields_template)
 
 ## Keyword Arguments
 
-# fields_template | [str]
+# fields_template | List[str]
 # filter | str
 # page_cursor | str
 # sort | str
@@ -2887,7 +2885,7 @@ klaviyo.Templates.update_template(id, body)
 NOTE: These are arguments that you can apply to any endpoint call, and which are unique to the SDK
 
 We currently support the following global keyword args:
-- `api_key` : use this to override the client-level api_key which you define upon client instantiation
+- `_request_auth` : use this to override the client-level api_key which you define upon client instantiation
 
 ## Refresher on catching exceptions:
 
@@ -2911,7 +2909,7 @@ We stick to the following convention for parameters/arguments
 2. All query and path params that are tagged as `required` in the docs are passed as positional args.
 3. All optional query params are passed as keyword args.
 4. Where applicable, the `body` param is passed in as a positional arg, and is expected to be a native python dictionary. Within that dictionary, refer to the API docs to see which fields are required/optional, along with valid values.
-4. There is no need to pass in your private `api_key` for any operations, as it is defined upon client instantiation; public key is still required where applicable. However, you can pass in an optional `api_key` kwarg to override the client private key for a specific call (REMINDER: don't do this client-side).
+4. There is no need to pass in your private `api_key` for any operations, as it is defined upon client instantiation; public key is still required where applicable. However, you can pass in an optional `_request_auth` kwarg to override the client private key for a specific call (REMINDER: don't do this client-side).
 
 ## Namespace
 
