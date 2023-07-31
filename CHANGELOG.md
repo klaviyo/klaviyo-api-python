@@ -12,7 +12,7 @@ NOTE: For more granular API-specific changes, please see our [API Changelog](htt
 ### Changed
 
 - To override the client-level `api_key` for a specific request, you will now need to use the following new keyword arg: `_request_auth`
-  - previously, this keyword arg was called `api_client`
+  - previously, this keyword arg was called `api_key`
 
 ### Fixed
 
