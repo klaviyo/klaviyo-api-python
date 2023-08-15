@@ -30,7 +30,7 @@ class KlaviyoAPI:
     max_retries: int = 3
     test_host: str = ''
 
-    _REVISION = "2023-07-15"
+    _REVISION = "2023-08-15"
 
     _STATUS_CODE_CONNECTION_RESET_BY_PEER = 104
     _STATUS_CODE_TOO_MANY_REQUESTS = 429
@@ -206,6 +206,8 @@ class KlaviyoAPI:
         self.Flows.get_flow_message=self._page_cursor_update(self.retry_logic(self.Flows.get_flow_message))
         self.Flows.get_flow_message_action=self._page_cursor_update(self.retry_logic(self.Flows.get_flow_message_action))
         self.Flows.get_flow_message_relationships_action=self._page_cursor_update(self.retry_logic(self.Flows.get_flow_message_relationships_action))
+        self.Flows.get_flow_message_relationships_template=self._page_cursor_update(self.retry_logic(self.Flows.get_flow_message_relationships_template))
+        self.Flows.get_flow_message_template=self._page_cursor_update(self.retry_logic(self.Flows.get_flow_message_template))
         self.Flows.get_flow_relationships_flow_actions=self._page_cursor_update(self.retry_logic(self.Flows.get_flow_relationships_flow_actions))
         self.Flows.get_flow_relationships_tags=self._page_cursor_update(self.retry_logic(self.Flows.get_flow_relationships_tags))
         self.Flows.get_flow_tags=self._page_cursor_update(self.retry_logic(self.Flows.get_flow_tags))
@@ -244,6 +246,7 @@ class KlaviyoAPI:
         
         ## Applying tenacity retry decorator to each endpoint in Profiles
         self.Profiles.create_profile=self._page_cursor_update(self.retry_logic(self.Profiles.create_profile))
+        self.Profiles.create_push_token=self._page_cursor_update(self.retry_logic(self.Profiles.create_push_token))
         self.Profiles.get_profile=self._page_cursor_update(self.retry_logic(self.Profiles.get_profile))
         self.Profiles.get_profile_lists=self._page_cursor_update(self.retry_logic(self.Profiles.get_profile_lists))
         self.Profiles.get_profile_relationships_lists=self._page_cursor_update(self.retry_logic(self.Profiles.get_profile_relationships_lists))
