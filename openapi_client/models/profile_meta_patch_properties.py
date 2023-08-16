@@ -28,7 +28,7 @@ class ProfileMetaPatchProperties(BaseModel):
     """
     append: Optional[Dict[str, Any]] = Field(None, description="Append a simple value or values to this property array")
     unappend: Optional[Dict[str, Any]] = Field(None, description="Remove a simple value or values from this property array")
-    unset: Optional[Dict[str, Any]] = Field(None, description="Remove a key or keys (and their values) completely from properties")
+    unset: Optional[Any] = Field(None, description="Remove a key or keys (and their values) completely from properties")
     __properties = ["append", "unappend", "unset"]
 
     class Config:
@@ -55,6 +55,11 @@ class ProfileMetaPatchProperties(BaseModel):
                           exclude={
                           },
                           exclude_none=True)
+        # set to None if unset (nullable) is None
+        # and __fields_set__ contains the field
+        if self.unset is None and "unset" in self.__fields_set__:
+            _dict['unset'] = None
+
         return _dict
 
     @classmethod

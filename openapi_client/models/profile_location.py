@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, Optional
+from typing import Any, Optional
 from pydantic import BaseModel, Field, StrictStr
 
 class ProfileLocation(BaseModel):
@@ -30,8 +30,8 @@ class ProfileLocation(BaseModel):
     address2: Optional[StrictStr] = Field(None, description="Second line of street address")
     city: Optional[StrictStr] = Field(None, description="City name")
     country: Optional[StrictStr] = Field(None, description="Country name")
-    latitude: Optional[Dict[str, Any]] = Field(None, description="Latitude coordinate. We recommend providing a precision of four decimal places.")
-    longitude: Optional[Dict[str, Any]] = Field(None, description="Longitude coordinate. We recommend providing a precision of four decimal places.")
+    latitude: Optional[Any] = Field(None, description="Latitude coordinate. We recommend providing a precision of four decimal places.")
+    longitude: Optional[Any] = Field(None, description="Longitude coordinate. We recommend providing a precision of four decimal places.")
     region: Optional[StrictStr] = Field(None, description="Region within a country, such as state or province")
     zip: Optional[StrictStr] = Field(None, description="Zip code")
     timezone: Optional[StrictStr] = Field(None, description="Time zone name. We recommend using time zones from the IANA Time Zone Database.")
@@ -61,6 +61,16 @@ class ProfileLocation(BaseModel):
                           exclude={
                           },
                           exclude_none=True)
+        # set to None if latitude (nullable) is None
+        # and __fields_set__ contains the field
+        if self.latitude is None and "latitude" in self.__fields_set__:
+            _dict['latitude'] = None
+
+        # set to None if longitude (nullable) is None
+        # and __fields_set__ contains the field
+        if self.longitude is None and "longitude" in self.__fields_set__:
+            _dict['longitude'] = None
+
         return _dict
 
     @classmethod
