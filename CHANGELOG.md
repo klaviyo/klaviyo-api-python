@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 NOTE: For more granular API-specific changes, please see our [API Changelog](https://developers.klaviyo.com/en/docs/changelog_)
 
+## [5.1.1] - revision 2023-08-15
+
+### Fixed
+
+- Fixed a bug that was impacting the `unset` functionality for `update_profile`
+
 ## [5.1.0] - revision 2023-08-15
 
 ### Added
@@ -79,7 +85,7 @@ NOTE: For more granular API-specific changes, please see our [API Changelog](htt
   - `create_client_profile`
   - `create_client_subscription`
 
-## [2.0.0] - 2023-04-06
+## [2.0.0] - revision 2023-04-06
 
 ### Added
 
@@ -94,18 +100,18 @@ NOTE: For more granular API-specific changes, please see our [API Changelog](htt
 - To migrate to this latest version, all calls to relationship endpoints need to be updated, as in the following example:
   - `get_campaign_relationships(campaign_id, "tags")` will become `get_campaign_relationships_tags(campaign_id)`.
 
-## [1.3.1] - 2023-03-09
+## [1.3.1] - revision 2023-03-09
 
 ### Added
 
 - Added `page_size` support for paging through endpoints that return profiles.
 
-## [1.2.1] - 2023-02-23
+## [1.2.1] - revision 2023-02-23
 
 ### Fixed
 - Fixed a bug that caused paging through events to periodically fail.
 
-## [1.2.0] - 2023-02-23
+## [1.2.0] - revision 2023-02-23
 
 ### Added
 
@@ -115,7 +121,7 @@ NOTE: For more granular API-specific changes, please see our [API Changelog](htt
 
 - Pagination for Flows changed from page offset to cursor.
 
-## [1.1.0] - 2023-01-25
+## [1.1.0] - revision 2023-01-25
 
 ### Added
 
@@ -126,7 +132,7 @@ NOTE: For more granular API-specific changes, please see our [API Changelog](htt
     - Get List Tags
     - Get Segment Tags
 
-## [1.0.0] - 2022-10-19
+## [1.0.0] - revision 2022-10-19
 
 ### Added
 
