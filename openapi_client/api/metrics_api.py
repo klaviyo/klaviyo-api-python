@@ -176,7 +176,7 @@ class MetricsApi(object):
             ['application/json'])  # noqa: E501
 
         # authentication setting
-        _auth_settings = ['Klaviyo-API-Key']  # noqa: E501
+        _auth_settings = ['Klaviyo-API-Key', 'OAuth']  # noqa: E501
 
         _response_types_map = {
             '200': "Dict[str, object]",
@@ -343,7 +343,7 @@ class MetricsApi(object):
             ['application/json'])  # noqa: E501
 
         # authentication setting
-        _auth_settings = ['Klaviyo-API-Key']  # noqa: E501
+        _auth_settings = ['Klaviyo-API-Key', 'OAuth']  # noqa: E501
 
         _response_types_map = {
             '200': "Dict[str, object]",
@@ -491,7 +491,7 @@ class MetricsApi(object):
                 _header_params['Content-Type'] = _content_types_list
 
         # authentication setting
-        _auth_settings = ['Klaviyo-API-Key']  # noqa: E501
+        _auth_settings = ['Klaviyo-API-Key', 'OAuth']  # noqa: E501
 
         _response_types_map = {
             '201': "Dict[str, object]",

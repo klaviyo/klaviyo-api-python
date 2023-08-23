@@ -29,6 +29,8 @@ class KlaviyoAPI:
     max_delay: int = 60
     max_retries: int = 3
     test_host: str = ''
+    access_token: str = None
+
 
     _REVISION = "2023-08-15"
 
@@ -50,9 +52,17 @@ class KlaviyoAPI:
 
     def __post_init__(self):
 
-        self.configuration = openapi_client.Configuration(
-            api_key={'Klaviyo-API-Key':f'Klaviyo-API-Key {self.api_key}'}
+        if self.access_token is not None:
+            
+            self.configuration = openapi_client.Configuration(
+                access_token=self.access_token
             )
+
+        elif self.api_key is not None:
+
+            self.configuration = openapi_client.Configuration(
+                api_key={'Klaviyo-API-Key':f'Klaviyo-API-Key {self.api_key}'}
+                )
 
         if self.test_host:
             self.configuration.host = self.test_host
