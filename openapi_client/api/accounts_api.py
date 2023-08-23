@@ -175,7 +175,7 @@ class AccountsApi(object):
             ['application/json'])  # noqa: E501
 
         # authentication setting
-        _auth_settings = ['Klaviyo-API-Key']  # noqa: E501
+        _auth_settings = ['Klaviyo-API-Key', 'OAuth']  # noqa: E501
 
         _response_types_map = {
             '200': "Dict[str, object]",
@@ -320,7 +320,7 @@ class AccountsApi(object):
             ['application/json'])  # noqa: E501
 
         # authentication setting
-        _auth_settings = ['Klaviyo-API-Key']  # noqa: E501
+        _auth_settings = ['Klaviyo-API-Key', 'OAuth']  # noqa: E501
 
         _response_types_map = {
             '200': "Dict[str, object]",

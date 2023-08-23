@@ -387,6 +387,13 @@ conf = openapi_client.Configuration(
                     'Klaviyo-API-Key',
                 ),
             }
+        if self.access_token is not None:
+            auth['OAuth'] = {
+                'type': 'oauth2',
+                'in': 'header',
+                'key': 'Authorization',
+                'value': 'Bearer ' + self.access_token
+            }
         return auth
 
     def to_debug_report(self):
@@ -398,7 +405,7 @@ conf = openapi_client.Configuration(
                "OS: {env}\n"\
                "Python Version: {pyversion}\n"\
                "Version of the API: 2023-08-15\n"\
-               "SDK Package Version: 5.1.1".\
+               "SDK Package Version: 5.1.2".\
                format(env=sys.platform, pyversion=sys.version)
 
     def get_host_settings(self):

@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 NOTE: For more granular API-specific changes, please see our [API Changelog](https://developers.klaviyo.com/en/docs/changelog_)
 
+## [5.1.2] - revision 2023-08-15
+
+### Added
+
+- override `api_key` with OAuth access token by setting client `access_token` keyword arg
+
+
 ## [5.1.1] - revision 2023-08-15
 
 ### Fixed
