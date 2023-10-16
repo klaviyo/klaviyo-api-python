@@ -34,7 +34,7 @@ class KlaviyoAPI:
     access_token: str = None
 
 
-    _REVISION = "2023-09-15"
+    _REVISION = "2023-10-15"
 
     _STATUS_CODE_CONNECTION_RESET_BY_PEER = 104
     _STATUS_CODE_TOO_MANY_REQUESTS = 429
@@ -51,6 +51,7 @@ class KlaviyoAPI:
         }
 
     _CURSOR_SEARCH_TOKENS = ['page%5Bcursor%5D','page[cursor]']
+
 
     def __post_init__(self):
 
@@ -73,16 +74,16 @@ class KlaviyoAPI:
 
         self.api_client.default_headers['revision'] = self._REVISION
         
+        if self.max_delay<= 0:
+            self.max_delay = .1
+        
         if self.max_retries <= 0:
-            self.max_wait = .1
-        else:
-            self.max_wait = self.max_delay/self.max_retries
-
-
+            self.max_retries = 1
+                
         self.retry_logic = tenacity.retry(
             reraise=True,
             retry=custom_retry.retry_if_qualifies(self._RETRY_CODES),
-            wait=tenacity.wait.wait_random_exponential(multiplier = 1, max = self.max_wait),
+            wait=tenacity.wait.wait_random_exponential(multiplier = 1, max = self.max_delay),
             stop=tenacity.stop.stop_after_attempt(self.max_retries)
         )
 
