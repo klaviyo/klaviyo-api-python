@@ -28,7 +28,7 @@ class SubscriptionDeleteJobCreateQueryResourceObjectRelationshipsListData(BaseMo
     SubscriptionDeleteJobCreateQueryResourceObjectRelationshipsListData
     """
     type: ListEnum = Field(...)
-    id: StrictStr = Field(..., description="Optional, the list to remove the profiles from")
+    id: StrictStr = Field(..., description="The list to remove the profiles from")
     __properties = ["type", "id"]
 
     class Config:

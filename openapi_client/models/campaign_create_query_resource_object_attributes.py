@@ -31,7 +31,7 @@ class CampaignCreateQueryResourceObjectAttributes(BaseModel):
     """
     name: Optional[StrictStr] = Field(..., description="The campaign name")
     audiences: AudiencesSubObject = Field(...)
-    send_strategy: SendStrategySubObject = Field(...)
+    send_strategy: Optional[SendStrategySubObject] = None
     send_options: Optional[Dict[str, Any]] = Field(None, description="Options to use when sending a campaign")
     tracking_options: Optional[Dict[str, Any]] = Field(None, description="The tracking options associated with the campaign")
     campaign_messages: CampaignCreateQueryResourceObjectAttributesCampaignMessages = Field(..., alias="campaign-messages")

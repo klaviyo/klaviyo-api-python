@@ -495,7 +495,7 @@ class MetricsApi(object):
         _auth_settings = ['Klaviyo-API-Key', 'OAuth']  # noqa: E501
 
         _response_types_map = {
-            '201': "Dict[str, object]",
+            '200': "Dict[str, object]",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
