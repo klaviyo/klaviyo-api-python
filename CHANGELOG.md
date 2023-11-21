@@ -9,6 +9,14 @@ NOTE: For more granular API-specific changes, please see our [API Changelog](htt
 
 
 
+## [6.0.1] - revision 2023-10-15
+
+### Fixed
+
+#### Patched a bug that was causing query_metric_aggregates to return None upon success
+
+A bug was introduced in version 5.0.0 until this patch, that resulted in this SDK specifically returning None upon success for the following operation [Metrics.query_metrics_aggregates](https://developers.klaviyo.com/en/reference/query_metric_aggregates).
+
 ## [6.0.0] - revision 2023-10-15
 
 ### Added
