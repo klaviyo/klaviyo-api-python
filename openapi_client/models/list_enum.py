@@ -13,13 +13,18 @@
 """  # noqa: E501
 
 
+from __future__ import annotations
 import json
 import pprint
 import re  # noqa: F401
-from aenum import Enum, no_arg
+from enum import Enum
 
 
 
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 
 class ListEnum(str, Enum):
@@ -33,8 +38,8 @@ class ListEnum(str, Enum):
     LIST = 'list'
 
     @classmethod
-    def from_json(cls, json_str: str) -> ListEnum:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of ListEnum from a JSON string"""
-        return ListEnum(json.loads(json_str))
+        return cls(json.loads(json_str))
 
 

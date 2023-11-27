@@ -13,13 +13,18 @@
 """  # noqa: E501
 
 
+from __future__ import annotations
 import json
 import pprint
 import re  # noqa: F401
-from aenum import Enum, no_arg
+from enum import Enum
 
 
 
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 
 class TagGroupEnum(str, Enum):
@@ -33,8 +38,8 @@ class TagGroupEnum(str, Enum):
     TAG_MINUS_GROUP = 'tag-group'
 
     @classmethod
-    def from_json(cls, json_str: str) -> TagGroupEnum:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of TagGroupEnum from a JSON string"""
-        return TagGroupEnum(json.loads(json_str))
+        return cls(json.loads(json_str))
 
 

@@ -22,10 +22,11 @@ from typing_extensions import Annotated
 
 from enum import EnumMeta
 
+from pydantic import Field
 from typing_extensions import Annotated
-from pydantic import Field, StrictStr, conlist, validator
+from pydantic import StrictStr, field_validator
 
-from typing import Any, Dict, Optional
+from typing import Any, Dict, List, Optional
 
 
 from openapi_client.api_client import ApiClient
@@ -49,7 +50,7 @@ class AccountsApi(object):
         self.api_client = api_client
 
     @validate_arguments
-    def get_account(self, id : Annotated[StrictStr, Field(..., description="The ID of the account")], fields_account : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, **kwargs) -> Dict[str, object]:  # noqa: E501
+    def get_account(self, id : Annotated[StrictStr, Field(description="The ID of the account")], fields_account : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, **kwargs) -> Dict[str, object]:  # noqa: E501
         """Get Account  # noqa: E501
 
         Retrieve a single account object by its account ID. You can only request the account by which the private API key was generated.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `accounts:read`  # noqa: E501
@@ -80,7 +81,7 @@ class AccountsApi(object):
         return self.get_account_with_http_info(id, fields_account, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def get_account_with_http_info(self, id : Annotated[StrictStr, Field(..., description="The ID of the account")], fields_account : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def get_account_with_http_info(self, id : Annotated[StrictStr, Field(description="The ID of the account")], fields_account : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Get Account  # noqa: E501
 
         Retrieve a single account object by its account ID. You can only request the account by which the private API key was generated.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `accounts:read`  # noqa: E501
@@ -202,7 +203,7 @@ class AccountsApi(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_accounts(self, fields_account : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, **kwargs) -> Dict[str, object]:  # noqa: E501
+    def get_accounts(self, fields_account : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, **kwargs) -> Dict[str, object]:  # noqa: E501
         """Get Accounts  # noqa: E501
 
         Retrieve the account(s) associated with a given private API key. This will return 1 account object within the array.  You can use this to retrieve account-specific data (contact information, timezone, currency, Public API key, etc.) or test if a Private API Key belongs to the correct account prior to performing subsequent actions with the API.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `accounts:read`  # noqa: E501
@@ -231,7 +232,7 @@ class AccountsApi(object):
         return self.get_accounts_with_http_info(fields_account, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def get_accounts_with_http_info(self, fields_account : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def get_accounts_with_http_info(self, fields_account : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Get Accounts  # noqa: E501
 
         Retrieve the account(s) associated with a given private API key. This will return 1 account object within the array.  You can use this to retrieve account-specific data (contact information, timezone, currency, Public API key, etc.) or test if a Private API Key belongs to the correct account prior to performing subsequent actions with the API.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `accounts:read`  # noqa: E501

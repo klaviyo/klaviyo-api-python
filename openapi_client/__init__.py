@@ -15,7 +15,7 @@
 """  # noqa: E501
 
 
-__version__ = "6.0.1"
+__version__ = "6.0.2"
 
 # import apis into sdk package
 from openapi_client.api.accounts_api import AccountsApi

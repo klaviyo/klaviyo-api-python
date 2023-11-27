@@ -22,10 +22,11 @@ from typing_extensions import Annotated
 
 from enum import EnumMeta
 
+from pydantic import Field
 from typing_extensions import Annotated
-from pydantic import Field, StrictBool, StrictBytes, StrictStr, conint, conlist, validator
+from pydantic import StrictBool, StrictBytes, StrictStr, field_validator
 
-from typing import Any, Dict, Optional, Union
+from typing import Any, Dict, List, Optional, Union
 
 from openapi_client.models.image_create_query import ImageCreateQuery
 from openapi_client.models.image_partial_update_query import ImagePartialUpdateQuery
@@ -51,7 +52,7 @@ class ImagesApi(object):
         self.api_client = api_client
 
     @validate_arguments
-    def get_image(self, id : Annotated[StrictStr, Field(..., description="The ID of the image")], fields_image : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, **kwargs) -> Dict[str, object]:  # noqa: E501
+    def get_image(self, id : Annotated[StrictStr, Field(description="The ID of the image")], fields_image : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, **kwargs) -> Dict[str, object]:  # noqa: E501
         """Get Image  # noqa: E501
 
         Get the image with the given image ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `images:read`  # noqa: E501
@@ -82,7 +83,7 @@ class ImagesApi(object):
         return self.get_image_with_http_info(id, fields_image, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def get_image_with_http_info(self, id : Annotated[StrictStr, Field(..., description="The ID of the image")], fields_image : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def get_image_with_http_info(self, id : Annotated[StrictStr, Field(description="The ID of the image")], fields_image : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Get Image  # noqa: E501
 
         Get the image with the given image ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `images:read`  # noqa: E501
@@ -204,7 +205,7 @@ class ImagesApi(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_images(self, fields_image : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, filter : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`, `equals`<br>`updated_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`format`: `any`, `equals`<br>`name`: `any`, `contains`, `ends-with`, `equals`, `starts-with`<br>`size`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`hidden`: `any`, `equals`")] = None, page_cursor : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#pagination")] = None, page_size : Annotated[Optional[conint(strict=True, le=100, ge=1)], Field(description="Default: 20. Min: 1. Max: 100.")] = None, sort : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sorting")] = None, **kwargs) -> Dict[str, object]:  # noqa: E501
+    def get_images(self, fields_image : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, filter : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`, `equals`<br>`updated_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`format`: `any`, `equals`<br>`name`: `any`, `contains`, `ends-with`, `equals`, `starts-with`<br>`size`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`hidden`: `any`, `equals`")] = None, page_cursor : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#pagination")] = None, page_size : Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Default: 20. Min: 1. Max: 100.")] = None, sort : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sorting")] = None, **kwargs) -> Dict[str, object]:  # noqa: E501
         """Get Images  # noqa: E501
 
         Get all images in an account.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `images:read`  # noqa: E501
@@ -241,7 +242,7 @@ class ImagesApi(object):
         return self.get_images_with_http_info(fields_image, filter, page_cursor, page_size, sort, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def get_images_with_http_info(self, fields_image : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, filter : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`, `equals`<br>`updated_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`format`: `any`, `equals`<br>`name`: `any`, `contains`, `ends-with`, `equals`, `starts-with`<br>`size`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`hidden`: `any`, `equals`")] = None, page_cursor : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#pagination")] = None, page_size : Annotated[Optional[conint(strict=True, le=100, ge=1)], Field(description="Default: 20. Min: 1. Max: 100.")] = None, sort : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sorting")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def get_images_with_http_info(self, fields_image : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, filter : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`, `equals`<br>`updated_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`format`: `any`, `equals`<br>`name`: `any`, `contains`, `ends-with`, `equals`, `starts-with`<br>`size`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`hidden`: `any`, `equals`")] = None, page_cursor : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#pagination")] = None, page_size : Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Default: 20. Min: 1. Max: 100.")] = None, sort : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sorting")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Get Images  # noqa: E501
 
         Get all images in an account.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `images:read`  # noqa: E501
@@ -393,7 +394,7 @@ class ImagesApi(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def update_image(self, id : Annotated[StrictStr, Field(..., description="The ID of the image")], image_partial_update_query : ImagePartialUpdateQuery, **kwargs) -> Dict[str, object]:  # noqa: E501
+    def update_image(self, id : Annotated[StrictStr, Field(description="The ID of the image")], image_partial_update_query : ImagePartialUpdateQuery, **kwargs) -> Dict[str, object]:  # noqa: E501
         """Update Image  # noqa: E501
 
         Update the image with the given image ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `images:write`  # noqa: E501
@@ -424,7 +425,7 @@ class ImagesApi(object):
         return self.update_image_with_http_info(id, image_partial_update_query, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def update_image_with_http_info(self, id : Annotated[StrictStr, Field(..., description="The ID of the image")], image_partial_update_query : ImagePartialUpdateQuery, **kwargs) -> ApiResponse:  # noqa: E501
+    def update_image_with_http_info(self, id : Annotated[StrictStr, Field(description="The ID of the image")], image_partial_update_query : ImagePartialUpdateQuery, **kwargs) -> ApiResponse:  # noqa: E501
         """Update Image  # noqa: E501
 
         Update the image with the given image ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `images:write`  # noqa: E501
@@ -549,7 +550,7 @@ class ImagesApi(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def upload_image_from_file(self, file : Annotated[Union[StrictBytes, StrictStr], Field(..., description="The image file to upload. Supported image formats: jpeg,png,gif. Maximum image size: 5MB.")], name : Annotated[Optional[StrictStr], Field(description="A name for the image.  Defaults to the filename if not provided.  If the name matches an existing image, a suffix will be added.")] = None, hidden : Annotated[Optional[StrictBool], Field(description="If true, this image is not shown in the asset library.")] = None, **kwargs) -> Dict[str, object]:  # noqa: E501
+    def upload_image_from_file(self, file : Annotated[Union[StrictBytes, StrictStr], Field(description="The image file to upload. Supported image formats: jpeg,png,gif. Maximum image size: 5MB.")], name : Annotated[Optional[StrictStr], Field(description="A name for the image.  Defaults to the filename if not provided.  If the name matches an existing image, a suffix will be added.")] = None, hidden : Annotated[Optional[StrictBool], Field(description="If true, this image is not shown in the asset library.")] = None, **kwargs) -> Dict[str, object]:  # noqa: E501
         """Upload Image From File  # noqa: E501
 
         Upload an image from a file.  If you want to import an image from an existing url or a data uri, use the Upload Image From URL endpoint instead.  # noqa: E501
@@ -582,7 +583,7 @@ class ImagesApi(object):
         return self.upload_image_from_file_with_http_info(file, name, hidden, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def upload_image_from_file_with_http_info(self, file : Annotated[Union[StrictBytes, StrictStr], Field(..., description="The image file to upload. Supported image formats: jpeg,png,gif. Maximum image size: 5MB.")], name : Annotated[Optional[StrictStr], Field(description="A name for the image.  Defaults to the filename if not provided.  If the name matches an existing image, a suffix will be added.")] = None, hidden : Annotated[Optional[StrictBool], Field(description="If true, this image is not shown in the asset library.")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def upload_image_from_file_with_http_info(self, file : Annotated[Union[StrictBytes, StrictStr], Field(description="The image file to upload. Supported image formats: jpeg,png,gif. Maximum image size: 5MB.")], name : Annotated[Optional[StrictStr], Field(description="A name for the image.  Defaults to the filename if not provided.  If the name matches an existing image, a suffix will be added.")] = None, hidden : Annotated[Optional[StrictBool], Field(description="If true, this image is not shown in the asset library.")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Upload Image From File  # noqa: E501
 
         Upload an image from a file.  If you want to import an image from an existing url or a data uri, use the Upload Image From URL endpoint instead.  # noqa: E501

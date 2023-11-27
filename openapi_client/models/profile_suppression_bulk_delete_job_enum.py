@@ -13,13 +13,18 @@
 """  # noqa: E501
 
 
+from __future__ import annotations
 import json
 import pprint
 import re  # noqa: F401
-from aenum import Enum, no_arg
+from enum import Enum
 
 
 
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 
 class ProfileSuppressionBulkDeleteJobEnum(str, Enum):
@@ -33,8 +38,8 @@ class ProfileSuppressionBulkDeleteJobEnum(str, Enum):
     PROFILE_MINUS_SUPPRESSION_MINUS_BULK_MINUS_DELETE_MINUS_JOB = 'profile-suppression-bulk-delete-job'
 
     @classmethod
-    def from_json(cls, json_str: str) -> ProfileSuppressionBulkDeleteJobEnum:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of ProfileSuppressionBulkDeleteJobEnum from a JSON string"""
-        return ProfileSuppressionBulkDeleteJobEnum(json.loads(json_str))
+        return cls(json.loads(json_str))
 
 

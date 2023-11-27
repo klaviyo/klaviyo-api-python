@@ -22,10 +22,11 @@ from typing_extensions import Annotated
 
 from enum import EnumMeta
 
+from pydantic import Field
 from typing_extensions import Annotated
-from pydantic import Field, StrictStr, conlist, validator
+from pydantic import StrictStr, field_validator
 
-from typing import Any, Dict, Optional
+from typing import Any, Dict, List, Optional
 
 from openapi_client.models.tag_campaign_op import TagCampaignOp
 from openapi_client.models.tag_create_query import TagCreateQuery
@@ -961,7 +962,7 @@ class TagsApi(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def delete_tag(self, id : Annotated[StrictStr, Field(..., description="The Tag ID")], **kwargs) -> None:  # noqa: E501
+    def delete_tag(self, id : Annotated[StrictStr, Field(description="The Tag ID")], **kwargs) -> None:  # noqa: E501
         """Delete Tag  # noqa: E501
 
         Delete the tag with the given tag ID. Any associations between the tag and other resources will also be removed.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read` `tags:write`  # noqa: E501
@@ -990,7 +991,7 @@ class TagsApi(object):
         return self.delete_tag_with_http_info(id, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def delete_tag_with_http_info(self, id : Annotated[StrictStr, Field(..., description="The Tag ID")], **kwargs) -> ApiResponse:  # noqa: E501
+    def delete_tag_with_http_info(self, id : Annotated[StrictStr, Field(description="The Tag ID")], **kwargs) -> ApiResponse:  # noqa: E501
         """Delete Tag  # noqa: E501
 
         Delete the tag with the given tag ID. Any associations between the tag and other resources will also be removed.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read` `tags:write`  # noqa: E501
@@ -1098,7 +1099,7 @@ class TagsApi(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def delete_tag_group(self, id : Annotated[StrictStr, Field(..., description="The Tag Group ID")], **kwargs) -> Dict[str, object]:  # noqa: E501
+    def delete_tag_group(self, id : Annotated[StrictStr, Field(description="The Tag Group ID")], **kwargs) -> Dict[str, object]:  # noqa: E501
         """Delete Tag Group  # noqa: E501
 
         Delete the tag group with the given tag group ID.  Any tags inside that tag group, and any associations between those tags and other resources, will also be removed. The default tag group cannot be deleted.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read` `tags:write`  # noqa: E501
@@ -1127,7 +1128,7 @@ class TagsApi(object):
         return self.delete_tag_group_with_http_info(id, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def delete_tag_group_with_http_info(self, id : Annotated[StrictStr, Field(..., description="The Tag Group ID")], **kwargs) -> ApiResponse:  # noqa: E501
+    def delete_tag_group_with_http_info(self, id : Annotated[StrictStr, Field(description="The Tag Group ID")], **kwargs) -> ApiResponse:  # noqa: E501
         """Delete Tag Group  # noqa: E501
 
         Delete the tag group with the given tag group ID.  Any tags inside that tag group, and any associations between those tags and other resources, will also be removed. The default tag group cannot be deleted.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read` `tags:write`  # noqa: E501
@@ -1847,7 +1848,7 @@ class TagsApi(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_tag(self, id : Annotated[StrictStr, Field(..., description="The Tag ID")], fields_tag_group : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, fields_tag : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, include : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#relationships")] = None, **kwargs) -> Dict[str, object]:  # noqa: E501
+    def get_tag(self, id : Annotated[StrictStr, Field(description="The Tag ID")], fields_tag_group : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, fields_tag : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, include : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#relationships")] = None, **kwargs) -> Dict[str, object]:  # noqa: E501
         """Get Tag  # noqa: E501
 
         Retrieve the tag with the given tag ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read`  # noqa: E501
@@ -1882,7 +1883,7 @@ class TagsApi(object):
         return self.get_tag_with_http_info(id, fields_tag_group, fields_tag, include, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def get_tag_with_http_info(self, id : Annotated[StrictStr, Field(..., description="The Tag ID")], fields_tag_group : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, fields_tag : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, include : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#relationships")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def get_tag_with_http_info(self, id : Annotated[StrictStr, Field(description="The Tag ID")], fields_tag_group : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, fields_tag : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, include : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#relationships")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Get Tag  # noqa: E501
 
         Retrieve the tag with the given tag ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read`  # noqa: E501
@@ -2024,7 +2025,7 @@ class TagsApi(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_tag_group(self, id : Annotated[StrictStr, Field(..., description="The Tag Group ID")], fields_tag_group : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, **kwargs) -> Dict[str, object]:  # noqa: E501
+    def get_tag_group(self, id : Annotated[StrictStr, Field(description="The Tag Group ID")], fields_tag_group : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, **kwargs) -> Dict[str, object]:  # noqa: E501
         """Get Tag Group  # noqa: E501
 
         Retrieve the tag group with the given tag group ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read`  # noqa: E501
@@ -2055,7 +2056,7 @@ class TagsApi(object):
         return self.get_tag_group_with_http_info(id, fields_tag_group, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def get_tag_group_with_http_info(self, id : Annotated[StrictStr, Field(..., description="The Tag Group ID")], fields_tag_group : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def get_tag_group_with_http_info(self, id : Annotated[StrictStr, Field(description="The Tag Group ID")], fields_tag_group : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Get Tag Group  # noqa: E501
 
         Retrieve the tag group with the given tag group ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read`  # noqa: E501
@@ -2318,7 +2319,7 @@ class TagsApi(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_tag_group_tags(self, id : StrictStr, fields_tag : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, **kwargs) -> Dict[str, object]:  # noqa: E501
+    def get_tag_group_tags(self, id : StrictStr, fields_tag : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, **kwargs) -> Dict[str, object]:  # noqa: E501
         """Get Tag Group Tags  # noqa: E501
 
         Return the tags for a given tag group ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read`  # noqa: E501
@@ -2349,7 +2350,7 @@ class TagsApi(object):
         return self.get_tag_group_tags_with_http_info(id, fields_tag, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def get_tag_group_tags_with_http_info(self, id : StrictStr, fields_tag : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def get_tag_group_tags_with_http_info(self, id : StrictStr, fields_tag : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Get Tag Group Tags  # noqa: E501
 
         Return the tags for a given tag group ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read`  # noqa: E501
@@ -2471,7 +2472,7 @@ class TagsApi(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_tag_groups(self, fields_tag_group : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, filter : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`name`: `contains`, `ends-with`, `equals`, `starts-with`<br>`exclusive`: `equals`<br>`default`: `equals`")] = None, page_cursor : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#pagination")] = None, sort : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sorting")] = None, **kwargs) -> Dict[str, object]:  # noqa: E501
+    def get_tag_groups(self, fields_tag_group : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, filter : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`name`: `contains`, `ends-with`, `equals`, `starts-with`<br>`exclusive`: `equals`<br>`default`: `equals`")] = None, page_cursor : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#pagination")] = None, sort : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sorting")] = None, **kwargs) -> Dict[str, object]:  # noqa: E501
         """Get Tag Groups  # noqa: E501
 
         List all tag groups in an account. Every account has one default tag group.  Tag groups can be filtered by `name`, `exclusive`, and `default`, and sorted by `name` or `id` in ascending or descending order.  Returns a maximum of 25 tag groups per request, which can be paginated with [cursor-based pagination](https://developers.klaviyo.com/en/v2022-10-17/reference/api_overview#pagination).<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read`  # noqa: E501
@@ -2506,7 +2507,7 @@ class TagsApi(object):
         return self.get_tag_groups_with_http_info(fields_tag_group, filter, page_cursor, sort, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def get_tag_groups_with_http_info(self, fields_tag_group : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, filter : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`name`: `contains`, `ends-with`, `equals`, `starts-with`<br>`exclusive`: `equals`<br>`default`: `equals`")] = None, page_cursor : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#pagination")] = None, sort : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sorting")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def get_tag_groups_with_http_info(self, fields_tag_group : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, filter : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`name`: `contains`, `ends-with`, `equals`, `starts-with`<br>`exclusive`: `equals`<br>`default`: `equals`")] = None, page_cursor : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#pagination")] = None, sort : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sorting")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Get Tag Groups  # noqa: E501
 
         List all tag groups in an account. Every account has one default tag group.  Tag groups can be filtered by `name`, `exclusive`, and `default`, and sorted by `name` or `id` in ascending or descending order.  Returns a maximum of 25 tag groups per request, which can be paginated with [cursor-based pagination](https://developers.klaviyo.com/en/v2022-10-17/reference/api_overview#pagination).<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read`  # noqa: E501
@@ -3354,7 +3355,7 @@ class TagsApi(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_tag_tag_group(self, id : StrictStr, fields_tag_group : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, **kwargs) -> Dict[str, object]:  # noqa: E501
+    def get_tag_tag_group(self, id : StrictStr, fields_tag_group : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, **kwargs) -> Dict[str, object]:  # noqa: E501
         """Get Tag Tag Group  # noqa: E501
 
         Returns the tag group resource for a given tag ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read`  # noqa: E501
@@ -3385,7 +3386,7 @@ class TagsApi(object):
         return self.get_tag_tag_group_with_http_info(id, fields_tag_group, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def get_tag_tag_group_with_http_info(self, id : StrictStr, fields_tag_group : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def get_tag_tag_group_with_http_info(self, id : StrictStr, fields_tag_group : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Get Tag Tag Group  # noqa: E501
 
         Returns the tag group resource for a given tag ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read`  # noqa: E501
@@ -3507,7 +3508,7 @@ class TagsApi(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_tags(self, fields_tag_group : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, fields_tag : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, filter : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`name`: `contains`, `ends-with`, `equals`, `starts-with`")] = None, include : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#relationships")] = None, page_cursor : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#pagination")] = None, sort : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sorting")] = None, **kwargs) -> Dict[str, object]:  # noqa: E501
+    def get_tags(self, fields_tag_group : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, fields_tag : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, filter : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`name`: `contains`, `ends-with`, `equals`, `starts-with`")] = None, include : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#relationships")] = None, page_cursor : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#pagination")] = None, sort : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sorting")] = None, **kwargs) -> Dict[str, object]:  # noqa: E501
         """Get Tags  # noqa: E501
 
         List all tags in an account.  Tags can be filtered by `name`, and sorted by `name` or `id` in ascending or descending order.  Returns a maximum of 50 tags per request, which can be paginated with [cursor-based pagination](https://developers.klaviyo.com/en/v2022-10-17/reference/api_overview#pagination).<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read`  # noqa: E501
@@ -3546,7 +3547,7 @@ class TagsApi(object):
         return self.get_tags_with_http_info(fields_tag_group, fields_tag, filter, include, page_cursor, sort, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def get_tags_with_http_info(self, fields_tag_group : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, fields_tag : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, filter : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`name`: `contains`, `ends-with`, `equals`, `starts-with`")] = None, include : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#relationships")] = None, page_cursor : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#pagination")] = None, sort : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sorting")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def get_tags_with_http_info(self, fields_tag_group : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, fields_tag : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, filter : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`name`: `contains`, `ends-with`, `equals`, `starts-with`")] = None, include : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#relationships")] = None, page_cursor : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#pagination")] = None, sort : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sorting")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Get Tags  # noqa: E501
 
         List all tags in an account.  Tags can be filtered by `name`, and sorted by `name` or `id` in ascending or descending order.  Returns a maximum of 50 tags per request, which can be paginated with [cursor-based pagination](https://developers.klaviyo.com/en/v2022-10-17/reference/api_overview#pagination).<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read`  # noqa: E501
@@ -3709,7 +3710,7 @@ class TagsApi(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def update_tag(self, id : Annotated[StrictStr, Field(..., description="The Tag ID")], tag_update_query : TagUpdateQuery, **kwargs) -> None:  # noqa: E501
+    def update_tag(self, id : Annotated[StrictStr, Field(description="The Tag ID")], tag_update_query : TagUpdateQuery, **kwargs) -> None:  # noqa: E501
         """Update Tag  # noqa: E501
 
         Update the tag with the given tag ID.  Only a tag's `name` can be changed. A tag cannot be moved from one tag group to another.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read` `tags:write`  # noqa: E501
@@ -3740,7 +3741,7 @@ class TagsApi(object):
         return self.update_tag_with_http_info(id, tag_update_query, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def update_tag_with_http_info(self, id : Annotated[StrictStr, Field(..., description="The Tag ID")], tag_update_query : TagUpdateQuery, **kwargs) -> ApiResponse:  # noqa: E501
+    def update_tag_with_http_info(self, id : Annotated[StrictStr, Field(description="The Tag ID")], tag_update_query : TagUpdateQuery, **kwargs) -> ApiResponse:  # noqa: E501
         """Update Tag  # noqa: E501
 
         Update the tag with the given tag ID.  Only a tag's `name` can be changed. A tag cannot be moved from one tag group to another.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read` `tags:write`  # noqa: E501
@@ -3861,7 +3862,7 @@ class TagsApi(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def update_tag_group(self, id : Annotated[StrictStr, Field(..., description="The Tag Group ID")], tag_group_update_query : TagGroupUpdateQuery, **kwargs) -> Dict[str, object]:  # noqa: E501
+    def update_tag_group(self, id : Annotated[StrictStr, Field(description="The Tag Group ID")], tag_group_update_query : TagGroupUpdateQuery, **kwargs) -> Dict[str, object]:  # noqa: E501
         """Update Tag Group  # noqa: E501
 
         Update the tag group with the given tag group ID.  Only a tag group's `name` can be changed. A tag group's `exclusive` or `default` value cannot be changed.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read` `tags:write`  # noqa: E501
@@ -3892,7 +3893,7 @@ class TagsApi(object):
         return self.update_tag_group_with_http_info(id, tag_group_update_query, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def update_tag_group_with_http_info(self, id : Annotated[StrictStr, Field(..., description="The Tag Group ID")], tag_group_update_query : TagGroupUpdateQuery, **kwargs) -> ApiResponse:  # noqa: E501
+    def update_tag_group_with_http_info(self, id : Annotated[StrictStr, Field(description="The Tag Group ID")], tag_group_update_query : TagGroupUpdateQuery, **kwargs) -> ApiResponse:  # noqa: E501
         """Update Tag Group  # noqa: E501
 
         Update the tag group with the given tag group ID.  Only a tag group's `name` can be changed. A tag group's `exclusive` or `default` value cannot be changed.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read` `tags:write`  # noqa: E501

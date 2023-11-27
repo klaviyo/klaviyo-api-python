@@ -13,13 +13,18 @@
 """  # noqa: E501
 
 
+from __future__ import annotations
 import json
 import pprint
 import re  # noqa: F401
-from aenum import Enum, no_arg
+from enum import Enum
 
 
 
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 
 class BackInStockSubscriptionEnum(str, Enum):
@@ -33,8 +38,8 @@ class BackInStockSubscriptionEnum(str, Enum):
     BACK_MINUS_IN_MINUS_STOCK_MINUS_SUBSCRIPTION = 'back-in-stock-subscription'
 
     @classmethod
-    def from_json(cls, json_str: str) -> BackInStockSubscriptionEnum:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of BackInStockSubscriptionEnum from a JSON string"""
-        return BackInStockSubscriptionEnum(json.loads(json_str))
+        return cls(json.loads(json_str))
 
 

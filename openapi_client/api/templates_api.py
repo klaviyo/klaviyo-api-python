@@ -22,10 +22,11 @@ from typing_extensions import Annotated
 
 from enum import EnumMeta
 
+from pydantic import Field
 from typing_extensions import Annotated
-from pydantic import Field, StrictStr, conlist, validator
+from pydantic import StrictStr, field_validator
 
-from typing import Any, Dict, Optional
+from typing import Any, Dict, List, Optional
 
 from openapi_client.models.template_clone_query import TemplateCloneQuery
 from openapi_client.models.template_create_query import TemplateCreateQuery
@@ -497,7 +498,7 @@ class TemplatesApi(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def delete_template(self, id : Annotated[StrictStr, Field(..., description="The ID of template")], **kwargs) -> None:  # noqa: E501
+    def delete_template(self, id : Annotated[StrictStr, Field(description="The ID of template")], **kwargs) -> None:  # noqa: E501
         """Delete Template  # noqa: E501
 
         Delete a template with the given template ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `template:write`  # noqa: E501
@@ -526,7 +527,7 @@ class TemplatesApi(object):
         return self.delete_template_with_http_info(id, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def delete_template_with_http_info(self, id : Annotated[StrictStr, Field(..., description="The ID of template")], **kwargs) -> ApiResponse:  # noqa: E501
+    def delete_template_with_http_info(self, id : Annotated[StrictStr, Field(description="The ID of template")], **kwargs) -> ApiResponse:  # noqa: E501
         """Delete Template  # noqa: E501
 
         Delete a template with the given template ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `template:write`  # noqa: E501
@@ -634,7 +635,7 @@ class TemplatesApi(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_template(self, id : Annotated[StrictStr, Field(..., description="The ID of template")], fields_template : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, **kwargs) -> Dict[str, object]:  # noqa: E501
+    def get_template(self, id : Annotated[StrictStr, Field(description="The ID of template")], fields_template : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, **kwargs) -> Dict[str, object]:  # noqa: E501
         """Get Template  # noqa: E501
 
         Get a template with the given template ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `templates:read`  # noqa: E501
@@ -665,7 +666,7 @@ class TemplatesApi(object):
         return self.get_template_with_http_info(id, fields_template, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def get_template_with_http_info(self, id : Annotated[StrictStr, Field(..., description="The ID of template")], fields_template : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def get_template_with_http_info(self, id : Annotated[StrictStr, Field(description="The ID of template")], fields_template : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Get Template  # noqa: E501
 
         Get a template with the given template ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `templates:read`  # noqa: E501
@@ -787,7 +788,7 @@ class TemplatesApi(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_templates(self, fields_template : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, filter : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`, `equals`<br>`name`: `any`, `equals`<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`")] = None, page_cursor : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#pagination")] = None, sort : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sorting")] = None, **kwargs) -> Dict[str, object]:  # noqa: E501
+    def get_templates(self, fields_template : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, filter : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`, `equals`<br>`name`: `any`, `equals`<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`")] = None, page_cursor : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#pagination")] = None, sort : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sorting")] = None, **kwargs) -> Dict[str, object]:  # noqa: E501
         """Get Templates  # noqa: E501
 
         Get all templates in an account.  Filter to request a subset of all templates. Templates can be sorted by the following fields, in ascending and descending order: `id`, `name`, `created`, `updated`  Returns a maximum of 10 results per page.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `templates:read`  # noqa: E501
@@ -822,7 +823,7 @@ class TemplatesApi(object):
         return self.get_templates_with_http_info(fields_template, filter, page_cursor, sort, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def get_templates_with_http_info(self, fields_template : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, filter : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`, `equals`<br>`name`: `any`, `equals`<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`")] = None, page_cursor : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#pagination")] = None, sort : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sorting")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def get_templates_with_http_info(self, fields_template : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, filter : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`, `equals`<br>`name`: `any`, `equals`<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`")] = None, page_cursor : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#pagination")] = None, sort : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sorting")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Get Templates  # noqa: E501
 
         Get all templates in an account.  Filter to request a subset of all templates. Templates can be sorted by the following fields, in ascending and descending order: `id`, `name`, `created`, `updated`  Returns a maximum of 10 results per page.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `templates:read`  # noqa: E501
@@ -965,7 +966,7 @@ class TemplatesApi(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def update_template(self, id : Annotated[StrictStr, Field(..., description="The ID of template")], template_update_query : TemplateUpdateQuery, **kwargs) -> Dict[str, object]:  # noqa: E501
+    def update_template(self, id : Annotated[StrictStr, Field(description="The ID of template")], template_update_query : TemplateUpdateQuery, **kwargs) -> Dict[str, object]:  # noqa: E501
         """Update Template  # noqa: E501
 
         Update a template with the given template ID. Does not currently update drag & drop templates.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `template:write`  # noqa: E501
@@ -996,7 +997,7 @@ class TemplatesApi(object):
         return self.update_template_with_http_info(id, template_update_query, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def update_template_with_http_info(self, id : Annotated[StrictStr, Field(..., description="The ID of template")], template_update_query : TemplateUpdateQuery, **kwargs) -> ApiResponse:  # noqa: E501
+    def update_template_with_http_info(self, id : Annotated[StrictStr, Field(description="The ID of template")], template_update_query : TemplateUpdateQuery, **kwargs) -> ApiResponse:  # noqa: E501
         """Update Template  # noqa: E501
 
         Update a template with the given template ID. Does not currently update drag & drop templates.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `template:write`  # noqa: E501

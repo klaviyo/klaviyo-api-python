@@ -22,10 +22,11 @@ from typing_extensions import Annotated
 
 from enum import EnumMeta
 
+from pydantic import Field
 from typing_extensions import Annotated
-from pydantic import Field, StrictStr, conlist, validator
+from pydantic import StrictStr, field_validator
 
-from typing import Any, Dict, Optional
+from typing import Any, Dict, List, Optional
 
 from openapi_client.models.campaign_clone_query import CampaignCloneQuery
 from openapi_client.models.campaign_create_query import CampaignCreateQuery
@@ -57,7 +58,7 @@ class CampaignsApi(object):
         self.api_client = api_client
 
     @validate_arguments
-    def create_campaign(self, campaign_create_query : Annotated[CampaignCreateQuery, Field(..., description="Creates a campaign from parameters")], **kwargs) -> Dict[str, object]:  # noqa: E501
+    def create_campaign(self, campaign_create_query : Annotated[CampaignCreateQuery, Field(description="Creates a campaign from parameters")], **kwargs) -> Dict[str, object]:  # noqa: E501
         """Create Campaign  # noqa: E501
 
         Creates a campaign given a set of parameters, then returns it.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:write`  # noqa: E501
@@ -86,7 +87,7 @@ class CampaignsApi(object):
         return self.create_campaign_with_http_info(campaign_create_query, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def create_campaign_with_http_info(self, campaign_create_query : Annotated[CampaignCreateQuery, Field(..., description="Creates a campaign from parameters")], **kwargs) -> ApiResponse:  # noqa: E501
+    def create_campaign_with_http_info(self, campaign_create_query : Annotated[CampaignCreateQuery, Field(description="Creates a campaign from parameters")], **kwargs) -> ApiResponse:  # noqa: E501
         """Create Campaign  # noqa: E501
 
         Creates a campaign given a set of parameters, then returns it.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:write`  # noqa: E501
@@ -205,7 +206,7 @@ class CampaignsApi(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def create_campaign_clone(self, campaign_clone_query : Annotated[CampaignCloneQuery, Field(..., description="Clones a campaign from an existing campaign")], **kwargs) -> Dict[str, object]:  # noqa: E501
+    def create_campaign_clone(self, campaign_clone_query : Annotated[CampaignCloneQuery, Field(description="Clones a campaign from an existing campaign")], **kwargs) -> Dict[str, object]:  # noqa: E501
         """Create Campaign Clone  # noqa: E501
 
         Clones an existing campaign, returning a new campaign based on the original with a new ID and name.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:write`  # noqa: E501
@@ -234,7 +235,7 @@ class CampaignsApi(object):
         return self.create_campaign_clone_with_http_info(campaign_clone_query, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def create_campaign_clone_with_http_info(self, campaign_clone_query : Annotated[CampaignCloneQuery, Field(..., description="Clones a campaign from an existing campaign")], **kwargs) -> ApiResponse:  # noqa: E501
+    def create_campaign_clone_with_http_info(self, campaign_clone_query : Annotated[CampaignCloneQuery, Field(description="Clones a campaign from an existing campaign")], **kwargs) -> ApiResponse:  # noqa: E501
         """Create Campaign Clone  # noqa: E501
 
         Clones an existing campaign, returning a new campaign based on the original with a new ID and name.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:write`  # noqa: E501
@@ -353,7 +354,7 @@ class CampaignsApi(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def create_campaign_message_assign_template(self, campaign_message_assign_template_query : Annotated[CampaignMessageAssignTemplateQuery, Field(..., description="Takes a reusable template, clones it, and assigns the non-reusable clone to the message.")], **kwargs) -> Dict[str, object]:  # noqa: E501
+    def create_campaign_message_assign_template(self, campaign_message_assign_template_query : Annotated[CampaignMessageAssignTemplateQuery, Field(description="Takes a reusable template, clones it, and assigns the non-reusable clone to the message.")], **kwargs) -> Dict[str, object]:  # noqa: E501
         """Assign Campaign Message Template  # noqa: E501
 
         Creates a non-reusable version of the template and assigns it to the message.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:write`  # noqa: E501
@@ -382,7 +383,7 @@ class CampaignsApi(object):
         return self.create_campaign_message_assign_template_with_http_info(campaign_message_assign_template_query, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def create_campaign_message_assign_template_with_http_info(self, campaign_message_assign_template_query : Annotated[CampaignMessageAssignTemplateQuery, Field(..., description="Takes a reusable template, clones it, and assigns the non-reusable clone to the message.")], **kwargs) -> ApiResponse:  # noqa: E501
+    def create_campaign_message_assign_template_with_http_info(self, campaign_message_assign_template_query : Annotated[CampaignMessageAssignTemplateQuery, Field(description="Takes a reusable template, clones it, and assigns the non-reusable clone to the message.")], **kwargs) -> ApiResponse:  # noqa: E501
         """Assign Campaign Message Template  # noqa: E501
 
         Creates a non-reusable version of the template and assigns it to the message.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:write`  # noqa: E501
@@ -501,7 +502,7 @@ class CampaignsApi(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def create_campaign_recipient_estimation_job(self, campaign_recipient_estimation_job_create_query : Annotated[CampaignRecipientEstimationJobCreateQuery, Field(..., description="Trigger an asynchronous job to update the estimated number of recipients for the given campaign ID. Use the `Get Campaign Recipient Estimation Job` endpoint to retrieve the status of this estimation job. Use the `Get Campaign Recipient Estimation` endpoint to retrieve the estimated recipient count for a given campaign.")], **kwargs) -> Dict[str, object]:  # noqa: E501
+    def create_campaign_recipient_estimation_job(self, campaign_recipient_estimation_job_create_query : Annotated[CampaignRecipientEstimationJobCreateQuery, Field(description="Trigger an asynchronous job to update the estimated number of recipients for the given campaign ID. Use the `Get Campaign Recipient Estimation Job` endpoint to retrieve the status of this estimation job. Use the `Get Campaign Recipient Estimation` endpoint to retrieve the estimated recipient count for a given campaign.")], **kwargs) -> Dict[str, object]:  # noqa: E501
         """Create Campaign Recipient Estimation Job  # noqa: E501
 
         Trigger an asynchronous job to update the estimated number of recipients for the given campaign ID. Use the `Get Campaign Recipient Estimation Job` endpoint to retrieve the status of this estimation job. Use the `Get Campaign Recipient Estimation` endpoint to retrieve the estimated recipient count for a given campaign.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:write`  # noqa: E501
@@ -530,7 +531,7 @@ class CampaignsApi(object):
         return self.create_campaign_recipient_estimation_job_with_http_info(campaign_recipient_estimation_job_create_query, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def create_campaign_recipient_estimation_job_with_http_info(self, campaign_recipient_estimation_job_create_query : Annotated[CampaignRecipientEstimationJobCreateQuery, Field(..., description="Trigger an asynchronous job to update the estimated number of recipients for the given campaign ID. Use the `Get Campaign Recipient Estimation Job` endpoint to retrieve the status of this estimation job. Use the `Get Campaign Recipient Estimation` endpoint to retrieve the estimated recipient count for a given campaign.")], **kwargs) -> ApiResponse:  # noqa: E501
+    def create_campaign_recipient_estimation_job_with_http_info(self, campaign_recipient_estimation_job_create_query : Annotated[CampaignRecipientEstimationJobCreateQuery, Field(description="Trigger an asynchronous job to update the estimated number of recipients for the given campaign ID. Use the `Get Campaign Recipient Estimation Job` endpoint to retrieve the status of this estimation job. Use the `Get Campaign Recipient Estimation` endpoint to retrieve the estimated recipient count for a given campaign.")], **kwargs) -> ApiResponse:  # noqa: E501
         """Create Campaign Recipient Estimation Job  # noqa: E501
 
         Trigger an asynchronous job to update the estimated number of recipients for the given campaign ID. Use the `Get Campaign Recipient Estimation Job` endpoint to retrieve the status of this estimation job. Use the `Get Campaign Recipient Estimation` endpoint to retrieve the estimated recipient count for a given campaign.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:write`  # noqa: E501
@@ -649,7 +650,7 @@ class CampaignsApi(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def create_campaign_send_job(self, campaign_send_job_create_query : Annotated[CampaignSendJobCreateQuery, Field(..., description="Trigger the campaign to send asynchronously")], **kwargs) -> Dict[str, object]:  # noqa: E501
+    def create_campaign_send_job(self, campaign_send_job_create_query : Annotated[CampaignSendJobCreateQuery, Field(description="Trigger the campaign to send asynchronously")], **kwargs) -> Dict[str, object]:  # noqa: E501
         """Create Campaign Send Job  # noqa: E501
 
         Trigger a campaign to send asynchronously<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:write`  # noqa: E501
@@ -678,7 +679,7 @@ class CampaignsApi(object):
         return self.create_campaign_send_job_with_http_info(campaign_send_job_create_query, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def create_campaign_send_job_with_http_info(self, campaign_send_job_create_query : Annotated[CampaignSendJobCreateQuery, Field(..., description="Trigger the campaign to send asynchronously")], **kwargs) -> ApiResponse:  # noqa: E501
+    def create_campaign_send_job_with_http_info(self, campaign_send_job_create_query : Annotated[CampaignSendJobCreateQuery, Field(description="Trigger the campaign to send asynchronously")], **kwargs) -> ApiResponse:  # noqa: E501
         """Create Campaign Send Job  # noqa: E501
 
         Trigger a campaign to send asynchronously<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:write`  # noqa: E501
@@ -797,7 +798,7 @@ class CampaignsApi(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def delete_campaign(self, id : Annotated[StrictStr, Field(..., description="The campaign ID to be deleted")], **kwargs) -> None:  # noqa: E501
+    def delete_campaign(self, id : Annotated[StrictStr, Field(description="The campaign ID to be deleted")], **kwargs) -> None:  # noqa: E501
         """Delete Campaign  # noqa: E501
 
         Delete a campaign with the given campaign ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:write`  # noqa: E501
@@ -826,7 +827,7 @@ class CampaignsApi(object):
         return self.delete_campaign_with_http_info(id, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def delete_campaign_with_http_info(self, id : Annotated[StrictStr, Field(..., description="The campaign ID to be deleted")], **kwargs) -> ApiResponse:  # noqa: E501
+    def delete_campaign_with_http_info(self, id : Annotated[StrictStr, Field(description="The campaign ID to be deleted")], **kwargs) -> ApiResponse:  # noqa: E501
         """Delete Campaign  # noqa: E501
 
         Delete a campaign with the given campaign ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:write`  # noqa: E501
@@ -934,7 +935,7 @@ class CampaignsApi(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_campaign(self, id : Annotated[StrictStr, Field(..., description="The campaign ID to be retrieved")], fields_campaign_message : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, fields_campaign : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, fields_tag : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, include : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#relationships")] = None, **kwargs) -> Dict[str, object]:  # noqa: E501
+    def get_campaign(self, id : Annotated[StrictStr, Field(description="The campaign ID to be retrieved")], fields_campaign_message : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, fields_campaign : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, fields_tag : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, include : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#relationships")] = None, **kwargs) -> Dict[str, object]:  # noqa: E501
         """Get Campaign  # noqa: E501
 
         Returns a specific campaign based on a required id.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:read`  # noqa: E501
@@ -971,7 +972,7 @@ class CampaignsApi(object):
         return self.get_campaign_with_http_info(id, fields_campaign_message, fields_campaign, fields_tag, include, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def get_campaign_with_http_info(self, id : Annotated[StrictStr, Field(..., description="The campaign ID to be retrieved")], fields_campaign_message : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, fields_campaign : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, fields_tag : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, include : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#relationships")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def get_campaign_with_http_info(self, id : Annotated[StrictStr, Field(description="The campaign ID to be retrieved")], fields_campaign_message : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, fields_campaign : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, fields_tag : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, include : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#relationships")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Get Campaign  # noqa: E501
 
         Returns a specific campaign based on a required id.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:read`  # noqa: E501
@@ -1123,7 +1124,7 @@ class CampaignsApi(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_campaign_campaign_messages(self, id : StrictStr, fields_campaign_message : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, fields_campaign : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, fields_template : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, include : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#relationships")] = None, **kwargs) -> Dict[str, object]:  # noqa: E501
+    def get_campaign_campaign_messages(self, id : StrictStr, fields_campaign_message : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, fields_campaign : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, fields_template : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, include : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#relationships")] = None, **kwargs) -> Dict[str, object]:  # noqa: E501
         """Get Campaign Campaign Messages  # noqa: E501
 
         Return all messages that belong to the given campaign.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:read`  # noqa: E501
@@ -1160,7 +1161,7 @@ class CampaignsApi(object):
         return self.get_campaign_campaign_messages_with_http_info(id, fields_campaign_message, fields_campaign, fields_template, include, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def get_campaign_campaign_messages_with_http_info(self, id : StrictStr, fields_campaign_message : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, fields_campaign : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, fields_template : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, include : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#relationships")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def get_campaign_campaign_messages_with_http_info(self, id : StrictStr, fields_campaign_message : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, fields_campaign : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, fields_template : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, include : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#relationships")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Get Campaign Campaign Messages  # noqa: E501
 
         Return all messages that belong to the given campaign.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:read`  # noqa: E501
@@ -1312,7 +1313,7 @@ class CampaignsApi(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_campaign_message(self, id : Annotated[StrictStr, Field(..., description="The message ID to be retrieved")], fields_campaign_message : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, fields_campaign : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, fields_template : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, include : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#relationships")] = None, **kwargs) -> Dict[str, object]:  # noqa: E501
+    def get_campaign_message(self, id : Annotated[StrictStr, Field(description="The message ID to be retrieved")], fields_campaign_message : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, fields_campaign : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, fields_template : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, include : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#relationships")] = None, **kwargs) -> Dict[str, object]:  # noqa: E501
         """Get Campaign Message  # noqa: E501
 
         Returns a specific message based on a required id.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:read`  # noqa: E501
@@ -1349,7 +1350,7 @@ class CampaignsApi(object):
         return self.get_campaign_message_with_http_info(id, fields_campaign_message, fields_campaign, fields_template, include, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def get_campaign_message_with_http_info(self, id : Annotated[StrictStr, Field(..., description="The message ID to be retrieved")], fields_campaign_message : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, fields_campaign : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, fields_template : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, include : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#relationships")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def get_campaign_message_with_http_info(self, id : Annotated[StrictStr, Field(description="The message ID to be retrieved")], fields_campaign_message : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, fields_campaign : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, fields_template : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, include : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#relationships")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Get Campaign Message  # noqa: E501
 
         Returns a specific message based on a required id.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:read`  # noqa: E501
@@ -1501,7 +1502,7 @@ class CampaignsApi(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_campaign_message_campaign(self, id : StrictStr, fields_campaign_message : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, **kwargs) -> Dict[str, object]:  # noqa: E501
+    def get_campaign_message_campaign(self, id : StrictStr, fields_campaign_message : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, **kwargs) -> Dict[str, object]:  # noqa: E501
         """Get Campaign Message Campaign  # noqa: E501
 
         Return the related campaign<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:read`  # noqa: E501
@@ -1532,7 +1533,7 @@ class CampaignsApi(object):
         return self.get_campaign_message_campaign_with_http_info(id, fields_campaign_message, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def get_campaign_message_campaign_with_http_info(self, id : StrictStr, fields_campaign_message : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def get_campaign_message_campaign_with_http_info(self, id : StrictStr, fields_campaign_message : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Get Campaign Message Campaign  # noqa: E501
 
         Return the related campaign<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:read`  # noqa: E501
@@ -1936,7 +1937,7 @@ class CampaignsApi(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_campaign_message_template(self, id : StrictStr, fields_template : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, **kwargs) -> Dict[str, object]:  # noqa: E501
+    def get_campaign_message_template(self, id : StrictStr, fields_template : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, **kwargs) -> Dict[str, object]:  # noqa: E501
         """Get Campaign Message Template  # noqa: E501
 
         Return the related template<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:read` `templates:read`  # noqa: E501
@@ -1967,7 +1968,7 @@ class CampaignsApi(object):
         return self.get_campaign_message_template_with_http_info(id, fields_template, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def get_campaign_message_template_with_http_info(self, id : StrictStr, fields_template : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def get_campaign_message_template_with_http_info(self, id : StrictStr, fields_template : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Get Campaign Message Template  # noqa: E501
 
         Return the related template<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:read` `templates:read`  # noqa: E501
@@ -2089,7 +2090,7 @@ class CampaignsApi(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_campaign_recipient_estimation(self, id : Annotated[StrictStr, Field(..., description="The ID of the campaign for which to get the estimated number of recipients")], fields_campaign_recipient_estimation : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, **kwargs) -> Dict[str, object]:  # noqa: E501
+    def get_campaign_recipient_estimation(self, id : Annotated[StrictStr, Field(description="The ID of the campaign for which to get the estimated number of recipients")], fields_campaign_recipient_estimation : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, **kwargs) -> Dict[str, object]:  # noqa: E501
         """Get Campaign Recipient Estimation  # noqa: E501
 
         Get the estimated recipient count for a campaign with the provided campaign ID. You can refresh this count by using the `Create Campaign Recipient Estimation Job` endpoint.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:read`  # noqa: E501
@@ -2120,7 +2121,7 @@ class CampaignsApi(object):
         return self.get_campaign_recipient_estimation_with_http_info(id, fields_campaign_recipient_estimation, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def get_campaign_recipient_estimation_with_http_info(self, id : Annotated[StrictStr, Field(..., description="The ID of the campaign for which to get the estimated number of recipients")], fields_campaign_recipient_estimation : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def get_campaign_recipient_estimation_with_http_info(self, id : Annotated[StrictStr, Field(description="The ID of the campaign for which to get the estimated number of recipients")], fields_campaign_recipient_estimation : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Get Campaign Recipient Estimation  # noqa: E501
 
         Get the estimated recipient count for a campaign with the provided campaign ID. You can refresh this count by using the `Create Campaign Recipient Estimation Job` endpoint.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:read`  # noqa: E501
@@ -2242,7 +2243,7 @@ class CampaignsApi(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_campaign_recipient_estimation_job(self, id : Annotated[StrictStr, Field(..., description="The ID of the campaign to get recipient estimation status")], fields_campaign_recipient_estimation_job : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, **kwargs) -> Dict[str, object]:  # noqa: E501
+    def get_campaign_recipient_estimation_job(self, id : Annotated[StrictStr, Field(description="The ID of the campaign to get recipient estimation status")], fields_campaign_recipient_estimation_job : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, **kwargs) -> Dict[str, object]:  # noqa: E501
         """Get Campaign Recipient Estimation Job  # noqa: E501
 
         Retrieve the status of a recipient estimation job triggered with the `Create Campaign Recipient Estimation Job` endpoint.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:read`  # noqa: E501
@@ -2273,7 +2274,7 @@ class CampaignsApi(object):
         return self.get_campaign_recipient_estimation_job_with_http_info(id, fields_campaign_recipient_estimation_job, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def get_campaign_recipient_estimation_job_with_http_info(self, id : Annotated[StrictStr, Field(..., description="The ID of the campaign to get recipient estimation status")], fields_campaign_recipient_estimation_job : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def get_campaign_recipient_estimation_job_with_http_info(self, id : Annotated[StrictStr, Field(description="The ID of the campaign to get recipient estimation status")], fields_campaign_recipient_estimation_job : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Get Campaign Recipient Estimation Job  # noqa: E501
 
         Retrieve the status of a recipient estimation job triggered with the `Create Campaign Recipient Estimation Job` endpoint.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:read`  # noqa: E501
@@ -2677,7 +2678,7 @@ class CampaignsApi(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_campaign_send_job(self, id : Annotated[StrictStr, Field(..., description="The ID of the campaign to send")], fields_campaign_send_job : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, **kwargs) -> Dict[str, object]:  # noqa: E501
+    def get_campaign_send_job(self, id : Annotated[StrictStr, Field(description="The ID of the campaign to send")], fields_campaign_send_job : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, **kwargs) -> Dict[str, object]:  # noqa: E501
         """Get Campaign Send Job  # noqa: E501
 
         Get a campaign send job<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:read`  # noqa: E501
@@ -2708,7 +2709,7 @@ class CampaignsApi(object):
         return self.get_campaign_send_job_with_http_info(id, fields_campaign_send_job, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def get_campaign_send_job_with_http_info(self, id : Annotated[StrictStr, Field(..., description="The ID of the campaign to send")], fields_campaign_send_job : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def get_campaign_send_job_with_http_info(self, id : Annotated[StrictStr, Field(description="The ID of the campaign to send")], fields_campaign_send_job : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Get Campaign Send Job  # noqa: E501
 
         Get a campaign send job<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:read`  # noqa: E501
@@ -2830,7 +2831,7 @@ class CampaignsApi(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_campaign_tags(self, id : StrictStr, fields_tag : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, **kwargs) -> Dict[str, object]:  # noqa: E501
+    def get_campaign_tags(self, id : StrictStr, fields_tag : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, **kwargs) -> Dict[str, object]:  # noqa: E501
         """Get Campaign Tags  # noqa: E501
 
         Return all tags that belong to the given campaign.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `campaigns:read` `tags:read`  # noqa: E501
@@ -2861,7 +2862,7 @@ class CampaignsApi(object):
         return self.get_campaign_tags_with_http_info(id, fields_tag, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def get_campaign_tags_with_http_info(self, id : StrictStr, fields_tag : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def get_campaign_tags_with_http_info(self, id : StrictStr, fields_tag : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Get Campaign Tags  # noqa: E501
 
         Return all tags that belong to the given campaign.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `campaigns:read` `tags:read`  # noqa: E501
@@ -2983,7 +2984,7 @@ class CampaignsApi(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_campaigns(self, filter : Annotated[StrictStr, Field(..., description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`messages.channel`: `equals`<br>`name`: `contains`<br>`status`: `any`, `equals`<br>`archived`: `equals`<br>`created_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`scheduled_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`updated_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`")], fields_campaign_message : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, fields_campaign : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, fields_tag : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, include : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#relationships")] = None, page_cursor : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#pagination")] = None, sort : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sorting")] = None, **kwargs) -> Dict[str, object]:  # noqa: E501
+    def get_campaigns(self, filter : Annotated[StrictStr, Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`messages.channel`: `equals`<br>`name`: `contains`<br>`status`: `any`, `equals`<br>`archived`: `equals`<br>`created_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`scheduled_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`updated_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`")], fields_campaign_message : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, fields_campaign : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, fields_tag : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, include : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#relationships")] = None, page_cursor : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#pagination")] = None, sort : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sorting")] = None, **kwargs) -> Dict[str, object]:  # noqa: E501
         """Get Campaigns  # noqa: E501
 
         Returns some or all campaigns based on filters.  A channel filter is required to list campaigns. Please provide either: `?filter=equals(messages.channel,'email')` to list email campaigns, or `?filter=equals(messages.channel,'sms')` to list SMS campaigns.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:read`  # noqa: E501
@@ -3024,7 +3025,7 @@ class CampaignsApi(object):
         return self.get_campaigns_with_http_info(filter, fields_campaign_message, fields_campaign, fields_tag, include, page_cursor, sort, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def get_campaigns_with_http_info(self, filter : Annotated[StrictStr, Field(..., description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`messages.channel`: `equals`<br>`name`: `contains`<br>`status`: `any`, `equals`<br>`archived`: `equals`<br>`created_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`scheduled_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`updated_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`")], fields_campaign_message : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, fields_campaign : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, fields_tag : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, include : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#relationships")] = None, page_cursor : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#pagination")] = None, sort : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sorting")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def get_campaigns_with_http_info(self, filter : Annotated[StrictStr, Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`messages.channel`: `equals`<br>`name`: `contains`<br>`status`: `any`, `equals`<br>`archived`: `equals`<br>`created_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`scheduled_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`updated_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`")], fields_campaign_message : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, fields_campaign : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, fields_tag : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, include : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#relationships")] = None, page_cursor : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#pagination")] = None, sort : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sorting")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Get Campaigns  # noqa: E501
 
         Returns some or all campaigns based on filters.  A channel filter is required to list campaigns. Please provide either: `?filter=equals(messages.channel,'email')` to list email campaigns, or `?filter=equals(messages.channel,'sms')` to list SMS campaigns.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:read`  # noqa: E501
@@ -3197,7 +3198,7 @@ class CampaignsApi(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def update_campaign(self, id : Annotated[StrictStr, Field(..., description="The campaign ID to be retrieved")], campaign_partial_update_query : Annotated[CampaignPartialUpdateQuery, Field(..., description="Update a campaign and return it")], **kwargs) -> Dict[str, object]:  # noqa: E501
+    def update_campaign(self, id : Annotated[StrictStr, Field(description="The campaign ID to be retrieved")], campaign_partial_update_query : Annotated[CampaignPartialUpdateQuery, Field(description="Update a campaign and return it")], **kwargs) -> Dict[str, object]:  # noqa: E501
         """Update Campaign  # noqa: E501
 
         Update a campaign with the given campaign ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:write`  # noqa: E501
@@ -3228,7 +3229,7 @@ class CampaignsApi(object):
         return self.update_campaign_with_http_info(id, campaign_partial_update_query, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def update_campaign_with_http_info(self, id : Annotated[StrictStr, Field(..., description="The campaign ID to be retrieved")], campaign_partial_update_query : Annotated[CampaignPartialUpdateQuery, Field(..., description="Update a campaign and return it")], **kwargs) -> ApiResponse:  # noqa: E501
+    def update_campaign_with_http_info(self, id : Annotated[StrictStr, Field(description="The campaign ID to be retrieved")], campaign_partial_update_query : Annotated[CampaignPartialUpdateQuery, Field(description="Update a campaign and return it")], **kwargs) -> ApiResponse:  # noqa: E501
         """Update Campaign  # noqa: E501
 
         Update a campaign with the given campaign ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:write`  # noqa: E501
@@ -3353,7 +3354,7 @@ class CampaignsApi(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def update_campaign_message(self, id : Annotated[StrictStr, Field(..., description="The message ID to be retrieved")], campaign_message_partial_update_query : Annotated[CampaignMessagePartialUpdateQuery, Field(..., description="Update a message and return it")], **kwargs) -> Dict[str, object]:  # noqa: E501
+    def update_campaign_message(self, id : Annotated[StrictStr, Field(description="The message ID to be retrieved")], campaign_message_partial_update_query : Annotated[CampaignMessagePartialUpdateQuery, Field(description="Update a message and return it")], **kwargs) -> Dict[str, object]:  # noqa: E501
         """Update Campaign Message  # noqa: E501
 
         Update a campaign message<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:write`  # noqa: E501
@@ -3384,7 +3385,7 @@ class CampaignsApi(object):
         return self.update_campaign_message_with_http_info(id, campaign_message_partial_update_query, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def update_campaign_message_with_http_info(self, id : Annotated[StrictStr, Field(..., description="The message ID to be retrieved")], campaign_message_partial_update_query : Annotated[CampaignMessagePartialUpdateQuery, Field(..., description="Update a message and return it")], **kwargs) -> ApiResponse:  # noqa: E501
+    def update_campaign_message_with_http_info(self, id : Annotated[StrictStr, Field(description="The message ID to be retrieved")], campaign_message_partial_update_query : Annotated[CampaignMessagePartialUpdateQuery, Field(description="Update a message and return it")], **kwargs) -> ApiResponse:  # noqa: E501
         """Update Campaign Message  # noqa: E501
 
         Update a campaign message<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:write`  # noqa: E501
@@ -3509,7 +3510,7 @@ class CampaignsApi(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def update_campaign_send_job(self, id : Annotated[StrictStr, Field(..., description="The ID of the currently sending campaign to cancel or revert")], campaign_send_job_partial_update_query : Annotated[CampaignSendJobPartialUpdateQuery, Field(..., description="Permanently cancel the campaign, setting the status to CANCELED or revert the campaign, setting the status back to DRAFT")], **kwargs) -> None:  # noqa: E501
+    def update_campaign_send_job(self, id : Annotated[StrictStr, Field(description="The ID of the currently sending campaign to cancel or revert")], campaign_send_job_partial_update_query : Annotated[CampaignSendJobPartialUpdateQuery, Field(description="Permanently cancel the campaign, setting the status to CANCELED or revert the campaign, setting the status back to DRAFT")], **kwargs) -> None:  # noqa: E501
         """Update Campaign Send Job  # noqa: E501
 
         Permanently cancel the campaign, setting the status to CANCELED or revert the campaign, setting the status back to DRAFT<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:write`  # noqa: E501
@@ -3540,7 +3541,7 @@ class CampaignsApi(object):
         return self.update_campaign_send_job_with_http_info(id, campaign_send_job_partial_update_query, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def update_campaign_send_job_with_http_info(self, id : Annotated[StrictStr, Field(..., description="The ID of the currently sending campaign to cancel or revert")], campaign_send_job_partial_update_query : Annotated[CampaignSendJobPartialUpdateQuery, Field(..., description="Permanently cancel the campaign, setting the status to CANCELED or revert the campaign, setting the status back to DRAFT")], **kwargs) -> ApiResponse:  # noqa: E501
+    def update_campaign_send_job_with_http_info(self, id : Annotated[StrictStr, Field(description="The ID of the currently sending campaign to cancel or revert")], campaign_send_job_partial_update_query : Annotated[CampaignSendJobPartialUpdateQuery, Field(description="Permanently cancel the campaign, setting the status to CANCELED or revert the campaign, setting the status back to DRAFT")], **kwargs) -> ApiResponse:  # noqa: E501
         """Update Campaign Send Job  # noqa: E501
 
         Permanently cancel the campaign, setting the status to CANCELED or revert the campaign, setting the status back to DRAFT<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:write`  # noqa: E501

@@ -13,13 +13,18 @@
 """  # noqa: E501
 
 
+from __future__ import annotations
 import json
 import pprint
 import re  # noqa: F401
-from aenum import Enum, no_arg
+from enum import Enum
 
 
 
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 
 class CatalogItemBulkDeleteJobEnum(str, Enum):
@@ -33,8 +38,8 @@ class CatalogItemBulkDeleteJobEnum(str, Enum):
     CATALOG_MINUS_ITEM_MINUS_BULK_MINUS_DELETE_MINUS_JOB = 'catalog-item-bulk-delete-job'
 
     @classmethod
-    def from_json(cls, json_str: str) -> CatalogItemBulkDeleteJobEnum:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of CatalogItemBulkDeleteJobEnum from a JSON string"""
-        return CatalogItemBulkDeleteJobEnum(json.loads(json_str))
+        return cls(json.loads(json_str))
 
 

@@ -19,71 +19,88 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Optional
-from pydantic import BaseModel, Field, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, StrictStr
+from pydantic import Field
+try:
+    from typing import Self
+except ImportError:
+    from typing_extensions import Self
 
 class ProfileLocation(BaseModel):
     """
     ProfileLocation
-    """
-    address1: Optional[StrictStr] = Field(None, description="First line of street address")
-    address2: Optional[StrictStr] = Field(None, description="Second line of street address")
-    city: Optional[StrictStr] = Field(None, description="City name")
-    country: Optional[StrictStr] = Field(None, description="Country name")
-    latitude: Optional[Any] = Field(None, description="Latitude coordinate. We recommend providing a precision of four decimal places.")
-    longitude: Optional[Any] = Field(None, description="Longitude coordinate. We recommend providing a precision of four decimal places.")
-    region: Optional[StrictStr] = Field(None, description="Region within a country, such as state or province")
-    zip: Optional[StrictStr] = Field(None, description="Zip code")
-    timezone: Optional[StrictStr] = Field(None, description="Time zone name. We recommend using time zones from the IANA Time Zone Database.")
-    ip: Optional[StrictStr] = Field(None, description="IP Address")
-    __properties = ["address1", "address2", "city", "country", "latitude", "longitude", "region", "zip", "timezone", "ip"]
+    """ # noqa: E501
+    address1: Optional[StrictStr] = Field(default=None, description="First line of street address")
+    address2: Optional[StrictStr] = Field(default=None, description="Second line of street address")
+    city: Optional[StrictStr] = Field(default=None, description="City name")
+    country: Optional[StrictStr] = Field(default=None, description="Country name")
+    latitude: Optional[Any] = Field(default=None, description="Latitude coordinate. We recommend providing a precision of four decimal places.")
+    longitude: Optional[Any] = Field(default=None, description="Longitude coordinate. We recommend providing a precision of four decimal places.")
+    region: Optional[StrictStr] = Field(default=None, description="Region within a country, such as state or province")
+    zip: Optional[StrictStr] = Field(default=None, description="Zip code")
+    timezone: Optional[StrictStr] = Field(default=None, description="Time zone name. We recommend using time zones from the IANA Time Zone Database.")
+    ip: Optional[StrictStr] = Field(default=None, description="IP Address")
+    __properties: ClassVar[List[str]] = ["address1", "address2", "city", "country", "latitude", "longitude", "region", "zip", "timezone", "ip"]
 
-    class Config:
-        """Pydantic configuration"""
-        allow_population_by_field_name = True
-        validate_assignment = True
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True
+    }
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
-        return pprint.pformat(self.dict(by_alias=True))
+        return pprint.pformat(self.model_dump(by_alias=True))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
+        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> ProfileLocation:
+    def from_json(cls, json_str: str) -> Self:
         """Create an instance of ProfileLocation from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
-    def to_dict(self):
-        """Returns the dictionary representation of the model using alias"""
-        _dict = self.dict(by_alias=True,
-                          exclude={
-                          },
-                          exclude_none=True)
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        """
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude={
+            },
+            exclude_none=True,
+        )
         # set to None if latitude (nullable) is None
-        # and __fields_set__ contains the field
-        if self.latitude is None and "latitude" in self.__fields_set__:
+        # and model_fields_set contains the field
+        if self.latitude is None and "latitude" in self.model_fields_set:
             _dict['latitude'] = None
 
         # set to None if longitude (nullable) is None
-        # and __fields_set__ contains the field
-        if self.longitude is None and "longitude" in self.__fields_set__:
+        # and model_fields_set contains the field
+        if self.longitude is None and "longitude" in self.model_fields_set:
             _dict['longitude'] = None
 
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> ProfileLocation:
+    def from_dict(cls, obj: Dict) -> Self:
         """Create an instance of ProfileLocation from a dict"""
         if obj is None:
             return None
 
         if not isinstance(obj, dict):
-            return ProfileLocation.parse_obj(obj)
+            return cls.model_validate(obj)
 
-        _obj = ProfileLocation.parse_obj({
+        _obj = cls.model_validate({
             "address1": obj.get("address1"),
             "address2": obj.get("address2"),
             "city": obj.get("city"),

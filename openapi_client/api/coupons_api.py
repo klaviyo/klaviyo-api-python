@@ -22,10 +22,11 @@ from typing_extensions import Annotated
 
 from enum import EnumMeta
 
+from pydantic import Field
 from typing_extensions import Annotated
-from pydantic import Field, StrictStr, conlist, validator
+from pydantic import StrictStr, field_validator
 
-from typing import Any, Dict, Optional
+from typing import Any, Dict, List, Optional
 
 from openapi_client.models.coupon_code_create_job_create_query import CouponCodeCreateJobCreateQuery
 from openapi_client.models.coupon_code_create_query import CouponCodeCreateQuery
@@ -350,7 +351,7 @@ class CouponsApi(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def delete_coupon(self, id : Annotated[StrictStr, Field(..., description="The internal id of a Coupon is equivalent to its external id stored within an integration.")], **kwargs) -> None:  # noqa: E501
+    def delete_coupon(self, id : Annotated[StrictStr, Field(description="The internal id of a Coupon is equivalent to its external id stored within an integration.")], **kwargs) -> None:  # noqa: E501
         """Delete Coupon  # noqa: E501
 
         Delete the coupon with the given coupon ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `coupons:write`  # noqa: E501
@@ -379,7 +380,7 @@ class CouponsApi(object):
         return self.delete_coupon_with_http_info(id, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def delete_coupon_with_http_info(self, id : Annotated[StrictStr, Field(..., description="The internal id of a Coupon is equivalent to its external id stored within an integration.")], **kwargs) -> ApiResponse:  # noqa: E501
+    def delete_coupon_with_http_info(self, id : Annotated[StrictStr, Field(description="The internal id of a Coupon is equivalent to its external id stored within an integration.")], **kwargs) -> ApiResponse:  # noqa: E501
         """Delete Coupon  # noqa: E501
 
         Delete the coupon with the given coupon ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `coupons:write`  # noqa: E501
@@ -487,7 +488,7 @@ class CouponsApi(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def delete_coupon_code(self, id : Annotated[StrictStr, Field(..., description="The id of a coupon code is a combination of its unique code and the id of the coupon it is associated with.")], **kwargs) -> None:  # noqa: E501
+    def delete_coupon_code(self, id : Annotated[StrictStr, Field(description="The id of a coupon code is a combination of its unique code and the id of the coupon it is associated with.")], **kwargs) -> None:  # noqa: E501
         """Delete Coupon Code  # noqa: E501
 
         Deletes a coupon code specified by the given identifier synchronously. If a profile has been assigned to the coupon code, an exception will be raised<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `coupon-codes:write`  # noqa: E501
@@ -516,7 +517,7 @@ class CouponsApi(object):
         return self.delete_coupon_code_with_http_info(id, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def delete_coupon_code_with_http_info(self, id : Annotated[StrictStr, Field(..., description="The id of a coupon code is a combination of its unique code and the id of the coupon it is associated with.")], **kwargs) -> ApiResponse:  # noqa: E501
+    def delete_coupon_code_with_http_info(self, id : Annotated[StrictStr, Field(description="The id of a coupon code is a combination of its unique code and the id of the coupon it is associated with.")], **kwargs) -> ApiResponse:  # noqa: E501
         """Delete Coupon Code  # noqa: E501
 
         Deletes a coupon code specified by the given identifier synchronously. If a profile has been assigned to the coupon code, an exception will be raised<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `coupon-codes:write`  # noqa: E501
@@ -624,7 +625,7 @@ class CouponsApi(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_coupon(self, id : Annotated[StrictStr, Field(..., description="The internal id of a Coupon is equivalent to its external id stored within an integration.")], fields_coupon : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, **kwargs) -> Dict[str, object]:  # noqa: E501
+    def get_coupon(self, id : Annotated[StrictStr, Field(description="The internal id of a Coupon is equivalent to its external id stored within an integration.")], fields_coupon : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, **kwargs) -> Dict[str, object]:  # noqa: E501
         """Get Coupon  # noqa: E501
 
         Get a specific coupon with the given coupon ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `coupons:read`  # noqa: E501
@@ -655,7 +656,7 @@ class CouponsApi(object):
         return self.get_coupon_with_http_info(id, fields_coupon, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def get_coupon_with_http_info(self, id : Annotated[StrictStr, Field(..., description="The internal id of a Coupon is equivalent to its external id stored within an integration.")], fields_coupon : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def get_coupon_with_http_info(self, id : Annotated[StrictStr, Field(description="The internal id of a Coupon is equivalent to its external id stored within an integration.")], fields_coupon : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Get Coupon  # noqa: E501
 
         Get a specific coupon with the given coupon ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `coupons:read`  # noqa: E501
@@ -777,7 +778,7 @@ class CouponsApi(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_coupon_code(self, id : Annotated[StrictStr, Field(..., description="The id of a coupon code is a combination of its unique code and the id of the coupon it is associated with.")], fields_coupon_code : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, fields_coupon : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, include : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#relationships")] = None, **kwargs) -> Dict[str, object]:  # noqa: E501
+    def get_coupon_code(self, id : Annotated[StrictStr, Field(description="The id of a coupon code is a combination of its unique code and the id of the coupon it is associated with.")], fields_coupon_code : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, fields_coupon : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, include : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#relationships")] = None, **kwargs) -> Dict[str, object]:  # noqa: E501
         """Get Coupon Code  # noqa: E501
 
         Returns a Coupon Code specified by the given identifier.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `coupon-codes:read`  # noqa: E501
@@ -812,7 +813,7 @@ class CouponsApi(object):
         return self.get_coupon_code_with_http_info(id, fields_coupon_code, fields_coupon, include, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def get_coupon_code_with_http_info(self, id : Annotated[StrictStr, Field(..., description="The id of a coupon code is a combination of its unique code and the id of the coupon it is associated with.")], fields_coupon_code : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, fields_coupon : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, include : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#relationships")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def get_coupon_code_with_http_info(self, id : Annotated[StrictStr, Field(description="The id of a coupon code is a combination of its unique code and the id of the coupon it is associated with.")], fields_coupon_code : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, fields_coupon : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, include : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#relationships")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Get Coupon Code  # noqa: E501
 
         Returns a Coupon Code specified by the given identifier.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `coupon-codes:read`  # noqa: E501
@@ -954,7 +955,7 @@ class CouponsApi(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_coupon_code_bulk_create_job(self, job_id : Annotated[StrictStr, Field(..., description="ID of the job to retrieve.")], fields_coupon_code_bulk_create_job : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, fields_coupon_code : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, include : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#relationships")] = None, **kwargs) -> Dict[str, object]:  # noqa: E501
+    def get_coupon_code_bulk_create_job(self, job_id : Annotated[StrictStr, Field(description="ID of the job to retrieve.")], fields_coupon_code_bulk_create_job : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, fields_coupon_code : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, include : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#relationships")] = None, **kwargs) -> Dict[str, object]:  # noqa: E501
         """Get Coupon Code Bulk Create Job  # noqa: E501
 
         Get a coupon code bulk create job with the given job ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `coupon-codes:read`  # noqa: E501
@@ -989,7 +990,7 @@ class CouponsApi(object):
         return self.get_coupon_code_bulk_create_job_with_http_info(job_id, fields_coupon_code_bulk_create_job, fields_coupon_code, include, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def get_coupon_code_bulk_create_job_with_http_info(self, job_id : Annotated[StrictStr, Field(..., description="ID of the job to retrieve.")], fields_coupon_code_bulk_create_job : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, fields_coupon_code : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, include : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#relationships")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def get_coupon_code_bulk_create_job_with_http_info(self, job_id : Annotated[StrictStr, Field(description="ID of the job to retrieve.")], fields_coupon_code_bulk_create_job : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, fields_coupon_code : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, include : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#relationships")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Get Coupon Code Bulk Create Job  # noqa: E501
 
         Get a coupon code bulk create job with the given job ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `coupon-codes:read`  # noqa: E501
@@ -1131,7 +1132,7 @@ class CouponsApi(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_coupon_code_bulk_create_jobs(self, fields_coupon_code_bulk_create_job : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, filter : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None, page_cursor : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#pagination")] = None, **kwargs) -> Dict[str, object]:  # noqa: E501
+    def get_coupon_code_bulk_create_jobs(self, fields_coupon_code_bulk_create_job : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, filter : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None, page_cursor : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#pagination")] = None, **kwargs) -> Dict[str, object]:  # noqa: E501
         """Get Coupon Code Bulk Create Jobs  # noqa: E501
 
         Get all coupon code bulk create jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `coupon-codes:read`  # noqa: E501
@@ -1164,7 +1165,7 @@ class CouponsApi(object):
         return self.get_coupon_code_bulk_create_jobs_with_http_info(fields_coupon_code_bulk_create_job, filter, page_cursor, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def get_coupon_code_bulk_create_jobs_with_http_info(self, fields_coupon_code_bulk_create_job : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, filter : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None, page_cursor : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#pagination")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def get_coupon_code_bulk_create_jobs_with_http_info(self, fields_coupon_code_bulk_create_job : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, filter : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None, page_cursor : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#pagination")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Get Coupon Code Bulk Create Jobs  # noqa: E501
 
         Get all coupon code bulk create jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `coupon-codes:read`  # noqa: E501
@@ -1450,7 +1451,7 @@ class CouponsApi(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_coupon_codes(self, fields_coupon_code : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, fields_coupon : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, filter : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`expires_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`status`: `equals`<br>`coupon.id`: `any`, `equals`<br>`profile.id`: `any`, `equals`")] = None, include : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#relationships")] = None, page_cursor : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#pagination")] = None, **kwargs) -> Dict[str, object]:  # noqa: E501
+    def get_coupon_codes(self, fields_coupon_code : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, fields_coupon : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, filter : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`expires_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`status`: `equals`<br>`coupon.id`: `any`, `equals`<br>`profile.id`: `any`, `equals`")] = None, include : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#relationships")] = None, page_cursor : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#pagination")] = None, **kwargs) -> Dict[str, object]:  # noqa: E501
         """Get Coupon Codes  # noqa: E501
 
         Gets a list of coupon codes associated with a coupon/coupons or a profile/profiles.  A coupon/coupons or a profile/profiles must be provided as required filter params.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `coupon-codes:read`  # noqa: E501
@@ -1487,7 +1488,7 @@ class CouponsApi(object):
         return self.get_coupon_codes_with_http_info(fields_coupon_code, fields_coupon, filter, include, page_cursor, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def get_coupon_codes_with_http_info(self, fields_coupon_code : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, fields_coupon : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, filter : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`expires_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`status`: `equals`<br>`coupon.id`: `any`, `equals`<br>`profile.id`: `any`, `equals`")] = None, include : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#relationships")] = None, page_cursor : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#pagination")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def get_coupon_codes_with_http_info(self, fields_coupon_code : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, fields_coupon : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, filter : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`expires_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`status`: `equals`<br>`coupon.id`: `any`, `equals`<br>`profile.id`: `any`, `equals`")] = None, include : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#relationships")] = None, page_cursor : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#pagination")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Get Coupon Codes  # noqa: E501
 
         Gets a list of coupon codes associated with a coupon/coupons or a profile/profiles.  A coupon/coupons or a profile/profiles must be provided as required filter params.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `coupon-codes:read`  # noqa: E501
@@ -1641,7 +1642,7 @@ class CouponsApi(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_coupon_codes_for_coupon(self, id : StrictStr, fields_coupon_code : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, filter : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`expires_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`status`: `equals`<br>`coupon.id`: `any`, `equals`<br>`profile.id`: `any`, `equals`")] = None, page_cursor : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#pagination")] = None, **kwargs) -> Dict[str, object]:  # noqa: E501
+    def get_coupon_codes_for_coupon(self, id : StrictStr, fields_coupon_code : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, filter : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`expires_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`status`: `equals`<br>`coupon.id`: `any`, `equals`<br>`profile.id`: `any`, `equals`")] = None, page_cursor : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#pagination")] = None, **kwargs) -> Dict[str, object]:  # noqa: E501
         """Get Coupon Codes For Coupon  # noqa: E501
 
         Gets a list of coupon codes associated with the given coupon id<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `coupon-codes:read`  # noqa: E501
@@ -1676,7 +1677,7 @@ class CouponsApi(object):
         return self.get_coupon_codes_for_coupon_with_http_info(id, fields_coupon_code, filter, page_cursor, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def get_coupon_codes_for_coupon_with_http_info(self, id : StrictStr, fields_coupon_code : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, filter : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`expires_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`status`: `equals`<br>`coupon.id`: `any`, `equals`<br>`profile.id`: `any`, `equals`")] = None, page_cursor : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#pagination")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def get_coupon_codes_for_coupon_with_http_info(self, id : StrictStr, fields_coupon_code : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, filter : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`expires_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`status`: `equals`<br>`coupon.id`: `any`, `equals`<br>`profile.id`: `any`, `equals`")] = None, page_cursor : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#pagination")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Get Coupon Codes For Coupon  # noqa: E501
 
         Gets a list of coupon codes associated with the given coupon id<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `coupon-codes:read`  # noqa: E501
@@ -1816,7 +1817,7 @@ class CouponsApi(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_coupon_for_coupon_code(self, id : StrictStr, fields_coupon : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, **kwargs) -> Dict[str, object]:  # noqa: E501
+    def get_coupon_for_coupon_code(self, id : StrictStr, fields_coupon : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, **kwargs) -> Dict[str, object]:  # noqa: E501
         """Get Coupon For Coupon Code  # noqa: E501
 
         Gets a list of coupon codes associated with the given coupon id<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `coupons:read`  # noqa: E501
@@ -1847,7 +1848,7 @@ class CouponsApi(object):
         return self.get_coupon_for_coupon_code_with_http_info(id, fields_coupon, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def get_coupon_for_coupon_code_with_http_info(self, id : StrictStr, fields_coupon : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def get_coupon_for_coupon_code_with_http_info(self, id : StrictStr, fields_coupon : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Get Coupon For Coupon Code  # noqa: E501
 
         Gets a list of coupon codes associated with the given coupon id<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `coupons:read`  # noqa: E501
@@ -2110,7 +2111,7 @@ class CouponsApi(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_coupons(self, fields_coupon : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, page_cursor : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#pagination")] = None, **kwargs) -> Dict[str, object]:  # noqa: E501
+    def get_coupons(self, fields_coupon : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, page_cursor : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#pagination")] = None, **kwargs) -> Dict[str, object]:  # noqa: E501
         """Get Coupons  # noqa: E501
 
         Get all coupons in an account.  To learn more, see our [Coupons API guide](https://developers.klaviyo.com/en/docs/use_klaviyos_coupons_api).<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `coupons:read`  # noqa: E501
@@ -2141,7 +2142,7 @@ class CouponsApi(object):
         return self.get_coupons_with_http_info(fields_coupon, page_cursor, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def get_coupons_with_http_info(self, fields_coupon : Annotated[Optional[conlist(StrictStr)], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, page_cursor : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#pagination")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def get_coupons_with_http_info(self, fields_coupon : Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#sparse-fieldsets")] = None, page_cursor : Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2023-10-15/reference/api-overview#pagination")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Get Coupons  # noqa: E501
 
         Get all coupons in an account.  To learn more, see our [Coupons API guide](https://developers.klaviyo.com/en/docs/use_klaviyos_coupons_api).<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `coupons:read`  # noqa: E501
@@ -2414,7 +2415,7 @@ class CouponsApi(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def update_coupon(self, id : Annotated[StrictStr, Field(..., description="The internal id of a Coupon is equivalent to its external id stored within an integration.")], coupon_update_query : CouponUpdateQuery, **kwargs) -> Dict[str, object]:  # noqa: E501
+    def update_coupon(self, id : Annotated[StrictStr, Field(description="The internal id of a Coupon is equivalent to its external id stored within an integration.")], coupon_update_query : CouponUpdateQuery, **kwargs) -> Dict[str, object]:  # noqa: E501
         """Update Coupon  # noqa: E501
 
         *Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `coupons:write`  # noqa: E501
@@ -2445,7 +2446,7 @@ class CouponsApi(object):
         return self.update_coupon_with_http_info(id, coupon_update_query, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def update_coupon_with_http_info(self, id : Annotated[StrictStr, Field(..., description="The internal id of a Coupon is equivalent to its external id stored within an integration.")], coupon_update_query : CouponUpdateQuery, **kwargs) -> ApiResponse:  # noqa: E501
+    def update_coupon_with_http_info(self, id : Annotated[StrictStr, Field(description="The internal id of a Coupon is equivalent to its external id stored within an integration.")], coupon_update_query : CouponUpdateQuery, **kwargs) -> ApiResponse:  # noqa: E501
         """Update Coupon  # noqa: E501
 
         *Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `coupons:write`  # noqa: E501
@@ -2570,7 +2571,7 @@ class CouponsApi(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def update_coupon_code(self, id : Annotated[StrictStr, Field(..., description="The id of a coupon code is a combination of its unique code and the id of the coupon it is associated with.")], coupon_code_update_query : CouponCodeUpdateQuery, **kwargs) -> Dict[str, object]:  # noqa: E501
+    def update_coupon_code(self, id : Annotated[StrictStr, Field(description="The id of a coupon code is a combination of its unique code and the id of the coupon it is associated with.")], coupon_code_update_query : CouponCodeUpdateQuery, **kwargs) -> Dict[str, object]:  # noqa: E501
         """Update Coupon Code  # noqa: E501
 
         Updates a coupon code specified by the given identifier synchronously. We allow updating the 'status' and 'expires_at' of coupon codes.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `coupon-codes:write`  # noqa: E501
@@ -2601,7 +2602,7 @@ class CouponsApi(object):
         return self.update_coupon_code_with_http_info(id, coupon_code_update_query, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def update_coupon_code_with_http_info(self, id : Annotated[StrictStr, Field(..., description="The id of a coupon code is a combination of its unique code and the id of the coupon it is associated with.")], coupon_code_update_query : CouponCodeUpdateQuery, **kwargs) -> ApiResponse:  # noqa: E501
+    def update_coupon_code_with_http_info(self, id : Annotated[StrictStr, Field(description="The id of a coupon code is a combination of its unique code and the id of the coupon it is associated with.")], coupon_code_update_query : CouponCodeUpdateQuery, **kwargs) -> ApiResponse:  # noqa: E501
         """Update Coupon Code  # noqa: E501
 
         Updates a coupon code specified by the given identifier synchronously. We allow updating the 'status' and 'expires_at' of coupon codes.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `coupon-codes:write`  # noqa: E501
