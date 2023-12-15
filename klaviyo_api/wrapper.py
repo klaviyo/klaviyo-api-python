@@ -34,7 +34,7 @@ class KlaviyoAPI:
     access_token: str = None
 
 
-    _REVISION = "2023-10-15"
+    _REVISION = "2023-12-15"
 
     _STATUS_CODE_CONNECTION_RESET_BY_PEER = 104
     _STATUS_CODE_TOO_MANY_REQUESTS = 429
@@ -294,6 +294,13 @@ class KlaviyoAPI:
         ## Applying tenacity retry decorator to each endpoint in Profiles
         self.Profiles.create_profile=self._page_cursor_update(self.retry_logic(self.Profiles.create_profile))
         self.Profiles.create_push_token=self._page_cursor_update(self.retry_logic(self.Profiles.create_push_token))
+        self.Profiles.get_bulk_profile_import_job=self._page_cursor_update(self.retry_logic(self.Profiles.get_bulk_profile_import_job))
+        self.Profiles.get_bulk_profile_import_job_import_errors=self._page_cursor_update(self.retry_logic(self.Profiles.get_bulk_profile_import_job_import_errors))
+        self.Profiles.get_bulk_profile_import_job_lists=self._page_cursor_update(self.retry_logic(self.Profiles.get_bulk_profile_import_job_lists))
+        self.Profiles.get_bulk_profile_import_job_profiles=self._page_cursor_update(self.retry_logic(self.Profiles.get_bulk_profile_import_job_profiles))
+        self.Profiles.get_bulk_profile_import_job_relationships_lists=self._page_cursor_update(self.retry_logic(self.Profiles.get_bulk_profile_import_job_relationships_lists))
+        self.Profiles.get_bulk_profile_import_job_relationships_profiles=self._page_cursor_update(self.retry_logic(self.Profiles.get_bulk_profile_import_job_relationships_profiles))
+        self.Profiles.get_bulk_profile_import_jobs=self._page_cursor_update(self.retry_logic(self.Profiles.get_bulk_profile_import_jobs))
         self.Profiles.get_profile=self._page_cursor_update(self.retry_logic(self.Profiles.get_profile))
         self.Profiles.get_profile_lists=self._page_cursor_update(self.retry_logic(self.Profiles.get_profile_lists))
         self.Profiles.get_profile_relationships_lists=self._page_cursor_update(self.retry_logic(self.Profiles.get_profile_relationships_lists))
@@ -301,6 +308,7 @@ class KlaviyoAPI:
         self.Profiles.get_profile_segments=self._page_cursor_update(self.retry_logic(self.Profiles.get_profile_segments))
         self.Profiles.get_profiles=self._page_cursor_update(self.retry_logic(self.Profiles.get_profiles))
         self.Profiles.merge_profiles=self._page_cursor_update(self.retry_logic(self.Profiles.merge_profiles))
+        self.Profiles.spawn_bulk_profile_import_job=self._page_cursor_update(self.retry_logic(self.Profiles.spawn_bulk_profile_import_job))
         self.Profiles.subscribe_profiles=self._page_cursor_update(self.retry_logic(self.Profiles.subscribe_profiles))
         self.Profiles.suppress_profiles=self._page_cursor_update(self.retry_logic(self.Profiles.suppress_profiles))
         self.Profiles.unsubscribe_profiles=self._page_cursor_update(self.retry_logic(self.Profiles.unsubscribe_profiles))
