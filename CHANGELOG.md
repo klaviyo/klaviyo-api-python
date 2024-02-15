@@ -7,6 +7,32 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 NOTE: For more granular API-specific changes, please see our [API Changelog](https://developers.klaviyo.com/en/docs/changelog_)
 
+## [7.0.0] - revision 2024-02-15
+
+### Added: 
+
+- New `ReportingApi` allows you to request campaign and flow performance data that you can view in the Klaviyo UI.
+
+- `campaign_values_query`
+  - Request campaign analytics data, for example, a campaign performance report on the open rate over the past 30 days.
+
+- `flow_values_query`
+  - Request flow analytics data, for example, a flow performance report on the revenue per recipient value over the past 3 months.
+
+- `flow_series_query`
+  - Fetch flow series data for a specific interval and timeframe, for example, a flow performance report on weekly click rates  over the past 12 months.
+
+
+- New `ProfilesApi` endpoint allows you to create or update a profile with a set of profile attributes.
+
+  - `create_or_update_profile`
+    - This endpoint operates synchronously and offers an upsert pattern similar to the [v1/v2 Identify API](https://developers.klaviyo.com/en/docs/apis_comparison_chart).
+
+### Changed:
+	
+- Removed the $attribution field from event_properties in get_event and  get_events (breaking change).
+	
+  - To include this data in your request, add include=attributions to your request.
 
 
 ## [6.1.0] - revision 2023-12-15
