@@ -20,6 +20,7 @@ from openapi_client.api import lists_api
 from openapi_client.api import metrics_api
 from openapi_client.api import profiles_api
 from openapi_client.api import reporting_api
+from openapi_client.api import reviews_api
 from openapi_client.api import segments_api
 from openapi_client.api import tags_api
 from openapi_client.api import templates_api
@@ -35,7 +36,7 @@ class KlaviyoAPI:
     access_token: str = None
 
 
-    _REVISION = "2024-02-15"
+    _REVISION = "2024-05-15"
 
     _STATUS_CODE_CONNECTION_RESET_BY_PEER = 104
     _STATUS_CODE_TOO_MANY_REQUESTS = 429
@@ -220,6 +221,7 @@ class KlaviyoAPI:
         self.Events=events_api.EventsApi(self.api_client)
         
         ## Applying tenacity retry decorator to each endpoint in Events
+        self.Events.bulk_create_events=self._page_cursor_update(self.retry_logic(self.Events.bulk_create_events))
         self.Events.create_event=self._page_cursor_update(self.retry_logic(self.Events.create_event))
         self.Events.get_event=self._page_cursor_update(self.retry_logic(self.Events.get_event))
         self.Events.get_event_metric=self._page_cursor_update(self.retry_logic(self.Events.get_event_metric))
@@ -325,6 +327,14 @@ class KlaviyoAPI:
         self.Reporting.query_campaign_values=self._page_cursor_update(self.retry_logic(self.Reporting.query_campaign_values))
         self.Reporting.query_flow_series=self._page_cursor_update(self.retry_logic(self.Reporting.query_flow_series))
         self.Reporting.query_flow_values=self._page_cursor_update(self.retry_logic(self.Reporting.query_flow_values))
+        
+        
+        ## Adding Reviews to Client
+        self.Reviews=reviews_api.ReviewsApi(self.api_client)
+        
+        ## Applying tenacity retry decorator to each endpoint in Reviews
+        self.Reviews.get_review_events=self._page_cursor_update(self.retry_logic(self.Reviews.get_review_events))
+        self.Reviews.get_review_relationships_events=self._page_cursor_update(self.retry_logic(self.Reviews.get_review_relationships_events))
         
         
         ## Adding Segments to Client
