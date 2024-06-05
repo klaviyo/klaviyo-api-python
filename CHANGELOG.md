@@ -52,7 +52,6 @@ NOTE: For more granular API-specific changes, please see our [API Changelog](htt
             schedule_options = StaticScheduleOptions(datetime_=datetime.datetime.strptime("2024-05-19T00:00:00+00:00", "%Y-%m-%dT%H:%M:%S%z")
             print(schedule_options.datetime_)
             ```
-- Fixes issue where `filter` query params for any API call were being duplicated on request send. See issue: https://github.com/klaviyo/klaviyo-api-python/issues/51
 
 ## [7.0.0] - revision 2024-02-15
 
