@@ -296,7 +296,6 @@ class AccountsApi(object):
                 _query_params.append(('fields[account]', fields_account))
             else:
                 _query_params.append(('fields[account]', fields_account))
-            _query_params.append(('fields[account]', fields_account))
             
         # process the header parameters
         # process the form parameters
@@ -575,7 +574,6 @@ class AccountsApi(object):
                 _query_params.append(('fields[account]', fields_account))
             else:
                 _query_params.append(('fields[account]', fields_account))
-            _query_params.append(('fields[account]', fields_account))
             
         # process the header parameters
         # process the form parameters

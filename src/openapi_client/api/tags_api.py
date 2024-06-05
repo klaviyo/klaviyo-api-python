@@ -3846,7 +3846,6 @@ class TagsApi(object):
                 _query_params.append(('fields[tag-group]', fields_tag_group))
             else:
                 _query_params.append(('fields[tag-group]', fields_tag_group))
-            _query_params.append(('fields[tag-group]', fields_tag_group))
             
         if fields_tag is not None:
             
@@ -3854,7 +3853,6 @@ class TagsApi(object):
                 _query_params.append(('fields[tag]', fields_tag))
             else:
                 _query_params.append(('fields[tag]', fields_tag))
-            _query_params.append(('fields[tag]', fields_tag))
             
         if include is not None:
             
@@ -3862,7 +3860,6 @@ class TagsApi(object):
                 _query_params.append(('include', include))
             else:
                 _query_params.append(('include', include))
-            _query_params.append(('include', include))
             
         # process the header parameters
         # process the form parameters
@@ -4156,7 +4153,6 @@ class TagsApi(object):
                 _query_params.append(('fields[tag-group]', fields_tag_group))
             else:
                 _query_params.append(('fields[tag-group]', fields_tag_group))
-            _query_params.append(('fields[tag-group]', fields_tag_group))
             
         # process the header parameters
         # process the form parameters
@@ -4722,7 +4718,6 @@ class TagsApi(object):
                 _query_params.append(('fields[tag]', fields_tag))
             else:
                 _query_params.append(('fields[tag]', fields_tag))
-            _query_params.append(('fields[tag]', fields_tag))
             
         # process the header parameters
         # process the form parameters
@@ -5040,7 +5035,6 @@ class TagsApi(object):
                 _query_params.append(('fields[tag-group]', fields_tag_group))
             else:
                 _query_params.append(('fields[tag-group]', fields_tag_group))
-            _query_params.append(('fields[tag-group]', fields_tag_group))
             
         if filter is not None:
             
@@ -5048,7 +5042,6 @@ class TagsApi(object):
                 _query_params.append(('filter', filter))
             else:
                 _query_params.append(('filter', filter))
-            _query_params.append(('filter', filter))
             
         if page_cursor is not None:
             
@@ -5056,7 +5049,6 @@ class TagsApi(object):
                 _query_params.append(('page[cursor]', page_cursor))
             else:
                 _query_params.append(('page[cursor]', page_cursor))
-            _query_params.append(('page[cursor]', page_cursor))
             
         if sort is not None:
             
@@ -5064,7 +5056,6 @@ class TagsApi(object):
                 _query_params.append(('sort', sort))
             else:
                 _query_params.append(('sort', sort))
-            _query_params.append(('sort', sort))
             
         # process the header parameters
         # process the form parameters
@@ -6718,7 +6709,6 @@ class TagsApi(object):
                 _query_params.append(('fields[tag-group]', fields_tag_group))
             else:
                 _query_params.append(('fields[tag-group]', fields_tag_group))
-            _query_params.append(('fields[tag-group]', fields_tag_group))
             
         # process the header parameters
         # process the form parameters
@@ -7064,7 +7054,6 @@ class TagsApi(object):
                 _query_params.append(('fields[tag-group]', fields_tag_group))
             else:
                 _query_params.append(('fields[tag-group]', fields_tag_group))
-            _query_params.append(('fields[tag-group]', fields_tag_group))
             
         if fields_tag is not None:
             
@@ -7072,7 +7061,6 @@ class TagsApi(object):
                 _query_params.append(('fields[tag]', fields_tag))
             else:
                 _query_params.append(('fields[tag]', fields_tag))
-            _query_params.append(('fields[tag]', fields_tag))
             
         if filter is not None:
             
@@ -7080,7 +7068,6 @@ class TagsApi(object):
                 _query_params.append(('filter', filter))
             else:
                 _query_params.append(('filter', filter))
-            _query_params.append(('filter', filter))
             
         if include is not None:
             
@@ -7088,7 +7075,6 @@ class TagsApi(object):
                 _query_params.append(('include', include))
             else:
                 _query_params.append(('include', include))
-            _query_params.append(('include', include))
             
         if page_cursor is not None:
             
@@ -7096,7 +7082,6 @@ class TagsApi(object):
                 _query_params.append(('page[cursor]', page_cursor))
             else:
                 _query_params.append(('page[cursor]', page_cursor))
-            _query_params.append(('page[cursor]', page_cursor))
             
         if sort is not None:
             
@@ -7104,7 +7089,6 @@ class TagsApi(object):
                 _query_params.append(('sort', sort))
             else:
                 _query_params.append(('sort', sort))
-            _query_params.append(('sort', sort))
             
         # process the header parameters
         # process the form parameters

@@ -3494,7 +3494,6 @@ class CatalogsApi(object):
                 _query_params.append(('fields[catalog-category]', fields_catalog_category))
             else:
                 _query_params.append(('fields[catalog-category]', fields_catalog_category))
-            _query_params.append(('fields[catalog-category]', fields_catalog_category))
             
         if filter is not None:
             
@@ -3502,7 +3501,6 @@ class CatalogsApi(object):
                 _query_params.append(('filter', filter))
             else:
                 _query_params.append(('filter', filter))
-            _query_params.append(('filter', filter))
             
         if page_cursor is not None:
             
@@ -3510,7 +3508,6 @@ class CatalogsApi(object):
                 _query_params.append(('page[cursor]', page_cursor))
             else:
                 _query_params.append(('page[cursor]', page_cursor))
-            _query_params.append(('page[cursor]', page_cursor))
             
         if sort is not None:
             
@@ -3518,7 +3515,6 @@ class CatalogsApi(object):
                 _query_params.append(('sort', sort))
             else:
                 _query_params.append(('sort', sort))
-            _query_params.append(('sort', sort))
             
         # process the header parameters
         # process the form parameters
@@ -3812,7 +3808,6 @@ class CatalogsApi(object):
                 _query_params.append(('fields[catalog-category]', fields_catalog_category))
             else:
                 _query_params.append(('fields[catalog-category]', fields_catalog_category))
-            _query_params.append(('fields[catalog-category]', fields_catalog_category))
             
         # process the header parameters
         # process the form parameters
@@ -4173,7 +4168,6 @@ class CatalogsApi(object):
                 _query_params.append(('fields[catalog-item]', fields_catalog_item))
             else:
                 _query_params.append(('fields[catalog-item]', fields_catalog_item))
-            _query_params.append(('fields[catalog-item]', fields_catalog_item))
             
         if fields_catalog_variant is not None:
             
@@ -4181,7 +4175,6 @@ class CatalogsApi(object):
                 _query_params.append(('fields[catalog-variant]', fields_catalog_variant))
             else:
                 _query_params.append(('fields[catalog-variant]', fields_catalog_variant))
-            _query_params.append(('fields[catalog-variant]', fields_catalog_variant))
             
         if filter is not None:
             
@@ -4189,7 +4182,6 @@ class CatalogsApi(object):
                 _query_params.append(('filter', filter))
             else:
                 _query_params.append(('filter', filter))
-            _query_params.append(('filter', filter))
             
         if include is not None:
             
@@ -4197,7 +4189,6 @@ class CatalogsApi(object):
                 _query_params.append(('include', include))
             else:
                 _query_params.append(('include', include))
-            _query_params.append(('include', include))
             
         if page_cursor is not None:
             
@@ -4205,7 +4196,6 @@ class CatalogsApi(object):
                 _query_params.append(('page[cursor]', page_cursor))
             else:
                 _query_params.append(('page[cursor]', page_cursor))
-            _query_params.append(('page[cursor]', page_cursor))
             
         if sort is not None:
             
@@ -4213,7 +4203,6 @@ class CatalogsApi(object):
                 _query_params.append(('sort', sort))
             else:
                 _query_params.append(('sort', sort))
-            _query_params.append(('sort', sort))
             
         # process the header parameters
         # process the form parameters
@@ -4506,7 +4495,6 @@ class CatalogsApi(object):
                 _query_params.append(('page[cursor]', page_cursor))
             else:
                 _query_params.append(('page[cursor]', page_cursor))
-            _query_params.append(('page[cursor]', page_cursor))
             
         # process the header parameters
         # process the form parameters
@@ -4828,7 +4816,6 @@ class CatalogsApi(object):
                 _query_params.append(('fields[catalog-item]', fields_catalog_item))
             else:
                 _query_params.append(('fields[catalog-item]', fields_catalog_item))
-            _query_params.append(('fields[catalog-item]', fields_catalog_item))
             
         if fields_catalog_variant is not None:
             
@@ -4836,7 +4823,6 @@ class CatalogsApi(object):
                 _query_params.append(('fields[catalog-variant]', fields_catalog_variant))
             else:
                 _query_params.append(('fields[catalog-variant]', fields_catalog_variant))
-            _query_params.append(('fields[catalog-variant]', fields_catalog_variant))
             
         if include is not None:
             
@@ -4844,7 +4830,6 @@ class CatalogsApi(object):
                 _query_params.append(('include', include))
             else:
                 _query_params.append(('include', include))
-            _query_params.append(('include', include))
             
         # process the header parameters
         # process the form parameters
@@ -5177,7 +5162,6 @@ class CatalogsApi(object):
                 _query_params.append(('fields[catalog-category]', fields_catalog_category))
             else:
                 _query_params.append(('fields[catalog-category]', fields_catalog_category))
-            _query_params.append(('fields[catalog-category]', fields_catalog_category))
             
         if filter is not None:
             
@@ -5185,7 +5169,6 @@ class CatalogsApi(object):
                 _query_params.append(('filter', filter))
             else:
                 _query_params.append(('filter', filter))
-            _query_params.append(('filter', filter))
             
         if page_cursor is not None:
             
@@ -5193,7 +5176,6 @@ class CatalogsApi(object):
                 _query_params.append(('page[cursor]', page_cursor))
             else:
                 _query_params.append(('page[cursor]', page_cursor))
-            _query_params.append(('page[cursor]', page_cursor))
             
         if sort is not None:
             
@@ -5201,7 +5183,6 @@ class CatalogsApi(object):
                 _query_params.append(('sort', sort))
             else:
                 _query_params.append(('sort', sort))
-            _query_params.append(('sort', sort))
             
         # process the header parameters
         # process the form parameters
@@ -5494,7 +5475,6 @@ class CatalogsApi(object):
                 _query_params.append(('page[cursor]', page_cursor))
             else:
                 _query_params.append(('page[cursor]', page_cursor))
-            _query_params.append(('page[cursor]', page_cursor))
             
         # process the header parameters
         # process the form parameters
@@ -5827,7 +5807,6 @@ class CatalogsApi(object):
                 _query_params.append(('fields[catalog-variant]', fields_catalog_variant))
             else:
                 _query_params.append(('fields[catalog-variant]', fields_catalog_variant))
-            _query_params.append(('fields[catalog-variant]', fields_catalog_variant))
             
         if filter is not None:
             
@@ -5835,7 +5814,6 @@ class CatalogsApi(object):
                 _query_params.append(('filter', filter))
             else:
                 _query_params.append(('filter', filter))
-            _query_params.append(('filter', filter))
             
         if page_cursor is not None:
             
@@ -5843,7 +5821,6 @@ class CatalogsApi(object):
                 _query_params.append(('page[cursor]', page_cursor))
             else:
                 _query_params.append(('page[cursor]', page_cursor))
-            _query_params.append(('page[cursor]', page_cursor))
             
         if sort is not None:
             
@@ -5851,7 +5828,6 @@ class CatalogsApi(object):
                 _query_params.append(('sort', sort))
             else:
                 _query_params.append(('sort', sort))
-            _query_params.append(('sort', sort))
             
         # process the header parameters
         # process the form parameters
@@ -6197,7 +6173,6 @@ class CatalogsApi(object):
                 _query_params.append(('fields[catalog-item]', fields_catalog_item))
             else:
                 _query_params.append(('fields[catalog-item]', fields_catalog_item))
-            _query_params.append(('fields[catalog-item]', fields_catalog_item))
             
         if fields_catalog_variant is not None:
             
@@ -6205,7 +6180,6 @@ class CatalogsApi(object):
                 _query_params.append(('fields[catalog-variant]', fields_catalog_variant))
             else:
                 _query_params.append(('fields[catalog-variant]', fields_catalog_variant))
-            _query_params.append(('fields[catalog-variant]', fields_catalog_variant))
             
         if filter is not None:
             
@@ -6213,7 +6187,6 @@ class CatalogsApi(object):
                 _query_params.append(('filter', filter))
             else:
                 _query_params.append(('filter', filter))
-            _query_params.append(('filter', filter))
             
         if include is not None:
             
@@ -6221,7 +6194,6 @@ class CatalogsApi(object):
                 _query_params.append(('include', include))
             else:
                 _query_params.append(('include', include))
-            _query_params.append(('include', include))
             
         if page_cursor is not None:
             
@@ -6229,7 +6201,6 @@ class CatalogsApi(object):
                 _query_params.append(('page[cursor]', page_cursor))
             else:
                 _query_params.append(('page[cursor]', page_cursor))
-            _query_params.append(('page[cursor]', page_cursor))
             
         if sort is not None:
             
@@ -6237,7 +6208,6 @@ class CatalogsApi(object):
                 _query_params.append(('sort', sort))
             else:
                 _query_params.append(('sort', sort))
-            _query_params.append(('sort', sort))
             
         # process the header parameters
         # process the form parameters
@@ -6531,7 +6501,6 @@ class CatalogsApi(object):
                 _query_params.append(('fields[catalog-variant]', fields_catalog_variant))
             else:
                 _query_params.append(('fields[catalog-variant]', fields_catalog_variant))
-            _query_params.append(('fields[catalog-variant]', fields_catalog_variant))
             
         # process the header parameters
         # process the form parameters
@@ -6849,7 +6818,6 @@ class CatalogsApi(object):
                 _query_params.append(('fields[catalog-variant]', fields_catalog_variant))
             else:
                 _query_params.append(('fields[catalog-variant]', fields_catalog_variant))
-            _query_params.append(('fields[catalog-variant]', fields_catalog_variant))
             
         if filter is not None:
             
@@ -6857,7 +6825,6 @@ class CatalogsApi(object):
                 _query_params.append(('filter', filter))
             else:
                 _query_params.append(('filter', filter))
-            _query_params.append(('filter', filter))
             
         if page_cursor is not None:
             
@@ -6865,7 +6832,6 @@ class CatalogsApi(object):
                 _query_params.append(('page[cursor]', page_cursor))
             else:
                 _query_params.append(('page[cursor]', page_cursor))
-            _query_params.append(('page[cursor]', page_cursor))
             
         if sort is not None:
             
@@ -6873,7 +6839,6 @@ class CatalogsApi(object):
                 _query_params.append(('sort', sort))
             else:
                 _query_params.append(('sort', sort))
-            _query_params.append(('sort', sort))
             
         # process the header parameters
         # process the form parameters
@@ -7195,7 +7160,6 @@ class CatalogsApi(object):
                 _query_params.append(('fields[catalog-category-bulk-create-job]', fields_catalog_category_bulk_create_job))
             else:
                 _query_params.append(('fields[catalog-category-bulk-create-job]', fields_catalog_category_bulk_create_job))
-            _query_params.append(('fields[catalog-category-bulk-create-job]', fields_catalog_category_bulk_create_job))
             
         if fields_catalog_category is not None:
             
@@ -7203,7 +7167,6 @@ class CatalogsApi(object):
                 _query_params.append(('fields[catalog-category]', fields_catalog_category))
             else:
                 _query_params.append(('fields[catalog-category]', fields_catalog_category))
-            _query_params.append(('fields[catalog-category]', fields_catalog_category))
             
         if include is not None:
             
@@ -7211,7 +7174,6 @@ class CatalogsApi(object):
                 _query_params.append(('include', include))
             else:
                 _query_params.append(('include', include))
-            _query_params.append(('include', include))
             
         # process the header parameters
         # process the form parameters
@@ -7516,7 +7478,6 @@ class CatalogsApi(object):
                 _query_params.append(('fields[catalog-category-bulk-create-job]', fields_catalog_category_bulk_create_job))
             else:
                 _query_params.append(('fields[catalog-category-bulk-create-job]', fields_catalog_category_bulk_create_job))
-            _query_params.append(('fields[catalog-category-bulk-create-job]', fields_catalog_category_bulk_create_job))
             
         if filter is not None:
             
@@ -7524,7 +7485,6 @@ class CatalogsApi(object):
                 _query_params.append(('filter', filter))
             else:
                 _query_params.append(('filter', filter))
-            _query_params.append(('filter', filter))
             
         if page_cursor is not None:
             
@@ -7532,7 +7492,6 @@ class CatalogsApi(object):
                 _query_params.append(('page[cursor]', page_cursor))
             else:
                 _query_params.append(('page[cursor]', page_cursor))
-            _query_params.append(('page[cursor]', page_cursor))
             
         # process the header parameters
         # process the form parameters
@@ -7854,7 +7813,6 @@ class CatalogsApi(object):
                 _query_params.append(('fields[catalog-item-bulk-create-job]', fields_catalog_item_bulk_create_job))
             else:
                 _query_params.append(('fields[catalog-item-bulk-create-job]', fields_catalog_item_bulk_create_job))
-            _query_params.append(('fields[catalog-item-bulk-create-job]', fields_catalog_item_bulk_create_job))
             
         if fields_catalog_item is not None:
             
@@ -7862,7 +7820,6 @@ class CatalogsApi(object):
                 _query_params.append(('fields[catalog-item]', fields_catalog_item))
             else:
                 _query_params.append(('fields[catalog-item]', fields_catalog_item))
-            _query_params.append(('fields[catalog-item]', fields_catalog_item))
             
         if include is not None:
             
@@ -7870,7 +7827,6 @@ class CatalogsApi(object):
                 _query_params.append(('include', include))
             else:
                 _query_params.append(('include', include))
-            _query_params.append(('include', include))
             
         # process the header parameters
         # process the form parameters
@@ -8175,7 +8131,6 @@ class CatalogsApi(object):
                 _query_params.append(('fields[catalog-item-bulk-create-job]', fields_catalog_item_bulk_create_job))
             else:
                 _query_params.append(('fields[catalog-item-bulk-create-job]', fields_catalog_item_bulk_create_job))
-            _query_params.append(('fields[catalog-item-bulk-create-job]', fields_catalog_item_bulk_create_job))
             
         if filter is not None:
             
@@ -8183,7 +8138,6 @@ class CatalogsApi(object):
                 _query_params.append(('filter', filter))
             else:
                 _query_params.append(('filter', filter))
-            _query_params.append(('filter', filter))
             
         if page_cursor is not None:
             
@@ -8191,7 +8145,6 @@ class CatalogsApi(object):
                 _query_params.append(('page[cursor]', page_cursor))
             else:
                 _query_params.append(('page[cursor]', page_cursor))
-            _query_params.append(('page[cursor]', page_cursor))
             
         # process the header parameters
         # process the form parameters
@@ -8513,7 +8466,6 @@ class CatalogsApi(object):
                 _query_params.append(('fields[catalog-variant-bulk-create-job]', fields_catalog_variant_bulk_create_job))
             else:
                 _query_params.append(('fields[catalog-variant-bulk-create-job]', fields_catalog_variant_bulk_create_job))
-            _query_params.append(('fields[catalog-variant-bulk-create-job]', fields_catalog_variant_bulk_create_job))
             
         if fields_catalog_variant is not None:
             
@@ -8521,7 +8473,6 @@ class CatalogsApi(object):
                 _query_params.append(('fields[catalog-variant]', fields_catalog_variant))
             else:
                 _query_params.append(('fields[catalog-variant]', fields_catalog_variant))
-            _query_params.append(('fields[catalog-variant]', fields_catalog_variant))
             
         if include is not None:
             
@@ -8529,7 +8480,6 @@ class CatalogsApi(object):
                 _query_params.append(('include', include))
             else:
                 _query_params.append(('include', include))
-            _query_params.append(('include', include))
             
         # process the header parameters
         # process the form parameters
@@ -8834,7 +8784,6 @@ class CatalogsApi(object):
                 _query_params.append(('fields[catalog-variant-bulk-create-job]', fields_catalog_variant_bulk_create_job))
             else:
                 _query_params.append(('fields[catalog-variant-bulk-create-job]', fields_catalog_variant_bulk_create_job))
-            _query_params.append(('fields[catalog-variant-bulk-create-job]', fields_catalog_variant_bulk_create_job))
             
         if filter is not None:
             
@@ -8842,7 +8791,6 @@ class CatalogsApi(object):
                 _query_params.append(('filter', filter))
             else:
                 _query_params.append(('filter', filter))
-            _query_params.append(('filter', filter))
             
         if page_cursor is not None:
             
@@ -8850,7 +8798,6 @@ class CatalogsApi(object):
                 _query_params.append(('page[cursor]', page_cursor))
             else:
                 _query_params.append(('page[cursor]', page_cursor))
-            _query_params.append(('page[cursor]', page_cursor))
             
         # process the header parameters
         # process the form parameters
@@ -9144,7 +9091,6 @@ class CatalogsApi(object):
                 _query_params.append(('fields[catalog-category-bulk-delete-job]', fields_catalog_category_bulk_delete_job))
             else:
                 _query_params.append(('fields[catalog-category-bulk-delete-job]', fields_catalog_category_bulk_delete_job))
-            _query_params.append(('fields[catalog-category-bulk-delete-job]', fields_catalog_category_bulk_delete_job))
             
         # process the header parameters
         # process the form parameters
@@ -9449,7 +9395,6 @@ class CatalogsApi(object):
                 _query_params.append(('fields[catalog-category-bulk-delete-job]', fields_catalog_category_bulk_delete_job))
             else:
                 _query_params.append(('fields[catalog-category-bulk-delete-job]', fields_catalog_category_bulk_delete_job))
-            _query_params.append(('fields[catalog-category-bulk-delete-job]', fields_catalog_category_bulk_delete_job))
             
         if filter is not None:
             
@@ -9457,7 +9402,6 @@ class CatalogsApi(object):
                 _query_params.append(('filter', filter))
             else:
                 _query_params.append(('filter', filter))
-            _query_params.append(('filter', filter))
             
         if page_cursor is not None:
             
@@ -9465,7 +9409,6 @@ class CatalogsApi(object):
                 _query_params.append(('page[cursor]', page_cursor))
             else:
                 _query_params.append(('page[cursor]', page_cursor))
-            _query_params.append(('page[cursor]', page_cursor))
             
         # process the header parameters
         # process the form parameters
@@ -9759,7 +9702,6 @@ class CatalogsApi(object):
                 _query_params.append(('fields[catalog-item-bulk-delete-job]', fields_catalog_item_bulk_delete_job))
             else:
                 _query_params.append(('fields[catalog-item-bulk-delete-job]', fields_catalog_item_bulk_delete_job))
-            _query_params.append(('fields[catalog-item-bulk-delete-job]', fields_catalog_item_bulk_delete_job))
             
         # process the header parameters
         # process the form parameters
@@ -10064,7 +10006,6 @@ class CatalogsApi(object):
                 _query_params.append(('fields[catalog-item-bulk-delete-job]', fields_catalog_item_bulk_delete_job))
             else:
                 _query_params.append(('fields[catalog-item-bulk-delete-job]', fields_catalog_item_bulk_delete_job))
-            _query_params.append(('fields[catalog-item-bulk-delete-job]', fields_catalog_item_bulk_delete_job))
             
         if filter is not None:
             
@@ -10072,7 +10013,6 @@ class CatalogsApi(object):
                 _query_params.append(('filter', filter))
             else:
                 _query_params.append(('filter', filter))
-            _query_params.append(('filter', filter))
             
         if page_cursor is not None:
             
@@ -10080,7 +10020,6 @@ class CatalogsApi(object):
                 _query_params.append(('page[cursor]', page_cursor))
             else:
                 _query_params.append(('page[cursor]', page_cursor))
-            _query_params.append(('page[cursor]', page_cursor))
             
         # process the header parameters
         # process the form parameters
@@ -10374,7 +10313,6 @@ class CatalogsApi(object):
                 _query_params.append(('fields[catalog-variant-bulk-delete-job]', fields_catalog_variant_bulk_delete_job))
             else:
                 _query_params.append(('fields[catalog-variant-bulk-delete-job]', fields_catalog_variant_bulk_delete_job))
-            _query_params.append(('fields[catalog-variant-bulk-delete-job]', fields_catalog_variant_bulk_delete_job))
             
         # process the header parameters
         # process the form parameters
@@ -10679,7 +10617,6 @@ class CatalogsApi(object):
                 _query_params.append(('fields[catalog-variant-bulk-delete-job]', fields_catalog_variant_bulk_delete_job))
             else:
                 _query_params.append(('fields[catalog-variant-bulk-delete-job]', fields_catalog_variant_bulk_delete_job))
-            _query_params.append(('fields[catalog-variant-bulk-delete-job]', fields_catalog_variant_bulk_delete_job))
             
         if filter is not None:
             
@@ -10687,7 +10624,6 @@ class CatalogsApi(object):
                 _query_params.append(('filter', filter))
             else:
                 _query_params.append(('filter', filter))
-            _query_params.append(('filter', filter))
             
         if page_cursor is not None:
             
@@ -10695,7 +10631,6 @@ class CatalogsApi(object):
                 _query_params.append(('page[cursor]', page_cursor))
             else:
                 _query_params.append(('page[cursor]', page_cursor))
-            _query_params.append(('page[cursor]', page_cursor))
             
         # process the header parameters
         # process the form parameters
@@ -11017,7 +10952,6 @@ class CatalogsApi(object):
                 _query_params.append(('fields[catalog-category-bulk-update-job]', fields_catalog_category_bulk_update_job))
             else:
                 _query_params.append(('fields[catalog-category-bulk-update-job]', fields_catalog_category_bulk_update_job))
-            _query_params.append(('fields[catalog-category-bulk-update-job]', fields_catalog_category_bulk_update_job))
             
         if fields_catalog_category is not None:
             
@@ -11025,7 +10959,6 @@ class CatalogsApi(object):
                 _query_params.append(('fields[catalog-category]', fields_catalog_category))
             else:
                 _query_params.append(('fields[catalog-category]', fields_catalog_category))
-            _query_params.append(('fields[catalog-category]', fields_catalog_category))
             
         if include is not None:
             
@@ -11033,7 +10966,6 @@ class CatalogsApi(object):
                 _query_params.append(('include', include))
             else:
                 _query_params.append(('include', include))
-            _query_params.append(('include', include))
             
         # process the header parameters
         # process the form parameters
@@ -11338,7 +11270,6 @@ class CatalogsApi(object):
                 _query_params.append(('fields[catalog-category-bulk-update-job]', fields_catalog_category_bulk_update_job))
             else:
                 _query_params.append(('fields[catalog-category-bulk-update-job]', fields_catalog_category_bulk_update_job))
-            _query_params.append(('fields[catalog-category-bulk-update-job]', fields_catalog_category_bulk_update_job))
             
         if filter is not None:
             
@@ -11346,7 +11277,6 @@ class CatalogsApi(object):
                 _query_params.append(('filter', filter))
             else:
                 _query_params.append(('filter', filter))
-            _query_params.append(('filter', filter))
             
         if page_cursor is not None:
             
@@ -11354,7 +11284,6 @@ class CatalogsApi(object):
                 _query_params.append(('page[cursor]', page_cursor))
             else:
                 _query_params.append(('page[cursor]', page_cursor))
-            _query_params.append(('page[cursor]', page_cursor))
             
         # process the header parameters
         # process the form parameters
@@ -11676,7 +11605,6 @@ class CatalogsApi(object):
                 _query_params.append(('fields[catalog-item-bulk-update-job]', fields_catalog_item_bulk_update_job))
             else:
                 _query_params.append(('fields[catalog-item-bulk-update-job]', fields_catalog_item_bulk_update_job))
-            _query_params.append(('fields[catalog-item-bulk-update-job]', fields_catalog_item_bulk_update_job))
             
         if fields_catalog_item is not None:
             
@@ -11684,7 +11612,6 @@ class CatalogsApi(object):
                 _query_params.append(('fields[catalog-item]', fields_catalog_item))
             else:
                 _query_params.append(('fields[catalog-item]', fields_catalog_item))
-            _query_params.append(('fields[catalog-item]', fields_catalog_item))
             
         if include is not None:
             
@@ -11692,7 +11619,6 @@ class CatalogsApi(object):
                 _query_params.append(('include', include))
             else:
                 _query_params.append(('include', include))
-            _query_params.append(('include', include))
             
         # process the header parameters
         # process the form parameters
@@ -11997,7 +11923,6 @@ class CatalogsApi(object):
                 _query_params.append(('fields[catalog-item-bulk-update-job]', fields_catalog_item_bulk_update_job))
             else:
                 _query_params.append(('fields[catalog-item-bulk-update-job]', fields_catalog_item_bulk_update_job))
-            _query_params.append(('fields[catalog-item-bulk-update-job]', fields_catalog_item_bulk_update_job))
             
         if filter is not None:
             
@@ -12005,7 +11930,6 @@ class CatalogsApi(object):
                 _query_params.append(('filter', filter))
             else:
                 _query_params.append(('filter', filter))
-            _query_params.append(('filter', filter))
             
         if page_cursor is not None:
             
@@ -12013,7 +11937,6 @@ class CatalogsApi(object):
                 _query_params.append(('page[cursor]', page_cursor))
             else:
                 _query_params.append(('page[cursor]', page_cursor))
-            _query_params.append(('page[cursor]', page_cursor))
             
         # process the header parameters
         # process the form parameters
@@ -12335,7 +12258,6 @@ class CatalogsApi(object):
                 _query_params.append(('fields[catalog-variant-bulk-update-job]', fields_catalog_variant_bulk_update_job))
             else:
                 _query_params.append(('fields[catalog-variant-bulk-update-job]', fields_catalog_variant_bulk_update_job))
-            _query_params.append(('fields[catalog-variant-bulk-update-job]', fields_catalog_variant_bulk_update_job))
             
         if fields_catalog_variant is not None:
             
@@ -12343,7 +12265,6 @@ class CatalogsApi(object):
                 _query_params.append(('fields[catalog-variant]', fields_catalog_variant))
             else:
                 _query_params.append(('fields[catalog-variant]', fields_catalog_variant))
-            _query_params.append(('fields[catalog-variant]', fields_catalog_variant))
             
         if include is not None:
             
@@ -12351,7 +12272,6 @@ class CatalogsApi(object):
                 _query_params.append(('include', include))
             else:
                 _query_params.append(('include', include))
-            _query_params.append(('include', include))
             
         # process the header parameters
         # process the form parameters
@@ -12656,7 +12576,6 @@ class CatalogsApi(object):
                 _query_params.append(('fields[catalog-variant-bulk-update-job]', fields_catalog_variant_bulk_update_job))
             else:
                 _query_params.append(('fields[catalog-variant-bulk-update-job]', fields_catalog_variant_bulk_update_job))
-            _query_params.append(('fields[catalog-variant-bulk-update-job]', fields_catalog_variant_bulk_update_job))
             
         if filter is not None:
             
@@ -12664,7 +12583,6 @@ class CatalogsApi(object):
                 _query_params.append(('filter', filter))
             else:
                 _query_params.append(('filter', filter))
-            _query_params.append(('filter', filter))
             
         if page_cursor is not None:
             
@@ -12672,7 +12590,6 @@ class CatalogsApi(object):
                 _query_params.append(('page[cursor]', page_cursor))
             else:
                 _query_params.append(('page[cursor]', page_cursor))
-            _query_params.append(('page[cursor]', page_cursor))
             
         # process the header parameters
         # process the form parameters

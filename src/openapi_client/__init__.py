@@ -15,7 +15,7 @@
 """  # noqa: E501
 
 
-__version__ = "8.0.0"
+__version__ = "8.0.1"
 
 # import apis into sdk package
 from openapi_client.api.accounts_api import AccountsApi

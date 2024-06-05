@@ -298,7 +298,6 @@ class ImagesApi(object):
                 _query_params.append(('fields[image]', fields_image))
             else:
                 _query_params.append(('fields[image]', fields_image))
-            _query_params.append(('fields[image]', fields_image))
             
         # process the header parameters
         # process the form parameters
@@ -629,7 +628,6 @@ class ImagesApi(object):
                 _query_params.append(('fields[image]', fields_image))
             else:
                 _query_params.append(('fields[image]', fields_image))
-            _query_params.append(('fields[image]', fields_image))
             
         if filter is not None:
             
@@ -637,7 +635,6 @@ class ImagesApi(object):
                 _query_params.append(('filter', filter))
             else:
                 _query_params.append(('filter', filter))
-            _query_params.append(('filter', filter))
             
         if page_cursor is not None:
             
@@ -645,7 +642,6 @@ class ImagesApi(object):
                 _query_params.append(('page[cursor]', page_cursor))
             else:
                 _query_params.append(('page[cursor]', page_cursor))
-            _query_params.append(('page[cursor]', page_cursor))
             
         if page_size is not None:
             
@@ -653,7 +649,6 @@ class ImagesApi(object):
                 _query_params.append(('page[size]', page_size))
             else:
                 _query_params.append(('page[size]', page_size))
-            _query_params.append(('page[size]', page_size))
             
         if sort is not None:
             
@@ -661,7 +656,6 @@ class ImagesApi(object):
                 _query_params.append(('sort', sort))
             else:
                 _query_params.append(('sort', sort))
-            _query_params.append(('sort', sort))
             
         # process the header parameters
         # process the form parameters
