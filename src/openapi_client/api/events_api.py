@@ -910,7 +910,6 @@ class EventsApi(object):
                 _query_params.append(('fields[event]', fields_event))
             else:
                 _query_params.append(('fields[event]', fields_event))
-            _query_params.append(('fields[event]', fields_event))
             
         if fields_metric is not None:
             
@@ -918,7 +917,6 @@ class EventsApi(object):
                 _query_params.append(('fields[metric]', fields_metric))
             else:
                 _query_params.append(('fields[metric]', fields_metric))
-            _query_params.append(('fields[metric]', fields_metric))
             
         if fields_profile is not None:
             
@@ -926,7 +924,6 @@ class EventsApi(object):
                 _query_params.append(('fields[profile]', fields_profile))
             else:
                 _query_params.append(('fields[profile]', fields_profile))
-            _query_params.append(('fields[profile]', fields_profile))
             
         if include is not None:
             
@@ -934,7 +931,6 @@ class EventsApi(object):
                 _query_params.append(('include', include))
             else:
                 _query_params.append(('include', include))
-            _query_params.append(('include', include))
             
         # process the header parameters
         # process the form parameters
@@ -1228,7 +1224,6 @@ class EventsApi(object):
                 _query_params.append(('fields[metric]', fields_metric))
             else:
                 _query_params.append(('fields[metric]', fields_metric))
-            _query_params.append(('fields[metric]', fields_metric))
             
         # process the header parameters
         # process the form parameters
@@ -1536,7 +1531,6 @@ class EventsApi(object):
                 _query_params.append(('additional-fields[profile]', additional_fields_profile))
             else:
                 _query_params.append(('additional-fields[profile]', additional_fields_profile))
-            _query_params.append(('additional-fields[profile]', additional_fields_profile))
             
         if fields_profile is not None:
             
@@ -1544,7 +1538,6 @@ class EventsApi(object):
                 _query_params.append(('fields[profile]', fields_profile))
             else:
                 _query_params.append(('fields[profile]', fields_profile))
-            _query_params.append(('fields[profile]', fields_profile))
             
         # process the header parameters
         # process the form parameters
@@ -2448,7 +2441,6 @@ class EventsApi(object):
                 _query_params.append(('fields[event]', fields_event))
             else:
                 _query_params.append(('fields[event]', fields_event))
-            _query_params.append(('fields[event]', fields_event))
             
         if fields_metric is not None:
             
@@ -2456,7 +2448,6 @@ class EventsApi(object):
                 _query_params.append(('fields[metric]', fields_metric))
             else:
                 _query_params.append(('fields[metric]', fields_metric))
-            _query_params.append(('fields[metric]', fields_metric))
             
         if fields_profile is not None:
             
@@ -2464,7 +2455,6 @@ class EventsApi(object):
                 _query_params.append(('fields[profile]', fields_profile))
             else:
                 _query_params.append(('fields[profile]', fields_profile))
-            _query_params.append(('fields[profile]', fields_profile))
             
         if filter is not None:
             
@@ -2472,7 +2462,6 @@ class EventsApi(object):
                 _query_params.append(('filter', filter))
             else:
                 _query_params.append(('filter', filter))
-            _query_params.append(('filter', filter))
             
         if include is not None:
             
@@ -2480,7 +2469,6 @@ class EventsApi(object):
                 _query_params.append(('include', include))
             else:
                 _query_params.append(('include', include))
-            _query_params.append(('include', include))
             
         if page_cursor is not None:
             
@@ -2488,7 +2476,6 @@ class EventsApi(object):
                 _query_params.append(('page[cursor]', page_cursor))
             else:
                 _query_params.append(('page[cursor]', page_cursor))
-            _query_params.append(('page[cursor]', page_cursor))
             
         if sort is not None:
             
@@ -2496,7 +2483,6 @@ class EventsApi(object):
                 _query_params.append(('sort', sort))
             else:
                 _query_params.append(('sort', sort))
-            _query_params.append(('sort', sort))
             
         # process the header parameters
         # process the form parameters

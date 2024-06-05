@@ -339,7 +339,6 @@ class SegmentsApi(object):
                 _query_params.append(('additional-fields[segment]', additional_fields_segment))
             else:
                 _query_params.append(('additional-fields[segment]', additional_fields_segment))
-            _query_params.append(('additional-fields[segment]', additional_fields_segment))
             
         if fields_segment is not None:
             
@@ -347,7 +346,6 @@ class SegmentsApi(object):
                 _query_params.append(('fields[segment]', fields_segment))
             else:
                 _query_params.append(('fields[segment]', fields_segment))
-            _query_params.append(('fields[segment]', fields_segment))
             
         if fields_tag is not None:
             
@@ -355,7 +353,6 @@ class SegmentsApi(object):
                 _query_params.append(('fields[tag]', fields_tag))
             else:
                 _query_params.append(('fields[tag]', fields_tag))
-            _query_params.append(('fields[tag]', fields_tag))
             
         if include is not None:
             
@@ -363,7 +360,6 @@ class SegmentsApi(object):
                 _query_params.append(('include', include))
             else:
                 _query_params.append(('include', include))
-            _query_params.append(('include', include))
             
         # process the header parameters
         # process the form parameters
@@ -723,7 +719,6 @@ class SegmentsApi(object):
                 _query_params.append(('additional-fields[profile]', additional_fields_profile))
             else:
                 _query_params.append(('additional-fields[profile]', additional_fields_profile))
-            _query_params.append(('additional-fields[profile]', additional_fields_profile))
             
         if fields_profile is not None:
             
@@ -731,7 +726,6 @@ class SegmentsApi(object):
                 _query_params.append(('fields[profile]', fields_profile))
             else:
                 _query_params.append(('fields[profile]', fields_profile))
-            _query_params.append(('fields[profile]', fields_profile))
             
         if filter is not None:
             
@@ -739,7 +733,6 @@ class SegmentsApi(object):
                 _query_params.append(('filter', filter))
             else:
                 _query_params.append(('filter', filter))
-            _query_params.append(('filter', filter))
             
         if page_cursor is not None:
             
@@ -747,7 +740,6 @@ class SegmentsApi(object):
                 _query_params.append(('page[cursor]', page_cursor))
             else:
                 _query_params.append(('page[cursor]', page_cursor))
-            _query_params.append(('page[cursor]', page_cursor))
             
         if page_size is not None:
             
@@ -755,7 +747,6 @@ class SegmentsApi(object):
                 _query_params.append(('page[size]', page_size))
             else:
                 _query_params.append(('page[size]', page_size))
-            _query_params.append(('page[size]', page_size))
             
         if sort is not None:
             
@@ -763,7 +754,6 @@ class SegmentsApi(object):
                 _query_params.append(('sort', sort))
             else:
                 _query_params.append(('sort', sort))
-            _query_params.append(('sort', sort))
             
         # process the header parameters
         # process the form parameters
@@ -1095,7 +1085,6 @@ class SegmentsApi(object):
                 _query_params.append(('filter', filter))
             else:
                 _query_params.append(('filter', filter))
-            _query_params.append(('filter', filter))
             
         if page_cursor is not None:
             
@@ -1103,7 +1092,6 @@ class SegmentsApi(object):
                 _query_params.append(('page[cursor]', page_cursor))
             else:
                 _query_params.append(('page[cursor]', page_cursor))
-            _query_params.append(('page[cursor]', page_cursor))
             
         if page_size is not None:
             
@@ -1111,7 +1099,6 @@ class SegmentsApi(object):
                 _query_params.append(('page[size]', page_size))
             else:
                 _query_params.append(('page[size]', page_size))
-            _query_params.append(('page[size]', page_size))
             
         if sort is not None:
             
@@ -1119,7 +1106,6 @@ class SegmentsApi(object):
                 _query_params.append(('sort', sort))
             else:
                 _query_params.append(('sort', sort))
-            _query_params.append(('sort', sort))
             
         # process the header parameters
         # process the form parameters
@@ -1685,7 +1671,6 @@ class SegmentsApi(object):
                 _query_params.append(('fields[tag]', fields_tag))
             else:
                 _query_params.append(('fields[tag]', fields_tag))
-            _query_params.append(('fields[tag]', fields_tag))
             
         # process the header parameters
         # process the form parameters
@@ -1732,6 +1717,7 @@ class SegmentsApi(object):
         filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-05-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`name`: `any`, `equals`<br>`id`: `any`, `equals`<br>`created`: `greater-than`<br>`updated`: `greater-than`<br>`is_active`: `any`, `equals`<br>`is_starred`: `equals`")] = None,
         include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-05-15/reference/api-overview#relationships")] = None,
         page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-05-15/reference/api-overview#pagination")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-05-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1759,6 +1745,8 @@ class SegmentsApi(object):
         :type include: List[str]
         :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2024-05-15/reference/api-overview#pagination
         :type page_cursor: str
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2024-05-15/reference/api-overview#sorting
+        :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1787,6 +1775,7 @@ class SegmentsApi(object):
             filter=filter,
             include=include,
             page_cursor=page_cursor,
+            sort=sort,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1820,6 +1809,7 @@ class SegmentsApi(object):
         filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-05-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`name`: `any`, `equals`<br>`id`: `any`, `equals`<br>`created`: `greater-than`<br>`updated`: `greater-than`<br>`is_active`: `any`, `equals`<br>`is_starred`: `equals`")] = None,
         include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-05-15/reference/api-overview#relationships")] = None,
         page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-05-15/reference/api-overview#pagination")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-05-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1847,6 +1837,8 @@ class SegmentsApi(object):
         :type include: List[str]
         :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2024-05-15/reference/api-overview#pagination
         :type page_cursor: str
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2024-05-15/reference/api-overview#sorting
+        :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1875,6 +1867,7 @@ class SegmentsApi(object):
             filter=filter,
             include=include,
             page_cursor=page_cursor,
+            sort=sort,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1907,6 +1900,7 @@ class SegmentsApi(object):
         filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-05-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`name`: `any`, `equals`<br>`id`: `any`, `equals`<br>`created`: `greater-than`<br>`updated`: `greater-than`<br>`is_active`: `any`, `equals`<br>`is_starred`: `equals`")] = None,
         include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-05-15/reference/api-overview#relationships")] = None,
         page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-05-15/reference/api-overview#pagination")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-05-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1934,6 +1928,8 @@ class SegmentsApi(object):
         :type include: List[str]
         :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2024-05-15/reference/api-overview#pagination
         :type page_cursor: str
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2024-05-15/reference/api-overview#sorting
+        :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1962,6 +1958,7 @@ class SegmentsApi(object):
             filter=filter,
             include=include,
             page_cursor=page_cursor,
+            sort=sort,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1989,6 +1986,7 @@ class SegmentsApi(object):
         filter,
         include,
         page_cursor,
+        sort,
         _request_auth,
         _content_type,
         _headers,
@@ -2018,7 +2016,6 @@ class SegmentsApi(object):
                 _query_params.append(('fields[segment]', fields_segment))
             else:
                 _query_params.append(('fields[segment]', fields_segment))
-            _query_params.append(('fields[segment]', fields_segment))
             
         if fields_tag is not None:
             
@@ -2026,7 +2023,6 @@ class SegmentsApi(object):
                 _query_params.append(('fields[tag]', fields_tag))
             else:
                 _query_params.append(('fields[tag]', fields_tag))
-            _query_params.append(('fields[tag]', fields_tag))
             
         if filter is not None:
             
@@ -2034,7 +2030,6 @@ class SegmentsApi(object):
                 _query_params.append(('filter', filter))
             else:
                 _query_params.append(('filter', filter))
-            _query_params.append(('filter', filter))
             
         if include is not None:
             
@@ -2042,7 +2037,6 @@ class SegmentsApi(object):
                 _query_params.append(('include', include))
             else:
                 _query_params.append(('include', include))
-            _query_params.append(('include', include))
             
         if page_cursor is not None:
             
@@ -2050,7 +2044,13 @@ class SegmentsApi(object):
                 _query_params.append(('page[cursor]', page_cursor))
             else:
                 _query_params.append(('page[cursor]', page_cursor))
-            _query_params.append(('page[cursor]', page_cursor))
+            
+        if sort is not None:
+            
+            if isinstance(sort, EnumMeta):
+                _query_params.append(('sort', sort))
+            else:
+                _query_params.append(('sort', sort))
             
         # process the header parameters
         # process the form parameters

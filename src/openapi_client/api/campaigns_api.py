@@ -2043,7 +2043,6 @@ class CampaignsApi(object):
                 _query_params.append(('fields[campaign-message]', fields_campaign_message))
             else:
                 _query_params.append(('fields[campaign-message]', fields_campaign_message))
-            _query_params.append(('fields[campaign-message]', fields_campaign_message))
             
         if fields_campaign is not None:
             
@@ -2051,7 +2050,6 @@ class CampaignsApi(object):
                 _query_params.append(('fields[campaign]', fields_campaign))
             else:
                 _query_params.append(('fields[campaign]', fields_campaign))
-            _query_params.append(('fields[campaign]', fields_campaign))
             
         if fields_tag is not None:
             
@@ -2059,7 +2057,6 @@ class CampaignsApi(object):
                 _query_params.append(('fields[tag]', fields_tag))
             else:
                 _query_params.append(('fields[tag]', fields_tag))
-            _query_params.append(('fields[tag]', fields_tag))
             
         if include is not None:
             
@@ -2067,7 +2064,6 @@ class CampaignsApi(object):
                 _query_params.append(('include', include))
             else:
                 _query_params.append(('include', include))
-            _query_params.append(('include', include))
             
         # process the header parameters
         # process the form parameters
@@ -2403,7 +2399,6 @@ class CampaignsApi(object):
                 _query_params.append(('fields[campaign-message]', fields_campaign_message))
             else:
                 _query_params.append(('fields[campaign-message]', fields_campaign_message))
-            _query_params.append(('fields[campaign-message]', fields_campaign_message))
             
         if fields_campaign is not None:
             
@@ -2411,7 +2406,6 @@ class CampaignsApi(object):
                 _query_params.append(('fields[campaign]', fields_campaign))
             else:
                 _query_params.append(('fields[campaign]', fields_campaign))
-            _query_params.append(('fields[campaign]', fields_campaign))
             
         if fields_template is not None:
             
@@ -2419,7 +2413,6 @@ class CampaignsApi(object):
                 _query_params.append(('fields[template]', fields_template))
             else:
                 _query_params.append(('fields[template]', fields_template))
-            _query_params.append(('fields[template]', fields_template))
             
         if include is not None:
             
@@ -2427,7 +2420,6 @@ class CampaignsApi(object):
                 _query_params.append(('include', include))
             else:
                 _query_params.append(('include', include))
-            _query_params.append(('include', include))
             
         # process the header parameters
         # process the form parameters
@@ -2763,7 +2755,6 @@ class CampaignsApi(object):
                 _query_params.append(('fields[campaign-message]', fields_campaign_message))
             else:
                 _query_params.append(('fields[campaign-message]', fields_campaign_message))
-            _query_params.append(('fields[campaign-message]', fields_campaign_message))
             
         if fields_campaign is not None:
             
@@ -2771,7 +2762,6 @@ class CampaignsApi(object):
                 _query_params.append(('fields[campaign]', fields_campaign))
             else:
                 _query_params.append(('fields[campaign]', fields_campaign))
-            _query_params.append(('fields[campaign]', fields_campaign))
             
         if fields_template is not None:
             
@@ -2779,7 +2769,6 @@ class CampaignsApi(object):
                 _query_params.append(('fields[template]', fields_template))
             else:
                 _query_params.append(('fields[template]', fields_template))
-            _query_params.append(('fields[template]', fields_template))
             
         if include is not None:
             
@@ -2787,7 +2776,6 @@ class CampaignsApi(object):
                 _query_params.append(('include', include))
             else:
                 _query_params.append(('include', include))
-            _query_params.append(('include', include))
             
         # process the header parameters
         # process the form parameters
@@ -3081,7 +3069,6 @@ class CampaignsApi(object):
                 _query_params.append(('fields[campaign]', fields_campaign))
             else:
                 _query_params.append(('fields[campaign]', fields_campaign))
-            _query_params.append(('fields[campaign]', fields_campaign))
             
         # process the header parameters
         # process the form parameters
@@ -3919,7 +3906,6 @@ class CampaignsApi(object):
                 _query_params.append(('fields[template]', fields_template))
             else:
                 _query_params.append(('fields[template]', fields_template))
-            _query_params.append(('fields[template]', fields_template))
             
         # process the header parameters
         # process the form parameters
@@ -4213,7 +4199,6 @@ class CampaignsApi(object):
                 _query_params.append(('fields[campaign-recipient-estimation]', fields_campaign_recipient_estimation))
             else:
                 _query_params.append(('fields[campaign-recipient-estimation]', fields_campaign_recipient_estimation))
-            _query_params.append(('fields[campaign-recipient-estimation]', fields_campaign_recipient_estimation))
             
         # process the header parameters
         # process the form parameters
@@ -4507,7 +4492,6 @@ class CampaignsApi(object):
                 _query_params.append(('fields[campaign-recipient-estimation-job]', fields_campaign_recipient_estimation_job))
             else:
                 _query_params.append(('fields[campaign-recipient-estimation-job]', fields_campaign_recipient_estimation_job))
-            _query_params.append(('fields[campaign-recipient-estimation-job]', fields_campaign_recipient_estimation_job))
             
         # process the header parameters
         # process the form parameters
@@ -5345,7 +5329,6 @@ class CampaignsApi(object):
                 _query_params.append(('fields[campaign-send-job]', fields_campaign_send_job))
             else:
                 _query_params.append(('fields[campaign-send-job]', fields_campaign_send_job))
-            _query_params.append(('fields[campaign-send-job]', fields_campaign_send_job))
             
         # process the header parameters
         # process the form parameters
@@ -5639,7 +5622,6 @@ class CampaignsApi(object):
                 _query_params.append(('fields[tag]', fields_tag))
             else:
                 _query_params.append(('fields[tag]', fields_tag))
-            _query_params.append(('fields[tag]', fields_tag))
             
         # process the header parameters
         # process the form parameters
@@ -5999,7 +5981,6 @@ class CampaignsApi(object):
                 _query_params.append(('filter', filter))
             else:
                 _query_params.append(('filter', filter))
-            _query_params.append(('filter', filter))
             
         if fields_campaign_message is not None:
             
@@ -6007,7 +5988,6 @@ class CampaignsApi(object):
                 _query_params.append(('fields[campaign-message]', fields_campaign_message))
             else:
                 _query_params.append(('fields[campaign-message]', fields_campaign_message))
-            _query_params.append(('fields[campaign-message]', fields_campaign_message))
             
         if fields_campaign is not None:
             
@@ -6015,7 +5995,6 @@ class CampaignsApi(object):
                 _query_params.append(('fields[campaign]', fields_campaign))
             else:
                 _query_params.append(('fields[campaign]', fields_campaign))
-            _query_params.append(('fields[campaign]', fields_campaign))
             
         if fields_tag is not None:
             
@@ -6023,7 +6002,6 @@ class CampaignsApi(object):
                 _query_params.append(('fields[tag]', fields_tag))
             else:
                 _query_params.append(('fields[tag]', fields_tag))
-            _query_params.append(('fields[tag]', fields_tag))
             
         if include is not None:
             
@@ -6031,7 +6009,6 @@ class CampaignsApi(object):
                 _query_params.append(('include', include))
             else:
                 _query_params.append(('include', include))
-            _query_params.append(('include', include))
             
         if page_cursor is not None:
             
@@ -6039,7 +6016,6 @@ class CampaignsApi(object):
                 _query_params.append(('page[cursor]', page_cursor))
             else:
                 _query_params.append(('page[cursor]', page_cursor))
-            _query_params.append(('page[cursor]', page_cursor))
             
         if sort is not None:
             
@@ -6047,7 +6023,6 @@ class CampaignsApi(object):
                 _query_params.append(('sort', sort))
             else:
                 _query_params.append(('sort', sort))
-            _query_params.append(('sort', sort))
             
         # process the header parameters
         # process the form parameters

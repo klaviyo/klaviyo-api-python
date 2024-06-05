@@ -70,7 +70,7 @@ class ProfilesApi(object):
     ) -> Dict[str, object]:
         """Create or Update Profile
 
-        Given a set of profile attributes and optionally an ID, create or update a profile.  Returns 201 if a new profile was created, 200 if an existing profile was updated.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `profiles:write`
+        Given a set of profile attributes and optionally an ID, create or update a profile.  Returns 201 if a new profile was created, 200 if an existing profile was updated.  Note that setting a field to `null` will clear out the field, whereas not including a field in your request will leave it unchanged.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `profiles:write`
 
         :param profile_upsert_query: (required)
         :type profile_upsert_query: ProfileUpsertQuery
@@ -143,7 +143,7 @@ class ProfilesApi(object):
     ) -> ApiResponse[Dict[str, object]]:
         """Create or Update Profile
 
-        Given a set of profile attributes and optionally an ID, create or update a profile.  Returns 201 if a new profile was created, 200 if an existing profile was updated.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `profiles:write`
+        Given a set of profile attributes and optionally an ID, create or update a profile.  Returns 201 if a new profile was created, 200 if an existing profile was updated.  Note that setting a field to `null` will clear out the field, whereas not including a field in your request will leave it unchanged.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `profiles:write`
 
         :param profile_upsert_query: (required)
         :type profile_upsert_query: ProfileUpsertQuery
@@ -215,7 +215,7 @@ class ProfilesApi(object):
     ) -> RESTResponseType:
         """Create or Update Profile
 
-        Given a set of profile attributes and optionally an ID, create or update a profile.  Returns 201 if a new profile was created, 200 if an existing profile was updated.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `profiles:write`
+        Given a set of profile attributes and optionally an ID, create or update a profile.  Returns 201 if a new profile was created, 200 if an existing profile was updated.  Note that setting a field to `null` will clear out the field, whereas not including a field in your request will leave it unchanged.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `profiles:write`
 
         :param profile_upsert_query: (required)
         :type profile_upsert_query: ProfileUpsertQuery
@@ -1192,7 +1192,6 @@ class ProfilesApi(object):
                 _query_params.append(('fields[list]', fields_list))
             else:
                 _query_params.append(('fields[list]', fields_list))
-            _query_params.append(('fields[list]', fields_list))
             
         if fields_profile_bulk_import_job is not None:
             
@@ -1200,7 +1199,6 @@ class ProfilesApi(object):
                 _query_params.append(('fields[profile-bulk-import-job]', fields_profile_bulk_import_job))
             else:
                 _query_params.append(('fields[profile-bulk-import-job]', fields_profile_bulk_import_job))
-            _query_params.append(('fields[profile-bulk-import-job]', fields_profile_bulk_import_job))
             
         if include is not None:
             
@@ -1208,7 +1206,6 @@ class ProfilesApi(object):
                 _query_params.append(('include', include))
             else:
                 _query_params.append(('include', include))
-            _query_params.append(('include', include))
             
         # process the header parameters
         # process the form parameters
@@ -1528,7 +1525,6 @@ class ProfilesApi(object):
                 _query_params.append(('fields[import-error]', fields_import_error))
             else:
                 _query_params.append(('fields[import-error]', fields_import_error))
-            _query_params.append(('fields[import-error]', fields_import_error))
             
         if page_cursor is not None:
             
@@ -1536,7 +1532,6 @@ class ProfilesApi(object):
                 _query_params.append(('page[cursor]', page_cursor))
             else:
                 _query_params.append(('page[cursor]', page_cursor))
-            _query_params.append(('page[cursor]', page_cursor))
             
         if page_size is not None:
             
@@ -1544,7 +1539,6 @@ class ProfilesApi(object):
                 _query_params.append(('page[size]', page_size))
             else:
                 _query_params.append(('page[size]', page_size))
-            _query_params.append(('page[size]', page_size))
             
         # process the header parameters
         # process the form parameters
@@ -1838,7 +1832,6 @@ class ProfilesApi(object):
                 _query_params.append(('fields[list]', fields_list))
             else:
                 _query_params.append(('fields[list]', fields_list))
-            _query_params.append(('fields[list]', fields_list))
             
         # process the header parameters
         # process the form parameters
@@ -2172,7 +2165,6 @@ class ProfilesApi(object):
                 _query_params.append(('additional-fields[profile]', additional_fields_profile))
             else:
                 _query_params.append(('additional-fields[profile]', additional_fields_profile))
-            _query_params.append(('additional-fields[profile]', additional_fields_profile))
             
         if fields_profile is not None:
             
@@ -2180,7 +2172,6 @@ class ProfilesApi(object):
                 _query_params.append(('fields[profile]', fields_profile))
             else:
                 _query_params.append(('fields[profile]', fields_profile))
-            _query_params.append(('fields[profile]', fields_profile))
             
         if page_cursor is not None:
             
@@ -2188,7 +2179,6 @@ class ProfilesApi(object):
                 _query_params.append(('page[cursor]', page_cursor))
             else:
                 _query_params.append(('page[cursor]', page_cursor))
-            _query_params.append(('page[cursor]', page_cursor))
             
         if page_size is not None:
             
@@ -2196,7 +2186,6 @@ class ProfilesApi(object):
                 _query_params.append(('page[size]', page_size))
             else:
                 _query_params.append(('page[size]', page_size))
-            _query_params.append(('page[size]', page_size))
             
         # process the header parameters
         # process the form parameters
@@ -2774,7 +2763,6 @@ class ProfilesApi(object):
                 _query_params.append(('page[cursor]', page_cursor))
             else:
                 _query_params.append(('page[cursor]', page_cursor))
-            _query_params.append(('page[cursor]', page_cursor))
             
         if page_size is not None:
             
@@ -2782,7 +2770,6 @@ class ProfilesApi(object):
                 _query_params.append(('page[size]', page_size))
             else:
                 _query_params.append(('page[size]', page_size))
-            _query_params.append(('page[size]', page_size))
             
         # process the header parameters
         # process the form parameters
@@ -3113,7 +3100,6 @@ class ProfilesApi(object):
                 _query_params.append(('fields[profile-bulk-import-job]', fields_profile_bulk_import_job))
             else:
                 _query_params.append(('fields[profile-bulk-import-job]', fields_profile_bulk_import_job))
-            _query_params.append(('fields[profile-bulk-import-job]', fields_profile_bulk_import_job))
             
         if filter is not None:
             
@@ -3121,7 +3107,6 @@ class ProfilesApi(object):
                 _query_params.append(('filter', filter))
             else:
                 _query_params.append(('filter', filter))
-            _query_params.append(('filter', filter))
             
         if page_cursor is not None:
             
@@ -3129,7 +3114,6 @@ class ProfilesApi(object):
                 _query_params.append(('page[cursor]', page_cursor))
             else:
                 _query_params.append(('page[cursor]', page_cursor))
-            _query_params.append(('page[cursor]', page_cursor))
             
         if page_size is not None:
             
@@ -3137,7 +3121,6 @@ class ProfilesApi(object):
                 _query_params.append(('page[size]', page_size))
             else:
                 _query_params.append(('page[size]', page_size))
-            _query_params.append(('page[size]', page_size))
             
         if sort is not None:
             
@@ -3145,7 +3128,6 @@ class ProfilesApi(object):
                 _query_params.append(('sort', sort))
             else:
                 _query_params.append(('sort', sort))
-            _query_params.append(('sort', sort))
             
         # process the header parameters
         # process the form parameters
@@ -3495,7 +3477,6 @@ class ProfilesApi(object):
                 _query_params.append(('additional-fields[profile]', additional_fields_profile))
             else:
                 _query_params.append(('additional-fields[profile]', additional_fields_profile))
-            _query_params.append(('additional-fields[profile]', additional_fields_profile))
             
         if fields_list is not None:
             
@@ -3503,7 +3484,6 @@ class ProfilesApi(object):
                 _query_params.append(('fields[list]', fields_list))
             else:
                 _query_params.append(('fields[list]', fields_list))
-            _query_params.append(('fields[list]', fields_list))
             
         if fields_profile is not None:
             
@@ -3511,7 +3491,6 @@ class ProfilesApi(object):
                 _query_params.append(('fields[profile]', fields_profile))
             else:
                 _query_params.append(('fields[profile]', fields_profile))
-            _query_params.append(('fields[profile]', fields_profile))
             
         if fields_segment is not None:
             
@@ -3519,7 +3498,6 @@ class ProfilesApi(object):
                 _query_params.append(('fields[segment]', fields_segment))
             else:
                 _query_params.append(('fields[segment]', fields_segment))
-            _query_params.append(('fields[segment]', fields_segment))
             
         if include is not None:
             
@@ -3527,7 +3505,6 @@ class ProfilesApi(object):
                 _query_params.append(('include', include))
             else:
                 _query_params.append(('include', include))
-            _query_params.append(('include', include))
             
         # process the header parameters
         # process the form parameters
@@ -3821,7 +3798,6 @@ class ProfilesApi(object):
                 _query_params.append(('fields[list]', fields_list))
             else:
                 _query_params.append(('fields[list]', fields_list))
-            _query_params.append(('fields[list]', fields_list))
             
         # process the header parameters
         # process the form parameters
@@ -4659,7 +4635,6 @@ class ProfilesApi(object):
                 _query_params.append(('fields[segment]', fields_segment))
             else:
                 _query_params.append(('fields[segment]', fields_segment))
-            _query_params.append(('fields[segment]', fields_segment))
             
         # process the header parameters
         # process the form parameters
@@ -5004,7 +4979,6 @@ class ProfilesApi(object):
                 _query_params.append(('additional-fields[profile]', additional_fields_profile))
             else:
                 _query_params.append(('additional-fields[profile]', additional_fields_profile))
-            _query_params.append(('additional-fields[profile]', additional_fields_profile))
             
         if fields_profile is not None:
             
@@ -5012,7 +4986,6 @@ class ProfilesApi(object):
                 _query_params.append(('fields[profile]', fields_profile))
             else:
                 _query_params.append(('fields[profile]', fields_profile))
-            _query_params.append(('fields[profile]', fields_profile))
             
         if filter is not None:
             
@@ -5020,7 +4993,6 @@ class ProfilesApi(object):
                 _query_params.append(('filter', filter))
             else:
                 _query_params.append(('filter', filter))
-            _query_params.append(('filter', filter))
             
         if page_cursor is not None:
             
@@ -5028,7 +5000,6 @@ class ProfilesApi(object):
                 _query_params.append(('page[cursor]', page_cursor))
             else:
                 _query_params.append(('page[cursor]', page_cursor))
-            _query_params.append(('page[cursor]', page_cursor))
             
         if page_size is not None:
             
@@ -5036,7 +5007,6 @@ class ProfilesApi(object):
                 _query_params.append(('page[size]', page_size))
             else:
                 _query_params.append(('page[size]', page_size))
-            _query_params.append(('page[size]', page_size))
             
         if sort is not None:
             
@@ -5044,7 +5014,6 @@ class ProfilesApi(object):
                 _query_params.append(('sort', sort))
             else:
                 _query_params.append(('sort', sort))
-            _query_params.append(('sort', sort))
             
         # process the header parameters
         # process the form parameters
@@ -6813,7 +6782,7 @@ class ProfilesApi(object):
     ) -> Dict[str, object]:
         """Update Profile
 
-        Update the profile with the given profile ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `profiles:write`
+        Update the profile with the given profile ID.  Note that setting a field to `null` will clear out the field, whereas not including a field in your request will leave it unchanged.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `profiles:write`
 
         :param id: Primary key that uniquely identifies this profile. Generated by Klaviyo. (required)
         :type id: str
@@ -6889,7 +6858,7 @@ class ProfilesApi(object):
     ) -> ApiResponse[Dict[str, object]]:
         """Update Profile
 
-        Update the profile with the given profile ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `profiles:write`
+        Update the profile with the given profile ID.  Note that setting a field to `null` will clear out the field, whereas not including a field in your request will leave it unchanged.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `profiles:write`
 
         :param id: Primary key that uniquely identifies this profile. Generated by Klaviyo. (required)
         :type id: str
@@ -6964,7 +6933,7 @@ class ProfilesApi(object):
     ) -> RESTResponseType:
         """Update Profile
 
-        Update the profile with the given profile ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `profiles:write`
+        Update the profile with the given profile ID.  Note that setting a field to `null` will clear out the field, whereas not including a field in your request will leave it unchanged.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `profiles:write`
 
         :param id: Primary key that uniquely identifies this profile. Generated by Klaviyo. (required)
         :type id: str

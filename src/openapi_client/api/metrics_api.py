@@ -297,7 +297,6 @@ class MetricsApi(object):
                 _query_params.append(('fields[metric]', fields_metric))
             else:
                 _query_params.append(('fields[metric]', fields_metric))
-            _query_params.append(('fields[metric]', fields_metric))
             
         # process the header parameters
         # process the form parameters
@@ -602,7 +601,6 @@ class MetricsApi(object):
                 _query_params.append(('fields[metric]', fields_metric))
             else:
                 _query_params.append(('fields[metric]', fields_metric))
-            _query_params.append(('fields[metric]', fields_metric))
             
         if filter is not None:
             
@@ -610,7 +608,6 @@ class MetricsApi(object):
                 _query_params.append(('filter', filter))
             else:
                 _query_params.append(('filter', filter))
-            _query_params.append(('filter', filter))
             
         if page_cursor is not None:
             
@@ -618,7 +615,6 @@ class MetricsApi(object):
                 _query_params.append(('page[cursor]', page_cursor))
             else:
                 _query_params.append(('page[cursor]', page_cursor))
-            _query_params.append(('page[cursor]', page_cursor))
             
         # process the header parameters
         # process the form parameters

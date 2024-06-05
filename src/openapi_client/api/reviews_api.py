@@ -296,7 +296,6 @@ class ReviewsApi(object):
                 _query_params.append(('fields[event]', fields_event))
             else:
                 _query_params.append(('fields[event]', fields_event))
-            _query_params.append(('fields[event]', fields_event))
             
         # process the header parameters
         # process the form parameters

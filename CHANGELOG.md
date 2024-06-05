@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 NOTE: For more granular API-specific changes, please see our [API Changelog](https://developers.klaviyo.com/en/docs/changelog_)
 
+## [8.0.1] - revision 2024-05-15
+
+### Added
+
+- Fixes issue where `filter` query params for any API call were being duplicated on request send. See issue: https://github.com/klaviyo/klaviyo-api-python/issues/51
+
 ## [8.0.0] - revision 2024-05-15
 
 ### Added
