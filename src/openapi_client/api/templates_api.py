@@ -1427,7 +1427,6 @@ class TemplatesApi(object):
                 _query_params.append(('fields[template]', fields_template))
             else:
                 _query_params.append(('fields[template]', fields_template))
-            _query_params.append(('fields[template]', fields_template))
             
         # process the header parameters
         # process the form parameters
@@ -1745,7 +1744,6 @@ class TemplatesApi(object):
                 _query_params.append(('fields[template]', fields_template))
             else:
                 _query_params.append(('fields[template]', fields_template))
-            _query_params.append(('fields[template]', fields_template))
             
         if filter is not None:
             
@@ -1753,7 +1751,6 @@ class TemplatesApi(object):
                 _query_params.append(('filter', filter))
             else:
                 _query_params.append(('filter', filter))
-            _query_params.append(('filter', filter))
             
         if page_cursor is not None:
             
@@ -1761,7 +1758,6 @@ class TemplatesApi(object):
                 _query_params.append(('page[cursor]', page_cursor))
             else:
                 _query_params.append(('page[cursor]', page_cursor))
-            _query_params.append(('page[cursor]', page_cursor))
             
         if sort is not None:
             
@@ -1769,7 +1765,6 @@ class TemplatesApi(object):
                 _query_params.append(('sort', sort))
             else:
                 _query_params.append(('sort', sort))
-            _query_params.append(('sort', sort))
             
         # process the header parameters
         # process the form parameters

@@ -1,6 +1,6 @@
 # Klaviyo Python SDK
 
-- SDK version: 8.0.0
+- SDK version: 8.0.1
 - API revision: 2024-05-15
 
 ## Table of Contents
@@ -2494,8 +2494,9 @@ klaviyo.Lists.get_list_tags(id, fields_tag=fields_tag)
 # filter | str
 # include | List[str]
 # page_cursor | str
+# sort | str
 
-klaviyo.Lists.get_lists(fields_list=fields_list, fields_tag=fields_tag, filter=filter, include=include, page_cursor=page_cursor)
+klaviyo.Lists.get_lists(fields_list=fields_list, fields_tag=fields_tag, filter=filter, include=include, page_cursor=page_cursor, sort=sort)
 ```
 
 
@@ -3120,8 +3121,9 @@ klaviyo.Segments.get_segment_tags(id, fields_tag=fields_tag)
 # filter | str
 # include | List[str]
 # page_cursor | str
+# sort | str
 
-klaviyo.Segments.get_segments(fields_segment=fields_segment, fields_tag=fields_tag, filter=filter, include=include, page_cursor=page_cursor)
+klaviyo.Segments.get_segments(fields_segment=fields_segment, fields_tag=fields_tag, filter=filter, include=include, page_cursor=page_cursor, sort=sort)
 ```
 
 

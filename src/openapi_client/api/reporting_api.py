@@ -296,7 +296,6 @@ class ReportingApi(object):
                 _query_params.append(('page_cursor', page_cursor))
             else:
                 _query_params.append(('page_cursor', page_cursor))
-            _query_params.append(('page_cursor', page_cursor))
             
         # process the header parameters
         # process the form parameters
@@ -602,7 +601,6 @@ class ReportingApi(object):
                 _query_params.append(('page_cursor', page_cursor))
             else:
                 _query_params.append(('page_cursor', page_cursor))
-            _query_params.append(('page_cursor', page_cursor))
             
         # process the header parameters
         # process the form parameters
@@ -908,7 +906,6 @@ class ReportingApi(object):
                 _query_params.append(('page_cursor', page_cursor))
             else:
                 _query_params.append(('page_cursor', page_cursor))
-            _query_params.append(('page_cursor', page_cursor))
             
         # process the header parameters
         # process the form parameters

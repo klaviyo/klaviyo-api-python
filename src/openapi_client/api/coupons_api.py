@@ -1415,7 +1415,6 @@ class CouponsApi(object):
                 _query_params.append(('fields[coupon]', fields_coupon))
             else:
                 _query_params.append(('fields[coupon]', fields_coupon))
-            _query_params.append(('fields[coupon]', fields_coupon))
             
         # process the header parameters
         # process the form parameters
@@ -1737,7 +1736,6 @@ class CouponsApi(object):
                 _query_params.append(('fields[coupon-code]', fields_coupon_code))
             else:
                 _query_params.append(('fields[coupon-code]', fields_coupon_code))
-            _query_params.append(('fields[coupon-code]', fields_coupon_code))
             
         if fields_coupon is not None:
             
@@ -1745,7 +1743,6 @@ class CouponsApi(object):
                 _query_params.append(('fields[coupon]', fields_coupon))
             else:
                 _query_params.append(('fields[coupon]', fields_coupon))
-            _query_params.append(('fields[coupon]', fields_coupon))
             
         if include is not None:
             
@@ -1753,7 +1750,6 @@ class CouponsApi(object):
                 _query_params.append(('include', include))
             else:
                 _query_params.append(('include', include))
-            _query_params.append(('include', include))
             
         # process the header parameters
         # process the form parameters
@@ -2075,7 +2071,6 @@ class CouponsApi(object):
                 _query_params.append(('fields[coupon-code-bulk-create-job]', fields_coupon_code_bulk_create_job))
             else:
                 _query_params.append(('fields[coupon-code-bulk-create-job]', fields_coupon_code_bulk_create_job))
-            _query_params.append(('fields[coupon-code-bulk-create-job]', fields_coupon_code_bulk_create_job))
             
         if fields_coupon_code is not None:
             
@@ -2083,7 +2078,6 @@ class CouponsApi(object):
                 _query_params.append(('fields[coupon-code]', fields_coupon_code))
             else:
                 _query_params.append(('fields[coupon-code]', fields_coupon_code))
-            _query_params.append(('fields[coupon-code]', fields_coupon_code))
             
         if include is not None:
             
@@ -2091,7 +2085,6 @@ class CouponsApi(object):
                 _query_params.append(('include', include))
             else:
                 _query_params.append(('include', include))
-            _query_params.append(('include', include))
             
         # process the header parameters
         # process the form parameters
@@ -2396,7 +2389,6 @@ class CouponsApi(object):
                 _query_params.append(('fields[coupon-code-bulk-create-job]', fields_coupon_code_bulk_create_job))
             else:
                 _query_params.append(('fields[coupon-code-bulk-create-job]', fields_coupon_code_bulk_create_job))
-            _query_params.append(('fields[coupon-code-bulk-create-job]', fields_coupon_code_bulk_create_job))
             
         if filter is not None:
             
@@ -2404,7 +2396,6 @@ class CouponsApi(object):
                 _query_params.append(('filter', filter))
             else:
                 _query_params.append(('filter', filter))
-            _query_params.append(('filter', filter))
             
         if page_cursor is not None:
             
@@ -2412,7 +2403,6 @@ class CouponsApi(object):
                 _query_params.append(('page[cursor]', page_cursor))
             else:
                 _query_params.append(('page[cursor]', page_cursor))
-            _query_params.append(('page[cursor]', page_cursor))
             
         # process the header parameters
         # process the form parameters
@@ -2705,7 +2695,6 @@ class CouponsApi(object):
                 _query_params.append(('page[cursor]', page_cursor))
             else:
                 _query_params.append(('page[cursor]', page_cursor))
-            _query_params.append(('page[cursor]', page_cursor))
             
         # process the header parameters
         # process the form parameters
@@ -3038,7 +3027,6 @@ class CouponsApi(object):
                 _query_params.append(('fields[coupon-code]', fields_coupon_code))
             else:
                 _query_params.append(('fields[coupon-code]', fields_coupon_code))
-            _query_params.append(('fields[coupon-code]', fields_coupon_code))
             
         if fields_coupon is not None:
             
@@ -3046,7 +3034,6 @@ class CouponsApi(object):
                 _query_params.append(('fields[coupon]', fields_coupon))
             else:
                 _query_params.append(('fields[coupon]', fields_coupon))
-            _query_params.append(('fields[coupon]', fields_coupon))
             
         if filter is not None:
             
@@ -3054,7 +3041,6 @@ class CouponsApi(object):
                 _query_params.append(('filter', filter))
             else:
                 _query_params.append(('filter', filter))
-            _query_params.append(('filter', filter))
             
         if include is not None:
             
@@ -3062,7 +3048,6 @@ class CouponsApi(object):
                 _query_params.append(('include', include))
             else:
                 _query_params.append(('include', include))
-            _query_params.append(('include', include))
             
         if page_cursor is not None:
             
@@ -3070,7 +3055,6 @@ class CouponsApi(object):
                 _query_params.append(('page[cursor]', page_cursor))
             else:
                 _query_params.append(('page[cursor]', page_cursor))
-            _query_params.append(('page[cursor]', page_cursor))
             
         # process the header parameters
         # process the form parameters
@@ -3390,7 +3374,6 @@ class CouponsApi(object):
                 _query_params.append(('fields[coupon-code]', fields_coupon_code))
             else:
                 _query_params.append(('fields[coupon-code]', fields_coupon_code))
-            _query_params.append(('fields[coupon-code]', fields_coupon_code))
             
         if filter is not None:
             
@@ -3398,7 +3381,6 @@ class CouponsApi(object):
                 _query_params.append(('filter', filter))
             else:
                 _query_params.append(('filter', filter))
-            _query_params.append(('filter', filter))
             
         if page_cursor is not None:
             
@@ -3406,7 +3388,6 @@ class CouponsApi(object):
                 _query_params.append(('page[cursor]', page_cursor))
             else:
                 _query_params.append(('page[cursor]', page_cursor))
-            _query_params.append(('page[cursor]', page_cursor))
             
         # process the header parameters
         # process the form parameters
@@ -3700,7 +3681,6 @@ class CouponsApi(object):
                 _query_params.append(('fields[coupon]', fields_coupon))
             else:
                 _query_params.append(('fields[coupon]', fields_coupon))
-            _query_params.append(('fields[coupon]', fields_coupon))
             
         # process the header parameters
         # process the form parameters
@@ -4264,7 +4244,6 @@ class CouponsApi(object):
                 _query_params.append(('fields[coupon]', fields_coupon))
             else:
                 _query_params.append(('fields[coupon]', fields_coupon))
-            _query_params.append(('fields[coupon]', fields_coupon))
             
         if page_cursor is not None:
             
@@ -4272,7 +4251,6 @@ class CouponsApi(object):
                 _query_params.append(('page[cursor]', page_cursor))
             else:
                 _query_params.append(('page[cursor]', page_cursor))
-            _query_params.append(('page[cursor]', page_cursor))
             
         # process the header parameters
         # process the form parameters
