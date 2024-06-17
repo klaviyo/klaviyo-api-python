@@ -20,7 +20,6 @@ from openapi_client.api import lists_api
 from openapi_client.api import metrics_api
 from openapi_client.api import profiles_api
 from openapi_client.api import reporting_api
-from openapi_client.api import reviews_api
 from openapi_client.api import segments_api
 from openapi_client.api import tags_api
 from openapi_client.api import templates_api
@@ -36,7 +35,7 @@ class KlaviyoAPI:
     access_token: str = None
 
 
-    _REVISION = "2024-05-15"
+    _REVISION = "2024-06-15"
 
     _STATUS_CODE_CONNECTION_RESET_BY_PEER = 104
     _STATUS_CODE_TOO_MANY_REQUESTS = 429
@@ -235,6 +234,7 @@ class KlaviyoAPI:
         self.Flows=flows_api.FlowsApi(self.api_client)
         
         ## Applying tenacity retry decorator to each endpoint in Flows
+        self.Flows.delete_flow=self._page_cursor_update(self.retry_logic(self.Flows.delete_flow))
         self.Flows.get_flow=self._page_cursor_update(self.retry_logic(self.Flows.get_flow))
         self.Flows.get_flow_action=self._page_cursor_update(self.retry_logic(self.Flows.get_flow_action))
         self.Flows.get_flow_action_flow=self._page_cursor_update(self.retry_logic(self.Flows.get_flow_action_flow))
@@ -329,18 +329,12 @@ class KlaviyoAPI:
         self.Reporting.query_flow_values=self._page_cursor_update(self.retry_logic(self.Reporting.query_flow_values))
         
         
-        ## Adding Reviews to Client
-        self.Reviews=reviews_api.ReviewsApi(self.api_client)
-        
-        ## Applying tenacity retry decorator to each endpoint in Reviews
-        self.Reviews.get_review_events=self._page_cursor_update(self.retry_logic(self.Reviews.get_review_events))
-        self.Reviews.get_review_relationships_events=self._page_cursor_update(self.retry_logic(self.Reviews.get_review_relationships_events))
-        
-        
         ## Adding Segments to Client
         self.Segments=segments_api.SegmentsApi(self.api_client)
         
         ## Applying tenacity retry decorator to each endpoint in Segments
+        self.Segments.create_segment=self._page_cursor_update(self.retry_logic(self.Segments.create_segment))
+        self.Segments.delete_segment=self._page_cursor_update(self.retry_logic(self.Segments.delete_segment))
         self.Segments.get_segment=self._page_cursor_update(self.retry_logic(self.Segments.get_segment))
         self.Segments.get_segment_profiles=self._page_cursor_update(self.retry_logic(self.Segments.get_segment_profiles))
         self.Segments.get_segment_relationships_profiles=self._page_cursor_update(self.retry_logic(self.Segments.get_segment_relationships_profiles))
