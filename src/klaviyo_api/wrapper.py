@@ -15,6 +15,7 @@ from openapi_client.api import coupons_api
 from openapi_client.api import data_privacy_api
 from openapi_client.api import events_api
 from openapi_client.api import flows_api
+from openapi_client.api import forms_api
 from openapi_client.api import images_api
 from openapi_client.api import lists_api
 from openapi_client.api import metrics_api
@@ -23,6 +24,7 @@ from openapi_client.api import reporting_api
 from openapi_client.api import segments_api
 from openapi_client.api import tags_api
 from openapi_client.api import templates_api
+from openapi_client.api import webhooks_api
 
 
 @dataclass
@@ -35,7 +37,7 @@ class KlaviyoAPI:
     access_token: str = None
 
 
-    _REVISION = "2024-06-15"
+    _REVISION = "2024-07-15"
 
     _STATUS_CODE_CONNECTION_RESET_BY_PEER = 104
     _STATUS_CODE_TOO_MANY_REQUESTS = 429
@@ -254,6 +256,19 @@ class KlaviyoAPI:
         self.Flows.update_flow=self._page_cursor_update(self.retry_logic(self.Flows.update_flow))
         
         
+        ## Adding Forms to Client
+        self.Forms=forms_api.FormsApi(self.api_client)
+        
+        ## Applying tenacity retry decorator to each endpoint in Forms
+        self.Forms.get_form=self._page_cursor_update(self.retry_logic(self.Forms.get_form))
+        self.Forms.get_form_for_form_version=self._page_cursor_update(self.retry_logic(self.Forms.get_form_for_form_version))
+        self.Forms.get_form_id_for_form_version=self._page_cursor_update(self.retry_logic(self.Forms.get_form_id_for_form_version))
+        self.Forms.get_form_version=self._page_cursor_update(self.retry_logic(self.Forms.get_form_version))
+        self.Forms.get_forms=self._page_cursor_update(self.retry_logic(self.Forms.get_forms))
+        self.Forms.get_version_ids_for_form=self._page_cursor_update(self.retry_logic(self.Forms.get_version_ids_for_form))
+        self.Forms.get_versions_for_form=self._page_cursor_update(self.retry_logic(self.Forms.get_versions_for_form))
+        
+        
         ## Adding Images to Client
         self.Images=images_api.ImagesApi(self.api_client)
         
@@ -387,6 +402,19 @@ class KlaviyoAPI:
         self.Templates.get_template=self._page_cursor_update(self.retry_logic(self.Templates.get_template))
         self.Templates.get_templates=self._page_cursor_update(self.retry_logic(self.Templates.get_templates))
         self.Templates.update_template=self._page_cursor_update(self.retry_logic(self.Templates.update_template))
+        
+        
+        ## Adding Webhooks to Client
+        self.Webhooks=webhooks_api.WebhooksApi(self.api_client)
+        
+        ## Applying tenacity retry decorator to each endpoint in Webhooks
+        self.Webhooks.create_webhook=self._page_cursor_update(self.retry_logic(self.Webhooks.create_webhook))
+        self.Webhooks.delete_webhook=self._page_cursor_update(self.retry_logic(self.Webhooks.delete_webhook))
+        self.Webhooks.get_webhook=self._page_cursor_update(self.retry_logic(self.Webhooks.get_webhook))
+        self.Webhooks.get_webhook_topic=self._page_cursor_update(self.retry_logic(self.Webhooks.get_webhook_topic))
+        self.Webhooks.get_webhook_topics=self._page_cursor_update(self.retry_logic(self.Webhooks.get_webhook_topics))
+        self.Webhooks.get_webhooks=self._page_cursor_update(self.retry_logic(self.Webhooks.get_webhooks))
+        self.Webhooks.update_webhook=self._page_cursor_update(self.retry_logic(self.Webhooks.update_webhook))
         
         
 

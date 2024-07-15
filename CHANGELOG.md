@@ -7,63 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 NOTE: For more granular API-specific changes, please see our [API Changelog](https://developers.klaviyo.com/en/docs/changelog_)
 
-## [9.0.0] - revision 2024-06-15
-
-### Added
-  - Segments Api
-    - New create segment endpoint `SegmentsApi.createSegment()`.
-    - New delete segment endpoint `SegementsApi.deleteSegment()`.
-    - Updated exisiting segments endpoints to include the segment definition
-    - For more information, see our [Segments API overview](https://developers.klaviyo.com/en/reference/segments_api_overview).
-
-  - Flows Api
-    - New delete flows endpoint `FlowsApi.deleteFlow()`
-
-## [8.0.1] - revision 2024-05-15
+## [10.0.0] - revision 2024-07-15
 
 ### Added
 
-- Fixes issue where `filter` query params for any API call were being duplicated on request send. See issue: https://github.com/klaviyo/klaviyo-api-python/issues/51
-
-## [8.0.0] - revision 2024-05-15
-
-### Added
-
-- Bulk Create Events API with 
-	- We have added support for creating events in bulk via the EventsApi.bulkCreateEvents method
-- Create multiple events for new and existing profiles and/or update profile properties in a single API call. For more information, see our [Events API overview](https://developers.klaviyo.com/en/reference/events_api_overview).
+ - Forms API
+  - New `klaviyo.Forms` class with methods to get forms, form versions and relationships
+ - Webhooks API
+  - new `klaviyo.Webooks` class containing CRUD operations for webhooks
 
 ### Changed
+ - `klaviyo.Profiles.subscribe()`
+  - added `historical_import` flag for importing historically consented profiles can now be optionally supplied in the payload for the Subscribe Profiles endpoint.
+  - When using this flag, a consented_at date must be provided and must be in the past.
 
-  - Accounts API
-	- `Accounts.get_account` and `Accounts.get_accounts` have been updated to return the account's locale, e.g.     `"en-US"`.
-
-  - **Breaking**
-    - Subscribe API Synchronous Validation Improved
-        - To provide better feedback for handling SMS subscriptions, we’ve added improved validation behavior to ProfilesApi.subscribeProfiles method. In prior revisions, such requests may appear as 202s but will fail to update SMS consent. To handle this issue, 400 validation errors are returned for the following cases
-            1. If a profile is subscribed to SMS marketing and [age-gating is enabled](https://help.klaviyo.com/hc/en-us/articles/4408311712667) but age_gated_date_of_birth is not provided, or the DOB does not meet the region's requirements.
-            2. If the account does not have a sending number in the phone number’s region.
-            3. If the phone number is in a region not supported by Klaviyo.
-            4. If consented_at is set and the list or global setting is double opt-in.
-    - Pydantic V2
-        - This SDK now uses Pydantic V2. This may cause some compatibility issues if your source code depends on Pydantic V1.
-    - Renamed Fields in SDK
-        - As of the 2024-05-15 release, some models fields are named differently than they appear in API documentation. These fields are
-            - `datetime`: renamed to `datetime_`
-            - `date`: renamed to `date_`
-
-            This is to manage compatibility with Pydantic v2. An example of this can be seen in [StaticScheduleOptions](src/openapi_client/models/static_schedule_options.py).
-
-            ```python
-            class StaticScheduleOptions(BaseModel):
-                """
-                StaticScheduleOptions
-                """ # noqa: E501
-                datetime_: datetime = Field(description="The time to send at", alias="datetime")
-
-            schedule_options = StaticScheduleOptions(datetime_=datetime.datetime.strptime("2024-05-19T00:00:00+00:00", "%Y-%m-%dT%H:%M:%S%z")
-            print(schedule_options.datetime_)
-            ```
 
 ## [7.0.0] - revision 2024-02-15
 
