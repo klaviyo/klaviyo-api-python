@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 NOTE: For more granular API-specific changes, please see our [API Changelog](https://developers.klaviyo.com/en/docs/changelog_)
 
+## [10.0.0] - revision 2024-07-15
+
+### Added
+
+ - Forms API
+  - New `klaviyo.Forms` class with methods to get forms, form versions and relationships
+ - Webhooks API
+  - new `klaviyo.Webooks` class containing CRUD operations for webhooks
+
+### Changed
+ - `klaviyo.Profiles.subscribe()`
+  - added `historical_import` flag for importing historically consented profiles can now be optionally supplied in the payload for the Subscribe Profiles endpoint.
+  - When using this flag, a consented_at date must be provided and must be in the past.
+
 ## [9.0.0] - revision 2024-06-15
 
 ### Added
@@ -63,7 +77,6 @@ NOTE: For more granular API-specific changes, please see our [API Changelog](htt
 
             schedule_options = StaticScheduleOptions(datetime_=datetime.datetime.strptime("2024-05-19T00:00:00+00:00", "%Y-%m-%dT%H:%M:%S%z")
             print(schedule_options.datetime_)
-            ```
 
 ## [7.0.0] - revision 2024-02-15
 
