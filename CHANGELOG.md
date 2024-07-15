@@ -21,6 +21,18 @@ NOTE: For more granular API-specific changes, please see our [API Changelog](htt
   - added `historical_import` flag for importing historically consented profiles can now be optionally supplied in the payload for the Subscribe Profiles endpoint.
   - When using this flag, a consented_at date must be provided and must be in the past.
 
+## [9.0.0] - revision 2024-06-15
+
+### Added
+  - Segments Api
+    - New create segment endpoint `SegmentsApi.createSegment()`.
+    - New delete segment endpoint `SegementsApi.deleteSegment()`.
+    - Updated exisiting segments endpoints to include the segment definition
+    - For more information, see our [Segments API overview](https://developers.klaviyo.com/en/reference/segments_api_overview).
+
+  - Flows Api
+    - New delete flows endpoint `FlowsApi.deleteFlow()`
+
 ## [8.0.1] - revision 2024-05-15
 
 ### Added
