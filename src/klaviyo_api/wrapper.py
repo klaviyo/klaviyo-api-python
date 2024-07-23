@@ -6,8 +6,8 @@ from urllib.parse import quote, unquote
 
 import openapi_client
 import klaviyo_api.custom_retry as custom_retry
-from dataclasses import dataclass
-from typing import Callable, ClassVar
+from dataclasses import dataclass, field
+from typing import Callable, ClassVar, Dict, Any
 from openapi_client.api import accounts_api
 from openapi_client.api import campaigns_api
 from openapi_client.api import catalogs_api
@@ -35,6 +35,7 @@ class KlaviyoAPI:
     max_retries: int = 3
     test_host: str = ''
     access_token: str = None
+    options: Dict[str, Any] = field(default_factory=dict)
 
 
     _REVISION = "2024-07-15"
@@ -73,7 +74,7 @@ class KlaviyoAPI:
         if self.test_host:
             self.configuration.host = self.test_host
 
-        self.api_client = openapi_client.ApiClient(self.configuration)
+        self.api_client = openapi_client.ApiClient(self.configuration, options=self.options)
 
         self.api_client.default_headers['revision'] = self._REVISION
         

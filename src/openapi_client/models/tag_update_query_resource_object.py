@@ -20,8 +20,8 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
-from openapi_client.models.tag_create_query_resource_object_attributes import TagCreateQueryResourceObjectAttributes
 from openapi_client.models.tag_enum import TagEnum
+from openapi_client.models.tag_response_object_resource_attributes import TagResponseObjectResourceAttributes
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -31,7 +31,7 @@ class TagUpdateQueryResourceObject(BaseModel):
     """ # noqa: E501
     type: TagEnum
     id: StrictStr = Field(description="The Tag ID")
-    attributes: TagCreateQueryResourceObjectAttributes
+    attributes: TagResponseObjectResourceAttributes
     __properties: ClassVar[List[str]] = ["type", "id", "attributes"]
 
     model_config = ConfigDict(
@@ -90,7 +90,7 @@ class TagUpdateQueryResourceObject(BaseModel):
         _obj = cls.model_validate({
             "type": obj.get("type"),
             "id": obj.get("id"),
-            "attributes": TagCreateQueryResourceObjectAttributes.from_dict(obj["attributes"]) if obj.get("attributes") is not None else None
+            "attributes": TagResponseObjectResourceAttributes.from_dict(obj["attributes"]) if obj.get("attributes") is not None else None
         })
         return _obj
 
