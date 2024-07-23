@@ -14,20 +14,29 @@
 
 import warnings
 from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
-from typing import Any, Dict, List, Optional, Tuple, Union
+from typing import Any, Dict, List, Optional, Set, Tuple, Union
 from typing_extensions import Annotated
+
+import inspect
 
 from enum import EnumMeta
 
 from pydantic import Field, StrictStr, field_validator
-from typing import Any, Dict, List, Optional
+from typing import List, Optional
 from typing_extensions import Annotated
+from openapi_client.models.get_webhook_response_collection_compound_document import GetWebhookResponseCollectionCompoundDocument
+from openapi_client.models.get_webhook_response_compound_document import GetWebhookResponseCompoundDocument
+from openapi_client.models.get_webhook_topic_response import GetWebhookTopicResponse
+from openapi_client.models.get_webhook_topic_response_collection import GetWebhookTopicResponseCollection
+from openapi_client.models.patch_webhook_response import PatchWebhookResponse
+from openapi_client.models.post_webhook_response import PostWebhookResponse
 from openapi_client.models.webhook_create_query import WebhookCreateQuery
 from openapi_client.models.webhook_partial_update_query import WebhookPartialUpdateQuery
 
 from openapi_client.api_client import ApiClient, RequestSerialized
 from openapi_client.api_response import ApiResponse
 from openapi_client.rest import RESTResponseType
+from openapi_client.api_arg_options import USE_DICTIONARY_FOR_RESPONSE_DATA
 
 
 class WebhooksApi(object):
@@ -44,7 +53,7 @@ class WebhooksApi(object):
 
 
     @validate_call
-    def create_webhook(
+    def create_webhook(        
         self,
         webhook_create_query: WebhookCreateQuery,
         _request_timeout: Union[
@@ -59,7 +68,8 @@ class WebhooksApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[PostWebhookResponse, Dict[str, object]]:
         """Create Webhook
 
         Create a new Webhook<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `webhooks:write`
@@ -97,10 +107,14 @@ class WebhooksApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dict[str, object]",
+            '201': "PostWebhookResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -109,14 +123,19 @@ class WebhooksApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def create_webhook_with_http_info(
+    def create_webhook_with_http_info(        
         self,
         webhook_create_query: WebhookCreateQuery,
         _request_timeout: Union[
@@ -131,7 +150,8 @@ class WebhooksApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[PostWebhookResponse]:
         """Create Webhook
 
         Create a new Webhook<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `webhooks:write`
@@ -169,17 +189,25 @@ class WebhooksApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dict[str, object]",
+            '201': "PostWebhookResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -201,8 +229,7 @@ class WebhooksApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Create Webhook
 
         Create a new Webhook<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `webhooks:write`
@@ -240,7 +267,7 @@ class WebhooksApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dict[str, object]",
+            '201': "PostWebhookResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -252,6 +279,23 @@ class WebhooksApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _create_webhook_serialize(
         self,
@@ -329,7 +373,7 @@ class WebhooksApi(object):
 
 
     @validate_call
-    def delete_webhook(
+    def delete_webhook(        
         self,
         id: Annotated[StrictStr, Field(description="The ID of the webhook.")],
         _request_timeout: Union[
@@ -344,7 +388,8 @@ class WebhooksApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> None:
+        options: Dict[str, Any] = {},
+) -> None:
         """Delete Webhook
 
         Delete a webhook with the given ID.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `webhooks:write`
@@ -386,6 +431,10 @@ class WebhooksApi(object):
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -394,14 +443,19 @@ class WebhooksApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def delete_webhook_with_http_info(
+    def delete_webhook_with_http_info(        
         self,
         id: Annotated[StrictStr, Field(description="The ID of the webhook.")],
         _request_timeout: Union[
@@ -416,7 +470,8 @@ class WebhooksApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[None]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[None]:
         """Delete Webhook
 
         Delete a webhook with the given ID.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `webhooks:write`
@@ -458,13 +513,21 @@ class WebhooksApi(object):
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -486,8 +549,7 @@ class WebhooksApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Delete Webhook
 
         Delete a webhook with the given ID.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `webhooks:write`
@@ -537,6 +599,23 @@ class WebhooksApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _delete_webhook_serialize(
         self,
@@ -601,7 +680,7 @@ class WebhooksApi(object):
 
 
     @validate_call
-    def get_webhook(
+    def get_webhook(        
         self,
         id: Annotated[StrictStr, Field(description="The ID of the webhook.")],
         fields_webhook: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
@@ -618,7 +697,8 @@ class WebhooksApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[GetWebhookResponseCompoundDocument, Dict[str, object]]:
         """Get Webhook
 
         Get the webhook with the given ID.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `webhooks:read`
@@ -662,10 +742,14 @@ class WebhooksApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetWebhookResponseCompoundDocument",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -674,14 +758,19 @@ class WebhooksApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def get_webhook_with_http_info(
+    def get_webhook_with_http_info(        
         self,
         id: Annotated[StrictStr, Field(description="The ID of the webhook.")],
         fields_webhook: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
@@ -698,7 +787,8 @@ class WebhooksApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[GetWebhookResponseCompoundDocument]:
         """Get Webhook
 
         Get the webhook with the given ID.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `webhooks:read`
@@ -742,17 +832,25 @@ class WebhooksApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetWebhookResponseCompoundDocument",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -776,8 +874,7 @@ class WebhooksApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Webhook
 
         Get the webhook with the given ID.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `webhooks:read`
@@ -821,7 +918,7 @@ class WebhooksApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetWebhookResponseCompoundDocument",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -833,6 +930,23 @@ class WebhooksApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _get_webhook_serialize(
         self,
@@ -915,7 +1029,7 @@ class WebhooksApi(object):
 
 
     @validate_call
-    def get_webhook_topic(
+    def get_webhook_topic(        
         self,
         id: Annotated[StrictStr, Field(description="The ID of the webhook topic.")],
         _request_timeout: Union[
@@ -930,7 +1044,8 @@ class WebhooksApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[GetWebhookTopicResponse, Dict[str, object]]:
         """Get Webhook Topic
 
         Get the webhook topic with the given ID.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `webhooks:read`
@@ -968,10 +1083,14 @@ class WebhooksApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetWebhookTopicResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -980,14 +1099,19 @@ class WebhooksApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def get_webhook_topic_with_http_info(
+    def get_webhook_topic_with_http_info(        
         self,
         id: Annotated[StrictStr, Field(description="The ID of the webhook topic.")],
         _request_timeout: Union[
@@ -1002,7 +1126,8 @@ class WebhooksApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[GetWebhookTopicResponse]:
         """Get Webhook Topic
 
         Get the webhook topic with the given ID.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `webhooks:read`
@@ -1040,17 +1165,25 @@ class WebhooksApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetWebhookTopicResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1072,8 +1205,7 @@ class WebhooksApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Webhook Topic
 
         Get the webhook topic with the given ID.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `webhooks:read`
@@ -1111,7 +1243,7 @@ class WebhooksApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetWebhookTopicResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -1123,6 +1255,23 @@ class WebhooksApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _get_webhook_topic_serialize(
         self,
@@ -1187,7 +1336,7 @@ class WebhooksApi(object):
 
 
     @validate_call
-    def get_webhook_topics(
+    def get_webhook_topics(        
         self,
         _request_timeout: Union[
             None,
@@ -1201,7 +1350,8 @@ class WebhooksApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[GetWebhookTopicResponseCollection, Dict[str, object]]:
         """Get Webhook Topics
 
         Get all webhook topics in a Klaviyo account.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `webhooks:read`
@@ -1236,10 +1386,14 @@ class WebhooksApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetWebhookTopicResponseCollection",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -1248,14 +1402,19 @@ class WebhooksApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def get_webhook_topics_with_http_info(
+    def get_webhook_topics_with_http_info(        
         self,
         _request_timeout: Union[
             None,
@@ -1269,7 +1428,8 @@ class WebhooksApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[GetWebhookTopicResponseCollection]:
         """Get Webhook Topics
 
         Get all webhook topics in a Klaviyo account.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `webhooks:read`
@@ -1304,17 +1464,25 @@ class WebhooksApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetWebhookTopicResponseCollection",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1335,8 +1503,7 @@ class WebhooksApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Webhook Topics
 
         Get all webhook topics in a Klaviyo account.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `webhooks:read`
@@ -1371,7 +1538,7 @@ class WebhooksApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetWebhookTopicResponseCollection",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -1383,6 +1550,23 @@ class WebhooksApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _get_webhook_topics_serialize(
         self,
@@ -1444,7 +1628,7 @@ class WebhooksApi(object):
 
 
     @validate_call
-    def get_webhooks(
+    def get_webhooks(        
         self,
         fields_webhook: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
         include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#relationships")] = None,
@@ -1460,7 +1644,8 @@ class WebhooksApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[GetWebhookResponseCollectionCompoundDocument, Dict[str, object]]:
         """Get Webhooks
 
         Get all webhooks in an account.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `webhooks:read`
@@ -1501,10 +1686,14 @@ class WebhooksApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetWebhookResponseCollectionCompoundDocument",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -1513,14 +1702,19 @@ class WebhooksApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def get_webhooks_with_http_info(
+    def get_webhooks_with_http_info(        
         self,
         fields_webhook: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
         include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#relationships")] = None,
@@ -1536,7 +1730,8 @@ class WebhooksApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[GetWebhookResponseCollectionCompoundDocument]:
         """Get Webhooks
 
         Get all webhooks in an account.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `webhooks:read`
@@ -1577,17 +1772,25 @@ class WebhooksApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetWebhookResponseCollectionCompoundDocument",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1610,8 +1813,7 @@ class WebhooksApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Webhooks
 
         Get all webhooks in an account.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `webhooks:read`
@@ -1652,7 +1854,7 @@ class WebhooksApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetWebhookResponseCollectionCompoundDocument",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -1664,6 +1866,23 @@ class WebhooksApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _get_webhooks_serialize(
         self,
@@ -1743,7 +1962,7 @@ class WebhooksApi(object):
 
 
     @validate_call
-    def update_webhook(
+    def update_webhook(        
         self,
         id: Annotated[StrictStr, Field(description="The ID of the webhook.")],
         webhook_partial_update_query: WebhookPartialUpdateQuery,
@@ -1759,7 +1978,8 @@ class WebhooksApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[PatchWebhookResponse, Dict[str, object]]:
         """Update Webhook
 
         Update the webhook with the given ID.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `webhooks:write`
@@ -1800,10 +2020,14 @@ class WebhooksApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "PatchWebhookResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -1812,14 +2036,19 @@ class WebhooksApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def update_webhook_with_http_info(
+    def update_webhook_with_http_info(        
         self,
         id: Annotated[StrictStr, Field(description="The ID of the webhook.")],
         webhook_partial_update_query: WebhookPartialUpdateQuery,
@@ -1835,7 +2064,8 @@ class WebhooksApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[PatchWebhookResponse]:
         """Update Webhook
 
         Update the webhook with the given ID.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `webhooks:write`
@@ -1876,17 +2106,25 @@ class WebhooksApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "PatchWebhookResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1909,8 +2147,7 @@ class WebhooksApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Update Webhook
 
         Update the webhook with the given ID.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `webhooks:write`
@@ -1951,7 +2188,7 @@ class WebhooksApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "PatchWebhookResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -1963,6 +2200,23 @@ class WebhooksApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _update_webhook_serialize(
         self,

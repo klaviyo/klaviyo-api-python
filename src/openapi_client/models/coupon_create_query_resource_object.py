@@ -20,8 +20,8 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List
-from openapi_client.models.coupon_create_query_resource_object_attributes import CouponCreateQueryResourceObjectAttributes
 from openapi_client.models.coupon_enum import CouponEnum
+from openapi_client.models.coupon_response_object_resource_attributes import CouponResponseObjectResourceAttributes
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -30,7 +30,7 @@ class CouponCreateQueryResourceObject(BaseModel):
     CouponCreateQueryResourceObject
     """ # noqa: E501
     type: CouponEnum
-    attributes: CouponCreateQueryResourceObjectAttributes
+    attributes: CouponResponseObjectResourceAttributes
     __properties: ClassVar[List[str]] = ["type", "attributes"]
 
     model_config = ConfigDict(
@@ -88,7 +88,7 @@ class CouponCreateQueryResourceObject(BaseModel):
 
         _obj = cls.model_validate({
             "type": obj.get("type"),
-            "attributes": CouponCreateQueryResourceObjectAttributes.from_dict(obj["attributes"]) if obj.get("attributes") is not None else None
+            "attributes": CouponResponseObjectResourceAttributes.from_dict(obj["attributes"]) if obj.get("attributes") is not None else None
         })
         return _obj
 

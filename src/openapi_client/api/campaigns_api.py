@@ -14,13 +14,15 @@
 
 import warnings
 from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
-from typing import Any, Dict, List, Optional, Tuple, Union
+from typing import Any, Dict, List, Optional, Set, Tuple, Union
 from typing_extensions import Annotated
+
+import inspect
 
 from enum import EnumMeta
 
 from pydantic import Field, StrictStr, field_validator
-from typing import Any, Dict, List, Optional
+from typing import List, Optional
 from typing_extensions import Annotated
 from openapi_client.models.campaign_clone_query import CampaignCloneQuery
 from openapi_client.models.campaign_create_query import CampaignCreateQuery
@@ -30,10 +32,31 @@ from openapi_client.models.campaign_partial_update_query import CampaignPartialU
 from openapi_client.models.campaign_recipient_estimation_job_create_query import CampaignRecipientEstimationJobCreateQuery
 from openapi_client.models.campaign_send_job_create_query import CampaignSendJobCreateQuery
 from openapi_client.models.campaign_send_job_partial_update_query import CampaignSendJobPartialUpdateQuery
+from openapi_client.models.get_campaign_message_campaign_relationship_list_response import GetCampaignMessageCampaignRelationshipListResponse
+from openapi_client.models.get_campaign_message_response_collection_compound_document import GetCampaignMessageResponseCollectionCompoundDocument
+from openapi_client.models.get_campaign_message_response_compound_document import GetCampaignMessageResponseCompoundDocument
+from openapi_client.models.get_campaign_message_template_relationship_list_response import GetCampaignMessageTemplateRelationshipListResponse
+from openapi_client.models.get_campaign_messages_relationship_list_response_collection import GetCampaignMessagesRelationshipListResponseCollection
+from openapi_client.models.get_campaign_recipient_estimation_job_response import GetCampaignRecipientEstimationJobResponse
+from openapi_client.models.get_campaign_recipient_estimation_response import GetCampaignRecipientEstimationResponse
+from openapi_client.models.get_campaign_response import GetCampaignResponse
+from openapi_client.models.get_campaign_response_collection_compound_document import GetCampaignResponseCollectionCompoundDocument
+from openapi_client.models.get_campaign_response_compound_document import GetCampaignResponseCompoundDocument
+from openapi_client.models.get_campaign_send_job_response import GetCampaignSendJobResponse
+from openapi_client.models.get_campaign_tag_relationship_list_response_collection import GetCampaignTagRelationshipListResponseCollection
+from openapi_client.models.get_tag_response_collection import GetTagResponseCollection
+from openapi_client.models.get_template_response import GetTemplateResponse
+from openapi_client.models.patch_campaign_message_response import PatchCampaignMessageResponse
+from openapi_client.models.patch_campaign_response import PatchCampaignResponse
+from openapi_client.models.post_campaign_message_response import PostCampaignMessageResponse
+from openapi_client.models.post_campaign_recipient_estimation_job_response import PostCampaignRecipientEstimationJobResponse
+from openapi_client.models.post_campaign_response import PostCampaignResponse
+from openapi_client.models.post_campaign_send_job_response import PostCampaignSendJobResponse
 
 from openapi_client.api_client import ApiClient, RequestSerialized
 from openapi_client.api_response import ApiResponse
 from openapi_client.rest import RESTResponseType
+from openapi_client.api_arg_options import USE_DICTIONARY_FOR_RESPONSE_DATA
 
 
 class CampaignsApi(object):
@@ -50,7 +73,7 @@ class CampaignsApi(object):
 
 
     @validate_call
-    def create_campaign(
+    def create_campaign(        
         self,
         campaign_create_query: Annotated[CampaignCreateQuery, Field(description="Creates a campaign from parameters")],
         _request_timeout: Union[
@@ -65,7 +88,8 @@ class CampaignsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[PostCampaignResponse, Dict[str, object]]:
         """Create Campaign
 
         Creates a campaign given a set of parameters, then returns it.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:write`
@@ -103,10 +127,14 @@ class CampaignsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dict[str, object]",
+            '201': "PostCampaignResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -115,14 +143,19 @@ class CampaignsApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def create_campaign_with_http_info(
+    def create_campaign_with_http_info(        
         self,
         campaign_create_query: Annotated[CampaignCreateQuery, Field(description="Creates a campaign from parameters")],
         _request_timeout: Union[
@@ -137,7 +170,8 @@ class CampaignsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[PostCampaignResponse]:
         """Create Campaign
 
         Creates a campaign given a set of parameters, then returns it.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:write`
@@ -175,17 +209,25 @@ class CampaignsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dict[str, object]",
+            '201': "PostCampaignResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -207,8 +249,7 @@ class CampaignsApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Create Campaign
 
         Creates a campaign given a set of parameters, then returns it.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:write`
@@ -246,7 +287,7 @@ class CampaignsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dict[str, object]",
+            '201': "PostCampaignResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -258,6 +299,23 @@ class CampaignsApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _create_campaign_serialize(
         self,
@@ -335,7 +393,7 @@ class CampaignsApi(object):
 
 
     @validate_call
-    def create_campaign_clone(
+    def create_campaign_clone(        
         self,
         campaign_clone_query: Annotated[CampaignCloneQuery, Field(description="Clones a campaign from an existing campaign")],
         _request_timeout: Union[
@@ -350,7 +408,8 @@ class CampaignsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[PostCampaignResponse, Dict[str, object]]:
         """Create Campaign Clone
 
         Clones an existing campaign, returning a new campaign based on the original with a new ID and name.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:write`
@@ -388,10 +447,14 @@ class CampaignsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dict[str, object]",
+            '201': "PostCampaignResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -400,14 +463,19 @@ class CampaignsApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def create_campaign_clone_with_http_info(
+    def create_campaign_clone_with_http_info(        
         self,
         campaign_clone_query: Annotated[CampaignCloneQuery, Field(description="Clones a campaign from an existing campaign")],
         _request_timeout: Union[
@@ -422,7 +490,8 @@ class CampaignsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[PostCampaignResponse]:
         """Create Campaign Clone
 
         Clones an existing campaign, returning a new campaign based on the original with a new ID and name.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:write`
@@ -460,17 +529,25 @@ class CampaignsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dict[str, object]",
+            '201': "PostCampaignResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -492,8 +569,7 @@ class CampaignsApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Create Campaign Clone
 
         Clones an existing campaign, returning a new campaign based on the original with a new ID and name.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:write`
@@ -531,7 +607,7 @@ class CampaignsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dict[str, object]",
+            '201': "PostCampaignResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -543,6 +619,23 @@ class CampaignsApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _create_campaign_clone_serialize(
         self,
@@ -620,7 +713,7 @@ class CampaignsApi(object):
 
 
     @validate_call
-    def create_campaign_message_assign_template(
+    def create_campaign_message_assign_template(        
         self,
         campaign_message_assign_template_query: Annotated[CampaignMessageAssignTemplateQuery, Field(description="Takes a reusable template, clones it, and assigns the non-reusable clone to the message.")],
         _request_timeout: Union[
@@ -635,7 +728,8 @@ class CampaignsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[PostCampaignMessageResponse, Dict[str, object]]:
         """Assign Campaign Message Template
 
         Creates a non-reusable version of the template and assigns it to the message.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:write`
@@ -673,10 +767,14 @@ class CampaignsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dict[str, object]",
+            '201': "PostCampaignMessageResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -685,14 +783,19 @@ class CampaignsApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def create_campaign_message_assign_template_with_http_info(
+    def create_campaign_message_assign_template_with_http_info(        
         self,
         campaign_message_assign_template_query: Annotated[CampaignMessageAssignTemplateQuery, Field(description="Takes a reusable template, clones it, and assigns the non-reusable clone to the message.")],
         _request_timeout: Union[
@@ -707,7 +810,8 @@ class CampaignsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[PostCampaignMessageResponse]:
         """Assign Campaign Message Template
 
         Creates a non-reusable version of the template and assigns it to the message.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:write`
@@ -745,17 +849,25 @@ class CampaignsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dict[str, object]",
+            '201': "PostCampaignMessageResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -777,8 +889,7 @@ class CampaignsApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Assign Campaign Message Template
 
         Creates a non-reusable version of the template and assigns it to the message.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:write`
@@ -816,7 +927,7 @@ class CampaignsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dict[str, object]",
+            '201': "PostCampaignMessageResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -828,6 +939,23 @@ class CampaignsApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _create_campaign_message_assign_template_serialize(
         self,
@@ -905,7 +1033,7 @@ class CampaignsApi(object):
 
 
     @validate_call
-    def create_campaign_recipient_estimation_job(
+    def create_campaign_recipient_estimation_job(        
         self,
         campaign_recipient_estimation_job_create_query: Annotated[CampaignRecipientEstimationJobCreateQuery, Field(description="Trigger an asynchronous job to update the estimated number of recipients for the given campaign ID. Use the `Get Campaign Recipient Estimation Job` endpoint to retrieve the status of this estimation job. Use the `Get Campaign Recipient Estimation` endpoint to retrieve the estimated recipient count for a given campaign.")],
         _request_timeout: Union[
@@ -920,7 +1048,8 @@ class CampaignsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[PostCampaignRecipientEstimationJobResponse, Dict[str, object]]:
         """Create Campaign Recipient Estimation Job
 
         Trigger an asynchronous job to update the estimated number of recipients for the given campaign ID. Use the `Get Campaign Recipient Estimation Job` endpoint to retrieve the status of this estimation job. Use the `Get Campaign Recipient Estimation` endpoint to retrieve the estimated recipient count for a given campaign.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:write`
@@ -958,10 +1087,14 @@ class CampaignsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '202': "Dict[str, object]",
+            '202': "PostCampaignRecipientEstimationJobResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -970,14 +1103,19 @@ class CampaignsApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def create_campaign_recipient_estimation_job_with_http_info(
+    def create_campaign_recipient_estimation_job_with_http_info(        
         self,
         campaign_recipient_estimation_job_create_query: Annotated[CampaignRecipientEstimationJobCreateQuery, Field(description="Trigger an asynchronous job to update the estimated number of recipients for the given campaign ID. Use the `Get Campaign Recipient Estimation Job` endpoint to retrieve the status of this estimation job. Use the `Get Campaign Recipient Estimation` endpoint to retrieve the estimated recipient count for a given campaign.")],
         _request_timeout: Union[
@@ -992,7 +1130,8 @@ class CampaignsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[PostCampaignRecipientEstimationJobResponse]:
         """Create Campaign Recipient Estimation Job
 
         Trigger an asynchronous job to update the estimated number of recipients for the given campaign ID. Use the `Get Campaign Recipient Estimation Job` endpoint to retrieve the status of this estimation job. Use the `Get Campaign Recipient Estimation` endpoint to retrieve the estimated recipient count for a given campaign.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:write`
@@ -1030,17 +1169,25 @@ class CampaignsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '202': "Dict[str, object]",
+            '202': "PostCampaignRecipientEstimationJobResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1062,8 +1209,7 @@ class CampaignsApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Create Campaign Recipient Estimation Job
 
         Trigger an asynchronous job to update the estimated number of recipients for the given campaign ID. Use the `Get Campaign Recipient Estimation Job` endpoint to retrieve the status of this estimation job. Use the `Get Campaign Recipient Estimation` endpoint to retrieve the estimated recipient count for a given campaign.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:write`
@@ -1101,7 +1247,7 @@ class CampaignsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '202': "Dict[str, object]",
+            '202': "PostCampaignRecipientEstimationJobResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -1113,6 +1259,23 @@ class CampaignsApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _create_campaign_recipient_estimation_job_serialize(
         self,
@@ -1190,7 +1353,7 @@ class CampaignsApi(object):
 
 
     @validate_call
-    def create_campaign_send_job(
+    def create_campaign_send_job(        
         self,
         campaign_send_job_create_query: Annotated[CampaignSendJobCreateQuery, Field(description="Trigger the campaign to send asynchronously")],
         _request_timeout: Union[
@@ -1205,7 +1368,8 @@ class CampaignsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[PostCampaignSendJobResponse, Dict[str, object]]:
         """Create Campaign Send Job
 
         Trigger a campaign to send asynchronously<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:write`
@@ -1243,10 +1407,14 @@ class CampaignsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '202': "Dict[str, object]",
+            '202': "PostCampaignSendJobResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -1255,14 +1423,19 @@ class CampaignsApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def create_campaign_send_job_with_http_info(
+    def create_campaign_send_job_with_http_info(        
         self,
         campaign_send_job_create_query: Annotated[CampaignSendJobCreateQuery, Field(description="Trigger the campaign to send asynchronously")],
         _request_timeout: Union[
@@ -1277,7 +1450,8 @@ class CampaignsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[PostCampaignSendJobResponse]:
         """Create Campaign Send Job
 
         Trigger a campaign to send asynchronously<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:write`
@@ -1315,17 +1489,25 @@ class CampaignsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '202': "Dict[str, object]",
+            '202': "PostCampaignSendJobResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1347,8 +1529,7 @@ class CampaignsApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Create Campaign Send Job
 
         Trigger a campaign to send asynchronously<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:write`
@@ -1386,7 +1567,7 @@ class CampaignsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '202': "Dict[str, object]",
+            '202': "PostCampaignSendJobResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -1398,6 +1579,23 @@ class CampaignsApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _create_campaign_send_job_serialize(
         self,
@@ -1475,7 +1673,7 @@ class CampaignsApi(object):
 
 
     @validate_call
-    def delete_campaign(
+    def delete_campaign(        
         self,
         id: Annotated[StrictStr, Field(description="The campaign ID to be deleted")],
         _request_timeout: Union[
@@ -1490,7 +1688,8 @@ class CampaignsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> None:
+        options: Dict[str, Any] = {},
+) -> None:
         """Delete Campaign
 
         Delete a campaign with the given campaign ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:write`
@@ -1532,6 +1731,10 @@ class CampaignsApi(object):
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -1540,14 +1743,19 @@ class CampaignsApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def delete_campaign_with_http_info(
+    def delete_campaign_with_http_info(        
         self,
         id: Annotated[StrictStr, Field(description="The campaign ID to be deleted")],
         _request_timeout: Union[
@@ -1562,7 +1770,8 @@ class CampaignsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[None]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[None]:
         """Delete Campaign
 
         Delete a campaign with the given campaign ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:write`
@@ -1604,13 +1813,21 @@ class CampaignsApi(object):
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1632,8 +1849,7 @@ class CampaignsApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Delete Campaign
 
         Delete a campaign with the given campaign ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:write`
@@ -1683,6 +1899,23 @@ class CampaignsApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _delete_campaign_serialize(
         self,
@@ -1747,7 +1980,7 @@ class CampaignsApi(object):
 
 
     @validate_call
-    def get_campaign(
+    def get_campaign(        
         self,
         id: Annotated[StrictStr, Field(description="The campaign ID to be retrieved")],
         fields_campaign_message: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
@@ -1766,7 +1999,8 @@ class CampaignsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[GetCampaignResponseCompoundDocument, Dict[str, object]]:
         """Get Campaign
 
         Returns a specific campaign based on a required id.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:read`
@@ -1816,10 +2050,14 @@ class CampaignsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCampaignResponseCompoundDocument",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -1828,14 +2066,19 @@ class CampaignsApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def get_campaign_with_http_info(
+    def get_campaign_with_http_info(        
         self,
         id: Annotated[StrictStr, Field(description="The campaign ID to be retrieved")],
         fields_campaign_message: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
@@ -1854,7 +2097,8 @@ class CampaignsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[GetCampaignResponseCompoundDocument]:
         """Get Campaign
 
         Returns a specific campaign based on a required id.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:read`
@@ -1904,17 +2148,25 @@ class CampaignsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCampaignResponseCompoundDocument",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1940,8 +2192,7 @@ class CampaignsApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Campaign
 
         Returns a specific campaign based on a required id.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:read`
@@ -1991,7 +2242,7 @@ class CampaignsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCampaignResponseCompoundDocument",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -2003,6 +2254,23 @@ class CampaignsApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _get_campaign_serialize(
         self,
@@ -2103,7 +2371,7 @@ class CampaignsApi(object):
 
 
     @validate_call
-    def get_campaign_campaign_messages(
+    def get_campaign_campaign_messages(        
         self,
         id: StrictStr,
         fields_campaign_message: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
@@ -2122,7 +2390,8 @@ class CampaignsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[GetCampaignMessageResponseCollectionCompoundDocument, Dict[str, object]]:
         """Get Campaign Campaign Messages
 
         Return all messages that belong to the given campaign.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:read`
@@ -2172,10 +2441,14 @@ class CampaignsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCampaignMessageResponseCollectionCompoundDocument",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -2184,14 +2457,19 @@ class CampaignsApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def get_campaign_campaign_messages_with_http_info(
+    def get_campaign_campaign_messages_with_http_info(        
         self,
         id: StrictStr,
         fields_campaign_message: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
@@ -2210,7 +2488,8 @@ class CampaignsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[GetCampaignMessageResponseCollectionCompoundDocument]:
         """Get Campaign Campaign Messages
 
         Return all messages that belong to the given campaign.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:read`
@@ -2260,17 +2539,25 @@ class CampaignsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCampaignMessageResponseCollectionCompoundDocument",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2296,8 +2583,7 @@ class CampaignsApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Campaign Campaign Messages
 
         Return all messages that belong to the given campaign.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:read`
@@ -2347,7 +2633,7 @@ class CampaignsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCampaignMessageResponseCollectionCompoundDocument",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -2359,6 +2645,23 @@ class CampaignsApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _get_campaign_campaign_messages_serialize(
         self,
@@ -2459,7 +2762,7 @@ class CampaignsApi(object):
 
 
     @validate_call
-    def get_campaign_message(
+    def get_campaign_message(        
         self,
         id: Annotated[StrictStr, Field(description="The message ID to be retrieved")],
         fields_campaign_message: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
@@ -2478,7 +2781,8 @@ class CampaignsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[GetCampaignMessageResponseCompoundDocument, Dict[str, object]]:
         """Get Campaign Message
 
         Returns a specific message based on a required id.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:read`
@@ -2528,10 +2832,14 @@ class CampaignsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCampaignMessageResponseCompoundDocument",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -2540,14 +2848,19 @@ class CampaignsApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def get_campaign_message_with_http_info(
+    def get_campaign_message_with_http_info(        
         self,
         id: Annotated[StrictStr, Field(description="The message ID to be retrieved")],
         fields_campaign_message: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
@@ -2566,7 +2879,8 @@ class CampaignsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[GetCampaignMessageResponseCompoundDocument]:
         """Get Campaign Message
 
         Returns a specific message based on a required id.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:read`
@@ -2616,17 +2930,25 @@ class CampaignsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCampaignMessageResponseCompoundDocument",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2652,8 +2974,7 @@ class CampaignsApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Campaign Message
 
         Returns a specific message based on a required id.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:read`
@@ -2703,7 +3024,7 @@ class CampaignsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCampaignMessageResponseCompoundDocument",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -2715,6 +3036,23 @@ class CampaignsApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _get_campaign_message_serialize(
         self,
@@ -2815,7 +3153,7 @@ class CampaignsApi(object):
 
 
     @validate_call
-    def get_campaign_message_campaign(
+    def get_campaign_message_campaign(        
         self,
         id: StrictStr,
         fields_campaign: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
@@ -2831,7 +3169,8 @@ class CampaignsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[GetCampaignResponse, Dict[str, object]]:
         """Get Campaign Message Campaign
 
         Return the related campaign<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:read`
@@ -2872,10 +3211,14 @@ class CampaignsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCampaignResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -2884,14 +3227,19 @@ class CampaignsApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def get_campaign_message_campaign_with_http_info(
+    def get_campaign_message_campaign_with_http_info(        
         self,
         id: StrictStr,
         fields_campaign: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
@@ -2907,7 +3255,8 @@ class CampaignsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[GetCampaignResponse]:
         """Get Campaign Message Campaign
 
         Return the related campaign<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:read`
@@ -2948,17 +3297,25 @@ class CampaignsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCampaignResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2981,8 +3338,7 @@ class CampaignsApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Campaign Message Campaign
 
         Return the related campaign<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:read`
@@ -3023,7 +3379,7 @@ class CampaignsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCampaignResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -3035,6 +3391,23 @@ class CampaignsApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _get_campaign_message_campaign_serialize(
         self,
@@ -3108,7 +3481,7 @@ class CampaignsApi(object):
 
 
     @validate_call
-    def get_campaign_message_relationships_campaign(
+    def get_campaign_message_relationships_campaign(        
         self,
         id: StrictStr,
         _request_timeout: Union[
@@ -3123,7 +3496,8 @@ class CampaignsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[GetCampaignMessageCampaignRelationshipListResponse, Dict[str, object]]:
         """Get Campaign Message Relationships Campaign
 
         Returns the ID of the related campaign<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:read`
@@ -3161,10 +3535,14 @@ class CampaignsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCampaignMessageCampaignRelationshipListResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -3173,14 +3551,19 @@ class CampaignsApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def get_campaign_message_relationships_campaign_with_http_info(
+    def get_campaign_message_relationships_campaign_with_http_info(        
         self,
         id: StrictStr,
         _request_timeout: Union[
@@ -3195,7 +3578,8 @@ class CampaignsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[GetCampaignMessageCampaignRelationshipListResponse]:
         """Get Campaign Message Relationships Campaign
 
         Returns the ID of the related campaign<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:read`
@@ -3233,17 +3617,25 @@ class CampaignsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCampaignMessageCampaignRelationshipListResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -3265,8 +3657,7 @@ class CampaignsApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Campaign Message Relationships Campaign
 
         Returns the ID of the related campaign<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:read`
@@ -3304,7 +3695,7 @@ class CampaignsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCampaignMessageCampaignRelationshipListResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -3316,6 +3707,23 @@ class CampaignsApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _get_campaign_message_relationships_campaign_serialize(
         self,
@@ -3380,7 +3788,7 @@ class CampaignsApi(object):
 
 
     @validate_call
-    def get_campaign_message_relationships_template(
+    def get_campaign_message_relationships_template(        
         self,
         id: StrictStr,
         _request_timeout: Union[
@@ -3395,7 +3803,8 @@ class CampaignsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[GetCampaignMessageTemplateRelationshipListResponse, Dict[str, object]]:
         """Get Campaign Message Relationships Template
 
         Returns the ID of the related template<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:read` `templates:read`
@@ -3433,10 +3842,14 @@ class CampaignsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCampaignMessageTemplateRelationshipListResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -3445,14 +3858,19 @@ class CampaignsApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def get_campaign_message_relationships_template_with_http_info(
+    def get_campaign_message_relationships_template_with_http_info(        
         self,
         id: StrictStr,
         _request_timeout: Union[
@@ -3467,7 +3885,8 @@ class CampaignsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[GetCampaignMessageTemplateRelationshipListResponse]:
         """Get Campaign Message Relationships Template
 
         Returns the ID of the related template<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:read` `templates:read`
@@ -3505,17 +3924,25 @@ class CampaignsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCampaignMessageTemplateRelationshipListResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -3537,8 +3964,7 @@ class CampaignsApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Campaign Message Relationships Template
 
         Returns the ID of the related template<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:read` `templates:read`
@@ -3576,7 +4002,7 @@ class CampaignsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCampaignMessageTemplateRelationshipListResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -3588,6 +4014,23 @@ class CampaignsApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _get_campaign_message_relationships_template_serialize(
         self,
@@ -3652,7 +4095,7 @@ class CampaignsApi(object):
 
 
     @validate_call
-    def get_campaign_message_template(
+    def get_campaign_message_template(        
         self,
         id: StrictStr,
         fields_template: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
@@ -3668,7 +4111,8 @@ class CampaignsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[GetTemplateResponse, Dict[str, object]]:
         """Get Campaign Message Template
 
         Return the related template<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:read` `templates:read`
@@ -3709,10 +4153,14 @@ class CampaignsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetTemplateResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -3721,14 +4169,19 @@ class CampaignsApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def get_campaign_message_template_with_http_info(
+    def get_campaign_message_template_with_http_info(        
         self,
         id: StrictStr,
         fields_template: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
@@ -3744,7 +4197,8 @@ class CampaignsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[GetTemplateResponse]:
         """Get Campaign Message Template
 
         Return the related template<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:read` `templates:read`
@@ -3785,17 +4239,25 @@ class CampaignsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetTemplateResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -3818,8 +4280,7 @@ class CampaignsApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Campaign Message Template
 
         Return the related template<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:read` `templates:read`
@@ -3860,7 +4321,7 @@ class CampaignsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetTemplateResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -3872,6 +4333,23 @@ class CampaignsApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _get_campaign_message_template_serialize(
         self,
@@ -3945,7 +4423,7 @@ class CampaignsApi(object):
 
 
     @validate_call
-    def get_campaign_recipient_estimation(
+    def get_campaign_recipient_estimation(        
         self,
         id: Annotated[StrictStr, Field(description="The ID of the campaign for which to get the estimated number of recipients")],
         fields_campaign_recipient_estimation: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
@@ -3961,7 +4439,8 @@ class CampaignsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[GetCampaignRecipientEstimationResponse, Dict[str, object]]:
         """Get Campaign Recipient Estimation
 
         Get the estimated recipient count for a campaign with the provided campaign ID. You can refresh this count by using the `Create Campaign Recipient Estimation Job` endpoint.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:read`
@@ -4002,10 +4481,14 @@ class CampaignsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCampaignRecipientEstimationResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -4014,14 +4497,19 @@ class CampaignsApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def get_campaign_recipient_estimation_with_http_info(
+    def get_campaign_recipient_estimation_with_http_info(        
         self,
         id: Annotated[StrictStr, Field(description="The ID of the campaign for which to get the estimated number of recipients")],
         fields_campaign_recipient_estimation: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
@@ -4037,7 +4525,8 @@ class CampaignsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[GetCampaignRecipientEstimationResponse]:
         """Get Campaign Recipient Estimation
 
         Get the estimated recipient count for a campaign with the provided campaign ID. You can refresh this count by using the `Create Campaign Recipient Estimation Job` endpoint.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:read`
@@ -4078,17 +4567,25 @@ class CampaignsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCampaignRecipientEstimationResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -4111,8 +4608,7 @@ class CampaignsApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Campaign Recipient Estimation
 
         Get the estimated recipient count for a campaign with the provided campaign ID. You can refresh this count by using the `Create Campaign Recipient Estimation Job` endpoint.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:read`
@@ -4153,7 +4649,7 @@ class CampaignsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCampaignRecipientEstimationResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -4165,6 +4661,23 @@ class CampaignsApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _get_campaign_recipient_estimation_serialize(
         self,
@@ -4238,7 +4751,7 @@ class CampaignsApi(object):
 
 
     @validate_call
-    def get_campaign_recipient_estimation_job(
+    def get_campaign_recipient_estimation_job(        
         self,
         id: Annotated[StrictStr, Field(description="The ID of the campaign to get recipient estimation status")],
         fields_campaign_recipient_estimation_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
@@ -4254,7 +4767,8 @@ class CampaignsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[GetCampaignRecipientEstimationJobResponse, Dict[str, object]]:
         """Get Campaign Recipient Estimation Job
 
         Retrieve the status of a recipient estimation job triggered with the `Create Campaign Recipient Estimation Job` endpoint.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:read`
@@ -4295,10 +4809,14 @@ class CampaignsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCampaignRecipientEstimationJobResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -4307,14 +4825,19 @@ class CampaignsApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def get_campaign_recipient_estimation_job_with_http_info(
+    def get_campaign_recipient_estimation_job_with_http_info(        
         self,
         id: Annotated[StrictStr, Field(description="The ID of the campaign to get recipient estimation status")],
         fields_campaign_recipient_estimation_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
@@ -4330,7 +4853,8 @@ class CampaignsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[GetCampaignRecipientEstimationJobResponse]:
         """Get Campaign Recipient Estimation Job
 
         Retrieve the status of a recipient estimation job triggered with the `Create Campaign Recipient Estimation Job` endpoint.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:read`
@@ -4371,17 +4895,25 @@ class CampaignsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCampaignRecipientEstimationJobResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -4404,8 +4936,7 @@ class CampaignsApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Campaign Recipient Estimation Job
 
         Retrieve the status of a recipient estimation job triggered with the `Create Campaign Recipient Estimation Job` endpoint.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:read`
@@ -4446,7 +4977,7 @@ class CampaignsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCampaignRecipientEstimationJobResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -4458,6 +4989,23 @@ class CampaignsApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _get_campaign_recipient_estimation_job_serialize(
         self,
@@ -4531,7 +5079,7 @@ class CampaignsApi(object):
 
 
     @validate_call
-    def get_campaign_relationships_campaign_messages(
+    def get_campaign_relationships_campaign_messages(        
         self,
         id: StrictStr,
         _request_timeout: Union[
@@ -4546,7 +5094,8 @@ class CampaignsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[GetCampaignMessagesRelationshipListResponseCollection, Dict[str, object]]:
         """Get Campaign Relationships Campaign Messages
 
         Returns the IDs of all messages associated with the given campaign.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:read`
@@ -4584,10 +5133,14 @@ class CampaignsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCampaignMessagesRelationshipListResponseCollection",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -4596,14 +5149,19 @@ class CampaignsApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def get_campaign_relationships_campaign_messages_with_http_info(
+    def get_campaign_relationships_campaign_messages_with_http_info(        
         self,
         id: StrictStr,
         _request_timeout: Union[
@@ -4618,7 +5176,8 @@ class CampaignsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[GetCampaignMessagesRelationshipListResponseCollection]:
         """Get Campaign Relationships Campaign Messages
 
         Returns the IDs of all messages associated with the given campaign.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:read`
@@ -4656,17 +5215,25 @@ class CampaignsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCampaignMessagesRelationshipListResponseCollection",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -4688,8 +5255,7 @@ class CampaignsApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Campaign Relationships Campaign Messages
 
         Returns the IDs of all messages associated with the given campaign.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:read`
@@ -4727,7 +5293,7 @@ class CampaignsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCampaignMessagesRelationshipListResponseCollection",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -4739,6 +5305,23 @@ class CampaignsApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _get_campaign_relationships_campaign_messages_serialize(
         self,
@@ -4803,7 +5386,7 @@ class CampaignsApi(object):
 
 
     @validate_call
-    def get_campaign_relationships_tags(
+    def get_campaign_relationships_tags(        
         self,
         id: StrictStr,
         _request_timeout: Union[
@@ -4818,7 +5401,8 @@ class CampaignsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[GetCampaignTagRelationshipListResponseCollection, Dict[str, object]]:
         """Get Campaign Relationships Tags
 
         Returns the IDs of all tags associated with the given campaign.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `campaigns:read` `tags:read`
@@ -4856,10 +5440,14 @@ class CampaignsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCampaignTagRelationshipListResponseCollection",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -4868,14 +5456,19 @@ class CampaignsApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def get_campaign_relationships_tags_with_http_info(
+    def get_campaign_relationships_tags_with_http_info(        
         self,
         id: StrictStr,
         _request_timeout: Union[
@@ -4890,7 +5483,8 @@ class CampaignsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[GetCampaignTagRelationshipListResponseCollection]:
         """Get Campaign Relationships Tags
 
         Returns the IDs of all tags associated with the given campaign.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `campaigns:read` `tags:read`
@@ -4928,17 +5522,25 @@ class CampaignsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCampaignTagRelationshipListResponseCollection",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -4960,8 +5562,7 @@ class CampaignsApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Campaign Relationships Tags
 
         Returns the IDs of all tags associated with the given campaign.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `campaigns:read` `tags:read`
@@ -4999,7 +5600,7 @@ class CampaignsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCampaignTagRelationshipListResponseCollection",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -5011,6 +5612,23 @@ class CampaignsApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _get_campaign_relationships_tags_serialize(
         self,
@@ -5075,7 +5693,7 @@ class CampaignsApi(object):
 
 
     @validate_call
-    def get_campaign_send_job(
+    def get_campaign_send_job(        
         self,
         id: Annotated[StrictStr, Field(description="The ID of the campaign to send")],
         fields_campaign_send_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
@@ -5091,7 +5709,8 @@ class CampaignsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[GetCampaignSendJobResponse, Dict[str, object]]:
         """Get Campaign Send Job
 
         Get a campaign send job<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:read`
@@ -5132,10 +5751,14 @@ class CampaignsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCampaignSendJobResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -5144,14 +5767,19 @@ class CampaignsApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def get_campaign_send_job_with_http_info(
+    def get_campaign_send_job_with_http_info(        
         self,
         id: Annotated[StrictStr, Field(description="The ID of the campaign to send")],
         fields_campaign_send_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
@@ -5167,7 +5795,8 @@ class CampaignsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[GetCampaignSendJobResponse]:
         """Get Campaign Send Job
 
         Get a campaign send job<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:read`
@@ -5208,17 +5837,25 @@ class CampaignsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCampaignSendJobResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -5241,8 +5878,7 @@ class CampaignsApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Campaign Send Job
 
         Get a campaign send job<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:read`
@@ -5283,7 +5919,7 @@ class CampaignsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCampaignSendJobResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -5295,6 +5931,23 @@ class CampaignsApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _get_campaign_send_job_serialize(
         self,
@@ -5368,7 +6021,7 @@ class CampaignsApi(object):
 
 
     @validate_call
-    def get_campaign_tags(
+    def get_campaign_tags(        
         self,
         id: StrictStr,
         fields_tag: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
@@ -5384,7 +6037,8 @@ class CampaignsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[GetTagResponseCollection, Dict[str, object]]:
         """Get Campaign Tags
 
         Return all tags that belong to the given campaign.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `campaigns:read` `tags:read`
@@ -5425,10 +6079,14 @@ class CampaignsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetTagResponseCollection",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -5437,14 +6095,19 @@ class CampaignsApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def get_campaign_tags_with_http_info(
+    def get_campaign_tags_with_http_info(        
         self,
         id: StrictStr,
         fields_tag: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
@@ -5460,7 +6123,8 @@ class CampaignsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[GetTagResponseCollection]:
         """Get Campaign Tags
 
         Return all tags that belong to the given campaign.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `campaigns:read` `tags:read`
@@ -5501,17 +6165,25 @@ class CampaignsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetTagResponseCollection",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -5534,8 +6206,7 @@ class CampaignsApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Campaign Tags
 
         Return all tags that belong to the given campaign.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `campaigns:read` `tags:read`
@@ -5576,7 +6247,7 @@ class CampaignsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetTagResponseCollection",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -5588,6 +6259,23 @@ class CampaignsApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _get_campaign_tags_serialize(
         self,
@@ -5661,7 +6349,7 @@ class CampaignsApi(object):
 
 
     @validate_call
-    def get_campaigns(
+    def get_campaigns(        
         self,
         filter: Annotated[StrictStr, Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`messages.channel`: `equals`<br>`name`: `contains`<br>`status`: `any`, `equals`<br>`archived`: `equals`<br>`created_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`scheduled_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`updated_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`")],
         fields_campaign_message: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
@@ -5682,7 +6370,8 @@ class CampaignsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[GetCampaignResponseCollectionCompoundDocument, Dict[str, object]]:
         """Get Campaigns
 
         Returns some or all campaigns based on filters.  A channel filter is required to list campaigns. Please provide either: `?filter=equals(messages.channel,'email')` to list email campaigns, or `?filter=equals(messages.channel,'sms')` to list SMS campaigns.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:read`
@@ -5738,10 +6427,14 @@ class CampaignsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCampaignResponseCollectionCompoundDocument",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -5750,14 +6443,19 @@ class CampaignsApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def get_campaigns_with_http_info(
+    def get_campaigns_with_http_info(        
         self,
         filter: Annotated[StrictStr, Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`messages.channel`: `equals`<br>`name`: `contains`<br>`status`: `any`, `equals`<br>`archived`: `equals`<br>`created_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`scheduled_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`updated_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`")],
         fields_campaign_message: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
@@ -5778,7 +6476,8 @@ class CampaignsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[GetCampaignResponseCollectionCompoundDocument]:
         """Get Campaigns
 
         Returns some or all campaigns based on filters.  A channel filter is required to list campaigns. Please provide either: `?filter=equals(messages.channel,'email')` to list email campaigns, or `?filter=equals(messages.channel,'sms')` to list SMS campaigns.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:read`
@@ -5834,17 +6533,25 @@ class CampaignsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCampaignResponseCollectionCompoundDocument",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -5872,8 +6579,7 @@ class CampaignsApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Campaigns
 
         Returns some or all campaigns based on filters.  A channel filter is required to list campaigns. Please provide either: `?filter=equals(messages.channel,'email')` to list email campaigns, or `?filter=equals(messages.channel,'sms')` to list SMS campaigns.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:read`
@@ -5929,7 +6635,7 @@ class CampaignsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCampaignResponseCollectionCompoundDocument",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -5941,6 +6647,23 @@ class CampaignsApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _get_campaigns_serialize(
         self,
@@ -6062,7 +6785,7 @@ class CampaignsApi(object):
 
 
     @validate_call
-    def update_campaign(
+    def update_campaign(        
         self,
         id: Annotated[StrictStr, Field(description="The campaign ID to be retrieved")],
         campaign_partial_update_query: Annotated[CampaignPartialUpdateQuery, Field(description="Update a campaign and return it")],
@@ -6078,7 +6801,8 @@ class CampaignsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[PatchCampaignResponse, Dict[str, object]]:
         """Update Campaign
 
         Update a campaign with the given campaign ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:write`
@@ -6119,10 +6843,14 @@ class CampaignsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "PatchCampaignResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -6131,14 +6859,19 @@ class CampaignsApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def update_campaign_with_http_info(
+    def update_campaign_with_http_info(        
         self,
         id: Annotated[StrictStr, Field(description="The campaign ID to be retrieved")],
         campaign_partial_update_query: Annotated[CampaignPartialUpdateQuery, Field(description="Update a campaign and return it")],
@@ -6154,7 +6887,8 @@ class CampaignsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[PatchCampaignResponse]:
         """Update Campaign
 
         Update a campaign with the given campaign ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:write`
@@ -6195,17 +6929,25 @@ class CampaignsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "PatchCampaignResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -6228,8 +6970,7 @@ class CampaignsApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Update Campaign
 
         Update a campaign with the given campaign ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:write`
@@ -6270,7 +7011,7 @@ class CampaignsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "PatchCampaignResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -6282,6 +7023,23 @@ class CampaignsApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _update_campaign_serialize(
         self,
@@ -6362,7 +7120,7 @@ class CampaignsApi(object):
 
 
     @validate_call
-    def update_campaign_message(
+    def update_campaign_message(        
         self,
         id: Annotated[StrictStr, Field(description="The message ID to be retrieved")],
         campaign_message_partial_update_query: Annotated[CampaignMessagePartialUpdateQuery, Field(description="Update a message and return it")],
@@ -6378,7 +7136,8 @@ class CampaignsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[PatchCampaignMessageResponse, Dict[str, object]]:
         """Update Campaign Message
 
         Update a campaign message<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:write`
@@ -6419,10 +7178,14 @@ class CampaignsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "PatchCampaignMessageResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -6431,14 +7194,19 @@ class CampaignsApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def update_campaign_message_with_http_info(
+    def update_campaign_message_with_http_info(        
         self,
         id: Annotated[StrictStr, Field(description="The message ID to be retrieved")],
         campaign_message_partial_update_query: Annotated[CampaignMessagePartialUpdateQuery, Field(description="Update a message and return it")],
@@ -6454,7 +7222,8 @@ class CampaignsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[PatchCampaignMessageResponse]:
         """Update Campaign Message
 
         Update a campaign message<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:write`
@@ -6495,17 +7264,25 @@ class CampaignsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "PatchCampaignMessageResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -6528,8 +7305,7 @@ class CampaignsApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Update Campaign Message
 
         Update a campaign message<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:write`
@@ -6570,7 +7346,7 @@ class CampaignsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "PatchCampaignMessageResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -6582,6 +7358,23 @@ class CampaignsApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _update_campaign_message_serialize(
         self,
@@ -6662,7 +7455,7 @@ class CampaignsApi(object):
 
 
     @validate_call
-    def update_campaign_send_job(
+    def update_campaign_send_job(        
         self,
         id: Annotated[StrictStr, Field(description="The ID of the currently sending campaign to cancel or revert")],
         campaign_send_job_partial_update_query: Annotated[CampaignSendJobPartialUpdateQuery, Field(description="Permanently cancel the campaign, setting the status to CANCELED or revert the campaign, setting the status back to DRAFT")],
@@ -6678,7 +7471,8 @@ class CampaignsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> None:
+        options: Dict[str, Any] = {},
+) -> None:
         """Update Campaign Send Job
 
         Permanently cancel the campaign, setting the status to CANCELED or revert the campaign, setting the status back to DRAFT<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:write`
@@ -6723,6 +7517,10 @@ class CampaignsApi(object):
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -6731,14 +7529,19 @@ class CampaignsApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def update_campaign_send_job_with_http_info(
+    def update_campaign_send_job_with_http_info(        
         self,
         id: Annotated[StrictStr, Field(description="The ID of the currently sending campaign to cancel or revert")],
         campaign_send_job_partial_update_query: Annotated[CampaignSendJobPartialUpdateQuery, Field(description="Permanently cancel the campaign, setting the status to CANCELED or revert the campaign, setting the status back to DRAFT")],
@@ -6754,7 +7557,8 @@ class CampaignsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[None]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[None]:
         """Update Campaign Send Job
 
         Permanently cancel the campaign, setting the status to CANCELED or revert the campaign, setting the status back to DRAFT<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:write`
@@ -6799,13 +7603,21 @@ class CampaignsApi(object):
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -6828,8 +7640,7 @@ class CampaignsApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Update Campaign Send Job
 
         Permanently cancel the campaign, setting the status to CANCELED or revert the campaign, setting the status back to DRAFT<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:write`
@@ -6882,6 +7693,23 @@ class CampaignsApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _update_campaign_send_job_serialize(
         self,

@@ -14,21 +14,27 @@
 
 import warnings
 from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
-from typing import Any, Dict, List, Optional, Tuple, Union
+from typing import Any, Dict, List, Optional, Set, Tuple, Union
 from typing_extensions import Annotated
+
+import inspect
 
 from enum import EnumMeta
 
 from pydantic import Field, StrictStr
-from typing import Any, Dict, Optional
+from typing import Optional
 from typing_extensions import Annotated
 from openapi_client.models.campaign_values_request_dto import CampaignValuesRequestDTO
 from openapi_client.models.flow_series_request_dto import FlowSeriesRequestDTO
 from openapi_client.models.flow_values_request_dto import FlowValuesRequestDTO
+from openapi_client.models.post_campaign_values_response_dto import PostCampaignValuesResponseDTO
+from openapi_client.models.post_flow_series_response_dto import PostFlowSeriesResponseDTO
+from openapi_client.models.post_flow_values_response_dto import PostFlowValuesResponseDTO
 
 from openapi_client.api_client import ApiClient, RequestSerialized
 from openapi_client.api_response import ApiResponse
 from openapi_client.rest import RESTResponseType
+from openapi_client.api_arg_options import USE_DICTIONARY_FOR_RESPONSE_DATA
 
 
 class ReportingApi(object):
@@ -45,7 +51,7 @@ class ReportingApi(object):
 
 
     @validate_call
-    def query_campaign_values(
+    def query_campaign_values(        
         self,
         campaign_values_request_dto: CampaignValuesRequestDTO,
         page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#pagination")] = None,
@@ -61,7 +67,8 @@ class ReportingApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[PostCampaignValuesResponseDTO, Dict[str, object]]:
         """Query Campaign Values
 
         Returns the requested campaign analytics values data<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `2/m`<br>Daily: `225/d`  **Scopes:** `campaigns:read`
@@ -102,10 +109,14 @@ class ReportingApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "PostCampaignValuesResponseDTO",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -114,14 +125,19 @@ class ReportingApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def query_campaign_values_with_http_info(
+    def query_campaign_values_with_http_info(        
         self,
         campaign_values_request_dto: CampaignValuesRequestDTO,
         page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#pagination")] = None,
@@ -137,7 +153,8 @@ class ReportingApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[PostCampaignValuesResponseDTO]:
         """Query Campaign Values
 
         Returns the requested campaign analytics values data<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `2/m`<br>Daily: `225/d`  **Scopes:** `campaigns:read`
@@ -178,17 +195,25 @@ class ReportingApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "PostCampaignValuesResponseDTO",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -211,8 +236,7 @@ class ReportingApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Query Campaign Values
 
         Returns the requested campaign analytics values data<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `2/m`<br>Daily: `225/d`  **Scopes:** `campaigns:read`
@@ -253,7 +277,7 @@ class ReportingApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "PostCampaignValuesResponseDTO",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -265,6 +289,23 @@ class ReportingApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _query_campaign_values_serialize(
         self,
@@ -350,7 +391,7 @@ class ReportingApi(object):
 
 
     @validate_call
-    def query_flow_series(
+    def query_flow_series(        
         self,
         flow_series_request_dto: FlowSeriesRequestDTO,
         page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#pagination")] = None,
@@ -366,7 +407,8 @@ class ReportingApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[PostFlowSeriesResponseDTO, Dict[str, object]]:
         """Query Flow Series
 
         Returns the requested flow analytics series data<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `2/m`<br>Daily: `225/d`  **Scopes:** `flows:read`
@@ -407,10 +449,14 @@ class ReportingApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "PostFlowSeriesResponseDTO",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -419,14 +465,19 @@ class ReportingApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def query_flow_series_with_http_info(
+    def query_flow_series_with_http_info(        
         self,
         flow_series_request_dto: FlowSeriesRequestDTO,
         page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#pagination")] = None,
@@ -442,7 +493,8 @@ class ReportingApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[PostFlowSeriesResponseDTO]:
         """Query Flow Series
 
         Returns the requested flow analytics series data<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `2/m`<br>Daily: `225/d`  **Scopes:** `flows:read`
@@ -483,17 +535,25 @@ class ReportingApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "PostFlowSeriesResponseDTO",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -516,8 +576,7 @@ class ReportingApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Query Flow Series
 
         Returns the requested flow analytics series data<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `2/m`<br>Daily: `225/d`  **Scopes:** `flows:read`
@@ -558,7 +617,7 @@ class ReportingApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "PostFlowSeriesResponseDTO",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -570,6 +629,23 @@ class ReportingApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _query_flow_series_serialize(
         self,
@@ -655,7 +731,7 @@ class ReportingApi(object):
 
 
     @validate_call
-    def query_flow_values(
+    def query_flow_values(        
         self,
         flow_values_request_dto: FlowValuesRequestDTO,
         page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#pagination")] = None,
@@ -671,7 +747,8 @@ class ReportingApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[PostFlowValuesResponseDTO, Dict[str, object]]:
         """Query Flow Values
 
         Returns the requested flow analytics values data<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `2/m`<br>Daily: `225/d`  **Scopes:** `flows:read`
@@ -712,10 +789,14 @@ class ReportingApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "PostFlowValuesResponseDTO",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -724,14 +805,19 @@ class ReportingApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def query_flow_values_with_http_info(
+    def query_flow_values_with_http_info(        
         self,
         flow_values_request_dto: FlowValuesRequestDTO,
         page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#pagination")] = None,
@@ -747,7 +833,8 @@ class ReportingApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[PostFlowValuesResponseDTO]:
         """Query Flow Values
 
         Returns the requested flow analytics values data<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `2/m`<br>Daily: `225/d`  **Scopes:** `flows:read`
@@ -788,17 +875,25 @@ class ReportingApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "PostFlowValuesResponseDTO",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -821,8 +916,7 @@ class ReportingApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Query Flow Values
 
         Returns the requested flow analytics values data<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `2/m`<br>Daily: `225/d`  **Scopes:** `flows:read`
@@ -863,7 +957,7 @@ class ReportingApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "PostFlowValuesResponseDTO",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -875,6 +969,23 @@ class ReportingApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _query_flow_values_serialize(
         self,

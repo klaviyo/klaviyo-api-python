@@ -20,9 +20,9 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.tag_create_query_resource_object_attributes import TagCreateQueryResourceObjectAttributes
 from openapi_client.models.tag_create_query_resource_object_relationships import TagCreateQueryResourceObjectRelationships
 from openapi_client.models.tag_enum import TagEnum
+from openapi_client.models.tag_response_object_resource_attributes import TagResponseObjectResourceAttributes
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -31,7 +31,7 @@ class TagCreateQueryResourceObject(BaseModel):
     TagCreateQueryResourceObject
     """ # noqa: E501
     type: TagEnum
-    attributes: TagCreateQueryResourceObjectAttributes
+    attributes: TagResponseObjectResourceAttributes
     relationships: Optional[TagCreateQueryResourceObjectRelationships] = None
     __properties: ClassVar[List[str]] = ["type", "attributes", "relationships"]
 
@@ -93,7 +93,7 @@ class TagCreateQueryResourceObject(BaseModel):
 
         _obj = cls.model_validate({
             "type": obj.get("type"),
-            "attributes": TagCreateQueryResourceObjectAttributes.from_dict(obj["attributes"]) if obj.get("attributes") is not None else None,
+            "attributes": TagResponseObjectResourceAttributes.from_dict(obj["attributes"]) if obj.get("attributes") is not None else None,
             "relationships": TagCreateQueryResourceObjectRelationships.from_dict(obj["relationships"]) if obj.get("relationships") is not None else None
         })
         return _obj

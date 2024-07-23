@@ -20,7 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.catalog_category_create_query_resource_object_relationships_items_data_inner import CatalogCategoryCreateQueryResourceObjectRelationshipsItemsDataInner
+from openapi_client.models.get_catalog_category_item_list_response_collection_data_inner import GetCatalogCategoryItemListResponseCollectionDataInner
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,7 +28,7 @@ class CatalogCategoryCreateQueryResourceObjectRelationshipsItems(BaseModel):
     """
     CatalogCategoryCreateQueryResourceObjectRelationshipsItems
     """ # noqa: E501
-    data: Optional[List[CatalogCategoryCreateQueryResourceObjectRelationshipsItemsDataInner]] = None
+    data: Optional[List[GetCatalogCategoryItemListResponseCollectionDataInner]] = None
     __properties: ClassVar[List[str]] = ["data"]
 
     model_config = ConfigDict(
@@ -89,7 +89,7 @@ class CatalogCategoryCreateQueryResourceObjectRelationshipsItems(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "data": [CatalogCategoryCreateQueryResourceObjectRelationshipsItemsDataInner.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None
+            "data": [GetCatalogCategoryItemListResponseCollectionDataInner.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None
         })
         return _obj
 

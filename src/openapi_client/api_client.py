@@ -23,7 +23,7 @@ import re
 import tempfile
 
 from urllib.parse import quote
-from typing import Tuple, Optional, List, Dict, Union
+from typing import Any, Dict, Tuple, Optional, List, Dict, Union
 from pydantic import SecretStr
 
 from openapi_client.configuration import Configuration
@@ -76,7 +76,8 @@ class ApiClient:
         configuration=None,
         header_name=None,
         header_value=None,
-        cookie=None
+        cookie=None,
+        options: Dict[str, Any] = {},
     ) -> None:
         # use default configuration if none is provided
         if configuration is None:
@@ -89,8 +90,10 @@ class ApiClient:
             self.default_headers[header_name] = header_value
         self.cookie = cookie
         # Set default User-Agent.
-        self.user_agent = 'klaviyo-api-python/10.0.0'
+        self.user_agent = 'klaviyo-api-python/11.0.0'
         self.client_side_validation = configuration.client_side_validation
+
+        self.options=options
 
     def __enter__(self):
         return self
@@ -284,7 +287,8 @@ class ApiClient:
     def response_deserialize(
         self,
         response_data: rest.RESTResponse,
-        response_types_map: Optional[Dict[str, ApiResponseT]]=None
+        response_types_map: Optional[Dict[str, ApiResponseT]]=None,
+        exclude_none: bool=False
     ) -> ApiResponse[ApiResponseT]:
         """Deserializes response into an object.
         :param response_data: RESTResponse object to be deserialized.
@@ -386,19 +390,27 @@ class ApiClient:
             for key, val in obj_dict.items()
         }
 
-    def deserialize(self, response_text, response_type):
+    def deserialize(self, response_text, response_type, exclude_none=False):
         """Deserializes response into an object.
 
         :param response: RESTResponse object to be deserialized.
         :param response_type: class literal for
             deserialized object, or string of class name.
+        :param exclude_none: if True, exclude None values from
+            deserialized object.
 
         :return: deserialized object.
         """
 
+        def remove_none(d):
+            return {k: v for k, v in d.items() if v is not None}
+
         # fetch data from response object
         try:
-            data = json.loads(response_text)
+            if exclude_none:
+                data = json.loads(response_text, object_hook=remove_none)
+            else:
+                data = json.loads(response_text)
         except ValueError:
             data = response_text
 

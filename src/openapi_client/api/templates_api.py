@@ -14,14 +14,20 @@
 
 import warnings
 from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
-from typing import Any, Dict, List, Optional, Tuple, Union
+from typing import Any, Dict, List, Optional, Set, Tuple, Union
 from typing_extensions import Annotated
+
+import inspect
 
 from enum import EnumMeta
 
 from pydantic import Field, StrictStr, field_validator
-from typing import Any, Dict, List, Optional
+from typing import List, Optional
 from typing_extensions import Annotated
+from openapi_client.models.get_template_response import GetTemplateResponse
+from openapi_client.models.get_template_response_collection import GetTemplateResponseCollection
+from openapi_client.models.patch_template_response import PatchTemplateResponse
+from openapi_client.models.post_template_response import PostTemplateResponse
 from openapi_client.models.template_clone_query import TemplateCloneQuery
 from openapi_client.models.template_create_query import TemplateCreateQuery
 from openapi_client.models.template_render_query import TemplateRenderQuery
@@ -30,6 +36,7 @@ from openapi_client.models.template_update_query import TemplateUpdateQuery
 from openapi_client.api_client import ApiClient, RequestSerialized
 from openapi_client.api_response import ApiResponse
 from openapi_client.rest import RESTResponseType
+from openapi_client.api_arg_options import USE_DICTIONARY_FOR_RESPONSE_DATA
 
 
 class TemplatesApi(object):
@@ -46,7 +53,7 @@ class TemplatesApi(object):
 
 
     @validate_call
-    def create_template(
+    def create_template(        
         self,
         template_create_query: TemplateCreateQuery,
         _request_timeout: Union[
@@ -61,7 +68,8 @@ class TemplatesApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[PostTemplateResponse, Dict[str, object]]:
         """Create Template
 
         Create a new custom HTML template.  If there are 1,000 or more templates in an account, creation will fail as there is a limit of 1,000 templates that can be created via the API.  Request specific fields using [sparse fieldsets](https://developers.klaviyo.com/en/reference/api_overview#sparse-fieldsets).<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `templates:write`
@@ -99,10 +107,14 @@ class TemplatesApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dict[str, object]",
+            '201': "PostTemplateResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -111,14 +123,19 @@ class TemplatesApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def create_template_with_http_info(
+    def create_template_with_http_info(        
         self,
         template_create_query: TemplateCreateQuery,
         _request_timeout: Union[
@@ -133,7 +150,8 @@ class TemplatesApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[PostTemplateResponse]:
         """Create Template
 
         Create a new custom HTML template.  If there are 1,000 or more templates in an account, creation will fail as there is a limit of 1,000 templates that can be created via the API.  Request specific fields using [sparse fieldsets](https://developers.klaviyo.com/en/reference/api_overview#sparse-fieldsets).<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `templates:write`
@@ -171,17 +189,25 @@ class TemplatesApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dict[str, object]",
+            '201': "PostTemplateResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -203,8 +229,7 @@ class TemplatesApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Create Template
 
         Create a new custom HTML template.  If there are 1,000 or more templates in an account, creation will fail as there is a limit of 1,000 templates that can be created via the API.  Request specific fields using [sparse fieldsets](https://developers.klaviyo.com/en/reference/api_overview#sparse-fieldsets).<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `templates:write`
@@ -242,7 +267,7 @@ class TemplatesApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dict[str, object]",
+            '201': "PostTemplateResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -254,6 +279,23 @@ class TemplatesApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _create_template_serialize(
         self,
@@ -331,7 +373,7 @@ class TemplatesApi(object):
 
 
     @validate_call
-    def create_template_clone(
+    def create_template_clone(        
         self,
         template_clone_query: TemplateCloneQuery,
         _request_timeout: Union[
@@ -346,7 +388,8 @@ class TemplatesApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[PostTemplateResponse, Dict[str, object]]:
         """Create Template Clone
 
         Create a clone of a template with the given template ID.  If there are 1,000 or more templates in an account, cloning will fail as there is a limit of 1,000 templates that can be created via the API.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `templates:write`
@@ -384,10 +427,14 @@ class TemplatesApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dict[str, object]",
+            '201': "PostTemplateResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -396,14 +443,19 @@ class TemplatesApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def create_template_clone_with_http_info(
+    def create_template_clone_with_http_info(        
         self,
         template_clone_query: TemplateCloneQuery,
         _request_timeout: Union[
@@ -418,7 +470,8 @@ class TemplatesApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[PostTemplateResponse]:
         """Create Template Clone
 
         Create a clone of a template with the given template ID.  If there are 1,000 or more templates in an account, cloning will fail as there is a limit of 1,000 templates that can be created via the API.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `templates:write`
@@ -456,17 +509,25 @@ class TemplatesApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dict[str, object]",
+            '201': "PostTemplateResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -488,8 +549,7 @@ class TemplatesApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Create Template Clone
 
         Create a clone of a template with the given template ID.  If there are 1,000 or more templates in an account, cloning will fail as there is a limit of 1,000 templates that can be created via the API.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `templates:write`
@@ -527,7 +587,7 @@ class TemplatesApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dict[str, object]",
+            '201': "PostTemplateResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -539,6 +599,23 @@ class TemplatesApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _create_template_clone_serialize(
         self,
@@ -616,7 +693,7 @@ class TemplatesApi(object):
 
 
     @validate_call
-    def create_template_render(
+    def create_template_render(        
         self,
         template_render_query: TemplateRenderQuery,
         _request_timeout: Union[
@@ -631,7 +708,8 @@ class TemplatesApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[PostTemplateResponse, Dict[str, object]]:
         """Create Template Render
 
         Render a template with the given template ID and context attribute. Returns the HTML and plain text versions of the email template.  **Request body parameters** (nested under `attributes`):  * `return_fields`: Request specific fields using [sparse fieldsets](https://developers.klaviyo.com/en/reference/api_overview#sparse-fieldsets).  * `context`: This is the context your email template will be rendered with. You must pass in a `context` object as a JSON object.  Email templates are rendered with contexts in a similar manner to Django templates. Nested template variables can be referenced via dot notation. Template variables without corresponding `context` values are treated as `FALSE` and output nothing.  Ex. `{ \"name\" : \"George Washington\", \"state\" : \"VA\" }`<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `templates:read`
@@ -669,10 +747,14 @@ class TemplatesApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dict[str, object]",
+            '201': "PostTemplateResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -681,14 +763,19 @@ class TemplatesApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def create_template_render_with_http_info(
+    def create_template_render_with_http_info(        
         self,
         template_render_query: TemplateRenderQuery,
         _request_timeout: Union[
@@ -703,7 +790,8 @@ class TemplatesApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[PostTemplateResponse]:
         """Create Template Render
 
         Render a template with the given template ID and context attribute. Returns the HTML and plain text versions of the email template.  **Request body parameters** (nested under `attributes`):  * `return_fields`: Request specific fields using [sparse fieldsets](https://developers.klaviyo.com/en/reference/api_overview#sparse-fieldsets).  * `context`: This is the context your email template will be rendered with. You must pass in a `context` object as a JSON object.  Email templates are rendered with contexts in a similar manner to Django templates. Nested template variables can be referenced via dot notation. Template variables without corresponding `context` values are treated as `FALSE` and output nothing.  Ex. `{ \"name\" : \"George Washington\", \"state\" : \"VA\" }`<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `templates:read`
@@ -741,17 +829,25 @@ class TemplatesApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dict[str, object]",
+            '201': "PostTemplateResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -773,8 +869,7 @@ class TemplatesApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Create Template Render
 
         Render a template with the given template ID and context attribute. Returns the HTML and plain text versions of the email template.  **Request body parameters** (nested under `attributes`):  * `return_fields`: Request specific fields using [sparse fieldsets](https://developers.klaviyo.com/en/reference/api_overview#sparse-fieldsets).  * `context`: This is the context your email template will be rendered with. You must pass in a `context` object as a JSON object.  Email templates are rendered with contexts in a similar manner to Django templates. Nested template variables can be referenced via dot notation. Template variables without corresponding `context` values are treated as `FALSE` and output nothing.  Ex. `{ \"name\" : \"George Washington\", \"state\" : \"VA\" }`<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `templates:read`
@@ -812,7 +907,7 @@ class TemplatesApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dict[str, object]",
+            '201': "PostTemplateResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -824,6 +919,23 @@ class TemplatesApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _create_template_render_serialize(
         self,
@@ -901,7 +1013,7 @@ class TemplatesApi(object):
 
 
     @validate_call
-    def delete_template(
+    def delete_template(        
         self,
         id: Annotated[StrictStr, Field(description="The ID of template")],
         _request_timeout: Union[
@@ -916,7 +1028,8 @@ class TemplatesApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> None:
+        options: Dict[str, Any] = {},
+) -> None:
         """Delete Template
 
         Delete a template with the given template ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `templates:write`
@@ -958,6 +1071,10 @@ class TemplatesApi(object):
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -966,14 +1083,19 @@ class TemplatesApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def delete_template_with_http_info(
+    def delete_template_with_http_info(        
         self,
         id: Annotated[StrictStr, Field(description="The ID of template")],
         _request_timeout: Union[
@@ -988,7 +1110,8 @@ class TemplatesApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[None]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[None]:
         """Delete Template
 
         Delete a template with the given template ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `templates:write`
@@ -1030,13 +1153,21 @@ class TemplatesApi(object):
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1058,8 +1189,7 @@ class TemplatesApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Delete Template
 
         Delete a template with the given template ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `templates:write`
@@ -1109,6 +1239,23 @@ class TemplatesApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _delete_template_serialize(
         self,
@@ -1173,7 +1320,7 @@ class TemplatesApi(object):
 
 
     @validate_call
-    def get_template(
+    def get_template(        
         self,
         id: Annotated[StrictStr, Field(description="The ID of template")],
         fields_template: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
@@ -1189,7 +1336,8 @@ class TemplatesApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[GetTemplateResponse, Dict[str, object]]:
         """Get Template
 
         Get a template with the given template ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `templates:read`
@@ -1230,10 +1378,14 @@ class TemplatesApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetTemplateResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -1242,14 +1394,19 @@ class TemplatesApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def get_template_with_http_info(
+    def get_template_with_http_info(        
         self,
         id: Annotated[StrictStr, Field(description="The ID of template")],
         fields_template: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
@@ -1265,7 +1422,8 @@ class TemplatesApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[GetTemplateResponse]:
         """Get Template
 
         Get a template with the given template ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `templates:read`
@@ -1306,17 +1464,25 @@ class TemplatesApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetTemplateResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1339,8 +1505,7 @@ class TemplatesApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Template
 
         Get a template with the given template ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `templates:read`
@@ -1381,7 +1546,7 @@ class TemplatesApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetTemplateResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -1393,6 +1558,23 @@ class TemplatesApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _get_template_serialize(
         self,
@@ -1466,7 +1648,7 @@ class TemplatesApi(object):
 
 
     @validate_call
-    def get_templates(
+    def get_templates(        
         self,
         fields_template: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
         filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`, `equals`<br>`name`: `any`, `equals`<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`")] = None,
@@ -1484,7 +1666,8 @@ class TemplatesApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[GetTemplateResponseCollection, Dict[str, object]]:
         """Get Templates
 
         Get all templates in an account.  Filter to request a subset of all templates. Templates can be sorted by the following fields, in ascending and descending order: `id`, `name`, `created`, `updated`  Returns a maximum of 10 results per page.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `templates:read`
@@ -1531,10 +1714,14 @@ class TemplatesApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetTemplateResponseCollection",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -1543,14 +1730,19 @@ class TemplatesApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def get_templates_with_http_info(
+    def get_templates_with_http_info(        
         self,
         fields_template: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
         filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`, `equals`<br>`name`: `any`, `equals`<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`")] = None,
@@ -1568,7 +1760,8 @@ class TemplatesApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[GetTemplateResponseCollection]:
         """Get Templates
 
         Get all templates in an account.  Filter to request a subset of all templates. Templates can be sorted by the following fields, in ascending and descending order: `id`, `name`, `created`, `updated`  Returns a maximum of 10 results per page.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `templates:read`
@@ -1615,17 +1808,25 @@ class TemplatesApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetTemplateResponseCollection",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1650,8 +1851,7 @@ class TemplatesApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Templates
 
         Get all templates in an account.  Filter to request a subset of all templates. Templates can be sorted by the following fields, in ascending and descending order: `id`, `name`, `created`, `updated`  Returns a maximum of 10 results per page.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `templates:read`
@@ -1698,7 +1898,7 @@ class TemplatesApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetTemplateResponseCollection",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -1710,6 +1910,23 @@ class TemplatesApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _get_templates_serialize(
         self,
@@ -1804,7 +2021,7 @@ class TemplatesApi(object):
 
 
     @validate_call
-    def update_template(
+    def update_template(        
         self,
         id: Annotated[StrictStr, Field(description="The ID of template")],
         template_update_query: TemplateUpdateQuery,
@@ -1820,7 +2037,8 @@ class TemplatesApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[PatchTemplateResponse, Dict[str, object]]:
         """Update Template
 
         Update a template with the given template ID. Does not currently update drag & drop templates.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `templates:write`
@@ -1861,10 +2079,14 @@ class TemplatesApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "PatchTemplateResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -1873,14 +2095,19 @@ class TemplatesApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def update_template_with_http_info(
+    def update_template_with_http_info(        
         self,
         id: Annotated[StrictStr, Field(description="The ID of template")],
         template_update_query: TemplateUpdateQuery,
@@ -1896,7 +2123,8 @@ class TemplatesApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[PatchTemplateResponse]:
         """Update Template
 
         Update a template with the given template ID. Does not currently update drag & drop templates.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `templates:write`
@@ -1937,17 +2165,25 @@ class TemplatesApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "PatchTemplateResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1970,8 +2206,7 @@ class TemplatesApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Update Template
 
         Update a template with the given template ID. Does not currently update drag & drop templates.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `templates:write`
@@ -2012,7 +2247,7 @@ class TemplatesApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "PatchTemplateResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -2024,6 +2259,23 @@ class TemplatesApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _update_template_serialize(
         self,

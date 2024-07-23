@@ -14,13 +14,15 @@
 
 import warnings
 from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
-from typing import Any, Dict, List, Optional, Tuple, Union
+from typing import Any, Dict, List, Optional, Set, Tuple, Union
 from typing_extensions import Annotated
+
+import inspect
 
 from enum import EnumMeta
 
 from pydantic import Field, StrictStr, field_validator
-from typing import Any, Dict, List, Optional
+from typing import List, Optional
 from typing_extensions import Annotated
 from openapi_client.models.catalog_category_create_job_create_query import CatalogCategoryCreateJobCreateQuery
 from openapi_client.models.catalog_category_create_query import CatalogCategoryCreateQuery
@@ -39,11 +41,53 @@ from openapi_client.models.catalog_variant_create_query import CatalogVariantCre
 from openapi_client.models.catalog_variant_delete_job_create_query import CatalogVariantDeleteJobCreateQuery
 from openapi_client.models.catalog_variant_update_job_create_query import CatalogVariantUpdateJobCreateQuery
 from openapi_client.models.catalog_variant_update_query import CatalogVariantUpdateQuery
+from openapi_client.models.get_catalog_category_create_job_response_collection_compound_document import GetCatalogCategoryCreateJobResponseCollectionCompoundDocument
+from openapi_client.models.get_catalog_category_create_job_response_compound_document import GetCatalogCategoryCreateJobResponseCompoundDocument
+from openapi_client.models.get_catalog_category_delete_job_response import GetCatalogCategoryDeleteJobResponse
+from openapi_client.models.get_catalog_category_delete_job_response_collection import GetCatalogCategoryDeleteJobResponseCollection
+from openapi_client.models.get_catalog_category_item_list_response_collection import GetCatalogCategoryItemListResponseCollection
+from openapi_client.models.get_catalog_category_response import GetCatalogCategoryResponse
+from openapi_client.models.get_catalog_category_response_collection import GetCatalogCategoryResponseCollection
+from openapi_client.models.get_catalog_category_update_job_response_collection_compound_document import GetCatalogCategoryUpdateJobResponseCollectionCompoundDocument
+from openapi_client.models.get_catalog_category_update_job_response_compound_document import GetCatalogCategoryUpdateJobResponseCompoundDocument
+from openapi_client.models.get_catalog_item_category_list_response_collection import GetCatalogItemCategoryListResponseCollection
+from openapi_client.models.get_catalog_item_create_job_response_collection_compound_document import GetCatalogItemCreateJobResponseCollectionCompoundDocument
+from openapi_client.models.get_catalog_item_create_job_response_compound_document import GetCatalogItemCreateJobResponseCompoundDocument
+from openapi_client.models.get_catalog_item_delete_job_response import GetCatalogItemDeleteJobResponse
+from openapi_client.models.get_catalog_item_delete_job_response_collection import GetCatalogItemDeleteJobResponseCollection
+from openapi_client.models.get_catalog_item_response_collection_compound_document import GetCatalogItemResponseCollectionCompoundDocument
+from openapi_client.models.get_catalog_item_response_compound_document import GetCatalogItemResponseCompoundDocument
+from openapi_client.models.get_catalog_item_update_job_response_collection_compound_document import GetCatalogItemUpdateJobResponseCollectionCompoundDocument
+from openapi_client.models.get_catalog_item_update_job_response_compound_document import GetCatalogItemUpdateJobResponseCompoundDocument
+from openapi_client.models.get_catalog_variant_create_job_response_collection_compound_document import GetCatalogVariantCreateJobResponseCollectionCompoundDocument
+from openapi_client.models.get_catalog_variant_create_job_response_compound_document import GetCatalogVariantCreateJobResponseCompoundDocument
+from openapi_client.models.get_catalog_variant_delete_job_response import GetCatalogVariantDeleteJobResponse
+from openapi_client.models.get_catalog_variant_delete_job_response_collection import GetCatalogVariantDeleteJobResponseCollection
+from openapi_client.models.get_catalog_variant_response import GetCatalogVariantResponse
+from openapi_client.models.get_catalog_variant_response_collection import GetCatalogVariantResponseCollection
+from openapi_client.models.get_catalog_variant_update_job_response_collection_compound_document import GetCatalogVariantUpdateJobResponseCollectionCompoundDocument
+from openapi_client.models.get_catalog_variant_update_job_response_compound_document import GetCatalogVariantUpdateJobResponseCompoundDocument
+from openapi_client.models.patch_catalog_category_response import PatchCatalogCategoryResponse
+from openapi_client.models.patch_catalog_item_response import PatchCatalogItemResponse
+from openapi_client.models.patch_catalog_variant_response import PatchCatalogVariantResponse
+from openapi_client.models.post_catalog_category_create_job_response import PostCatalogCategoryCreateJobResponse
+from openapi_client.models.post_catalog_category_delete_job_response import PostCatalogCategoryDeleteJobResponse
+from openapi_client.models.post_catalog_category_response import PostCatalogCategoryResponse
+from openapi_client.models.post_catalog_category_update_job_response import PostCatalogCategoryUpdateJobResponse
+from openapi_client.models.post_catalog_item_create_job_response import PostCatalogItemCreateJobResponse
+from openapi_client.models.post_catalog_item_delete_job_response import PostCatalogItemDeleteJobResponse
+from openapi_client.models.post_catalog_item_response import PostCatalogItemResponse
+from openapi_client.models.post_catalog_item_update_job_response import PostCatalogItemUpdateJobResponse
+from openapi_client.models.post_catalog_variant_create_job_response import PostCatalogVariantCreateJobResponse
+from openapi_client.models.post_catalog_variant_delete_job_response import PostCatalogVariantDeleteJobResponse
+from openapi_client.models.post_catalog_variant_response import PostCatalogVariantResponse
+from openapi_client.models.post_catalog_variant_update_job_response import PostCatalogVariantUpdateJobResponse
 from openapi_client.models.server_bis_subscription_create_query import ServerBISSubscriptionCreateQuery
 
 from openapi_client.api_client import ApiClient, RequestSerialized
 from openapi_client.api_response import ApiResponse
 from openapi_client.rest import RESTResponseType
+from openapi_client.api_arg_options import USE_DICTIONARY_FOR_RESPONSE_DATA
 
 
 class CatalogsApi(object):
@@ -60,7 +104,7 @@ class CatalogsApi(object):
 
 
     @validate_call
-    def create_back_in_stock_subscription(
+    def create_back_in_stock_subscription(        
         self,
         server_bis_subscription_create_query: ServerBISSubscriptionCreateQuery,
         _request_timeout: Union[
@@ -75,7 +119,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> None:
+        options: Dict[str, Any] = {},
+) -> None:
         """Create Back In Stock Subscription
 
         Subscribe a profile to receive back in stock notifications. Check out [our Back in Stock API guide](https://developers.klaviyo.com/en/docs/how_to_set_up_custom_back_in_stock) for more details.  This endpoint is specifically designed to be called from server-side applications. To create subscriptions from client-side contexts, use [POST /client/back-in-stock-subscriptions](https://developers.klaviyo.com/en/reference/create_client_back_in_stock_subscription).<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:write` `profiles:write`
@@ -117,6 +162,10 @@ class CatalogsApi(object):
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -125,14 +174,19 @@ class CatalogsApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def create_back_in_stock_subscription_with_http_info(
+    def create_back_in_stock_subscription_with_http_info(        
         self,
         server_bis_subscription_create_query: ServerBISSubscriptionCreateQuery,
         _request_timeout: Union[
@@ -147,7 +201,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[None]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[None]:
         """Create Back In Stock Subscription
 
         Subscribe a profile to receive back in stock notifications. Check out [our Back in Stock API guide](https://developers.klaviyo.com/en/docs/how_to_set_up_custom_back_in_stock) for more details.  This endpoint is specifically designed to be called from server-side applications. To create subscriptions from client-side contexts, use [POST /client/back-in-stock-subscriptions](https://developers.klaviyo.com/en/reference/create_client_back_in_stock_subscription).<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:write` `profiles:write`
@@ -189,13 +244,21 @@ class CatalogsApi(object):
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -217,8 +280,7 @@ class CatalogsApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Create Back In Stock Subscription
 
         Subscribe a profile to receive back in stock notifications. Check out [our Back in Stock API guide](https://developers.klaviyo.com/en/docs/how_to_set_up_custom_back_in_stock) for more details.  This endpoint is specifically designed to be called from server-side applications. To create subscriptions from client-side contexts, use [POST /client/back-in-stock-subscriptions](https://developers.klaviyo.com/en/reference/create_client_back_in_stock_subscription).<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:write` `profiles:write`
@@ -268,6 +330,23 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _create_back_in_stock_subscription_serialize(
         self,
@@ -345,7 +424,7 @@ class CatalogsApi(object):
 
 
     @validate_call
-    def create_catalog_category(
+    def create_catalog_category(        
         self,
         catalog_category_create_query: CatalogCategoryCreateQuery,
         _request_timeout: Union[
@@ -360,7 +439,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[PostCatalogCategoryResponse, Dict[str, object]]:
         """Create Catalog Category
 
         Create a new catalog category.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
@@ -398,10 +478,14 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dict[str, object]",
+            '201': "PostCatalogCategoryResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -410,14 +494,19 @@ class CatalogsApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def create_catalog_category_with_http_info(
+    def create_catalog_category_with_http_info(        
         self,
         catalog_category_create_query: CatalogCategoryCreateQuery,
         _request_timeout: Union[
@@ -432,7 +521,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[PostCatalogCategoryResponse]:
         """Create Catalog Category
 
         Create a new catalog category.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
@@ -470,17 +560,25 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dict[str, object]",
+            '201': "PostCatalogCategoryResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -502,8 +600,7 @@ class CatalogsApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Create Catalog Category
 
         Create a new catalog category.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
@@ -541,7 +638,7 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dict[str, object]",
+            '201': "PostCatalogCategoryResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -553,6 +650,23 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _create_catalog_category_serialize(
         self,
@@ -630,7 +744,7 @@ class CatalogsApi(object):
 
 
     @validate_call
-    def create_catalog_category_relationships_items(
+    def create_catalog_category_relationships_items(        
         self,
         id: StrictStr,
         catalog_category_item_op: CatalogCategoryItemOp,
@@ -646,7 +760,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> None:
+        options: Dict[str, Any] = {},
+) -> None:
         """Create Catalog Category Relationships Items
 
         Create a new item relationship for the given category ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
@@ -691,6 +806,10 @@ class CatalogsApi(object):
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -699,14 +818,19 @@ class CatalogsApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def create_catalog_category_relationships_items_with_http_info(
+    def create_catalog_category_relationships_items_with_http_info(        
         self,
         id: StrictStr,
         catalog_category_item_op: CatalogCategoryItemOp,
@@ -722,7 +846,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[None]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[None]:
         """Create Catalog Category Relationships Items
 
         Create a new item relationship for the given category ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
@@ -767,13 +892,21 @@ class CatalogsApi(object):
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -796,8 +929,7 @@ class CatalogsApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Create Catalog Category Relationships Items
 
         Create a new item relationship for the given category ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
@@ -850,6 +982,23 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _create_catalog_category_relationships_items_serialize(
         self,
@@ -930,7 +1079,7 @@ class CatalogsApi(object):
 
 
     @validate_call
-    def create_catalog_item(
+    def create_catalog_item(        
         self,
         catalog_item_create_query: CatalogItemCreateQuery,
         _request_timeout: Union[
@@ -945,7 +1094,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[PostCatalogItemResponse, Dict[str, object]]:
         """Create Catalog Item
 
         Create a new catalog item.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
@@ -983,10 +1133,14 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dict[str, object]",
+            '201': "PostCatalogItemResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -995,14 +1149,19 @@ class CatalogsApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def create_catalog_item_with_http_info(
+    def create_catalog_item_with_http_info(        
         self,
         catalog_item_create_query: CatalogItemCreateQuery,
         _request_timeout: Union[
@@ -1017,7 +1176,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[PostCatalogItemResponse]:
         """Create Catalog Item
 
         Create a new catalog item.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
@@ -1055,17 +1215,25 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dict[str, object]",
+            '201': "PostCatalogItemResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1087,8 +1255,7 @@ class CatalogsApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Create Catalog Item
 
         Create a new catalog item.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
@@ -1126,7 +1293,7 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dict[str, object]",
+            '201': "PostCatalogItemResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -1138,6 +1305,23 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _create_catalog_item_serialize(
         self,
@@ -1215,7 +1399,7 @@ class CatalogsApi(object):
 
 
     @validate_call
-    def create_catalog_item_relationships_categories(
+    def create_catalog_item_relationships_categories(        
         self,
         id: StrictStr,
         catalog_item_category_op: CatalogItemCategoryOp,
@@ -1231,7 +1415,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> None:
+        options: Dict[str, Any] = {},
+) -> None:
         """Create Catalog Item Relationships Categories
 
         Create a new catalog category relationship for the given item ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
@@ -1276,6 +1461,10 @@ class CatalogsApi(object):
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -1284,14 +1473,19 @@ class CatalogsApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def create_catalog_item_relationships_categories_with_http_info(
+    def create_catalog_item_relationships_categories_with_http_info(        
         self,
         id: StrictStr,
         catalog_item_category_op: CatalogItemCategoryOp,
@@ -1307,7 +1501,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[None]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[None]:
         """Create Catalog Item Relationships Categories
 
         Create a new catalog category relationship for the given item ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
@@ -1352,13 +1547,21 @@ class CatalogsApi(object):
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1381,8 +1584,7 @@ class CatalogsApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Create Catalog Item Relationships Categories
 
         Create a new catalog category relationship for the given item ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
@@ -1435,6 +1637,23 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _create_catalog_item_relationships_categories_serialize(
         self,
@@ -1515,7 +1734,7 @@ class CatalogsApi(object):
 
 
     @validate_call
-    def create_catalog_variant(
+    def create_catalog_variant(        
         self,
         catalog_variant_create_query: CatalogVariantCreateQuery,
         _request_timeout: Union[
@@ -1530,7 +1749,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[PostCatalogVariantResponse, Dict[str, object]]:
         """Create Catalog Variant
 
         Create a new variant for a related catalog item.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
@@ -1568,10 +1788,14 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dict[str, object]",
+            '201': "PostCatalogVariantResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -1580,14 +1804,19 @@ class CatalogsApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def create_catalog_variant_with_http_info(
+    def create_catalog_variant_with_http_info(        
         self,
         catalog_variant_create_query: CatalogVariantCreateQuery,
         _request_timeout: Union[
@@ -1602,7 +1831,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[PostCatalogVariantResponse]:
         """Create Catalog Variant
 
         Create a new variant for a related catalog item.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
@@ -1640,17 +1870,25 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dict[str, object]",
+            '201': "PostCatalogVariantResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1672,8 +1910,7 @@ class CatalogsApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Create Catalog Variant
 
         Create a new variant for a related catalog item.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
@@ -1711,7 +1948,7 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Dict[str, object]",
+            '201': "PostCatalogVariantResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -1723,6 +1960,23 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _create_catalog_variant_serialize(
         self,
@@ -1800,7 +2054,7 @@ class CatalogsApi(object):
 
 
     @validate_call
-    def delete_catalog_category(
+    def delete_catalog_category(        
         self,
         id: Annotated[StrictStr, Field(description="The catalog category ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.")],
         _request_timeout: Union[
@@ -1815,7 +2069,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> None:
+        options: Dict[str, Any] = {},
+) -> None:
         """Delete Catalog Category
 
         Delete a catalog category using the given category ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
@@ -1857,6 +2112,10 @@ class CatalogsApi(object):
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -1865,14 +2124,19 @@ class CatalogsApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def delete_catalog_category_with_http_info(
+    def delete_catalog_category_with_http_info(        
         self,
         id: Annotated[StrictStr, Field(description="The catalog category ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.")],
         _request_timeout: Union[
@@ -1887,7 +2151,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[None]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[None]:
         """Delete Catalog Category
 
         Delete a catalog category using the given category ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
@@ -1929,13 +2194,21 @@ class CatalogsApi(object):
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1957,8 +2230,7 @@ class CatalogsApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Delete Catalog Category
 
         Delete a catalog category using the given category ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
@@ -2008,6 +2280,23 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _delete_catalog_category_serialize(
         self,
@@ -2072,7 +2361,7 @@ class CatalogsApi(object):
 
 
     @validate_call
-    def delete_catalog_category_relationships_items(
+    def delete_catalog_category_relationships_items(        
         self,
         id: StrictStr,
         catalog_category_item_op: CatalogCategoryItemOp,
@@ -2088,7 +2377,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> None:
+        options: Dict[str, Any] = {},
+) -> None:
         """Delete Catalog Category Relationships Items
 
         Delete item relationships for the given category ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
@@ -2133,6 +2423,10 @@ class CatalogsApi(object):
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -2141,14 +2435,19 @@ class CatalogsApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def delete_catalog_category_relationships_items_with_http_info(
+    def delete_catalog_category_relationships_items_with_http_info(        
         self,
         id: StrictStr,
         catalog_category_item_op: CatalogCategoryItemOp,
@@ -2164,7 +2463,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[None]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[None]:
         """Delete Catalog Category Relationships Items
 
         Delete item relationships for the given category ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
@@ -2209,13 +2509,21 @@ class CatalogsApi(object):
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2238,8 +2546,7 @@ class CatalogsApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Delete Catalog Category Relationships Items
 
         Delete item relationships for the given category ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
@@ -2292,6 +2599,23 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _delete_catalog_category_relationships_items_serialize(
         self,
@@ -2372,7 +2696,7 @@ class CatalogsApi(object):
 
 
     @validate_call
-    def delete_catalog_item(
+    def delete_catalog_item(        
         self,
         id: Annotated[StrictStr, Field(description="The catalog item ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.")],
         _request_timeout: Union[
@@ -2387,7 +2711,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> None:
+        options: Dict[str, Any] = {},
+) -> None:
         """Delete Catalog Item
 
         Delete a catalog item with the given item ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
@@ -2429,6 +2754,10 @@ class CatalogsApi(object):
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -2437,14 +2766,19 @@ class CatalogsApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def delete_catalog_item_with_http_info(
+    def delete_catalog_item_with_http_info(        
         self,
         id: Annotated[StrictStr, Field(description="The catalog item ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.")],
         _request_timeout: Union[
@@ -2459,7 +2793,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[None]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[None]:
         """Delete Catalog Item
 
         Delete a catalog item with the given item ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
@@ -2501,13 +2836,21 @@ class CatalogsApi(object):
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2529,8 +2872,7 @@ class CatalogsApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Delete Catalog Item
 
         Delete a catalog item with the given item ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
@@ -2580,6 +2922,23 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _delete_catalog_item_serialize(
         self,
@@ -2644,7 +3003,7 @@ class CatalogsApi(object):
 
 
     @validate_call
-    def delete_catalog_item_relationships_categories(
+    def delete_catalog_item_relationships_categories(        
         self,
         id: StrictStr,
         catalog_item_category_op: CatalogItemCategoryOp,
@@ -2660,7 +3019,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> None:
+        options: Dict[str, Any] = {},
+) -> None:
         """Delete Catalog Item Relationships Categories
 
         Delete catalog category relationships for the given item ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
@@ -2705,6 +3065,10 @@ class CatalogsApi(object):
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -2713,14 +3077,19 @@ class CatalogsApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def delete_catalog_item_relationships_categories_with_http_info(
+    def delete_catalog_item_relationships_categories_with_http_info(        
         self,
         id: StrictStr,
         catalog_item_category_op: CatalogItemCategoryOp,
@@ -2736,7 +3105,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[None]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[None]:
         """Delete Catalog Item Relationships Categories
 
         Delete catalog category relationships for the given item ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
@@ -2781,13 +3151,21 @@ class CatalogsApi(object):
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2810,8 +3188,7 @@ class CatalogsApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Delete Catalog Item Relationships Categories
 
         Delete catalog category relationships for the given item ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
@@ -2864,6 +3241,23 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _delete_catalog_item_relationships_categories_serialize(
         self,
@@ -2944,7 +3338,7 @@ class CatalogsApi(object):
 
 
     @validate_call
-    def delete_catalog_variant(
+    def delete_catalog_variant(        
         self,
         id: Annotated[StrictStr, Field(description="The catalog variant ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.")],
         _request_timeout: Union[
@@ -2959,7 +3353,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> None:
+        options: Dict[str, Any] = {},
+) -> None:
         """Delete Catalog Variant
 
         Delete a catalog item variant with the given variant ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
@@ -3001,6 +3396,10 @@ class CatalogsApi(object):
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -3009,14 +3408,19 @@ class CatalogsApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def delete_catalog_variant_with_http_info(
+    def delete_catalog_variant_with_http_info(        
         self,
         id: Annotated[StrictStr, Field(description="The catalog variant ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.")],
         _request_timeout: Union[
@@ -3031,7 +3435,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[None]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[None]:
         """Delete Catalog Variant
 
         Delete a catalog item variant with the given variant ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
@@ -3073,13 +3478,21 @@ class CatalogsApi(object):
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -3101,8 +3514,7 @@ class CatalogsApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Delete Catalog Variant
 
         Delete a catalog item variant with the given variant ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
@@ -3152,6 +3564,23 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _delete_catalog_variant_serialize(
         self,
@@ -3216,7 +3645,7 @@ class CatalogsApi(object):
 
 
     @validate_call
-    def get_catalog_categories(
+    def get_catalog_categories(        
         self,
         fields_catalog_category: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
         filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item.id`: `equals`<br>`name`: `contains`")] = None,
@@ -3234,7 +3663,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[GetCatalogCategoryResponseCollection, Dict[str, object]]:
         """Get Catalog Categories
 
         Get all catalog categories in an account.  Catalog categories can be sorted by the following fields, in ascending and descending order: `created`  Currently, the only supported integration type is `$custom`, and the only supported catalog type is `$default`.  Returns a maximum of 100 categories per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -3281,10 +3711,14 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogCategoryResponseCollection",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -3293,14 +3727,19 @@ class CatalogsApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def get_catalog_categories_with_http_info(
+    def get_catalog_categories_with_http_info(        
         self,
         fields_catalog_category: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
         filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item.id`: `equals`<br>`name`: `contains`")] = None,
@@ -3318,7 +3757,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[GetCatalogCategoryResponseCollection]:
         """Get Catalog Categories
 
         Get all catalog categories in an account.  Catalog categories can be sorted by the following fields, in ascending and descending order: `created`  Currently, the only supported integration type is `$custom`, and the only supported catalog type is `$default`.  Returns a maximum of 100 categories per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -3365,17 +3805,25 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogCategoryResponseCollection",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -3400,8 +3848,7 @@ class CatalogsApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Catalog Categories
 
         Get all catalog categories in an account.  Catalog categories can be sorted by the following fields, in ascending and descending order: `created`  Currently, the only supported integration type is `$custom`, and the only supported catalog type is `$default`.  Returns a maximum of 100 categories per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -3448,7 +3895,7 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogCategoryResponseCollection",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -3460,6 +3907,23 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _get_catalog_categories_serialize(
         self,
@@ -3554,7 +4018,7 @@ class CatalogsApi(object):
 
 
     @validate_call
-    def get_catalog_category(
+    def get_catalog_category(        
         self,
         id: Annotated[StrictStr, Field(description="The catalog category ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.")],
         fields_catalog_category: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
@@ -3570,7 +4034,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[GetCatalogCategoryResponse, Dict[str, object]]:
         """Get Catalog Category
 
         Get a catalog category with the given category ID.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -3611,10 +4076,14 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogCategoryResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -3623,14 +4092,19 @@ class CatalogsApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def get_catalog_category_with_http_info(
+    def get_catalog_category_with_http_info(        
         self,
         id: Annotated[StrictStr, Field(description="The catalog category ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.")],
         fields_catalog_category: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
@@ -3646,7 +4120,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[GetCatalogCategoryResponse]:
         """Get Catalog Category
 
         Get a catalog category with the given category ID.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -3687,17 +4162,25 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogCategoryResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -3720,8 +4203,7 @@ class CatalogsApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Catalog Category
 
         Get a catalog category with the given category ID.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -3762,7 +4244,7 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogCategoryResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -3774,6 +4256,23 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _get_catalog_category_serialize(
         self,
@@ -3847,7 +4346,7 @@ class CatalogsApi(object):
 
 
     @validate_call
-    def get_catalog_category_items(
+    def get_catalog_category_items(        
         self,
         id: StrictStr,
         fields_catalog_item: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
@@ -3868,7 +4367,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[GetCatalogItemResponseCollectionCompoundDocument, Dict[str, object]]:
         """Get Catalog Category Items
 
         Get all items in a category with the given category ID.  Items can be sorted by the following fields, in ascending and descending order: `created`  Returns a maximum of 100 items per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -3924,10 +4424,14 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogItemResponseCollectionCompoundDocument",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -3936,14 +4440,19 @@ class CatalogsApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def get_catalog_category_items_with_http_info(
+    def get_catalog_category_items_with_http_info(        
         self,
         id: StrictStr,
         fields_catalog_item: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
@@ -3964,7 +4473,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[GetCatalogItemResponseCollectionCompoundDocument]:
         """Get Catalog Category Items
 
         Get all items in a category with the given category ID.  Items can be sorted by the following fields, in ascending and descending order: `created`  Returns a maximum of 100 items per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -4020,17 +4530,25 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogItemResponseCollectionCompoundDocument",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -4058,8 +4576,7 @@ class CatalogsApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Catalog Category Items
 
         Get all items in a category with the given category ID.  Items can be sorted by the following fields, in ascending and descending order: `created`  Returns a maximum of 100 items per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -4115,7 +4632,7 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogItemResponseCollectionCompoundDocument",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -4127,6 +4644,23 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _get_catalog_category_items_serialize(
         self,
@@ -4242,7 +4776,7 @@ class CatalogsApi(object):
 
 
     @validate_call
-    def get_catalog_category_relationships_items(
+    def get_catalog_category_relationships_items(        
         self,
         id: StrictStr,
         page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#pagination")] = None,
@@ -4258,7 +4792,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[GetCatalogCategoryItemListResponseCollection, Dict[str, object]]:
         """Get Catalog Category Relationships Items
 
         Get all items in the given category ID.  Returns a maximum of 100 items per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -4299,10 +4834,14 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogCategoryItemListResponseCollection",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -4311,14 +4850,19 @@ class CatalogsApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def get_catalog_category_relationships_items_with_http_info(
+    def get_catalog_category_relationships_items_with_http_info(        
         self,
         id: StrictStr,
         page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#pagination")] = None,
@@ -4334,7 +4878,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[GetCatalogCategoryItemListResponseCollection]:
         """Get Catalog Category Relationships Items
 
         Get all items in the given category ID.  Returns a maximum of 100 items per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -4375,17 +4920,25 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogCategoryItemListResponseCollection",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -4408,8 +4961,7 @@ class CatalogsApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Catalog Category Relationships Items
 
         Get all items in the given category ID.  Returns a maximum of 100 items per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -4450,7 +5002,7 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogCategoryItemListResponseCollection",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -4462,6 +5014,23 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _get_catalog_category_relationships_items_serialize(
         self,
@@ -4534,7 +5103,7 @@ class CatalogsApi(object):
 
 
     @validate_call
-    def get_catalog_item(
+    def get_catalog_item(        
         self,
         id: Annotated[StrictStr, Field(description="The catalog item ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.")],
         fields_catalog_item: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
@@ -4552,7 +5121,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[GetCatalogItemResponseCompoundDocument, Dict[str, object]]:
         """Get Catalog Item
 
         Get a specific catalog item with the given item ID.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -4599,10 +5169,14 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogItemResponseCompoundDocument",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -4611,14 +5185,19 @@ class CatalogsApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def get_catalog_item_with_http_info(
+    def get_catalog_item_with_http_info(        
         self,
         id: Annotated[StrictStr, Field(description="The catalog item ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.")],
         fields_catalog_item: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
@@ -4636,7 +5215,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[GetCatalogItemResponseCompoundDocument]:
         """Get Catalog Item
 
         Get a specific catalog item with the given item ID.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -4683,17 +5263,25 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogItemResponseCompoundDocument",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -4718,8 +5306,7 @@ class CatalogsApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Catalog Item
 
         Get a specific catalog item with the given item ID.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -4766,7 +5353,7 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogItemResponseCompoundDocument",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -4778,6 +5365,23 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _get_catalog_item_serialize(
         self,
@@ -4869,7 +5473,7 @@ class CatalogsApi(object):
 
 
     @validate_call
-    def get_catalog_item_categories(
+    def get_catalog_item_categories(        
         self,
         id: StrictStr,
         fields_catalog_category: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
@@ -4888,7 +5492,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[GetCatalogCategoryResponseCollection, Dict[str, object]]:
         """Get Catalog Item Categories
 
         Get all catalog categories that an item with the given item ID is in.  Catalog categories can be sorted by the following fields, in ascending and descending order: `created`  Returns a maximum of 100 categories per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -4938,10 +5543,14 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogCategoryResponseCollection",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -4950,14 +5559,19 @@ class CatalogsApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def get_catalog_item_categories_with_http_info(
+    def get_catalog_item_categories_with_http_info(        
         self,
         id: StrictStr,
         fields_catalog_category: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
@@ -4976,7 +5590,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[GetCatalogCategoryResponseCollection]:
         """Get Catalog Item Categories
 
         Get all catalog categories that an item with the given item ID is in.  Catalog categories can be sorted by the following fields, in ascending and descending order: `created`  Returns a maximum of 100 categories per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -5026,17 +5641,25 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogCategoryResponseCollection",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -5062,8 +5685,7 @@ class CatalogsApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Catalog Item Categories
 
         Get all catalog categories that an item with the given item ID is in.  Catalog categories can be sorted by the following fields, in ascending and descending order: `created`  Returns a maximum of 100 categories per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -5113,7 +5735,7 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogCategoryResponseCollection",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -5125,6 +5747,23 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _get_catalog_item_categories_serialize(
         self,
@@ -5222,7 +5861,7 @@ class CatalogsApi(object):
 
 
     @validate_call
-    def get_catalog_item_relationships_categories(
+    def get_catalog_item_relationships_categories(        
         self,
         id: StrictStr,
         page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#pagination")] = None,
@@ -5238,7 +5877,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[GetCatalogItemCategoryListResponseCollection, Dict[str, object]]:
         """Get Catalog Item Relationships Categories
 
         Get all catalog categories that a particular item is in.  Returns a maximum of 100 categories per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -5279,10 +5919,14 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogItemCategoryListResponseCollection",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -5291,14 +5935,19 @@ class CatalogsApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def get_catalog_item_relationships_categories_with_http_info(
+    def get_catalog_item_relationships_categories_with_http_info(        
         self,
         id: StrictStr,
         page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#pagination")] = None,
@@ -5314,7 +5963,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[GetCatalogItemCategoryListResponseCollection]:
         """Get Catalog Item Relationships Categories
 
         Get all catalog categories that a particular item is in.  Returns a maximum of 100 categories per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -5355,17 +6005,25 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogItemCategoryListResponseCollection",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -5388,8 +6046,7 @@ class CatalogsApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Catalog Item Relationships Categories
 
         Get all catalog categories that a particular item is in.  Returns a maximum of 100 categories per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -5430,7 +6087,7 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogItemCategoryListResponseCollection",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -5442,6 +6099,23 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _get_catalog_item_relationships_categories_serialize(
         self,
@@ -5514,7 +6188,7 @@ class CatalogsApi(object):
 
 
     @validate_call
-    def get_catalog_item_variants(
+    def get_catalog_item_variants(        
         self,
         id: StrictStr,
         fields_catalog_variant: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
@@ -5533,7 +6207,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[GetCatalogVariantResponseCollection, Dict[str, object]]:
         """Get Catalog Item Variants
 
         Get all variants related to the given item ID.  Variants can be sorted by the following fields, in ascending and descending order: `created`  Returns a maximum of 100 variants per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -5583,10 +6258,14 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogVariantResponseCollection",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -5595,14 +6274,19 @@ class CatalogsApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def get_catalog_item_variants_with_http_info(
+    def get_catalog_item_variants_with_http_info(        
         self,
         id: StrictStr,
         fields_catalog_variant: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
@@ -5621,7 +6305,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[GetCatalogVariantResponseCollection]:
         """Get Catalog Item Variants
 
         Get all variants related to the given item ID.  Variants can be sorted by the following fields, in ascending and descending order: `created`  Returns a maximum of 100 variants per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -5671,17 +6356,25 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogVariantResponseCollection",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -5707,8 +6400,7 @@ class CatalogsApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Catalog Item Variants
 
         Get all variants related to the given item ID.  Variants can be sorted by the following fields, in ascending and descending order: `created`  Returns a maximum of 100 variants per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -5758,7 +6450,7 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogVariantResponseCollection",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -5770,6 +6462,23 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _get_catalog_item_variants_serialize(
         self,
@@ -5867,7 +6576,7 @@ class CatalogsApi(object):
 
 
     @validate_call
-    def get_catalog_items(
+    def get_catalog_items(        
         self,
         fields_catalog_item: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
         fields_catalog_variant: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
@@ -5887,7 +6596,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[GetCatalogItemResponseCollectionCompoundDocument, Dict[str, object]]:
         """Get Catalog Items
 
         Get all catalog items in an account.  Catalog items can be sorted by the following fields, in ascending and descending order: `created`  Currently, the only supported integration type is `$custom`, and the only supported catalog type is `$default`.  Returns a maximum of 100 items per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -5940,10 +6650,14 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogItemResponseCollectionCompoundDocument",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -5952,14 +6666,19 @@ class CatalogsApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def get_catalog_items_with_http_info(
+    def get_catalog_items_with_http_info(        
         self,
         fields_catalog_item: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
         fields_catalog_variant: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
@@ -5979,7 +6698,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[GetCatalogItemResponseCollectionCompoundDocument]:
         """Get Catalog Items
 
         Get all catalog items in an account.  Catalog items can be sorted by the following fields, in ascending and descending order: `created`  Currently, the only supported integration type is `$custom`, and the only supported catalog type is `$default`.  Returns a maximum of 100 items per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -6032,17 +6752,25 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogItemResponseCollectionCompoundDocument",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -6069,8 +6797,7 @@ class CatalogsApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Catalog Items
 
         Get all catalog items in an account.  Catalog items can be sorted by the following fields, in ascending and descending order: `created`  Currently, the only supported integration type is `$custom`, and the only supported catalog type is `$default`.  Returns a maximum of 100 items per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -6123,7 +6850,7 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogItemResponseCollectionCompoundDocument",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -6135,6 +6862,23 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _get_catalog_items_serialize(
         self,
@@ -6247,7 +6991,7 @@ class CatalogsApi(object):
 
 
     @validate_call
-    def get_catalog_variant(
+    def get_catalog_variant(        
         self,
         id: Annotated[StrictStr, Field(description="The catalog variant ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.")],
         fields_catalog_variant: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
@@ -6263,7 +7007,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[GetCatalogVariantResponse, Dict[str, object]]:
         """Get Catalog Variant
 
         Get a catalog item variant with the given variant ID.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -6304,10 +7049,14 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogVariantResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -6316,14 +7065,19 @@ class CatalogsApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def get_catalog_variant_with_http_info(
+    def get_catalog_variant_with_http_info(        
         self,
         id: Annotated[StrictStr, Field(description="The catalog variant ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.")],
         fields_catalog_variant: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
@@ -6339,7 +7093,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[GetCatalogVariantResponse]:
         """Get Catalog Variant
 
         Get a catalog item variant with the given variant ID.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -6380,17 +7135,25 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogVariantResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -6413,8 +7176,7 @@ class CatalogsApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Catalog Variant
 
         Get a catalog item variant with the given variant ID.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -6455,7 +7217,7 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogVariantResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -6467,6 +7229,23 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _get_catalog_variant_serialize(
         self,
@@ -6540,7 +7319,7 @@ class CatalogsApi(object):
 
 
     @validate_call
-    def get_catalog_variants(
+    def get_catalog_variants(        
         self,
         fields_catalog_variant: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
         filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item.id`: `equals`<br>`sku`: `equals`<br>`title`: `contains`<br>`published`: `equals`")] = None,
@@ -6558,7 +7337,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[GetCatalogVariantResponseCollection, Dict[str, object]]:
         """Get Catalog Variants
 
         Get all variants in an account.  Variants can be sorted by the following fields, in ascending and descending order: `created`  Currently, the only supported integration type is `$custom`, and the only supported catalog type is `$default`.  Returns a maximum of 100 variants per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -6605,10 +7385,14 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogVariantResponseCollection",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -6617,14 +7401,19 @@ class CatalogsApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def get_catalog_variants_with_http_info(
+    def get_catalog_variants_with_http_info(        
         self,
         fields_catalog_variant: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
         filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item.id`: `equals`<br>`sku`: `equals`<br>`title`: `contains`<br>`published`: `equals`")] = None,
@@ -6642,7 +7431,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[GetCatalogVariantResponseCollection]:
         """Get Catalog Variants
 
         Get all variants in an account.  Variants can be sorted by the following fields, in ascending and descending order: `created`  Currently, the only supported integration type is `$custom`, and the only supported catalog type is `$default`.  Returns a maximum of 100 variants per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -6689,17 +7479,25 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogVariantResponseCollection",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -6724,8 +7522,7 @@ class CatalogsApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Catalog Variants
 
         Get all variants in an account.  Variants can be sorted by the following fields, in ascending and descending order: `created`  Currently, the only supported integration type is `$custom`, and the only supported catalog type is `$default`.  Returns a maximum of 100 variants per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -6772,7 +7569,7 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogVariantResponseCollection",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -6784,6 +7581,23 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _get_catalog_variants_serialize(
         self,
@@ -6878,7 +7692,7 @@ class CatalogsApi(object):
 
 
     @validate_call
-    def get_create_categories_job(
+    def get_create_categories_job(        
         self,
         job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
         fields_catalog_category_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
@@ -6896,7 +7710,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[GetCatalogCategoryCreateJobResponseCompoundDocument, Dict[str, object]]:
         """Get Create Categories Job
 
         Get a catalog category bulk create job with the given job ID.  An `include` parameter can be provided to get the following related resource data: `categories`.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -6943,10 +7758,14 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogCategoryCreateJobResponseCompoundDocument",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -6955,14 +7774,19 @@ class CatalogsApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def get_create_categories_job_with_http_info(
+    def get_create_categories_job_with_http_info(        
         self,
         job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
         fields_catalog_category_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
@@ -6980,7 +7804,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[GetCatalogCategoryCreateJobResponseCompoundDocument]:
         """Get Create Categories Job
 
         Get a catalog category bulk create job with the given job ID.  An `include` parameter can be provided to get the following related resource data: `categories`.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -7027,17 +7852,25 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogCategoryCreateJobResponseCompoundDocument",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -7062,8 +7895,7 @@ class CatalogsApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Create Categories Job
 
         Get a catalog category bulk create job with the given job ID.  An `include` parameter can be provided to get the following related resource data: `categories`.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -7110,7 +7942,7 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogCategoryCreateJobResponseCompoundDocument",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -7122,6 +7954,23 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _get_create_categories_job_serialize(
         self,
@@ -7213,7 +8062,7 @@ class CatalogsApi(object):
 
 
     @validate_call
-    def get_create_categories_jobs(
+    def get_create_categories_jobs(        
         self,
         fields_catalog_category_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
         filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
@@ -7230,7 +8079,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[GetCatalogCategoryCreateJobResponseCollectionCompoundDocument, Dict[str, object]]:
         """Get Create Categories Jobs
 
         Get all catalog category bulk create jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -7274,10 +8124,14 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogCategoryCreateJobResponseCollectionCompoundDocument",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -7286,14 +8140,19 @@ class CatalogsApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def get_create_categories_jobs_with_http_info(
+    def get_create_categories_jobs_with_http_info(        
         self,
         fields_catalog_category_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
         filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
@@ -7310,7 +8169,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[GetCatalogCategoryCreateJobResponseCollectionCompoundDocument]:
         """Get Create Categories Jobs
 
         Get all catalog category bulk create jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -7354,17 +8214,25 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogCategoryCreateJobResponseCollectionCompoundDocument",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -7388,8 +8256,7 @@ class CatalogsApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Create Categories Jobs
 
         Get all catalog category bulk create jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -7433,7 +8300,7 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogCategoryCreateJobResponseCollectionCompoundDocument",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -7445,6 +8312,23 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _get_create_categories_jobs_serialize(
         self,
@@ -7531,7 +8415,7 @@ class CatalogsApi(object):
 
 
     @validate_call
-    def get_create_items_job(
+    def get_create_items_job(        
         self,
         job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
         fields_catalog_item_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
@@ -7549,7 +8433,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[GetCatalogItemCreateJobResponseCompoundDocument, Dict[str, object]]:
         """Get Create Items Job
 
         Get a catalog item bulk create job with the given job ID.  An `include` parameter can be provided to get the following related resource data: `items`.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -7596,10 +8481,14 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogItemCreateJobResponseCompoundDocument",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -7608,14 +8497,19 @@ class CatalogsApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def get_create_items_job_with_http_info(
+    def get_create_items_job_with_http_info(        
         self,
         job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
         fields_catalog_item_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
@@ -7633,7 +8527,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[GetCatalogItemCreateJobResponseCompoundDocument]:
         """Get Create Items Job
 
         Get a catalog item bulk create job with the given job ID.  An `include` parameter can be provided to get the following related resource data: `items`.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -7680,17 +8575,25 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogItemCreateJobResponseCompoundDocument",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -7715,8 +8618,7 @@ class CatalogsApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Create Items Job
 
         Get a catalog item bulk create job with the given job ID.  An `include` parameter can be provided to get the following related resource data: `items`.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -7763,7 +8665,7 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogItemCreateJobResponseCompoundDocument",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -7775,6 +8677,23 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _get_create_items_job_serialize(
         self,
@@ -7866,7 +8785,7 @@ class CatalogsApi(object):
 
 
     @validate_call
-    def get_create_items_jobs(
+    def get_create_items_jobs(        
         self,
         fields_catalog_item_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
         filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
@@ -7883,7 +8802,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[GetCatalogItemCreateJobResponseCollectionCompoundDocument, Dict[str, object]]:
         """Get Create Items Jobs
 
         Get all catalog item bulk create jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -7927,10 +8847,14 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogItemCreateJobResponseCollectionCompoundDocument",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -7939,14 +8863,19 @@ class CatalogsApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def get_create_items_jobs_with_http_info(
+    def get_create_items_jobs_with_http_info(        
         self,
         fields_catalog_item_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
         filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
@@ -7963,7 +8892,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[GetCatalogItemCreateJobResponseCollectionCompoundDocument]:
         """Get Create Items Jobs
 
         Get all catalog item bulk create jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -8007,17 +8937,25 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogItemCreateJobResponseCollectionCompoundDocument",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -8041,8 +8979,7 @@ class CatalogsApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Create Items Jobs
 
         Get all catalog item bulk create jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -8086,7 +9023,7 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogItemCreateJobResponseCollectionCompoundDocument",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -8098,6 +9035,23 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _get_create_items_jobs_serialize(
         self,
@@ -8184,7 +9138,7 @@ class CatalogsApi(object):
 
 
     @validate_call
-    def get_create_variants_job(
+    def get_create_variants_job(        
         self,
         job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
         fields_catalog_variant_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
@@ -8202,7 +9156,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[GetCatalogVariantCreateJobResponseCompoundDocument, Dict[str, object]]:
         """Get Create Variants Job
 
         Get a catalog variant bulk create job with the given job ID.  An `include` parameter can be provided to get the following related resource data: `variants`.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -8249,10 +9204,14 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogVariantCreateJobResponseCompoundDocument",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -8261,14 +9220,19 @@ class CatalogsApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def get_create_variants_job_with_http_info(
+    def get_create_variants_job_with_http_info(        
         self,
         job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
         fields_catalog_variant_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
@@ -8286,7 +9250,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[GetCatalogVariantCreateJobResponseCompoundDocument]:
         """Get Create Variants Job
 
         Get a catalog variant bulk create job with the given job ID.  An `include` parameter can be provided to get the following related resource data: `variants`.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -8333,17 +9298,25 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogVariantCreateJobResponseCompoundDocument",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -8368,8 +9341,7 @@ class CatalogsApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Create Variants Job
 
         Get a catalog variant bulk create job with the given job ID.  An `include` parameter can be provided to get the following related resource data: `variants`.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -8416,7 +9388,7 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogVariantCreateJobResponseCompoundDocument",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -8428,6 +9400,23 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _get_create_variants_job_serialize(
         self,
@@ -8519,7 +9508,7 @@ class CatalogsApi(object):
 
 
     @validate_call
-    def get_create_variants_jobs(
+    def get_create_variants_jobs(        
         self,
         fields_catalog_variant_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
         filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
@@ -8536,7 +9525,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[GetCatalogVariantCreateJobResponseCollectionCompoundDocument, Dict[str, object]]:
         """Get Create Variants Jobs
 
         Get all catalog variant bulk create jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -8580,10 +9570,14 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogVariantCreateJobResponseCollectionCompoundDocument",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -8592,14 +9586,19 @@ class CatalogsApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def get_create_variants_jobs_with_http_info(
+    def get_create_variants_jobs_with_http_info(        
         self,
         fields_catalog_variant_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
         filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
@@ -8616,7 +9615,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[GetCatalogVariantCreateJobResponseCollectionCompoundDocument]:
         """Get Create Variants Jobs
 
         Get all catalog variant bulk create jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -8660,17 +9660,25 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogVariantCreateJobResponseCollectionCompoundDocument",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -8694,8 +9702,7 @@ class CatalogsApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Create Variants Jobs
 
         Get all catalog variant bulk create jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -8739,7 +9746,7 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogVariantCreateJobResponseCollectionCompoundDocument",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -8751,6 +9758,23 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _get_create_variants_jobs_serialize(
         self,
@@ -8837,7 +9861,7 @@ class CatalogsApi(object):
 
 
     @validate_call
-    def get_delete_categories_job(
+    def get_delete_categories_job(        
         self,
         job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
         fields_catalog_category_bulk_delete_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
@@ -8853,7 +9877,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[GetCatalogCategoryDeleteJobResponse, Dict[str, object]]:
         """Get Delete Categories Job
 
         Get a catalog category bulk delete job with the given job ID.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -8894,10 +9919,14 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogCategoryDeleteJobResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -8906,14 +9935,19 @@ class CatalogsApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def get_delete_categories_job_with_http_info(
+    def get_delete_categories_job_with_http_info(        
         self,
         job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
         fields_catalog_category_bulk_delete_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
@@ -8929,7 +9963,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[GetCatalogCategoryDeleteJobResponse]:
         """Get Delete Categories Job
 
         Get a catalog category bulk delete job with the given job ID.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -8970,17 +10005,25 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogCategoryDeleteJobResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -9003,8 +10046,7 @@ class CatalogsApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Delete Categories Job
 
         Get a catalog category bulk delete job with the given job ID.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -9045,7 +10087,7 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogCategoryDeleteJobResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -9057,6 +10099,23 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _get_delete_categories_job_serialize(
         self,
@@ -9130,7 +10189,7 @@ class CatalogsApi(object):
 
 
     @validate_call
-    def get_delete_categories_jobs(
+    def get_delete_categories_jobs(        
         self,
         fields_catalog_category_bulk_delete_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
         filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
@@ -9147,7 +10206,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[GetCatalogCategoryDeleteJobResponseCollection, Dict[str, object]]:
         """Get Delete Categories Jobs
 
         Get all catalog category bulk delete jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -9191,10 +10251,14 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogCategoryDeleteJobResponseCollection",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -9203,14 +10267,19 @@ class CatalogsApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def get_delete_categories_jobs_with_http_info(
+    def get_delete_categories_jobs_with_http_info(        
         self,
         fields_catalog_category_bulk_delete_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
         filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
@@ -9227,7 +10296,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[GetCatalogCategoryDeleteJobResponseCollection]:
         """Get Delete Categories Jobs
 
         Get all catalog category bulk delete jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -9271,17 +10341,25 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogCategoryDeleteJobResponseCollection",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -9305,8 +10383,7 @@ class CatalogsApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Delete Categories Jobs
 
         Get all catalog category bulk delete jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -9350,7 +10427,7 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogCategoryDeleteJobResponseCollection",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -9362,6 +10439,23 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _get_delete_categories_jobs_serialize(
         self,
@@ -9448,7 +10542,7 @@ class CatalogsApi(object):
 
 
     @validate_call
-    def get_delete_items_job(
+    def get_delete_items_job(        
         self,
         job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
         fields_catalog_item_bulk_delete_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
@@ -9464,7 +10558,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[GetCatalogItemDeleteJobResponse, Dict[str, object]]:
         """Get Delete Items Job
 
         Get a catalog item bulk delete job with the given job ID.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -9505,10 +10600,14 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogItemDeleteJobResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -9517,14 +10616,19 @@ class CatalogsApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def get_delete_items_job_with_http_info(
+    def get_delete_items_job_with_http_info(        
         self,
         job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
         fields_catalog_item_bulk_delete_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
@@ -9540,7 +10644,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[GetCatalogItemDeleteJobResponse]:
         """Get Delete Items Job
 
         Get a catalog item bulk delete job with the given job ID.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -9581,17 +10686,25 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogItemDeleteJobResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -9614,8 +10727,7 @@ class CatalogsApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Delete Items Job
 
         Get a catalog item bulk delete job with the given job ID.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -9656,7 +10768,7 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogItemDeleteJobResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -9668,6 +10780,23 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _get_delete_items_job_serialize(
         self,
@@ -9741,7 +10870,7 @@ class CatalogsApi(object):
 
 
     @validate_call
-    def get_delete_items_jobs(
+    def get_delete_items_jobs(        
         self,
         fields_catalog_item_bulk_delete_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
         filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
@@ -9758,7 +10887,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[GetCatalogItemDeleteJobResponseCollection, Dict[str, object]]:
         """Get Delete Items Jobs
 
         Get all catalog item bulk delete jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -9802,10 +10932,14 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogItemDeleteJobResponseCollection",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -9814,14 +10948,19 @@ class CatalogsApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def get_delete_items_jobs_with_http_info(
+    def get_delete_items_jobs_with_http_info(        
         self,
         fields_catalog_item_bulk_delete_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
         filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
@@ -9838,7 +10977,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[GetCatalogItemDeleteJobResponseCollection]:
         """Get Delete Items Jobs
 
         Get all catalog item bulk delete jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -9882,17 +11022,25 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogItemDeleteJobResponseCollection",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -9916,8 +11064,7 @@ class CatalogsApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Delete Items Jobs
 
         Get all catalog item bulk delete jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -9961,7 +11108,7 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogItemDeleteJobResponseCollection",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -9973,6 +11120,23 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _get_delete_items_jobs_serialize(
         self,
@@ -10059,7 +11223,7 @@ class CatalogsApi(object):
 
 
     @validate_call
-    def get_delete_variants_job(
+    def get_delete_variants_job(        
         self,
         job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
         fields_catalog_variant_bulk_delete_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
@@ -10075,7 +11239,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[GetCatalogVariantDeleteJobResponse, Dict[str, object]]:
         """Get Delete Variants Job
 
         Get a catalog variant bulk delete job with the given job ID.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -10116,10 +11281,14 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogVariantDeleteJobResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -10128,14 +11297,19 @@ class CatalogsApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def get_delete_variants_job_with_http_info(
+    def get_delete_variants_job_with_http_info(        
         self,
         job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
         fields_catalog_variant_bulk_delete_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
@@ -10151,7 +11325,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[GetCatalogVariantDeleteJobResponse]:
         """Get Delete Variants Job
 
         Get a catalog variant bulk delete job with the given job ID.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -10192,17 +11367,25 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogVariantDeleteJobResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -10225,8 +11408,7 @@ class CatalogsApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Delete Variants Job
 
         Get a catalog variant bulk delete job with the given job ID.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -10267,7 +11449,7 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogVariantDeleteJobResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -10279,6 +11461,23 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _get_delete_variants_job_serialize(
         self,
@@ -10352,7 +11551,7 @@ class CatalogsApi(object):
 
 
     @validate_call
-    def get_delete_variants_jobs(
+    def get_delete_variants_jobs(        
         self,
         fields_catalog_variant_bulk_delete_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
         filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
@@ -10369,7 +11568,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[GetCatalogVariantDeleteJobResponseCollection, Dict[str, object]]:
         """Get Delete Variants Jobs
 
         Get all catalog variant bulk delete jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -10413,10 +11613,14 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogVariantDeleteJobResponseCollection",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -10425,14 +11629,19 @@ class CatalogsApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def get_delete_variants_jobs_with_http_info(
+    def get_delete_variants_jobs_with_http_info(        
         self,
         fields_catalog_variant_bulk_delete_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
         filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
@@ -10449,7 +11658,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[GetCatalogVariantDeleteJobResponseCollection]:
         """Get Delete Variants Jobs
 
         Get all catalog variant bulk delete jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -10493,17 +11703,25 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogVariantDeleteJobResponseCollection",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -10527,8 +11745,7 @@ class CatalogsApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Delete Variants Jobs
 
         Get all catalog variant bulk delete jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -10572,7 +11789,7 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogVariantDeleteJobResponseCollection",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -10584,6 +11801,23 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _get_delete_variants_jobs_serialize(
         self,
@@ -10670,7 +11904,7 @@ class CatalogsApi(object):
 
 
     @validate_call
-    def get_update_categories_job(
+    def get_update_categories_job(        
         self,
         job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
         fields_catalog_category_bulk_update_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
@@ -10688,7 +11922,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[GetCatalogCategoryUpdateJobResponseCompoundDocument, Dict[str, object]]:
         """Get Update Categories Job
 
         Get a catalog category bulk update job with the given job ID.  An `include` parameter can be provided to get the following related resource data: `categories`.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -10735,10 +11970,14 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogCategoryUpdateJobResponseCompoundDocument",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -10747,14 +11986,19 @@ class CatalogsApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def get_update_categories_job_with_http_info(
+    def get_update_categories_job_with_http_info(        
         self,
         job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
         fields_catalog_category_bulk_update_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
@@ -10772,7 +12016,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[GetCatalogCategoryUpdateJobResponseCompoundDocument]:
         """Get Update Categories Job
 
         Get a catalog category bulk update job with the given job ID.  An `include` parameter can be provided to get the following related resource data: `categories`.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -10819,17 +12064,25 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogCategoryUpdateJobResponseCompoundDocument",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -10854,8 +12107,7 @@ class CatalogsApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Update Categories Job
 
         Get a catalog category bulk update job with the given job ID.  An `include` parameter can be provided to get the following related resource data: `categories`.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -10902,7 +12154,7 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogCategoryUpdateJobResponseCompoundDocument",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -10914,6 +12166,23 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _get_update_categories_job_serialize(
         self,
@@ -11005,7 +12274,7 @@ class CatalogsApi(object):
 
 
     @validate_call
-    def get_update_categories_jobs(
+    def get_update_categories_jobs(        
         self,
         fields_catalog_category_bulk_update_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
         filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
@@ -11022,7 +12291,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[GetCatalogCategoryUpdateJobResponseCollectionCompoundDocument, Dict[str, object]]:
         """Get Update Categories Jobs
 
         Get all catalog category bulk update jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -11066,10 +12336,14 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogCategoryUpdateJobResponseCollectionCompoundDocument",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -11078,14 +12352,19 @@ class CatalogsApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def get_update_categories_jobs_with_http_info(
+    def get_update_categories_jobs_with_http_info(        
         self,
         fields_catalog_category_bulk_update_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
         filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
@@ -11102,7 +12381,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[GetCatalogCategoryUpdateJobResponseCollectionCompoundDocument]:
         """Get Update Categories Jobs
 
         Get all catalog category bulk update jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -11146,17 +12426,25 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogCategoryUpdateJobResponseCollectionCompoundDocument",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -11180,8 +12468,7 @@ class CatalogsApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Update Categories Jobs
 
         Get all catalog category bulk update jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -11225,7 +12512,7 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogCategoryUpdateJobResponseCollectionCompoundDocument",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -11237,6 +12524,23 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _get_update_categories_jobs_serialize(
         self,
@@ -11323,7 +12627,7 @@ class CatalogsApi(object):
 
 
     @validate_call
-    def get_update_items_job(
+    def get_update_items_job(        
         self,
         job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
         fields_catalog_item_bulk_update_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
@@ -11341,7 +12645,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[GetCatalogItemUpdateJobResponseCompoundDocument, Dict[str, object]]:
         """Get Update Items Job
 
         Get a catalog item bulk update job with the given job ID.  An `include` parameter can be provided to get the following related resource data: `items`.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -11388,10 +12693,14 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogItemUpdateJobResponseCompoundDocument",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -11400,14 +12709,19 @@ class CatalogsApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def get_update_items_job_with_http_info(
+    def get_update_items_job_with_http_info(        
         self,
         job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
         fields_catalog_item_bulk_update_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
@@ -11425,7 +12739,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[GetCatalogItemUpdateJobResponseCompoundDocument]:
         """Get Update Items Job
 
         Get a catalog item bulk update job with the given job ID.  An `include` parameter can be provided to get the following related resource data: `items`.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -11472,17 +12787,25 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogItemUpdateJobResponseCompoundDocument",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -11507,8 +12830,7 @@ class CatalogsApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Update Items Job
 
         Get a catalog item bulk update job with the given job ID.  An `include` parameter can be provided to get the following related resource data: `items`.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -11555,7 +12877,7 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogItemUpdateJobResponseCompoundDocument",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -11567,6 +12889,23 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _get_update_items_job_serialize(
         self,
@@ -11658,7 +12997,7 @@ class CatalogsApi(object):
 
 
     @validate_call
-    def get_update_items_jobs(
+    def get_update_items_jobs(        
         self,
         fields_catalog_item_bulk_update_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
         filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
@@ -11675,7 +13014,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[GetCatalogItemUpdateJobResponseCollectionCompoundDocument, Dict[str, object]]:
         """Get Update Items Jobs
 
         Get all catalog item bulk update jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -11719,10 +13059,14 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogItemUpdateJobResponseCollectionCompoundDocument",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -11731,14 +13075,19 @@ class CatalogsApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def get_update_items_jobs_with_http_info(
+    def get_update_items_jobs_with_http_info(        
         self,
         fields_catalog_item_bulk_update_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
         filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
@@ -11755,7 +13104,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[GetCatalogItemUpdateJobResponseCollectionCompoundDocument]:
         """Get Update Items Jobs
 
         Get all catalog item bulk update jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -11799,17 +13149,25 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogItemUpdateJobResponseCollectionCompoundDocument",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -11833,8 +13191,7 @@ class CatalogsApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Update Items Jobs
 
         Get all catalog item bulk update jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -11878,7 +13235,7 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogItemUpdateJobResponseCollectionCompoundDocument",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -11890,6 +13247,23 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _get_update_items_jobs_serialize(
         self,
@@ -11976,7 +13350,7 @@ class CatalogsApi(object):
 
 
     @validate_call
-    def get_update_variants_job(
+    def get_update_variants_job(        
         self,
         job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
         fields_catalog_variant_bulk_update_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
@@ -11994,7 +13368,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[GetCatalogVariantUpdateJobResponseCompoundDocument, Dict[str, object]]:
         """Get Update Variants Job
 
         Get a catalog variate bulk update job with the given job ID.  An `include` parameter can be provided to get the following related resource data: `variants`.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -12041,10 +13416,14 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogVariantUpdateJobResponseCompoundDocument",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -12053,14 +13432,19 @@ class CatalogsApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def get_update_variants_job_with_http_info(
+    def get_update_variants_job_with_http_info(        
         self,
         job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
         fields_catalog_variant_bulk_update_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
@@ -12078,7 +13462,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[GetCatalogVariantUpdateJobResponseCompoundDocument]:
         """Get Update Variants Job
 
         Get a catalog variate bulk update job with the given job ID.  An `include` parameter can be provided to get the following related resource data: `variants`.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -12125,17 +13510,25 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogVariantUpdateJobResponseCompoundDocument",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -12160,8 +13553,7 @@ class CatalogsApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Update Variants Job
 
         Get a catalog variate bulk update job with the given job ID.  An `include` parameter can be provided to get the following related resource data: `variants`.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -12208,7 +13600,7 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogVariantUpdateJobResponseCompoundDocument",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -12220,6 +13612,23 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _get_update_variants_job_serialize(
         self,
@@ -12311,7 +13720,7 @@ class CatalogsApi(object):
 
 
     @validate_call
-    def get_update_variants_jobs(
+    def get_update_variants_jobs(        
         self,
         fields_catalog_variant_bulk_update_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
         filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
@@ -12328,7 +13737,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[GetCatalogVariantUpdateJobResponseCollectionCompoundDocument, Dict[str, object]]:
         """Get Update Variants Jobs
 
         Get all catalog variant bulk update jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -12372,10 +13782,14 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogVariantUpdateJobResponseCollectionCompoundDocument",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -12384,14 +13798,19 @@ class CatalogsApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def get_update_variants_jobs_with_http_info(
+    def get_update_variants_jobs_with_http_info(        
         self,
         fields_catalog_variant_bulk_update_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets")] = None,
         filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
@@ -12408,7 +13827,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[GetCatalogVariantUpdateJobResponseCollectionCompoundDocument]:
         """Get Update Variants Jobs
 
         Get all catalog variant bulk update jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -12452,17 +13872,25 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogVariantUpdateJobResponseCollectionCompoundDocument",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -12486,8 +13914,7 @@ class CatalogsApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Update Variants Jobs
 
         Get all catalog variant bulk update jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
@@ -12531,7 +13958,7 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "GetCatalogVariantUpdateJobResponseCollectionCompoundDocument",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -12543,6 +13970,23 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _get_update_variants_jobs_serialize(
         self,
@@ -12629,7 +14073,7 @@ class CatalogsApi(object):
 
 
     @validate_call
-    def spawn_create_categories_job(
+    def spawn_create_categories_job(        
         self,
         catalog_category_create_job_create_query: CatalogCategoryCreateJobCreateQuery,
         _request_timeout: Union[
@@ -12644,7 +14088,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[PostCatalogCategoryCreateJobResponse, Dict[str, object]]:
         """Spawn Create Categories Job
 
         Create a catalog category bulk create job to create a batch of catalog categories.  Accepts up to 100 catalog categories per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
@@ -12682,10 +14127,14 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '202': "Dict[str, object]",
+            '202': "PostCatalogCategoryCreateJobResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -12694,14 +14143,19 @@ class CatalogsApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def spawn_create_categories_job_with_http_info(
+    def spawn_create_categories_job_with_http_info(        
         self,
         catalog_category_create_job_create_query: CatalogCategoryCreateJobCreateQuery,
         _request_timeout: Union[
@@ -12716,7 +14170,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[PostCatalogCategoryCreateJobResponse]:
         """Spawn Create Categories Job
 
         Create a catalog category bulk create job to create a batch of catalog categories.  Accepts up to 100 catalog categories per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
@@ -12754,17 +14209,25 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '202': "Dict[str, object]",
+            '202': "PostCatalogCategoryCreateJobResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -12786,8 +14249,7 @@ class CatalogsApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Spawn Create Categories Job
 
         Create a catalog category bulk create job to create a batch of catalog categories.  Accepts up to 100 catalog categories per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
@@ -12825,7 +14287,7 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '202': "Dict[str, object]",
+            '202': "PostCatalogCategoryCreateJobResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -12837,6 +14299,23 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _spawn_create_categories_job_serialize(
         self,
@@ -12914,7 +14393,7 @@ class CatalogsApi(object):
 
 
     @validate_call
-    def spawn_create_items_job(
+    def spawn_create_items_job(        
         self,
         catalog_item_create_job_create_query: CatalogItemCreateJobCreateQuery,
         _request_timeout: Union[
@@ -12929,7 +14408,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[PostCatalogItemCreateJobResponse, Dict[str, object]]:
         """Spawn Create Items Job
 
         Create a catalog item bulk create job to create a batch of catalog items.  Accepts up to 100 catalog items per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
@@ -12967,10 +14447,14 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '202': "Dict[str, object]",
+            '202': "PostCatalogItemCreateJobResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -12979,14 +14463,19 @@ class CatalogsApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def spawn_create_items_job_with_http_info(
+    def spawn_create_items_job_with_http_info(        
         self,
         catalog_item_create_job_create_query: CatalogItemCreateJobCreateQuery,
         _request_timeout: Union[
@@ -13001,7 +14490,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[PostCatalogItemCreateJobResponse]:
         """Spawn Create Items Job
 
         Create a catalog item bulk create job to create a batch of catalog items.  Accepts up to 100 catalog items per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
@@ -13039,17 +14529,25 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '202': "Dict[str, object]",
+            '202': "PostCatalogItemCreateJobResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -13071,8 +14569,7 @@ class CatalogsApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Spawn Create Items Job
 
         Create a catalog item bulk create job to create a batch of catalog items.  Accepts up to 100 catalog items per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
@@ -13110,7 +14607,7 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '202': "Dict[str, object]",
+            '202': "PostCatalogItemCreateJobResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -13122,6 +14619,23 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _spawn_create_items_job_serialize(
         self,
@@ -13199,7 +14713,7 @@ class CatalogsApi(object):
 
 
     @validate_call
-    def spawn_create_variants_job(
+    def spawn_create_variants_job(        
         self,
         catalog_variant_create_job_create_query: CatalogVariantCreateJobCreateQuery,
         _request_timeout: Union[
@@ -13214,7 +14728,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[PostCatalogVariantCreateJobResponse, Dict[str, object]]:
         """Spawn Create Variants Job
 
         Create a catalog variant bulk create job to create a batch of catalog variants.  Accepts up to 100 catalog variants per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
@@ -13252,10 +14767,14 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '202': "Dict[str, object]",
+            '202': "PostCatalogVariantCreateJobResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -13264,14 +14783,19 @@ class CatalogsApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def spawn_create_variants_job_with_http_info(
+    def spawn_create_variants_job_with_http_info(        
         self,
         catalog_variant_create_job_create_query: CatalogVariantCreateJobCreateQuery,
         _request_timeout: Union[
@@ -13286,7 +14810,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[PostCatalogVariantCreateJobResponse]:
         """Spawn Create Variants Job
 
         Create a catalog variant bulk create job to create a batch of catalog variants.  Accepts up to 100 catalog variants per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
@@ -13324,17 +14849,25 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '202': "Dict[str, object]",
+            '202': "PostCatalogVariantCreateJobResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -13356,8 +14889,7 @@ class CatalogsApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Spawn Create Variants Job
 
         Create a catalog variant bulk create job to create a batch of catalog variants.  Accepts up to 100 catalog variants per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
@@ -13395,7 +14927,7 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '202': "Dict[str, object]",
+            '202': "PostCatalogVariantCreateJobResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -13407,6 +14939,23 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _spawn_create_variants_job_serialize(
         self,
@@ -13484,7 +15033,7 @@ class CatalogsApi(object):
 
 
     @validate_call
-    def spawn_delete_categories_job(
+    def spawn_delete_categories_job(        
         self,
         catalog_category_delete_job_create_query: CatalogCategoryDeleteJobCreateQuery,
         _request_timeout: Union[
@@ -13499,7 +15048,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[PostCatalogCategoryDeleteJobResponse, Dict[str, object]]:
         """Spawn Delete Categories Job
 
         Create a catalog category bulk delete job to delete a batch of catalog categories.  Accepts up to 100 catalog categories per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
@@ -13537,10 +15087,14 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '202': "Dict[str, object]",
+            '202': "PostCatalogCategoryDeleteJobResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -13549,14 +15103,19 @@ class CatalogsApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def spawn_delete_categories_job_with_http_info(
+    def spawn_delete_categories_job_with_http_info(        
         self,
         catalog_category_delete_job_create_query: CatalogCategoryDeleteJobCreateQuery,
         _request_timeout: Union[
@@ -13571,7 +15130,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[PostCatalogCategoryDeleteJobResponse]:
         """Spawn Delete Categories Job
 
         Create a catalog category bulk delete job to delete a batch of catalog categories.  Accepts up to 100 catalog categories per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
@@ -13609,17 +15169,25 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '202': "Dict[str, object]",
+            '202': "PostCatalogCategoryDeleteJobResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -13641,8 +15209,7 @@ class CatalogsApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Spawn Delete Categories Job
 
         Create a catalog category bulk delete job to delete a batch of catalog categories.  Accepts up to 100 catalog categories per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
@@ -13680,7 +15247,7 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '202': "Dict[str, object]",
+            '202': "PostCatalogCategoryDeleteJobResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -13692,6 +15259,23 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _spawn_delete_categories_job_serialize(
         self,
@@ -13769,7 +15353,7 @@ class CatalogsApi(object):
 
 
     @validate_call
-    def spawn_delete_items_job(
+    def spawn_delete_items_job(        
         self,
         catalog_item_delete_job_create_query: CatalogItemDeleteJobCreateQuery,
         _request_timeout: Union[
@@ -13784,7 +15368,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[PostCatalogItemDeleteJobResponse, Dict[str, object]]:
         """Spawn Delete Items Job
 
         Create a catalog item bulk delete job to delete a batch of catalog items.  Accepts up to 100 catalog items per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
@@ -13822,10 +15407,14 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '202': "Dict[str, object]",
+            '202': "PostCatalogItemDeleteJobResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -13834,14 +15423,19 @@ class CatalogsApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def spawn_delete_items_job_with_http_info(
+    def spawn_delete_items_job_with_http_info(        
         self,
         catalog_item_delete_job_create_query: CatalogItemDeleteJobCreateQuery,
         _request_timeout: Union[
@@ -13856,7 +15450,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[PostCatalogItemDeleteJobResponse]:
         """Spawn Delete Items Job
 
         Create a catalog item bulk delete job to delete a batch of catalog items.  Accepts up to 100 catalog items per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
@@ -13894,17 +15489,25 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '202': "Dict[str, object]",
+            '202': "PostCatalogItemDeleteJobResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -13926,8 +15529,7 @@ class CatalogsApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Spawn Delete Items Job
 
         Create a catalog item bulk delete job to delete a batch of catalog items.  Accepts up to 100 catalog items per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
@@ -13965,7 +15567,7 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '202': "Dict[str, object]",
+            '202': "PostCatalogItemDeleteJobResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -13977,6 +15579,23 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _spawn_delete_items_job_serialize(
         self,
@@ -14054,7 +15673,7 @@ class CatalogsApi(object):
 
 
     @validate_call
-    def spawn_delete_variants_job(
+    def spawn_delete_variants_job(        
         self,
         catalog_variant_delete_job_create_query: CatalogVariantDeleteJobCreateQuery,
         _request_timeout: Union[
@@ -14069,7 +15688,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[PostCatalogVariantDeleteJobResponse, Dict[str, object]]:
         """Spawn Delete Variants Job
 
         Create a catalog variant bulk delete job to delete a batch of catalog variants.  Accepts up to 100 catalog variants per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
@@ -14107,10 +15727,14 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '202': "Dict[str, object]",
+            '202': "PostCatalogVariantDeleteJobResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -14119,14 +15743,19 @@ class CatalogsApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def spawn_delete_variants_job_with_http_info(
+    def spawn_delete_variants_job_with_http_info(        
         self,
         catalog_variant_delete_job_create_query: CatalogVariantDeleteJobCreateQuery,
         _request_timeout: Union[
@@ -14141,7 +15770,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[PostCatalogVariantDeleteJobResponse]:
         """Spawn Delete Variants Job
 
         Create a catalog variant bulk delete job to delete a batch of catalog variants.  Accepts up to 100 catalog variants per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
@@ -14179,17 +15809,25 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '202': "Dict[str, object]",
+            '202': "PostCatalogVariantDeleteJobResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -14211,8 +15849,7 @@ class CatalogsApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Spawn Delete Variants Job
 
         Create a catalog variant bulk delete job to delete a batch of catalog variants.  Accepts up to 100 catalog variants per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
@@ -14250,7 +15887,7 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '202': "Dict[str, object]",
+            '202': "PostCatalogVariantDeleteJobResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -14262,6 +15899,23 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _spawn_delete_variants_job_serialize(
         self,
@@ -14339,7 +15993,7 @@ class CatalogsApi(object):
 
 
     @validate_call
-    def spawn_update_categories_job(
+    def spawn_update_categories_job(        
         self,
         catalog_category_update_job_create_query: CatalogCategoryUpdateJobCreateQuery,
         _request_timeout: Union[
@@ -14354,7 +16008,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[PostCatalogCategoryUpdateJobResponse, Dict[str, object]]:
         """Spawn Update Categories Job
 
         Create a catalog category bulk update job to update a batch of catalog categories.  Accepts up to 100 catalog categories per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
@@ -14392,10 +16047,14 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '202': "Dict[str, object]",
+            '202': "PostCatalogCategoryUpdateJobResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -14404,14 +16063,19 @@ class CatalogsApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def spawn_update_categories_job_with_http_info(
+    def spawn_update_categories_job_with_http_info(        
         self,
         catalog_category_update_job_create_query: CatalogCategoryUpdateJobCreateQuery,
         _request_timeout: Union[
@@ -14426,7 +16090,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[PostCatalogCategoryUpdateJobResponse]:
         """Spawn Update Categories Job
 
         Create a catalog category bulk update job to update a batch of catalog categories.  Accepts up to 100 catalog categories per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
@@ -14464,17 +16129,25 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '202': "Dict[str, object]",
+            '202': "PostCatalogCategoryUpdateJobResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -14496,8 +16169,7 @@ class CatalogsApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Spawn Update Categories Job
 
         Create a catalog category bulk update job to update a batch of catalog categories.  Accepts up to 100 catalog categories per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
@@ -14535,7 +16207,7 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '202': "Dict[str, object]",
+            '202': "PostCatalogCategoryUpdateJobResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -14547,6 +16219,23 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _spawn_update_categories_job_serialize(
         self,
@@ -14624,7 +16313,7 @@ class CatalogsApi(object):
 
 
     @validate_call
-    def spawn_update_items_job(
+    def spawn_update_items_job(        
         self,
         catalog_item_update_job_create_query: CatalogItemUpdateJobCreateQuery,
         _request_timeout: Union[
@@ -14639,7 +16328,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[PostCatalogItemUpdateJobResponse, Dict[str, object]]:
         """Spawn Update Items Job
 
         Create a catalog item bulk update job to update a batch of catalog items.  Accepts up to 100 catalog items per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
@@ -14677,10 +16367,14 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '202': "Dict[str, object]",
+            '202': "PostCatalogItemUpdateJobResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -14689,14 +16383,19 @@ class CatalogsApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def spawn_update_items_job_with_http_info(
+    def spawn_update_items_job_with_http_info(        
         self,
         catalog_item_update_job_create_query: CatalogItemUpdateJobCreateQuery,
         _request_timeout: Union[
@@ -14711,7 +16410,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[PostCatalogItemUpdateJobResponse]:
         """Spawn Update Items Job
 
         Create a catalog item bulk update job to update a batch of catalog items.  Accepts up to 100 catalog items per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
@@ -14749,17 +16449,25 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '202': "Dict[str, object]",
+            '202': "PostCatalogItemUpdateJobResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -14781,8 +16489,7 @@ class CatalogsApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Spawn Update Items Job
 
         Create a catalog item bulk update job to update a batch of catalog items.  Accepts up to 100 catalog items per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
@@ -14820,7 +16527,7 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '202': "Dict[str, object]",
+            '202': "PostCatalogItemUpdateJobResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -14832,6 +16539,23 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _spawn_update_items_job_serialize(
         self,
@@ -14909,7 +16633,7 @@ class CatalogsApi(object):
 
 
     @validate_call
-    def spawn_update_variants_job(
+    def spawn_update_variants_job(        
         self,
         catalog_variant_update_job_create_query: CatalogVariantUpdateJobCreateQuery,
         _request_timeout: Union[
@@ -14924,7 +16648,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[PostCatalogVariantUpdateJobResponse, Dict[str, object]]:
         """Spawn Update Variants Job
 
         Create a catalog variant bulk update job to update a batch of catalog variants.  Accepts up to 100 catalog variants per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
@@ -14962,10 +16687,14 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '202': "Dict[str, object]",
+            '202': "PostCatalogVariantUpdateJobResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -14974,14 +16703,19 @@ class CatalogsApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def spawn_update_variants_job_with_http_info(
+    def spawn_update_variants_job_with_http_info(        
         self,
         catalog_variant_update_job_create_query: CatalogVariantUpdateJobCreateQuery,
         _request_timeout: Union[
@@ -14996,7 +16730,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[PostCatalogVariantUpdateJobResponse]:
         """Spawn Update Variants Job
 
         Create a catalog variant bulk update job to update a batch of catalog variants.  Accepts up to 100 catalog variants per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
@@ -15034,17 +16769,25 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '202': "Dict[str, object]",
+            '202': "PostCatalogVariantUpdateJobResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -15066,8 +16809,7 @@ class CatalogsApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Spawn Update Variants Job
 
         Create a catalog variant bulk update job to update a batch of catalog variants.  Accepts up to 100 catalog variants per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
@@ -15105,7 +16847,7 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '202': "Dict[str, object]",
+            '202': "PostCatalogVariantUpdateJobResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -15117,6 +16859,23 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _spawn_update_variants_job_serialize(
         self,
@@ -15194,7 +16953,7 @@ class CatalogsApi(object):
 
 
     @validate_call
-    def update_catalog_category(
+    def update_catalog_category(        
         self,
         id: Annotated[StrictStr, Field(description="The catalog category ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.")],
         catalog_category_update_query: CatalogCategoryUpdateQuery,
@@ -15210,7 +16969,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[PatchCatalogCategoryResponse, Dict[str, object]]:
         """Update Catalog Category
 
         Update a catalog category with the given category ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
@@ -15251,10 +17011,14 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "PatchCatalogCategoryResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -15263,14 +17027,19 @@ class CatalogsApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def update_catalog_category_with_http_info(
+    def update_catalog_category_with_http_info(        
         self,
         id: Annotated[StrictStr, Field(description="The catalog category ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.")],
         catalog_category_update_query: CatalogCategoryUpdateQuery,
@@ -15286,7 +17055,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[PatchCatalogCategoryResponse]:
         """Update Catalog Category
 
         Update a catalog category with the given category ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
@@ -15327,17 +17097,25 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "PatchCatalogCategoryResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -15360,8 +17138,7 @@ class CatalogsApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Update Catalog Category
 
         Update a catalog category with the given category ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
@@ -15402,7 +17179,7 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "PatchCatalogCategoryResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -15414,6 +17191,23 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _update_catalog_category_serialize(
         self,
@@ -15494,7 +17288,7 @@ class CatalogsApi(object):
 
 
     @validate_call
-    def update_catalog_category_relationships_items(
+    def update_catalog_category_relationships_items(        
         self,
         id: StrictStr,
         catalog_category_item_op: CatalogCategoryItemOp,
@@ -15510,7 +17304,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> None:
+        options: Dict[str, Any] = {},
+) -> None:
         """Update Catalog Category Relationships Items
 
         Update item relationships for the given category ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
@@ -15555,6 +17350,10 @@ class CatalogsApi(object):
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -15563,14 +17362,19 @@ class CatalogsApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def update_catalog_category_relationships_items_with_http_info(
+    def update_catalog_category_relationships_items_with_http_info(        
         self,
         id: StrictStr,
         catalog_category_item_op: CatalogCategoryItemOp,
@@ -15586,7 +17390,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[None]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[None]:
         """Update Catalog Category Relationships Items
 
         Update item relationships for the given category ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
@@ -15631,13 +17436,21 @@ class CatalogsApi(object):
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -15660,8 +17473,7 @@ class CatalogsApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Update Catalog Category Relationships Items
 
         Update item relationships for the given category ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
@@ -15714,6 +17526,23 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _update_catalog_category_relationships_items_serialize(
         self,
@@ -15794,7 +17623,7 @@ class CatalogsApi(object):
 
 
     @validate_call
-    def update_catalog_item(
+    def update_catalog_item(        
         self,
         id: Annotated[StrictStr, Field(description="The catalog item ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.")],
         catalog_item_update_query: CatalogItemUpdateQuery,
@@ -15810,7 +17639,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[PatchCatalogItemResponse, Dict[str, object]]:
         """Update Catalog Item
 
         Update a catalog item with the given item ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
@@ -15851,10 +17681,14 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "PatchCatalogItemResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -15863,14 +17697,19 @@ class CatalogsApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def update_catalog_item_with_http_info(
+    def update_catalog_item_with_http_info(        
         self,
         id: Annotated[StrictStr, Field(description="The catalog item ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.")],
         catalog_item_update_query: CatalogItemUpdateQuery,
@@ -15886,7 +17725,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[PatchCatalogItemResponse]:
         """Update Catalog Item
 
         Update a catalog item with the given item ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
@@ -15927,17 +17767,25 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "PatchCatalogItemResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -15960,8 +17808,7 @@ class CatalogsApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Update Catalog Item
 
         Update a catalog item with the given item ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
@@ -16002,7 +17849,7 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "PatchCatalogItemResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -16014,6 +17861,23 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _update_catalog_item_serialize(
         self,
@@ -16094,7 +17958,7 @@ class CatalogsApi(object):
 
 
     @validate_call
-    def update_catalog_item_relationships_categories(
+    def update_catalog_item_relationships_categories(        
         self,
         id: StrictStr,
         catalog_item_category_op: CatalogItemCategoryOp,
@@ -16110,7 +17974,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> None:
+        options: Dict[str, Any] = {},
+) -> None:
         """Update Catalog Item Relationships Categories
 
         Update catalog category relationships for the given item ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
@@ -16155,6 +18020,10 @@ class CatalogsApi(object):
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -16163,14 +18032,19 @@ class CatalogsApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def update_catalog_item_relationships_categories_with_http_info(
+    def update_catalog_item_relationships_categories_with_http_info(        
         self,
         id: StrictStr,
         catalog_item_category_op: CatalogItemCategoryOp,
@@ -16186,7 +18060,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[None]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[None]:
         """Update Catalog Item Relationships Categories
 
         Update catalog category relationships for the given item ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
@@ -16231,13 +18106,21 @@ class CatalogsApi(object):
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -16260,8 +18143,7 @@ class CatalogsApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Update Catalog Item Relationships Categories
 
         Update catalog category relationships for the given item ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
@@ -16314,6 +18196,23 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _update_catalog_item_relationships_categories_serialize(
         self,
@@ -16394,7 +18293,7 @@ class CatalogsApi(object):
 
 
     @validate_call
-    def update_catalog_variant(
+    def update_catalog_variant(        
         self,
         id: Annotated[StrictStr, Field(description="The catalog variant ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.")],
         catalog_variant_update_query: CatalogVariantUpdateQuery,
@@ -16410,7 +18309,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, object]:
+        options: Dict[str, Any] = {},
+) ->  Union[PatchCatalogVariantResponse, Dict[str, object]]:
         """Update Catalog Variant
 
         Update a catalog item variant with the given variant ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
@@ -16451,10 +18351,14 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "PatchCatalogVariantResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
 
@@ -16463,14 +18367,19 @@ class CatalogsApi(object):
             _request_timeout=_request_timeout
         )
         response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
         ).data
 
 
     @validate_call
-    def update_catalog_variant_with_http_info(
+    def update_catalog_variant_with_http_info(        
         self,
         id: Annotated[StrictStr, Field(description="The catalog variant ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.")],
         catalog_variant_update_query: CatalogVariantUpdateQuery,
@@ -16486,7 +18395,8 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, object]]:
+        options: Dict[str, Any] = {},
+) -> ApiResponse[PatchCatalogVariantResponse]:
         """Update Catalog Variant
 
         Update a catalog item variant with the given variant ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
@@ -16527,17 +18437,25 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "PatchCatalogVariantResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
         response_data = self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
         response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -16560,8 +18478,7 @@ class CatalogsApi(object):
         _request_auth: StrictStr = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Update Catalog Variant
 
         Update a catalog item variant with the given variant ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
@@ -16602,7 +18519,7 @@ class CatalogsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, object]",
+            '200': "PatchCatalogVariantResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -16614,6 +18531,23 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
 
     def _update_catalog_variant_serialize(
         self,

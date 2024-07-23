@@ -1,6 +1,6 @@
 # Klaviyo Python SDK
 
-- SDK version: 10.0.0
+- SDK version: 11.0.0
 - API revision: 2024-07-15
 
 ## Table of Contents
@@ -44,6 +44,10 @@
   * [Parameters & Arguments](#parameters--arguments)
   * [Namespace](#namespace)
   * [Renamed Fields](#renamed-fields)
+  * [Filter Builder](#filter-builder)
+  * [Typed Responses](#typed-responses)
+    * [Backwards Compatibility](#backwards-compatibility)
+  * [Untyped Response Data for Specific APIs](#untyped-response-data-for-specific-apis)
 <!-- TOC -->
 
 ## Helpful Resources
@@ -3919,3 +3923,115 @@ class StaticScheduleOptions(BaseModel):
 schedule_options = StaticScheduleOptions(datetime_=datetime.datetime.strptime("2024-05-19T00:00:00+00:00", "%Y-%m-%dT%H:%M:%S%z")
 print(schedule_options.datetime_)
 ```
+
+## Filter Builder
+Use this class to help construct filter query parameters.
+```python
+old_date = datetime.datetime(2023, 8, 15, 12, 30, 0, 0, tzinfo=datetime.timezone.utc)
+
+f = FilterBuilder()
+f.any("email", ["sarah.mason@klaviyo-demo.com", "sm@klaviyo-demo.com"])
+f.greater_than("created", old_date)
+
+# f.build() returns 'any(email,["sarah.mason@klaviyo-demo.com","sm@klaviyo-demo.com"]),greater-than(created,2023-08-15T12:30:00+00:00)'
+profile_response = client.Profiles.get_profiles(filter=f.build())
+
+# You can also chain FilterBuilder methods
+f = FilterBuilder()
+filters = f.any("email", ["sarah.mason@klaviyo-demo.com", "sm@klaviyo-demo.com"]).greater_than("created", date).build()
+assert filters == "any(email,['sarah.mason@klaviyo-demo.com','sm@klaviyo-demo.com']),greater-than(created,2023-08-15T12:30:00+00:00)"
+```
+
+## Typed Responses
+By default, all API methods will return a type representing the response payload instead of dictionary, as was the case in previous versions of this SDK. Using the typed response, you can access fields of a response using dot notation, like so:
+```python
+from klaviyo_api import KlaviyoAPI
+
+client = KlaviyoAPI(
+    api_key,
+    max_delay=0,
+    max_retries=0
+    )
+
+profiles = client.Profiles.get_profiles()
+profile_id = profiles.data[0].id
+profile = client.Profiles.get_profile(profile_id)
+profile_id = profile.data.id
+profile_email = profile.data.attributes.email
+
+print(type(profile).__name__) # prints GetProfileResponseCompoundDocument
+```
+The class used in this example is found [here](src/openapi_client/models/get_profile_response_collection_compound_document.py). 
+
+This is a breaking change, as response objects will now require dot notation to access their fields versus the subscriptable access method used for dictionaries, i.e. `profile.data.id` vs `profile['data']['id']`. We have provided a [backwards compatibility strategy](#backwards-compatibility) to smooth the transition from dictionary responses to typed responses.
+
+### Backwards Compatibility
+To maintain backwards compatibility with previous versions of this SDK, we have added an `options` argument that allows you to continue using dictionaries as response values. There are two ways to use this `options` argument:
+```python
+from klaviyo_api import KlaviyoAPI
+from openapi_client.api_arg_options import USE_DICTIONARY_FOR_RESPONSE_DATA
+
+client = KlaviyoAPI(
+    api_key,
+    max_delay=0,
+    max_retries=0
+)
+
+# 1: Passing options to an individual API method
+profiles = client.Profiles.get_profiles(options= {
+    USE_DICTIONARY_FOR_RESPONSE_DATA: True
+})
+profile_id = profiles["data"][0]['id']
+profile_email = profiles["data"][0]['attributes']['email']
+
+# 2: Passing options to API Client
+dictionary_client = KlaviyoAPI(
+    api_key,
+    max_delay=0,
+    max_retries=0,
+    options={USE_DICTIONARY_FOR_RESPONSE_DATA : True}
+)
+profiles_ = dictionary_client.Profiles.get_profiles()
+profile_0_id = profiles_["data"][0]['id']
+
+profile_0 = dictionary_client.Profiles.get_profile(id=profile_0_id)
+profile_0_email = profile_0["data"]['attributes']['email']
+```
+The first way will only return a dictionary for that specific `get_profiles` call. The second makes it so that all API methods called using `dictionary_client` will return dictionaries as responses.
+
+## Untyped Response Data for Specific APIs
+Select APIs do not yet have fully typed responses. Please use our API docs to inspect the schema of the response data for the following APIs. 
+- **Segments** - The subproperty `conditions` is not yet typed in responses for the following APIs:
+    - [Create Segment](https://developers.klaviyo.com/en/reference/create_segment)
+    - [Update Segment](https://developers.klaviyo.com/en/reference/update_segment)
+    - [Get Segment](https://developers.klaviyo.com/en/reference/get_segment)
+    - [Get Segments](https://developers.klaviyo.com/en/reference/get_segments)
+- The `included` property is not typed in responses for the following APIs:
+    - [Get Event](https://developers.klaviyo.com/en/reference/get_event)
+    - [Get Events](https://developers.klaviyo.com/en/reference/get_events)
+    - [Get Profile](https://developers.klaviyo.com/en/reference/get_profile)
+    - [Get Profiles](https://developers.klaviyo.com/en/reference/get_profiles)
+    - [Get Flow](https://developers.klaviyo.com/en/reference/get_flow)
+    - [Get Flows](https://developers.klaviyo.com/en/reference/get_flows)
+    - [Get Flow Message](https://developers.klaviyo.com/en/reference/get_flow_message)
+    - [Get Campaign](https://developers.klaviyo.com/en/reference/get_campaign)
+    - [Get Campaigns](https://developers.klaviyo.com/en/reference/get_campaigns)
+- The `tracking_options` subproperty is not typed in responses for the following APIs:
+    - [Get Flow Action](https://developers.klaviyo.com/en/reference/get_flow_action)
+    - [Get Flow Actions](https://developers.klaviyo.com/en/reference/get_flow_flow_actions)
+    - [Create Campaign](https://developers.klaviyo.com/en/reference/create_campaign)
+    - [Update Campaign](https://developers.klaviyo.com/en/reference/update_campaign)
+    - [Get Campaign](https://developers.klaviyo.com/en/reference/get_campaign)
+    - [Get Campaigns](https://developers.klaviyo.com/en/reference/get_campaigns)
+- The `send_options` subproperty is not typed in responses for the following APIs:
+    - [Create Campaign](https://developers.klaviyo.com/en/reference/create_campaign)
+    - [Update Campaign](https://developers.klaviyo.com/en/reference/update_campaign)
+    - [Get Campaign](https://developers.klaviyo.com/en/reference/get_campaign)
+    - [Get Campaigns](https://developers.klaviyo.com/en/reference/get_campaigns)
+    - [Get Campaign Message](https://developers.klaviyo.com/en/reference/get_campaign_message_campaign)
+    - [Get Campaign Messages](https://developers.klaviyo.com/en/reference/get_campaign_campaign_messages)
+- The `content` subproperty is not typed in responses for the following APIs:
+    - [Get Flow Message](https://developers.klaviyo.com/en/reference/get_flow_message)
+    - [Get Flow Action Messages](https://developers.klaviyo.com/en/reference/get_flow_action_messages)
+    - [Get Campaign Message](https://developers.klaviyo.com/en/reference/get_campaign_message_campaign)
+    - [Get Campaign Messages](https://developers.klaviyo.com/en/reference/get_campaign_campaign_messages)
