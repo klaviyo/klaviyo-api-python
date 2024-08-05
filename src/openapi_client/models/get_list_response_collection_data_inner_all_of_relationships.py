@@ -20,7 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.get_coupon_code_response_collection_compound_document_data_inner_all_of_relationships_profile import GetCouponCodeResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsProfile
+from openapi_client.models.get_photos_dto_collection_data_inner_all_of_relationships_test_photographers import GetPhotosDTOCollectionDataInnerAllOfRelationshipsTestPhotographers
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,8 +28,8 @@ class GetListResponseCollectionDataInnerAllOfRelationships(BaseModel):
     """
     GetListResponseCollectionDataInnerAllOfRelationships
     """ # noqa: E501
-    profiles: Optional[GetCouponCodeResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsProfile] = None
-    tags: Optional[GetCouponCodeResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsProfile] = None
+    profiles: Optional[GetPhotosDTOCollectionDataInnerAllOfRelationshipsTestPhotographers] = None
+    tags: Optional[GetPhotosDTOCollectionDataInnerAllOfRelationshipsTestPhotographers] = None
     __properties: ClassVar[List[str]] = ["profiles", "tags"]
 
     model_config = ConfigDict(
@@ -89,8 +89,8 @@ class GetListResponseCollectionDataInnerAllOfRelationships(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "profiles": GetCouponCodeResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsProfile.from_dict(obj["profiles"]) if obj.get("profiles") is not None else None,
-            "tags": GetCouponCodeResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsProfile.from_dict(obj["tags"]) if obj.get("tags") is not None else None
+            "profiles": GetPhotosDTOCollectionDataInnerAllOfRelationshipsTestPhotographers.from_dict(obj["profiles"]) if obj.get("profiles") is not None else None,
+            "tags": GetPhotosDTOCollectionDataInnerAllOfRelationshipsTestPhotographers.from_dict(obj["tags"]) if obj.get("tags") is not None else None
         })
         return _obj
 

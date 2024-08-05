@@ -7,99 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 NOTE: For more granular API-specific changes, please see our [API Changelog](https://developers.klaviyo.com/en/docs/changelog_)
 
-## [11.0.0] Typed SDK - revision 2024-07-15
-
-### Added
-- Typed Responses (Breaking change)
-    - By default, all API methods will return a type representing the response payload instead of dictionary, as was the case in previous versions of this SDK. Using the typed response, you can access fields of a response using dot notation, like so:
-      ```python
-      from klaviyo_api import KlaviyoAPI
-
-      client = KlaviyoAPI(
-        api_key,
-        max_delay=0,
-        max_retries=0
-      )
-
-      profiles = client.Profiles.get_profiles()
-      profile_id = profiles.data[0].id
-      profile = client.Profiles.get_profile(profile_id)
-      profile_id = profile.data.id
-      profile_email = profile.data.attributes.email
-
-      print(type(profile).__name__) # prints GetProfileResponseCompoundDocument
-      ```
-      The class used in this example is found [here](src/openapi_client/models/get_profile_response_collection_compound_document.py). 
-      
-      This is a breaking change, as response objects will now require dot notation to access their fields versus the subscriptable access method used for dictionaries, i.e. `profile.data.id` vs `profile['data']['id']`. We have provided a [backwards compatibility strategy](#backwards-compatibility) to smooth the transition from dictionary responses to typed responses.
-
-      #### Backwards Compatibility
-      To maintain backwards compatibility with previous versions of this SDK, we have added an `options` argument that allows you to continue using dictionaries as response values. There are two ways to use this `options` argument:
-        ```python
-        from klaviyo_api import KlaviyoAPI
-        from openapi_client.api_arg_options import USE_DICTIONARY_FOR_RESPONSE_DATA
-
-        client = KlaviyoAPI(
-            api_key,
-            max_delay=0,
-            max_retries=0
-        )
+## [11.0.1] - 2024-07-15
+### Fixed
+- Typing error when using `additional_fields_profile=['subscriptions']` on `get_profiles`. From issue https://github.com/klaviyo/klaviyo-api-python/issues/61
 
 
-        # 1: Passing options to an individual API method
-        profiles = client.Profiles.get_profiles(options= {
-              USE_DICTIONARY_FOR_RESPONSE_DATA: True
-          })
-        profile_id = profiles["data"][0]['id']
-        profile_email = profiles["data"][0]['attributes']['email']
 
-        # 2: Passing options to API Client
-        dictionary_client = KlaviyoAPI(
-          api_key,
-          max_delay=0,
-          max_retries=0,
-          options={USE_DICTIONARY_FOR_RESPONSE_DATA : True}
-        )
-        profiles_ = dictionary_client.Profiles.get_profiles()
-        profile_0_id = profiles_["data"][0]['id']
-
-        profile_0 = dictionary_client.Profiles.get_profile(id=profile_0_id)
-        profile_0_email = profile_0["data"]['attributes']['email']
-        ```
-        The first way will only return a dictionary for that specific `get_profiles` call. The second makes it so that all API methods called using `dictionary_client` will return dictionaries as responses.
-
-  - Some API methods still return response data that is not fully typed. See the [Untyped Response Data for Specific APIs](README.md#untyped-response-data-for-specific-apis) in the README for more details.
-- Filter Builder - A new class to help construct filter query parameters.
-  ```python
-  old_date = datetime.datetime(2023, 8, 15, 12, 30, 0, 0, tzinfo=datetime.timezone.utc)
-  f = FilterBuilder()
-  f.any("email", ["sarah.mason@klaviyo-demo.com", "sm@klaviyo-demo.com"])
-  f.greater_than("created", old_date)
-
-  # f.build() returns 'any(email,["sarah.mason@klaviyo-demo.com","sm@klaviyo-demo.com"]),greater-than(created,2023-08-15T12:30:00+00:00)'
-  profile_response = client.Profiles.get_profiles(filter=f.build())
-
-  # You can also chain FilterBuilder methods
-  f = FilterBuilder()
-  filters = f.any("email", ["sarah.mason@klaviyo-demo.com", "sm@klaviyo-demo.com"]).greater_than("created", date).build()
-  assert filters == "any(email,['sarah.mason@klaviyo-demo.com','sm@klaviyo-demo.com']),greater-than(created,2023-08-15T12:30:00+00:00)"
-  ```
-
-
-## [10.0.0] - revision 2024-07-15
-
-### Added
-
- - Forms API
-  - New `klaviyo.Forms` class with methods to get forms, form versions and relationships
- - Webhooks API
-  - new `klaviyo.Webooks` class containing CRUD operations for webhooks
-
-### Changed
- - `klaviyo.Profiles.subscribe()`
-  - added `historical_import` flag for importing historically consented profiles can now be optionally supplied in the payload for the Subscribe Profiles endpoint.
-  - When using this flag, a consented_at date must be provided and must be in the past.
-  
 
 ## [7.0.0] - revision 2024-02-15
 

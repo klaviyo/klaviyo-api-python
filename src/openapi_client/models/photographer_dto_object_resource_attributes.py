@@ -18,19 +18,21 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.get_photos_dto_collection_data_inner_all_of_relationships_test_photographers import GetPhotosDTOCollectionDataInnerAllOfRelationshipsTestPhotographers
+from openapi_client.models.additional_camera_dto import AdditionalCameraDTO
 from typing import Optional, Set
 from typing_extensions import Self
 
-class GetCouponCodeResponseCollectionDataInnerAllOfRelationships(BaseModel):
+class PhotographerDTOObjectResourceAttributes(BaseModel):
     """
-    GetCouponCodeResponseCollectionDataInnerAllOfRelationships
+    PhotographerDTOObjectResourceAttributes
     """ # noqa: E501
-    coupon: Optional[GetPhotosDTOCollectionDataInnerAllOfRelationshipsTestPhotographers] = None
-    profile: Optional[GetPhotosDTOCollectionDataInnerAllOfRelationshipsTestPhotographers] = None
-    __properties: ClassVar[List[str]] = ["coupon", "profile"]
+    first_name: Optional[StrictStr]
+    last_name: Optional[StrictStr]
+    portfolio_url: Optional[StrictStr] = None
+    additional_camera: Optional[AdditionalCameraDTO] = None
+    __properties: ClassVar[List[str]] = ["first_name", "last_name", "portfolio_url", "additional_camera"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -50,7 +52,7 @@ class GetCouponCodeResponseCollectionDataInnerAllOfRelationships(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of GetCouponCodeResponseCollectionDataInnerAllOfRelationships from a JSON string"""
+        """Create an instance of PhotographerDTOObjectResourceAttributes from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -71,17 +73,29 @@ class GetCouponCodeResponseCollectionDataInnerAllOfRelationships(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of coupon
-        if self.coupon:
-            _dict['coupon'] = self.coupon.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of profile
-        if self.profile:
-            _dict['profile'] = self.profile.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of additional_camera
+        if self.additional_camera:
+            _dict['additional_camera'] = self.additional_camera.to_dict()
+        # set to None if first_name (nullable) is None
+        # and model_fields_set contains the field
+        if self.first_name is None and "first_name" in self.model_fields_set:
+            _dict['first_name'] = None
+
+        # set to None if last_name (nullable) is None
+        # and model_fields_set contains the field
+        if self.last_name is None and "last_name" in self.model_fields_set:
+            _dict['last_name'] = None
+
+        # set to None if portfolio_url (nullable) is None
+        # and model_fields_set contains the field
+        if self.portfolio_url is None and "portfolio_url" in self.model_fields_set:
+            _dict['portfolio_url'] = None
+
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of GetCouponCodeResponseCollectionDataInnerAllOfRelationships from a dict"""
+        """Create an instance of PhotographerDTOObjectResourceAttributes from a dict"""
         if obj is None:
             return None
 
@@ -89,8 +103,10 @@ class GetCouponCodeResponseCollectionDataInnerAllOfRelationships(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "coupon": GetPhotosDTOCollectionDataInnerAllOfRelationshipsTestPhotographers.from_dict(obj["coupon"]) if obj.get("coupon") is not None else None,
-            "profile": GetPhotosDTOCollectionDataInnerAllOfRelationshipsTestPhotographers.from_dict(obj["profile"]) if obj.get("profile") is not None else None
+            "first_name": obj.get("first_name"),
+            "last_name": obj.get("last_name"),
+            "portfolio_url": obj.get("portfolio_url"),
+            "additional_camera": AdditionalCameraDTO.from_dict(obj["additional_camera"]) if obj.get("additional_camera") is not None else None
         })
         return _obj
 

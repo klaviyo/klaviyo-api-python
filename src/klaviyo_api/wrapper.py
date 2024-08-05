@@ -24,6 +24,7 @@ from openapi_client.api import reporting_api
 from openapi_client.api import segments_api
 from openapi_client.api import tags_api
 from openapi_client.api import templates_api
+from openapi_client.api import tests_api
 from openapi_client.api import webhooks_api
 
 
@@ -403,6 +404,16 @@ class KlaviyoAPI:
         self.Templates.get_template=self._page_cursor_update(self.retry_logic(self.Templates.get_template))
         self.Templates.get_templates=self._page_cursor_update(self.retry_logic(self.Templates.get_templates))
         self.Templates.update_template=self._page_cursor_update(self.retry_logic(self.Templates.update_template))
+        
+        
+        ## Adding Tests to Client
+        self.Tests=tests_api.TestsApi(self.api_client)
+        
+        ## Applying tenacity retry decorator to each endpoint in Tests
+        self.Tests.get_test_bulk_create_photos_jobs=self._page_cursor_update(self.retry_logic(self.Tests.get_test_bulk_create_photos_jobs))
+        self.Tests.get_test_cities=self._page_cursor_update(self.retry_logic(self.Tests.get_test_cities))
+        self.Tests.get_test_photographers=self._page_cursor_update(self.retry_logic(self.Tests.get_test_photographers))
+        self.Tests.get_test_photos=self._page_cursor_update(self.retry_logic(self.Tests.get_test_photos))
         
         
         ## Adding Webhooks to Client
