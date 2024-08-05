@@ -17,5 +17,6 @@ from openapi_client.api.reporting_api import ReportingApi
 from openapi_client.api.segments_api import SegmentsApi
 from openapi_client.api.tags_api import TagsApi
 from openapi_client.api.templates_api import TemplatesApi
+from openapi_client.api.tests_api import TestsApi
 from openapi_client.api.webhooks_api import WebhooksApi
 

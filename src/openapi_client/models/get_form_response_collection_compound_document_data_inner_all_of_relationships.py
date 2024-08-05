@@ -20,7 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.get_coupon_code_response_collection_compound_document_data_inner_all_of_relationships_profile import GetCouponCodeResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsProfile
+from openapi_client.models.get_photos_dto_collection_data_inner_all_of_relationships_test_photographers import GetPhotosDTOCollectionDataInnerAllOfRelationshipsTestPhotographers
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,7 +28,7 @@ class GetFormResponseCollectionCompoundDocumentDataInnerAllOfRelationships(BaseM
     """
     GetFormResponseCollectionCompoundDocumentDataInnerAllOfRelationships
     """ # noqa: E501
-    form_versions: Optional[GetCouponCodeResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsProfile] = Field(default=None, alias="form-versions")
+    form_versions: Optional[GetPhotosDTOCollectionDataInnerAllOfRelationshipsTestPhotographers] = Field(default=None, alias="form-versions")
     __properties: ClassVar[List[str]] = ["form-versions"]
 
     model_config = ConfigDict(
@@ -85,7 +85,7 @@ class GetFormResponseCollectionCompoundDocumentDataInnerAllOfRelationships(BaseM
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "form-versions": GetCouponCodeResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsProfile.from_dict(obj["form-versions"]) if obj.get("form-versions") is not None else None
+            "form-versions": GetPhotosDTOCollectionDataInnerAllOfRelationshipsTestPhotographers.from_dict(obj["form-versions"]) if obj.get("form-versions") is not None else None
         })
         return _obj
 
