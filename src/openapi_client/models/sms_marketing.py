@@ -30,10 +30,10 @@ class SMSMarketing(BaseModel):
     """ # noqa: E501
     can_receive_sms_marketing: StrictBool = Field(description="Whether or not this profile is subscribed to receive SMS marketing.")
     consent: StrictStr = Field(description="The consent status for SMS marketing.")
-    consent_timestamp: datetime = Field(description="The timestamp when consent was recorded or updated for SMS marketing, in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm).")
-    method: StrictStr = Field(description="The method by which the profile was subscribed to SMS marketing.")
+    consent_timestamp: Optional[datetime] = Field(default=None, description="The timestamp when consent was recorded or updated for SMS marketing, in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm).")
+    method: Optional[StrictStr] = Field(default=None, description="The method by which the profile was subscribed to SMS marketing.")
     method_detail: Optional[StrictStr] = Field(default='', description="Additional details about the method which the profile was subscribed to SMS marketing. This may be empty if no details were provided.")
-    last_updated: datetime = Field(description="The timestamp when the SMS consent record was last modified, in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm).")
+    last_updated: Optional[datetime] = Field(default=None, description="The timestamp when the SMS consent record was last modified, in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm).")
     __properties: ClassVar[List[str]] = ["can_receive_sms_marketing", "consent", "consent_timestamp", "method", "method_detail", "last_updated"]
 
     model_config = ConfigDict(
@@ -75,10 +75,25 @@ class SMSMarketing(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # set to None if consent_timestamp (nullable) is None
+        # and model_fields_set contains the field
+        if self.consent_timestamp is None and "consent_timestamp" in self.model_fields_set:
+            _dict['consent_timestamp'] = None
+
+        # set to None if method (nullable) is None
+        # and model_fields_set contains the field
+        if self.method is None and "method" in self.model_fields_set:
+            _dict['method'] = None
+
         # set to None if method_detail (nullable) is None
         # and model_fields_set contains the field
         if self.method_detail is None and "method_detail" in self.model_fields_set:
             _dict['method_detail'] = None
+
+        # set to None if last_updated (nullable) is None
+        # and model_fields_set contains the field
+        if self.last_updated is None and "last_updated" in self.model_fields_set:
+            _dict['last_updated'] = None
 
         return _dict
 

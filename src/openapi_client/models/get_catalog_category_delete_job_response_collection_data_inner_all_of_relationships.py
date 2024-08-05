@@ -20,7 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.get_coupon_code_response_collection_compound_document_data_inner_all_of_relationships_profile import GetCouponCodeResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsProfile
+from openapi_client.models.get_photos_dto_collection_data_inner_all_of_relationships_test_photographers import GetPhotosDTOCollectionDataInnerAllOfRelationshipsTestPhotographers
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,7 +28,7 @@ class GetCatalogCategoryDeleteJobResponseCollectionDataInnerAllOfRelationships(B
     """
     GetCatalogCategoryDeleteJobResponseCollectionDataInnerAllOfRelationships
     """ # noqa: E501
-    categories: Optional[GetCouponCodeResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsProfile] = None
+    categories: Optional[GetPhotosDTOCollectionDataInnerAllOfRelationshipsTestPhotographers] = None
     __properties: ClassVar[List[str]] = ["categories"]
 
     model_config = ConfigDict(
@@ -85,7 +85,7 @@ class GetCatalogCategoryDeleteJobResponseCollectionDataInnerAllOfRelationships(B
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "categories": GetCouponCodeResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsProfile.from_dict(obj["categories"]) if obj.get("categories") is not None else None
+            "categories": GetPhotosDTOCollectionDataInnerAllOfRelationshipsTestPhotographers.from_dict(obj["categories"]) if obj.get("categories") is not None else None
         })
         return _obj
 

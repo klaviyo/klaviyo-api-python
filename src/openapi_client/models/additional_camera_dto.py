@@ -18,19 +18,18 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.get_photos_dto_collection_data_inner_all_of_relationships_test_photographers import GetPhotosDTOCollectionDataInnerAllOfRelationshipsTestPhotographers
+from pydantic import BaseModel, ConfigDict, StrictStr
+from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
-class GetCouponCodeResponseCollectionDataInnerAllOfRelationships(BaseModel):
+class AdditionalCameraDTO(BaseModel):
     """
-    GetCouponCodeResponseCollectionDataInnerAllOfRelationships
+    AdditionalCameraDTO
     """ # noqa: E501
-    coupon: Optional[GetPhotosDTOCollectionDataInnerAllOfRelationshipsTestPhotographers] = None
-    profile: Optional[GetPhotosDTOCollectionDataInnerAllOfRelationshipsTestPhotographers] = None
-    __properties: ClassVar[List[str]] = ["coupon", "profile"]
+    model: StrictStr
+    name: StrictStr
+    __properties: ClassVar[List[str]] = ["model", "name"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -50,7 +49,7 @@ class GetCouponCodeResponseCollectionDataInnerAllOfRelationships(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of GetCouponCodeResponseCollectionDataInnerAllOfRelationships from a JSON string"""
+        """Create an instance of AdditionalCameraDTO from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -71,17 +70,11 @@ class GetCouponCodeResponseCollectionDataInnerAllOfRelationships(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of coupon
-        if self.coupon:
-            _dict['coupon'] = self.coupon.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of profile
-        if self.profile:
-            _dict['profile'] = self.profile.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of GetCouponCodeResponseCollectionDataInnerAllOfRelationships from a dict"""
+        """Create an instance of AdditionalCameraDTO from a dict"""
         if obj is None:
             return None
 
@@ -89,8 +82,8 @@ class GetCouponCodeResponseCollectionDataInnerAllOfRelationships(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "coupon": GetPhotosDTOCollectionDataInnerAllOfRelationshipsTestPhotographers.from_dict(obj["coupon"]) if obj.get("coupon") is not None else None,
-            "profile": GetPhotosDTOCollectionDataInnerAllOfRelationshipsTestPhotographers.from_dict(obj["profile"]) if obj.get("profile") is not None else None
+            "model": obj.get("model"),
+            "name": obj.get("name")
         })
         return _obj
 
