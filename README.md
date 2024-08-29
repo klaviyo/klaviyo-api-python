@@ -1,6 +1,6 @@
 # Klaviyo Python SDK
 
-- SDK version: 11.0.1
+- SDK version: 12.0.0
 - API revision: 2024-07-15
 
 ## Table of Contents
@@ -126,10 +126,6 @@ This SDK is organized into the following resources:
 
 
 - Templates
-
-
-
-- Tests
 
 
 
@@ -734,6 +730,10 @@ klaviyo.Catalogs.create_catalog_category(body)
 
 klaviyo.Catalogs.create_catalog_category_relationships_items(id, body)
 ```
+##### Method alias:
+```python
+klaviyo.Catalogs.create_catalog_category_relationships_item(id, body)
+```
 
 
 
@@ -760,6 +760,10 @@ klaviyo.Catalogs.create_catalog_item(body)
 # body | dict
 
 klaviyo.Catalogs.create_catalog_item_relationships_categories(id, body)
+```
+##### Method alias:
+```python
+klaviyo.Catalogs.create_catalog_item_relationships_category(id, body)
 ```
 
 
@@ -1062,6 +1066,10 @@ klaviyo.Catalogs.get_catalog_variants(fields_catalog_variant=fields_catalog_vari
 
 klaviyo.Catalogs.get_create_categories_job(job_id, fields_catalog_category_bulk_create_job=fields_catalog_category_bulk_create_job, fields_catalog_category=fields_catalog_category, include=include)
 ```
+##### Method alias:
+```python
+klaviyo.Catalogs.get_catalog_category_bulk_create_job(job_id, fields_catalog_category_bulk_create_job=fields_catalog_category_bulk_create_job, fields_catalog_category=fields_catalog_category, include=include)
+```
 
 
 
@@ -1077,6 +1085,10 @@ klaviyo.Catalogs.get_create_categories_job(job_id, fields_catalog_category_bulk_
 # page_cursor | str
 
 klaviyo.Catalogs.get_create_categories_jobs(fields_catalog_category_bulk_create_job=fields_catalog_category_bulk_create_job, filter=filter, page_cursor=page_cursor)
+```
+##### Method alias:
+```python
+klaviyo.Catalogs.get_catalog_category_bulk_create_jobs(fields_catalog_category_bulk_create_job=fields_catalog_category_bulk_create_job, filter=filter, page_cursor=page_cursor)
 ```
 
 
@@ -1097,6 +1109,10 @@ klaviyo.Catalogs.get_create_categories_jobs(fields_catalog_category_bulk_create_
 
 klaviyo.Catalogs.get_create_items_job(job_id, fields_catalog_item_bulk_create_job=fields_catalog_item_bulk_create_job, fields_catalog_item=fields_catalog_item, include=include)
 ```
+##### Method alias:
+```python
+klaviyo.Catalogs.get_catalog_item_bulk_create_job(job_id, fields_catalog_item_bulk_create_job=fields_catalog_item_bulk_create_job, fields_catalog_item=fields_catalog_item, include=include)
+```
 
 
 
@@ -1112,6 +1128,10 @@ klaviyo.Catalogs.get_create_items_job(job_id, fields_catalog_item_bulk_create_jo
 # page_cursor | str
 
 klaviyo.Catalogs.get_create_items_jobs(fields_catalog_item_bulk_create_job=fields_catalog_item_bulk_create_job, filter=filter, page_cursor=page_cursor)
+```
+##### Method alias:
+```python
+klaviyo.Catalogs.get_catalog_item_bulk_create_jobs(fields_catalog_item_bulk_create_job=fields_catalog_item_bulk_create_job, filter=filter, page_cursor=page_cursor)
 ```
 
 
@@ -1132,6 +1152,10 @@ klaviyo.Catalogs.get_create_items_jobs(fields_catalog_item_bulk_create_job=field
 
 klaviyo.Catalogs.get_create_variants_job(job_id, fields_catalog_variant_bulk_create_job=fields_catalog_variant_bulk_create_job, fields_catalog_variant=fields_catalog_variant, include=include)
 ```
+##### Method alias:
+```python
+klaviyo.Catalogs.get_catalog_variant_bulk_create_job(job_id, fields_catalog_variant_bulk_create_job=fields_catalog_variant_bulk_create_job, fields_catalog_variant=fields_catalog_variant, include=include)
+```
 
 
 
@@ -1147,6 +1171,10 @@ klaviyo.Catalogs.get_create_variants_job(job_id, fields_catalog_variant_bulk_cre
 # page_cursor | str
 
 klaviyo.Catalogs.get_create_variants_jobs(fields_catalog_variant_bulk_create_job=fields_catalog_variant_bulk_create_job, filter=filter, page_cursor=page_cursor)
+```
+##### Method alias:
+```python
+klaviyo.Catalogs.get_catalog_variant_bulk_create_jobs(fields_catalog_variant_bulk_create_job=fields_catalog_variant_bulk_create_job, filter=filter, page_cursor=page_cursor)
 ```
 
 
@@ -1165,6 +1193,10 @@ klaviyo.Catalogs.get_create_variants_jobs(fields_catalog_variant_bulk_create_job
 
 klaviyo.Catalogs.get_delete_categories_job(job_id, fields_catalog_category_bulk_delete_job=fields_catalog_category_bulk_delete_job)
 ```
+##### Method alias:
+```python
+klaviyo.Catalogs.get_catalog_category_bulk_delete_job(job_id, fields_catalog_category_bulk_delete_job=fields_catalog_category_bulk_delete_job)
+```
 
 
 
@@ -1180,6 +1212,10 @@ klaviyo.Catalogs.get_delete_categories_job(job_id, fields_catalog_category_bulk_
 # page_cursor | str
 
 klaviyo.Catalogs.get_delete_categories_jobs(fields_catalog_category_bulk_delete_job=fields_catalog_category_bulk_delete_job, filter=filter, page_cursor=page_cursor)
+```
+##### Method alias:
+```python
+klaviyo.Catalogs.get_catalog_category_bulk_delete_jobs(fields_catalog_category_bulk_delete_job=fields_catalog_category_bulk_delete_job, filter=filter, page_cursor=page_cursor)
 ```
 
 
@@ -1198,6 +1234,10 @@ klaviyo.Catalogs.get_delete_categories_jobs(fields_catalog_category_bulk_delete_
 
 klaviyo.Catalogs.get_delete_items_job(job_id, fields_catalog_item_bulk_delete_job=fields_catalog_item_bulk_delete_job)
 ```
+##### Method alias:
+```python
+klaviyo.Catalogs.get_catalog_item_bulk_delete_job(job_id, fields_catalog_item_bulk_delete_job=fields_catalog_item_bulk_delete_job)
+```
 
 
 
@@ -1213,6 +1253,10 @@ klaviyo.Catalogs.get_delete_items_job(job_id, fields_catalog_item_bulk_delete_jo
 # page_cursor | str
 
 klaviyo.Catalogs.get_delete_items_jobs(fields_catalog_item_bulk_delete_job=fields_catalog_item_bulk_delete_job, filter=filter, page_cursor=page_cursor)
+```
+##### Method alias:
+```python
+klaviyo.Catalogs.get_catalog_item_bulk_delete_jobs(fields_catalog_item_bulk_delete_job=fields_catalog_item_bulk_delete_job, filter=filter, page_cursor=page_cursor)
 ```
 
 
@@ -1231,6 +1275,10 @@ klaviyo.Catalogs.get_delete_items_jobs(fields_catalog_item_bulk_delete_job=field
 
 klaviyo.Catalogs.get_delete_variants_job(job_id, fields_catalog_variant_bulk_delete_job=fields_catalog_variant_bulk_delete_job)
 ```
+##### Method alias:
+```python
+klaviyo.Catalogs.get_catalog_variant_bulk_delete_job(job_id, fields_catalog_variant_bulk_delete_job=fields_catalog_variant_bulk_delete_job)
+```
 
 
 
@@ -1246,6 +1294,10 @@ klaviyo.Catalogs.get_delete_variants_job(job_id, fields_catalog_variant_bulk_del
 # page_cursor | str
 
 klaviyo.Catalogs.get_delete_variants_jobs(fields_catalog_variant_bulk_delete_job=fields_catalog_variant_bulk_delete_job, filter=filter, page_cursor=page_cursor)
+```
+##### Method alias:
+```python
+klaviyo.Catalogs.get_catalog_variant_bulk_delete_jobs(fields_catalog_variant_bulk_delete_job=fields_catalog_variant_bulk_delete_job, filter=filter, page_cursor=page_cursor)
 ```
 
 
@@ -1266,6 +1318,10 @@ klaviyo.Catalogs.get_delete_variants_jobs(fields_catalog_variant_bulk_delete_job
 
 klaviyo.Catalogs.get_update_categories_job(job_id, fields_catalog_category_bulk_update_job=fields_catalog_category_bulk_update_job, fields_catalog_category=fields_catalog_category, include=include)
 ```
+##### Method alias:
+```python
+klaviyo.Catalogs.get_catalog_category_bulk_update_job(job_id, fields_catalog_category_bulk_update_job=fields_catalog_category_bulk_update_job, fields_catalog_category=fields_catalog_category, include=include)
+```
 
 
 
@@ -1281,6 +1337,10 @@ klaviyo.Catalogs.get_update_categories_job(job_id, fields_catalog_category_bulk_
 # page_cursor | str
 
 klaviyo.Catalogs.get_update_categories_jobs(fields_catalog_category_bulk_update_job=fields_catalog_category_bulk_update_job, filter=filter, page_cursor=page_cursor)
+```
+##### Method alias:
+```python
+klaviyo.Catalogs.get_catalog_category_bulk_update_jobs(fields_catalog_category_bulk_update_job=fields_catalog_category_bulk_update_job, filter=filter, page_cursor=page_cursor)
 ```
 
 
@@ -1301,6 +1361,10 @@ klaviyo.Catalogs.get_update_categories_jobs(fields_catalog_category_bulk_update_
 
 klaviyo.Catalogs.get_update_items_job(job_id, fields_catalog_item_bulk_update_job=fields_catalog_item_bulk_update_job, fields_catalog_item=fields_catalog_item, include=include)
 ```
+##### Method alias:
+```python
+klaviyo.Catalogs.get_catalog_item_bulk_update_job(job_id, fields_catalog_item_bulk_update_job=fields_catalog_item_bulk_update_job, fields_catalog_item=fields_catalog_item, include=include)
+```
 
 
 
@@ -1316,6 +1380,10 @@ klaviyo.Catalogs.get_update_items_job(job_id, fields_catalog_item_bulk_update_jo
 # page_cursor | str
 
 klaviyo.Catalogs.get_update_items_jobs(fields_catalog_item_bulk_update_job=fields_catalog_item_bulk_update_job, filter=filter, page_cursor=page_cursor)
+```
+##### Method alias:
+```python
+klaviyo.Catalogs.get_catalog_item_bulk_update_jobs(fields_catalog_item_bulk_update_job=fields_catalog_item_bulk_update_job, filter=filter, page_cursor=page_cursor)
 ```
 
 
@@ -1336,6 +1404,10 @@ klaviyo.Catalogs.get_update_items_jobs(fields_catalog_item_bulk_update_job=field
 
 klaviyo.Catalogs.get_update_variants_job(job_id, fields_catalog_variant_bulk_update_job=fields_catalog_variant_bulk_update_job, fields_catalog_variant=fields_catalog_variant, include=include)
 ```
+##### Method alias:
+```python
+klaviyo.Catalogs.get_catalog_variant_bulk_update_job(job_id, fields_catalog_variant_bulk_update_job=fields_catalog_variant_bulk_update_job, fields_catalog_variant=fields_catalog_variant, include=include)
+```
 
 
 
@@ -1352,6 +1424,10 @@ klaviyo.Catalogs.get_update_variants_job(job_id, fields_catalog_variant_bulk_upd
 
 klaviyo.Catalogs.get_update_variants_jobs(fields_catalog_variant_bulk_update_job=fields_catalog_variant_bulk_update_job, filter=filter, page_cursor=page_cursor)
 ```
+##### Method alias:
+```python
+klaviyo.Catalogs.get_catalog_variant_bulk_update_jobs(fields_catalog_variant_bulk_update_job=fields_catalog_variant_bulk_update_job, filter=filter, page_cursor=page_cursor)
+```
 
 
 
@@ -1364,6 +1440,10 @@ klaviyo.Catalogs.get_update_variants_jobs(fields_catalog_variant_bulk_update_job
 # body | dict
 
 klaviyo.Catalogs.spawn_create_categories_job(body)
+```
+##### Method alias:
+```python
+klaviyo.Catalogs.create_catalog_category_bulk_create_job(body)
 ```
 
 
@@ -1378,6 +1458,10 @@ klaviyo.Catalogs.spawn_create_categories_job(body)
 
 klaviyo.Catalogs.spawn_create_items_job(body)
 ```
+##### Method alias:
+```python
+klaviyo.Catalogs.create_catalog_item_bulk_create_job(body)
+```
 
 
 
@@ -1390,6 +1474,10 @@ klaviyo.Catalogs.spawn_create_items_job(body)
 # body | dict
 
 klaviyo.Catalogs.spawn_create_variants_job(body)
+```
+##### Method alias:
+```python
+klaviyo.Catalogs.create_catalog_variant_bulk_create_job(body)
 ```
 
 
@@ -1404,6 +1492,10 @@ klaviyo.Catalogs.spawn_create_variants_job(body)
 
 klaviyo.Catalogs.spawn_delete_categories_job(body)
 ```
+##### Method alias:
+```python
+klaviyo.Catalogs.create_catalog_category_bulk_delete_job(body)
+```
 
 
 
@@ -1416,6 +1508,10 @@ klaviyo.Catalogs.spawn_delete_categories_job(body)
 # body | dict
 
 klaviyo.Catalogs.spawn_delete_items_job(body)
+```
+##### Method alias:
+```python
+klaviyo.Catalogs.create_catalog_item_bulk_delete_job(body)
 ```
 
 
@@ -1430,6 +1526,10 @@ klaviyo.Catalogs.spawn_delete_items_job(body)
 
 klaviyo.Catalogs.spawn_delete_variants_job(body)
 ```
+##### Method alias:
+```python
+klaviyo.Catalogs.create_catalog_variant_bulk_delete_job(body)
+```
 
 
 
@@ -1442,6 +1542,10 @@ klaviyo.Catalogs.spawn_delete_variants_job(body)
 # body | dict
 
 klaviyo.Catalogs.spawn_update_categories_job(body)
+```
+##### Method alias:
+```python
+klaviyo.Catalogs.create_catalog_category_bulk_update_job(body)
 ```
 
 
@@ -1456,6 +1560,10 @@ klaviyo.Catalogs.spawn_update_categories_job(body)
 
 klaviyo.Catalogs.spawn_update_items_job(body)
 ```
+##### Method alias:
+```python
+klaviyo.Catalogs.create_catalog_item_bulk_update_job(body)
+```
 
 
 
@@ -1468,6 +1576,10 @@ klaviyo.Catalogs.spawn_update_items_job(body)
 # body | dict
 
 klaviyo.Catalogs.spawn_update_variants_job(body)
+```
+##### Method alias:
+```python
+klaviyo.Catalogs.create_catalog_variant_bulk_update_job(body)
 ```
 
 
@@ -1720,6 +1832,10 @@ klaviyo.Coupons.get_coupon_codes(fields_coupon_code=fields_coupon_code, fields_c
 
 klaviyo.Coupons.get_coupon_codes_for_coupon(id, fields_coupon_code=fields_coupon_code, filter=filter, page_cursor=page_cursor)
 ```
+##### Method alias:
+```python
+klaviyo.Coupons.get_coupon_coupon_codes(id, fields_coupon_code=fields_coupon_code, filter=filter, page_cursor=page_cursor)
+```
 
 
 
@@ -1736,6 +1852,10 @@ klaviyo.Coupons.get_coupon_codes_for_coupon(id, fields_coupon_code=fields_coupon
 # fields_coupon | List[str]
 
 klaviyo.Coupons.get_coupon_for_coupon_code(id, fields_coupon=fields_coupon)
+```
+##### Method alias:
+```python
+klaviyo.Coupons.get_coupon_code_coupon(id, fields_coupon=fields_coupon)
 ```
 
 
@@ -1777,6 +1897,10 @@ klaviyo.Coupons.get_coupons(fields_coupon=fields_coupon, page_cursor=page_cursor
 # body | dict
 
 klaviyo.Coupons.spawn_coupon_code_bulk_create_job(body)
+```
+##### Method alias:
+```python
+klaviyo.Coupons.create_coupon_code_bulk_create_job(body)
 ```
 
 
@@ -1823,6 +1947,10 @@ klaviyo.Coupons.update_coupon_code(id, body)
 
 klaviyo.Data_Privacy.request_profile_deletion(body)
 ```
+##### Method alias:
+```python
+klaviyo.Data_Privacy.create_data_privacy_deletion_job(body)
+```
 
 
 
@@ -1839,6 +1967,10 @@ klaviyo.Data_Privacy.request_profile_deletion(body)
 # body | dict
 
 klaviyo.Events.bulk_create_events(body)
+```
+##### Method alias:
+```python
+klaviyo.Events.create_event_bulk_create_job(body)
 ```
 
 
@@ -2306,6 +2438,10 @@ klaviyo.Forms.get_form(id, fields_form_version=fields_form_version, fields_form=
 
 klaviyo.Forms.get_form_for_form_version(id, fields_form=fields_form)
 ```
+##### Method alias:
+```python
+klaviyo.Forms.get_form_version_form(id, fields_form=fields_form)
+```
 
 
 
@@ -2318,6 +2454,10 @@ klaviyo.Forms.get_form_for_form_version(id, fields_form=fields_form)
 # id | str
 
 klaviyo.Forms.get_form_id_for_form_version(id)
+```
+##### Method alias:
+```python
+klaviyo.Forms.get_form_version_relationships_form(id)
 ```
 
 
@@ -2367,6 +2507,10 @@ klaviyo.Forms.get_forms(fields_form=fields_form, filter=filter, page_cursor=page
 
 klaviyo.Forms.get_version_ids_for_form(id)
 ```
+##### Method alias:
+```python
+klaviyo.Forms.get_form_relationships_form_versions(id)
+```
 
 
 
@@ -2387,6 +2531,10 @@ klaviyo.Forms.get_version_ids_for_form(id)
 # sort | str
 
 klaviyo.Forms.get_versions_for_form(id, fields_form_version=fields_form_version, filter=filter, page_cursor=page_cursor, page_size=page_size, sort=sort)
+```
+##### Method alias:
+```python
+klaviyo.Forms.get_form_form_versions(id, fields_form_version=fields_form_version, filter=filter, page_cursor=page_cursor, page_size=page_size, sort=sort)
 ```
 
 
@@ -2459,6 +2607,10 @@ klaviyo.Images.update_image(id, body)
 
 klaviyo.Images.upload_image_from_file(file, name=name, hidden=hidden)
 ```
+##### Method alias:
+```python
+klaviyo.Images.create_image_upload(file, name=name, hidden=hidden)
+```
 
 
 
@@ -2471,6 +2623,10 @@ klaviyo.Images.upload_image_from_file(file, name=name, hidden=hidden)
 # body | dict
 
 klaviyo.Images.upload_image_from_url(body)
+```
+##### Method alias:
+```python
+klaviyo.Images.create_image(body)
 ```
 
 
@@ -2503,6 +2659,10 @@ klaviyo.Lists.create_list(body)
 
 klaviyo.Lists.create_list_relationships(id, body)
 ```
+##### Method alias:
+```python
+klaviyo.Lists.create_list_relationships_profile(id, body)
+```
 
 
 
@@ -2529,6 +2689,10 @@ klaviyo.Lists.delete_list(id)
 # body | dict
 
 klaviyo.Lists.delete_list_relationships(id, body)
+```
+##### Method alias:
+```python
+klaviyo.Lists.delete_list_relationships_profiles(id, body)
 ```
 
 
@@ -2705,6 +2869,10 @@ klaviyo.Metrics.get_metrics(fields_metric=fields_metric, filter=filter, page_cur
 
 klaviyo.Metrics.query_metric_aggregates(body)
 ```
+##### Method alias:
+```python
+klaviyo.Metrics.create_metric_aggregate(body)
+```
 
 
 
@@ -2721,6 +2889,10 @@ klaviyo.Metrics.query_metric_aggregates(body)
 # body | dict
 
 klaviyo.Profiles.create_or_update_profile(body)
+```
+##### Method alias:
+```python
+klaviyo.Profiles.create_profile_import(body)
 ```
 
 
@@ -2767,6 +2939,10 @@ klaviyo.Profiles.create_push_token(body)
 
 klaviyo.Profiles.get_bulk_profile_import_job(job_id, fields_list=fields_list, fields_profile_bulk_import_job=fields_profile_bulk_import_job, include=include)
 ```
+##### Method alias:
+```python
+klaviyo.Profiles.get_profile_bulk_import_job(job_id, fields_list=fields_list, fields_profile_bulk_import_job=fields_profile_bulk_import_job, include=include)
+```
 
 
 
@@ -2786,6 +2962,10 @@ klaviyo.Profiles.get_bulk_profile_import_job(job_id, fields_list=fields_list, fi
 
 klaviyo.Profiles.get_bulk_profile_import_job_import_errors(id, fields_import_error=fields_import_error, page_cursor=page_cursor, page_size=page_size)
 ```
+##### Method alias:
+```python
+klaviyo.Profiles.get_profile_bulk_import_job_import_errors(id, fields_import_error=fields_import_error, page_cursor=page_cursor, page_size=page_size)
+```
 
 
 
@@ -2802,6 +2982,10 @@ klaviyo.Profiles.get_bulk_profile_import_job_import_errors(id, fields_import_err
 # fields_list | List[str]
 
 klaviyo.Profiles.get_bulk_profile_import_job_lists(id, fields_list=fields_list)
+```
+##### Method alias:
+```python
+klaviyo.Profiles.get_profile_bulk_import_job_lists(id, fields_list=fields_list)
 ```
 
 
@@ -2823,6 +3007,10 @@ klaviyo.Profiles.get_bulk_profile_import_job_lists(id, fields_list=fields_list)
 
 klaviyo.Profiles.get_bulk_profile_import_job_profiles(id, additional_fields_profile=additional_fields_profile, fields_profile=fields_profile, page_cursor=page_cursor, page_size=page_size)
 ```
+##### Method alias:
+```python
+klaviyo.Profiles.get_profile_bulk_import_job_profiles(id, additional_fields_profile=additional_fields_profile, fields_profile=fields_profile, page_cursor=page_cursor, page_size=page_size)
+```
 
 
 
@@ -2835,6 +3023,10 @@ klaviyo.Profiles.get_bulk_profile_import_job_profiles(id, additional_fields_prof
 # id | str
 
 klaviyo.Profiles.get_bulk_profile_import_job_relationships_lists(id)
+```
+##### Method alias:
+```python
+klaviyo.Profiles.get_profile_bulk_import_job_relationships_lists(id)
 ```
 
 
@@ -2854,6 +3046,10 @@ klaviyo.Profiles.get_bulk_profile_import_job_relationships_lists(id)
 
 klaviyo.Profiles.get_bulk_profile_import_job_relationships_profiles(id, page_cursor=page_cursor, page_size=page_size)
 ```
+##### Method alias:
+```python
+klaviyo.Profiles.get_profile_bulk_import_job_relationships_profiles(id, page_cursor=page_cursor, page_size=page_size)
+```
 
 
 
@@ -2871,6 +3067,10 @@ klaviyo.Profiles.get_bulk_profile_import_job_relationships_profiles(id, page_cur
 # sort | str
 
 klaviyo.Profiles.get_bulk_profile_import_jobs(fields_profile_bulk_import_job=fields_profile_bulk_import_job, filter=filter, page_cursor=page_cursor, page_size=page_size, sort=sort)
+```
+##### Method alias:
+```python
+klaviyo.Profiles.get_profile_bulk_import_jobs(fields_profile_bulk_import_job=fields_profile_bulk_import_job, filter=filter, page_cursor=page_cursor, page_size=page_size, sort=sort)
 ```
 
 
@@ -2985,6 +3185,10 @@ klaviyo.Profiles.get_profiles(additional_fields_profile=additional_fields_profil
 
 klaviyo.Profiles.merge_profiles(body)
 ```
+##### Method alias:
+```python
+klaviyo.Profiles.create_profile_merge(body)
+```
 
 
 
@@ -2997,6 +3201,10 @@ klaviyo.Profiles.merge_profiles(body)
 # body | dict
 
 klaviyo.Profiles.spawn_bulk_profile_import_job(body)
+```
+##### Method alias:
+```python
+klaviyo.Profiles.create_profile_bulk_import_job(body)
 ```
 
 
@@ -3011,6 +3219,10 @@ klaviyo.Profiles.spawn_bulk_profile_import_job(body)
 
 klaviyo.Profiles.subscribe_profiles(body)
 ```
+##### Method alias:
+```python
+klaviyo.Profiles.create_profile_subscription_bulk_create_job(body)
+```
 
 
 
@@ -3023,6 +3235,10 @@ klaviyo.Profiles.subscribe_profiles(body)
 # body | dict
 
 klaviyo.Profiles.suppress_profiles(body)
+```
+##### Method alias:
+```python
+klaviyo.Profiles.create_profile_suppression_bulk_create_job(body)
 ```
 
 
@@ -3037,6 +3253,10 @@ klaviyo.Profiles.suppress_profiles(body)
 
 klaviyo.Profiles.unsubscribe_profiles(body)
 ```
+##### Method alias:
+```python
+klaviyo.Profiles.create_profile_subscription_bulk_delete_job(body)
+```
 
 
 
@@ -3049,6 +3269,10 @@ klaviyo.Profiles.unsubscribe_profiles(body)
 # body | dict
 
 klaviyo.Profiles.unsuppress_profiles(body)
+```
+##### Method alias:
+```python
+klaviyo.Profiles.create_profile_suppression_bulk_delete_job(body)
 ```
 
 
@@ -3085,6 +3309,10 @@ klaviyo.Profiles.update_profile(id, body)
 
 klaviyo.Reporting.query_campaign_values(body, page_cursor=page_cursor)
 ```
+##### Method alias:
+```python
+klaviyo.Reporting.create_campaign_value_report(body, page_cursor=page_cursor)
+```
 
 
 
@@ -3102,6 +3330,10 @@ klaviyo.Reporting.query_campaign_values(body, page_cursor=page_cursor)
 
 klaviyo.Reporting.query_flow_series(body, page_cursor=page_cursor)
 ```
+##### Method alias:
+```python
+klaviyo.Reporting.create_flow_sery_report(body, page_cursor=page_cursor)
+```
 
 
 
@@ -3118,6 +3350,10 @@ klaviyo.Reporting.query_flow_series(body, page_cursor=page_cursor)
 # page_cursor | str
 
 klaviyo.Reporting.query_flow_values(body, page_cursor=page_cursor)
+```
+##### Method alias:
+```python
+klaviyo.Reporting.create_flow_value_report(body, page_cursor=page_cursor)
 ```
 
 
@@ -3318,6 +3554,10 @@ klaviyo.Tags.create_tag_group(body)
 
 klaviyo.Tags.create_tag_relationships_campaigns(id, body)
 ```
+##### Method alias:
+```python
+klaviyo.Tags.create_tag_relationships_campaign(id, body)
+```
 
 
 
@@ -3331,6 +3571,10 @@ klaviyo.Tags.create_tag_relationships_campaigns(id, body)
 # body | dict
 
 klaviyo.Tags.create_tag_relationships_flows(id, body)
+```
+##### Method alias:
+```python
+klaviyo.Tags.create_tag_relationships_flow(id, body)
 ```
 
 
@@ -3346,6 +3590,10 @@ klaviyo.Tags.create_tag_relationships_flows(id, body)
 
 klaviyo.Tags.create_tag_relationships_lists(id, body)
 ```
+##### Method alias:
+```python
+klaviyo.Tags.create_tag_relationships_list(id, body)
+```
 
 
 
@@ -3359,6 +3607,10 @@ klaviyo.Tags.create_tag_relationships_lists(id, body)
 # body | dict
 
 klaviyo.Tags.create_tag_relationships_segments(id, body)
+```
+##### Method alias:
+```python
+klaviyo.Tags.create_tag_relationships_segment(id, body)
 ```
 
 
@@ -3757,72 +4009,6 @@ klaviyo.Templates.get_templates(fields_template=fields_template, filter=filter, 
 # body | dict
 
 klaviyo.Templates.update_template(id, body)
-```
-
-
-
-
-
-
-## Tests
-
-#### [Get Test Bulk Create Photos Jobs](https://developers.klaviyo.com/en/v2024-07-15/reference/get_test_bulk_create_photos_jobs)
-
-```python
-
-## Keyword Arguments
-
-# fields_test_bulk_create_photos_job | List[str]
-
-klaviyo.Tests.get_test_bulk_create_photos_jobs(fields_test_bulk_create_photos_job=fields_test_bulk_create_photos_job)
-```
-
-
-
-
-#### [Get Test Cities](https://developers.klaviyo.com/en/v2024-07-15/reference/get_test_cities)
-
-```python
-
-## Keyword Arguments
-
-# fields_test_city | List[str]
-
-klaviyo.Tests.get_test_cities(fields_test_city=fields_test_city)
-```
-
-
-
-
-#### [Get Test Photographers](https://developers.klaviyo.com/en/v2024-07-15/reference/get_test_photographers)
-
-```python
-
-## Keyword Arguments
-
-# fields_test_photographer | List[str]
-# filter | str
-# sort | str
-
-klaviyo.Tests.get_test_photographers(fields_test_photographer=fields_test_photographer, filter=filter, sort=sort)
-```
-
-
-
-
-#### [Get Test Photos](https://developers.klaviyo.com/en/v2024-07-15/reference/get_test_photos)
-
-```python
-
-## Keyword Arguments
-
-# additional_fields_test_photo | List[str]
-# fields_test_photo | List[str]
-# filter | str
-# page_cursor | str
-# sort | str
-
-klaviyo.Tests.get_test_photos(additional_fields_test_photo=additional_fields_test_photo, fields_test_photo=fields_test_photo, filter=filter, page_cursor=page_cursor, sort=sort)
 ```
 
 

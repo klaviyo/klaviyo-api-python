@@ -20,7 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.get_photos_dto_collection_data_inner_all_of_relationships_test_photographers import GetPhotosDTOCollectionDataInnerAllOfRelationshipsTestPhotographers
+from openapi_client.models.get_coupon_code_response_collection_compound_document_data_inner_all_of_relationships_profile import GetCouponCodeResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsProfile
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,8 +28,8 @@ class GetProfileResponseCollectionDataInnerAllOfRelationships(BaseModel):
     """
     GetProfileResponseCollectionDataInnerAllOfRelationships
     """ # noqa: E501
-    lists: Optional[GetPhotosDTOCollectionDataInnerAllOfRelationshipsTestPhotographers] = None
-    segments: Optional[GetPhotosDTOCollectionDataInnerAllOfRelationshipsTestPhotographers] = None
+    lists: Optional[GetCouponCodeResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsProfile] = None
+    segments: Optional[GetCouponCodeResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsProfile] = None
     __properties: ClassVar[List[str]] = ["lists", "segments"]
 
     model_config = ConfigDict(
@@ -89,8 +89,8 @@ class GetProfileResponseCollectionDataInnerAllOfRelationships(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "lists": GetPhotosDTOCollectionDataInnerAllOfRelationshipsTestPhotographers.from_dict(obj["lists"]) if obj.get("lists") is not None else None,
-            "segments": GetPhotosDTOCollectionDataInnerAllOfRelationshipsTestPhotographers.from_dict(obj["segments"]) if obj.get("segments") is not None else None
+            "lists": GetCouponCodeResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsProfile.from_dict(obj["lists"]) if obj.get("lists") is not None else None,
+            "segments": GetCouponCodeResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsProfile.from_dict(obj["segments"]) if obj.get("segments") is not None else None
         })
         return _obj
 

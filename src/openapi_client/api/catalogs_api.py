@@ -829,6 +829,9 @@ class CatalogsApi(object):
         ).data
 
 
+    # alias of create_catalog_category_relationships_items
+    create_catalog_category_relationships_item = create_catalog_category_relationships_items
+
     @validate_call
     def create_catalog_category_relationships_items_with_http_info(        
         self,
@@ -913,6 +916,9 @@ class CatalogsApi(object):
         )
 
 
+    # alias of `create_catalog_category_relationships_items_with_http_info`
+    create_catalog_category_relationships_item_with_http_info = create_catalog_category_relationships_items_with_http_info
+
     @validate_call
     def create_catalog_category_relationships_items_without_preload_content(
         self,
@@ -982,6 +988,9 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    # alias of `create_catalog_category_relationships_items_without_preload_content`
+    create_catalog_category_relationships_item_without_preload_content = create_catalog_category_relationships_items_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -1075,6 +1084,9 @@ class CatalogsApi(object):
             _request_auth=_request_auth
         )
 
+
+    # alias of `_create_catalog_category_relationships_items_serialize`
+    _create_catalog_category_relationships_item_serialize = _create_catalog_category_relationships_items_serialize
 
 
 
@@ -1484,6 +1496,9 @@ class CatalogsApi(object):
         ).data
 
 
+    # alias of create_catalog_item_relationships_categories
+    create_catalog_item_relationships_category = create_catalog_item_relationships_categories
+
     @validate_call
     def create_catalog_item_relationships_categories_with_http_info(        
         self,
@@ -1568,6 +1583,9 @@ class CatalogsApi(object):
         )
 
 
+    # alias of `create_catalog_item_relationships_categories_with_http_info`
+    create_catalog_item_relationships_category_with_http_info = create_catalog_item_relationships_categories_with_http_info
+
     @validate_call
     def create_catalog_item_relationships_categories_without_preload_content(
         self,
@@ -1637,6 +1655,9 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    # alias of `create_catalog_item_relationships_categories_without_preload_content`
+    create_catalog_item_relationships_category_without_preload_content = create_catalog_item_relationships_categories_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -1730,6 +1751,9 @@ class CatalogsApi(object):
             _request_auth=_request_auth
         )
 
+
+    # alias of `_create_catalog_item_relationships_categories_serialize`
+    _create_catalog_item_relationships_category_serialize = _create_catalog_item_relationships_categories_serialize
 
 
 
@@ -7785,6 +7809,9 @@ class CatalogsApi(object):
         ).data
 
 
+    # alias of get_create_categories_job
+    get_catalog_category_bulk_create_job = get_create_categories_job
+
     @validate_call
     def get_create_categories_job_with_http_info(        
         self,
@@ -7877,6 +7904,9 @@ class CatalogsApi(object):
         )
 
 
+    # alias of `get_create_categories_job_with_http_info`
+    get_catalog_category_bulk_create_job_with_http_info = get_create_categories_job_with_http_info
+
     @validate_call
     def get_create_categories_job_without_preload_content(
         self,
@@ -7954,6 +7984,9 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    # alias of `get_create_categories_job_without_preload_content`
+    get_catalog_category_bulk_create_job_without_preload_content = get_create_categories_job_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -8059,6 +8092,9 @@ class CatalogsApi(object):
         )
 
 
+    # alias of `_get_create_categories_job_serialize`
+    _get_catalog_category_bulk_create_job_serialize = _get_create_categories_job_serialize
+
 
 
     @validate_call
@@ -8151,6 +8187,9 @@ class CatalogsApi(object):
         ).data
 
 
+    # alias of get_create_categories_jobs
+    get_catalog_category_bulk_create_jobs = get_create_categories_jobs
+
     @validate_call
     def get_create_categories_jobs_with_http_info(        
         self,
@@ -8239,6 +8278,9 @@ class CatalogsApi(object):
         )
 
 
+    # alias of `get_create_categories_jobs_with_http_info`
+    get_catalog_category_bulk_create_jobs_with_http_info = get_create_categories_jobs_with_http_info
+
     @validate_call
     def get_create_categories_jobs_without_preload_content(
         self,
@@ -8312,6 +8354,9 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    # alias of `get_create_categories_jobs_without_preload_content`
+    get_catalog_category_bulk_create_jobs_without_preload_content = get_create_categories_jobs_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -8412,6 +8457,9 @@ class CatalogsApi(object):
         )
 
 
+    # alias of `_get_create_categories_jobs_serialize`
+    _get_catalog_category_bulk_create_jobs_serialize = _get_create_categories_jobs_serialize
+
 
 
     @validate_call
@@ -8508,6 +8556,9 @@ class CatalogsApi(object):
         ).data
 
 
+    # alias of get_create_items_job
+    get_catalog_item_bulk_create_job = get_create_items_job
+
     @validate_call
     def get_create_items_job_with_http_info(        
         self,
@@ -8600,6 +8651,9 @@ class CatalogsApi(object):
         )
 
 
+    # alias of `get_create_items_job_with_http_info`
+    get_catalog_item_bulk_create_job_with_http_info = get_create_items_job_with_http_info
+
     @validate_call
     def get_create_items_job_without_preload_content(
         self,
@@ -8677,6 +8731,9 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    # alias of `get_create_items_job_without_preload_content`
+    get_catalog_item_bulk_create_job_without_preload_content = get_create_items_job_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -8782,6 +8839,9 @@ class CatalogsApi(object):
         )
 
 
+    # alias of `_get_create_items_job_serialize`
+    _get_catalog_item_bulk_create_job_serialize = _get_create_items_job_serialize
+
 
 
     @validate_call
@@ -8874,6 +8934,9 @@ class CatalogsApi(object):
         ).data
 
 
+    # alias of get_create_items_jobs
+    get_catalog_item_bulk_create_jobs = get_create_items_jobs
+
     @validate_call
     def get_create_items_jobs_with_http_info(        
         self,
@@ -8962,6 +9025,9 @@ class CatalogsApi(object):
         )
 
 
+    # alias of `get_create_items_jobs_with_http_info`
+    get_catalog_item_bulk_create_jobs_with_http_info = get_create_items_jobs_with_http_info
+
     @validate_call
     def get_create_items_jobs_without_preload_content(
         self,
@@ -9035,6 +9101,9 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    # alias of `get_create_items_jobs_without_preload_content`
+    get_catalog_item_bulk_create_jobs_without_preload_content = get_create_items_jobs_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -9135,6 +9204,9 @@ class CatalogsApi(object):
         )
 
 
+    # alias of `_get_create_items_jobs_serialize`
+    _get_catalog_item_bulk_create_jobs_serialize = _get_create_items_jobs_serialize
+
 
 
     @validate_call
@@ -9231,6 +9303,9 @@ class CatalogsApi(object):
         ).data
 
 
+    # alias of get_create_variants_job
+    get_catalog_variant_bulk_create_job = get_create_variants_job
+
     @validate_call
     def get_create_variants_job_with_http_info(        
         self,
@@ -9323,6 +9398,9 @@ class CatalogsApi(object):
         )
 
 
+    # alias of `get_create_variants_job_with_http_info`
+    get_catalog_variant_bulk_create_job_with_http_info = get_create_variants_job_with_http_info
+
     @validate_call
     def get_create_variants_job_without_preload_content(
         self,
@@ -9400,6 +9478,9 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    # alias of `get_create_variants_job_without_preload_content`
+    get_catalog_variant_bulk_create_job_without_preload_content = get_create_variants_job_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -9505,6 +9586,9 @@ class CatalogsApi(object):
         )
 
 
+    # alias of `_get_create_variants_job_serialize`
+    _get_catalog_variant_bulk_create_job_serialize = _get_create_variants_job_serialize
+
 
 
     @validate_call
@@ -9597,6 +9681,9 @@ class CatalogsApi(object):
         ).data
 
 
+    # alias of get_create_variants_jobs
+    get_catalog_variant_bulk_create_jobs = get_create_variants_jobs
+
     @validate_call
     def get_create_variants_jobs_with_http_info(        
         self,
@@ -9685,6 +9772,9 @@ class CatalogsApi(object):
         )
 
 
+    # alias of `get_create_variants_jobs_with_http_info`
+    get_catalog_variant_bulk_create_jobs_with_http_info = get_create_variants_jobs_with_http_info
+
     @validate_call
     def get_create_variants_jobs_without_preload_content(
         self,
@@ -9758,6 +9848,9 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    # alias of `get_create_variants_jobs_without_preload_content`
+    get_catalog_variant_bulk_create_jobs_without_preload_content = get_create_variants_jobs_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -9858,6 +9951,9 @@ class CatalogsApi(object):
         )
 
 
+    # alias of `_get_create_variants_jobs_serialize`
+    _get_catalog_variant_bulk_create_jobs_serialize = _get_create_variants_jobs_serialize
+
 
 
     @validate_call
@@ -9946,6 +10042,9 @@ class CatalogsApi(object):
         ).data
 
 
+    # alias of get_delete_categories_job
+    get_catalog_category_bulk_delete_job = get_delete_categories_job
+
     @validate_call
     def get_delete_categories_job_with_http_info(        
         self,
@@ -10030,6 +10129,9 @@ class CatalogsApi(object):
         )
 
 
+    # alias of `get_delete_categories_job_with_http_info`
+    get_catalog_category_bulk_delete_job_with_http_info = get_delete_categories_job_with_http_info
+
     @validate_call
     def get_delete_categories_job_without_preload_content(
         self,
@@ -10099,6 +10201,9 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    # alias of `get_delete_categories_job_without_preload_content`
+    get_catalog_category_bulk_delete_job_without_preload_content = get_delete_categories_job_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -10185,6 +10290,9 @@ class CatalogsApi(object):
             _request_auth=_request_auth
         )
 
+
+    # alias of `_get_delete_categories_job_serialize`
+    _get_catalog_category_bulk_delete_job_serialize = _get_delete_categories_job_serialize
 
 
 
@@ -10278,6 +10386,9 @@ class CatalogsApi(object):
         ).data
 
 
+    # alias of get_delete_categories_jobs
+    get_catalog_category_bulk_delete_jobs = get_delete_categories_jobs
+
     @validate_call
     def get_delete_categories_jobs_with_http_info(        
         self,
@@ -10366,6 +10477,9 @@ class CatalogsApi(object):
         )
 
 
+    # alias of `get_delete_categories_jobs_with_http_info`
+    get_catalog_category_bulk_delete_jobs_with_http_info = get_delete_categories_jobs_with_http_info
+
     @validate_call
     def get_delete_categories_jobs_without_preload_content(
         self,
@@ -10439,6 +10553,9 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    # alias of `get_delete_categories_jobs_without_preload_content`
+    get_catalog_category_bulk_delete_jobs_without_preload_content = get_delete_categories_jobs_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -10539,6 +10656,9 @@ class CatalogsApi(object):
         )
 
 
+    # alias of `_get_delete_categories_jobs_serialize`
+    _get_catalog_category_bulk_delete_jobs_serialize = _get_delete_categories_jobs_serialize
+
 
 
     @validate_call
@@ -10627,6 +10747,9 @@ class CatalogsApi(object):
         ).data
 
 
+    # alias of get_delete_items_job
+    get_catalog_item_bulk_delete_job = get_delete_items_job
+
     @validate_call
     def get_delete_items_job_with_http_info(        
         self,
@@ -10711,6 +10834,9 @@ class CatalogsApi(object):
         )
 
 
+    # alias of `get_delete_items_job_with_http_info`
+    get_catalog_item_bulk_delete_job_with_http_info = get_delete_items_job_with_http_info
+
     @validate_call
     def get_delete_items_job_without_preload_content(
         self,
@@ -10780,6 +10906,9 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    # alias of `get_delete_items_job_without_preload_content`
+    get_catalog_item_bulk_delete_job_without_preload_content = get_delete_items_job_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -10866,6 +10995,9 @@ class CatalogsApi(object):
             _request_auth=_request_auth
         )
 
+
+    # alias of `_get_delete_items_job_serialize`
+    _get_catalog_item_bulk_delete_job_serialize = _get_delete_items_job_serialize
 
 
 
@@ -10959,6 +11091,9 @@ class CatalogsApi(object):
         ).data
 
 
+    # alias of get_delete_items_jobs
+    get_catalog_item_bulk_delete_jobs = get_delete_items_jobs
+
     @validate_call
     def get_delete_items_jobs_with_http_info(        
         self,
@@ -11047,6 +11182,9 @@ class CatalogsApi(object):
         )
 
 
+    # alias of `get_delete_items_jobs_with_http_info`
+    get_catalog_item_bulk_delete_jobs_with_http_info = get_delete_items_jobs_with_http_info
+
     @validate_call
     def get_delete_items_jobs_without_preload_content(
         self,
@@ -11120,6 +11258,9 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    # alias of `get_delete_items_jobs_without_preload_content`
+    get_catalog_item_bulk_delete_jobs_without_preload_content = get_delete_items_jobs_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -11220,6 +11361,9 @@ class CatalogsApi(object):
         )
 
 
+    # alias of `_get_delete_items_jobs_serialize`
+    _get_catalog_item_bulk_delete_jobs_serialize = _get_delete_items_jobs_serialize
+
 
 
     @validate_call
@@ -11308,6 +11452,9 @@ class CatalogsApi(object):
         ).data
 
 
+    # alias of get_delete_variants_job
+    get_catalog_variant_bulk_delete_job = get_delete_variants_job
+
     @validate_call
     def get_delete_variants_job_with_http_info(        
         self,
@@ -11392,6 +11539,9 @@ class CatalogsApi(object):
         )
 
 
+    # alias of `get_delete_variants_job_with_http_info`
+    get_catalog_variant_bulk_delete_job_with_http_info = get_delete_variants_job_with_http_info
+
     @validate_call
     def get_delete_variants_job_without_preload_content(
         self,
@@ -11461,6 +11611,9 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    # alias of `get_delete_variants_job_without_preload_content`
+    get_catalog_variant_bulk_delete_job_without_preload_content = get_delete_variants_job_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -11547,6 +11700,9 @@ class CatalogsApi(object):
             _request_auth=_request_auth
         )
 
+
+    # alias of `_get_delete_variants_job_serialize`
+    _get_catalog_variant_bulk_delete_job_serialize = _get_delete_variants_job_serialize
 
 
 
@@ -11640,6 +11796,9 @@ class CatalogsApi(object):
         ).data
 
 
+    # alias of get_delete_variants_jobs
+    get_catalog_variant_bulk_delete_jobs = get_delete_variants_jobs
+
     @validate_call
     def get_delete_variants_jobs_with_http_info(        
         self,
@@ -11728,6 +11887,9 @@ class CatalogsApi(object):
         )
 
 
+    # alias of `get_delete_variants_jobs_with_http_info`
+    get_catalog_variant_bulk_delete_jobs_with_http_info = get_delete_variants_jobs_with_http_info
+
     @validate_call
     def get_delete_variants_jobs_without_preload_content(
         self,
@@ -11801,6 +11963,9 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    # alias of `get_delete_variants_jobs_without_preload_content`
+    get_catalog_variant_bulk_delete_jobs_without_preload_content = get_delete_variants_jobs_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -11901,6 +12066,9 @@ class CatalogsApi(object):
         )
 
 
+    # alias of `_get_delete_variants_jobs_serialize`
+    _get_catalog_variant_bulk_delete_jobs_serialize = _get_delete_variants_jobs_serialize
+
 
 
     @validate_call
@@ -11997,6 +12165,9 @@ class CatalogsApi(object):
         ).data
 
 
+    # alias of get_update_categories_job
+    get_catalog_category_bulk_update_job = get_update_categories_job
+
     @validate_call
     def get_update_categories_job_with_http_info(        
         self,
@@ -12089,6 +12260,9 @@ class CatalogsApi(object):
         )
 
 
+    # alias of `get_update_categories_job_with_http_info`
+    get_catalog_category_bulk_update_job_with_http_info = get_update_categories_job_with_http_info
+
     @validate_call
     def get_update_categories_job_without_preload_content(
         self,
@@ -12166,6 +12340,9 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    # alias of `get_update_categories_job_without_preload_content`
+    get_catalog_category_bulk_update_job_without_preload_content = get_update_categories_job_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -12271,6 +12448,9 @@ class CatalogsApi(object):
         )
 
 
+    # alias of `_get_update_categories_job_serialize`
+    _get_catalog_category_bulk_update_job_serialize = _get_update_categories_job_serialize
+
 
 
     @validate_call
@@ -12363,6 +12543,9 @@ class CatalogsApi(object):
         ).data
 
 
+    # alias of get_update_categories_jobs
+    get_catalog_category_bulk_update_jobs = get_update_categories_jobs
+
     @validate_call
     def get_update_categories_jobs_with_http_info(        
         self,
@@ -12451,6 +12634,9 @@ class CatalogsApi(object):
         )
 
 
+    # alias of `get_update_categories_jobs_with_http_info`
+    get_catalog_category_bulk_update_jobs_with_http_info = get_update_categories_jobs_with_http_info
+
     @validate_call
     def get_update_categories_jobs_without_preload_content(
         self,
@@ -12524,6 +12710,9 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    # alias of `get_update_categories_jobs_without_preload_content`
+    get_catalog_category_bulk_update_jobs_without_preload_content = get_update_categories_jobs_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -12624,6 +12813,9 @@ class CatalogsApi(object):
         )
 
 
+    # alias of `_get_update_categories_jobs_serialize`
+    _get_catalog_category_bulk_update_jobs_serialize = _get_update_categories_jobs_serialize
+
 
 
     @validate_call
@@ -12720,6 +12912,9 @@ class CatalogsApi(object):
         ).data
 
 
+    # alias of get_update_items_job
+    get_catalog_item_bulk_update_job = get_update_items_job
+
     @validate_call
     def get_update_items_job_with_http_info(        
         self,
@@ -12812,6 +13007,9 @@ class CatalogsApi(object):
         )
 
 
+    # alias of `get_update_items_job_with_http_info`
+    get_catalog_item_bulk_update_job_with_http_info = get_update_items_job_with_http_info
+
     @validate_call
     def get_update_items_job_without_preload_content(
         self,
@@ -12889,6 +13087,9 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    # alias of `get_update_items_job_without_preload_content`
+    get_catalog_item_bulk_update_job_without_preload_content = get_update_items_job_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -12994,6 +13195,9 @@ class CatalogsApi(object):
         )
 
 
+    # alias of `_get_update_items_job_serialize`
+    _get_catalog_item_bulk_update_job_serialize = _get_update_items_job_serialize
+
 
 
     @validate_call
@@ -13086,6 +13290,9 @@ class CatalogsApi(object):
         ).data
 
 
+    # alias of get_update_items_jobs
+    get_catalog_item_bulk_update_jobs = get_update_items_jobs
+
     @validate_call
     def get_update_items_jobs_with_http_info(        
         self,
@@ -13174,6 +13381,9 @@ class CatalogsApi(object):
         )
 
 
+    # alias of `get_update_items_jobs_with_http_info`
+    get_catalog_item_bulk_update_jobs_with_http_info = get_update_items_jobs_with_http_info
+
     @validate_call
     def get_update_items_jobs_without_preload_content(
         self,
@@ -13247,6 +13457,9 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    # alias of `get_update_items_jobs_without_preload_content`
+    get_catalog_item_bulk_update_jobs_without_preload_content = get_update_items_jobs_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -13347,6 +13560,9 @@ class CatalogsApi(object):
         )
 
 
+    # alias of `_get_update_items_jobs_serialize`
+    _get_catalog_item_bulk_update_jobs_serialize = _get_update_items_jobs_serialize
+
 
 
     @validate_call
@@ -13443,6 +13659,9 @@ class CatalogsApi(object):
         ).data
 
 
+    # alias of get_update_variants_job
+    get_catalog_variant_bulk_update_job = get_update_variants_job
+
     @validate_call
     def get_update_variants_job_with_http_info(        
         self,
@@ -13535,6 +13754,9 @@ class CatalogsApi(object):
         )
 
 
+    # alias of `get_update_variants_job_with_http_info`
+    get_catalog_variant_bulk_update_job_with_http_info = get_update_variants_job_with_http_info
+
     @validate_call
     def get_update_variants_job_without_preload_content(
         self,
@@ -13612,6 +13834,9 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    # alias of `get_update_variants_job_without_preload_content`
+    get_catalog_variant_bulk_update_job_without_preload_content = get_update_variants_job_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -13717,6 +13942,9 @@ class CatalogsApi(object):
         )
 
 
+    # alias of `_get_update_variants_job_serialize`
+    _get_catalog_variant_bulk_update_job_serialize = _get_update_variants_job_serialize
+
 
 
     @validate_call
@@ -13809,6 +14037,9 @@ class CatalogsApi(object):
         ).data
 
 
+    # alias of get_update_variants_jobs
+    get_catalog_variant_bulk_update_jobs = get_update_variants_jobs
+
     @validate_call
     def get_update_variants_jobs_with_http_info(        
         self,
@@ -13897,6 +14128,9 @@ class CatalogsApi(object):
         )
 
 
+    # alias of `get_update_variants_jobs_with_http_info`
+    get_catalog_variant_bulk_update_jobs_with_http_info = get_update_variants_jobs_with_http_info
+
     @validate_call
     def get_update_variants_jobs_without_preload_content(
         self,
@@ -13970,6 +14204,9 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    # alias of `get_update_variants_jobs_without_preload_content`
+    get_catalog_variant_bulk_update_jobs_without_preload_content = get_update_variants_jobs_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -14070,6 +14307,9 @@ class CatalogsApi(object):
         )
 
 
+    # alias of `_get_update_variants_jobs_serialize`
+    _get_catalog_variant_bulk_update_jobs_serialize = _get_update_variants_jobs_serialize
+
 
 
     @validate_call
@@ -14154,6 +14394,9 @@ class CatalogsApi(object):
         ).data
 
 
+    # alias of spawn_create_categories_job
+    create_catalog_category_bulk_create_job = spawn_create_categories_job
+
     @validate_call
     def spawn_create_categories_job_with_http_info(        
         self,
@@ -14234,6 +14477,9 @@ class CatalogsApi(object):
         )
 
 
+    # alias of `spawn_create_categories_job_with_http_info`
+    create_catalog_category_bulk_create_job_with_http_info = spawn_create_categories_job_with_http_info
+
     @validate_call
     def spawn_create_categories_job_without_preload_content(
         self,
@@ -14299,6 +14545,9 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    # alias of `spawn_create_categories_job_without_preload_content`
+    create_catalog_category_bulk_create_job_without_preload_content = spawn_create_categories_job_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -14390,6 +14639,9 @@ class CatalogsApi(object):
         )
 
 
+    # alias of `_spawn_create_categories_job_serialize`
+    _create_catalog_category_bulk_create_job_serialize = _spawn_create_categories_job_serialize
+
 
 
     @validate_call
@@ -14474,6 +14726,9 @@ class CatalogsApi(object):
         ).data
 
 
+    # alias of spawn_create_items_job
+    create_catalog_item_bulk_create_job = spawn_create_items_job
+
     @validate_call
     def spawn_create_items_job_with_http_info(        
         self,
@@ -14554,6 +14809,9 @@ class CatalogsApi(object):
         )
 
 
+    # alias of `spawn_create_items_job_with_http_info`
+    create_catalog_item_bulk_create_job_with_http_info = spawn_create_items_job_with_http_info
+
     @validate_call
     def spawn_create_items_job_without_preload_content(
         self,
@@ -14619,6 +14877,9 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    # alias of `spawn_create_items_job_without_preload_content`
+    create_catalog_item_bulk_create_job_without_preload_content = spawn_create_items_job_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -14710,6 +14971,9 @@ class CatalogsApi(object):
         )
 
 
+    # alias of `_spawn_create_items_job_serialize`
+    _create_catalog_item_bulk_create_job_serialize = _spawn_create_items_job_serialize
+
 
 
     @validate_call
@@ -14794,6 +15058,9 @@ class CatalogsApi(object):
         ).data
 
 
+    # alias of spawn_create_variants_job
+    create_catalog_variant_bulk_create_job = spawn_create_variants_job
+
     @validate_call
     def spawn_create_variants_job_with_http_info(        
         self,
@@ -14874,6 +15141,9 @@ class CatalogsApi(object):
         )
 
 
+    # alias of `spawn_create_variants_job_with_http_info`
+    create_catalog_variant_bulk_create_job_with_http_info = spawn_create_variants_job_with_http_info
+
     @validate_call
     def spawn_create_variants_job_without_preload_content(
         self,
@@ -14939,6 +15209,9 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    # alias of `spawn_create_variants_job_without_preload_content`
+    create_catalog_variant_bulk_create_job_without_preload_content = spawn_create_variants_job_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -15030,6 +15303,9 @@ class CatalogsApi(object):
         )
 
 
+    # alias of `_spawn_create_variants_job_serialize`
+    _create_catalog_variant_bulk_create_job_serialize = _spawn_create_variants_job_serialize
+
 
 
     @validate_call
@@ -15114,6 +15390,9 @@ class CatalogsApi(object):
         ).data
 
 
+    # alias of spawn_delete_categories_job
+    create_catalog_category_bulk_delete_job = spawn_delete_categories_job
+
     @validate_call
     def spawn_delete_categories_job_with_http_info(        
         self,
@@ -15194,6 +15473,9 @@ class CatalogsApi(object):
         )
 
 
+    # alias of `spawn_delete_categories_job_with_http_info`
+    create_catalog_category_bulk_delete_job_with_http_info = spawn_delete_categories_job_with_http_info
+
     @validate_call
     def spawn_delete_categories_job_without_preload_content(
         self,
@@ -15259,6 +15541,9 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    # alias of `spawn_delete_categories_job_without_preload_content`
+    create_catalog_category_bulk_delete_job_without_preload_content = spawn_delete_categories_job_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -15350,6 +15635,9 @@ class CatalogsApi(object):
         )
 
 
+    # alias of `_spawn_delete_categories_job_serialize`
+    _create_catalog_category_bulk_delete_job_serialize = _spawn_delete_categories_job_serialize
+
 
 
     @validate_call
@@ -15434,6 +15722,9 @@ class CatalogsApi(object):
         ).data
 
 
+    # alias of spawn_delete_items_job
+    create_catalog_item_bulk_delete_job = spawn_delete_items_job
+
     @validate_call
     def spawn_delete_items_job_with_http_info(        
         self,
@@ -15514,6 +15805,9 @@ class CatalogsApi(object):
         )
 
 
+    # alias of `spawn_delete_items_job_with_http_info`
+    create_catalog_item_bulk_delete_job_with_http_info = spawn_delete_items_job_with_http_info
+
     @validate_call
     def spawn_delete_items_job_without_preload_content(
         self,
@@ -15579,6 +15873,9 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    # alias of `spawn_delete_items_job_without_preload_content`
+    create_catalog_item_bulk_delete_job_without_preload_content = spawn_delete_items_job_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -15670,6 +15967,9 @@ class CatalogsApi(object):
         )
 
 
+    # alias of `_spawn_delete_items_job_serialize`
+    _create_catalog_item_bulk_delete_job_serialize = _spawn_delete_items_job_serialize
+
 
 
     @validate_call
@@ -15754,6 +16054,9 @@ class CatalogsApi(object):
         ).data
 
 
+    # alias of spawn_delete_variants_job
+    create_catalog_variant_bulk_delete_job = spawn_delete_variants_job
+
     @validate_call
     def spawn_delete_variants_job_with_http_info(        
         self,
@@ -15834,6 +16137,9 @@ class CatalogsApi(object):
         )
 
 
+    # alias of `spawn_delete_variants_job_with_http_info`
+    create_catalog_variant_bulk_delete_job_with_http_info = spawn_delete_variants_job_with_http_info
+
     @validate_call
     def spawn_delete_variants_job_without_preload_content(
         self,
@@ -15899,6 +16205,9 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    # alias of `spawn_delete_variants_job_without_preload_content`
+    create_catalog_variant_bulk_delete_job_without_preload_content = spawn_delete_variants_job_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -15990,6 +16299,9 @@ class CatalogsApi(object):
         )
 
 
+    # alias of `_spawn_delete_variants_job_serialize`
+    _create_catalog_variant_bulk_delete_job_serialize = _spawn_delete_variants_job_serialize
+
 
 
     @validate_call
@@ -16074,6 +16386,9 @@ class CatalogsApi(object):
         ).data
 
 
+    # alias of spawn_update_categories_job
+    create_catalog_category_bulk_update_job = spawn_update_categories_job
+
     @validate_call
     def spawn_update_categories_job_with_http_info(        
         self,
@@ -16154,6 +16469,9 @@ class CatalogsApi(object):
         )
 
 
+    # alias of `spawn_update_categories_job_with_http_info`
+    create_catalog_category_bulk_update_job_with_http_info = spawn_update_categories_job_with_http_info
+
     @validate_call
     def spawn_update_categories_job_without_preload_content(
         self,
@@ -16219,6 +16537,9 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    # alias of `spawn_update_categories_job_without_preload_content`
+    create_catalog_category_bulk_update_job_without_preload_content = spawn_update_categories_job_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -16310,6 +16631,9 @@ class CatalogsApi(object):
         )
 
 
+    # alias of `_spawn_update_categories_job_serialize`
+    _create_catalog_category_bulk_update_job_serialize = _spawn_update_categories_job_serialize
+
 
 
     @validate_call
@@ -16394,6 +16718,9 @@ class CatalogsApi(object):
         ).data
 
 
+    # alias of spawn_update_items_job
+    create_catalog_item_bulk_update_job = spawn_update_items_job
+
     @validate_call
     def spawn_update_items_job_with_http_info(        
         self,
@@ -16474,6 +16801,9 @@ class CatalogsApi(object):
         )
 
 
+    # alias of `spawn_update_items_job_with_http_info`
+    create_catalog_item_bulk_update_job_with_http_info = spawn_update_items_job_with_http_info
+
     @validate_call
     def spawn_update_items_job_without_preload_content(
         self,
@@ -16539,6 +16869,9 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    # alias of `spawn_update_items_job_without_preload_content`
+    create_catalog_item_bulk_update_job_without_preload_content = spawn_update_items_job_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -16630,6 +16963,9 @@ class CatalogsApi(object):
         )
 
 
+    # alias of `_spawn_update_items_job_serialize`
+    _create_catalog_item_bulk_update_job_serialize = _spawn_update_items_job_serialize
+
 
 
     @validate_call
@@ -16714,6 +17050,9 @@ class CatalogsApi(object):
         ).data
 
 
+    # alias of spawn_update_variants_job
+    create_catalog_variant_bulk_update_job = spawn_update_variants_job
+
     @validate_call
     def spawn_update_variants_job_with_http_info(        
         self,
@@ -16794,6 +17133,9 @@ class CatalogsApi(object):
         )
 
 
+    # alias of `spawn_update_variants_job_with_http_info`
+    create_catalog_variant_bulk_update_job_with_http_info = spawn_update_variants_job_with_http_info
+
     @validate_call
     def spawn_update_variants_job_without_preload_content(
         self,
@@ -16859,6 +17201,9 @@ class CatalogsApi(object):
         )
         return response_data.response
 
+
+    # alias of `spawn_update_variants_job_without_preload_content`
+    create_catalog_variant_bulk_update_job_without_preload_content = spawn_update_variants_job_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -16949,6 +17294,9 @@ class CatalogsApi(object):
             _request_auth=_request_auth
         )
 
+
+    # alias of `_spawn_update_variants_job_serialize`
+    _create_catalog_variant_bulk_update_job_serialize = _spawn_update_variants_job_serialize
 
 
 

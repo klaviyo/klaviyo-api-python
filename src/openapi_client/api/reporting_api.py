@@ -136,6 +136,9 @@ class ReportingApi(object):
         ).data
 
 
+    # alias of query_campaign_values
+    create_campaign_value_report = query_campaign_values
+
     @validate_call
     def query_campaign_values_with_http_info(        
         self,
@@ -220,6 +223,9 @@ class ReportingApi(object):
         )
 
 
+    # alias of `query_campaign_values_with_http_info`
+    create_campaign_value_report_with_http_info = query_campaign_values_with_http_info
+
     @validate_call
     def query_campaign_values_without_preload_content(
         self,
@@ -289,6 +295,9 @@ class ReportingApi(object):
         )
         return response_data.response
 
+
+    # alias of `query_campaign_values_without_preload_content`
+    create_campaign_value_report_without_preload_content = query_campaign_values_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -388,6 +397,9 @@ class ReportingApi(object):
         )
 
 
+    # alias of `_query_campaign_values_serialize`
+    _create_campaign_value_report_serialize = _query_campaign_values_serialize
+
 
 
     @validate_call
@@ -476,6 +488,9 @@ class ReportingApi(object):
         ).data
 
 
+    # alias of query_flow_series
+    create_flow_sery_report = query_flow_series
+
     @validate_call
     def query_flow_series_with_http_info(        
         self,
@@ -560,6 +575,9 @@ class ReportingApi(object):
         )
 
 
+    # alias of `query_flow_series_with_http_info`
+    create_flow_sery_report_with_http_info = query_flow_series_with_http_info
+
     @validate_call
     def query_flow_series_without_preload_content(
         self,
@@ -629,6 +647,9 @@ class ReportingApi(object):
         )
         return response_data.response
 
+
+    # alias of `query_flow_series_without_preload_content`
+    create_flow_sery_report_without_preload_content = query_flow_series_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -728,6 +749,9 @@ class ReportingApi(object):
         )
 
 
+    # alias of `_query_flow_series_serialize`
+    _create_flow_sery_report_serialize = _query_flow_series_serialize
+
 
 
     @validate_call
@@ -816,6 +840,9 @@ class ReportingApi(object):
         ).data
 
 
+    # alias of query_flow_values
+    create_flow_value_report = query_flow_values
+
     @validate_call
     def query_flow_values_with_http_info(        
         self,
@@ -900,6 +927,9 @@ class ReportingApi(object):
         )
 
 
+    # alias of `query_flow_values_with_http_info`
+    create_flow_value_report_with_http_info = query_flow_values_with_http_info
+
     @validate_call
     def query_flow_values_without_preload_content(
         self,
@@ -969,6 +999,9 @@ class ReportingApi(object):
         )
         return response_data.response
 
+
+    # alias of `query_flow_values_without_preload_content`
+    create_flow_value_report_without_preload_content = query_flow_values_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -1067,4 +1100,7 @@ class ReportingApi(object):
             _request_auth=_request_auth
         )
 
+
+    # alias of `_query_flow_values_serialize`
+    _create_flow_value_report_serialize = _query_flow_values_serialize
 

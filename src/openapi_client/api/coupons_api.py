@@ -3554,6 +3554,9 @@ class CouponsApi(object):
         ).data
 
 
+    # alias of get_coupon_codes_for_coupon
+    get_coupon_coupon_codes = get_coupon_codes_for_coupon
+
     @validate_call
     def get_coupon_codes_for_coupon_with_http_info(        
         self,
@@ -3646,6 +3649,9 @@ class CouponsApi(object):
         )
 
 
+    # alias of `get_coupon_codes_for_coupon_with_http_info`
+    get_coupon_coupon_codes_with_http_info = get_coupon_codes_for_coupon_with_http_info
+
     @validate_call
     def get_coupon_codes_for_coupon_without_preload_content(
         self,
@@ -3723,6 +3729,9 @@ class CouponsApi(object):
         )
         return response_data.response
 
+
+    # alias of `get_coupon_codes_for_coupon_without_preload_content`
+    get_coupon_coupon_codes_without_preload_content = get_coupon_codes_for_coupon_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -3826,6 +3835,9 @@ class CouponsApi(object):
         )
 
 
+    # alias of `_get_coupon_codes_for_coupon_serialize`
+    _get_coupon_coupon_codes_serialize = _get_coupon_codes_for_coupon_serialize
+
 
 
     @validate_call
@@ -3914,6 +3926,9 @@ class CouponsApi(object):
         ).data
 
 
+    # alias of get_coupon_for_coupon_code
+    get_coupon_code_coupon = get_coupon_for_coupon_code
+
     @validate_call
     def get_coupon_for_coupon_code_with_http_info(        
         self,
@@ -3998,6 +4013,9 @@ class CouponsApi(object):
         )
 
 
+    # alias of `get_coupon_for_coupon_code_with_http_info`
+    get_coupon_code_coupon_with_http_info = get_coupon_for_coupon_code_with_http_info
+
     @validate_call
     def get_coupon_for_coupon_code_without_preload_content(
         self,
@@ -4067,6 +4085,9 @@ class CouponsApi(object):
         )
         return response_data.response
 
+
+    # alias of `get_coupon_for_coupon_code_without_preload_content`
+    get_coupon_code_coupon_without_preload_content = get_coupon_for_coupon_code_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -4153,6 +4174,9 @@ class CouponsApi(object):
             _request_auth=_request_auth
         )
 
+
+    # alias of `_get_coupon_for_coupon_code_serialize`
+    _get_coupon_code_coupon_serialize = _get_coupon_for_coupon_code_serialize
 
 
 
@@ -4878,6 +4902,9 @@ class CouponsApi(object):
         ).data
 
 
+    # alias of spawn_coupon_code_bulk_create_job
+    create_coupon_code_bulk_create_job = spawn_coupon_code_bulk_create_job
+
     @validate_call
     def spawn_coupon_code_bulk_create_job_with_http_info(        
         self,
@@ -4958,6 +4985,9 @@ class CouponsApi(object):
         )
 
 
+    # alias of `spawn_coupon_code_bulk_create_job_with_http_info`
+    create_coupon_code_bulk_create_job_with_http_info = spawn_coupon_code_bulk_create_job_with_http_info
+
     @validate_call
     def spawn_coupon_code_bulk_create_job_without_preload_content(
         self,
@@ -5023,6 +5053,9 @@ class CouponsApi(object):
         )
         return response_data.response
 
+
+    # alias of `spawn_coupon_code_bulk_create_job_without_preload_content`
+    create_coupon_code_bulk_create_job_without_preload_content = spawn_coupon_code_bulk_create_job_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -5113,6 +5146,9 @@ class CouponsApi(object):
             _request_auth=_request_auth
         )
 
+
+    # alias of `_spawn_coupon_code_bulk_create_job_serialize`
+    _create_coupon_code_bulk_create_job_serialize = _spawn_coupon_code_bulk_create_job_serialize
 
 
 

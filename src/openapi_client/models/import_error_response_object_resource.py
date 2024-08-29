@@ -22,7 +22,6 @@ from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
 from openapi_client.models.import_error_enum import ImportErrorEnum
 from openapi_client.models.import_error_response_object_resource_attributes import ImportErrorResponseObjectResourceAttributes
-from openapi_client.models.object_links import ObjectLinks
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -33,8 +32,7 @@ class ImportErrorResponseObjectResource(BaseModel):
     type: ImportErrorEnum
     id: StrictStr = Field(description="Unique identifier for the error.")
     attributes: ImportErrorResponseObjectResourceAttributes
-    links: ObjectLinks
-    __properties: ClassVar[List[str]] = ["type", "id", "attributes", "links"]
+    __properties: ClassVar[List[str]] = ["type", "id", "attributes"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -78,9 +76,6 @@ class ImportErrorResponseObjectResource(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of attributes
         if self.attributes:
             _dict['attributes'] = self.attributes.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of links
-        if self.links:
-            _dict['links'] = self.links.to_dict()
         return _dict
 
     @classmethod
@@ -95,8 +90,7 @@ class ImportErrorResponseObjectResource(BaseModel):
         _obj = cls.model_validate({
             "type": obj.get("type"),
             "id": obj.get("id"),
-            "attributes": ImportErrorResponseObjectResourceAttributes.from_dict(obj["attributes"]) if obj.get("attributes") is not None else None,
-            "links": ObjectLinks.from_dict(obj["links"]) if obj.get("links") is not None else None
+            "attributes": ImportErrorResponseObjectResourceAttributes.from_dict(obj["attributes"]) if obj.get("attributes") is not None else None
         })
         return _obj
 

@@ -134,6 +134,9 @@ class EventsApi(object):
         ).data
 
 
+    # alias of bulk_create_events
+    create_event_bulk_create_job = bulk_create_events
+
     @validate_call
     def bulk_create_events_with_http_info(        
         self,
@@ -214,6 +217,9 @@ class EventsApi(object):
         )
 
 
+    # alias of `bulk_create_events_with_http_info`
+    create_event_bulk_create_job_with_http_info = bulk_create_events_with_http_info
+
     @validate_call
     def bulk_create_events_without_preload_content(
         self,
@@ -279,6 +285,9 @@ class EventsApi(object):
         )
         return response_data.response
 
+
+    # alias of `bulk_create_events_without_preload_content`
+    create_event_bulk_create_job_without_preload_content = bulk_create_events_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -369,6 +378,9 @@ class EventsApi(object):
             _request_auth=_request_auth
         )
 
+
+    # alias of `_bulk_create_events_serialize`
+    _create_event_bulk_create_job_serialize = _bulk_create_events_serialize
 
 
 

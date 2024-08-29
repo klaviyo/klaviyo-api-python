@@ -18,18 +18,20 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.get_photos_dto_collection_data_inner_all_of_relationships_test_photographers import GetPhotosDTOCollectionDataInnerAllOfRelationshipsTestPhotographers
+from openapi_client.models.collection_links import CollectionLinks
+from openapi_client.models.get_metric_response_collection_data_inner import GetMetricResponseCollectionDataInner
 from typing import Optional, Set
 from typing_extensions import Self
 
-class GetPhotoBulkCreateJobResponseCollectionDataInnerAllOfRelationships(BaseModel):
+class GetMetricResponseCollectionCompoundDocument(BaseModel):
     """
-    GetPhotoBulkCreateJobResponseCollectionDataInnerAllOfRelationships
+    GetMetricResponseCollectionCompoundDocument
     """ # noqa: E501
-    photos_with_company_id: Optional[GetPhotosDTOCollectionDataInnerAllOfRelationshipsTestPhotographers] = Field(default=None, alias="photos-with-company-id")
-    __properties: ClassVar[List[str]] = ["photos-with-company-id"]
+    data: List[GetMetricResponseCollectionDataInner]
+    links: Optional[CollectionLinks] = None
+    __properties: ClassVar[List[str]] = ["data", "links"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -49,7 +51,7 @@ class GetPhotoBulkCreateJobResponseCollectionDataInnerAllOfRelationships(BaseMod
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of GetPhotoBulkCreateJobResponseCollectionDataInnerAllOfRelationships from a JSON string"""
+        """Create an instance of GetMetricResponseCollectionCompoundDocument from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -70,14 +72,21 @@ class GetPhotoBulkCreateJobResponseCollectionDataInnerAllOfRelationships(BaseMod
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of photos_with_company_id
-        if self.photos_with_company_id:
-            _dict['photos-with-company-id'] = self.photos_with_company_id.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in data (list)
+        _items = []
+        if self.data:
+            for _item in self.data:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['data'] = _items
+        # override the default output from pydantic by calling `to_dict()` of links
+        if self.links:
+            _dict['links'] = self.links.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of GetPhotoBulkCreateJobResponseCollectionDataInnerAllOfRelationships from a dict"""
+        """Create an instance of GetMetricResponseCollectionCompoundDocument from a dict"""
         if obj is None:
             return None
 
@@ -85,7 +94,8 @@ class GetPhotoBulkCreateJobResponseCollectionDataInnerAllOfRelationships(BaseMod
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "photos-with-company-id": GetPhotosDTOCollectionDataInnerAllOfRelationshipsTestPhotographers.from_dict(obj["photos-with-company-id"]) if obj.get("photos-with-company-id") is not None else None
+            "data": [GetMetricResponseCollectionDataInner.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None,
+            "links": CollectionLinks.from_dict(obj["links"]) if obj.get("links") is not None else None
         })
         return _obj
 

@@ -20,7 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.get_photos_dto_collection_data_inner_all_of_relationships_test_photographers import GetPhotosDTOCollectionDataInnerAllOfRelationshipsTestPhotographers
+from openapi_client.models.get_coupon_code_response_collection_compound_document_data_inner_all_of_relationships_profile import GetCouponCodeResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsProfile
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,8 +28,8 @@ class GetFlowResponseDataAllOfRelationships(BaseModel):
     """
     GetFlowResponseDataAllOfRelationships
     """ # noqa: E501
-    flow_actions: Optional[GetPhotosDTOCollectionDataInnerAllOfRelationshipsTestPhotographers] = Field(default=None, alias="flow-actions")
-    tags: Optional[GetPhotosDTOCollectionDataInnerAllOfRelationshipsTestPhotographers] = None
+    flow_actions: Optional[GetCouponCodeResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsProfile] = Field(default=None, alias="flow-actions")
+    tags: Optional[GetCouponCodeResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsProfile] = None
     __properties: ClassVar[List[str]] = ["flow-actions", "tags"]
 
     model_config = ConfigDict(
@@ -89,8 +89,8 @@ class GetFlowResponseDataAllOfRelationships(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "flow-actions": GetPhotosDTOCollectionDataInnerAllOfRelationshipsTestPhotographers.from_dict(obj["flow-actions"]) if obj.get("flow-actions") is not None else None,
-            "tags": GetPhotosDTOCollectionDataInnerAllOfRelationshipsTestPhotographers.from_dict(obj["tags"]) if obj.get("tags") is not None else None
+            "flow-actions": GetCouponCodeResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsProfile.from_dict(obj["flow-actions"]) if obj.get("flow-actions") is not None else None,
+            "tags": GetCouponCodeResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsProfile.from_dict(obj["tags"]) if obj.get("tags") is not None else None
         })
         return _obj
 

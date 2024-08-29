@@ -793,6 +793,9 @@ class TagsApi(object):
         ).data
 
 
+    # alias of create_tag_relationships_campaigns
+    create_tag_relationships_campaign = create_tag_relationships_campaigns
+
     @validate_call
     def create_tag_relationships_campaigns_with_http_info(        
         self,
@@ -877,6 +880,9 @@ class TagsApi(object):
         )
 
 
+    # alias of `create_tag_relationships_campaigns_with_http_info`
+    create_tag_relationships_campaign_with_http_info = create_tag_relationships_campaigns_with_http_info
+
     @validate_call
     def create_tag_relationships_campaigns_without_preload_content(
         self,
@@ -946,6 +952,9 @@ class TagsApi(object):
         )
         return response_data.response
 
+
+    # alias of `create_tag_relationships_campaigns_without_preload_content`
+    create_tag_relationships_campaign_without_preload_content = create_tag_relationships_campaigns_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -1040,6 +1049,9 @@ class TagsApi(object):
         )
 
 
+    # alias of `_create_tag_relationships_campaigns_serialize`
+    _create_tag_relationships_campaign_serialize = _create_tag_relationships_campaigns_serialize
+
 
 
     @validate_call
@@ -1128,6 +1140,9 @@ class TagsApi(object):
         ).data
 
 
+    # alias of create_tag_relationships_flows
+    create_tag_relationships_flow = create_tag_relationships_flows
+
     @validate_call
     def create_tag_relationships_flows_with_http_info(        
         self,
@@ -1212,6 +1227,9 @@ class TagsApi(object):
         )
 
 
+    # alias of `create_tag_relationships_flows_with_http_info`
+    create_tag_relationships_flow_with_http_info = create_tag_relationships_flows_with_http_info
+
     @validate_call
     def create_tag_relationships_flows_without_preload_content(
         self,
@@ -1281,6 +1299,9 @@ class TagsApi(object):
         )
         return response_data.response
 
+
+    # alias of `create_tag_relationships_flows_without_preload_content`
+    create_tag_relationships_flow_without_preload_content = create_tag_relationships_flows_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -1375,6 +1396,9 @@ class TagsApi(object):
         )
 
 
+    # alias of `_create_tag_relationships_flows_serialize`
+    _create_tag_relationships_flow_serialize = _create_tag_relationships_flows_serialize
+
 
 
     @validate_call
@@ -1463,6 +1487,9 @@ class TagsApi(object):
         ).data
 
 
+    # alias of create_tag_relationships_lists
+    create_tag_relationships_list = create_tag_relationships_lists
+
     @validate_call
     def create_tag_relationships_lists_with_http_info(        
         self,
@@ -1547,6 +1574,9 @@ class TagsApi(object):
         )
 
 
+    # alias of `create_tag_relationships_lists_with_http_info`
+    create_tag_relationships_list_with_http_info = create_tag_relationships_lists_with_http_info
+
     @validate_call
     def create_tag_relationships_lists_without_preload_content(
         self,
@@ -1616,6 +1646,9 @@ class TagsApi(object):
         )
         return response_data.response
 
+
+    # alias of `create_tag_relationships_lists_without_preload_content`
+    create_tag_relationships_list_without_preload_content = create_tag_relationships_lists_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -1710,6 +1743,9 @@ class TagsApi(object):
         )
 
 
+    # alias of `_create_tag_relationships_lists_serialize`
+    _create_tag_relationships_list_serialize = _create_tag_relationships_lists_serialize
+
 
 
     @validate_call
@@ -1798,6 +1834,9 @@ class TagsApi(object):
         ).data
 
 
+    # alias of create_tag_relationships_segments
+    create_tag_relationships_segment = create_tag_relationships_segments
+
     @validate_call
     def create_tag_relationships_segments_with_http_info(        
         self,
@@ -1882,6 +1921,9 @@ class TagsApi(object):
         )
 
 
+    # alias of `create_tag_relationships_segments_with_http_info`
+    create_tag_relationships_segment_with_http_info = create_tag_relationships_segments_with_http_info
+
     @validate_call
     def create_tag_relationships_segments_without_preload_content(
         self,
@@ -1951,6 +1993,9 @@ class TagsApi(object):
         )
         return response_data.response
 
+
+    # alias of `create_tag_relationships_segments_without_preload_content`
+    create_tag_relationships_segment_without_preload_content = create_tag_relationships_segments_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -2044,6 +2089,9 @@ class TagsApi(object):
             _request_auth=_request_auth
         )
 
+
+    # alias of `_create_tag_relationships_segments_serialize`
+    _create_tag_relationships_segment_serialize = _create_tag_relationships_segments_serialize
 
 
 

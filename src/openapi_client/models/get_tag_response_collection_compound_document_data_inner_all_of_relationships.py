@@ -20,7 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.get_photos_dto_collection_data_inner_all_of_relationships_test_photographers import GetPhotosDTOCollectionDataInnerAllOfRelationshipsTestPhotographers
+from openapi_client.models.get_coupon_code_response_collection_compound_document_data_inner_all_of_relationships_profile import GetCouponCodeResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsProfile
 from openapi_client.models.get_tag_response_collection_compound_document_data_inner_all_of_relationships_tag_group import GetTagResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsTagGroup
 from typing import Optional, Set
 from typing_extensions import Self
@@ -30,10 +30,10 @@ class GetTagResponseCollectionCompoundDocumentDataInnerAllOfRelationships(BaseMo
     GetTagResponseCollectionCompoundDocumentDataInnerAllOfRelationships
     """ # noqa: E501
     tag_group: Optional[GetTagResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsTagGroup] = Field(default=None, alias="tag-group")
-    lists: Optional[GetPhotosDTOCollectionDataInnerAllOfRelationshipsTestPhotographers] = None
-    segments: Optional[GetPhotosDTOCollectionDataInnerAllOfRelationshipsTestPhotographers] = None
-    campaigns: Optional[GetPhotosDTOCollectionDataInnerAllOfRelationshipsTestPhotographers] = None
-    flows: Optional[GetPhotosDTOCollectionDataInnerAllOfRelationshipsTestPhotographers] = None
+    lists: Optional[GetCouponCodeResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsProfile] = None
+    segments: Optional[GetCouponCodeResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsProfile] = None
+    campaigns: Optional[GetCouponCodeResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsProfile] = None
+    flows: Optional[GetCouponCodeResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsProfile] = None
     __properties: ClassVar[List[str]] = ["tag-group", "lists", "segments", "campaigns", "flows"]
 
     model_config = ConfigDict(
@@ -103,10 +103,10 @@ class GetTagResponseCollectionCompoundDocumentDataInnerAllOfRelationships(BaseMo
 
         _obj = cls.model_validate({
             "tag-group": GetTagResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsTagGroup.from_dict(obj["tag-group"]) if obj.get("tag-group") is not None else None,
-            "lists": GetPhotosDTOCollectionDataInnerAllOfRelationshipsTestPhotographers.from_dict(obj["lists"]) if obj.get("lists") is not None else None,
-            "segments": GetPhotosDTOCollectionDataInnerAllOfRelationshipsTestPhotographers.from_dict(obj["segments"]) if obj.get("segments") is not None else None,
-            "campaigns": GetPhotosDTOCollectionDataInnerAllOfRelationshipsTestPhotographers.from_dict(obj["campaigns"]) if obj.get("campaigns") is not None else None,
-            "flows": GetPhotosDTOCollectionDataInnerAllOfRelationshipsTestPhotographers.from_dict(obj["flows"]) if obj.get("flows") is not None else None
+            "lists": GetCouponCodeResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsProfile.from_dict(obj["lists"]) if obj.get("lists") is not None else None,
+            "segments": GetCouponCodeResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsProfile.from_dict(obj["segments"]) if obj.get("segments") is not None else None,
+            "campaigns": GetCouponCodeResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsProfile.from_dict(obj["campaigns"]) if obj.get("campaigns") is not None else None,
+            "flows": GetCouponCodeResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsProfile.from_dict(obj["flows"]) if obj.get("flows") is not None else None
         })
         return _obj
 

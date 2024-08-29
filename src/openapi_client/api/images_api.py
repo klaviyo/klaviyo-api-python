@@ -1196,6 +1196,9 @@ class ImagesApi(object):
         ).data
 
 
+    # alias of upload_image_from_file
+    create_image_upload = upload_image_from_file
+
     @validate_call
     def upload_image_from_file_with_http_info(        
         self,
@@ -1284,6 +1287,9 @@ class ImagesApi(object):
         )
 
 
+    # alias of `upload_image_from_file_with_http_info`
+    create_image_upload_with_http_info = upload_image_from_file_with_http_info
+
     @validate_call
     def upload_image_from_file_without_preload_content(
         self,
@@ -1357,6 +1363,9 @@ class ImagesApi(object):
         )
         return response_data.response
 
+
+    # alias of `upload_image_from_file_without_preload_content`
+    create_image_upload_without_preload_content = upload_image_from_file_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -1454,6 +1463,9 @@ class ImagesApi(object):
         )
 
 
+    # alias of `_upload_image_from_file_serialize`
+    _create_image_upload_serialize = _upload_image_from_file_serialize
+
 
 
     @validate_call
@@ -1538,6 +1550,9 @@ class ImagesApi(object):
         ).data
 
 
+    # alias of upload_image_from_url
+    create_image = upload_image_from_url
+
     @validate_call
     def upload_image_from_url_with_http_info(        
         self,
@@ -1618,6 +1633,9 @@ class ImagesApi(object):
         )
 
 
+    # alias of `upload_image_from_url_with_http_info`
+    create_image_with_http_info = upload_image_from_url_with_http_info
+
     @validate_call
     def upload_image_from_url_without_preload_content(
         self,
@@ -1683,6 +1701,9 @@ class ImagesApi(object):
         )
         return response_data.response
 
+
+    # alias of `upload_image_from_url_without_preload_content`
+    create_image_without_preload_content = upload_image_from_url_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -1773,4 +1794,7 @@ class ImagesApi(object):
             _request_auth=_request_auth
         )
 
+
+    # alias of `_upload_image_from_url_serialize`
+    _create_image_serialize = _upload_image_from_url_serialize
 

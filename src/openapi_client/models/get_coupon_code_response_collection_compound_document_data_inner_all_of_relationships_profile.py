@@ -18,25 +18,18 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
+from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.get_photo_bulk_create_job_response_collection_data_inner_all_of_relationships import GetPhotoBulkCreateJobResponseCollectionDataInnerAllOfRelationships
-from openapi_client.models.object_links import ObjectLinks
-from openapi_client.models.photo_bulk_create_job_response_object_resource_attributes import PhotoBulkCreateJobResponseObjectResourceAttributes
-from openapi_client.models.test_bulk_create_photos_job_enum import TestBulkCreatePhotosJobEnum
+from openapi_client.models.relationship_links import RelationshipLinks
 from typing import Optional, Set
 from typing_extensions import Self
 
-class GetPhotoBulkCreateJobResponseCollectionDataInner(BaseModel):
+class GetCouponCodeResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsProfile(BaseModel):
     """
-    GetPhotoBulkCreateJobResponseCollectionDataInner
+    GetCouponCodeResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsProfile
     """ # noqa: E501
-    type: TestBulkCreatePhotosJobEnum
-    id: StrictStr
-    attributes: PhotoBulkCreateJobResponseObjectResourceAttributes
-    links: ObjectLinks
-    relationships: Optional[GetPhotoBulkCreateJobResponseCollectionDataInnerAllOfRelationships] = None
-    __properties: ClassVar[List[str]] = ["type", "id", "attributes", "links", "relationships"]
+    links: Optional[RelationshipLinks] = None
+    __properties: ClassVar[List[str]] = ["links"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -56,7 +49,7 @@ class GetPhotoBulkCreateJobResponseCollectionDataInner(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of GetPhotoBulkCreateJobResponseCollectionDataInner from a JSON string"""
+        """Create an instance of GetCouponCodeResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsProfile from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -77,20 +70,14 @@ class GetPhotoBulkCreateJobResponseCollectionDataInner(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of attributes
-        if self.attributes:
-            _dict['attributes'] = self.attributes.to_dict()
         # override the default output from pydantic by calling `to_dict()` of links
         if self.links:
             _dict['links'] = self.links.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of relationships
-        if self.relationships:
-            _dict['relationships'] = self.relationships.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of GetPhotoBulkCreateJobResponseCollectionDataInner from a dict"""
+        """Create an instance of GetCouponCodeResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsProfile from a dict"""
         if obj is None:
             return None
 
@@ -98,11 +85,7 @@ class GetPhotoBulkCreateJobResponseCollectionDataInner(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "type": obj.get("type"),
-            "id": obj.get("id"),
-            "attributes": PhotoBulkCreateJobResponseObjectResourceAttributes.from_dict(obj["attributes"]) if obj.get("attributes") is not None else None,
-            "links": ObjectLinks.from_dict(obj["links"]) if obj.get("links") is not None else None,
-            "relationships": GetPhotoBulkCreateJobResponseCollectionDataInnerAllOfRelationships.from_dict(obj["relationships"]) if obj.get("relationships") is not None else None
+            "links": RelationshipLinks.from_dict(obj["links"]) if obj.get("links") is not None else None
         })
         return _obj
 

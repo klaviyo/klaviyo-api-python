@@ -462,6 +462,9 @@ class ListsApi(object):
         ).data
 
 
+    # alias of create_list_relationships
+    create_list_relationships_profile = create_list_relationships
+
     @validate_call
     def create_list_relationships_with_http_info(        
         self,
@@ -546,6 +549,9 @@ class ListsApi(object):
         )
 
 
+    # alias of `create_list_relationships_with_http_info`
+    create_list_relationships_profile_with_http_info = create_list_relationships_with_http_info
+
     @validate_call
     def create_list_relationships_without_preload_content(
         self,
@@ -615,6 +621,9 @@ class ListsApi(object):
         )
         return response_data.response
 
+
+    # alias of `create_list_relationships_without_preload_content`
+    create_list_relationships_profile_without_preload_content = create_list_relationships_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -708,6 +717,9 @@ class ListsApi(object):
             _request_auth=_request_auth
         )
 
+
+    # alias of `_create_list_relationships_serialize`
+    _create_list_relationships_profile_serialize = _create_list_relationships_serialize
 
 
 
@@ -1104,6 +1116,9 @@ class ListsApi(object):
         ).data
 
 
+    # alias of delete_list_relationships
+    delete_list_relationships_profiles = delete_list_relationships
+
     @validate_call
     def delete_list_relationships_with_http_info(        
         self,
@@ -1188,6 +1203,9 @@ class ListsApi(object):
         )
 
 
+    # alias of `delete_list_relationships_with_http_info`
+    delete_list_relationships_profiles_with_http_info = delete_list_relationships_with_http_info
+
     @validate_call
     def delete_list_relationships_without_preload_content(
         self,
@@ -1257,6 +1275,9 @@ class ListsApi(object):
         )
         return response_data.response
 
+
+    # alias of `delete_list_relationships_without_preload_content`
+    delete_list_relationships_profiles_without_preload_content = delete_list_relationships_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -1350,6 +1371,9 @@ class ListsApi(object):
             _request_auth=_request_auth
         )
 
+
+    # alias of `_delete_list_relationships_serialize`
+    _delete_list_relationships_profiles_serialize = _delete_list_relationships_serialize
 
 
 

@@ -18,23 +18,25 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictInt
-from typing import Any, ClassVar, Dict, List
-from openapi_client.models.city_dto_object_resource_attributes import CityDTOObjectResourceAttributes
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional
+from openapi_client.models.get_metric_response_collection_data_inner_all_of_relationships import GetMetricResponseCollectionDataInnerAllOfRelationships
+from openapi_client.models.metric_enum import MetricEnum
+from openapi_client.models.metric_response_object_resource_attributes import MetricResponseObjectResourceAttributes
 from openapi_client.models.object_links import ObjectLinks
-from openapi_client.models.test_city_enum import TestCityEnum
 from typing import Optional, Set
 from typing_extensions import Self
 
-class CityDTOObjectResource(BaseModel):
+class GetMetricResponseCollectionDataInner(BaseModel):
     """
-    CityDTOObjectResource
+    GetMetricResponseCollectionDataInner
     """ # noqa: E501
-    type: TestCityEnum
-    id: StrictInt
-    attributes: CityDTOObjectResourceAttributes
+    type: MetricEnum
+    id: StrictStr = Field(description="The Metric ID")
+    attributes: MetricResponseObjectResourceAttributes
     links: ObjectLinks
-    __properties: ClassVar[List[str]] = ["type", "id", "attributes", "links"]
+    relationships: Optional[GetMetricResponseCollectionDataInnerAllOfRelationships] = None
+    __properties: ClassVar[List[str]] = ["type", "id", "attributes", "links", "relationships"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -54,7 +56,7 @@ class CityDTOObjectResource(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of CityDTOObjectResource from a JSON string"""
+        """Create an instance of GetMetricResponseCollectionDataInner from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -81,11 +83,14 @@ class CityDTOObjectResource(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of links
         if self.links:
             _dict['links'] = self.links.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of relationships
+        if self.relationships:
+            _dict['relationships'] = self.relationships.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of CityDTOObjectResource from a dict"""
+        """Create an instance of GetMetricResponseCollectionDataInner from a dict"""
         if obj is None:
             return None
 
@@ -95,8 +100,9 @@ class CityDTOObjectResource(BaseModel):
         _obj = cls.model_validate({
             "type": obj.get("type"),
             "id": obj.get("id"),
-            "attributes": CityDTOObjectResourceAttributes.from_dict(obj["attributes"]) if obj.get("attributes") is not None else None,
-            "links": ObjectLinks.from_dict(obj["links"]) if obj.get("links") is not None else None
+            "attributes": MetricResponseObjectResourceAttributes.from_dict(obj["attributes"]) if obj.get("attributes") is not None else None,
+            "links": ObjectLinks.from_dict(obj["links"]) if obj.get("links") is not None else None,
+            "relationships": GetMetricResponseCollectionDataInnerAllOfRelationships.from_dict(obj["relationships"]) if obj.get("relationships") is not None else None
         })
         return _obj
 

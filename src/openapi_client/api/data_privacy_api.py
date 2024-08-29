@@ -124,6 +124,9 @@ class DataPrivacyApi(object):
         ).data
 
 
+    # alias of request_profile_deletion
+    create_data_privacy_deletion_job = request_profile_deletion
+
     @validate_call
     def request_profile_deletion_with_http_info(        
         self,
@@ -204,6 +207,9 @@ class DataPrivacyApi(object):
         )
 
 
+    # alias of `request_profile_deletion_with_http_info`
+    create_data_privacy_deletion_job_with_http_info = request_profile_deletion_with_http_info
+
     @validate_call
     def request_profile_deletion_without_preload_content(
         self,
@@ -269,6 +275,9 @@ class DataPrivacyApi(object):
         )
         return response_data.response
 
+
+    # alias of `request_profile_deletion_without_preload_content`
+    create_data_privacy_deletion_job_without_preload_content = request_profile_deletion_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -359,4 +368,7 @@ class DataPrivacyApi(object):
             _request_auth=_request_auth
         )
 
+
+    # alias of `_request_profile_deletion_serialize`
+    _create_data_privacy_deletion_job_serialize = _request_profile_deletion_serialize
 

@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
@@ -31,6 +31,13 @@ class EmailMarketingSuppression(BaseModel):
     reason: StrictStr = Field(description="The reason the profile was suppressed.")
     timestamp: datetime = Field(description="The timestamp when the profile was suppressed, in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm).")
     __properties: ClassVar[List[str]] = ["reason", "timestamp"]
+
+    @field_validator('reason')
+    def reason_validate_enum(cls, value):
+        """Validates the enum"""
+        if value not in set(['HARD_BOUNCE', 'INVALID_EMAIL', 'SPAM_COMPLAINT', 'UNSUBSCRIBE', 'USER_SUPPRESSED']):
+            raise ValueError("must be one of enum values ('HARD_BOUNCE', 'INVALID_EMAIL', 'SPAM_COMPLAINT', 'UNSUBSCRIBE', 'USER_SUPPRESSED')")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,

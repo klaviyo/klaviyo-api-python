@@ -21,7 +21,6 @@ import json
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.flow_series_report_enum import FlowSeriesReportEnum
-from openapi_client.models.object_links import ObjectLinks
 from openapi_client.models.post_flow_series_response_dto_data_attributes import PostFlowSeriesResponseDTODataAttributes
 from openapi_client.models.post_flow_values_response_dto_data_relationships import PostFlowValuesResponseDTODataRelationships
 from typing import Optional, Set
@@ -34,8 +33,7 @@ class PostFlowSeriesResponseDTOData(BaseModel):
     type: FlowSeriesReportEnum
     attributes: PostFlowSeriesResponseDTODataAttributes
     relationships: Optional[PostFlowValuesResponseDTODataRelationships] = None
-    links: ObjectLinks
-    __properties: ClassVar[List[str]] = ["type", "attributes", "relationships", "links"]
+    __properties: ClassVar[List[str]] = ["type", "attributes", "relationships"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -82,9 +80,6 @@ class PostFlowSeriesResponseDTOData(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of relationships
         if self.relationships:
             _dict['relationships'] = self.relationships.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of links
-        if self.links:
-            _dict['links'] = self.links.to_dict()
         return _dict
 
     @classmethod
@@ -99,8 +94,7 @@ class PostFlowSeriesResponseDTOData(BaseModel):
         _obj = cls.model_validate({
             "type": obj.get("type"),
             "attributes": PostFlowSeriesResponseDTODataAttributes.from_dict(obj["attributes"]) if obj.get("attributes") is not None else None,
-            "relationships": PostFlowValuesResponseDTODataRelationships.from_dict(obj["relationships"]) if obj.get("relationships") is not None else None,
-            "links": ObjectLinks.from_dict(obj["links"]) if obj.get("links") is not None else None
+            "relationships": PostFlowValuesResponseDTODataRelationships.from_dict(obj["relationships"]) if obj.get("relationships") is not None else None
         })
         return _obj
 

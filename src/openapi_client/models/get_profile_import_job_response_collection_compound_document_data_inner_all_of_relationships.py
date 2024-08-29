@@ -20,7 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.get_photos_dto_collection_data_inner_all_of_relationships_test_photographers import GetPhotosDTOCollectionDataInnerAllOfRelationshipsTestPhotographers
+from openapi_client.models.get_coupon_code_response_collection_compound_document_data_inner_all_of_relationships_profile import GetCouponCodeResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsProfile
 from openapi_client.models.get_profile_import_job_response_collection_compound_document_data_inner_all_of_relationships_import_errors import GetProfileImportJobResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsImportErrors
 from openapi_client.models.get_profile_import_job_response_collection_compound_document_data_inner_all_of_relationships_lists import GetProfileImportJobResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsLists
 from typing import Optional, Set
@@ -31,7 +31,7 @@ class GetProfileImportJobResponseCollectionCompoundDocumentDataInnerAllOfRelatio
     GetProfileImportJobResponseCollectionCompoundDocumentDataInnerAllOfRelationships
     """ # noqa: E501
     lists: Optional[GetProfileImportJobResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsLists] = None
-    profiles: Optional[GetPhotosDTOCollectionDataInnerAllOfRelationshipsTestPhotographers] = None
+    profiles: Optional[GetCouponCodeResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsProfile] = None
     import_errors: Optional[GetProfileImportJobResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsImportErrors] = Field(default=None, alias="import-errors")
     __properties: ClassVar[List[str]] = ["lists", "profiles", "import-errors"]
 
@@ -96,7 +96,7 @@ class GetProfileImportJobResponseCollectionCompoundDocumentDataInnerAllOfRelatio
 
         _obj = cls.model_validate({
             "lists": GetProfileImportJobResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsLists.from_dict(obj["lists"]) if obj.get("lists") is not None else None,
-            "profiles": GetPhotosDTOCollectionDataInnerAllOfRelationshipsTestPhotographers.from_dict(obj["profiles"]) if obj.get("profiles") is not None else None,
+            "profiles": GetCouponCodeResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsProfile.from_dict(obj["profiles"]) if obj.get("profiles") is not None else None,
             "import-errors": GetProfileImportJobResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsImportErrors.from_dict(obj["import-errors"]) if obj.get("import-errors") is not None else None
         })
         return _obj

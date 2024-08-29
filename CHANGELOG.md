@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 NOTE: For more granular API-specific changes, please see our [API Changelog](https://developers.klaviyo.com/en/docs/changelog_)
 
+## [12.0.0] - 2024-07-15
+### Added
+- Added several method aliases based on previous operation IDs
+### Fixed
+- **Breaking**
+	- Removed incorrect `links` property from several DTO classes. From issue https://github.com/klaviyo/klaviyo-api-python/issues/64
+
+
 ## [11.0.1] - 2024-07-15
 ### Fixed
 - Typing error when using `additional_fields_profile=['subscriptions']` on `get_profiles`. From issue https://github.com/klaviyo/klaviyo-api-python/issues/61
@@ -35,7 +43,7 @@ NOTE: For more granular API-specific changes, please see our [API Changelog](htt
       print(type(profile).__name__) # prints GetProfileResponseCompoundDocument
       ```
       The class used in this example is found [here](src/openapi_client/models/get_profile_response_collection_compound_document.py). 
-      
+
       This is a breaking change, as response objects will now require dot notation to access their fields versus the subscriptable access method used for dictionaries, i.e. `profile.data.id` vs `profile['data']['id']`. We have provided a [backwards compatibility strategy](#backwards-compatibility) to smooth the transition from dictionary responses to typed responses.
 
       #### Backwards Compatibility
