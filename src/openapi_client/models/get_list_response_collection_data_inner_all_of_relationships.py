@@ -18,9 +18,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.get_photos_dto_collection_data_inner_all_of_relationships_test_photographers import GetPhotosDTOCollectionDataInnerAllOfRelationshipsTestPhotographers
+from openapi_client.models.get_coupon_code_response_collection_compound_document_data_inner_all_of_relationships_profile import GetCouponCodeResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsProfile
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,9 +28,10 @@ class GetListResponseCollectionDataInnerAllOfRelationships(BaseModel):
     """
     GetListResponseCollectionDataInnerAllOfRelationships
     """ # noqa: E501
-    profiles: Optional[GetPhotosDTOCollectionDataInnerAllOfRelationshipsTestPhotographers] = None
-    tags: Optional[GetPhotosDTOCollectionDataInnerAllOfRelationshipsTestPhotographers] = None
-    __properties: ClassVar[List[str]] = ["profiles", "tags"]
+    profiles: Optional[GetCouponCodeResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsProfile] = None
+    tags: Optional[GetCouponCodeResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsProfile] = None
+    flow_triggers: Optional[GetCouponCodeResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsProfile] = Field(default=None, alias="flow-triggers")
+    __properties: ClassVar[List[str]] = ["profiles", "tags", "flow-triggers"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -77,6 +78,9 @@ class GetListResponseCollectionDataInnerAllOfRelationships(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of tags
         if self.tags:
             _dict['tags'] = self.tags.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of flow_triggers
+        if self.flow_triggers:
+            _dict['flow-triggers'] = self.flow_triggers.to_dict()
         return _dict
 
     @classmethod
@@ -89,8 +93,9 @@ class GetListResponseCollectionDataInnerAllOfRelationships(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "profiles": GetPhotosDTOCollectionDataInnerAllOfRelationshipsTestPhotographers.from_dict(obj["profiles"]) if obj.get("profiles") is not None else None,
-            "tags": GetPhotosDTOCollectionDataInnerAllOfRelationshipsTestPhotographers.from_dict(obj["tags"]) if obj.get("tags") is not None else None
+            "profiles": GetCouponCodeResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsProfile.from_dict(obj["profiles"]) if obj.get("profiles") is not None else None,
+            "tags": GetCouponCodeResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsProfile.from_dict(obj["tags"]) if obj.get("tags") is not None else None,
+            "flow-triggers": GetCouponCodeResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsProfile.from_dict(obj["flow-triggers"]) if obj.get("flow-triggers") is not None else None
         })
         return _obj
 

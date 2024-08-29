@@ -20,7 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.get_photos_dto_collection_data_inner_all_of_relationships_test_photographers import GetPhotosDTOCollectionDataInnerAllOfRelationshipsTestPhotographers
+from openapi_client.models.get_coupon_code_response_collection_compound_document_data_inner_all_of_relationships_profile import GetCouponCodeResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsProfile
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,8 +28,8 @@ class GetFlowActionResponseCollectionDataInnerAllOfRelationships(BaseModel):
     """
     GetFlowActionResponseCollectionDataInnerAllOfRelationships
     """ # noqa: E501
-    flow: Optional[GetPhotosDTOCollectionDataInnerAllOfRelationshipsTestPhotographers] = None
-    flow_messages: Optional[GetPhotosDTOCollectionDataInnerAllOfRelationshipsTestPhotographers] = Field(default=None, alias="flow-messages")
+    flow: Optional[GetCouponCodeResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsProfile] = None
+    flow_messages: Optional[GetCouponCodeResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsProfile] = Field(default=None, alias="flow-messages")
     __properties: ClassVar[List[str]] = ["flow", "flow-messages"]
 
     model_config = ConfigDict(
@@ -89,8 +89,8 @@ class GetFlowActionResponseCollectionDataInnerAllOfRelationships(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "flow": GetPhotosDTOCollectionDataInnerAllOfRelationshipsTestPhotographers.from_dict(obj["flow"]) if obj.get("flow") is not None else None,
-            "flow-messages": GetPhotosDTOCollectionDataInnerAllOfRelationshipsTestPhotographers.from_dict(obj["flow-messages"]) if obj.get("flow-messages") is not None else None
+            "flow": GetCouponCodeResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsProfile.from_dict(obj["flow"]) if obj.get("flow") is not None else None,
+            "flow-messages": GetCouponCodeResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsProfile.from_dict(obj["flow-messages"]) if obj.get("flow-messages") is not None else None
         })
         return _obj
 

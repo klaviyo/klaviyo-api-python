@@ -153,6 +153,9 @@ class ProfilesApi(object):
         ).data
 
 
+    # alias of create_or_update_profile
+    create_profile_import = create_or_update_profile
+
     @validate_call
     def create_or_update_profile_with_http_info(        
         self,
@@ -234,6 +237,9 @@ class ProfilesApi(object):
         )
 
 
+    # alias of `create_or_update_profile_with_http_info`
+    create_profile_import_with_http_info = create_or_update_profile_with_http_info
+
     @validate_call
     def create_or_update_profile_without_preload_content(
         self,
@@ -300,6 +306,9 @@ class ProfilesApi(object):
         )
         return response_data.response
 
+
+    # alias of `create_or_update_profile_without_preload_content`
+    create_profile_import_without_preload_content = create_or_update_profile_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -390,6 +399,9 @@ class ProfilesApi(object):
             _request_auth=_request_auth
         )
 
+
+    # alias of `_create_or_update_profile_serialize`
+    _create_profile_import_serialize = _create_or_update_profile_serialize
 
 
 
@@ -1127,6 +1139,9 @@ class ProfilesApi(object):
         ).data
 
 
+    # alias of get_bulk_profile_import_job
+    get_profile_bulk_import_job = get_bulk_profile_import_job
+
     @validate_call
     def get_bulk_profile_import_job_with_http_info(        
         self,
@@ -1219,6 +1234,9 @@ class ProfilesApi(object):
         )
 
 
+    # alias of `get_bulk_profile_import_job_with_http_info`
+    get_profile_bulk_import_job_with_http_info = get_bulk_profile_import_job_with_http_info
+
     @validate_call
     def get_bulk_profile_import_job_without_preload_content(
         self,
@@ -1296,6 +1314,9 @@ class ProfilesApi(object):
         )
         return response_data.response
 
+
+    # alias of `get_bulk_profile_import_job_without_preload_content`
+    get_profile_bulk_import_job_without_preload_content = get_bulk_profile_import_job_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -1401,6 +1422,9 @@ class ProfilesApi(object):
         )
 
 
+    # alias of `_get_bulk_profile_import_job_serialize`
+    _get_profile_bulk_import_job_serialize = _get_bulk_profile_import_job_serialize
+
 
 
     @validate_call
@@ -1497,6 +1521,9 @@ class ProfilesApi(object):
         ).data
 
 
+    # alias of get_bulk_profile_import_job_import_errors
+    get_profile_bulk_import_job_import_errors = get_bulk_profile_import_job_import_errors
+
     @validate_call
     def get_bulk_profile_import_job_import_errors_with_http_info(        
         self,
@@ -1589,6 +1616,9 @@ class ProfilesApi(object):
         )
 
 
+    # alias of `get_bulk_profile_import_job_import_errors_with_http_info`
+    get_profile_bulk_import_job_import_errors_with_http_info = get_bulk_profile_import_job_import_errors_with_http_info
+
     @validate_call
     def get_bulk_profile_import_job_import_errors_without_preload_content(
         self,
@@ -1666,6 +1696,9 @@ class ProfilesApi(object):
         )
         return response_data.response
 
+
+    # alias of `get_bulk_profile_import_job_import_errors_without_preload_content`
+    get_profile_bulk_import_job_import_errors_without_preload_content = get_bulk_profile_import_job_import_errors_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -1769,6 +1802,9 @@ class ProfilesApi(object):
         )
 
 
+    # alias of `_get_bulk_profile_import_job_import_errors_serialize`
+    _get_profile_bulk_import_job_import_errors_serialize = _get_bulk_profile_import_job_import_errors_serialize
+
 
 
     @validate_call
@@ -1857,6 +1893,9 @@ class ProfilesApi(object):
         ).data
 
 
+    # alias of get_bulk_profile_import_job_lists
+    get_profile_bulk_import_job_lists = get_bulk_profile_import_job_lists
+
     @validate_call
     def get_bulk_profile_import_job_lists_with_http_info(        
         self,
@@ -1941,6 +1980,9 @@ class ProfilesApi(object):
         )
 
 
+    # alias of `get_bulk_profile_import_job_lists_with_http_info`
+    get_profile_bulk_import_job_lists_with_http_info = get_bulk_profile_import_job_lists_with_http_info
+
     @validate_call
     def get_bulk_profile_import_job_lists_without_preload_content(
         self,
@@ -2010,6 +2052,9 @@ class ProfilesApi(object):
         )
         return response_data.response
 
+
+    # alias of `get_bulk_profile_import_job_lists_without_preload_content`
+    get_profile_bulk_import_job_lists_without_preload_content = get_bulk_profile_import_job_lists_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -2096,6 +2141,9 @@ class ProfilesApi(object):
             _request_auth=_request_auth
         )
 
+
+    # alias of `_get_bulk_profile_import_job_lists_serialize`
+    _get_profile_bulk_import_job_lists_serialize = _get_bulk_profile_import_job_lists_serialize
 
 
 
@@ -2197,6 +2245,9 @@ class ProfilesApi(object):
         ).data
 
 
+    # alias of get_bulk_profile_import_job_profiles
+    get_profile_bulk_import_job_profiles = get_bulk_profile_import_job_profiles
+
     @validate_call
     def get_bulk_profile_import_job_profiles_with_http_info(        
         self,
@@ -2293,6 +2344,9 @@ class ProfilesApi(object):
         )
 
 
+    # alias of `get_bulk_profile_import_job_profiles_with_http_info`
+    get_profile_bulk_import_job_profiles_with_http_info = get_bulk_profile_import_job_profiles_with_http_info
+
     @validate_call
     def get_bulk_profile_import_job_profiles_without_preload_content(
         self,
@@ -2374,6 +2428,9 @@ class ProfilesApi(object):
         )
         return response_data.response
 
+
+    # alias of `get_bulk_profile_import_job_profiles_without_preload_content`
+    get_profile_bulk_import_job_profiles_without_preload_content = get_bulk_profile_import_job_profiles_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -2486,6 +2543,9 @@ class ProfilesApi(object):
         )
 
 
+    # alias of `_get_bulk_profile_import_job_profiles_serialize`
+    _get_profile_bulk_import_job_profiles_serialize = _get_bulk_profile_import_job_profiles_serialize
+
 
 
     @validate_call
@@ -2570,6 +2630,9 @@ class ProfilesApi(object):
         ).data
 
 
+    # alias of get_bulk_profile_import_job_relationships_lists
+    get_profile_bulk_import_job_relationships_lists = get_bulk_profile_import_job_relationships_lists
+
     @validate_call
     def get_bulk_profile_import_job_relationships_lists_with_http_info(        
         self,
@@ -2650,6 +2713,9 @@ class ProfilesApi(object):
         )
 
 
+    # alias of `get_bulk_profile_import_job_relationships_lists_with_http_info`
+    get_profile_bulk_import_job_relationships_lists_with_http_info = get_bulk_profile_import_job_relationships_lists_with_http_info
+
     @validate_call
     def get_bulk_profile_import_job_relationships_lists_without_preload_content(
         self,
@@ -2715,6 +2781,9 @@ class ProfilesApi(object):
         )
         return response_data.response
 
+
+    # alias of `get_bulk_profile_import_job_relationships_lists_without_preload_content`
+    get_profile_bulk_import_job_relationships_lists_without_preload_content = get_bulk_profile_import_job_relationships_lists_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -2792,6 +2861,9 @@ class ProfilesApi(object):
             _request_auth=_request_auth
         )
 
+
+    # alias of `_get_bulk_profile_import_job_relationships_lists_serialize`
+    _get_profile_bulk_import_job_relationships_lists_serialize = _get_bulk_profile_import_job_relationships_lists_serialize
 
 
 
@@ -2885,6 +2957,9 @@ class ProfilesApi(object):
         ).data
 
 
+    # alias of get_bulk_profile_import_job_relationships_profiles
+    get_profile_bulk_import_job_relationships_profiles = get_bulk_profile_import_job_relationships_profiles
+
     @validate_call
     def get_bulk_profile_import_job_relationships_profiles_with_http_info(        
         self,
@@ -2973,6 +3048,9 @@ class ProfilesApi(object):
         )
 
 
+    # alias of `get_bulk_profile_import_job_relationships_profiles_with_http_info`
+    get_profile_bulk_import_job_relationships_profiles_with_http_info = get_bulk_profile_import_job_relationships_profiles_with_http_info
+
     @validate_call
     def get_bulk_profile_import_job_relationships_profiles_without_preload_content(
         self,
@@ -3046,6 +3124,9 @@ class ProfilesApi(object):
         )
         return response_data.response
 
+
+    # alias of `get_bulk_profile_import_job_relationships_profiles_without_preload_content`
+    get_profile_bulk_import_job_relationships_profiles_without_preload_content = get_bulk_profile_import_job_relationships_profiles_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -3139,6 +3220,9 @@ class ProfilesApi(object):
             _request_auth=_request_auth
         )
 
+
+    # alias of `_get_bulk_profile_import_job_relationships_profiles_serialize`
+    _get_profile_bulk_import_job_relationships_profiles_serialize = _get_bulk_profile_import_job_relationships_profiles_serialize
 
 
 
@@ -3240,6 +3324,9 @@ class ProfilesApi(object):
         ).data
 
 
+    # alias of get_bulk_profile_import_jobs
+    get_profile_bulk_import_jobs = get_bulk_profile_import_jobs
+
     @validate_call
     def get_bulk_profile_import_jobs_with_http_info(        
         self,
@@ -3336,6 +3423,9 @@ class ProfilesApi(object):
         )
 
 
+    # alias of `get_bulk_profile_import_jobs_with_http_info`
+    get_profile_bulk_import_jobs_with_http_info = get_bulk_profile_import_jobs_with_http_info
+
     @validate_call
     def get_bulk_profile_import_jobs_without_preload_content(
         self,
@@ -3417,6 +3507,9 @@ class ProfilesApi(object):
         )
         return response_data.response
 
+
+    # alias of `get_bulk_profile_import_jobs_without_preload_content`
+    get_profile_bulk_import_jobs_without_preload_content = get_bulk_profile_import_jobs_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -3532,6 +3625,9 @@ class ProfilesApi(object):
             _request_auth=_request_auth
         )
 
+
+    # alias of `_get_bulk_profile_import_jobs_serialize`
+    _get_profile_bulk_import_jobs_serialize = _get_bulk_profile_import_jobs_serialize
 
 
 
@@ -5713,6 +5809,9 @@ class ProfilesApi(object):
         ).data
 
 
+    # alias of merge_profiles
+    create_profile_merge = merge_profiles
+
     @validate_call
     def merge_profiles_with_http_info(        
         self,
@@ -5793,6 +5892,9 @@ class ProfilesApi(object):
         )
 
 
+    # alias of `merge_profiles_with_http_info`
+    create_profile_merge_with_http_info = merge_profiles_with_http_info
+
     @validate_call
     def merge_profiles_without_preload_content(
         self,
@@ -5858,6 +5960,9 @@ class ProfilesApi(object):
         )
         return response_data.response
 
+
+    # alias of `merge_profiles_without_preload_content`
+    create_profile_merge_without_preload_content = merge_profiles_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -5949,6 +6054,9 @@ class ProfilesApi(object):
         )
 
 
+    # alias of `_merge_profiles_serialize`
+    _create_profile_merge_serialize = _merge_profiles_serialize
+
 
 
     @validate_call
@@ -6033,6 +6141,9 @@ class ProfilesApi(object):
         ).data
 
 
+    # alias of spawn_bulk_profile_import_job
+    create_profile_bulk_import_job = spawn_bulk_profile_import_job
+
     @validate_call
     def spawn_bulk_profile_import_job_with_http_info(        
         self,
@@ -6113,6 +6224,9 @@ class ProfilesApi(object):
         )
 
 
+    # alias of `spawn_bulk_profile_import_job_with_http_info`
+    create_profile_bulk_import_job_with_http_info = spawn_bulk_profile_import_job_with_http_info
+
     @validate_call
     def spawn_bulk_profile_import_job_without_preload_content(
         self,
@@ -6178,6 +6292,9 @@ class ProfilesApi(object):
         )
         return response_data.response
 
+
+    # alias of `spawn_bulk_profile_import_job_without_preload_content`
+    create_profile_bulk_import_job_without_preload_content = spawn_bulk_profile_import_job_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -6269,6 +6386,9 @@ class ProfilesApi(object):
         )
 
 
+    # alias of `_spawn_bulk_profile_import_job_serialize`
+    _create_profile_bulk_import_job_serialize = _spawn_bulk_profile_import_job_serialize
+
 
 
     @validate_call
@@ -6353,6 +6473,9 @@ class ProfilesApi(object):
         ).data
 
 
+    # alias of subscribe_profiles
+    create_profile_subscription_bulk_create_job = subscribe_profiles
+
     @validate_call
     def subscribe_profiles_with_http_info(        
         self,
@@ -6433,6 +6556,9 @@ class ProfilesApi(object):
         )
 
 
+    # alias of `subscribe_profiles_with_http_info`
+    create_profile_subscription_bulk_create_job_with_http_info = subscribe_profiles_with_http_info
+
     @validate_call
     def subscribe_profiles_without_preload_content(
         self,
@@ -6498,6 +6624,9 @@ class ProfilesApi(object):
         )
         return response_data.response
 
+
+    # alias of `subscribe_profiles_without_preload_content`
+    create_profile_subscription_bulk_create_job_without_preload_content = subscribe_profiles_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -6589,6 +6718,9 @@ class ProfilesApi(object):
         )
 
 
+    # alias of `_subscribe_profiles_serialize`
+    _create_profile_subscription_bulk_create_job_serialize = _subscribe_profiles_serialize
+
 
 
     @validate_call
@@ -6673,6 +6805,9 @@ class ProfilesApi(object):
         ).data
 
 
+    # alias of suppress_profiles
+    create_profile_suppression_bulk_create_job = suppress_profiles
+
     @validate_call
     def suppress_profiles_with_http_info(        
         self,
@@ -6753,6 +6888,9 @@ class ProfilesApi(object):
         )
 
 
+    # alias of `suppress_profiles_with_http_info`
+    create_profile_suppression_bulk_create_job_with_http_info = suppress_profiles_with_http_info
+
     @validate_call
     def suppress_profiles_without_preload_content(
         self,
@@ -6818,6 +6956,9 @@ class ProfilesApi(object):
         )
         return response_data.response
 
+
+    # alias of `suppress_profiles_without_preload_content`
+    create_profile_suppression_bulk_create_job_without_preload_content = suppress_profiles_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -6909,6 +7050,9 @@ class ProfilesApi(object):
         )
 
 
+    # alias of `_suppress_profiles_serialize`
+    _create_profile_suppression_bulk_create_job_serialize = _suppress_profiles_serialize
+
 
 
     @validate_call
@@ -6993,6 +7137,9 @@ class ProfilesApi(object):
         ).data
 
 
+    # alias of unsubscribe_profiles
+    create_profile_subscription_bulk_delete_job = unsubscribe_profiles
+
     @validate_call
     def unsubscribe_profiles_with_http_info(        
         self,
@@ -7073,6 +7220,9 @@ class ProfilesApi(object):
         )
 
 
+    # alias of `unsubscribe_profiles_with_http_info`
+    create_profile_subscription_bulk_delete_job_with_http_info = unsubscribe_profiles_with_http_info
+
     @validate_call
     def unsubscribe_profiles_without_preload_content(
         self,
@@ -7138,6 +7288,9 @@ class ProfilesApi(object):
         )
         return response_data.response
 
+
+    # alias of `unsubscribe_profiles_without_preload_content`
+    create_profile_subscription_bulk_delete_job_without_preload_content = unsubscribe_profiles_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -7229,6 +7382,9 @@ class ProfilesApi(object):
         )
 
 
+    # alias of `_unsubscribe_profiles_serialize`
+    _create_profile_subscription_bulk_delete_job_serialize = _unsubscribe_profiles_serialize
+
 
 
     @validate_call
@@ -7313,6 +7469,9 @@ class ProfilesApi(object):
         ).data
 
 
+    # alias of unsuppress_profiles
+    create_profile_suppression_bulk_delete_job = unsuppress_profiles
+
     @validate_call
     def unsuppress_profiles_with_http_info(        
         self,
@@ -7393,6 +7552,9 @@ class ProfilesApi(object):
         )
 
 
+    # alias of `unsuppress_profiles_with_http_info`
+    create_profile_suppression_bulk_delete_job_with_http_info = unsuppress_profiles_with_http_info
+
     @validate_call
     def unsuppress_profiles_without_preload_content(
         self,
@@ -7458,6 +7620,9 @@ class ProfilesApi(object):
         )
         return response_data.response
 
+
+    # alias of `unsuppress_profiles_without_preload_content`
+    create_profile_suppression_bulk_delete_job_without_preload_content = unsuppress_profiles_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -7548,6 +7713,9 @@ class ProfilesApi(object):
             _request_auth=_request_auth
         )
 
+
+    # alias of `_unsuppress_profiles_serialize`
+    _create_profile_suppression_bulk_delete_job_serialize = _unsuppress_profiles_serialize
 
 
 

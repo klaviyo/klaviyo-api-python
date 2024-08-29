@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "openapi_client"
-version = "11.0.1"
+version = "12.0.0"
 description = "Klaviyo API"
 authors = ["Klaviyo Developer Experience Team <developers@klaviyo.com>"]
 license = "License"

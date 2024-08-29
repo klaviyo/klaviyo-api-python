@@ -23,8 +23,8 @@ from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.get_profile_response_compound_document_data_all_of_relationships_lists import GetProfileResponseCompoundDocumentDataAllOfRelationshipsLists
 from openapi_client.models.get_profile_response_compound_document_data_all_of_relationships_segments import GetProfileResponseCompoundDocumentDataAllOfRelationshipsSegments
 from openapi_client.models.get_tag_response_collection_compound_document_data_inner_all_of_relationships_tag_group import GetTagResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsTagGroup
+from openapi_client.models.post_list_create_response_data_relationships_flow_triggers import PostListCreateResponseDataRelationshipsFlowTriggers
 from openapi_client.models.post_tag_response_data_relationships_campaigns import PostTagResponseDataRelationshipsCampaigns
-from openapi_client.models.post_tag_response_data_relationships_flows import PostTagResponseDataRelationshipsFlows
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -36,7 +36,7 @@ class PostTagResponseDataRelationships(BaseModel):
     lists: Optional[GetProfileResponseCompoundDocumentDataAllOfRelationshipsLists] = None
     segments: Optional[GetProfileResponseCompoundDocumentDataAllOfRelationshipsSegments] = None
     campaigns: Optional[PostTagResponseDataRelationshipsCampaigns] = None
-    flows: Optional[PostTagResponseDataRelationshipsFlows] = None
+    flows: Optional[PostListCreateResponseDataRelationshipsFlowTriggers] = None
     __properties: ClassVar[List[str]] = ["tag-group", "lists", "segments", "campaigns", "flows"]
 
     model_config = ConfigDict(
@@ -109,7 +109,7 @@ class PostTagResponseDataRelationships(BaseModel):
             "lists": GetProfileResponseCompoundDocumentDataAllOfRelationshipsLists.from_dict(obj["lists"]) if obj.get("lists") is not None else None,
             "segments": GetProfileResponseCompoundDocumentDataAllOfRelationshipsSegments.from_dict(obj["segments"]) if obj.get("segments") is not None else None,
             "campaigns": PostTagResponseDataRelationshipsCampaigns.from_dict(obj["campaigns"]) if obj.get("campaigns") is not None else None,
-            "flows": PostTagResponseDataRelationshipsFlows.from_dict(obj["flows"]) if obj.get("flows") is not None else None
+            "flows": PostListCreateResponseDataRelationshipsFlowTriggers.from_dict(obj["flows"]) if obj.get("flows") is not None else None
         })
         return _obj
 

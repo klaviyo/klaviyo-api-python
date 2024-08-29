@@ -24,8 +24,8 @@ from enum import EnumMeta
 from pydantic import Field, StrictStr, field_validator
 from typing import List, Optional
 from typing_extensions import Annotated
-from openapi_client.models.get_metric_response import GetMetricResponse
-from openapi_client.models.get_metric_response_collection import GetMetricResponseCollection
+from openapi_client.models.get_metric_response_collection_compound_document import GetMetricResponseCollectionCompoundDocument
+from openapi_client.models.get_metric_response_compound_document import GetMetricResponseCompoundDocument
 from openapi_client.models.metric_aggregate_query import MetricAggregateQuery
 from openapi_client.models.post_metric_aggregate_response import PostMetricAggregateResponse
 
@@ -66,7 +66,7 @@ class MetricsApi(object):
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
         options: Dict[str, Any] = {},
-) ->  Union[GetMetricResponse, Dict[str, object]]:
+) ->  Union[GetMetricResponseCompoundDocument, Dict[str, object]]:
         """Get Metric
 
         Get a metric with the given metric ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `metrics:read`
@@ -107,7 +107,7 @@ class MetricsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetMetricResponse",
+            '200': "GetMetricResponseCompoundDocument",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -152,7 +152,7 @@ class MetricsApi(object):
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
         options: Dict[str, Any] = {},
-) -> ApiResponse[GetMetricResponse]:
+) -> ApiResponse[GetMetricResponseCompoundDocument]:
         """Get Metric
 
         Get a metric with the given metric ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `metrics:read`
@@ -193,7 +193,7 @@ class MetricsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetMetricResponse",
+            '200': "GetMetricResponseCompoundDocument",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -275,7 +275,7 @@ class MetricsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetMetricResponse",
+            '200': "GetMetricResponseCompoundDocument",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -395,7 +395,7 @@ class MetricsApi(object):
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
         options: Dict[str, Any] = {},
-) ->  Union[GetMetricResponseCollection, Dict[str, object]]:
+) ->  Union[GetMetricResponseCollectionCompoundDocument, Dict[str, object]]:
         """Get Metrics
 
         Get all metrics in an account.  Requests can be filtered by the following fields: integration `name`, integration `category`  Returns a maximum of 200 results per page.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `metrics:read`
@@ -439,7 +439,7 @@ class MetricsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetMetricResponseCollection",
+            '200': "GetMetricResponseCollectionCompoundDocument",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -485,7 +485,7 @@ class MetricsApi(object):
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
         options: Dict[str, Any] = {},
-) -> ApiResponse[GetMetricResponseCollection]:
+) -> ApiResponse[GetMetricResponseCollectionCompoundDocument]:
         """Get Metrics
 
         Get all metrics in an account.  Requests can be filtered by the following fields: integration `name`, integration `category`  Returns a maximum of 200 results per page.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `metrics:read`
@@ -529,7 +529,7 @@ class MetricsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetMetricResponseCollection",
+            '200': "GetMetricResponseCollectionCompoundDocument",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -615,7 +615,7 @@ class MetricsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetMetricResponseCollection",
+            '200': "GetMetricResponseCollectionCompoundDocument",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -811,6 +811,9 @@ class MetricsApi(object):
         ).data
 
 
+    # alias of query_metric_aggregates
+    create_metric_aggregate = query_metric_aggregates
+
     @validate_call
     def query_metric_aggregates_with_http_info(        
         self,
@@ -891,6 +894,9 @@ class MetricsApi(object):
         )
 
 
+    # alias of `query_metric_aggregates_with_http_info`
+    create_metric_aggregate_with_http_info = query_metric_aggregates_with_http_info
+
     @validate_call
     def query_metric_aggregates_without_preload_content(
         self,
@@ -956,6 +962,9 @@ class MetricsApi(object):
         )
         return response_data.response
 
+
+    # alias of `query_metric_aggregates_without_preload_content`
+    create_metric_aggregate_without_preload_content = query_metric_aggregates_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -1046,4 +1055,7 @@ class MetricsApi(object):
             _request_auth=_request_auth
         )
 
+
+    # alias of `_query_metric_aggregates_serialize`
+    _create_metric_aggregate_serialize = _query_metric_aggregates_serialize
 

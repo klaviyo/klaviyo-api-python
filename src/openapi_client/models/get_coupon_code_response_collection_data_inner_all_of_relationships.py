@@ -20,7 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.get_photos_dto_collection_data_inner_all_of_relationships_test_photographers import GetPhotosDTOCollectionDataInnerAllOfRelationshipsTestPhotographers
+from openapi_client.models.get_coupon_code_response_collection_compound_document_data_inner_all_of_relationships_profile import GetCouponCodeResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsProfile
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,8 +28,8 @@ class GetCouponCodeResponseCollectionDataInnerAllOfRelationships(BaseModel):
     """
     GetCouponCodeResponseCollectionDataInnerAllOfRelationships
     """ # noqa: E501
-    coupon: Optional[GetPhotosDTOCollectionDataInnerAllOfRelationshipsTestPhotographers] = None
-    profile: Optional[GetPhotosDTOCollectionDataInnerAllOfRelationshipsTestPhotographers] = None
+    coupon: Optional[GetCouponCodeResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsProfile] = None
+    profile: Optional[GetCouponCodeResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsProfile] = None
     __properties: ClassVar[List[str]] = ["coupon", "profile"]
 
     model_config = ConfigDict(
@@ -89,8 +89,8 @@ class GetCouponCodeResponseCollectionDataInnerAllOfRelationships(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "coupon": GetPhotosDTOCollectionDataInnerAllOfRelationshipsTestPhotographers.from_dict(obj["coupon"]) if obj.get("coupon") is not None else None,
-            "profile": GetPhotosDTOCollectionDataInnerAllOfRelationshipsTestPhotographers.from_dict(obj["profile"]) if obj.get("profile") is not None else None
+            "coupon": GetCouponCodeResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsProfile.from_dict(obj["coupon"]) if obj.get("coupon") is not None else None,
+            "profile": GetCouponCodeResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsProfile.from_dict(obj["profile"]) if obj.get("profile") is not None else None
         })
         return _obj
 

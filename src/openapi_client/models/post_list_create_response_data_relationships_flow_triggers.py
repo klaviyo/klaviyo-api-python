@@ -18,25 +18,20 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictInt
+from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.get_photos_dto_collection_data_inner_all_of_relationships import GetPhotosDTOCollectionDataInnerAllOfRelationships
-from openapi_client.models.object_links import ObjectLinks
-from openapi_client.models.photos_dto_object_resource_extended_attributes import PhotosDTOObjectResourceExtendedAttributes
-from openapi_client.models.test_photo_enum import TestPhotoEnum
+from openapi_client.models.get_flow_action_response_compound_document_data_all_of_relationships_flow_data import GetFlowActionResponseCompoundDocumentDataAllOfRelationshipsFlowData
+from openapi_client.models.relationship_links import RelationshipLinks
 from typing import Optional, Set
 from typing_extensions import Self
 
-class GetPhotosDTOCollectionDataInner(BaseModel):
+class PostListCreateResponseDataRelationshipsFlowTriggers(BaseModel):
     """
-    GetPhotosDTOCollectionDataInner
+    PostListCreateResponseDataRelationshipsFlowTriggers
     """ # noqa: E501
-    type: TestPhotoEnum
-    id: StrictInt
-    attributes: PhotosDTOObjectResourceExtendedAttributes
-    links: ObjectLinks
-    relationships: Optional[GetPhotosDTOCollectionDataInnerAllOfRelationships] = None
-    __properties: ClassVar[List[str]] = ["type", "id", "attributes", "links", "relationships"]
+    data: Optional[List[GetFlowActionResponseCompoundDocumentDataAllOfRelationshipsFlowData]] = None
+    links: Optional[RelationshipLinks] = None
+    __properties: ClassVar[List[str]] = ["data", "links"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -56,7 +51,7 @@ class GetPhotosDTOCollectionDataInner(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of GetPhotosDTOCollectionDataInner from a JSON string"""
+        """Create an instance of PostListCreateResponseDataRelationshipsFlowTriggers from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -77,20 +72,21 @@ class GetPhotosDTOCollectionDataInner(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of attributes
-        if self.attributes:
-            _dict['attributes'] = self.attributes.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in data (list)
+        _items = []
+        if self.data:
+            for _item in self.data:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['data'] = _items
         # override the default output from pydantic by calling `to_dict()` of links
         if self.links:
             _dict['links'] = self.links.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of relationships
-        if self.relationships:
-            _dict['relationships'] = self.relationships.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of GetPhotosDTOCollectionDataInner from a dict"""
+        """Create an instance of PostListCreateResponseDataRelationshipsFlowTriggers from a dict"""
         if obj is None:
             return None
 
@@ -98,11 +94,8 @@ class GetPhotosDTOCollectionDataInner(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "type": obj.get("type"),
-            "id": obj.get("id"),
-            "attributes": PhotosDTOObjectResourceExtendedAttributes.from_dict(obj["attributes"]) if obj.get("attributes") is not None else None,
-            "links": ObjectLinks.from_dict(obj["links"]) if obj.get("links") is not None else None,
-            "relationships": GetPhotosDTOCollectionDataInnerAllOfRelationships.from_dict(obj["relationships"]) if obj.get("relationships") is not None else None
+            "data": [GetFlowActionResponseCompoundDocumentDataAllOfRelationshipsFlowData.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None,
+            "links": RelationshipLinks.from_dict(obj["links"]) if obj.get("links") is not None else None
         })
         return _obj
 

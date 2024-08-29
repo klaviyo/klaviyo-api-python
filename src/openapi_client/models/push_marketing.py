@@ -18,23 +18,20 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
-from typing import Any, ClassVar, Dict, List
-from openapi_client.models.object_links import ObjectLinks
-from openapi_client.models.photo_bulk_create_job_response_object_resource_attributes import PhotoBulkCreateJobResponseObjectResourceAttributes
-from openapi_client.models.test_bulk_create_photos_job_enum import TestBulkCreatePhotosJobEnum
+from datetime import datetime
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
-class PhotoBulkCreateJobResponseObjectResource(BaseModel):
+class PushMarketing(BaseModel):
     """
-    PhotoBulkCreateJobResponseObjectResource
+    PushMarketing
     """ # noqa: E501
-    type: TestBulkCreatePhotosJobEnum
-    id: StrictStr
-    attributes: PhotoBulkCreateJobResponseObjectResourceAttributes
-    links: ObjectLinks
-    __properties: ClassVar[List[str]] = ["type", "id", "attributes", "links"]
+    can_receive_push_marketing: StrictBool = Field(description="Whether or not this profile is subscribed to receive mobile push.")
+    consent: StrictStr = Field(description="The consent status for mobile push marketing.")
+    consent_timestamp: Optional[datetime] = Field(default=None, description="The timestamp when the consent was last changed, in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm).")
+    __properties: ClassVar[List[str]] = ["can_receive_push_marketing", "consent", "consent_timestamp"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -54,7 +51,7 @@ class PhotoBulkCreateJobResponseObjectResource(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of PhotoBulkCreateJobResponseObjectResource from a JSON string"""
+        """Create an instance of PushMarketing from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -75,17 +72,16 @@ class PhotoBulkCreateJobResponseObjectResource(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of attributes
-        if self.attributes:
-            _dict['attributes'] = self.attributes.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of links
-        if self.links:
-            _dict['links'] = self.links.to_dict()
+        # set to None if consent_timestamp (nullable) is None
+        # and model_fields_set contains the field
+        if self.consent_timestamp is None and "consent_timestamp" in self.model_fields_set:
+            _dict['consent_timestamp'] = None
+
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of PhotoBulkCreateJobResponseObjectResource from a dict"""
+        """Create an instance of PushMarketing from a dict"""
         if obj is None:
             return None
 
@@ -93,10 +89,9 @@ class PhotoBulkCreateJobResponseObjectResource(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "type": obj.get("type"),
-            "id": obj.get("id"),
-            "attributes": PhotoBulkCreateJobResponseObjectResourceAttributes.from_dict(obj["attributes"]) if obj.get("attributes") is not None else None,
-            "links": ObjectLinks.from_dict(obj["links"]) if obj.get("links") is not None else None
+            "can_receive_push_marketing": obj.get("can_receive_push_marketing"),
+            "consent": obj.get("consent"),
+            "consent_timestamp": obj.get("consent_timestamp")
         })
         return _obj
 
