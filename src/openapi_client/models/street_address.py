@@ -27,12 +27,12 @@ class StreetAddress(BaseModel):
     """
     StreetAddress
     """ # noqa: E501
-    address1: StrictStr
-    address2: StrictStr
-    city: StrictStr
-    region: StrictStr = Field(description="State, province, or region.")
-    country: StrictStr = Field(description="Two-letter [ISO country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes)")
-    zip: StrictStr
+    address1: Optional[StrictStr]
+    address2: Optional[StrictStr]
+    city: Optional[StrictStr]
+    region: Optional[StrictStr] = Field(description="State, province, or region.")
+    country: Optional[StrictStr] = Field(description="Two-letter [ISO country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes)")
+    zip: Optional[StrictStr]
     __properties: ClassVar[List[str]] = ["address1", "address2", "city", "region", "country", "zip"]
 
     model_config = ConfigDict(
