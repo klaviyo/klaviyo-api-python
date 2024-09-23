@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.street_address import StreetAddress
 from typing import Optional, Set
 from typing_extensions import Self
@@ -30,7 +30,7 @@ class ContactInformation(BaseModel):
     """ # noqa: E501
     default_sender_name: StrictStr = Field(description="This field is used to auto-populate the default sender name on flow and campaign emails.")
     default_sender_email: StrictStr = Field(description="This field is used to auto-populate the default sender email address on flow and campaign emails.")
-    website_url: StrictStr
+    website_url: Optional[StrictStr] = None
     organization_name: StrictStr
     street_address: StreetAddress
     __properties: ClassVar[List[str]] = ["default_sender_name", "default_sender_email", "website_url", "organization_name", "street_address"]
@@ -77,6 +77,11 @@ class ContactInformation(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of street_address
         if self.street_address:
             _dict['street_address'] = self.street_address.to_dict()
+        # set to None if website_url (nullable) is None
+        # and model_fields_set contains the field
+        if self.website_url is None and "website_url" in self.model_fields_set:
+            _dict['website_url'] = None
+
         return _dict
 
     @classmethod

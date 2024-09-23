@@ -20,7 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List
-from openapi_client.models.get_metric_response_collection_data_inner import GetMetricResponseCollectionDataInner
+from openapi_client.models.get_metric_response_data import GetMetricResponseData
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,7 +28,7 @@ class GetMetricResponseCompoundDocument(BaseModel):
     """
     GetMetricResponseCompoundDocument
     """ # noqa: E501
-    data: GetMetricResponseCollectionDataInner
+    data: GetMetricResponseData
     __properties: ClassVar[List[str]] = ["data"]
 
     model_config = ConfigDict(
@@ -85,7 +85,7 @@ class GetMetricResponseCompoundDocument(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "data": GetMetricResponseCollectionDataInner.from_dict(obj["data"]) if obj.get("data") is not None else None
+            "data": GetMetricResponseData.from_dict(obj["data"]) if obj.get("data") is not None else None
         })
         return _obj
 

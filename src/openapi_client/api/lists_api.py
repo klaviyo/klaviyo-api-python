@@ -76,7 +76,7 @@ class ListsApi(object):
 ) ->  Union[PostListCreateResponse, Dict[str, object]]:
         """Create List
 
-        Create a new list.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`<br>Daily: `100/d`  **Scopes:** `lists:write`
+        Create a new list.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`<br>Daily: `150/d`  **Scopes:** `lists:write`
 
         :param list_create_query: (required)
         :type list_create_query: ListCreateQuery
@@ -158,7 +158,7 @@ class ListsApi(object):
 ) -> ApiResponse[PostListCreateResponse]:
         """Create List
 
-        Create a new list.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`<br>Daily: `100/d`  **Scopes:** `lists:write`
+        Create a new list.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`<br>Daily: `150/d`  **Scopes:** `lists:write`
 
         :param list_create_query: (required)
         :type list_create_query: ListCreateQuery
@@ -236,7 +236,7 @@ class ListsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Create List
 
-        Create a new list.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`<br>Daily: `100/d`  **Scopes:** `lists:write`
+        Create a new list.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`<br>Daily: `150/d`  **Scopes:** `lists:write`
 
         :param list_create_query: (required)
         :type list_create_query: ListCreateQuery

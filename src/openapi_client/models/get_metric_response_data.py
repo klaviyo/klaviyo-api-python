@@ -20,22 +20,22 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.get_metric_response_collection_data_inner_all_of_relationships import GetMetricResponseCollectionDataInnerAllOfRelationships
+from openapi_client.models.get_metric_response_data_all_of_relationships import GetMetricResponseDataAllOfRelationships
 from openapi_client.models.metric_enum import MetricEnum
 from openapi_client.models.metric_response_object_resource_attributes import MetricResponseObjectResourceAttributes
 from openapi_client.models.object_links import ObjectLinks
 from typing import Optional, Set
 from typing_extensions import Self
 
-class GetMetricResponseCollectionDataInner(BaseModel):
+class GetMetricResponseData(BaseModel):
     """
-    GetMetricResponseCollectionDataInner
+    GetMetricResponseData
     """ # noqa: E501
     type: MetricEnum
     id: StrictStr = Field(description="The Metric ID")
     attributes: MetricResponseObjectResourceAttributes
     links: ObjectLinks
-    relationships: Optional[GetMetricResponseCollectionDataInnerAllOfRelationships] = None
+    relationships: Optional[GetMetricResponseDataAllOfRelationships] = None
     __properties: ClassVar[List[str]] = ["type", "id", "attributes", "links", "relationships"]
 
     model_config = ConfigDict(
@@ -56,7 +56,7 @@ class GetMetricResponseCollectionDataInner(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of GetMetricResponseCollectionDataInner from a JSON string"""
+        """Create an instance of GetMetricResponseData from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -90,7 +90,7 @@ class GetMetricResponseCollectionDataInner(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of GetMetricResponseCollectionDataInner from a dict"""
+        """Create an instance of GetMetricResponseData from a dict"""
         if obj is None:
             return None
 
@@ -102,7 +102,7 @@ class GetMetricResponseCollectionDataInner(BaseModel):
             "id": obj.get("id"),
             "attributes": MetricResponseObjectResourceAttributes.from_dict(obj["attributes"]) if obj.get("attributes") is not None else None,
             "links": ObjectLinks.from_dict(obj["links"]) if obj.get("links") is not None else None,
-            "relationships": GetMetricResponseCollectionDataInnerAllOfRelationships.from_dict(obj["relationships"]) if obj.get("relationships") is not None else None
+            "relationships": GetMetricResponseDataAllOfRelationships.from_dict(obj["relationships"]) if obj.get("relationships") is not None else None
         })
         return _obj
 

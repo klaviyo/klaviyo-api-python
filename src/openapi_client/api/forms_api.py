@@ -30,6 +30,7 @@ from openapi_client.models.get_form_response_collection_compound_document import
 from openapi_client.models.get_form_response_compound_document import GetFormResponseCompoundDocument
 from openapi_client.models.get_form_version_form_relationship_response import GetFormVersionFormRelationshipResponse
 from openapi_client.models.get_form_version_response import GetFormVersionResponse
+from openapi_client.models.get_form_version_response_collection import GetFormVersionResponseCollection
 
 from openapi_client.api_client import ApiClient, RequestSerialized
 from openapi_client.api_response import ApiResponse
@@ -2141,7 +2142,7 @@ class FormsApi(object):
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
         options: Dict[str, Any] = {},
-) ->  Union[GetFormVersionResponse, Dict[str, object]]:
+) ->  Union[GetFormVersionResponseCollection, Dict[str, object]]:
         """Get Versions for Form
 
         Get the form versions for the given form.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `forms:read`
@@ -2194,7 +2195,7 @@ class FormsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFormVersionResponse",
+            '200': "GetFormVersionResponseCollection",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -2246,7 +2247,7 @@ class FormsApi(object):
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
         options: Dict[str, Any] = {},
-) -> ApiResponse[GetFormVersionResponse]:
+) -> ApiResponse[GetFormVersionResponseCollection]:
         """Get Versions for Form
 
         Get the form versions for the given form.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `forms:read`
@@ -2299,7 +2300,7 @@ class FormsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFormVersionResponse",
+            '200': "GetFormVersionResponseCollection",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -2400,7 +2401,7 @@ class FormsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFormVersionResponse",
+            '200': "GetFormVersionResponseCollection",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
