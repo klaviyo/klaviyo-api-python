@@ -36,13 +36,14 @@ class PushProfileUpsertQueryResourceObjectAttributes(BaseModel):
     first_name: Optional[StrictStr] = Field(default=None, description="Individual's first name")
     last_name: Optional[StrictStr] = Field(default=None, description="Individual's last name")
     organization: Optional[StrictStr] = Field(default=None, description="Name of the company or organization within the company for whom the individual works")
+    locale: Optional[StrictStr] = Field(default=None, description="The locale of the profile, in the IETF BCP 47 language tag format (language-extlang-script-region-variant-extension-privateuse)")
     title: Optional[StrictStr] = Field(default=None, description="Individual's job title")
     image: Optional[StrictStr] = Field(default=None, description="URL pointing to the location of a profile image")
     location: Optional[ProfileLocation] = None
     properties: Optional[Dict[str, Any]] = Field(default=None, description="An object containing key/value pairs for any custom properties assigned to this profile")
     meta: Optional[ProfileMeta] = None
     email: Optional[StrictStr] = Field(default=None, description="Individual's email address")
-    __properties: ClassVar[List[str]] = ["phone_number", "external_id", "anonymous_id", "_kx", "first_name", "last_name", "organization", "title", "image", "location", "properties", "meta", "email"]
+    __properties: ClassVar[List[str]] = ["phone_number", "external_id", "anonymous_id", "_kx", "first_name", "last_name", "organization", "locale", "title", "image", "location", "properties", "meta", "email"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -124,6 +125,11 @@ class PushProfileUpsertQueryResourceObjectAttributes(BaseModel):
         if self.organization is None and "organization" in self.model_fields_set:
             _dict['organization'] = None
 
+        # set to None if locale (nullable) is None
+        # and model_fields_set contains the field
+        if self.locale is None and "locale" in self.model_fields_set:
+            _dict['locale'] = None
+
         # set to None if title (nullable) is None
         # and model_fields_set contains the field
         if self.title is None and "title" in self.model_fields_set:
@@ -163,6 +169,7 @@ class PushProfileUpsertQueryResourceObjectAttributes(BaseModel):
             "first_name": obj.get("first_name"),
             "last_name": obj.get("last_name"),
             "organization": obj.get("organization"),
+            "locale": obj.get("locale"),
             "title": obj.get("title"),
             "image": obj.get("image"),
             "location": ProfileLocation.from_dict(obj["location"]) if obj.get("location") is not None else None,

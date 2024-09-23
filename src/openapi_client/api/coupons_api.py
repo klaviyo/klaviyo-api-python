@@ -3858,7 +3858,7 @@ class CouponsApi(object):
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
         options: Dict[str, Any] = {},
-) ->  Union[GetCouponResponseCollection, Dict[str, object]]:
+) ->  Union[GetCouponResponse, Dict[str, object]]:
         """Get Coupon For Coupon Code
 
         Get the coupon associated with a given coupon code ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `coupons:read`
@@ -3899,7 +3899,7 @@ class CouponsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetCouponResponseCollection",
+            '200': "GetCouponResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -3947,7 +3947,7 @@ class CouponsApi(object):
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
         options: Dict[str, Any] = {},
-) -> ApiResponse[GetCouponResponseCollection]:
+) -> ApiResponse[GetCouponResponse]:
         """Get Coupon For Coupon Code
 
         Get the coupon associated with a given coupon code ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `coupons:read`
@@ -3988,7 +3988,7 @@ class CouponsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetCouponResponseCollection",
+            '200': "GetCouponResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -4073,7 +4073,7 @@ class CouponsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetCouponResponseCollection",
+            '200': "GetCouponResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }

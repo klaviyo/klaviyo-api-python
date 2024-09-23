@@ -30,8 +30,8 @@ from openapi_client.models.get_event_metrics_relationship_list_response import G
 from openapi_client.models.get_event_profiles_relationship_list_response import GetEventProfilesRelationshipListResponse
 from openapi_client.models.get_event_response_collection_compound_document import GetEventResponseCollectionCompoundDocument
 from openapi_client.models.get_event_response_compound_document import GetEventResponseCompoundDocument
-from openapi_client.models.get_metric_response_collection import GetMetricResponseCollection
-from openapi_client.models.get_profile_response_collection import GetProfileResponseCollection
+from openapi_client.models.get_metric_response import GetMetricResponse
+from openapi_client.models.get_profile_response import GetProfileResponse
 
 from openapi_client.api_client import ApiClient, RequestSerialized
 from openapi_client.api_response import ApiResponse
@@ -1113,7 +1113,7 @@ class EventsApi(object):
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
         options: Dict[str, Any] = {},
-) ->  Union[GetMetricResponseCollection, Dict[str, object]]:
+) ->  Union[GetMetricResponse, Dict[str, object]]:
         """Get Event Metric
 
         Get the metric for an event with the given event ID.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `events:read` `metrics:read`
@@ -1154,7 +1154,7 @@ class EventsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetMetricResponseCollection",
+            '200': "GetMetricResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -1199,7 +1199,7 @@ class EventsApi(object):
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
         options: Dict[str, Any] = {},
-) -> ApiResponse[GetMetricResponseCollection]:
+) -> ApiResponse[GetMetricResponse]:
         """Get Event Metric
 
         Get the metric for an event with the given event ID.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `events:read` `metrics:read`
@@ -1240,7 +1240,7 @@ class EventsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetMetricResponseCollection",
+            '200': "GetMetricResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -1322,7 +1322,7 @@ class EventsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetMetricResponseCollection",
+            '200': "GetMetricResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -1442,7 +1442,7 @@ class EventsApi(object):
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
         options: Dict[str, Any] = {},
-) ->  Union[GetProfileResponseCollection, Dict[str, object]]:
+) ->  Union[GetProfileResponse, Dict[str, object]]:
         """Get Event Profile
 
         Get the profile associated with an event with the given event ID.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `events:read` `profiles:read`
@@ -1486,7 +1486,7 @@ class EventsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetProfileResponseCollection",
+            '200': "GetProfileResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -1532,7 +1532,7 @@ class EventsApi(object):
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
         options: Dict[str, Any] = {},
-) -> ApiResponse[GetProfileResponseCollection]:
+) -> ApiResponse[GetProfileResponse]:
         """Get Event Profile
 
         Get the profile associated with an event with the given event ID.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `events:read` `profiles:read`
@@ -1576,7 +1576,7 @@ class EventsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetProfileResponseCollection",
+            '200': "GetProfileResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -1662,7 +1662,7 @@ class EventsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetProfileResponseCollection",
+            '200': "GetProfileResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }

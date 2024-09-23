@@ -21,7 +21,7 @@ import json
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.collection_links import CollectionLinks
-from openapi_client.models.get_metric_response_collection_data_inner import GetMetricResponseCollectionDataInner
+from openapi_client.models.get_metric_response_data import GetMetricResponseData
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,7 +29,7 @@ class GetMetricResponseCollectionCompoundDocument(BaseModel):
     """
     GetMetricResponseCollectionCompoundDocument
     """ # noqa: E501
-    data: List[GetMetricResponseCollectionDataInner]
+    data: List[GetMetricResponseData]
     links: Optional[CollectionLinks] = None
     __properties: ClassVar[List[str]] = ["data", "links"]
 
@@ -94,7 +94,7 @@ class GetMetricResponseCollectionCompoundDocument(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "data": [GetMetricResponseCollectionDataInner.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None,
+            "data": [GetMetricResponseData.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None,
             "links": CollectionLinks.from_dict(obj["links"]) if obj.get("links") is not None else None
         })
         return _obj

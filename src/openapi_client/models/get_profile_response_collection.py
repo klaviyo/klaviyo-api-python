@@ -21,7 +21,7 @@ import json
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.collection_links import CollectionLinks
-from openapi_client.models.get_profile_response_collection_data_inner import GetProfileResponseCollectionDataInner
+from openapi_client.models.get_profile_response_data import GetProfileResponseData
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,7 +29,7 @@ class GetProfileResponseCollection(BaseModel):
     """
     GetProfileResponseCollection
     """ # noqa: E501
-    data: List[GetProfileResponseCollectionDataInner]
+    data: List[GetProfileResponseData]
     links: Optional[CollectionLinks] = None
     __properties: ClassVar[List[str]] = ["data", "links"]
 
@@ -94,7 +94,7 @@ class GetProfileResponseCollection(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "data": [GetProfileResponseCollectionDataInner.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None,
+            "data": [GetProfileResponseData.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None,
             "links": CollectionLinks.from_dict(obj["links"]) if obj.get("links") is not None else None
         })
         return _obj

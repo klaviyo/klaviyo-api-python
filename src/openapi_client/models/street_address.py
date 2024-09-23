@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,12 +27,12 @@ class StreetAddress(BaseModel):
     """
     StreetAddress
     """ # noqa: E501
-    address1: StrictStr
-    address2: StrictStr
+    address1: Optional[StrictStr] = None
+    address2: Optional[StrictStr] = None
     city: StrictStr
-    region: StrictStr = Field(description="State, province, or region.")
-    country: StrictStr = Field(description="Two-letter [ISO country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes)")
-    zip: StrictStr
+    region: Optional[StrictStr] = Field(default=None, description="State, province, or region.")
+    country: Optional[StrictStr] = Field(default=None, description="Two-letter [ISO country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes)")
+    zip: Optional[StrictStr] = None
     __properties: ClassVar[List[str]] = ["address1", "address2", "city", "region", "country", "zip"]
 
     model_config = ConfigDict(
@@ -74,6 +74,31 @@ class StreetAddress(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # set to None if address1 (nullable) is None
+        # and model_fields_set contains the field
+        if self.address1 is None and "address1" in self.model_fields_set:
+            _dict['address1'] = None
+
+        # set to None if address2 (nullable) is None
+        # and model_fields_set contains the field
+        if self.address2 is None and "address2" in self.model_fields_set:
+            _dict['address2'] = None
+
+        # set to None if region (nullable) is None
+        # and model_fields_set contains the field
+        if self.region is None and "region" in self.model_fields_set:
+            _dict['region'] = None
+
+        # set to None if country (nullable) is None
+        # and model_fields_set contains the field
+        if self.country is None and "country" in self.model_fields_set:
+            _dict['country'] = None
+
+        # set to None if zip (nullable) is None
+        # and model_fields_set contains the field
+        if self.zip is None and "zip" in self.model_fields_set:
+            _dict['zip'] = None
+
         return _dict
 
     @classmethod
