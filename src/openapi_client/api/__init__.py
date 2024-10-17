@@ -14,8 +14,10 @@ from openapi_client.api.lists_api import ListsApi
 from openapi_client.api.metrics_api import MetricsApi
 from openapi_client.api.profiles_api import ProfilesApi
 from openapi_client.api.reporting_api import ReportingApi
+from openapi_client.api.reviews_api import ReviewsApi
 from openapi_client.api.segments_api import SegmentsApi
 from openapi_client.api.tags_api import TagsApi
 from openapi_client.api.templates_api import TemplatesApi
+from openapi_client.api.tracking_settings_api import TrackingSettingsApi
 from openapi_client.api.webhooks_api import WebhooksApi
 
