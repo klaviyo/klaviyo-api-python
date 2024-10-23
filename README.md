@@ -15,6 +15,7 @@
     * [Use Case Examples](#use-case-examples)
       * [How to use filtering, sorting, and spare fieldset JSON API features](#how-to-use-filtering-sorting-and-spare-fieldset-json-api-features)
       * [How to filter based on datetime](#how-to-filter-based-on-datetime)
+      * [How to use the FilterBuilder helper](#how-to-use-the-filterbuilder-helper)
       * [How to use pagination and the page[size] param](#how-to-use-pagination-and-the-pagesize-param)
       * [How to add additional information to your API response via additional-fields and the `includes` parameter](#how-to-add-additional-information-to-your-api-response-via-additional-fields-and-the-includes-parameter)
       * [How to use our relationship endpoints to see related resources](#how-to-use-our-relationship-endpoints-to-see-related-resources)
@@ -201,6 +202,28 @@ klaviyo.Profiles.get_profiles(
     filter='less-than(updated,2023-04-26T00:00:00Z),greater-than(updated,2023-04-19T00:00:00Z)'
     )
 ```
+
+#### How to use the FilterBuilder helper
+
+**Use Case**: Helper class to assist in building complex filters
+
+```python
+old_date = datetime.datetime(2023, 8, 15, 12, 30, 0, 0, tzinfo=datetime.timezone.utc)
+f = FilterBuilder()
+f.any("email", ["sarah.mason@klaviyo-demo.com", "sm@klaviyo-demo.com"])
+f.greater_than("created", old_date)
+
+# f.build() returns 'any(email,["sarah.mason@klaviyo-demo.com","sm@klaviyo-demo.com"]),greater-than(created,2023-08-15T12:30:00+00:00)'
+profile_response = client.Profiles.get_profiles(filter=f.build())
+
+# You can also chain FilterBuilder methods
+f = FilterBuilder()
+filters = f.any("email", ["sarah.mason@klaviyo-demo.com", "sm@klaviyo-demo.com"]).greater_than("created", date).build()
+assert filters == "any(email,['sarah.mason@klaviyo-demo.com','sm@klaviyo-demo.com']),greater-than(created,2023-08-15T12:30:00+00:00)"
+```
+
+NOTE: Available in SDK Version `>= 11.0.0`
+
 
 #### How to use pagination and the page[size] param
 
