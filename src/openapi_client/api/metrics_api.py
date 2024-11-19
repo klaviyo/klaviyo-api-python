@@ -13,9 +13,10 @@
 """  # noqa: E501
 
 import warnings
-from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
+from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt, BaseModel
 from typing import Any, Dict, List, Optional, Set, Tuple, Union
 from typing_extensions import Annotated
+from openapi_client.models.get_accounts4_xx_response import GetAccounts4XXResponse
 
 import inspect
 
@@ -25,7 +26,7 @@ from pydantic import Field, StrictStr, field_validator
 from typing import List, Optional
 from typing_extensions import Annotated
 from openapi_client.models.get_flow_response_collection import GetFlowResponseCollection
-from openapi_client.models.get_metric_flow_triggers_relationship_response_collection import GetMetricFlowTriggersRelationshipResponseCollection
+from openapi_client.models.get_metric_flow_triggers_relationships_response_collection import GetMetricFlowTriggersRelationshipsResponseCollection
 from openapi_client.models.get_metric_property_relationship_metric_response import GetMetricPropertyRelationshipMetricResponse
 from openapi_client.models.get_metric_property_response_collection import GetMetricPropertyResponseCollection
 from openapi_client.models.get_metric_property_response_compound_document import GetMetricPropertyResponseCompoundDocument
@@ -121,10 +122,10 @@ class MetricsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetMetricResponseCompoundDocument",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetMetricResponseCompoundDocument,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -215,10 +216,10 @@ class MetricsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetMetricResponseCompoundDocument",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetMetricResponseCompoundDocument,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -305,10 +306,10 @@ class MetricsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetMetricResponseCompoundDocument",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetMetricResponseCompoundDocument,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -483,10 +484,10 @@ class MetricsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFlowResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetFlowResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -569,10 +570,10 @@ class MetricsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFlowResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetFlowResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -651,10 +652,10 @@ class MetricsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFlowResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetFlowResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -811,10 +812,10 @@ class MetricsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetMetricResponse",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetMetricResponse,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -900,10 +901,10 @@ class MetricsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetMetricResponse",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetMetricResponse,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -985,10 +986,10 @@ class MetricsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetMetricResponse",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetMetricResponse,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -1147,10 +1148,10 @@ class MetricsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetMetricPropertyRelationshipMetricResponse",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetMetricPropertyRelationshipMetricResponse,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -1232,10 +1233,10 @@ class MetricsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetMetricPropertyRelationshipMetricResponse",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetMetricPropertyRelationshipMetricResponse,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -1313,10 +1314,10 @@ class MetricsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetMetricPropertyRelationshipMetricResponse",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetMetricPropertyRelationshipMetricResponse,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -1482,10 +1483,10 @@ class MetricsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetMetricPropertyResponseCompoundDocument",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetMetricPropertyResponseCompoundDocument,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -1580,10 +1581,10 @@ class MetricsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetMetricPropertyResponseCompoundDocument",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetMetricPropertyResponseCompoundDocument,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -1674,10 +1675,10 @@ class MetricsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetMetricPropertyResponseCompoundDocument",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetMetricPropertyResponseCompoundDocument,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -1820,7 +1821,7 @@ class MetricsApi(object):
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
         options: Dict[str, Any] = {},
-) ->  Union[GetMetricFlowTriggersRelationshipResponseCollection, Dict[str, object]]:
+) ->  Union[GetMetricFlowTriggersRelationshipsResponseCollection, Dict[str, object]]:
         """Get Metric Relationships Flow Triggers
 
         Get all flows where the given metric is being used as the trigger.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `flows:read` `metrics:read`
@@ -1857,10 +1858,10 @@ class MetricsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetMetricFlowTriggersRelationshipResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetMetricFlowTriggersRelationshipsResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -1902,7 +1903,7 @@ class MetricsApi(object):
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
         options: Dict[str, Any] = {},
-) -> ApiResponse[GetMetricFlowTriggersRelationshipResponseCollection]:
+) -> ApiResponse[GetMetricFlowTriggersRelationshipsResponseCollection]:
         """Get Metric Relationships Flow Triggers
 
         Get all flows where the given metric is being used as the trigger.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `flows:read` `metrics:read`
@@ -1939,10 +1940,10 @@ class MetricsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetMetricFlowTriggersRelationshipResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetMetricFlowTriggersRelationshipsResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -2017,10 +2018,10 @@ class MetricsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetMetricFlowTriggersRelationshipResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetMetricFlowTriggersRelationshipsResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -2180,10 +2181,10 @@ class MetricsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetMetricResponseCollectionCompoundDocument",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetMetricResponseCollectionCompoundDocument,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -2278,10 +2279,10 @@ class MetricsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetMetricResponseCollectionCompoundDocument",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetMetricResponseCollectionCompoundDocument,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -2372,10 +2373,10 @@ class MetricsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetMetricResponseCollectionCompoundDocument",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetMetricResponseCollectionCompoundDocument,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -2567,10 +2568,10 @@ class MetricsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetMetricPropertyResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetMetricPropertyResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -2660,10 +2661,10 @@ class MetricsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetMetricPropertyResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetMetricPropertyResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -2749,10 +2750,10 @@ class MetricsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetMetricPropertyResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetMetricPropertyResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -2920,10 +2921,10 @@ class MetricsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetMetricRelationshipMetricPropertyResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetMetricRelationshipMetricPropertyResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -3005,10 +3006,10 @@ class MetricsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetMetricRelationshipMetricPropertyResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetMetricRelationshipMetricPropertyResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -3086,10 +3087,10 @@ class MetricsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetMetricRelationshipMetricPropertyResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetMetricRelationshipMetricPropertyResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -3239,10 +3240,10 @@ class MetricsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostMetricAggregateResponse",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': PostMetricAggregateResponse,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -3324,10 +3325,10 @@ class MetricsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostMetricAggregateResponse",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': PostMetricAggregateResponse,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -3405,10 +3406,10 @@ class MetricsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostMetricAggregateResponse",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': PostMetricAggregateResponse,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}

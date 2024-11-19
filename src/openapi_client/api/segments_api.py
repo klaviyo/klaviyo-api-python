@@ -13,9 +13,10 @@
 """  # noqa: E501
 
 import warnings
-from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
+from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt, BaseModel
 from typing import Any, Dict, List, Optional, Set, Tuple, Union
 from typing_extensions import Annotated
+from openapi_client.models.get_accounts4_xx_response import GetAccounts4XXResponse
 
 import inspect
 
@@ -110,10 +111,10 @@ class SegmentsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '201': "PostSegmentCreateResponse",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '201': PostSegmentCreateResponse,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -192,10 +193,10 @@ class SegmentsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '201': "PostSegmentCreateResponse",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '201': PostSegmentCreateResponse,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -270,10 +271,10 @@ class SegmentsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '201': "PostSegmentCreateResponse",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '201': PostSegmentCreateResponse,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -430,10 +431,10 @@ class SegmentsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
             '204': None,
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -512,10 +513,10 @@ class SegmentsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
             '204': None,
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -590,10 +591,10 @@ class SegmentsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
             '204': None,
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -753,10 +754,10 @@ class SegmentsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetSegmentRelationshipsResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetSegmentRelationshipsResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -854,10 +855,10 @@ class SegmentsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetSegmentRelationshipsResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetSegmentRelationshipsResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -951,10 +952,10 @@ class SegmentsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetSegmentRelationshipsResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetSegmentRelationshipsResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -1160,10 +1161,10 @@ class SegmentsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetSegmentMemberResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetSegmentMemberResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -1269,10 +1270,10 @@ class SegmentsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetSegmentMemberResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetSegmentMemberResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -1374,10 +1375,10 @@ class SegmentsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetSegmentMemberResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetSegmentMemberResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -1597,10 +1598,10 @@ class SegmentsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetSegmentRetrieveResponseCompoundDocument",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetSegmentRetrieveResponseCompoundDocument,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -1699,10 +1700,10 @@ class SegmentsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetSegmentRetrieveResponseCompoundDocument",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetSegmentRetrieveResponseCompoundDocument,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -1797,10 +1798,10 @@ class SegmentsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetSegmentRetrieveResponseCompoundDocument",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetSegmentRetrieveResponseCompoundDocument,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -1993,10 +1994,10 @@ class SegmentsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFlowResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetFlowResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -2079,10 +2080,10 @@ class SegmentsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFlowResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetFlowResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -2161,10 +2162,10 @@ class SegmentsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFlowResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetFlowResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -2317,10 +2318,10 @@ class SegmentsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetSegmentFlowTriggersRelationshipsResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetSegmentFlowTriggersRelationshipsResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -2399,10 +2400,10 @@ class SegmentsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetSegmentFlowTriggersRelationshipsResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetSegmentFlowTriggersRelationshipsResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -2477,10 +2478,10 @@ class SegmentsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetSegmentFlowTriggersRelationshipsResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetSegmentFlowTriggersRelationshipsResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -2648,10 +2649,10 @@ class SegmentsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetSegmentListResponseCollectionCompoundDocument",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetSegmentListResponseCollectionCompoundDocument,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -2754,10 +2755,10 @@ class SegmentsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetSegmentListResponseCollectionCompoundDocument",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetSegmentListResponseCollectionCompoundDocument,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -2856,10 +2857,10 @@ class SegmentsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetSegmentListResponseCollectionCompoundDocument",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetSegmentListResponseCollectionCompoundDocument,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -3060,10 +3061,10 @@ class SegmentsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetSegmentTagRelationshipListResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetSegmentTagRelationshipListResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -3145,10 +3146,10 @@ class SegmentsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetSegmentTagRelationshipListResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetSegmentTagRelationshipListResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -3226,10 +3227,10 @@ class SegmentsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetSegmentTagRelationshipListResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetSegmentTagRelationshipListResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -3383,10 +3384,10 @@ class SegmentsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetTagResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetTagResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -3472,10 +3473,10 @@ class SegmentsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetTagResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetTagResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -3557,10 +3558,10 @@ class SegmentsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetTagResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetTagResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -3723,10 +3724,10 @@ class SegmentsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PatchSegmentPartialUpdateResponse",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': PatchSegmentPartialUpdateResponse,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -3809,10 +3810,10 @@ class SegmentsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PatchSegmentPartialUpdateResponse",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': PatchSegmentPartialUpdateResponse,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -3891,10 +3892,10 @@ class SegmentsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PatchSegmentPartialUpdateResponse",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': PatchSegmentPartialUpdateResponse,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}

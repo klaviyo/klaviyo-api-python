@@ -13,9 +13,10 @@
 """  # noqa: E501
 
 import warnings
-from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
+from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt, BaseModel
 from typing import Any, Dict, List, Optional, Set, Tuple, Union
 from typing_extensions import Annotated
+from openapi_client.models.get_accounts4_xx_response import GetAccounts4XXResponse
 
 import inspect
 
@@ -130,10 +131,10 @@ class ProfilesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
             '202': None,
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -218,10 +219,10 @@ class ProfilesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
             '202': None,
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -302,10 +303,10 @@ class ProfilesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
             '202': None,
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -474,10 +475,10 @@ class ProfilesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '202': "PostBulkProfileSuppressionsCreateJobResponse",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '202': PostBulkProfileSuppressionsCreateJobResponse,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -562,10 +563,10 @@ class ProfilesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '202': "PostBulkProfileSuppressionsCreateJobResponse",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '202': PostBulkProfileSuppressionsCreateJobResponse,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -646,10 +647,10 @@ class ProfilesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '202': "PostBulkProfileSuppressionsCreateJobResponse",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '202': PostBulkProfileSuppressionsCreateJobResponse,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -818,10 +819,10 @@ class ProfilesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
             '202': None,
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -906,10 +907,10 @@ class ProfilesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
             '202': None,
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -990,10 +991,10 @@ class ProfilesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
             '202': None,
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -1162,10 +1163,10 @@ class ProfilesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '202': "PostBulkProfileSuppressionsRemoveJobResponse",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '202': PostBulkProfileSuppressionsRemoveJobResponse,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -1250,10 +1251,10 @@ class ProfilesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '202': "PostBulkProfileSuppressionsRemoveJobResponse",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '202': PostBulkProfileSuppressionsRemoveJobResponse,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -1334,10 +1335,10 @@ class ProfilesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '202': "PostBulkProfileSuppressionsRemoveJobResponse",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '202': PostBulkProfileSuppressionsRemoveJobResponse,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -1456,6 +1457,7 @@ class ProfilesApi(object):
     def create_or_update_profile(        
         self,
         profile_upsert_query: ProfileUpsertQuery,
+        additional_fields_profile: Annotated[Optional[List[StrictStr]], Field(description="Request additional fields not included by default in the response. Supported values: 'subscriptions', 'predictive_analytics'")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1476,6 +1478,8 @@ class ProfilesApi(object):
 
         :param profile_upsert_query: (required)
         :type profile_upsert_query: ProfileUpsertQuery
+        :param additional_fields_profile: Request additional fields not included by default in the response. Supported values: 'subscriptions', 'predictive_analytics'
+        :type additional_fields_profile: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1500,17 +1504,18 @@ class ProfilesApi(object):
 
         _param = self._create_or_update_profile_serialize(
             profile_upsert_query=profile_upsert_query,
+            additional_fields_profile=additional_fields_profile,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostProfileResponse",
-            '201': "PostProfileResponse",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': PostProfileResponse,
+            '201': PostProfileResponse,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -1542,6 +1547,7 @@ class ProfilesApi(object):
     def create_or_update_profile_with_http_info(        
         self,
         profile_upsert_query: ProfileUpsertQuery,
+        additional_fields_profile: Annotated[Optional[List[StrictStr]], Field(description="Request additional fields not included by default in the response. Supported values: 'subscriptions', 'predictive_analytics'")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1562,6 +1568,8 @@ class ProfilesApi(object):
 
         :param profile_upsert_query: (required)
         :type profile_upsert_query: ProfileUpsertQuery
+        :param additional_fields_profile: Request additional fields not included by default in the response. Supported values: 'subscriptions', 'predictive_analytics'
+        :type additional_fields_profile: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1586,17 +1594,18 @@ class ProfilesApi(object):
 
         _param = self._create_or_update_profile_serialize(
             profile_upsert_query=profile_upsert_query,
+            additional_fields_profile=additional_fields_profile,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostProfileResponse",
-            '201': "PostProfileResponse",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': PostProfileResponse,
+            '201': PostProfileResponse,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -1626,6 +1635,7 @@ class ProfilesApi(object):
     def create_or_update_profile_without_preload_content(
         self,
         profile_upsert_query: ProfileUpsertQuery,
+        additional_fields_profile: Annotated[Optional[List[StrictStr]], Field(description="Request additional fields not included by default in the response. Supported values: 'subscriptions', 'predictive_analytics'")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1644,6 +1654,8 @@ class ProfilesApi(object):
 
         :param profile_upsert_query: (required)
         :type profile_upsert_query: ProfileUpsertQuery
+        :param additional_fields_profile: Request additional fields not included by default in the response. Supported values: 'subscriptions', 'predictive_analytics'
+        :type additional_fields_profile: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1668,17 +1680,18 @@ class ProfilesApi(object):
 
         _param = self._create_or_update_profile_serialize(
             profile_upsert_query=profile_upsert_query,
+            additional_fields_profile=additional_fields_profile,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostProfileResponse",
-            '201': "PostProfileResponse",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': PostProfileResponse,
+            '201': PostProfileResponse,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -1712,6 +1725,7 @@ class ProfilesApi(object):
     def _create_or_update_profile_serialize(
         self,
         profile_upsert_query,
+        additional_fields_profile,
         _request_auth,
         _content_type,
         _headers,
@@ -1721,6 +1735,7 @@ class ProfilesApi(object):
         _host = None
 
         _collection_formats: Dict[str, str] = {
+            'additional-fields[profile]': 'csv',
         }
 
         _path_params: Dict[str, str] = {}
@@ -1732,6 +1747,13 @@ class ProfilesApi(object):
 
         # process the path parameters
         # process the query parameters
+        if additional_fields_profile is not None:
+            
+            if isinstance(additional_fields_profile, EnumMeta):
+                _query_params.append(('additional-fields[profile]', additional_fields_profile))
+            else:
+                _query_params.append(('additional-fields[profile]', additional_fields_profile))
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -1791,6 +1813,7 @@ class ProfilesApi(object):
     def create_profile(        
         self,
         profile_create_query: ProfileCreateQuery,
+        additional_fields_profile: Annotated[Optional[List[StrictStr]], Field(description="Request additional fields not included by default in the response. Supported values: 'subscriptions', 'predictive_analytics'")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1811,6 +1834,8 @@ class ProfilesApi(object):
 
         :param profile_create_query: (required)
         :type profile_create_query: ProfileCreateQuery
+        :param additional_fields_profile: Request additional fields not included by default in the response. Supported values: 'subscriptions', 'predictive_analytics'
+        :type additional_fields_profile: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1835,16 +1860,17 @@ class ProfilesApi(object):
 
         _param = self._create_profile_serialize(
             profile_create_query=profile_create_query,
+            additional_fields_profile=additional_fields_profile,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '201': "PostProfileResponse",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '201': PostProfileResponse,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -1873,6 +1899,7 @@ class ProfilesApi(object):
     def create_profile_with_http_info(        
         self,
         profile_create_query: ProfileCreateQuery,
+        additional_fields_profile: Annotated[Optional[List[StrictStr]], Field(description="Request additional fields not included by default in the response. Supported values: 'subscriptions', 'predictive_analytics'")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1893,6 +1920,8 @@ class ProfilesApi(object):
 
         :param profile_create_query: (required)
         :type profile_create_query: ProfileCreateQuery
+        :param additional_fields_profile: Request additional fields not included by default in the response. Supported values: 'subscriptions', 'predictive_analytics'
+        :type additional_fields_profile: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1917,16 +1946,17 @@ class ProfilesApi(object):
 
         _param = self._create_profile_serialize(
             profile_create_query=profile_create_query,
+            additional_fields_profile=additional_fields_profile,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '201': "PostProfileResponse",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '201': PostProfileResponse,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -1953,6 +1983,7 @@ class ProfilesApi(object):
     def create_profile_without_preload_content(
         self,
         profile_create_query: ProfileCreateQuery,
+        additional_fields_profile: Annotated[Optional[List[StrictStr]], Field(description="Request additional fields not included by default in the response. Supported values: 'subscriptions', 'predictive_analytics'")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1971,6 +2002,8 @@ class ProfilesApi(object):
 
         :param profile_create_query: (required)
         :type profile_create_query: ProfileCreateQuery
+        :param additional_fields_profile: Request additional fields not included by default in the response. Supported values: 'subscriptions', 'predictive_analytics'
+        :type additional_fields_profile: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1995,16 +2028,17 @@ class ProfilesApi(object):
 
         _param = self._create_profile_serialize(
             profile_create_query=profile_create_query,
+            additional_fields_profile=additional_fields_profile,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '201': "PostProfileResponse",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '201': PostProfileResponse,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -2035,6 +2069,7 @@ class ProfilesApi(object):
     def _create_profile_serialize(
         self,
         profile_create_query,
+        additional_fields_profile,
         _request_auth,
         _content_type,
         _headers,
@@ -2044,6 +2079,7 @@ class ProfilesApi(object):
         _host = None
 
         _collection_formats: Dict[str, str] = {
+            'additional-fields[profile]': 'csv',
         }
 
         _path_params: Dict[str, str] = {}
@@ -2055,6 +2091,13 @@ class ProfilesApi(object):
 
         # process the path parameters
         # process the query parameters
+        if additional_fields_profile is not None:
+            
+            if isinstance(additional_fields_profile, EnumMeta):
+                _query_params.append(('additional-fields[profile]', additional_fields_profile))
+            else:
+                _query_params.append(('additional-fields[profile]', additional_fields_profile))
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -2161,10 +2204,10 @@ class ProfilesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
             '202': None,
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -2243,10 +2286,10 @@ class ProfilesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
             '202': None,
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -2321,10 +2364,10 @@ class ProfilesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
             '202': None,
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -2493,10 +2536,10 @@ class ProfilesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetProfileImportJobResponseCompoundDocument",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetProfileImportJobResponseCompoundDocument,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -2593,10 +2636,10 @@ class ProfilesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetProfileImportJobResponseCompoundDocument",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetProfileImportJobResponseCompoundDocument,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -2689,10 +2732,10 @@ class ProfilesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetProfileImportJobResponseCompoundDocument",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetProfileImportJobResponseCompoundDocument,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -2891,10 +2934,10 @@ class ProfilesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetProfileImportJobResponseCollectionCompoundDocument",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetProfileImportJobResponseCollectionCompoundDocument,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -2995,10 +3038,10 @@ class ProfilesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetProfileImportJobResponseCollectionCompoundDocument",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetProfileImportJobResponseCollectionCompoundDocument,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -3095,10 +3138,10 @@ class ProfilesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetProfileImportJobResponseCollectionCompoundDocument",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetProfileImportJobResponseCollectionCompoundDocument,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -3296,10 +3339,10 @@ class ProfilesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetBulkProfileSuppressionsCreateJobResponse",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetBulkProfileSuppressionsCreateJobResponse,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -3385,10 +3428,10 @@ class ProfilesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetBulkProfileSuppressionsCreateJobResponse",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetBulkProfileSuppressionsCreateJobResponse,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -3470,10 +3513,10 @@ class ProfilesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetBulkProfileSuppressionsCreateJobResponse",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetBulkProfileSuppressionsCreateJobResponse,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -3644,10 +3687,10 @@ class ProfilesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetBulkProfileSuppressionsCreateJobResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetBulkProfileSuppressionsCreateJobResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -3741,10 +3784,10 @@ class ProfilesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetBulkProfileSuppressionsCreateJobResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetBulkProfileSuppressionsCreateJobResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -3834,10 +3877,10 @@ class ProfilesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetBulkProfileSuppressionsCreateJobResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetBulkProfileSuppressionsCreateJobResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -4021,10 +4064,10 @@ class ProfilesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetBulkProfileSuppressionsRemoveJobResponse",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetBulkProfileSuppressionsRemoveJobResponse,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -4110,10 +4153,10 @@ class ProfilesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetBulkProfileSuppressionsRemoveJobResponse",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetBulkProfileSuppressionsRemoveJobResponse,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -4195,10 +4238,10 @@ class ProfilesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetBulkProfileSuppressionsRemoveJobResponse",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetBulkProfileSuppressionsRemoveJobResponse,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -4369,10 +4412,10 @@ class ProfilesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetBulkProfileSuppressionsRemoveJobResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetBulkProfileSuppressionsRemoveJobResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -4466,10 +4509,10 @@ class ProfilesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetBulkProfileSuppressionsRemoveJobResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetBulkProfileSuppressionsRemoveJobResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -4559,10 +4602,10 @@ class ProfilesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetBulkProfileSuppressionsRemoveJobResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetBulkProfileSuppressionsRemoveJobResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -4754,10 +4797,10 @@ class ProfilesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetImportErrorResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetImportErrorResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -4854,10 +4897,10 @@ class ProfilesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetImportErrorResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetImportErrorResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -4950,10 +4993,10 @@ class ProfilesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetImportErrorResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetImportErrorResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -5138,10 +5181,10 @@ class ProfilesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetListResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetListResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -5230,10 +5273,10 @@ class ProfilesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetListResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetListResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -5318,10 +5361,10 @@ class ProfilesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetListResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetListResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -5486,10 +5529,10 @@ class ProfilesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetProfileImportJobListRelationshipsResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetProfileImportJobListRelationshipsResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -5574,10 +5617,10 @@ class ProfilesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetProfileImportJobListRelationshipsResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetProfileImportJobListRelationshipsResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -5658,10 +5701,10 @@ class ProfilesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetProfileImportJobListRelationshipsResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetProfileImportJobListRelationshipsResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -5817,10 +5860,10 @@ class ProfilesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetProfileListRelationshipsResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetProfileListRelationshipsResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -5902,10 +5945,10 @@ class ProfilesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetProfileListRelationshipsResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetProfileListRelationshipsResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -5983,10 +6026,10 @@ class ProfilesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetProfileListRelationshipsResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetProfileListRelationshipsResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -6140,10 +6183,10 @@ class ProfilesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetListResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetListResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -6229,10 +6272,10 @@ class ProfilesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetListResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetListResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -6314,10 +6357,10 @@ class ProfilesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetListResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetListResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -6447,7 +6490,7 @@ class ProfilesApi(object):
 ) ->  Union[GetProfileResponseCompoundDocument, Dict[str, object]]:
         """Get Profile
 
-        Get the profile with the given profile ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `profiles:read`
+        Get the profile with the given profile ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`<br><br>Rate limits when using the `include=list` parameter in your API request:<br>Burst: `1/s`<br>Steady: `15/m`<br><br>Rate limits when using the `include=segment` parameter in your API request:<br>Burst: `1/s`<br>Steady: `15/m`<br><br>To learn more about how the `include` parameter impacts rate limits, check out our [Rate limits, status codes, and errors](https://developers.klaviyo.com/en/v2024-10-15/docs/rate_limits_and_error_handling) guide.  **Scopes:** `profiles:read`
 
         :param id:  (required)
         :type id: str
@@ -6496,10 +6539,10 @@ class ProfilesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetProfileResponseCompoundDocument",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetProfileResponseCompoundDocument,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -6549,7 +6592,7 @@ class ProfilesApi(object):
 ) -> ApiResponse[GetProfileResponseCompoundDocument]:
         """Get Profile
 
-        Get the profile with the given profile ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `profiles:read`
+        Get the profile with the given profile ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`<br><br>Rate limits when using the `include=list` parameter in your API request:<br>Burst: `1/s`<br>Steady: `15/m`<br><br>Rate limits when using the `include=segment` parameter in your API request:<br>Burst: `1/s`<br>Steady: `15/m`<br><br>To learn more about how the `include` parameter impacts rate limits, check out our [Rate limits, status codes, and errors](https://developers.klaviyo.com/en/v2024-10-15/docs/rate_limits_and_error_handling) guide.  **Scopes:** `profiles:read`
 
         :param id:  (required)
         :type id: str
@@ -6598,10 +6641,10 @@ class ProfilesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetProfileResponseCompoundDocument",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetProfileResponseCompoundDocument,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -6647,7 +6690,7 @@ class ProfilesApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Profile
 
-        Get the profile with the given profile ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `profiles:read`
+        Get the profile with the given profile ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`<br><br>Rate limits when using the `include=list` parameter in your API request:<br>Burst: `1/s`<br>Steady: `15/m`<br><br>Rate limits when using the `include=segment` parameter in your API request:<br>Burst: `1/s`<br>Steady: `15/m`<br><br>To learn more about how the `include` parameter impacts rate limits, check out our [Rate limits, status codes, and errors](https://developers.klaviyo.com/en/v2024-10-15/docs/rate_limits_and_error_handling) guide.  **Scopes:** `profiles:read`
 
         :param id:  (required)
         :type id: str
@@ -6696,10 +6739,10 @@ class ProfilesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetProfileResponseCompoundDocument",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetProfileResponseCompoundDocument,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -6896,10 +6939,10 @@ class ProfilesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetProfileImportJobProfileRelationshipsResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetProfileImportJobProfileRelationshipsResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -6992,10 +7035,10 @@ class ProfilesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetProfileImportJobProfileRelationshipsResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetProfileImportJobProfileRelationshipsResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -7084,10 +7127,10 @@ class ProfilesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetProfileImportJobProfileRelationshipsResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetProfileImportJobProfileRelationshipsResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -7279,10 +7322,10 @@ class ProfilesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetProfileResponseCollectionCompoundDocument",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetProfileResponseCollectionCompoundDocument,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -7381,10 +7424,10 @@ class ProfilesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetProfileResponseCollectionCompoundDocument",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetProfileResponseCollectionCompoundDocument,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -7479,10 +7522,10 @@ class ProfilesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetProfileResponseCollectionCompoundDocument",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetProfileResponseCollectionCompoundDocument,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -7689,10 +7732,10 @@ class ProfilesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetProfileResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetProfileResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -7793,10 +7836,10 @@ class ProfilesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetProfileResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetProfileResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -7893,10 +7936,10 @@ class ProfilesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetProfileResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetProfileResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -8086,10 +8129,10 @@ class ProfilesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetProfileSegmentRelationshipsResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetProfileSegmentRelationshipsResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -8171,10 +8214,10 @@ class ProfilesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetProfileSegmentRelationshipsResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetProfileSegmentRelationshipsResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -8252,10 +8295,10 @@ class ProfilesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetProfileSegmentRelationshipsResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetProfileSegmentRelationshipsResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -8409,10 +8452,10 @@ class ProfilesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetSegmentResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetSegmentResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -8498,10 +8541,10 @@ class ProfilesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetSegmentResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetSegmentResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -8583,10 +8626,10 @@ class ProfilesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetSegmentResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetSegmentResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -8745,10 +8788,10 @@ class ProfilesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '201': "PostProfileMergeResponse",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '201': PostProfileMergeResponse,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -8830,10 +8873,10 @@ class ProfilesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '201': "PostProfileMergeResponse",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '201': PostProfileMergeResponse,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -8911,10 +8954,10 @@ class ProfilesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '201': "PostProfileMergeResponse",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '201': PostProfileMergeResponse,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -9077,10 +9120,10 @@ class ProfilesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '202': "PostProfileImportJobResponse",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '202': PostProfileImportJobResponse,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -9165,10 +9208,10 @@ class ProfilesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '202': "PostProfileImportJobResponse",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '202': PostProfileImportJobResponse,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -9249,10 +9292,10 @@ class ProfilesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '202': "PostProfileImportJobResponse",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '202': PostProfileImportJobResponse,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -9372,6 +9415,7 @@ class ProfilesApi(object):
         self,
         id: Annotated[StrictStr, Field(description="Primary key that uniquely identifies this profile. Generated by Klaviyo.")],
         profile_partial_update_query: ProfilePartialUpdateQuery,
+        additional_fields_profile: Annotated[Optional[List[StrictStr]], Field(description="Request additional fields not included by default in the response. Supported values: 'subscriptions', 'predictive_analytics'")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -9394,6 +9438,8 @@ class ProfilesApi(object):
         :type id: str
         :param profile_partial_update_query: (required)
         :type profile_partial_update_query: ProfilePartialUpdateQuery
+        :param additional_fields_profile: Request additional fields not included by default in the response. Supported values: 'subscriptions', 'predictive_analytics'
+        :type additional_fields_profile: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -9419,16 +9465,17 @@ class ProfilesApi(object):
         _param = self._update_profile_serialize(
             id=id,
             profile_partial_update_query=profile_partial_update_query,
+            additional_fields_profile=additional_fields_profile,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PatchProfileResponse",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': PatchProfileResponse,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -9458,6 +9505,7 @@ class ProfilesApi(object):
         self,
         id: Annotated[StrictStr, Field(description="Primary key that uniquely identifies this profile. Generated by Klaviyo.")],
         profile_partial_update_query: ProfilePartialUpdateQuery,
+        additional_fields_profile: Annotated[Optional[List[StrictStr]], Field(description="Request additional fields not included by default in the response. Supported values: 'subscriptions', 'predictive_analytics'")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -9480,6 +9528,8 @@ class ProfilesApi(object):
         :type id: str
         :param profile_partial_update_query: (required)
         :type profile_partial_update_query: ProfilePartialUpdateQuery
+        :param additional_fields_profile: Request additional fields not included by default in the response. Supported values: 'subscriptions', 'predictive_analytics'
+        :type additional_fields_profile: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -9505,16 +9555,17 @@ class ProfilesApi(object):
         _param = self._update_profile_serialize(
             id=id,
             profile_partial_update_query=profile_partial_update_query,
+            additional_fields_profile=additional_fields_profile,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PatchProfileResponse",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': PatchProfileResponse,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -9542,6 +9593,7 @@ class ProfilesApi(object):
         self,
         id: Annotated[StrictStr, Field(description="Primary key that uniquely identifies this profile. Generated by Klaviyo.")],
         profile_partial_update_query: ProfilePartialUpdateQuery,
+        additional_fields_profile: Annotated[Optional[List[StrictStr]], Field(description="Request additional fields not included by default in the response. Supported values: 'subscriptions', 'predictive_analytics'")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -9562,6 +9614,8 @@ class ProfilesApi(object):
         :type id: str
         :param profile_partial_update_query: (required)
         :type profile_partial_update_query: ProfilePartialUpdateQuery
+        :param additional_fields_profile: Request additional fields not included by default in the response. Supported values: 'subscriptions', 'predictive_analytics'
+        :type additional_fields_profile: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -9587,16 +9641,17 @@ class ProfilesApi(object):
         _param = self._update_profile_serialize(
             id=id,
             profile_partial_update_query=profile_partial_update_query,
+            additional_fields_profile=additional_fields_profile,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PatchProfileResponse",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': PatchProfileResponse,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -9628,6 +9683,7 @@ class ProfilesApi(object):
         self,
         id,
         profile_partial_update_query,
+        additional_fields_profile,
         _request_auth,
         _content_type,
         _headers,
@@ -9637,6 +9693,7 @@ class ProfilesApi(object):
         _host = None
 
         _collection_formats: Dict[str, str] = {
+            'additional-fields[profile]': 'csv',
         }
 
         _path_params: Dict[str, str] = {}
@@ -9650,6 +9707,13 @@ class ProfilesApi(object):
         if id is not None:
             _path_params['id'] = id
         # process the query parameters
+        if additional_fields_profile is not None:
+            
+            if isinstance(additional_fields_profile, EnumMeta):
+                _query_params.append(('additional-fields[profile]', additional_fields_profile))
+            else:
+                _query_params.append(('additional-fields[profile]', additional_fields_profile))
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter

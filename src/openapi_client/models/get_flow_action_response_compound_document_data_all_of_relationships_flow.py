@@ -20,7 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.get_metric_flow_triggers_relationship_response_collection_data_inner import GetMetricFlowTriggersRelationshipResponseCollectionDataInner
+from openapi_client.models.get_metric_response_collection_compound_document_data_inner_all_of_relationships_flow_triggers_data_inner import GetMetricResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsFlowTriggersDataInner
 from openapi_client.models.relationship_links import RelationshipLinks
 from typing import Optional, Set
 from typing_extensions import Self
@@ -29,7 +29,7 @@ class GetFlowActionResponseCompoundDocumentDataAllOfRelationshipsFlow(BaseModel)
     """
     GetFlowActionResponseCompoundDocumentDataAllOfRelationshipsFlow
     """ # noqa: E501
-    data: Optional[GetMetricFlowTriggersRelationshipResponseCollectionDataInner] = None
+    data: Optional[GetMetricResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsFlowTriggersDataInner] = None
     links: Optional[RelationshipLinks] = None
     __properties: ClassVar[List[str]] = ["data", "links"]
 
@@ -90,7 +90,7 @@ class GetFlowActionResponseCompoundDocumentDataAllOfRelationshipsFlow(BaseModel)
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "data": GetMetricFlowTriggersRelationshipResponseCollectionDataInner.from_dict(obj["data"]) if obj.get("data") is not None else None,
+            "data": GetMetricResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsFlowTriggersDataInner.from_dict(obj["data"]) if obj.get("data") is not None else None,
             "links": RelationshipLinks.from_dict(obj["links"]) if obj.get("links") is not None else None
         })
         return _obj

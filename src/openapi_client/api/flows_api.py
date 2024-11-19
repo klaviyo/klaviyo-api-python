@@ -13,9 +13,10 @@
 """  # noqa: E501
 
 import warnings
-from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
+from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt, BaseModel
 from typing import Any, Dict, List, Optional, Set, Tuple, Union
 from typing_extensions import Annotated
+from openapi_client.models.get_accounts4_xx_response import GetAccounts4XXResponse
 
 import inspect
 
@@ -116,10 +117,10 @@ class FlowsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
             '204': None,
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -198,10 +199,10 @@ class FlowsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
             '204': None,
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -276,10 +277,10 @@ class FlowsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
             '204': None,
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -423,10 +424,10 @@ class FlowsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFlowMessageFlowActionRelationshipResponse",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetFlowMessageFlowActionRelationshipResponse,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -508,10 +509,10 @@ class FlowsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFlowMessageFlowActionRelationshipResponse",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetFlowMessageFlowActionRelationshipResponse,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -589,10 +590,10 @@ class FlowsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFlowMessageFlowActionRelationshipResponse",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetFlowMessageFlowActionRelationshipResponse,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -754,10 +755,10 @@ class FlowsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFlowFlowActionRelationshipListResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetFlowFlowActionRelationshipListResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -851,10 +852,10 @@ class FlowsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFlowFlowActionRelationshipListResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetFlowFlowActionRelationshipListResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -944,10 +945,10 @@ class FlowsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFlowFlowActionRelationshipListResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetFlowFlowActionRelationshipListResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -1141,10 +1142,10 @@ class FlowsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFlowActionResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetFlowActionResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -1246,10 +1247,10 @@ class FlowsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFlowActionResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetFlowActionResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -1347,10 +1348,10 @@ class FlowsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFlowActionResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetFlowActionResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -1557,10 +1558,10 @@ class FlowsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFlowResponseCompoundDocument",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetFlowResponseCompoundDocument,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -1655,10 +1656,10 @@ class FlowsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFlowResponseCompoundDocument",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetFlowResponseCompoundDocument,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -1749,10 +1750,10 @@ class FlowsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFlowResponseCompoundDocument",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetFlowResponseCompoundDocument,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -1948,10 +1949,10 @@ class FlowsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFlowActionResponseCompoundDocument",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetFlowActionResponseCompoundDocument,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -2046,10 +2047,10 @@ class FlowsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFlowActionResponseCompoundDocument",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetFlowActionResponseCompoundDocument,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -2140,10 +2141,10 @@ class FlowsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFlowActionResponseCompoundDocument",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetFlowActionResponseCompoundDocument,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -2327,10 +2328,10 @@ class FlowsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFlowResponse",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetFlowResponse,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -2413,10 +2414,10 @@ class FlowsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFlowResponse",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetFlowResponse,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -2495,10 +2496,10 @@ class FlowsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFlowResponse",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetFlowResponse,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -2651,10 +2652,10 @@ class FlowsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFlowActionFlowRelationshipResponse",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetFlowActionFlowRelationshipResponse,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -2736,10 +2737,10 @@ class FlowsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFlowActionFlowRelationshipResponse",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetFlowActionFlowRelationshipResponse,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -2817,10 +2818,10 @@ class FlowsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFlowActionFlowRelationshipResponse",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetFlowActionFlowRelationshipResponse,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -2986,10 +2987,10 @@ class FlowsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFlowMessageResponseCompoundDocument",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetFlowMessageResponseCompoundDocument,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -3084,10 +3085,10 @@ class FlowsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFlowMessageResponseCompoundDocument",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetFlowMessageResponseCompoundDocument,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -3178,10 +3179,10 @@ class FlowsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFlowMessageResponseCompoundDocument",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetFlowMessageResponseCompoundDocument,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -3365,10 +3366,10 @@ class FlowsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFlowActionResponse",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetFlowActionResponse,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -3451,10 +3452,10 @@ class FlowsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFlowActionResponse",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetFlowActionResponse,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -3533,10 +3534,10 @@ class FlowsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFlowActionResponse",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetFlowActionResponse,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -3693,10 +3694,10 @@ class FlowsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetTagResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetTagResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -3779,10 +3780,10 @@ class FlowsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetTagResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetTagResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -3861,10 +3862,10 @@ class FlowsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetTagResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetTagResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -4045,10 +4046,10 @@ class FlowsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFlowResponseCollectionCompoundDocument",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetFlowResponseCollectionCompoundDocument,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -4155,10 +4156,10 @@ class FlowsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFlowResponseCollectionCompoundDocument",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetFlowResponseCollectionCompoundDocument,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -4261,10 +4262,10 @@ class FlowsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFlowResponseCollectionCompoundDocument",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetFlowResponseCollectionCompoundDocument,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -4489,10 +4490,10 @@ class FlowsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFlowActionFlowMessageRelationshipResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetFlowActionFlowMessageRelationshipResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -4590,10 +4591,10 @@ class FlowsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFlowActionFlowMessageRelationshipResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetFlowActionFlowMessageRelationshipResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -4687,10 +4688,10 @@ class FlowsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFlowActionFlowMessageRelationshipResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetFlowActionFlowMessageRelationshipResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -4888,10 +4889,10 @@ class FlowsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFlowMessageResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetFlowMessageResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -4989,10 +4990,10 @@ class FlowsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFlowMessageResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetFlowMessageResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -5086,10 +5087,10 @@ class FlowsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFlowMessageResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetFlowMessageResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -5272,10 +5273,10 @@ class FlowsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFlowTagRelationshipListResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetFlowTagRelationshipListResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -5357,10 +5358,10 @@ class FlowsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFlowTagRelationshipListResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetFlowTagRelationshipListResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -5438,10 +5439,10 @@ class FlowsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFlowTagRelationshipListResponseCollection",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetFlowTagRelationshipListResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -5595,10 +5596,10 @@ class FlowsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetTemplateResponse",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetTemplateResponse,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -5684,10 +5685,10 @@ class FlowsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetTemplateResponse",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetTemplateResponse,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -5769,10 +5770,10 @@ class FlowsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetTemplateResponse",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetTemplateResponse,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -5931,10 +5932,10 @@ class FlowsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFlowMessageTemplateRelationshipResponse",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetFlowMessageTemplateRelationshipResponse,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -6016,10 +6017,10 @@ class FlowsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFlowMessageTemplateRelationshipResponse",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetFlowMessageTemplateRelationshipResponse,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -6097,10 +6098,10 @@ class FlowsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFlowMessageTemplateRelationshipResponse",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetFlowMessageTemplateRelationshipResponse,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -6254,10 +6255,10 @@ class FlowsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PatchFlowResponse",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': PatchFlowResponse,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -6340,10 +6341,10 @@ class FlowsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PatchFlowResponse",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': PatchFlowResponse,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -6422,10 +6423,10 @@ class FlowsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PatchFlowResponse",
-            '4XX': "GetAccounts4XXResponse",
-            '5XX': "GetAccounts4XXResponse",
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': PatchFlowResponse,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}

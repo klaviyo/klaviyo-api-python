@@ -28,7 +28,6 @@ from pydantic import SecretStr
 
 from openapi_client.configuration import Configuration
 from openapi_client.api_response import ApiResponse, T as ApiResponseT
-import openapi_client.models
 from openapi_client import rest
 from openapi_client.exceptions import (
     ApiValueError,
@@ -90,7 +89,7 @@ class ApiClient:
             self.default_headers[header_name] = header_value
         self.cookie = cookie
         # Set default User-Agent.
-        self.user_agent = 'klaviyo-api-python/14.0.0'
+        self.user_agent = 'klaviyo-api-python/15.0.0'
         self.client_side_validation = configuration.client_side_validation
 
         self.options=options
@@ -446,7 +445,7 @@ class ApiClient:
             if klass in self.NATIVE_TYPES_MAPPING:
                 klass = self.NATIVE_TYPES_MAPPING[klass]
             else:
-                klass = getattr(openapi_client.models, klass)
+                raise ValueError("Models cannot be referenced by strings, please use class")
 
         if klass in self.PRIMITIVE_TYPES:
             return self.__deserialize_primitive(data, klass)
