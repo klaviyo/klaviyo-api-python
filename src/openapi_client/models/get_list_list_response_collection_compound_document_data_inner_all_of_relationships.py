@@ -22,6 +22,7 @@ from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.get_coupon_code_response_collection_compound_document_data_inner_all_of_relationships_profile import GetCouponCodeResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsProfile
 from openapi_client.models.get_list_list_response_collection_compound_document_data_inner_all_of_relationships_tags import GetListListResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsTags
+from openapi_client.models.get_metric_response_collection_compound_document_data_inner_all_of_relationships_flow_triggers import GetMetricResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsFlowTriggers
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -31,7 +32,7 @@ class GetListListResponseCollectionCompoundDocumentDataInnerAllOfRelationships(B
     """ # noqa: E501
     profiles: Optional[GetCouponCodeResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsProfile] = None
     tags: Optional[GetListListResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsTags] = None
-    flow_triggers: Optional[GetCouponCodeResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsProfile] = Field(default=None, alias="flow-triggers")
+    flow_triggers: Optional[GetMetricResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsFlowTriggers] = Field(default=None, alias="flow-triggers")
     __properties: ClassVar[List[str]] = ["profiles", "tags", "flow-triggers"]
 
     model_config = ConfigDict(
@@ -96,7 +97,7 @@ class GetListListResponseCollectionCompoundDocumentDataInnerAllOfRelationships(B
         _obj = cls.model_validate({
             "profiles": GetCouponCodeResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsProfile.from_dict(obj["profiles"]) if obj.get("profiles") is not None else None,
             "tags": GetListListResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsTags.from_dict(obj["tags"]) if obj.get("tags") is not None else None,
-            "flow-triggers": GetCouponCodeResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsProfile.from_dict(obj["flow-triggers"]) if obj.get("flow-triggers") is not None else None
+            "flow-triggers": GetMetricResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsFlowTriggers.from_dict(obj["flow-triggers"]) if obj.get("flow-triggers") is not None else None
         })
         return _obj
 

@@ -19,19 +19,17 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.get_metric_flow_triggers_relationship_response_collection_data_inner import GetMetricFlowTriggersRelationshipResponseCollectionDataInner
-from openapi_client.models.relationship_links import RelationshipLinks
+from typing import Any, ClassVar, Dict, List
+from openapi_client.models.get_metric_response_collection_compound_document_data_inner_all_of_relationships_flow_triggers_data_inner import GetMetricResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsFlowTriggersDataInner
 from typing import Optional, Set
 from typing_extensions import Self
 
-class PostListCreateResponseDataRelationshipsFlowTriggers(BaseModel):
+class GetListFlowTriggersRelationshipsResponseCollection(BaseModel):
     """
-    PostListCreateResponseDataRelationshipsFlowTriggers
+    GetListFlowTriggersRelationshipsResponseCollection
     """ # noqa: E501
-    data: Optional[List[GetMetricFlowTriggersRelationshipResponseCollectionDataInner]] = None
-    links: Optional[RelationshipLinks] = None
-    __properties: ClassVar[List[str]] = ["data", "links"]
+    data: List[GetMetricResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsFlowTriggersDataInner]
+    __properties: ClassVar[List[str]] = ["data"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -51,7 +49,7 @@ class PostListCreateResponseDataRelationshipsFlowTriggers(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of PostListCreateResponseDataRelationshipsFlowTriggers from a JSON string"""
+        """Create an instance of GetListFlowTriggersRelationshipsResponseCollection from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -79,14 +77,11 @@ class PostListCreateResponseDataRelationshipsFlowTriggers(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['data'] = _items
-        # override the default output from pydantic by calling `to_dict()` of links
-        if self.links:
-            _dict['links'] = self.links.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of PostListCreateResponseDataRelationshipsFlowTriggers from a dict"""
+        """Create an instance of GetListFlowTriggersRelationshipsResponseCollection from a dict"""
         if obj is None:
             return None
 
@@ -94,8 +89,7 @@ class PostListCreateResponseDataRelationshipsFlowTriggers(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "data": [GetMetricFlowTriggersRelationshipResponseCollectionDataInner.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None,
-            "links": RelationshipLinks.from_dict(obj["links"]) if obj.get("links") is not None else None
+            "data": [GetMetricResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsFlowTriggersDataInner.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None
         })
         return _obj
 

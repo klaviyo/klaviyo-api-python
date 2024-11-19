@@ -18,18 +18,18 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List
-from openapi_client.models.get_metric_flow_triggers_relationship_response_collection_data_inner import GetMetricFlowTriggersRelationshipResponseCollectionDataInner
+from pydantic import BaseModel, ConfigDict, Field
+from typing import Any, ClassVar, Dict, List, Optional
+from openapi_client.models.get_metric_response_collection_compound_document_data_inner_all_of_relationships_flow_triggers import GetMetricResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsFlowTriggers
 from typing import Optional, Set
 from typing_extensions import Self
 
-class GetMetricFlowTriggersRelationshipResponseCollection(BaseModel):
+class GetMetricResponseCollectionCompoundDocumentDataInnerAllOfRelationships(BaseModel):
     """
-    GetMetricFlowTriggersRelationshipResponseCollection
+    GetMetricResponseCollectionCompoundDocumentDataInnerAllOfRelationships
     """ # noqa: E501
-    data: List[GetMetricFlowTriggersRelationshipResponseCollectionDataInner]
-    __properties: ClassVar[List[str]] = ["data"]
+    flow_triggers: Optional[GetMetricResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsFlowTriggers] = Field(default=None, alias="flow-triggers")
+    __properties: ClassVar[List[str]] = ["flow-triggers"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -49,7 +49,7 @@ class GetMetricFlowTriggersRelationshipResponseCollection(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of GetMetricFlowTriggersRelationshipResponseCollection from a JSON string"""
+        """Create an instance of GetMetricResponseCollectionCompoundDocumentDataInnerAllOfRelationships from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -70,18 +70,14 @@ class GetMetricFlowTriggersRelationshipResponseCollection(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of each item in data (list)
-        _items = []
-        if self.data:
-            for _item in self.data:
-                if _item:
-                    _items.append(_item.to_dict())
-            _dict['data'] = _items
+        # override the default output from pydantic by calling `to_dict()` of flow_triggers
+        if self.flow_triggers:
+            _dict['flow-triggers'] = self.flow_triggers.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of GetMetricFlowTriggersRelationshipResponseCollection from a dict"""
+        """Create an instance of GetMetricResponseCollectionCompoundDocumentDataInnerAllOfRelationships from a dict"""
         if obj is None:
             return None
 
@@ -89,7 +85,7 @@ class GetMetricFlowTriggersRelationshipResponseCollection(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "data": [GetMetricFlowTriggersRelationshipResponseCollectionDataInner.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None
+            "flow-triggers": GetMetricResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsFlowTriggers.from_dict(obj["flow-triggers"]) if obj.get("flow-triggers") is not None else None
         })
         return _obj
 

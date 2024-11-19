@@ -47,8 +47,8 @@ class DeviceMetadata(BaseModel):
         if value is None:
             return value
 
-        if value not in set(['android', 'react_native', 'swift']):
-            raise ValueError("must be one of enum values ('android', 'react_native', 'swift')")
+        if value not in set(['android', 'flutter_community', 'react_native', 'swift']):
+            raise ValueError("must be one of enum values ('android', 'flutter_community', 'react_native', 'swift')")
         return value
 
     @field_validator('os_name')
