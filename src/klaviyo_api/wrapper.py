@@ -1,11 +1,10 @@
 from __future__ import absolute_import
 
 from __future__ import print_function
-import tenacity
 from urllib.parse import quote, unquote
 
 import openapi_client
-import klaviyo_api.custom_retry as custom_retry
+from klaviyo_api.custom_retry import RetryWithExponentialBackoff
 from dataclasses import dataclass, field
 from typing import Callable, ClassVar, Dict, Any
 
@@ -65,16 +64,9 @@ class KlaviyoAPI:
         
         if self.max_delay<= 0:
             self.max_delay = .1
-        
-        if self.max_retries <= 0:
-            self.max_retries = 1
-                
-        self.retry_logic = tenacity.retry(
-            reraise=True,
-            retry=custom_retry.retry_if_qualifies(self._RETRY_CODES),
-            wait=tenacity.wait.wait_random_exponential(multiplier = 1, max = self.max_delay),
-            stop=tenacity.stop.stop_after_attempt(self.max_retries)
-        )
+
+        self.retry_wrapper = RetryWithExponentialBackoff(self._RETRY_CODES, self.max_retries, self.max_delay)
+
     
     @property
     def Accounts(self):
@@ -83,7 +75,7 @@ class KlaviyoAPI:
         ## Adding Accounts to Client
         Accounts=accounts_api.AccountsApi(self.api_client)
 
-        ## Applying tenacity retry decorator to each endpoint in Accounts
+        ## Applying retry decorator to each endpoint in Accounts
         Accounts.get_account=self._page_cursor_update(self.retry_logic(Accounts.get_account))
         Accounts.get_accounts=self._page_cursor_update(self.retry_logic(Accounts.get_accounts))
         
@@ -96,7 +88,7 @@ class KlaviyoAPI:
         ## Adding Campaigns to Client
         Campaigns=campaigns_api.CampaignsApi(self.api_client)
 
-        ## Applying tenacity retry decorator to each endpoint in Campaigns
+        ## Applying retry decorator to each endpoint in Campaigns
         Campaigns.assign_template_to_campaign_message=self._page_cursor_update(self.retry_logic(Campaigns.assign_template_to_campaign_message))
         Campaigns.create_campaign_message_assign_template=self._page_cursor_update(self.retry_logic(Campaigns.create_campaign_message_assign_template))
         Campaigns.cancel_campaign_send=self._page_cursor_update(self.retry_logic(Campaigns.cancel_campaign_send))
@@ -114,14 +106,17 @@ class KlaviyoAPI:
         Campaigns.get_campaign_recipient_estimation=self._page_cursor_update(self.retry_logic(Campaigns.get_campaign_recipient_estimation))
         Campaigns.get_campaign_recipient_estimation_job=self._page_cursor_update(self.retry_logic(Campaigns.get_campaign_recipient_estimation_job))
         Campaigns.get_campaign_send_job=self._page_cursor_update(self.retry_logic(Campaigns.get_campaign_send_job))
-        Campaigns.get_campaign_tags=self._page_cursor_update(self.retry_logic(Campaigns.get_campaign_tags))
         Campaigns.get_campaigns=self._page_cursor_update(self.retry_logic(Campaigns.get_campaigns))
         Campaigns.get_message_ids_for_campaign=self._page_cursor_update(self.retry_logic(Campaigns.get_message_ids_for_campaign))
         Campaigns.get_campaign_relationships_campaign_messages=self._page_cursor_update(self.retry_logic(Campaigns.get_campaign_relationships_campaign_messages))
+        Campaigns.get_campaign_relationships_messages=self._page_cursor_update(self.retry_logic(Campaigns.get_campaign_relationships_messages))
         Campaigns.get_messages_for_campaign=self._page_cursor_update(self.retry_logic(Campaigns.get_messages_for_campaign))
         Campaigns.get_campaign_campaign_messages=self._page_cursor_update(self.retry_logic(Campaigns.get_campaign_campaign_messages))
+        Campaigns.get_campaign_messages=self._page_cursor_update(self.retry_logic(Campaigns.get_campaign_messages))
         Campaigns.get_tag_ids_for_campaign=self._page_cursor_update(self.retry_logic(Campaigns.get_tag_ids_for_campaign))
         Campaigns.get_campaign_relationships_tags=self._page_cursor_update(self.retry_logic(Campaigns.get_campaign_relationships_tags))
+        Campaigns.get_tags_for_campaign=self._page_cursor_update(self.retry_logic(Campaigns.get_tags_for_campaign))
+        Campaigns.get_campaign_tags=self._page_cursor_update(self.retry_logic(Campaigns.get_campaign_tags))
         Campaigns.get_template_for_campaign_message=self._page_cursor_update(self.retry_logic(Campaigns.get_template_for_campaign_message))
         Campaigns.get_campaign_message_template=self._page_cursor_update(self.retry_logic(Campaigns.get_campaign_message_template))
         Campaigns.get_template_id_for_campaign_message=self._page_cursor_update(self.retry_logic(Campaigns.get_template_id_for_campaign_message))
@@ -142,13 +137,14 @@ class KlaviyoAPI:
         ## Adding Catalogs to Client
         Catalogs=catalogs_api.CatalogsApi(self.api_client)
 
-        ## Applying tenacity retry decorator to each endpoint in Catalogs
+        ## Applying retry decorator to each endpoint in Catalogs
+        Catalogs.add_categories_to_catalog_item=self._page_cursor_update(self.retry_logic(Catalogs.add_categories_to_catalog_item))
         Catalogs.add_category_to_catalog_item=self._page_cursor_update(self.retry_logic(Catalogs.add_category_to_catalog_item))
-        Catalogs.create_catalog_item_relationships_categories=self._page_cursor_update(self.retry_logic(Catalogs.create_catalog_item_relationships_categories))
         Catalogs.create_catalog_item_relationships_category=self._page_cursor_update(self.retry_logic(Catalogs.create_catalog_item_relationships_category))
+        Catalogs.create_catalog_item_relationships_categories=self._page_cursor_update(self.retry_logic(Catalogs.create_catalog_item_relationships_categories))
         Catalogs.add_items_to_catalog_category=self._page_cursor_update(self.retry_logic(Catalogs.add_items_to_catalog_category))
-        Catalogs.create_catalog_category_relationships_items=self._page_cursor_update(self.retry_logic(Catalogs.create_catalog_category_relationships_items))
         Catalogs.create_catalog_category_relationships_item=self._page_cursor_update(self.retry_logic(Catalogs.create_catalog_category_relationships_item))
+        Catalogs.create_catalog_category_relationships_items=self._page_cursor_update(self.retry_logic(Catalogs.create_catalog_category_relationships_items))
         Catalogs.bulk_create_catalog_categories=self._page_cursor_update(self.retry_logic(Catalogs.bulk_create_catalog_categories))
         Catalogs.spawn_create_categories_job=self._page_cursor_update(self.retry_logic(Catalogs.spawn_create_categories_job))
         Catalogs.create_catalog_category_bulk_create_job=self._page_cursor_update(self.retry_logic(Catalogs.create_catalog_category_bulk_create_job))
@@ -262,7 +258,7 @@ class KlaviyoAPI:
         ## Adding Coupons to Client
         Coupons=coupons_api.CouponsApi(self.api_client)
 
-        ## Applying tenacity retry decorator to each endpoint in Coupons
+        ## Applying retry decorator to each endpoint in Coupons
         Coupons.bulk_create_coupon_codes=self._page_cursor_update(self.retry_logic(Coupons.bulk_create_coupon_codes))
         Coupons.spawn_coupon_code_bulk_create_job=self._page_cursor_update(self.retry_logic(Coupons.spawn_coupon_code_bulk_create_job))
         Coupons.create_coupon_code_bulk_create_job=self._page_cursor_update(self.retry_logic(Coupons.create_coupon_code_bulk_create_job))
@@ -274,13 +270,16 @@ class KlaviyoAPI:
         Coupons.get_coupon_code_bulk_create_jobs=self._page_cursor_update(self.retry_logic(Coupons.get_coupon_code_bulk_create_jobs))
         Coupons.get_bulk_create_coupon_codes_job=self._page_cursor_update(self.retry_logic(Coupons.get_bulk_create_coupon_codes_job))
         Coupons.get_coupon_code_bulk_create_job=self._page_cursor_update(self.retry_logic(Coupons.get_coupon_code_bulk_create_job))
-        Coupons.get_code_ids_for_coupon=self._page_cursor_update(self.retry_logic(Coupons.get_code_ids_for_coupon))
-        Coupons.get_coupon_code_relationships_coupon=self._page_cursor_update(self.retry_logic(Coupons.get_coupon_code_relationships_coupon))
         Coupons.get_coupon=self._page_cursor_update(self.retry_logic(Coupons.get_coupon))
         Coupons.get_coupon_code=self._page_cursor_update(self.retry_logic(Coupons.get_coupon_code))
+        Coupons.get_coupon_code_ids_for_coupon=self._page_cursor_update(self.retry_logic(Coupons.get_coupon_code_ids_for_coupon))
+        Coupons.get_coupon_code_relationships_coupon=self._page_cursor_update(self.retry_logic(Coupons.get_coupon_code_relationships_coupon))
+        Coupons.get_code_ids_for_coupon=self._page_cursor_update(self.retry_logic(Coupons.get_code_ids_for_coupon))
+        Coupons.get_coupon_relationships_codes=self._page_cursor_update(self.retry_logic(Coupons.get_coupon_relationships_codes))
         Coupons.get_coupon_codes=self._page_cursor_update(self.retry_logic(Coupons.get_coupon_codes))
         Coupons.get_coupon_codes_for_coupon=self._page_cursor_update(self.retry_logic(Coupons.get_coupon_codes_for_coupon))
         Coupons.get_coupon_coupon_codes=self._page_cursor_update(self.retry_logic(Coupons.get_coupon_coupon_codes))
+        Coupons.get_codes_for_coupon=self._page_cursor_update(self.retry_logic(Coupons.get_codes_for_coupon))
         Coupons.get_coupon_for_coupon_code=self._page_cursor_update(self.retry_logic(Coupons.get_coupon_for_coupon_code))
         Coupons.get_coupon_code_coupon=self._page_cursor_update(self.retry_logic(Coupons.get_coupon_code_coupon))
         Coupons.get_coupon_id_for_coupon_code=self._page_cursor_update(self.retry_logic(Coupons.get_coupon_id_for_coupon_code))
@@ -298,7 +297,7 @@ class KlaviyoAPI:
         ## Adding Data_Privacy to Client
         Data_Privacy=data_privacy_api.DataPrivacyApi(self.api_client)
 
-        ## Applying tenacity retry decorator to each endpoint in Data_Privacy
+        ## Applying retry decorator to each endpoint in Data_Privacy
         Data_Privacy.request_profile_deletion=self._page_cursor_update(self.retry_logic(Data_Privacy.request_profile_deletion))
         Data_Privacy.create_data_privacy_deletion_job=self._page_cursor_update(self.retry_logic(Data_Privacy.create_data_privacy_deletion_job))
         
@@ -311,16 +310,18 @@ class KlaviyoAPI:
         ## Adding Events to Client
         Events=events_api.EventsApi(self.api_client)
 
-        ## Applying tenacity retry decorator to each endpoint in Events
+        ## Applying retry decorator to each endpoint in Events
         Events.bulk_create_events=self._page_cursor_update(self.retry_logic(Events.bulk_create_events))
         Events.create_event_bulk_create_job=self._page_cursor_update(self.retry_logic(Events.create_event_bulk_create_job))
         Events.create_event=self._page_cursor_update(self.retry_logic(Events.create_event))
         Events.get_event=self._page_cursor_update(self.retry_logic(Events.get_event))
-        Events.get_event_metric=self._page_cursor_update(self.retry_logic(Events.get_event_metric))
-        Events.get_event_profile=self._page_cursor_update(self.retry_logic(Events.get_event_profile))
         Events.get_events=self._page_cursor_update(self.retry_logic(Events.get_events))
+        Events.get_metric_for_event=self._page_cursor_update(self.retry_logic(Events.get_metric_for_event))
+        Events.get_event_metric=self._page_cursor_update(self.retry_logic(Events.get_event_metric))
         Events.get_metric_id_for_event=self._page_cursor_update(self.retry_logic(Events.get_metric_id_for_event))
         Events.get_event_relationships_metric=self._page_cursor_update(self.retry_logic(Events.get_event_relationships_metric))
+        Events.get_profile_for_event=self._page_cursor_update(self.retry_logic(Events.get_profile_for_event))
+        Events.get_event_profile=self._page_cursor_update(self.retry_logic(Events.get_event_profile))
         Events.get_profile_id_for_event=self._page_cursor_update(self.retry_logic(Events.get_profile_id_for_event))
         Events.get_event_relationships_profile=self._page_cursor_update(self.retry_logic(Events.get_event_relationships_profile))
         
@@ -333,22 +334,25 @@ class KlaviyoAPI:
         ## Adding Flows to Client
         Flows=flows_api.FlowsApi(self.api_client)
 
-        ## Applying tenacity retry decorator to each endpoint in Flows
+        ## Applying retry decorator to each endpoint in Flows
         Flows.delete_flow=self._page_cursor_update(self.retry_logic(Flows.delete_flow))
+        Flows.get_action_for_flow_message=self._page_cursor_update(self.retry_logic(Flows.get_action_for_flow_message))
+        Flows.get_flow_message_action=self._page_cursor_update(self.retry_logic(Flows.get_flow_message_action))
         Flows.get_action_id_for_flow_message=self._page_cursor_update(self.retry_logic(Flows.get_action_id_for_flow_message))
         Flows.get_flow_message_relationships_action=self._page_cursor_update(self.retry_logic(Flows.get_flow_message_relationships_action))
         Flows.get_action_ids_for_flow=self._page_cursor_update(self.retry_logic(Flows.get_action_ids_for_flow))
         Flows.get_flow_relationships_flow_actions=self._page_cursor_update(self.retry_logic(Flows.get_flow_relationships_flow_actions))
+        Flows.get_flow_relationships_actions=self._page_cursor_update(self.retry_logic(Flows.get_flow_relationships_actions))
         Flows.get_actions_for_flow=self._page_cursor_update(self.retry_logic(Flows.get_actions_for_flow))
         Flows.get_flow_flow_actions=self._page_cursor_update(self.retry_logic(Flows.get_flow_flow_actions))
+        Flows.get_flow_actions=self._page_cursor_update(self.retry_logic(Flows.get_flow_actions))
         Flows.get_flow=self._page_cursor_update(self.retry_logic(Flows.get_flow))
         Flows.get_flow_action=self._page_cursor_update(self.retry_logic(Flows.get_flow_action))
+        Flows.get_flow_for_flow_action=self._page_cursor_update(self.retry_logic(Flows.get_flow_for_flow_action))
         Flows.get_flow_action_flow=self._page_cursor_update(self.retry_logic(Flows.get_flow_action_flow))
         Flows.get_flow_id_for_flow_action=self._page_cursor_update(self.retry_logic(Flows.get_flow_id_for_flow_action))
         Flows.get_flow_action_relationships_flow=self._page_cursor_update(self.retry_logic(Flows.get_flow_action_relationships_flow))
         Flows.get_flow_message=self._page_cursor_update(self.retry_logic(Flows.get_flow_message))
-        Flows.get_flow_message_action=self._page_cursor_update(self.retry_logic(Flows.get_flow_message_action))
-        Flows.get_flow_tags=self._page_cursor_update(self.retry_logic(Flows.get_flow_tags))
         Flows.get_flows=self._page_cursor_update(self.retry_logic(Flows.get_flows))
         Flows.get_message_ids_for_flow_action=self._page_cursor_update(self.retry_logic(Flows.get_message_ids_for_flow_action))
         Flows.get_flow_action_relationships_messages=self._page_cursor_update(self.retry_logic(Flows.get_flow_action_relationships_messages))
@@ -356,6 +360,8 @@ class KlaviyoAPI:
         Flows.get_flow_action_messages=self._page_cursor_update(self.retry_logic(Flows.get_flow_action_messages))
         Flows.get_tag_ids_for_flow=self._page_cursor_update(self.retry_logic(Flows.get_tag_ids_for_flow))
         Flows.get_flow_relationships_tags=self._page_cursor_update(self.retry_logic(Flows.get_flow_relationships_tags))
+        Flows.get_tags_for_flow=self._page_cursor_update(self.retry_logic(Flows.get_tags_for_flow))
+        Flows.get_flow_tags=self._page_cursor_update(self.retry_logic(Flows.get_flow_tags))
         Flows.get_template_for_flow_message=self._page_cursor_update(self.retry_logic(Flows.get_template_for_flow_message))
         Flows.get_flow_message_template=self._page_cursor_update(self.retry_logic(Flows.get_flow_message_template))
         Flows.get_template_id_for_flow_message=self._page_cursor_update(self.retry_logic(Flows.get_template_id_for_flow_message))
@@ -371,7 +377,7 @@ class KlaviyoAPI:
         ## Adding Forms to Client
         Forms=forms_api.FormsApi(self.api_client)
 
-        ## Applying tenacity retry decorator to each endpoint in Forms
+        ## Applying retry decorator to each endpoint in Forms
         Forms.get_form=self._page_cursor_update(self.retry_logic(Forms.get_form))
         Forms.get_form_for_form_version=self._page_cursor_update(self.retry_logic(Forms.get_form_for_form_version))
         Forms.get_form_version_form=self._page_cursor_update(self.retry_logic(Forms.get_form_version_form))
@@ -381,8 +387,10 @@ class KlaviyoAPI:
         Forms.get_forms=self._page_cursor_update(self.retry_logic(Forms.get_forms))
         Forms.get_version_ids_for_form=self._page_cursor_update(self.retry_logic(Forms.get_version_ids_for_form))
         Forms.get_form_relationships_form_versions=self._page_cursor_update(self.retry_logic(Forms.get_form_relationships_form_versions))
+        Forms.get_form_relationships_versions=self._page_cursor_update(self.retry_logic(Forms.get_form_relationships_versions))
         Forms.get_versions_for_form=self._page_cursor_update(self.retry_logic(Forms.get_versions_for_form))
         Forms.get_form_form_versions=self._page_cursor_update(self.retry_logic(Forms.get_form_form_versions))
+        Forms.get_form_versions=self._page_cursor_update(self.retry_logic(Forms.get_form_versions))
         
         return Forms
     
@@ -393,7 +401,7 @@ class KlaviyoAPI:
         ## Adding Images to Client
         Images=images_api.ImagesApi(self.api_client)
 
-        ## Applying tenacity retry decorator to each endpoint in Images
+        ## Applying retry decorator to each endpoint in Images
         Images.get_image=self._page_cursor_update(self.retry_logic(Images.get_image))
         Images.get_images=self._page_cursor_update(self.retry_logic(Images.get_images))
         Images.update_image=self._page_cursor_update(self.retry_logic(Images.update_image))
@@ -411,23 +419,32 @@ class KlaviyoAPI:
         ## Adding Lists to Client
         Lists=lists_api.ListsApi(self.api_client)
 
-        ## Applying tenacity retry decorator to each endpoint in Lists
-        Lists.create_list=self._page_cursor_update(self.retry_logic(Lists.create_list))
+        ## Applying retry decorator to each endpoint in Lists
+        Lists.add_profiles_to_list=self._page_cursor_update(self.retry_logic(Lists.add_profiles_to_list))
         Lists.create_list_relationships=self._page_cursor_update(self.retry_logic(Lists.create_list_relationships))
         Lists.create_list_relationships_profile=self._page_cursor_update(self.retry_logic(Lists.create_list_relationships_profile))
+        Lists.create_list_relationships_profiles=self._page_cursor_update(self.retry_logic(Lists.create_list_relationships_profiles))
+        Lists.create_list=self._page_cursor_update(self.retry_logic(Lists.create_list))
         Lists.delete_list=self._page_cursor_update(self.retry_logic(Lists.delete_list))
-        Lists.delete_list_relationships=self._page_cursor_update(self.retry_logic(Lists.delete_list_relationships))
-        Lists.delete_list_relationships_profiles=self._page_cursor_update(self.retry_logic(Lists.delete_list_relationships_profiles))
-        Lists.get_list=self._page_cursor_update(self.retry_logic(Lists.get_list))
+        Lists.get_flows_triggered_by_list=self._page_cursor_update(self.retry_logic(Lists.get_flows_triggered_by_list))
+        Lists.get_flow_triggers_for_list=self._page_cursor_update(self.retry_logic(Lists.get_flow_triggers_for_list))
         Lists.get_list_flow_triggers=self._page_cursor_update(self.retry_logic(Lists.get_list_flow_triggers))
-        Lists.get_list_profiles=self._page_cursor_update(self.retry_logic(Lists.get_list_profiles))
+        Lists.get_ids_for_flows_triggered_by_list=self._page_cursor_update(self.retry_logic(Lists.get_ids_for_flows_triggered_by_list))
+        Lists.get_flow_trigger_ids_for_list=self._page_cursor_update(self.retry_logic(Lists.get_flow_trigger_ids_for_list))
         Lists.get_list_relationships_flow_triggers=self._page_cursor_update(self.retry_logic(Lists.get_list_relationships_flow_triggers))
-        Lists.get_list_tags=self._page_cursor_update(self.retry_logic(Lists.get_list_tags))
+        Lists.get_list=self._page_cursor_update(self.retry_logic(Lists.get_list))
         Lists.get_lists=self._page_cursor_update(self.retry_logic(Lists.get_lists))
         Lists.get_profile_ids_for_list=self._page_cursor_update(self.retry_logic(Lists.get_profile_ids_for_list))
         Lists.get_list_relationships_profiles=self._page_cursor_update(self.retry_logic(Lists.get_list_relationships_profiles))
+        Lists.get_profiles_for_list=self._page_cursor_update(self.retry_logic(Lists.get_profiles_for_list))
+        Lists.get_list_profiles=self._page_cursor_update(self.retry_logic(Lists.get_list_profiles))
         Lists.get_tag_ids_for_list=self._page_cursor_update(self.retry_logic(Lists.get_tag_ids_for_list))
         Lists.get_list_relationships_tags=self._page_cursor_update(self.retry_logic(Lists.get_list_relationships_tags))
+        Lists.get_tags_for_list=self._page_cursor_update(self.retry_logic(Lists.get_tags_for_list))
+        Lists.get_list_tags=self._page_cursor_update(self.retry_logic(Lists.get_list_tags))
+        Lists.remove_profiles_from_list=self._page_cursor_update(self.retry_logic(Lists.remove_profiles_from_list))
+        Lists.delete_list_relationships=self._page_cursor_update(self.retry_logic(Lists.delete_list_relationships))
+        Lists.delete_list_relationships_profiles=self._page_cursor_update(self.retry_logic(Lists.delete_list_relationships_profiles))
         Lists.update_list=self._page_cursor_update(self.retry_logic(Lists.update_list))
         
         return Lists
@@ -439,20 +456,26 @@ class KlaviyoAPI:
         ## Adding Metrics to Client
         Metrics=metrics_api.MetricsApi(self.api_client)
 
-        ## Applying tenacity retry decorator to each endpoint in Metrics
-        Metrics.get_metric=self._page_cursor_update(self.retry_logic(Metrics.get_metric))
+        ## Applying retry decorator to each endpoint in Metrics
+        Metrics.get_flows_triggered_by_metric=self._page_cursor_update(self.retry_logic(Metrics.get_flows_triggered_by_metric))
+        Metrics.get_flow_triggers_for_metric=self._page_cursor_update(self.retry_logic(Metrics.get_flow_triggers_for_metric))
         Metrics.get_metric_flow_triggers=self._page_cursor_update(self.retry_logic(Metrics.get_metric_flow_triggers))
+        Metrics.get_ids_for_flows_triggered_by_metric=self._page_cursor_update(self.retry_logic(Metrics.get_ids_for_flows_triggered_by_metric))
+        Metrics.get_flow_trigger_ids_for_metric=self._page_cursor_update(self.retry_logic(Metrics.get_flow_trigger_ids_for_metric))
+        Metrics.get_metric_relationships_flow_triggers=self._page_cursor_update(self.retry_logic(Metrics.get_metric_relationships_flow_triggers))
+        Metrics.get_metric=self._page_cursor_update(self.retry_logic(Metrics.get_metric))
         Metrics.get_metric_for_metric_property=self._page_cursor_update(self.retry_logic(Metrics.get_metric_for_metric_property))
         Metrics.get_metric_property_metric=self._page_cursor_update(self.retry_logic(Metrics.get_metric_property_metric))
         Metrics.get_metric_id_for_metric_property=self._page_cursor_update(self.retry_logic(Metrics.get_metric_id_for_metric_property))
         Metrics.get_metric_property_relationships_metric=self._page_cursor_update(self.retry_logic(Metrics.get_metric_property_relationships_metric))
         Metrics.get_metric_property=self._page_cursor_update(self.retry_logic(Metrics.get_metric_property))
-        Metrics.get_metric_relationships_flow_triggers=self._page_cursor_update(self.retry_logic(Metrics.get_metric_relationships_flow_triggers))
         Metrics.get_metrics=self._page_cursor_update(self.retry_logic(Metrics.get_metrics))
         Metrics.get_properties_for_metric=self._page_cursor_update(self.retry_logic(Metrics.get_properties_for_metric))
         Metrics.get_metric_metric_properties=self._page_cursor_update(self.retry_logic(Metrics.get_metric_metric_properties))
+        Metrics.get_metric_properties=self._page_cursor_update(self.retry_logic(Metrics.get_metric_properties))
         Metrics.get_property_ids_for_metric=self._page_cursor_update(self.retry_logic(Metrics.get_property_ids_for_metric))
         Metrics.get_metric_relationships_metric_properties=self._page_cursor_update(self.retry_logic(Metrics.get_metric_relationships_metric_properties))
+        Metrics.get_metric_relationships_properties=self._page_cursor_update(self.retry_logic(Metrics.get_metric_relationships_properties))
         Metrics.query_metric_aggregates=self._page_cursor_update(self.retry_logic(Metrics.query_metric_aggregates))
         Metrics.create_metric_aggregate=self._page_cursor_update(self.retry_logic(Metrics.create_metric_aggregate))
         
@@ -465,7 +488,10 @@ class KlaviyoAPI:
         ## Adding Profiles to Client
         Profiles=profiles_api.ProfilesApi(self.api_client)
 
-        ## Applying tenacity retry decorator to each endpoint in Profiles
+        ## Applying retry decorator to each endpoint in Profiles
+        Profiles.bulk_import_profiles=self._page_cursor_update(self.retry_logic(Profiles.bulk_import_profiles))
+        Profiles.spawn_bulk_profile_import_job=self._page_cursor_update(self.retry_logic(Profiles.spawn_bulk_profile_import_job))
+        Profiles.create_profile_bulk_import_job=self._page_cursor_update(self.retry_logic(Profiles.create_profile_bulk_import_job))
         Profiles.bulk_subscribe_profiles=self._page_cursor_update(self.retry_logic(Profiles.bulk_subscribe_profiles))
         Profiles.subscribe_profiles=self._page_cursor_update(self.retry_logic(Profiles.subscribe_profiles))
         Profiles.create_profile_subscription_bulk_create_job=self._page_cursor_update(self.retry_logic(Profiles.create_profile_subscription_bulk_create_job))
@@ -498,12 +524,15 @@ class KlaviyoAPI:
         Profiles.get_profile_suppression_bulk_delete_jobs=self._page_cursor_update(self.retry_logic(Profiles.get_profile_suppression_bulk_delete_jobs))
         Profiles.get_errors_for_bulk_import_profiles_job=self._page_cursor_update(self.retry_logic(Profiles.get_errors_for_bulk_import_profiles_job))
         Profiles.get_bulk_profile_import_job_import_errors=self._page_cursor_update(self.retry_logic(Profiles.get_bulk_profile_import_job_import_errors))
+        Profiles.get_import_errors_for_profile_bulk_import_job=self._page_cursor_update(self.retry_logic(Profiles.get_import_errors_for_profile_bulk_import_job))
         Profiles.get_profile_bulk_import_job_import_errors=self._page_cursor_update(self.retry_logic(Profiles.get_profile_bulk_import_job_import_errors))
         Profiles.get_list_for_bulk_import_profiles_job=self._page_cursor_update(self.retry_logic(Profiles.get_list_for_bulk_import_profiles_job))
         Profiles.get_bulk_profile_import_job_lists=self._page_cursor_update(self.retry_logic(Profiles.get_bulk_profile_import_job_lists))
+        Profiles.get_lists_for_profile_bulk_import_job=self._page_cursor_update(self.retry_logic(Profiles.get_lists_for_profile_bulk_import_job))
         Profiles.get_profile_bulk_import_job_lists=self._page_cursor_update(self.retry_logic(Profiles.get_profile_bulk_import_job_lists))
         Profiles.get_list_ids_for_bulk_import_profiles_job=self._page_cursor_update(self.retry_logic(Profiles.get_list_ids_for_bulk_import_profiles_job))
         Profiles.get_bulk_profile_import_job_relationships_lists=self._page_cursor_update(self.retry_logic(Profiles.get_bulk_profile_import_job_relationships_lists))
+        Profiles.get_list_ids_for_profile_bulk_import_job=self._page_cursor_update(self.retry_logic(Profiles.get_list_ids_for_profile_bulk_import_job))
         Profiles.get_profile_bulk_import_job_relationships_lists=self._page_cursor_update(self.retry_logic(Profiles.get_profile_bulk_import_job_relationships_lists))
         Profiles.get_list_ids_for_profile=self._page_cursor_update(self.retry_logic(Profiles.get_list_ids_for_profile))
         Profiles.get_profile_relationships_lists=self._page_cursor_update(self.retry_logic(Profiles.get_profile_relationships_lists))
@@ -513,19 +542,18 @@ class KlaviyoAPI:
         Profiles.get_profile_ids_for_bulk_import_profiles_job=self._page_cursor_update(self.retry_logic(Profiles.get_profile_ids_for_bulk_import_profiles_job))
         Profiles.get_bulk_profile_import_job_relationships_profiles=self._page_cursor_update(self.retry_logic(Profiles.get_bulk_profile_import_job_relationships_profiles))
         Profiles.get_profile_bulk_import_job_relationships_profiles=self._page_cursor_update(self.retry_logic(Profiles.get_profile_bulk_import_job_relationships_profiles))
+        Profiles.get_profile_ids_for_profile_bulk_import_job=self._page_cursor_update(self.retry_logic(Profiles.get_profile_ids_for_profile_bulk_import_job))
         Profiles.get_profiles=self._page_cursor_update(self.retry_logic(Profiles.get_profiles))
         Profiles.get_profiles_for_bulk_import_profiles_job=self._page_cursor_update(self.retry_logic(Profiles.get_profiles_for_bulk_import_profiles_job))
         Profiles.get_bulk_profile_import_job_profiles=self._page_cursor_update(self.retry_logic(Profiles.get_bulk_profile_import_job_profiles))
         Profiles.get_profile_bulk_import_job_profiles=self._page_cursor_update(self.retry_logic(Profiles.get_profile_bulk_import_job_profiles))
+        Profiles.get_profiles_for_profile_bulk_import_job=self._page_cursor_update(self.retry_logic(Profiles.get_profiles_for_profile_bulk_import_job))
         Profiles.get_segment_ids_for_profile=self._page_cursor_update(self.retry_logic(Profiles.get_segment_ids_for_profile))
         Profiles.get_profile_relationships_segments=self._page_cursor_update(self.retry_logic(Profiles.get_profile_relationships_segments))
         Profiles.get_segments_for_profile=self._page_cursor_update(self.retry_logic(Profiles.get_segments_for_profile))
         Profiles.get_profile_segments=self._page_cursor_update(self.retry_logic(Profiles.get_profile_segments))
         Profiles.merge_profiles=self._page_cursor_update(self.retry_logic(Profiles.merge_profiles))
         Profiles.create_profile_merge=self._page_cursor_update(self.retry_logic(Profiles.create_profile_merge))
-        Profiles.spawn_bulk_profile_import_job=self._page_cursor_update(self.retry_logic(Profiles.spawn_bulk_profile_import_job))
-        Profiles.bulk_import_profiles=self._page_cursor_update(self.retry_logic(Profiles.bulk_import_profiles))
-        Profiles.create_profile_bulk_import_job=self._page_cursor_update(self.retry_logic(Profiles.create_profile_bulk_import_job))
         Profiles.update_profile=self._page_cursor_update(self.retry_logic(Profiles.update_profile))
         
         return Profiles
@@ -537,21 +565,28 @@ class KlaviyoAPI:
         ## Adding Reporting to Client
         Reporting=reporting_api.ReportingApi(self.api_client)
 
-        ## Applying tenacity retry decorator to each endpoint in Reporting
+        ## Applying retry decorator to each endpoint in Reporting
         Reporting.query_campaign_values=self._page_cursor_update(self.retry_logic(Reporting.query_campaign_values))
         Reporting.create_campaign_value_report=self._page_cursor_update(self.retry_logic(Reporting.create_campaign_value_report))
+        Reporting.create_campaign_values_report=self._page_cursor_update(self.retry_logic(Reporting.create_campaign_values_report))
         Reporting.query_flow_series=self._page_cursor_update(self.retry_logic(Reporting.query_flow_series))
         Reporting.create_flow_sery_report=self._page_cursor_update(self.retry_logic(Reporting.create_flow_sery_report))
+        Reporting.create_flow_series_report=self._page_cursor_update(self.retry_logic(Reporting.create_flow_series_report))
         Reporting.query_flow_values=self._page_cursor_update(self.retry_logic(Reporting.query_flow_values))
         Reporting.create_flow_value_report=self._page_cursor_update(self.retry_logic(Reporting.create_flow_value_report))
+        Reporting.create_flow_values_report=self._page_cursor_update(self.retry_logic(Reporting.create_flow_values_report))
         Reporting.query_form_series=self._page_cursor_update(self.retry_logic(Reporting.query_form_series))
         Reporting.create_form_sery_report=self._page_cursor_update(self.retry_logic(Reporting.create_form_sery_report))
+        Reporting.create_form_series_report=self._page_cursor_update(self.retry_logic(Reporting.create_form_series_report))
         Reporting.query_form_values=self._page_cursor_update(self.retry_logic(Reporting.query_form_values))
         Reporting.create_form_value_report=self._page_cursor_update(self.retry_logic(Reporting.create_form_value_report))
+        Reporting.create_form_values_report=self._page_cursor_update(self.retry_logic(Reporting.create_form_values_report))
         Reporting.query_segment_series=self._page_cursor_update(self.retry_logic(Reporting.query_segment_series))
         Reporting.create_segment_sery_report=self._page_cursor_update(self.retry_logic(Reporting.create_segment_sery_report))
+        Reporting.create_segment_series_report=self._page_cursor_update(self.retry_logic(Reporting.create_segment_series_report))
         Reporting.query_segment_values=self._page_cursor_update(self.retry_logic(Reporting.query_segment_values))
         Reporting.create_segment_value_report=self._page_cursor_update(self.retry_logic(Reporting.create_segment_value_report))
+        Reporting.create_segment_values_report=self._page_cursor_update(self.retry_logic(Reporting.create_segment_values_report))
         
         return Reporting
     
@@ -562,7 +597,7 @@ class KlaviyoAPI:
         ## Adding Reviews to Client
         Reviews=reviews_api.ReviewsApi(self.api_client)
 
-        ## Applying tenacity retry decorator to each endpoint in Reviews
+        ## Applying retry decorator to each endpoint in Reviews
         Reviews.get_review=self._page_cursor_update(self.retry_logic(Reviews.get_review))
         Reviews.get_reviews=self._page_cursor_update(self.retry_logic(Reviews.get_reviews))
         
@@ -575,16 +610,20 @@ class KlaviyoAPI:
         ## Adding Segments to Client
         Segments=segments_api.SegmentsApi(self.api_client)
 
-        ## Applying tenacity retry decorator to each endpoint in Segments
+        ## Applying retry decorator to each endpoint in Segments
         Segments.create_segment=self._page_cursor_update(self.retry_logic(Segments.create_segment))
         Segments.delete_segment=self._page_cursor_update(self.retry_logic(Segments.delete_segment))
+        Segments.get_flows_triggered_by_segment=self._page_cursor_update(self.retry_logic(Segments.get_flows_triggered_by_segment))
+        Segments.get_flow_triggers_for_segment=self._page_cursor_update(self.retry_logic(Segments.get_flow_triggers_for_segment))
+        Segments.get_segment_flow_triggers=self._page_cursor_update(self.retry_logic(Segments.get_segment_flow_triggers))
+        Segments.get_ids_for_flows_triggered_by_segment=self._page_cursor_update(self.retry_logic(Segments.get_ids_for_flows_triggered_by_segment))
+        Segments.get_flow_trigger_ids_for_segment=self._page_cursor_update(self.retry_logic(Segments.get_flow_trigger_ids_for_segment))
+        Segments.get_segment_relationships_flow_triggers=self._page_cursor_update(self.retry_logic(Segments.get_segment_relationships_flow_triggers))
         Segments.get_profile_ids_for_segment=self._page_cursor_update(self.retry_logic(Segments.get_profile_ids_for_segment))
         Segments.get_segment_relationships_profiles=self._page_cursor_update(self.retry_logic(Segments.get_segment_relationships_profiles))
         Segments.get_profiles_for_segment=self._page_cursor_update(self.retry_logic(Segments.get_profiles_for_segment))
         Segments.get_segment_profiles=self._page_cursor_update(self.retry_logic(Segments.get_segment_profiles))
         Segments.get_segment=self._page_cursor_update(self.retry_logic(Segments.get_segment))
-        Segments.get_segment_flow_triggers=self._page_cursor_update(self.retry_logic(Segments.get_segment_flow_triggers))
-        Segments.get_segment_relationships_flow_triggers=self._page_cursor_update(self.retry_logic(Segments.get_segment_relationships_flow_triggers))
         Segments.get_segments=self._page_cursor_update(self.retry_logic(Segments.get_segments))
         Segments.get_tag_ids_for_segment=self._page_cursor_update(self.retry_logic(Segments.get_tag_ids_for_segment))
         Segments.get_segment_relationships_tags=self._page_cursor_update(self.retry_logic(Segments.get_segment_relationships_tags))
@@ -601,7 +640,7 @@ class KlaviyoAPI:
         ## Adding Tags to Client
         Tags=tags_api.TagsApi(self.api_client)
 
-        ## Applying tenacity retry decorator to each endpoint in Tags
+        ## Applying retry decorator to each endpoint in Tags
         Tags.create_tag=self._page_cursor_update(self.retry_logic(Tags.create_tag))
         Tags.create_tag_group=self._page_cursor_update(self.retry_logic(Tags.create_tag_group))
         Tags.delete_tag=self._page_cursor_update(self.retry_logic(Tags.delete_tag))
@@ -618,8 +657,11 @@ class KlaviyoAPI:
         Tags.get_tag_group=self._page_cursor_update(self.retry_logic(Tags.get_tag_group))
         Tags.get_tag_group_for_tag=self._page_cursor_update(self.retry_logic(Tags.get_tag_group_for_tag))
         Tags.get_tag_tag_group=self._page_cursor_update(self.retry_logic(Tags.get_tag_tag_group))
+        Tags.get_group_for_tag=self._page_cursor_update(self.retry_logic(Tags.get_group_for_tag))
         Tags.get_tag_group_id_for_tag=self._page_cursor_update(self.retry_logic(Tags.get_tag_group_id_for_tag))
         Tags.get_tag_relationships_tag_group=self._page_cursor_update(self.retry_logic(Tags.get_tag_relationships_tag_group))
+        Tags.get_group_id_for_tag=self._page_cursor_update(self.retry_logic(Tags.get_group_id_for_tag))
+        Tags.get_tag_relationships_group=self._page_cursor_update(self.retry_logic(Tags.get_tag_relationships_group))
         Tags.get_tag_groups=self._page_cursor_update(self.retry_logic(Tags.get_tag_groups))
         Tags.get_tag_ids_for_tag_group=self._page_cursor_update(self.retry_logic(Tags.get_tag_ids_for_tag_group))
         Tags.get_tag_group_relationships_tags=self._page_cursor_update(self.retry_logic(Tags.get_tag_group_relationships_tags))
@@ -628,24 +670,32 @@ class KlaviyoAPI:
         Tags.get_tag_group_tags=self._page_cursor_update(self.retry_logic(Tags.get_tag_group_tags))
         Tags.remove_tag_from_campaigns=self._page_cursor_update(self.retry_logic(Tags.remove_tag_from_campaigns))
         Tags.delete_tag_relationships_campaigns=self._page_cursor_update(self.retry_logic(Tags.delete_tag_relationships_campaigns))
+        Tags.remove_campaigns_from_tag=self._page_cursor_update(self.retry_logic(Tags.remove_campaigns_from_tag))
         Tags.remove_tag_from_flows=self._page_cursor_update(self.retry_logic(Tags.remove_tag_from_flows))
         Tags.delete_tag_relationships_flows=self._page_cursor_update(self.retry_logic(Tags.delete_tag_relationships_flows))
+        Tags.remove_flows_from_tag=self._page_cursor_update(self.retry_logic(Tags.remove_flows_from_tag))
         Tags.remove_tag_from_lists=self._page_cursor_update(self.retry_logic(Tags.remove_tag_from_lists))
         Tags.delete_tag_relationships_lists=self._page_cursor_update(self.retry_logic(Tags.delete_tag_relationships_lists))
+        Tags.remove_lists_from_tag=self._page_cursor_update(self.retry_logic(Tags.remove_lists_from_tag))
         Tags.remove_tag_from_segments=self._page_cursor_update(self.retry_logic(Tags.remove_tag_from_segments))
         Tags.delete_tag_relationships_segments=self._page_cursor_update(self.retry_logic(Tags.delete_tag_relationships_segments))
+        Tags.remove_segments_from_tag=self._page_cursor_update(self.retry_logic(Tags.remove_segments_from_tag))
         Tags.tag_campaigns=self._page_cursor_update(self.retry_logic(Tags.tag_campaigns))
-        Tags.create_tag_relationships_campaigns=self._page_cursor_update(self.retry_logic(Tags.create_tag_relationships_campaigns))
         Tags.create_tag_relationships_campaign=self._page_cursor_update(self.retry_logic(Tags.create_tag_relationships_campaign))
+        Tags.add_campaigns_to_tag=self._page_cursor_update(self.retry_logic(Tags.add_campaigns_to_tag))
+        Tags.create_tag_relationships_campaigns=self._page_cursor_update(self.retry_logic(Tags.create_tag_relationships_campaigns))
         Tags.tag_flows=self._page_cursor_update(self.retry_logic(Tags.tag_flows))
-        Tags.create_tag_relationships_flows=self._page_cursor_update(self.retry_logic(Tags.create_tag_relationships_flows))
         Tags.create_tag_relationships_flow=self._page_cursor_update(self.retry_logic(Tags.create_tag_relationships_flow))
+        Tags.add_flows_to_tag=self._page_cursor_update(self.retry_logic(Tags.add_flows_to_tag))
+        Tags.create_tag_relationships_flows=self._page_cursor_update(self.retry_logic(Tags.create_tag_relationships_flows))
         Tags.tag_lists=self._page_cursor_update(self.retry_logic(Tags.tag_lists))
-        Tags.create_tag_relationships_lists=self._page_cursor_update(self.retry_logic(Tags.create_tag_relationships_lists))
         Tags.create_tag_relationships_list=self._page_cursor_update(self.retry_logic(Tags.create_tag_relationships_list))
+        Tags.add_lists_to_tag=self._page_cursor_update(self.retry_logic(Tags.add_lists_to_tag))
+        Tags.create_tag_relationships_lists=self._page_cursor_update(self.retry_logic(Tags.create_tag_relationships_lists))
         Tags.tag_segments=self._page_cursor_update(self.retry_logic(Tags.tag_segments))
-        Tags.create_tag_relationships_segments=self._page_cursor_update(self.retry_logic(Tags.create_tag_relationships_segments))
         Tags.create_tag_relationships_segment=self._page_cursor_update(self.retry_logic(Tags.create_tag_relationships_segment))
+        Tags.add_segments_to_tag=self._page_cursor_update(self.retry_logic(Tags.add_segments_to_tag))
+        Tags.create_tag_relationships_segments=self._page_cursor_update(self.retry_logic(Tags.create_tag_relationships_segments))
         Tags.update_tag=self._page_cursor_update(self.retry_logic(Tags.update_tag))
         Tags.update_tag_group=self._page_cursor_update(self.retry_logic(Tags.update_tag_group))
         
@@ -658,7 +708,7 @@ class KlaviyoAPI:
         ## Adding Templates to Client
         Templates=templates_api.TemplatesApi(self.api_client)
 
-        ## Applying tenacity retry decorator to each endpoint in Templates
+        ## Applying retry decorator to each endpoint in Templates
         Templates.clone_template=self._page_cursor_update(self.retry_logic(Templates.clone_template))
         Templates.create_template_clone=self._page_cursor_update(self.retry_logic(Templates.create_template_clone))
         Templates.create_template=self._page_cursor_update(self.retry_logic(Templates.create_template))
@@ -687,7 +737,7 @@ class KlaviyoAPI:
         ## Adding Tracking_Settings to Client
         Tracking_Settings=tracking_settings_api.TrackingSettingsApi(self.api_client)
 
-        ## Applying tenacity retry decorator to each endpoint in Tracking_Settings
+        ## Applying retry decorator to each endpoint in Tracking_Settings
         Tracking_Settings.get_tracking_setting=self._page_cursor_update(self.retry_logic(Tracking_Settings.get_tracking_setting))
         Tracking_Settings.get_tracking_settings=self._page_cursor_update(self.retry_logic(Tracking_Settings.get_tracking_settings))
         Tracking_Settings.update_tracking_setting=self._page_cursor_update(self.retry_logic(Tracking_Settings.update_tracking_setting))
@@ -701,7 +751,7 @@ class KlaviyoAPI:
         ## Adding Webhooks to Client
         Webhooks=webhooks_api.WebhooksApi(self.api_client)
 
-        ## Applying tenacity retry decorator to each endpoint in Webhooks
+        ## Applying retry decorator to each endpoint in Webhooks
         Webhooks.create_webhook=self._page_cursor_update(self.retry_logic(Webhooks.create_webhook))
         Webhooks.delete_webhook=self._page_cursor_update(self.retry_logic(Webhooks.delete_webhook))
         Webhooks.get_webhook=self._page_cursor_update(self.retry_logic(Webhooks.get_webhook))
@@ -712,6 +762,7 @@ class KlaviyoAPI:
         
         return Webhooks
     
+
     @classmethod
     def _page_cursor_update(cls, func: Callable, *args, **kwargs) -> Callable: 
         def _wrapped_func(*args, **kwargs):
@@ -732,4 +783,9 @@ class KlaviyoAPI:
                         page_cursor = unquote(page_cursor)
                         kwargs['page_cursor'] = page_cursor   
             return func(*args,**kwargs)
+        return _wrapped_func
+
+    def retry_logic(self, func: Callable, *args, **kwargs) -> Callable:
+        def _wrapped_func(*args, **kwargs):
+            return self.retry_wrapper.with_retry(func, *args, **kwargs)
         return _wrapped_func

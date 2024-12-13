@@ -18,19 +18,20 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List
-from openapi_client.models.metric_property_enum import MetricPropertyEnum
+from pydantic import BaseModel, ConfigDict
+from typing import Any, ClassVar, Dict, List, Optional
+from openapi_client.models.email_unsubscription_parameters import EmailUnsubscriptionParameters
+from openapi_client.models.sms_unsubscription_parameters import SMSUnsubscriptionParameters
 from typing import Optional, Set
 from typing_extensions import Self
 
-class GetMetricRelationshipMetricPropertyResponseCollectionDataInner(BaseModel):
+class UnsubscriptionChannels(BaseModel):
     """
-    GetMetricRelationshipMetricPropertyResponseCollectionDataInner
+    UnsubscriptionChannels
     """ # noqa: E501
-    type: MetricPropertyEnum
-    id: StrictStr = Field(description="Related Metric Property ID")
-    __properties: ClassVar[List[str]] = ["type", "id"]
+    email: Optional[EmailUnsubscriptionParameters] = None
+    sms: Optional[SMSUnsubscriptionParameters] = None
+    __properties: ClassVar[List[str]] = ["email", "sms"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -50,7 +51,7 @@ class GetMetricRelationshipMetricPropertyResponseCollectionDataInner(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of GetMetricRelationshipMetricPropertyResponseCollectionDataInner from a JSON string"""
+        """Create an instance of UnsubscriptionChannels from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -71,11 +72,17 @@ class GetMetricRelationshipMetricPropertyResponseCollectionDataInner(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of email
+        if self.email:
+            _dict['email'] = self.email.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of sms
+        if self.sms:
+            _dict['sms'] = self.sms.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of GetMetricRelationshipMetricPropertyResponseCollectionDataInner from a dict"""
+        """Create an instance of UnsubscriptionChannels from a dict"""
         if obj is None:
             return None
 
@@ -83,8 +90,8 @@ class GetMetricRelationshipMetricPropertyResponseCollectionDataInner(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "type": obj.get("type"),
-            "id": obj.get("id")
+            "email": EmailUnsubscriptionParameters.from_dict(obj["email"]) if obj.get("email") is not None else None,
+            "sms": SMSUnsubscriptionParameters.from_dict(obj["sms"]) if obj.get("sms") is not None else None
         })
         return _obj
 

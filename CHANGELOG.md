@@ -7,6 +7,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 NOTE: For more granular API-specific changes, please see our [API Changelog](https://developers.klaviyo.com/en/docs/changelog_)
 
+## [16.0.0] - revision 2024-10-15
+### Changed
+- **Breaking:** New `RetryWithExponentialBackoff` class for smart retries to replace the `tenacity` retry decorator that wraps each API method.
+- **Breaking:** Renamed models:
+  - `GetCampaignMessagesRelationshipListResponseCollection` -> `GetCampaignMessagesRelationshipsResponseCollection`
+  - `GetCampaignMessagesRelationshipListResponseCollectionDataInner` -> `GetCampaignMessagesRelationshipsResponseCollectionDataInner`
+  - `GetTagGroupTagRelationshipsResponseCollection` -> `GetTagGroupTagsRelationshipsResponseCollection`
+  - `GetTagGroupTagRelationshipsResponseCollectionDataInner` -> `GetListListResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsTagsDataInner`
+  - `GetTagTagGroupRelationshipsResponse` -> `GetTagGroupRelationshipResponse`
+  - `GetTagTagGroupRelationshipsResponseData` -> `GetTagResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsTagGroupData`
+  - `GetCouponCodeRelationshipCouponResponse` -> `GetCouponCodeCouponRelationshipResponse`
+  - `GetCouponCodeRelationshipCouponResponseData` -> `GetCouponCodeCouponRelationshipResponseData`
+  - `GetFlowMessageFlowActionRelationshipResponse` -> `GetFlowMessageActionRelationshipResponse`
+  - `GetMetricPropertyRelationshipMetricResponse` -> `GetMetricPropertyMetricRelationshipResponse`
+  - `GetMetricPropertyRelationshipMetricResponseData` -> `GetEventMetricRelationshipResponseData`
+  - `GetMetricRelationshipMetricPropertyResponseCollection` -> `GetMetricPropertiesRelationshipsResponseCollection`
+  - `GetMetricRelationshipMetricPropertyResponseCollectionDataInner` -> `GetMetricPropertiesRelationshipsResponseCollectionDataInner`
+  - `GetProfileImportJobListRelationshipsResponseCollection` -> `GetProfileBulkImportJobListsRelationshipsResponseCollection`
+
 ## [15.0.0] - 2024-10-15
 ### Added
 - Lazy imports (optional)

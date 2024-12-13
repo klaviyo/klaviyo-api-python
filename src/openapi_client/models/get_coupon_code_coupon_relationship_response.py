@@ -18,19 +18,18 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List
-from openapi_client.models.coupon_enum import CouponEnum
+from openapi_client.models.get_coupon_code_coupon_relationship_response_data import GetCouponCodeCouponRelationshipResponseData
 from typing import Optional, Set
 from typing_extensions import Self
 
-class GetCouponCodeRelationshipCouponResponseData(BaseModel):
+class GetCouponCodeCouponRelationshipResponse(BaseModel):
     """
-    GetCouponCodeRelationshipCouponResponseData
+    GetCouponCodeCouponRelationshipResponse
     """ # noqa: E501
-    type: CouponEnum
-    id: StrictStr = Field(description="The parent coupon ID for the given coupon code.")
-    __properties: ClassVar[List[str]] = ["type", "id"]
+    data: GetCouponCodeCouponRelationshipResponseData
+    __properties: ClassVar[List[str]] = ["data"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -50,7 +49,7 @@ class GetCouponCodeRelationshipCouponResponseData(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of GetCouponCodeRelationshipCouponResponseData from a JSON string"""
+        """Create an instance of GetCouponCodeCouponRelationshipResponse from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -71,11 +70,14 @@ class GetCouponCodeRelationshipCouponResponseData(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of data
+        if self.data:
+            _dict['data'] = self.data.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of GetCouponCodeRelationshipCouponResponseData from a dict"""
+        """Create an instance of GetCouponCodeCouponRelationshipResponse from a dict"""
         if obj is None:
             return None
 
@@ -83,8 +85,7 @@ class GetCouponCodeRelationshipCouponResponseData(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "type": obj.get("type"),
-            "id": obj.get("id")
+            "data": GetCouponCodeCouponRelationshipResponseData.from_dict(obj["data"]) if obj.get("data") is not None else None
         })
         return _obj
 

@@ -28,7 +28,7 @@ class TemplateCreateQueryResourceObjectAttributes(BaseModel):
     TemplateCreateQueryResourceObjectAttributes
     """ # noqa: E501
     name: Optional[StrictStr] = Field(description="The name of the template")
-    editor_type: Optional[StrictStr] = Field(description="Restricted to CODE")
+    editor_type: Optional[StrictStr] = Field(description="Restricted to CODE and USER_DRAGGABLE")
     html: Optional[StrictStr] = Field(default=None, description="The HTML contents of the template")
     text: Optional[StrictStr] = Field(default=None, description="The plaintext version of the template")
     __properties: ClassVar[List[str]] = ["name", "editor_type", "html", "text"]

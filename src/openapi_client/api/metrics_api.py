@@ -27,10 +27,10 @@ from typing import List, Optional
 from typing_extensions import Annotated
 from openapi_client.models.get_flow_response_collection import GetFlowResponseCollection
 from openapi_client.models.get_metric_flow_triggers_relationships_response_collection import GetMetricFlowTriggersRelationshipsResponseCollection
-from openapi_client.models.get_metric_property_relationship_metric_response import GetMetricPropertyRelationshipMetricResponse
+from openapi_client.models.get_metric_properties_relationships_response_collection import GetMetricPropertiesRelationshipsResponseCollection
+from openapi_client.models.get_metric_property_metric_relationship_response import GetMetricPropertyMetricRelationshipResponse
 from openapi_client.models.get_metric_property_response_collection import GetMetricPropertyResponseCollection
 from openapi_client.models.get_metric_property_response_compound_document import GetMetricPropertyResponseCompoundDocument
-from openapi_client.models.get_metric_relationship_metric_property_response_collection import GetMetricRelationshipMetricPropertyResponseCollection
 from openapi_client.models.get_metric_response import GetMetricResponse
 from openapi_client.models.get_metric_response_collection_compound_document import GetMetricResponseCollectionCompoundDocument
 from openapi_client.models.get_metric_response_compound_document import GetMetricResponseCompoundDocument
@@ -54,6 +54,689 @@ class MetricsApi(object):
         if api_client is None:
             api_client = ApiClient.get_default()
         self.api_client = api_client
+
+
+    @validate_call
+    def get_flows_triggered_by_metric(        
+        self,
+        id: StrictStr,
+        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sparse-fieldsets")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: StrictStr = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+        options: Dict[str, Any] = {},
+) ->  Union[GetFlowResponseCollection, Dict[str, object]]:
+        """Get Flows Triggered by Metric
+
+        Get all flows where the given metric is being used as the trigger.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `flows:read` `metrics:read`
+
+        :param id:  (required)
+        :type id: str
+        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sparse-fieldsets
+        :type fields_flow: List[str]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_flows_triggered_by_metric_serialize(
+            id=id,
+            fields_flow=fields_flow,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetFlowResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
+        }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
+        if _request_auth is not None:
+            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
+        ).data
+
+
+    # alias of get_flows_triggered_by_metric
+    get_flow_triggers_for_metric = get_flows_triggered_by_metric
+
+    # alias of get_flows_triggered_by_metric
+    get_metric_flow_triggers = get_flows_triggered_by_metric
+
+    @validate_call
+    def get_flows_triggered_by_metric_with_http_info(        
+        self,
+        id: StrictStr,
+        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sparse-fieldsets")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: StrictStr = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+        options: Dict[str, Any] = {},
+) -> ApiResponse[GetFlowResponseCollection]:
+        """Get Flows Triggered by Metric
+
+        Get all flows where the given metric is being used as the trigger.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `flows:read` `metrics:read`
+
+        :param id:  (required)
+        :type id: str
+        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sparse-fieldsets
+        :type fields_flow: List[str]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_flows_triggered_by_metric_serialize(
+            id=id,
+            fields_flow=fields_flow,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetFlowResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
+        }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
+        if _request_auth is not None:
+            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    # alias of `get_flows_triggered_by_metric_with_http_info`
+    get_flow_triggers_for_metric_with_http_info = get_flows_triggered_by_metric_with_http_info
+
+    # alias of `get_flows_triggered_by_metric_with_http_info`
+    get_metric_flow_triggers_with_http_info = get_flows_triggered_by_metric_with_http_info
+
+    @validate_call
+    def get_flows_triggered_by_metric_without_preload_content(
+        self,
+        id: StrictStr,
+        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sparse-fieldsets")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: StrictStr = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
+        """Get Flows Triggered by Metric
+
+        Get all flows where the given metric is being used as the trigger.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `flows:read` `metrics:read`
+
+        :param id:  (required)
+        :type id: str
+        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sparse-fieldsets
+        :type fields_flow: List[str]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_flows_triggered_by_metric_serialize(
+            id=id,
+            fields_flow=fields_flow,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetFlowResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
+        }
+        if _request_auth is not None:
+            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    # alias of `get_flows_triggered_by_metric_without_preload_content`
+    get_flow_triggers_for_metric_without_preload_content = get_flows_triggered_by_metric_without_preload_content
+
+    # alias of `get_flows_triggered_by_metric_without_preload_content`
+    get_metric_flow_triggers_without_preload_content = get_flows_triggered_by_metric_without_preload_content
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
+
+    def _get_flows_triggered_by_metric_serialize(
+        self,
+        id,
+        fields_flow,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+            'fields[flow]': 'csv',
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if id is not None:
+            _path_params['id'] = id
+        # process the query parameters
+        if fields_flow is not None:
+            
+            if isinstance(fields_flow, EnumMeta):
+                _query_params.append(('fields[flow]', fields_flow))
+            else:
+                _query_params.append(('fields[flow]', fields_flow))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/vnd.api+json'
+            ]
+        )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'Klaviyo-API-Key', 
+            'OAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/api/metrics/{id}/flow-triggers',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+    # alias of `_get_flows_triggered_by_metric_serialize`
+    _get_flow_triggers_for_metric_serialize = _get_flows_triggered_by_metric_serialize
+
+    # alias of `_get_flows_triggered_by_metric_serialize`
+    _get_metric_flow_triggers_serialize = _get_flows_triggered_by_metric_serialize
+
+
+
+    @validate_call
+    def get_ids_for_flows_triggered_by_metric(        
+        self,
+        id: StrictStr,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: StrictStr = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+        options: Dict[str, Any] = {},
+) ->  Union[GetMetricFlowTriggersRelationshipsResponseCollection, Dict[str, object]]:
+        """Get IDs for Flows Triggered by Metric
+
+        Get the IDs of all flows where the given metric is being used as the trigger.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `flows:read` `metrics:read`
+
+        :param id:  (required)
+        :type id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_ids_for_flows_triggered_by_metric_serialize(
+            id=id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetMetricFlowTriggersRelationshipsResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
+        }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
+        if _request_auth is not None:
+            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
+        ).data
+
+
+    # alias of get_ids_for_flows_triggered_by_metric
+    get_flow_trigger_ids_for_metric = get_ids_for_flows_triggered_by_metric
+
+    # alias of get_ids_for_flows_triggered_by_metric
+    get_metric_relationships_flow_triggers = get_ids_for_flows_triggered_by_metric
+
+    @validate_call
+    def get_ids_for_flows_triggered_by_metric_with_http_info(        
+        self,
+        id: StrictStr,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: StrictStr = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+        options: Dict[str, Any] = {},
+) -> ApiResponse[GetMetricFlowTriggersRelationshipsResponseCollection]:
+        """Get IDs for Flows Triggered by Metric
+
+        Get the IDs of all flows where the given metric is being used as the trigger.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `flows:read` `metrics:read`
+
+        :param id:  (required)
+        :type id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_ids_for_flows_triggered_by_metric_serialize(
+            id=id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetMetricFlowTriggersRelationshipsResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
+        }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
+        if _request_auth is not None:
+            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    # alias of `get_ids_for_flows_triggered_by_metric_with_http_info`
+    get_flow_trigger_ids_for_metric_with_http_info = get_ids_for_flows_triggered_by_metric_with_http_info
+
+    # alias of `get_ids_for_flows_triggered_by_metric_with_http_info`
+    get_metric_relationships_flow_triggers_with_http_info = get_ids_for_flows_triggered_by_metric_with_http_info
+
+    @validate_call
+    def get_ids_for_flows_triggered_by_metric_without_preload_content(
+        self,
+        id: StrictStr,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: StrictStr = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
+        """Get IDs for Flows Triggered by Metric
+
+        Get the IDs of all flows where the given metric is being used as the trigger.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `flows:read` `metrics:read`
+
+        :param id:  (required)
+        :type id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_ids_for_flows_triggered_by_metric_serialize(
+            id=id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetMetricFlowTriggersRelationshipsResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
+        }
+        if _request_auth is not None:
+            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    # alias of `get_ids_for_flows_triggered_by_metric_without_preload_content`
+    get_flow_trigger_ids_for_metric_without_preload_content = get_ids_for_flows_triggered_by_metric_without_preload_content
+
+    # alias of `get_ids_for_flows_triggered_by_metric_without_preload_content`
+    get_metric_relationships_flow_triggers_without_preload_content = get_ids_for_flows_triggered_by_metric_without_preload_content
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
+
+    def _get_ids_for_flows_triggered_by_metric_serialize(
+        self,
+        id,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if id is not None:
+            _path_params['id'] = id
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/vnd.api+json'
+            ]
+        )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'Klaviyo-API-Key', 
+            'OAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/api/metrics/{id}/relationships/flow-triggers',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+    # alias of `_get_ids_for_flows_triggered_by_metric_serialize`
+    _get_flow_trigger_ids_for_metric_serialize = _get_ids_for_flows_triggered_by_metric_serialize
+
+    # alias of `_get_ids_for_flows_triggered_by_metric_serialize`
+    _get_metric_relationships_flow_triggers_serialize = _get_ids_for_flows_triggered_by_metric_serialize
+
 
 
     @validate_call
@@ -427,334 +1110,6 @@ class MetricsApi(object):
 
 
     @validate_call
-    def get_metric_flow_triggers(        
-        self,
-        id: StrictStr,
-        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sparse-fieldsets")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: StrictStr = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-        options: Dict[str, Any] = {},
-) ->  Union[GetFlowResponseCollection, Dict[str, object]]:
-        """Get Metric Flow Triggers
-
-        Get all flows where the given metric is being used as the trigger.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `flows:read` `metrics:read`
-
-        :param id:  (required)
-        :type id: str
-        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sparse-fieldsets
-        :type fields_flow: List[str]
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_metric_flow_triggers_serialize(
-            id=id,
-            fields_flow=fields_flow,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetFlowResponseCollection,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
-        }
-        frame = inspect.currentframe()
-        args, _, _, values = inspect.getargvalues(frame)
-        uses_sparse_fields = self._uses_sparse_fields(args, values)
-
-        if _request_auth is not None:
-            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
-
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-
-        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
-            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
-
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-            exclude_none=uses_sparse_fields
-        ).data
-
-
-    @validate_call
-    def get_metric_flow_triggers_with_http_info(        
-        self,
-        id: StrictStr,
-        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sparse-fieldsets")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: StrictStr = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-        options: Dict[str, Any] = {},
-) -> ApiResponse[GetFlowResponseCollection]:
-        """Get Metric Flow Triggers
-
-        Get all flows where the given metric is being used as the trigger.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `flows:read` `metrics:read`
-
-        :param id:  (required)
-        :type id: str
-        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sparse-fieldsets
-        :type fields_flow: List[str]
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_metric_flow_triggers_serialize(
-            id=id,
-            fields_flow=fields_flow,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetFlowResponseCollection,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
-        }
-        frame = inspect.currentframe()
-        args, _, _, values = inspect.getargvalues(frame)
-        uses_sparse_fields = self._uses_sparse_fields(args, values)
-
-        if _request_auth is not None:
-            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
-
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
-            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
-
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def get_metric_flow_triggers_without_preload_content(
-        self,
-        id: StrictStr,
-        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sparse-fieldsets")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: StrictStr = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
-        """Get Metric Flow Triggers
-
-        Get all flows where the given metric is being used as the trigger.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `flows:read` `metrics:read`
-
-        :param id:  (required)
-        :type id: str
-        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sparse-fieldsets
-        :type fields_flow: List[str]
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_metric_flow_triggers_serialize(
-            id=id,
-            fields_flow=fields_flow,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetFlowResponseCollection,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
-        }
-        if _request_auth is not None:
-            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _uses_sparse_fields(self, args, values) -> Set[str]:
-        for arg in args:
-             if arg.startswith('fields'):
-                 if values[arg] is not None:
-                      return True
-        return False
-
-
-    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
-        for key, value in response_types_map.items():
-            if key.startswith('2'):
-                if value is not None:
-                    # Replace the Type for this key with a Dict type
-                    response_types_map[key] = 'Dict[str, object]'
-
-        return response_types_map
-
-    def _get_metric_flow_triggers_serialize(
-        self,
-        id,
-        fields_flow,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-            'fields[flow]': 'csv',
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if id is not None:
-            _path_params['id'] = id
-        # process the query parameters
-        if fields_flow is not None:
-            
-            if isinstance(fields_flow, EnumMeta):
-                _query_params.append(('fields[flow]', fields_flow))
-            else:
-                _query_params.append(('fields[flow]', fields_flow))
-            
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/vnd.api+json'
-            ]
-        )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'Klaviyo-API-Key', 
-            'OAuth'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/metrics/{id}/flow-triggers',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
     def get_metric_for_metric_property(        
         self,
         id: Annotated[StrictStr, Field(description="The ID of the metric property")],
@@ -1111,7 +1466,7 @@ class MetricsApi(object):
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
         options: Dict[str, Any] = {},
-) ->  Union[GetMetricPropertyRelationshipMetricResponse, Dict[str, object]]:
+) ->  Union[GetMetricPropertyMetricRelationshipResponse, Dict[str, object]]:
         """Get Metric ID for Metric Property
 
         Get the ID of the metric for the given metric property.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `metrics:read`
@@ -1149,7 +1504,7 @@ class MetricsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetMetricPropertyRelationshipMetricResponse,
+            '200': GetMetricPropertyMetricRelationshipResponse,
             '4XX': GetAccounts4XXResponse,
             '5XX': GetAccounts4XXResponse,
         }
@@ -1196,7 +1551,7 @@ class MetricsApi(object):
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
         options: Dict[str, Any] = {},
-) -> ApiResponse[GetMetricPropertyRelationshipMetricResponse]:
+) -> ApiResponse[GetMetricPropertyMetricRelationshipResponse]:
         """Get Metric ID for Metric Property
 
         Get the ID of the metric for the given metric property.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `metrics:read`
@@ -1234,7 +1589,7 @@ class MetricsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetMetricPropertyRelationshipMetricResponse,
+            '200': GetMetricPropertyMetricRelationshipResponse,
             '4XX': GetAccounts4XXResponse,
             '5XX': GetAccounts4XXResponse,
         }
@@ -1315,7 +1670,7 @@ class MetricsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetMetricPropertyRelationshipMetricResponse,
+            '200': GetMetricPropertyMetricRelationshipResponse,
             '4XX': GetAccounts4XXResponse,
             '5XX': GetAccounts4XXResponse,
         }
@@ -1789,313 +2144,6 @@ class MetricsApi(object):
         return self.api_client.param_serialize(
             method='GET',
             resource_path='/api/metric-properties/{id}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def get_metric_relationships_flow_triggers(        
-        self,
-        id: StrictStr,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: StrictStr = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-        options: Dict[str, Any] = {},
-) ->  Union[GetMetricFlowTriggersRelationshipsResponseCollection, Dict[str, object]]:
-        """Get Metric Relationships Flow Triggers
-
-        Get all flows where the given metric is being used as the trigger.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `flows:read` `metrics:read`
-
-        :param id:  (required)
-        :type id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_metric_relationships_flow_triggers_serialize(
-            id=id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetMetricFlowTriggersRelationshipsResponseCollection,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
-        }
-        frame = inspect.currentframe()
-        args, _, _, values = inspect.getargvalues(frame)
-        uses_sparse_fields = self._uses_sparse_fields(args, values)
-
-        if _request_auth is not None:
-            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
-
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-
-        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
-            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
-
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-            exclude_none=uses_sparse_fields
-        ).data
-
-
-    @validate_call
-    def get_metric_relationships_flow_triggers_with_http_info(        
-        self,
-        id: StrictStr,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: StrictStr = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-        options: Dict[str, Any] = {},
-) -> ApiResponse[GetMetricFlowTriggersRelationshipsResponseCollection]:
-        """Get Metric Relationships Flow Triggers
-
-        Get all flows where the given metric is being used as the trigger.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `flows:read` `metrics:read`
-
-        :param id:  (required)
-        :type id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_metric_relationships_flow_triggers_serialize(
-            id=id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetMetricFlowTriggersRelationshipsResponseCollection,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
-        }
-        frame = inspect.currentframe()
-        args, _, _, values = inspect.getargvalues(frame)
-        uses_sparse_fields = self._uses_sparse_fields(args, values)
-
-        if _request_auth is not None:
-            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
-
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
-            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
-
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def get_metric_relationships_flow_triggers_without_preload_content(
-        self,
-        id: StrictStr,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: StrictStr = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
-        """Get Metric Relationships Flow Triggers
-
-        Get all flows where the given metric is being used as the trigger.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `flows:read` `metrics:read`
-
-        :param id:  (required)
-        :type id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_metric_relationships_flow_triggers_serialize(
-            id=id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetMetricFlowTriggersRelationshipsResponseCollection,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
-        }
-        if _request_auth is not None:
-            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _uses_sparse_fields(self, args, values) -> Set[str]:
-        for arg in args:
-             if arg.startswith('fields'):
-                 if values[arg] is not None:
-                      return True
-        return False
-
-
-    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
-        for key, value in response_types_map.items():
-            if key.startswith('2'):
-                if value is not None:
-                    # Replace the Type for this key with a Dict type
-                    response_types_map[key] = 'Dict[str, object]'
-
-        return response_types_map
-
-    def _get_metric_relationships_flow_triggers_serialize(
-        self,
-        id,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if id is not None:
-            _path_params['id'] = id
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/vnd.api+json'
-            ]
-        )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'Klaviyo-API-Key', 
-            'OAuth'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/metrics/{id}/relationships/flow-triggers',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2599,6 +2647,9 @@ class MetricsApi(object):
     # alias of get_properties_for_metric
     get_metric_metric_properties = get_properties_for_metric
 
+    # alias of get_properties_for_metric
+    get_metric_properties = get_properties_for_metric
+
     @validate_call
     def get_properties_for_metric_with_http_info(        
         self,
@@ -2690,6 +2741,9 @@ class MetricsApi(object):
     # alias of `get_properties_for_metric_with_http_info`
     get_metric_metric_properties_with_http_info = get_properties_for_metric_with_http_info
 
+    # alias of `get_properties_for_metric_with_http_info`
+    get_metric_properties_with_http_info = get_properties_for_metric_with_http_info
+
     @validate_call
     def get_properties_for_metric_without_preload_content(
         self,
@@ -2766,6 +2820,9 @@ class MetricsApi(object):
 
     # alias of `get_properties_for_metric_without_preload_content`
     get_metric_metric_properties_without_preload_content = get_properties_for_metric_without_preload_content
+
+    # alias of `get_properties_for_metric_without_preload_content`
+    get_metric_properties_without_preload_content = get_properties_for_metric_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -2865,6 +2922,9 @@ class MetricsApi(object):
     # alias of `_get_properties_for_metric_serialize`
     _get_metric_metric_properties_serialize = _get_properties_for_metric_serialize
 
+    # alias of `_get_properties_for_metric_serialize`
+    _get_metric_properties_serialize = _get_properties_for_metric_serialize
+
 
 
     @validate_call
@@ -2884,7 +2944,7 @@ class MetricsApi(object):
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
         options: Dict[str, Any] = {},
-) ->  Union[GetMetricRelationshipMetricPropertyResponseCollection, Dict[str, object]]:
+) ->  Union[GetMetricPropertiesRelationshipsResponseCollection, Dict[str, object]]:
         """Get Property IDs for Metric
 
         Get the IDs of metric properties for the given metric.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `metrics:read`
@@ -2922,7 +2982,7 @@ class MetricsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetMetricRelationshipMetricPropertyResponseCollection,
+            '200': GetMetricPropertiesRelationshipsResponseCollection,
             '4XX': GetAccounts4XXResponse,
             '5XX': GetAccounts4XXResponse,
         }
@@ -2952,6 +3012,9 @@ class MetricsApi(object):
     # alias of get_property_ids_for_metric
     get_metric_relationships_metric_properties = get_property_ids_for_metric
 
+    # alias of get_property_ids_for_metric
+    get_metric_relationships_properties = get_property_ids_for_metric
+
     @validate_call
     def get_property_ids_for_metric_with_http_info(        
         self,
@@ -2969,7 +3032,7 @@ class MetricsApi(object):
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
         options: Dict[str, Any] = {},
-) -> ApiResponse[GetMetricRelationshipMetricPropertyResponseCollection]:
+) -> ApiResponse[GetMetricPropertiesRelationshipsResponseCollection]:
         """Get Property IDs for Metric
 
         Get the IDs of metric properties for the given metric.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `metrics:read`
@@ -3007,7 +3070,7 @@ class MetricsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetMetricRelationshipMetricPropertyResponseCollection,
+            '200': GetMetricPropertiesRelationshipsResponseCollection,
             '4XX': GetAccounts4XXResponse,
             '5XX': GetAccounts4XXResponse,
         }
@@ -3034,6 +3097,9 @@ class MetricsApi(object):
 
     # alias of `get_property_ids_for_metric_with_http_info`
     get_metric_relationships_metric_properties_with_http_info = get_property_ids_for_metric_with_http_info
+
+    # alias of `get_property_ids_for_metric_with_http_info`
+    get_metric_relationships_properties_with_http_info = get_property_ids_for_metric_with_http_info
 
     @validate_call
     def get_property_ids_for_metric_without_preload_content(
@@ -3088,7 +3154,7 @@ class MetricsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetMetricRelationshipMetricPropertyResponseCollection,
+            '200': GetMetricPropertiesRelationshipsResponseCollection,
             '4XX': GetAccounts4XXResponse,
             '5XX': GetAccounts4XXResponse,
         }
@@ -3103,6 +3169,9 @@ class MetricsApi(object):
 
     # alias of `get_property_ids_for_metric_without_preload_content`
     get_metric_relationships_metric_properties_without_preload_content = get_property_ids_for_metric_without_preload_content
+
+    # alias of `get_property_ids_for_metric_without_preload_content`
+    get_metric_relationships_properties_without_preload_content = get_property_ids_for_metric_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -3183,6 +3252,9 @@ class MetricsApi(object):
 
     # alias of `_get_property_ids_for_metric_serialize`
     _get_metric_relationships_metric_properties_serialize = _get_property_ids_for_metric_serialize
+
+    # alias of `_get_property_ids_for_metric_serialize`
+    _get_metric_relationships_properties_serialize = _get_property_ids_for_metric_serialize
 
 
 
