@@ -18,19 +18,18 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
+from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List
-from openapi_client.models.campaign_message_enum import CampaignMessageEnum
+from openapi_client.models.get_flow_response_collection_compound_document_data_inner_all_of_relationships_flow_actions_data_inner import GetFlowResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsFlowActionsDataInner
 from typing import Optional, Set
 from typing_extensions import Self
 
-class GetCampaignMessagesRelationshipListResponseCollectionDataInner(BaseModel):
+class GetFlowMessageActionRelationshipResponse(BaseModel):
     """
-    GetCampaignMessagesRelationshipListResponseCollectionDataInner
+    GetFlowMessageActionRelationshipResponse
     """ # noqa: E501
-    type: CampaignMessageEnum
-    id: StrictStr
-    __properties: ClassVar[List[str]] = ["type", "id"]
+    data: GetFlowResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsFlowActionsDataInner
+    __properties: ClassVar[List[str]] = ["data"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -50,7 +49,7 @@ class GetCampaignMessagesRelationshipListResponseCollectionDataInner(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of GetCampaignMessagesRelationshipListResponseCollectionDataInner from a JSON string"""
+        """Create an instance of GetFlowMessageActionRelationshipResponse from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -71,11 +70,14 @@ class GetCampaignMessagesRelationshipListResponseCollectionDataInner(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of data
+        if self.data:
+            _dict['data'] = self.data.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of GetCampaignMessagesRelationshipListResponseCollectionDataInner from a dict"""
+        """Create an instance of GetFlowMessageActionRelationshipResponse from a dict"""
         if obj is None:
             return None
 
@@ -83,8 +85,7 @@ class GetCampaignMessagesRelationshipListResponseCollectionDataInner(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "type": obj.get("type"),
-            "id": obj.get("id")
+            "data": GetFlowResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsFlowActionsDataInner.from_dict(obj["data"]) if obj.get("data") is not None else None
         })
         return _obj
 

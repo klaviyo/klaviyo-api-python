@@ -31,7 +31,7 @@ from openapi_client.models.get_bulk_profile_suppressions_remove_job_response imp
 from openapi_client.models.get_bulk_profile_suppressions_remove_job_response_collection import GetBulkProfileSuppressionsRemoveJobResponseCollection
 from openapi_client.models.get_import_error_response_collection import GetImportErrorResponseCollection
 from openapi_client.models.get_list_response_collection import GetListResponseCollection
-from openapi_client.models.get_profile_import_job_list_relationships_response_collection import GetProfileImportJobListRelationshipsResponseCollection
+from openapi_client.models.get_profile_bulk_import_job_lists_relationships_response_collection import GetProfileBulkImportJobListsRelationshipsResponseCollection
 from openapi_client.models.get_profile_import_job_profile_relationships_response_collection import GetProfileImportJobProfileRelationshipsResponseCollection
 from openapi_client.models.get_profile_import_job_response_collection_compound_document import GetProfileImportJobResponseCollectionCompoundDocument
 from openapi_client.models.get_profile_import_job_response_compound_document import GetProfileImportJobResponseCompoundDocument
@@ -75,6 +75,350 @@ class ProfilesApi(object):
         if api_client is None:
             api_client = ApiClient.get_default()
         self.api_client = api_client
+
+
+    @validate_call
+    def bulk_import_profiles(        
+        self,
+        profile_import_job_create_query: ProfileImportJobCreateQuery,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: StrictStr = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+        options: Dict[str, Any] = {},
+) ->  Union[PostProfileImportJobResponse, Dict[str, object]]:
+        """Bulk Import Profiles
+
+        Create a bulk profile import job to create or update a batch of profiles.  Accepts up to 10,000 profiles per request. The maximum allowed payload size is 5MB.  To learn more, see our [Bulk Profile Import API guide](https://developers.klaviyo.com/en/docs/use_klaviyos_bulk_profile_import_api).<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `lists:write` `profiles:write`
+
+        :param profile_import_job_create_query: (required)
+        :type profile_import_job_create_query: ProfileImportJobCreateQuery
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._bulk_import_profiles_serialize(
+            profile_import_job_create_query=profile_import_job_create_query,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '202': PostProfileImportJobResponse,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
+        }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
+        if _request_auth is not None:
+            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
+        ).data
+
+
+    # alias of bulk_import_profiles
+    spawn_bulk_profile_import_job = bulk_import_profiles
+
+    # alias of bulk_import_profiles
+    create_profile_bulk_import_job = bulk_import_profiles
+
+    @validate_call
+    def bulk_import_profiles_with_http_info(        
+        self,
+        profile_import_job_create_query: ProfileImportJobCreateQuery,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: StrictStr = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+        options: Dict[str, Any] = {},
+) -> ApiResponse[PostProfileImportJobResponse]:
+        """Bulk Import Profiles
+
+        Create a bulk profile import job to create or update a batch of profiles.  Accepts up to 10,000 profiles per request. The maximum allowed payload size is 5MB.  To learn more, see our [Bulk Profile Import API guide](https://developers.klaviyo.com/en/docs/use_klaviyos_bulk_profile_import_api).<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `lists:write` `profiles:write`
+
+        :param profile_import_job_create_query: (required)
+        :type profile_import_job_create_query: ProfileImportJobCreateQuery
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._bulk_import_profiles_serialize(
+            profile_import_job_create_query=profile_import_job_create_query,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '202': PostProfileImportJobResponse,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
+        }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
+        if _request_auth is not None:
+            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    # alias of `bulk_import_profiles_with_http_info`
+    spawn_bulk_profile_import_job_with_http_info = bulk_import_profiles_with_http_info
+
+    # alias of `bulk_import_profiles_with_http_info`
+    create_profile_bulk_import_job_with_http_info = bulk_import_profiles_with_http_info
+
+    @validate_call
+    def bulk_import_profiles_without_preload_content(
+        self,
+        profile_import_job_create_query: ProfileImportJobCreateQuery,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: StrictStr = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
+        """Bulk Import Profiles
+
+        Create a bulk profile import job to create or update a batch of profiles.  Accepts up to 10,000 profiles per request. The maximum allowed payload size is 5MB.  To learn more, see our [Bulk Profile Import API guide](https://developers.klaviyo.com/en/docs/use_klaviyos_bulk_profile_import_api).<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `lists:write` `profiles:write`
+
+        :param profile_import_job_create_query: (required)
+        :type profile_import_job_create_query: ProfileImportJobCreateQuery
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._bulk_import_profiles_serialize(
+            profile_import_job_create_query=profile_import_job_create_query,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '202': PostProfileImportJobResponse,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
+        }
+        if _request_auth is not None:
+            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    # alias of `bulk_import_profiles_without_preload_content`
+    spawn_bulk_profile_import_job_without_preload_content = bulk_import_profiles_without_preload_content
+
+    # alias of `bulk_import_profiles_without_preload_content`
+    create_profile_bulk_import_job_without_preload_content = bulk_import_profiles_without_preload_content
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
+
+    def _bulk_import_profiles_serialize(
+        self,
+        profile_import_job_create_query,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if profile_import_job_create_query is not None:
+            _body_params = profile_import_job_create_query
+
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/vnd.api+json'
+            ]
+        )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/vnd.api+json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'Klaviyo-API-Key', 
+            'OAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/api/profile-bulk-import-jobs',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+    # alias of `_bulk_import_profiles_serialize`
+    _spawn_bulk_profile_import_job_serialize = _bulk_import_profiles_serialize
+
+    # alias of `_bulk_import_profiles_serialize`
+    _create_profile_bulk_import_job_serialize = _bulk_import_profiles_serialize
+
 
 
     @validate_call
@@ -1474,7 +1818,7 @@ class ProfilesApi(object):
 ) ->  Union[PostProfileResponse, Dict[str, object]]:
         """Create or Update Profile
 
-        Given a set of profile attributes and optionally an ID, create or update a profile.  Returns 201 if a new profile was created, 200 if an existing profile was updated.  Note that setting a field to `null` will clear out the field, whereas not including a field in your request will leave it unchanged.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `profiles:write`
+        Given a set of profile attributes and optionally an ID, create or update a profile.  Returns 201 if a new profile was created, 200 if an existing profile was updated.  Use the `additional-fields` parameter to include subscriptions and predictive analytics data in your response.  Note that setting a field to `null` will clear out the field, whereas not including a field in your request will leave it unchanged.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `profiles:write`
 
         :param profile_upsert_query: (required)
         :type profile_upsert_query: ProfileUpsertQuery
@@ -1564,7 +1908,7 @@ class ProfilesApi(object):
 ) -> ApiResponse[PostProfileResponse]:
         """Create or Update Profile
 
-        Given a set of profile attributes and optionally an ID, create or update a profile.  Returns 201 if a new profile was created, 200 if an existing profile was updated.  Note that setting a field to `null` will clear out the field, whereas not including a field in your request will leave it unchanged.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `profiles:write`
+        Given a set of profile attributes and optionally an ID, create or update a profile.  Returns 201 if a new profile was created, 200 if an existing profile was updated.  Use the `additional-fields` parameter to include subscriptions and predictive analytics data in your response.  Note that setting a field to `null` will clear out the field, whereas not including a field in your request will leave it unchanged.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `profiles:write`
 
         :param profile_upsert_query: (required)
         :type profile_upsert_query: ProfileUpsertQuery
@@ -1650,7 +1994,7 @@ class ProfilesApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Create or Update Profile
 
-        Given a set of profile attributes and optionally an ID, create or update a profile.  Returns 201 if a new profile was created, 200 if an existing profile was updated.  Note that setting a field to `null` will clear out the field, whereas not including a field in your request will leave it unchanged.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `profiles:write`
+        Given a set of profile attributes and optionally an ID, create or update a profile.  Returns 201 if a new profile was created, 200 if an existing profile was updated.  Use the `additional-fields` parameter to include subscriptions and predictive analytics data in your response.  Note that setting a field to `null` will clear out the field, whereas not including a field in your request will leave it unchanged.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `profiles:write`
 
         :param profile_upsert_query: (required)
         :type profile_upsert_query: ProfileUpsertQuery
@@ -1830,7 +2174,7 @@ class ProfilesApi(object):
 ) ->  Union[PostProfileResponse, Dict[str, object]]:
         """Create Profile
 
-        Create a new profile.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `profiles:write`
+        Create a new profile.  Use the `additional-fields` parameter to include subscriptions and predictive analytics data in your response.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `profiles:write`
 
         :param profile_create_query: (required)
         :type profile_create_query: ProfileCreateQuery
@@ -1916,7 +2260,7 @@ class ProfilesApi(object):
 ) -> ApiResponse[PostProfileResponse]:
         """Create Profile
 
-        Create a new profile.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `profiles:write`
+        Create a new profile.  Use the `additional-fields` parameter to include subscriptions and predictive analytics data in your response.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `profiles:write`
 
         :param profile_create_query: (required)
         :type profile_create_query: ProfileCreateQuery
@@ -1998,7 +2342,7 @@ class ProfilesApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Create Profile
 
-        Create a new profile.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `profiles:write`
+        Create a new profile.  Use the `additional-fields` parameter to include subscriptions and predictive analytics data in your response.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `profiles:write`
 
         :param profile_create_query: (required)
         :type profile_create_query: ProfileCreateQuery
@@ -4829,6 +5173,9 @@ class ProfilesApi(object):
     get_bulk_profile_import_job_import_errors = get_errors_for_bulk_import_profiles_job
 
     # alias of get_errors_for_bulk_import_profiles_job
+    get_import_errors_for_profile_bulk_import_job = get_errors_for_bulk_import_profiles_job
+
+    # alias of get_errors_for_bulk_import_profiles_job
     get_profile_bulk_import_job_import_errors = get_errors_for_bulk_import_profiles_job
 
     @validate_call
@@ -4927,6 +5274,9 @@ class ProfilesApi(object):
     get_bulk_profile_import_job_import_errors_with_http_info = get_errors_for_bulk_import_profiles_job_with_http_info
 
     # alias of `get_errors_for_bulk_import_profiles_job_with_http_info`
+    get_import_errors_for_profile_bulk_import_job_with_http_info = get_errors_for_bulk_import_profiles_job_with_http_info
+
+    # alias of `get_errors_for_bulk_import_profiles_job_with_http_info`
     get_profile_bulk_import_job_import_errors_with_http_info = get_errors_for_bulk_import_profiles_job_with_http_info
 
     @validate_call
@@ -5009,6 +5359,9 @@ class ProfilesApi(object):
 
     # alias of `get_errors_for_bulk_import_profiles_job_without_preload_content`
     get_bulk_profile_import_job_import_errors_without_preload_content = get_errors_for_bulk_import_profiles_job_without_preload_content
+
+    # alias of `get_errors_for_bulk_import_profiles_job_without_preload_content`
+    get_import_errors_for_profile_bulk_import_job_without_preload_content = get_errors_for_bulk_import_profiles_job_without_preload_content
 
     # alias of `get_errors_for_bulk_import_profiles_job_without_preload_content`
     get_profile_bulk_import_job_import_errors_without_preload_content = get_errors_for_bulk_import_profiles_job_without_preload_content
@@ -5119,6 +5472,9 @@ class ProfilesApi(object):
     _get_bulk_profile_import_job_import_errors_serialize = _get_errors_for_bulk_import_profiles_job_serialize
 
     # alias of `_get_errors_for_bulk_import_profiles_job_serialize`
+    _get_import_errors_for_profile_bulk_import_job_serialize = _get_errors_for_bulk_import_profiles_job_serialize
+
+    # alias of `_get_errors_for_bulk_import_profiles_job_serialize`
     _get_profile_bulk_import_job_import_errors_serialize = _get_errors_for_bulk_import_profiles_job_serialize
 
 
@@ -5213,6 +5569,9 @@ class ProfilesApi(object):
     get_bulk_profile_import_job_lists = get_list_for_bulk_import_profiles_job
 
     # alias of get_list_for_bulk_import_profiles_job
+    get_lists_for_profile_bulk_import_job = get_list_for_bulk_import_profiles_job
+
+    # alias of get_list_for_bulk_import_profiles_job
     get_profile_bulk_import_job_lists = get_list_for_bulk_import_profiles_job
 
     @validate_call
@@ -5303,6 +5662,9 @@ class ProfilesApi(object):
     get_bulk_profile_import_job_lists_with_http_info = get_list_for_bulk_import_profiles_job_with_http_info
 
     # alias of `get_list_for_bulk_import_profiles_job_with_http_info`
+    get_lists_for_profile_bulk_import_job_with_http_info = get_list_for_bulk_import_profiles_job_with_http_info
+
+    # alias of `get_list_for_bulk_import_profiles_job_with_http_info`
     get_profile_bulk_import_job_lists_with_http_info = get_list_for_bulk_import_profiles_job_with_http_info
 
     @validate_call
@@ -5377,6 +5739,9 @@ class ProfilesApi(object):
 
     # alias of `get_list_for_bulk_import_profiles_job_without_preload_content`
     get_bulk_profile_import_job_lists_without_preload_content = get_list_for_bulk_import_profiles_job_without_preload_content
+
+    # alias of `get_list_for_bulk_import_profiles_job_without_preload_content`
+    get_lists_for_profile_bulk_import_job_without_preload_content = get_list_for_bulk_import_profiles_job_without_preload_content
 
     # alias of `get_list_for_bulk_import_profiles_job_without_preload_content`
     get_profile_bulk_import_job_lists_without_preload_content = get_list_for_bulk_import_profiles_job_without_preload_content
@@ -5471,6 +5836,9 @@ class ProfilesApi(object):
     _get_bulk_profile_import_job_lists_serialize = _get_list_for_bulk_import_profiles_job_serialize
 
     # alias of `_get_list_for_bulk_import_profiles_job_serialize`
+    _get_lists_for_profile_bulk_import_job_serialize = _get_list_for_bulk_import_profiles_job_serialize
+
+    # alias of `_get_list_for_bulk_import_profiles_job_serialize`
     _get_profile_bulk_import_job_lists_serialize = _get_list_for_bulk_import_profiles_job_serialize
 
 
@@ -5492,7 +5860,7 @@ class ProfilesApi(object):
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
         options: Dict[str, Any] = {},
-) ->  Union[GetProfileImportJobListRelationshipsResponseCollection, Dict[str, object]]:
+) ->  Union[GetProfileBulkImportJobListsRelationshipsResponseCollection, Dict[str, object]]:
         """Get List IDs for Bulk Import Profiles Job
 
         Get list relationship for the bulk profile import job with the given ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `lists:read`
@@ -5530,7 +5898,7 @@ class ProfilesApi(object):
         )
 
         _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetProfileImportJobListRelationshipsResponseCollection,
+            '200': GetProfileBulkImportJobListsRelationshipsResponseCollection,
             '4XX': GetAccounts4XXResponse,
             '5XX': GetAccounts4XXResponse,
         }
@@ -5561,6 +5929,9 @@ class ProfilesApi(object):
     get_bulk_profile_import_job_relationships_lists = get_list_ids_for_bulk_import_profiles_job
 
     # alias of get_list_ids_for_bulk_import_profiles_job
+    get_list_ids_for_profile_bulk_import_job = get_list_ids_for_bulk_import_profiles_job
+
+    # alias of get_list_ids_for_bulk_import_profiles_job
     get_profile_bulk_import_job_relationships_lists = get_list_ids_for_bulk_import_profiles_job
 
     @validate_call
@@ -5580,7 +5951,7 @@ class ProfilesApi(object):
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
         options: Dict[str, Any] = {},
-) -> ApiResponse[GetProfileImportJobListRelationshipsResponseCollection]:
+) -> ApiResponse[GetProfileBulkImportJobListsRelationshipsResponseCollection]:
         """Get List IDs for Bulk Import Profiles Job
 
         Get list relationship for the bulk profile import job with the given ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `lists:read`
@@ -5618,7 +5989,7 @@ class ProfilesApi(object):
         )
 
         _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetProfileImportJobListRelationshipsResponseCollection,
+            '200': GetProfileBulkImportJobListsRelationshipsResponseCollection,
             '4XX': GetAccounts4XXResponse,
             '5XX': GetAccounts4XXResponse,
         }
@@ -5645,6 +6016,9 @@ class ProfilesApi(object):
 
     # alias of `get_list_ids_for_bulk_import_profiles_job_with_http_info`
     get_bulk_profile_import_job_relationships_lists_with_http_info = get_list_ids_for_bulk_import_profiles_job_with_http_info
+
+    # alias of `get_list_ids_for_bulk_import_profiles_job_with_http_info`
+    get_list_ids_for_profile_bulk_import_job_with_http_info = get_list_ids_for_bulk_import_profiles_job_with_http_info
 
     # alias of `get_list_ids_for_bulk_import_profiles_job_with_http_info`
     get_profile_bulk_import_job_relationships_lists_with_http_info = get_list_ids_for_bulk_import_profiles_job_with_http_info
@@ -5702,7 +6076,7 @@ class ProfilesApi(object):
         )
 
         _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetProfileImportJobListRelationshipsResponseCollection,
+            '200': GetProfileBulkImportJobListsRelationshipsResponseCollection,
             '4XX': GetAccounts4XXResponse,
             '5XX': GetAccounts4XXResponse,
         }
@@ -5717,6 +6091,9 @@ class ProfilesApi(object):
 
     # alias of `get_list_ids_for_bulk_import_profiles_job_without_preload_content`
     get_bulk_profile_import_job_relationships_lists_without_preload_content = get_list_ids_for_bulk_import_profiles_job_without_preload_content
+
+    # alias of `get_list_ids_for_bulk_import_profiles_job_without_preload_content`
+    get_list_ids_for_profile_bulk_import_job_without_preload_content = get_list_ids_for_bulk_import_profiles_job_without_preload_content
 
     # alias of `get_list_ids_for_bulk_import_profiles_job_without_preload_content`
     get_profile_bulk_import_job_relationships_lists_without_preload_content = get_list_ids_for_bulk_import_profiles_job_without_preload_content
@@ -5800,6 +6177,9 @@ class ProfilesApi(object):
 
     # alias of `_get_list_ids_for_bulk_import_profiles_job_serialize`
     _get_bulk_profile_import_job_relationships_lists_serialize = _get_list_ids_for_bulk_import_profiles_job_serialize
+
+    # alias of `_get_list_ids_for_bulk_import_profiles_job_serialize`
+    _get_list_ids_for_profile_bulk_import_job_serialize = _get_list_ids_for_bulk_import_profiles_job_serialize
 
     # alias of `_get_list_ids_for_bulk_import_profiles_job_serialize`
     _get_profile_bulk_import_job_relationships_lists_serialize = _get_list_ids_for_bulk_import_profiles_job_serialize
@@ -6490,7 +6870,7 @@ class ProfilesApi(object):
 ) ->  Union[GetProfileResponseCompoundDocument, Dict[str, object]]:
         """Get Profile
 
-        Get the profile with the given profile ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`<br><br>Rate limits when using the `include=list` parameter in your API request:<br>Burst: `1/s`<br>Steady: `15/m`<br><br>Rate limits when using the `include=segment` parameter in your API request:<br>Burst: `1/s`<br>Steady: `15/m`<br><br>To learn more about how the `include` parameter impacts rate limits, check out our [Rate limits, status codes, and errors](https://developers.klaviyo.com/en/v2024-10-15/docs/rate_limits_and_error_handling) guide.  **Scopes:** `profiles:read`
+        Get the profile with the given profile ID.  Use the `additional-fields` parameter to include subscriptions and predictive analytics data in your response.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`<br><br>Rate limits when using the `include=list` parameter in your API request:<br>Burst: `1/s`<br>Steady: `15/m`<br><br>Rate limits when using the `include=segment` parameter in your API request:<br>Burst: `1/s`<br>Steady: `15/m`<br><br>To learn more about how the `include` parameter impacts rate limits, check out our [Rate limits, status codes, and errors](https://developers.klaviyo.com/en/v2024-10-15/docs/rate_limits_and_error_handling) guide.  **Scopes:** `profiles:read`
 
         :param id:  (required)
         :type id: str
@@ -6592,7 +6972,7 @@ class ProfilesApi(object):
 ) -> ApiResponse[GetProfileResponseCompoundDocument]:
         """Get Profile
 
-        Get the profile with the given profile ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`<br><br>Rate limits when using the `include=list` parameter in your API request:<br>Burst: `1/s`<br>Steady: `15/m`<br><br>Rate limits when using the `include=segment` parameter in your API request:<br>Burst: `1/s`<br>Steady: `15/m`<br><br>To learn more about how the `include` parameter impacts rate limits, check out our [Rate limits, status codes, and errors](https://developers.klaviyo.com/en/v2024-10-15/docs/rate_limits_and_error_handling) guide.  **Scopes:** `profiles:read`
+        Get the profile with the given profile ID.  Use the `additional-fields` parameter to include subscriptions and predictive analytics data in your response.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`<br><br>Rate limits when using the `include=list` parameter in your API request:<br>Burst: `1/s`<br>Steady: `15/m`<br><br>Rate limits when using the `include=segment` parameter in your API request:<br>Burst: `1/s`<br>Steady: `15/m`<br><br>To learn more about how the `include` parameter impacts rate limits, check out our [Rate limits, status codes, and errors](https://developers.klaviyo.com/en/v2024-10-15/docs/rate_limits_and_error_handling) guide.  **Scopes:** `profiles:read`
 
         :param id:  (required)
         :type id: str
@@ -6690,7 +7070,7 @@ class ProfilesApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Profile
 
-        Get the profile with the given profile ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`<br><br>Rate limits when using the `include=list` parameter in your API request:<br>Burst: `1/s`<br>Steady: `15/m`<br><br>Rate limits when using the `include=segment` parameter in your API request:<br>Burst: `1/s`<br>Steady: `15/m`<br><br>To learn more about how the `include` parameter impacts rate limits, check out our [Rate limits, status codes, and errors](https://developers.klaviyo.com/en/v2024-10-15/docs/rate_limits_and_error_handling) guide.  **Scopes:** `profiles:read`
+        Get the profile with the given profile ID.  Use the `additional-fields` parameter to include subscriptions and predictive analytics data in your response.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`<br><br>Rate limits when using the `include=list` parameter in your API request:<br>Burst: `1/s`<br>Steady: `15/m`<br><br>Rate limits when using the `include=segment` parameter in your API request:<br>Burst: `1/s`<br>Steady: `15/m`<br><br>To learn more about how the `include` parameter impacts rate limits, check out our [Rate limits, status codes, and errors](https://developers.klaviyo.com/en/v2024-10-15/docs/rate_limits_and_error_handling) guide.  **Scopes:** `profiles:read`
 
         :param id:  (required)
         :type id: str
@@ -6973,6 +7353,9 @@ class ProfilesApi(object):
     # alias of get_profile_ids_for_bulk_import_profiles_job
     get_profile_bulk_import_job_relationships_profiles = get_profile_ids_for_bulk_import_profiles_job
 
+    # alias of get_profile_ids_for_bulk_import_profiles_job
+    get_profile_ids_for_profile_bulk_import_job = get_profile_ids_for_bulk_import_profiles_job
+
     @validate_call
     def get_profile_ids_for_bulk_import_profiles_job_with_http_info(        
         self,
@@ -7067,6 +7450,9 @@ class ProfilesApi(object):
     # alias of `get_profile_ids_for_bulk_import_profiles_job_with_http_info`
     get_profile_bulk_import_job_relationships_profiles_with_http_info = get_profile_ids_for_bulk_import_profiles_job_with_http_info
 
+    # alias of `get_profile_ids_for_bulk_import_profiles_job_with_http_info`
+    get_profile_ids_for_profile_bulk_import_job_with_http_info = get_profile_ids_for_bulk_import_profiles_job_with_http_info
+
     @validate_call
     def get_profile_ids_for_bulk_import_profiles_job_without_preload_content(
         self,
@@ -7146,6 +7532,9 @@ class ProfilesApi(object):
 
     # alias of `get_profile_ids_for_bulk_import_profiles_job_without_preload_content`
     get_profile_bulk_import_job_relationships_profiles_without_preload_content = get_profile_ids_for_bulk_import_profiles_job_without_preload_content
+
+    # alias of `get_profile_ids_for_bulk_import_profiles_job_without_preload_content`
+    get_profile_ids_for_profile_bulk_import_job_without_preload_content = get_profile_ids_for_bulk_import_profiles_job_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -7246,6 +7635,9 @@ class ProfilesApi(object):
     # alias of `_get_profile_ids_for_bulk_import_profiles_job_serialize`
     _get_profile_bulk_import_job_relationships_profiles_serialize = _get_profile_ids_for_bulk_import_profiles_job_serialize
 
+    # alias of `_get_profile_ids_for_bulk_import_profiles_job_serialize`
+    _get_profile_ids_for_profile_bulk_import_job_serialize = _get_profile_ids_for_bulk_import_profiles_job_serialize
+
 
 
     @validate_call
@@ -7273,7 +7665,7 @@ class ProfilesApi(object):
 ) ->  Union[GetProfileResponseCollectionCompoundDocument, Dict[str, object]]:
         """Get Profiles
 
-        Get all profiles in an account.  Profiles can be sorted by the following fields in ascending and descending order: `id`, `created`, `updated`, `email`, `subscriptions.email.marketing.suppression.timestamp`, `subscriptions.email.marketing.list_suppressions.timestamp`<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`<br><br>Rate limits when using the `additional-fields[profile]=predictive_analytics` parameter in your API request:<br>Burst: `10/s`<br>Steady: `150/m`<br><br>To learn more about how the `additional-fields` parameter impacts rate limits, check out our [Rate limits, status codes, and errors](https://developers.klaviyo.com/en/v2024-10-15/docs/rate_limits_and_error_handling) guide.  **Scopes:** `profiles:read`
+        Get all profiles in an account.  Profiles can be sorted by the following fields in ascending and descending order: `id`, `created`, `updated`, `email`, `subscriptions.email.marketing.suppression.timestamp`, `subscriptions.email.marketing.list_suppressions.timestamp`  Use the `additional-fields` parameter to include subscriptions and predictive analytics data in your response.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`<br><br>Rate limits when using the `additional-fields[profile]=predictive_analytics` parameter in your API request:<br>Burst: `10/s`<br>Steady: `150/m`<br><br>To learn more about how the `additional-fields` parameter impacts rate limits, check out our [Rate limits, status codes, and errors](https://developers.klaviyo.com/en/v2024-10-15/docs/rate_limits_and_error_handling) guide.  **Scopes:** `profiles:read`
 
         :param additional_fields_profile: Request additional fields not included by default in the response. Supported values: 'subscriptions', 'predictive_analytics'
         :type additional_fields_profile: List[str]
@@ -7375,7 +7767,7 @@ class ProfilesApi(object):
 ) -> ApiResponse[GetProfileResponseCollectionCompoundDocument]:
         """Get Profiles
 
-        Get all profiles in an account.  Profiles can be sorted by the following fields in ascending and descending order: `id`, `created`, `updated`, `email`, `subscriptions.email.marketing.suppression.timestamp`, `subscriptions.email.marketing.list_suppressions.timestamp`<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`<br><br>Rate limits when using the `additional-fields[profile]=predictive_analytics` parameter in your API request:<br>Burst: `10/s`<br>Steady: `150/m`<br><br>To learn more about how the `additional-fields` parameter impacts rate limits, check out our [Rate limits, status codes, and errors](https://developers.klaviyo.com/en/v2024-10-15/docs/rate_limits_and_error_handling) guide.  **Scopes:** `profiles:read`
+        Get all profiles in an account.  Profiles can be sorted by the following fields in ascending and descending order: `id`, `created`, `updated`, `email`, `subscriptions.email.marketing.suppression.timestamp`, `subscriptions.email.marketing.list_suppressions.timestamp`  Use the `additional-fields` parameter to include subscriptions and predictive analytics data in your response.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`<br><br>Rate limits when using the `additional-fields[profile]=predictive_analytics` parameter in your API request:<br>Burst: `10/s`<br>Steady: `150/m`<br><br>To learn more about how the `additional-fields` parameter impacts rate limits, check out our [Rate limits, status codes, and errors](https://developers.klaviyo.com/en/v2024-10-15/docs/rate_limits_and_error_handling) guide.  **Scopes:** `profiles:read`
 
         :param additional_fields_profile: Request additional fields not included by default in the response. Supported values: 'subscriptions', 'predictive_analytics'
         :type additional_fields_profile: List[str]
@@ -7473,7 +7865,7 @@ class ProfilesApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Profiles
 
-        Get all profiles in an account.  Profiles can be sorted by the following fields in ascending and descending order: `id`, `created`, `updated`, `email`, `subscriptions.email.marketing.suppression.timestamp`, `subscriptions.email.marketing.list_suppressions.timestamp`<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`<br><br>Rate limits when using the `additional-fields[profile]=predictive_analytics` parameter in your API request:<br>Burst: `10/s`<br>Steady: `150/m`<br><br>To learn more about how the `additional-fields` parameter impacts rate limits, check out our [Rate limits, status codes, and errors](https://developers.klaviyo.com/en/v2024-10-15/docs/rate_limits_and_error_handling) guide.  **Scopes:** `profiles:read`
+        Get all profiles in an account.  Profiles can be sorted by the following fields in ascending and descending order: `id`, `created`, `updated`, `email`, `subscriptions.email.marketing.suppression.timestamp`, `subscriptions.email.marketing.list_suppressions.timestamp`  Use the `additional-fields` parameter to include subscriptions and predictive analytics data in your response.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`<br><br>Rate limits when using the `additional-fields[profile]=predictive_analytics` parameter in your API request:<br>Burst: `10/s`<br>Steady: `150/m`<br><br>To learn more about how the `additional-fields` parameter impacts rate limits, check out our [Rate limits, status codes, and errors](https://developers.klaviyo.com/en/v2024-10-15/docs/rate_limits_and_error_handling) guide.  **Scopes:** `profiles:read`
 
         :param additional_fields_profile: Request additional fields not included by default in the response. Supported values: 'subscriptions', 'predictive_analytics'
         :type additional_fields_profile: List[str]
@@ -7766,6 +8158,9 @@ class ProfilesApi(object):
     # alias of get_profiles_for_bulk_import_profiles_job
     get_profile_bulk_import_job_profiles = get_profiles_for_bulk_import_profiles_job
 
+    # alias of get_profiles_for_bulk_import_profiles_job
+    get_profiles_for_profile_bulk_import_job = get_profiles_for_bulk_import_profiles_job
+
     @validate_call
     def get_profiles_for_bulk_import_profiles_job_with_http_info(        
         self,
@@ -7868,6 +8263,9 @@ class ProfilesApi(object):
     # alias of `get_profiles_for_bulk_import_profiles_job_with_http_info`
     get_profile_bulk_import_job_profiles_with_http_info = get_profiles_for_bulk_import_profiles_job_with_http_info
 
+    # alias of `get_profiles_for_bulk_import_profiles_job_with_http_info`
+    get_profiles_for_profile_bulk_import_job_with_http_info = get_profiles_for_bulk_import_profiles_job_with_http_info
+
     @validate_call
     def get_profiles_for_bulk_import_profiles_job_without_preload_content(
         self,
@@ -7955,6 +8353,9 @@ class ProfilesApi(object):
 
     # alias of `get_profiles_for_bulk_import_profiles_job_without_preload_content`
     get_profile_bulk_import_job_profiles_without_preload_content = get_profiles_for_bulk_import_profiles_job_without_preload_content
+
+    # alias of `get_profiles_for_bulk_import_profiles_job_without_preload_content`
+    get_profiles_for_profile_bulk_import_job_without_preload_content = get_profiles_for_bulk_import_profiles_job_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -8072,6 +8473,9 @@ class ProfilesApi(object):
 
     # alias of `_get_profiles_for_bulk_import_profiles_job_serialize`
     _get_profile_bulk_import_job_profiles_serialize = _get_profiles_for_bulk_import_profiles_job_serialize
+
+    # alias of `_get_profiles_for_bulk_import_profiles_job_serialize`
+    _get_profiles_for_profile_bulk_import_job_serialize = _get_profiles_for_bulk_import_profiles_job_serialize
 
 
 
@@ -9067,350 +9471,6 @@ class ProfilesApi(object):
 
 
     @validate_call
-    def spawn_bulk_profile_import_job(        
-        self,
-        profile_import_job_create_query: ProfileImportJobCreateQuery,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: StrictStr = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-        options: Dict[str, Any] = {},
-) ->  Union[PostProfileImportJobResponse, Dict[str, object]]:
-        """Spawn Bulk Profile Import Job
-
-        Create a bulk profile import job to create or update a batch of profiles.  Accepts up to 10,000 profiles per request. The maximum allowed payload size is 5MB.  To learn more, see our [Bulk Profile Import API guide](https://developers.klaviyo.com/en/docs/use_klaviyos_bulk_profile_import_api).<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `lists:write` `profiles:write`
-
-        :param profile_import_job_create_query: (required)
-        :type profile_import_job_create_query: ProfileImportJobCreateQuery
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._spawn_bulk_profile_import_job_serialize(
-            profile_import_job_create_query=profile_import_job_create_query,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '202': PostProfileImportJobResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
-        }
-        frame = inspect.currentframe()
-        args, _, _, values = inspect.getargvalues(frame)
-        uses_sparse_fields = self._uses_sparse_fields(args, values)
-
-        if _request_auth is not None:
-            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
-
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-
-        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
-            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
-
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-            exclude_none=uses_sparse_fields
-        ).data
-
-
-    # alias of spawn_bulk_profile_import_job
-    bulk_import_profiles = spawn_bulk_profile_import_job
-
-    # alias of spawn_bulk_profile_import_job
-    create_profile_bulk_import_job = spawn_bulk_profile_import_job
-
-    @validate_call
-    def spawn_bulk_profile_import_job_with_http_info(        
-        self,
-        profile_import_job_create_query: ProfileImportJobCreateQuery,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: StrictStr = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-        options: Dict[str, Any] = {},
-) -> ApiResponse[PostProfileImportJobResponse]:
-        """Spawn Bulk Profile Import Job
-
-        Create a bulk profile import job to create or update a batch of profiles.  Accepts up to 10,000 profiles per request. The maximum allowed payload size is 5MB.  To learn more, see our [Bulk Profile Import API guide](https://developers.klaviyo.com/en/docs/use_klaviyos_bulk_profile_import_api).<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `lists:write` `profiles:write`
-
-        :param profile_import_job_create_query: (required)
-        :type profile_import_job_create_query: ProfileImportJobCreateQuery
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._spawn_bulk_profile_import_job_serialize(
-            profile_import_job_create_query=profile_import_job_create_query,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '202': PostProfileImportJobResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
-        }
-        frame = inspect.currentframe()
-        args, _, _, values = inspect.getargvalues(frame)
-        uses_sparse_fields = self._uses_sparse_fields(args, values)
-
-        if _request_auth is not None:
-            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
-
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
-            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
-
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    # alias of `spawn_bulk_profile_import_job_with_http_info`
-    bulk_import_profiles_with_http_info = spawn_bulk_profile_import_job_with_http_info
-
-    # alias of `spawn_bulk_profile_import_job_with_http_info`
-    create_profile_bulk_import_job_with_http_info = spawn_bulk_profile_import_job_with_http_info
-
-    @validate_call
-    def spawn_bulk_profile_import_job_without_preload_content(
-        self,
-        profile_import_job_create_query: ProfileImportJobCreateQuery,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: StrictStr = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
-        """Spawn Bulk Profile Import Job
-
-        Create a bulk profile import job to create or update a batch of profiles.  Accepts up to 10,000 profiles per request. The maximum allowed payload size is 5MB.  To learn more, see our [Bulk Profile Import API guide](https://developers.klaviyo.com/en/docs/use_klaviyos_bulk_profile_import_api).<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `lists:write` `profiles:write`
-
-        :param profile_import_job_create_query: (required)
-        :type profile_import_job_create_query: ProfileImportJobCreateQuery
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._spawn_bulk_profile_import_job_serialize(
-            profile_import_job_create_query=profile_import_job_create_query,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '202': PostProfileImportJobResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
-        }
-        if _request_auth is not None:
-            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    # alias of `spawn_bulk_profile_import_job_without_preload_content`
-    bulk_import_profiles_without_preload_content = spawn_bulk_profile_import_job_without_preload_content
-
-    # alias of `spawn_bulk_profile_import_job_without_preload_content`
-    create_profile_bulk_import_job_without_preload_content = spawn_bulk_profile_import_job_without_preload_content
-
-    def _uses_sparse_fields(self, args, values) -> Set[str]:
-        for arg in args:
-             if arg.startswith('fields'):
-                 if values[arg] is not None:
-                      return True
-        return False
-
-
-    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
-        for key, value in response_types_map.items():
-            if key.startswith('2'):
-                if value is not None:
-                    # Replace the Type for this key with a Dict type
-                    response_types_map[key] = 'Dict[str, object]'
-
-        return response_types_map
-
-    def _spawn_bulk_profile_import_job_serialize(
-        self,
-        profile_import_job_create_query,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-        if profile_import_job_create_query is not None:
-            _body_params = profile_import_job_create_query
-
-
-        # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/vnd.api+json'
-            ]
-        )
-
-        # set the HTTP header `Content-Type`
-        if _content_type:
-            _header_params['Content-Type'] = _content_type
-        else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/vnd.api+json'
-                    ]
-                )
-            )
-            if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'Klaviyo-API-Key', 
-            'OAuth'
-        ]
-
-        return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/api/profile-bulk-import-jobs',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-    # alias of `_spawn_bulk_profile_import_job_serialize`
-    _bulk_import_profiles_serialize = _spawn_bulk_profile_import_job_serialize
-
-    # alias of `_spawn_bulk_profile_import_job_serialize`
-    _create_profile_bulk_import_job_serialize = _spawn_bulk_profile_import_job_serialize
-
-
-
-    @validate_call
     def update_profile(        
         self,
         id: Annotated[StrictStr, Field(description="Primary key that uniquely identifies this profile. Generated by Klaviyo.")],
@@ -9432,7 +9492,7 @@ class ProfilesApi(object):
 ) ->  Union[PatchProfileResponse, Dict[str, object]]:
         """Update Profile
 
-        Update the profile with the given profile ID.  Note that setting a field to `null` will clear out the field, whereas not including a field in your request will leave it unchanged.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `profiles:write`
+        Update the profile with the given profile ID.  Use the `additional-fields` parameter to include subscriptions and predictive analytics data in your response.  Note that setting a field to `null` will clear out the field, whereas not including a field in your request will leave it unchanged.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `profiles:write`
 
         :param id: Primary key that uniquely identifies this profile. Generated by Klaviyo. (required)
         :type id: str
@@ -9522,7 +9582,7 @@ class ProfilesApi(object):
 ) -> ApiResponse[PatchProfileResponse]:
         """Update Profile
 
-        Update the profile with the given profile ID.  Note that setting a field to `null` will clear out the field, whereas not including a field in your request will leave it unchanged.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `profiles:write`
+        Update the profile with the given profile ID.  Use the `additional-fields` parameter to include subscriptions and predictive analytics data in your response.  Note that setting a field to `null` will clear out the field, whereas not including a field in your request will leave it unchanged.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `profiles:write`
 
         :param id: Primary key that uniquely identifies this profile. Generated by Klaviyo. (required)
         :type id: str
@@ -9608,7 +9668,7 @@ class ProfilesApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Update Profile
 
-        Update the profile with the given profile ID.  Note that setting a field to `null` will clear out the field, whereas not including a field in your request will leave it unchanged.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `profiles:write`
+        Update the profile with the given profile ID.  Use the `additional-fields` parameter to include subscriptions and predictive analytics data in your response.  Note that setting a field to `null` will clear out the field, whereas not including a field in your request will leave it unchanged.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `profiles:write`
 
         :param id: Primary key that uniquely identifies this profile. Generated by Klaviyo. (required)
         :type id: str

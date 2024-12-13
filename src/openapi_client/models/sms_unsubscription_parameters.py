@@ -19,17 +19,18 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List
-from openapi_client.models.get_tag_tag_group_relationships_response_data import GetTagTagGroupRelationshipsResponseData
+from typing import Any, ClassVar, Dict, List, Optional
+from openapi_client.models.unsubscription_parameters import UnsubscriptionParameters
 from typing import Optional, Set
 from typing_extensions import Self
 
-class GetTagTagGroupRelationshipsResponse(BaseModel):
+class SMSUnsubscriptionParameters(BaseModel):
     """
-    GetTagTagGroupRelationshipsResponse
+    SMSUnsubscriptionParameters
     """ # noqa: E501
-    data: GetTagTagGroupRelationshipsResponseData
-    __properties: ClassVar[List[str]] = ["data"]
+    marketing: Optional[UnsubscriptionParameters] = None
+    transactional: Optional[UnsubscriptionParameters] = None
+    __properties: ClassVar[List[str]] = ["marketing", "transactional"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -49,7 +50,7 @@ class GetTagTagGroupRelationshipsResponse(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of GetTagTagGroupRelationshipsResponse from a JSON string"""
+        """Create an instance of SMSUnsubscriptionParameters from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -70,14 +71,17 @@ class GetTagTagGroupRelationshipsResponse(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of data
-        if self.data:
-            _dict['data'] = self.data.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of marketing
+        if self.marketing:
+            _dict['marketing'] = self.marketing.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of transactional
+        if self.transactional:
+            _dict['transactional'] = self.transactional.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of GetTagTagGroupRelationshipsResponse from a dict"""
+        """Create an instance of SMSUnsubscriptionParameters from a dict"""
         if obj is None:
             return None
 
@@ -85,7 +89,8 @@ class GetTagTagGroupRelationshipsResponse(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "data": GetTagTagGroupRelationshipsResponseData.from_dict(obj["data"]) if obj.get("data") is not None else None
+            "marketing": UnsubscriptionParameters.from_dict(obj["marketing"]) if obj.get("marketing") is not None else None,
+            "transactional": UnsubscriptionParameters.from_dict(obj["transactional"]) if obj.get("transactional") is not None else None
         })
         return _obj
 

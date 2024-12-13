@@ -7,6 +7,27 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 NOTE: For more granular API-specific changes, please see our [API Changelog](https://developers.klaviyo.com/en/docs/changelog_)
 
+## [16.0.0] - revision 2024-10-15
+### Added
+- Transactional SMS Content
+  - Collect transactional-only SMS consent separately from general marketing consent with the Profiles APIs. This can enable customers to choose the types of texts they wish to receive: transactional, promotional, or both. Use the transactional field with Bulk Subscribe Profiles or Bulk Unsubscribe Profiles to set consent status. Review current transactional consent status with Get Profiles.
+### Changed
+- **Breaking:** Renamed models:
+  - `GetCampaignMessagesRelationshipListResponseCollection` -> `GetCampaignMessagesRelationshipsResponseCollection`
+  - `GetCampaignMessagesRelationshipListResponseCollectionDataInner` -> `GetCampaignMessagesRelationshipsResponseCollectionDataInner`
+  - `GetTagGroupTagRelationshipsResponseCollection` -> `GetTagGroupTagsRelationshipsResponseCollection`
+  - `GetTagGroupTagRelationshipsResponseCollectionDataInner` -> `GetListListResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsTagsDataInner`
+  - `GetTagTagGroupRelationshipsResponse` -> `GetTagGroupRelationshipResponse`
+  - `GetTagTagGroupRelationshipsResponseData` -> `GetTagResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsTagGroupData`
+  - `GetCouponCodeRelationshipCouponResponse` -> `GetCouponCodeCouponRelationshipResponse`
+  - `GetCouponCodeRelationshipCouponResponseData` -> `GetCouponCodeCouponRelationshipResponseData`
+  - `GetFlowMessageFlowActionRelationshipResponse` -> `GetFlowMessageActionRelationshipResponse`
+  - `GetMetricPropertyRelationshipMetricResponse` -> `GetMetricPropertyMetricRelationshipResponse`
+  - `GetMetricPropertyRelationshipMetricResponseData` -> `GetEventMetricRelationshipResponseData`
+  - `GetMetricRelationshipMetricPropertyResponseCollection` -> `GetMetricPropertiesRelationshipsResponseCollection`
+  - `GetMetricRelationshipMetricPropertyResponseCollectionDataInner` -> `GetMetricPropertiesRelationshipsResponseCollectionDataInner`
+  - `GetProfileImportJobListRelationshipsResponseCollection` -> `GetProfileBulkImportJobListsRelationshipsResponseCollection`
+
 ## [15.0.0] - 2024-10-15
 ### Added
 - Lazy imports (optional)

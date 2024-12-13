@@ -30,9 +30,9 @@ from openapi_client.models.coupon_code_create_query import CouponCodeCreateQuery
 from openapi_client.models.coupon_code_update_query import CouponCodeUpdateQuery
 from openapi_client.models.coupon_create_query import CouponCreateQuery
 from openapi_client.models.coupon_update_query import CouponUpdateQuery
+from openapi_client.models.get_coupon_code_coupon_relationship_response import GetCouponCodeCouponRelationshipResponse
 from openapi_client.models.get_coupon_code_create_job_response_collection_compound_document import GetCouponCodeCreateJobResponseCollectionCompoundDocument
 from openapi_client.models.get_coupon_code_create_job_response_compound_document import GetCouponCodeCreateJobResponseCompoundDocument
-from openapi_client.models.get_coupon_code_relationship_coupon_response import GetCouponCodeRelationshipCouponResponse
 from openapi_client.models.get_coupon_code_response_collection import GetCouponCodeResponseCollection
 from openapi_client.models.get_coupon_code_response_collection_compound_document import GetCouponCodeResponseCollectionCompoundDocument
 from openapi_client.models.get_coupon_code_response_compound_document import GetCouponCodeResponseCompoundDocument
@@ -2410,345 +2410,6 @@ class CouponsApi(object):
 
 
     @validate_call
-    def get_code_ids_for_coupon(        
-        self,
-        id: Annotated[StrictStr, Field(description="The ID of the coupon to look up the relationship of.")],
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#pagination")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: StrictStr = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-        options: Dict[str, Any] = {},
-) ->  Union[GetCouponRelationshipCouponCodesListResponseCollection, Dict[str, object]]:
-        """Get Code IDs for Coupon
-
-        Gets a list of coupon code relationships associated with the given coupon id<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `coupon-codes:read`
-
-        :param id: The ID of the coupon to look up the relationship of. (required)
-        :type id: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#pagination
-        :type page_cursor: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_code_ids_for_coupon_serialize(
-            id=id,
-            page_cursor=page_cursor,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCouponRelationshipCouponCodesListResponseCollection,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
-        }
-        frame = inspect.currentframe()
-        args, _, _, values = inspect.getargvalues(frame)
-        uses_sparse_fields = self._uses_sparse_fields(args, values)
-
-        if _request_auth is not None:
-            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
-
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-
-        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
-            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
-
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-            exclude_none=uses_sparse_fields
-        ).data
-
-
-    # alias of get_code_ids_for_coupon
-    get_coupon_code_relationships_coupon = get_code_ids_for_coupon
-
-    @validate_call
-    def get_code_ids_for_coupon_with_http_info(        
-        self,
-        id: Annotated[StrictStr, Field(description="The ID of the coupon to look up the relationship of.")],
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#pagination")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: StrictStr = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-        options: Dict[str, Any] = {},
-) -> ApiResponse[GetCouponRelationshipCouponCodesListResponseCollection]:
-        """Get Code IDs for Coupon
-
-        Gets a list of coupon code relationships associated with the given coupon id<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `coupon-codes:read`
-
-        :param id: The ID of the coupon to look up the relationship of. (required)
-        :type id: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#pagination
-        :type page_cursor: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_code_ids_for_coupon_serialize(
-            id=id,
-            page_cursor=page_cursor,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCouponRelationshipCouponCodesListResponseCollection,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
-        }
-        frame = inspect.currentframe()
-        args, _, _, values = inspect.getargvalues(frame)
-        uses_sparse_fields = self._uses_sparse_fields(args, values)
-
-        if _request_auth is not None:
-            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
-
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
-            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
-
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    # alias of `get_code_ids_for_coupon_with_http_info`
-    get_coupon_code_relationships_coupon_with_http_info = get_code_ids_for_coupon_with_http_info
-
-    @validate_call
-    def get_code_ids_for_coupon_without_preload_content(
-        self,
-        id: Annotated[StrictStr, Field(description="The ID of the coupon to look up the relationship of.")],
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#pagination")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: StrictStr = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
-        """Get Code IDs for Coupon
-
-        Gets a list of coupon code relationships associated with the given coupon id<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `coupon-codes:read`
-
-        :param id: The ID of the coupon to look up the relationship of. (required)
-        :type id: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#pagination
-        :type page_cursor: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_code_ids_for_coupon_serialize(
-            id=id,
-            page_cursor=page_cursor,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCouponRelationshipCouponCodesListResponseCollection,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
-        }
-        if _request_auth is not None:
-            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    # alias of `get_code_ids_for_coupon_without_preload_content`
-    get_coupon_code_relationships_coupon_without_preload_content = get_code_ids_for_coupon_without_preload_content
-
-    def _uses_sparse_fields(self, args, values) -> Set[str]:
-        for arg in args:
-             if arg.startswith('fields'):
-                 if values[arg] is not None:
-                      return True
-        return False
-
-
-    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
-        for key, value in response_types_map.items():
-            if key.startswith('2'):
-                if value is not None:
-                    # Replace the Type for this key with a Dict type
-                    response_types_map[key] = 'Dict[str, object]'
-
-        return response_types_map
-
-    def _get_code_ids_for_coupon_serialize(
-        self,
-        id,
-        page_cursor,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if id is not None:
-            _path_params['id'] = id
-        # process the query parameters
-        if page_cursor is not None:
-            
-            if isinstance(page_cursor, EnumMeta):
-                _query_params.append(('page[cursor]', page_cursor))
-            else:
-                _query_params.append(('page[cursor]', page_cursor))
-            
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/vnd.api+json'
-            ]
-        )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'Klaviyo-API-Key', 
-            'OAuth'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/coupons/{id}/relationships/coupon-codes',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-    # alias of `_get_code_ids_for_coupon_serialize`
-    _get_coupon_code_relationships_coupon_serialize = _get_code_ids_for_coupon_serialize
-
-
-
-    @validate_call
     def get_coupon(        
         self,
         id: Annotated[StrictStr, Field(description="The internal id of a Coupon is equivalent to its external id stored within an integration.")],
@@ -3447,6 +3108,369 @@ class CouponsApi(object):
 
 
     @validate_call
+    def get_coupon_code_ids_for_coupon(        
+        self,
+        id: Annotated[StrictStr, Field(description="The ID of the coupon to look up the relationship of.")],
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#pagination")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: StrictStr = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+        options: Dict[str, Any] = {},
+) ->  Union[GetCouponRelationshipCouponCodesListResponseCollection, Dict[str, object]]:
+        """Get Coupon Code IDs for Coupon
+
+        Gets a list of coupon code relationships associated with the given coupon id<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `coupon-codes:read`
+
+        :param id: The ID of the coupon to look up the relationship of. (required)
+        :type id: str
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#pagination
+        :type page_cursor: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_coupon_code_ids_for_coupon_serialize(
+            id=id,
+            page_cursor=page_cursor,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetCouponRelationshipCouponCodesListResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
+        }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
+        if _request_auth is not None:
+            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
+        ).data
+
+
+    # alias of get_coupon_code_ids_for_coupon
+    get_coupon_code_relationships_coupon = get_coupon_code_ids_for_coupon
+
+    # alias of get_coupon_code_ids_for_coupon
+    get_code_ids_for_coupon = get_coupon_code_ids_for_coupon
+
+    # alias of get_coupon_code_ids_for_coupon
+    get_coupon_relationships_codes = get_coupon_code_ids_for_coupon
+
+    @validate_call
+    def get_coupon_code_ids_for_coupon_with_http_info(        
+        self,
+        id: Annotated[StrictStr, Field(description="The ID of the coupon to look up the relationship of.")],
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#pagination")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: StrictStr = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+        options: Dict[str, Any] = {},
+) -> ApiResponse[GetCouponRelationshipCouponCodesListResponseCollection]:
+        """Get Coupon Code IDs for Coupon
+
+        Gets a list of coupon code relationships associated with the given coupon id<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `coupon-codes:read`
+
+        :param id: The ID of the coupon to look up the relationship of. (required)
+        :type id: str
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#pagination
+        :type page_cursor: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_coupon_code_ids_for_coupon_serialize(
+            id=id,
+            page_cursor=page_cursor,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetCouponRelationshipCouponCodesListResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
+        }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
+        if _request_auth is not None:
+            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    # alias of `get_coupon_code_ids_for_coupon_with_http_info`
+    get_coupon_code_relationships_coupon_with_http_info = get_coupon_code_ids_for_coupon_with_http_info
+
+    # alias of `get_coupon_code_ids_for_coupon_with_http_info`
+    get_code_ids_for_coupon_with_http_info = get_coupon_code_ids_for_coupon_with_http_info
+
+    # alias of `get_coupon_code_ids_for_coupon_with_http_info`
+    get_coupon_relationships_codes_with_http_info = get_coupon_code_ids_for_coupon_with_http_info
+
+    @validate_call
+    def get_coupon_code_ids_for_coupon_without_preload_content(
+        self,
+        id: Annotated[StrictStr, Field(description="The ID of the coupon to look up the relationship of.")],
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#pagination")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: StrictStr = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
+        """Get Coupon Code IDs for Coupon
+
+        Gets a list of coupon code relationships associated with the given coupon id<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `coupon-codes:read`
+
+        :param id: The ID of the coupon to look up the relationship of. (required)
+        :type id: str
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#pagination
+        :type page_cursor: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_coupon_code_ids_for_coupon_serialize(
+            id=id,
+            page_cursor=page_cursor,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetCouponRelationshipCouponCodesListResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
+        }
+        if _request_auth is not None:
+            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    # alias of `get_coupon_code_ids_for_coupon_without_preload_content`
+    get_coupon_code_relationships_coupon_without_preload_content = get_coupon_code_ids_for_coupon_without_preload_content
+
+    # alias of `get_coupon_code_ids_for_coupon_without_preload_content`
+    get_code_ids_for_coupon_without_preload_content = get_coupon_code_ids_for_coupon_without_preload_content
+
+    # alias of `get_coupon_code_ids_for_coupon_without_preload_content`
+    get_coupon_relationships_codes_without_preload_content = get_coupon_code_ids_for_coupon_without_preload_content
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
+
+    def _get_coupon_code_ids_for_coupon_serialize(
+        self,
+        id,
+        page_cursor,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if id is not None:
+            _path_params['id'] = id
+        # process the query parameters
+        if page_cursor is not None:
+            
+            if isinstance(page_cursor, EnumMeta):
+                _query_params.append(('page[cursor]', page_cursor))
+            else:
+                _query_params.append(('page[cursor]', page_cursor))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/vnd.api+json'
+            ]
+        )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'Klaviyo-API-Key', 
+            'OAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/api/coupons/{id}/relationships/coupon-codes',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+    # alias of `_get_coupon_code_ids_for_coupon_serialize`
+    _get_coupon_code_relationships_coupon_serialize = _get_coupon_code_ids_for_coupon_serialize
+
+    # alias of `_get_coupon_code_ids_for_coupon_serialize`
+    _get_code_ids_for_coupon_serialize = _get_coupon_code_ids_for_coupon_serialize
+
+    # alias of `_get_coupon_code_ids_for_coupon_serialize`
+    _get_coupon_relationships_codes_serialize = _get_coupon_code_ids_for_coupon_serialize
+
+
+
+    @validate_call
     def get_coupon_codes(        
         self,
         fields_coupon_code: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sparse-fieldsets")] = None,
@@ -3862,7 +3886,7 @@ class CouponsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
         options: Dict[str, Any] = {},
 ) ->  Union[GetCouponCodeResponseCollection, Dict[str, object]]:
-        """Get Coupon Codes For Coupon
+        """Get Coupon Codes for Coupon
 
         Gets a list of coupon codes associated with the given coupon id<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `coupon-codes:read`
 
@@ -3938,6 +3962,9 @@ class CouponsApi(object):
     # alias of get_coupon_codes_for_coupon
     get_coupon_coupon_codes = get_coupon_codes_for_coupon
 
+    # alias of get_coupon_codes_for_coupon
+    get_codes_for_coupon = get_coupon_codes_for_coupon
+
     @validate_call
     def get_coupon_codes_for_coupon_with_http_info(        
         self,
@@ -3959,7 +3986,7 @@ class CouponsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
         options: Dict[str, Any] = {},
 ) -> ApiResponse[GetCouponCodeResponseCollection]:
-        """Get Coupon Codes For Coupon
+        """Get Coupon Codes for Coupon
 
         Gets a list of coupon codes associated with the given coupon id<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `coupon-codes:read`
 
@@ -4033,6 +4060,9 @@ class CouponsApi(object):
     # alias of `get_coupon_codes_for_coupon_with_http_info`
     get_coupon_coupon_codes_with_http_info = get_coupon_codes_for_coupon_with_http_info
 
+    # alias of `get_coupon_codes_for_coupon_with_http_info`
+    get_codes_for_coupon_with_http_info = get_coupon_codes_for_coupon_with_http_info
+
     @validate_call
     def get_coupon_codes_for_coupon_without_preload_content(
         self,
@@ -4052,7 +4082,7 @@ class CouponsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
-        """Get Coupon Codes For Coupon
+        """Get Coupon Codes for Coupon
 
         Gets a list of coupon codes associated with the given coupon id<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `coupon-codes:read`
 
@@ -4113,6 +4143,9 @@ class CouponsApi(object):
 
     # alias of `get_coupon_codes_for_coupon_without_preload_content`
     get_coupon_coupon_codes_without_preload_content = get_coupon_codes_for_coupon_without_preload_content
+
+    # alias of `get_coupon_codes_for_coupon_without_preload_content`
+    get_codes_for_coupon_without_preload_content = get_coupon_codes_for_coupon_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -4218,6 +4251,9 @@ class CouponsApi(object):
 
     # alias of `_get_coupon_codes_for_coupon_serialize`
     _get_coupon_coupon_codes_serialize = _get_coupon_codes_for_coupon_serialize
+
+    # alias of `_get_coupon_codes_for_coupon_serialize`
+    _get_codes_for_coupon_serialize = _get_coupon_codes_for_coupon_serialize
 
 
 
@@ -4564,7 +4600,7 @@ class CouponsApi(object):
     @validate_call
     def get_coupon_id_for_coupon_code(        
         self,
-        id: Annotated[StrictStr, Field(description="The ID of the coupon code to look up the relationship of.")],
+        id: Annotated[StrictStr, Field(description="The ID of the coupon to look up the relationship of.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4578,12 +4614,12 @@ class CouponsApi(object):
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
         options: Dict[str, Any] = {},
-) ->  Union[GetCouponCodeRelationshipCouponResponse, Dict[str, object]]:
+) ->  Union[GetCouponCodeCouponRelationshipResponse, Dict[str, object]]:
         """Get Coupon ID for Coupon Code
 
         Gets the coupon relationship associated with the given coupon code id<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `coupons:read`
 
-        :param id: The ID of the coupon code to look up the relationship of. (required)
+        :param id: The ID of the coupon to look up the relationship of. (required)
         :type id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -4616,7 +4652,7 @@ class CouponsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCouponCodeRelationshipCouponResponse,
+            '200': GetCouponCodeCouponRelationshipResponse,
             '4XX': GetAccounts4XXResponse,
             '5XX': GetAccounts4XXResponse,
         }
@@ -4649,7 +4685,7 @@ class CouponsApi(object):
     @validate_call
     def get_coupon_id_for_coupon_code_with_http_info(        
         self,
-        id: Annotated[StrictStr, Field(description="The ID of the coupon code to look up the relationship of.")],
+        id: Annotated[StrictStr, Field(description="The ID of the coupon to look up the relationship of.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4663,12 +4699,12 @@ class CouponsApi(object):
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
         options: Dict[str, Any] = {},
-) -> ApiResponse[GetCouponCodeRelationshipCouponResponse]:
+) -> ApiResponse[GetCouponCodeCouponRelationshipResponse]:
         """Get Coupon ID for Coupon Code
 
         Gets the coupon relationship associated with the given coupon code id<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `coupons:read`
 
-        :param id: The ID of the coupon code to look up the relationship of. (required)
+        :param id: The ID of the coupon to look up the relationship of. (required)
         :type id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -4701,7 +4737,7 @@ class CouponsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCouponCodeRelationshipCouponResponse,
+            '200': GetCouponCodeCouponRelationshipResponse,
             '4XX': GetAccounts4XXResponse,
             '5XX': GetAccounts4XXResponse,
         }
@@ -4732,7 +4768,7 @@ class CouponsApi(object):
     @validate_call
     def get_coupon_id_for_coupon_code_without_preload_content(
         self,
-        id: Annotated[StrictStr, Field(description="The ID of the coupon code to look up the relationship of.")],
+        id: Annotated[StrictStr, Field(description="The ID of the coupon to look up the relationship of.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4749,7 +4785,7 @@ class CouponsApi(object):
 
         Gets the coupon relationship associated with the given coupon code id<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `coupons:read`
 
-        :param id: The ID of the coupon code to look up the relationship of. (required)
+        :param id: The ID of the coupon to look up the relationship of. (required)
         :type id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -4782,7 +4818,7 @@ class CouponsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCouponCodeRelationshipCouponResponse,
+            '200': GetCouponCodeCouponRelationshipResponse,
             '4XX': GetAccounts4XXResponse,
             '5XX': GetAccounts4XXResponse,
         }

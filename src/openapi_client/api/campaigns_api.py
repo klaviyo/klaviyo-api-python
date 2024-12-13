@@ -37,7 +37,7 @@ from openapi_client.models.get_campaign_message_campaign_relationship_response i
 from openapi_client.models.get_campaign_message_response_collection_compound_document import GetCampaignMessageResponseCollectionCompoundDocument
 from openapi_client.models.get_campaign_message_response_compound_document import GetCampaignMessageResponseCompoundDocument
 from openapi_client.models.get_campaign_message_template_relationship_response import GetCampaignMessageTemplateRelationshipResponse
-from openapi_client.models.get_campaign_messages_relationship_list_response_collection import GetCampaignMessagesRelationshipListResponseCollection
+from openapi_client.models.get_campaign_messages_relationships_response_collection import GetCampaignMessagesRelationshipsResponseCollection
 from openapi_client.models.get_campaign_recipient_estimation_job_response import GetCampaignRecipientEstimationJobResponse
 from openapi_client.models.get_campaign_recipient_estimation_response import GetCampaignRecipientEstimationResponse
 from openapi_client.models.get_campaign_response import GetCampaignResponse
@@ -4137,334 +4137,6 @@ class CampaignsApi(object):
 
 
     @validate_call
-    def get_campaign_tags(        
-        self,
-        id: StrictStr,
-        fields_tag: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sparse-fieldsets")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: StrictStr = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-        options: Dict[str, Any] = {},
-) ->  Union[GetTagResponseCollection, Dict[str, object]]:
-        """Get Campaign Tags
-
-        Return all tags that belong to the given campaign.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `campaigns:read` `tags:read`
-
-        :param id:  (required)
-        :type id: str
-        :param fields_tag: For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sparse-fieldsets
-        :type fields_tag: List[str]
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_campaign_tags_serialize(
-            id=id,
-            fields_tag=fields_tag,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetTagResponseCollection,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
-        }
-        frame = inspect.currentframe()
-        args, _, _, values = inspect.getargvalues(frame)
-        uses_sparse_fields = self._uses_sparse_fields(args, values)
-
-        if _request_auth is not None:
-            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
-
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-
-        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
-            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
-
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-            exclude_none=uses_sparse_fields
-        ).data
-
-
-    @validate_call
-    def get_campaign_tags_with_http_info(        
-        self,
-        id: StrictStr,
-        fields_tag: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sparse-fieldsets")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: StrictStr = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-        options: Dict[str, Any] = {},
-) -> ApiResponse[GetTagResponseCollection]:
-        """Get Campaign Tags
-
-        Return all tags that belong to the given campaign.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `campaigns:read` `tags:read`
-
-        :param id:  (required)
-        :type id: str
-        :param fields_tag: For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sparse-fieldsets
-        :type fields_tag: List[str]
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_campaign_tags_serialize(
-            id=id,
-            fields_tag=fields_tag,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetTagResponseCollection,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
-        }
-        frame = inspect.currentframe()
-        args, _, _, values = inspect.getargvalues(frame)
-        uses_sparse_fields = self._uses_sparse_fields(args, values)
-
-        if _request_auth is not None:
-            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
-
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
-            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
-
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def get_campaign_tags_without_preload_content(
-        self,
-        id: StrictStr,
-        fields_tag: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sparse-fieldsets")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: StrictStr = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
-        """Get Campaign Tags
-
-        Return all tags that belong to the given campaign.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `campaigns:read` `tags:read`
-
-        :param id:  (required)
-        :type id: str
-        :param fields_tag: For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sparse-fieldsets
-        :type fields_tag: List[str]
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_campaign_tags_serialize(
-            id=id,
-            fields_tag=fields_tag,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetTagResponseCollection,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
-        }
-        if _request_auth is not None:
-            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _uses_sparse_fields(self, args, values) -> Set[str]:
-        for arg in args:
-             if arg.startswith('fields'):
-                 if values[arg] is not None:
-                      return True
-        return False
-
-
-    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
-        for key, value in response_types_map.items():
-            if key.startswith('2'):
-                if value is not None:
-                    # Replace the Type for this key with a Dict type
-                    response_types_map[key] = 'Dict[str, object]'
-
-        return response_types_map
-
-    def _get_campaign_tags_serialize(
-        self,
-        id,
-        fields_tag,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-            'fields[tag]': 'csv',
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if id is not None:
-            _path_params['id'] = id
-        # process the query parameters
-        if fields_tag is not None:
-            
-            if isinstance(fields_tag, EnumMeta):
-                _query_params.append(('fields[tag]', fields_tag))
-            else:
-                _query_params.append(('fields[tag]', fields_tag))
-            
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/vnd.api+json'
-            ]
-        )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'Klaviyo-API-Key', 
-            'OAuth'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/campaigns/{id}/tags',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
     def get_campaigns(        
         self,
         filter: Annotated[StrictStr, Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`messages.channel`: `equals`<br>`name`: `contains`<br>`status`: `any`, `equals`<br>`archived`: `equals`<br>`created_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`scheduled_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`updated_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`")],
@@ -4917,7 +4589,7 @@ class CampaignsApi(object):
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
         options: Dict[str, Any] = {},
-) ->  Union[GetCampaignMessagesRelationshipListResponseCollection, Dict[str, object]]:
+) ->  Union[GetCampaignMessagesRelationshipsResponseCollection, Dict[str, object]]:
         """Get Message IDs for Campaign
 
         Returns the IDs of all messages associated with the given campaign.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:read`
@@ -4955,7 +4627,7 @@ class CampaignsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCampaignMessagesRelationshipListResponseCollection,
+            '200': GetCampaignMessagesRelationshipsResponseCollection,
             '4XX': GetAccounts4XXResponse,
             '5XX': GetAccounts4XXResponse,
         }
@@ -4985,6 +4657,9 @@ class CampaignsApi(object):
     # alias of get_message_ids_for_campaign
     get_campaign_relationships_campaign_messages = get_message_ids_for_campaign
 
+    # alias of get_message_ids_for_campaign
+    get_campaign_relationships_messages = get_message_ids_for_campaign
+
     @validate_call
     def get_message_ids_for_campaign_with_http_info(        
         self,
@@ -5002,7 +4677,7 @@ class CampaignsApi(object):
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
         options: Dict[str, Any] = {},
-) -> ApiResponse[GetCampaignMessagesRelationshipListResponseCollection]:
+) -> ApiResponse[GetCampaignMessagesRelationshipsResponseCollection]:
         """Get Message IDs for Campaign
 
         Returns the IDs of all messages associated with the given campaign.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `campaigns:read`
@@ -5040,7 +4715,7 @@ class CampaignsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCampaignMessagesRelationshipListResponseCollection,
+            '200': GetCampaignMessagesRelationshipsResponseCollection,
             '4XX': GetAccounts4XXResponse,
             '5XX': GetAccounts4XXResponse,
         }
@@ -5067,6 +4742,9 @@ class CampaignsApi(object):
 
     # alias of `get_message_ids_for_campaign_with_http_info`
     get_campaign_relationships_campaign_messages_with_http_info = get_message_ids_for_campaign_with_http_info
+
+    # alias of `get_message_ids_for_campaign_with_http_info`
+    get_campaign_relationships_messages_with_http_info = get_message_ids_for_campaign_with_http_info
 
     @validate_call
     def get_message_ids_for_campaign_without_preload_content(
@@ -5121,7 +4799,7 @@ class CampaignsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCampaignMessagesRelationshipListResponseCollection,
+            '200': GetCampaignMessagesRelationshipsResponseCollection,
             '4XX': GetAccounts4XXResponse,
             '5XX': GetAccounts4XXResponse,
         }
@@ -5136,6 +4814,9 @@ class CampaignsApi(object):
 
     # alias of `get_message_ids_for_campaign_without_preload_content`
     get_campaign_relationships_campaign_messages_without_preload_content = get_message_ids_for_campaign_without_preload_content
+
+    # alias of `get_message_ids_for_campaign_without_preload_content`
+    get_campaign_relationships_messages_without_preload_content = get_message_ids_for_campaign_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -5216,6 +4897,9 @@ class CampaignsApi(object):
 
     # alias of `_get_message_ids_for_campaign_serialize`
     _get_campaign_relationships_campaign_messages_serialize = _get_message_ids_for_campaign_serialize
+
+    # alias of `_get_message_ids_for_campaign_serialize`
+    _get_campaign_relationships_messages_serialize = _get_message_ids_for_campaign_serialize
 
 
 
@@ -5320,6 +5004,9 @@ class CampaignsApi(object):
     # alias of get_messages_for_campaign
     get_campaign_campaign_messages = get_messages_for_campaign
 
+    # alias of get_messages_for_campaign
+    get_campaign_messages = get_messages_for_campaign
+
     @validate_call
     def get_messages_for_campaign_with_http_info(        
         self,
@@ -5419,6 +5106,9 @@ class CampaignsApi(object):
     # alias of `get_messages_for_campaign_with_http_info`
     get_campaign_campaign_messages_with_http_info = get_messages_for_campaign_with_http_info
 
+    # alias of `get_messages_for_campaign_with_http_info`
+    get_campaign_messages_with_http_info = get_messages_for_campaign_with_http_info
+
     @validate_call
     def get_messages_for_campaign_without_preload_content(
         self,
@@ -5503,6 +5193,9 @@ class CampaignsApi(object):
 
     # alias of `get_messages_for_campaign_without_preload_content`
     get_campaign_campaign_messages_without_preload_content = get_messages_for_campaign_without_preload_content
+
+    # alias of `get_messages_for_campaign_without_preload_content`
+    get_campaign_messages_without_preload_content = get_messages_for_campaign_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -5619,6 +5312,9 @@ class CampaignsApi(object):
 
     # alias of `_get_messages_for_campaign_serialize`
     _get_campaign_campaign_messages_serialize = _get_messages_for_campaign_serialize
+
+    # alias of `_get_messages_for_campaign_serialize`
+    _get_campaign_messages_serialize = _get_messages_for_campaign_serialize
 
 
 
@@ -5938,6 +5634,346 @@ class CampaignsApi(object):
 
     # alias of `_get_tag_ids_for_campaign_serialize`
     _get_campaign_relationships_tags_serialize = _get_tag_ids_for_campaign_serialize
+
+
+
+    @validate_call
+    def get_tags_for_campaign(        
+        self,
+        id: StrictStr,
+        fields_tag: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sparse-fieldsets")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: StrictStr = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+        options: Dict[str, Any] = {},
+) ->  Union[GetTagResponseCollection, Dict[str, object]]:
+        """Get Tags for Campaign
+
+        Return all tags that belong to the given campaign.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `campaigns:read` `tags:read`
+
+        :param id:  (required)
+        :type id: str
+        :param fields_tag: For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sparse-fieldsets
+        :type fields_tag: List[str]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_tags_for_campaign_serialize(
+            id=id,
+            fields_tag=fields_tag,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetTagResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
+        }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
+        if _request_auth is not None:
+            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
+        ).data
+
+
+    # alias of get_tags_for_campaign
+    get_campaign_tags = get_tags_for_campaign
+
+    @validate_call
+    def get_tags_for_campaign_with_http_info(        
+        self,
+        id: StrictStr,
+        fields_tag: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sparse-fieldsets")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: StrictStr = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+        options: Dict[str, Any] = {},
+) -> ApiResponse[GetTagResponseCollection]:
+        """Get Tags for Campaign
+
+        Return all tags that belong to the given campaign.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `campaigns:read` `tags:read`
+
+        :param id:  (required)
+        :type id: str
+        :param fields_tag: For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sparse-fieldsets
+        :type fields_tag: List[str]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_tags_for_campaign_serialize(
+            id=id,
+            fields_tag=fields_tag,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetTagResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
+        }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
+        if _request_auth is not None:
+            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    # alias of `get_tags_for_campaign_with_http_info`
+    get_campaign_tags_with_http_info = get_tags_for_campaign_with_http_info
+
+    @validate_call
+    def get_tags_for_campaign_without_preload_content(
+        self,
+        id: StrictStr,
+        fields_tag: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sparse-fieldsets")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: StrictStr = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
+        """Get Tags for Campaign
+
+        Return all tags that belong to the given campaign.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `campaigns:read` `tags:read`
+
+        :param id:  (required)
+        :type id: str
+        :param fields_tag: For more information please visit https://developers.klaviyo.com/en/v2024-10-15/reference/api-overview#sparse-fieldsets
+        :type fields_tag: List[str]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_tags_for_campaign_serialize(
+            id=id,
+            fields_tag=fields_tag,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[BaseModel]] = {
+            '200': GetTagResponseCollection,
+            '4XX': GetAccounts4XXResponse,
+            '5XX': GetAccounts4XXResponse,
+        }
+        if _request_auth is not None:
+            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    # alias of `get_tags_for_campaign_without_preload_content`
+    get_campaign_tags_without_preload_content = get_tags_for_campaign_without_preload_content
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
+
+    def _get_tags_for_campaign_serialize(
+        self,
+        id,
+        fields_tag,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+            'fields[tag]': 'csv',
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if id is not None:
+            _path_params['id'] = id
+        # process the query parameters
+        if fields_tag is not None:
+            
+            if isinstance(fields_tag, EnumMeta):
+                _query_params.append(('fields[tag]', fields_tag))
+            else:
+                _query_params.append(('fields[tag]', fields_tag))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/vnd.api+json'
+            ]
+        )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'Klaviyo-API-Key', 
+            'OAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/api/campaigns/{id}/tags',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+    # alias of `_get_tags_for_campaign_serialize`
+    _get_campaign_tags_serialize = _get_tags_for_campaign_serialize
 
 
 

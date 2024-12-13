@@ -18,19 +18,24 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List
-from openapi_client.models.tag_group_enum import TagGroupEnum
 from typing import Optional, Set
 from typing_extensions import Self
 
-class GetTagTagGroupRelationshipsResponseData(BaseModel):
+class UnsubscriptionParameters(BaseModel):
     """
-    GetTagTagGroupRelationshipsResponseData
+    UnsubscriptionParameters
     """ # noqa: E501
-    type: TagGroupEnum
-    id: StrictStr = Field(description="The ID of the Tag Group the Tag is associated with")
-    __properties: ClassVar[List[str]] = ["type", "id"]
+    consent: StrictStr = Field(description="The Consent status to be set as part of the unsubscribe call. Currently supports \"UNSUBSCRIBED\".")
+    __properties: ClassVar[List[str]] = ["consent"]
+
+    @field_validator('consent')
+    def consent_validate_enum(cls, value):
+        """Validates the enum"""
+        if value not in set(['UNSUBSCRIBED']):
+            raise ValueError("must be one of enum values ('UNSUBSCRIBED')")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -50,7 +55,7 @@ class GetTagTagGroupRelationshipsResponseData(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of GetTagTagGroupRelationshipsResponseData from a JSON string"""
+        """Create an instance of UnsubscriptionParameters from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -75,7 +80,7 @@ class GetTagTagGroupRelationshipsResponseData(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of GetTagTagGroupRelationshipsResponseData from a dict"""
+        """Create an instance of UnsubscriptionParameters from a dict"""
         if obj is None:
             return None
 
@@ -83,8 +88,7 @@ class GetTagTagGroupRelationshipsResponseData(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "type": obj.get("type"),
-            "id": obj.get("id")
+            "consent": obj.get("consent")
         })
         return _obj
 

@@ -148,6 +148,9 @@ class ReportingApi(object):
     # alias of query_campaign_values
     create_campaign_value_report = query_campaign_values
 
+    # alias of query_campaign_values
+    create_campaign_values_report = query_campaign_values
+
     @validate_call
     def query_campaign_values_with_http_info(        
         self,
@@ -235,6 +238,9 @@ class ReportingApi(object):
     # alias of `query_campaign_values_with_http_info`
     create_campaign_value_report_with_http_info = query_campaign_values_with_http_info
 
+    # alias of `query_campaign_values_with_http_info`
+    create_campaign_values_report_with_http_info = query_campaign_values_with_http_info
+
     @validate_call
     def query_campaign_values_without_preload_content(
         self,
@@ -307,6 +313,9 @@ class ReportingApi(object):
 
     # alias of `query_campaign_values_without_preload_content`
     create_campaign_value_report_without_preload_content = query_campaign_values_without_preload_content
+
+    # alias of `query_campaign_values_without_preload_content`
+    create_campaign_values_report_without_preload_content = query_campaign_values_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -409,6 +418,9 @@ class ReportingApi(object):
     # alias of `_query_campaign_values_serialize`
     _create_campaign_value_report_serialize = _query_campaign_values_serialize
 
+    # alias of `_query_campaign_values_serialize`
+    _create_campaign_values_report_serialize = _query_campaign_values_serialize
+
 
 
     @validate_call
@@ -500,6 +512,9 @@ class ReportingApi(object):
     # alias of query_flow_series
     create_flow_sery_report = query_flow_series
 
+    # alias of query_flow_series
+    create_flow_series_report = query_flow_series
+
     @validate_call
     def query_flow_series_with_http_info(        
         self,
@@ -587,6 +602,9 @@ class ReportingApi(object):
     # alias of `query_flow_series_with_http_info`
     create_flow_sery_report_with_http_info = query_flow_series_with_http_info
 
+    # alias of `query_flow_series_with_http_info`
+    create_flow_series_report_with_http_info = query_flow_series_with_http_info
+
     @validate_call
     def query_flow_series_without_preload_content(
         self,
@@ -659,6 +677,9 @@ class ReportingApi(object):
 
     # alias of `query_flow_series_without_preload_content`
     create_flow_sery_report_without_preload_content = query_flow_series_without_preload_content
+
+    # alias of `query_flow_series_without_preload_content`
+    create_flow_series_report_without_preload_content = query_flow_series_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -761,6 +782,9 @@ class ReportingApi(object):
     # alias of `_query_flow_series_serialize`
     _create_flow_sery_report_serialize = _query_flow_series_serialize
 
+    # alias of `_query_flow_series_serialize`
+    _create_flow_series_report_serialize = _query_flow_series_serialize
+
 
 
     @validate_call
@@ -852,6 +876,9 @@ class ReportingApi(object):
     # alias of query_flow_values
     create_flow_value_report = query_flow_values
 
+    # alias of query_flow_values
+    create_flow_values_report = query_flow_values
+
     @validate_call
     def query_flow_values_with_http_info(        
         self,
@@ -939,6 +966,9 @@ class ReportingApi(object):
     # alias of `query_flow_values_with_http_info`
     create_flow_value_report_with_http_info = query_flow_values_with_http_info
 
+    # alias of `query_flow_values_with_http_info`
+    create_flow_values_report_with_http_info = query_flow_values_with_http_info
+
     @validate_call
     def query_flow_values_without_preload_content(
         self,
@@ -1011,6 +1041,9 @@ class ReportingApi(object):
 
     # alias of `query_flow_values_without_preload_content`
     create_flow_value_report_without_preload_content = query_flow_values_without_preload_content
+
+    # alias of `query_flow_values_without_preload_content`
+    create_flow_values_report_without_preload_content = query_flow_values_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -1113,6 +1146,9 @@ class ReportingApi(object):
     # alias of `_query_flow_values_serialize`
     _create_flow_value_report_serialize = _query_flow_values_serialize
 
+    # alias of `_query_flow_values_serialize`
+    _create_flow_values_report_serialize = _query_flow_values_serialize
+
 
 
     @validate_call
@@ -1200,6 +1236,9 @@ class ReportingApi(object):
     # alias of query_form_series
     create_form_sery_report = query_form_series
 
+    # alias of query_form_series
+    create_form_series_report = query_form_series
+
     @validate_call
     def query_form_series_with_http_info(        
         self,
@@ -1283,6 +1322,9 @@ class ReportingApi(object):
     # alias of `query_form_series_with_http_info`
     create_form_sery_report_with_http_info = query_form_series_with_http_info
 
+    # alias of `query_form_series_with_http_info`
+    create_form_series_report_with_http_info = query_form_series_with_http_info
+
     @validate_call
     def query_form_series_without_preload_content(
         self,
@@ -1351,6 +1393,9 @@ class ReportingApi(object):
 
     # alias of `query_form_series_without_preload_content`
     create_form_sery_report_without_preload_content = query_form_series_without_preload_content
+
+    # alias of `query_form_series_without_preload_content`
+    create_form_series_report_without_preload_content = query_form_series_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -1445,6 +1490,9 @@ class ReportingApi(object):
     # alias of `_query_form_series_serialize`
     _create_form_sery_report_serialize = _query_form_series_serialize
 
+    # alias of `_query_form_series_serialize`
+    _create_form_series_report_serialize = _query_form_series_serialize
+
 
 
     @validate_call
@@ -1532,6 +1580,9 @@ class ReportingApi(object):
     # alias of query_form_values
     create_form_value_report = query_form_values
 
+    # alias of query_form_values
+    create_form_values_report = query_form_values
+
     @validate_call
     def query_form_values_with_http_info(        
         self,
@@ -1615,6 +1666,9 @@ class ReportingApi(object):
     # alias of `query_form_values_with_http_info`
     create_form_value_report_with_http_info = query_form_values_with_http_info
 
+    # alias of `query_form_values_with_http_info`
+    create_form_values_report_with_http_info = query_form_values_with_http_info
+
     @validate_call
     def query_form_values_without_preload_content(
         self,
@@ -1683,6 +1737,9 @@ class ReportingApi(object):
 
     # alias of `query_form_values_without_preload_content`
     create_form_value_report_without_preload_content = query_form_values_without_preload_content
+
+    # alias of `query_form_values_without_preload_content`
+    create_form_values_report_without_preload_content = query_form_values_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -1777,6 +1834,9 @@ class ReportingApi(object):
     # alias of `_query_form_values_serialize`
     _create_form_value_report_serialize = _query_form_values_serialize
 
+    # alias of `_query_form_values_serialize`
+    _create_form_values_report_serialize = _query_form_values_serialize
+
 
 
     @validate_call
@@ -1864,6 +1924,9 @@ class ReportingApi(object):
     # alias of query_segment_series
     create_segment_sery_report = query_segment_series
 
+    # alias of query_segment_series
+    create_segment_series_report = query_segment_series
+
     @validate_call
     def query_segment_series_with_http_info(        
         self,
@@ -1947,6 +2010,9 @@ class ReportingApi(object):
     # alias of `query_segment_series_with_http_info`
     create_segment_sery_report_with_http_info = query_segment_series_with_http_info
 
+    # alias of `query_segment_series_with_http_info`
+    create_segment_series_report_with_http_info = query_segment_series_with_http_info
+
     @validate_call
     def query_segment_series_without_preload_content(
         self,
@@ -2015,6 +2081,9 @@ class ReportingApi(object):
 
     # alias of `query_segment_series_without_preload_content`
     create_segment_sery_report_without_preload_content = query_segment_series_without_preload_content
+
+    # alias of `query_segment_series_without_preload_content`
+    create_segment_series_report_without_preload_content = query_segment_series_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -2109,6 +2178,9 @@ class ReportingApi(object):
     # alias of `_query_segment_series_serialize`
     _create_segment_sery_report_serialize = _query_segment_series_serialize
 
+    # alias of `_query_segment_series_serialize`
+    _create_segment_series_report_serialize = _query_segment_series_serialize
+
 
 
     @validate_call
@@ -2196,6 +2268,9 @@ class ReportingApi(object):
     # alias of query_segment_values
     create_segment_value_report = query_segment_values
 
+    # alias of query_segment_values
+    create_segment_values_report = query_segment_values
+
     @validate_call
     def query_segment_values_with_http_info(        
         self,
@@ -2279,6 +2354,9 @@ class ReportingApi(object):
     # alias of `query_segment_values_with_http_info`
     create_segment_value_report_with_http_info = query_segment_values_with_http_info
 
+    # alias of `query_segment_values_with_http_info`
+    create_segment_values_report_with_http_info = query_segment_values_with_http_info
+
     @validate_call
     def query_segment_values_without_preload_content(
         self,
@@ -2347,6 +2425,9 @@ class ReportingApi(object):
 
     # alias of `query_segment_values_without_preload_content`
     create_segment_value_report_without_preload_content = query_segment_values_without_preload_content
+
+    # alias of `query_segment_values_without_preload_content`
+    create_segment_values_report_without_preload_content = query_segment_values_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -2440,4 +2521,7 @@ class ReportingApi(object):
 
     # alias of `_query_segment_values_serialize`
     _create_segment_value_report_serialize = _query_segment_values_serialize
+
+    # alias of `_query_segment_values_serialize`
+    _create_segment_values_report_serialize = _query_segment_values_serialize
 

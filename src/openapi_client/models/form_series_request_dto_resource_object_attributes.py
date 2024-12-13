@@ -30,8 +30,8 @@ class FormSeriesRequestDTOResourceObjectAttributes(BaseModel):
     statistics: List[StrictStr] = Field(description="List of statistics to query for. All rate statistics will be returned in fractional form [0.0, 1.0]")
     timeframe: Dict[str, Any] = Field(description="The timeframe to query for data within. The max length a timeframe can be is 1 year")
     interval: Optional[StrictStr] = Field(description="The interval used to aggregate data within the series request. If hourly is used, the timeframe cannot be longer than 7 days. If daily is used, the timeframe cannot be longer than 60 days. If monthly is used, the timeframe cannot be longer than 52 weeks.")
-    group_by: Optional[List[StrictStr]] = Field(default=None, description="List of attributes to group the data by. Allowed group-bys are form_version_id, form_id. If not passed in, the data will be grouped by form_id. If a group by has prerequisites, they must be passed in together. The prerequisites for form_version_id is form_id")
-    filter: Optional[StrictStr] = Field(default=None, description="API filter string used to filter the query. Allowed filters are form_version_id, form_id. Allowed operators are equals, any. Only one filter can be used per attribute, only AND can be used as a combination operator. Max of 100 messages per ANY filter.")
+    group_by: Optional[List[StrictStr]] = Field(default=None, description="List of attributes to group the data by. Allowed group-bys are form_id, form_version_id. If not passed in, the data will be grouped by form_id. If a group by has prerequisites, they must be passed in together. The prerequisites for form_version_id is form_id")
+    filter: Optional[StrictStr] = Field(default=None, description="API filter string used to filter the query. Allowed filters are form_id, form_version_id. Allowed operators are equals, any. Only one filter can be used per attribute, only AND can be used as a combination operator. Max of 100 messages per ANY filter.")
     __properties: ClassVar[List[str]] = ["statistics", "timeframe", "interval", "group_by", "filter"]
 
     @field_validator('statistics')

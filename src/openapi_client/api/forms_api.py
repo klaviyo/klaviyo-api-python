@@ -1887,6 +1887,9 @@ class FormsApi(object):
     # alias of get_version_ids_for_form
     get_form_relationships_form_versions = get_version_ids_for_form
 
+    # alias of get_version_ids_for_form
+    get_form_relationships_versions = get_version_ids_for_form
+
     @validate_call
     def get_version_ids_for_form_with_http_info(        
         self,
@@ -1970,6 +1973,9 @@ class FormsApi(object):
     # alias of `get_version_ids_for_form_with_http_info`
     get_form_relationships_form_versions_with_http_info = get_version_ids_for_form_with_http_info
 
+    # alias of `get_version_ids_for_form_with_http_info`
+    get_form_relationships_versions_with_http_info = get_version_ids_for_form_with_http_info
+
     @validate_call
     def get_version_ids_for_form_without_preload_content(
         self,
@@ -2038,6 +2044,9 @@ class FormsApi(object):
 
     # alias of `get_version_ids_for_form_without_preload_content`
     get_form_relationships_form_versions_without_preload_content = get_version_ids_for_form_without_preload_content
+
+    # alias of `get_version_ids_for_form_without_preload_content`
+    get_form_relationships_versions_without_preload_content = get_version_ids_for_form_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -2118,6 +2127,9 @@ class FormsApi(object):
 
     # alias of `_get_version_ids_for_form_serialize`
     _get_form_relationships_form_versions_serialize = _get_version_ids_for_form_serialize
+
+    # alias of `_get_version_ids_for_form_serialize`
+    _get_form_relationships_versions_serialize = _get_version_ids_for_form_serialize
 
 
 
@@ -2226,6 +2238,9 @@ class FormsApi(object):
     # alias of get_versions_for_form
     get_form_form_versions = get_versions_for_form
 
+    # alias of get_versions_for_form
+    get_form_versions = get_versions_for_form
+
     @validate_call
     def get_versions_for_form_with_http_info(        
         self,
@@ -2329,6 +2344,9 @@ class FormsApi(object):
     # alias of `get_versions_for_form_with_http_info`
     get_form_form_versions_with_http_info = get_versions_for_form_with_http_info
 
+    # alias of `get_versions_for_form_with_http_info`
+    get_form_versions_with_http_info = get_versions_for_form_with_http_info
+
     @validate_call
     def get_versions_for_form_without_preload_content(
         self,
@@ -2417,6 +2435,9 @@ class FormsApi(object):
 
     # alias of `get_versions_for_form_without_preload_content`
     get_form_form_versions_without_preload_content = get_versions_for_form_without_preload_content
+
+    # alias of `get_versions_for_form_without_preload_content`
+    get_form_versions_without_preload_content = get_versions_for_form_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -2538,4 +2559,7 @@ class FormsApi(object):
 
     # alias of `_get_versions_for_form_serialize`
     _get_form_form_versions_serialize = _get_versions_for_form_serialize
+
+    # alias of `_get_versions_for_form_serialize`
+    _get_form_versions_serialize = _get_versions_for_form_serialize
 
