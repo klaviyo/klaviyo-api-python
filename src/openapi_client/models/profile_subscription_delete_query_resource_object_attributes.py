@@ -20,6 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from openapi_client.models.unsubscription_channels import UnsubscriptionChannels
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,7 +30,8 @@ class ProfileSubscriptionDeleteQueryResourceObjectAttributes(BaseModel):
     """ # noqa: E501
     email: Optional[StrictStr] = Field(default=None, description="The email address to unsubscribe.")
     phone_number: Optional[StrictStr] = Field(default=None, description="The phone number to unsubscribe. This must be in E.164 format.")
-    __properties: ClassVar[List[str]] = ["email", "phone_number"]
+    subscriptions: Optional[UnsubscriptionChannels] = None
+    __properties: ClassVar[List[str]] = ["email", "phone_number", "subscriptions"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -70,6 +72,9 @@ class ProfileSubscriptionDeleteQueryResourceObjectAttributes(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of subscriptions
+        if self.subscriptions:
+            _dict['subscriptions'] = self.subscriptions.to_dict()
         # set to None if email (nullable) is None
         # and model_fields_set contains the field
         if self.email is None and "email" in self.model_fields_set:
@@ -93,7 +98,8 @@ class ProfileSubscriptionDeleteQueryResourceObjectAttributes(BaseModel):
 
         _obj = cls.model_validate({
             "email": obj.get("email"),
-            "phone_number": obj.get("phone_number")
+            "phone_number": obj.get("phone_number"),
+            "subscriptions": UnsubscriptionChannels.from_dict(obj["subscriptions"]) if obj.get("subscriptions") is not None else None
         })
         return _obj
 

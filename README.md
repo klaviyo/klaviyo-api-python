@@ -1,6 +1,6 @@
 # Klaviyo Python SDK
 
-- SDK version: 15.0.0
+- SDK version: 16.0.0
 - API revision: 2024-10-15
 
 ## Table of Contents
@@ -169,7 +169,7 @@ pip3 install klaviyo-api
 NOTE: 
 * The SDK retries on resolvable errors, namely: rate limits (common) and server errors (rare).
 * The keyword arguments define some advanced settings; the example is populated with the default values.
-* `max_delay` denotes total delay (in seconds) across all attempts.
+* `max_delay` denotes delay (in seconds) for a single retry attempt.
 
 ```python
 from klaviyo_api import KlaviyoAPI
@@ -554,23 +554,6 @@ klaviyo.Campaigns.get_campaign_send_job(id, fields_campaign_send_job=fields_camp
 
 
 
-#### [Get Campaign Tags](https://developers.klaviyo.com/en/v2024-10-15/reference/get_campaign_tags)
-
-```python
-## Positional Arguments
-
-# id | str
-
-## Keyword Arguments
-
-# fields_tag | List[str]
-
-klaviyo.Campaigns.get_campaign_tags(id, fields_tag=fields_tag)
-```
-
-
-
-
 #### [Get Campaigns](https://developers.klaviyo.com/en/v2024-10-15/reference/get_campaigns)
 
 ```python
@@ -606,6 +589,10 @@ klaviyo.Campaigns.get_message_ids_for_campaign(id)
 ```python
 klaviyo.Campaigns.get_campaign_relationships_campaign_messages(id)
 ```
+##### Method alias:
+```python
+klaviyo.Campaigns.get_campaign_relationships_messages(id)
+```
 
 
 
@@ -630,6 +617,10 @@ klaviyo.Campaigns.get_messages_for_campaign(id, fields_campaign_message=fields_c
 ```python
 klaviyo.Campaigns.get_campaign_campaign_messages(id, fields_campaign_message=fields_campaign_message, fields_campaign=fields_campaign, fields_template=fields_template, include=include)
 ```
+##### Method alias:
+```python
+klaviyo.Campaigns.get_campaign_messages(id, fields_campaign_message=fields_campaign_message, fields_campaign=fields_campaign, fields_template=fields_template, include=include)
+```
 
 
 
@@ -646,6 +637,27 @@ klaviyo.Campaigns.get_tag_ids_for_campaign(id)
 ##### Method alias:
 ```python
 klaviyo.Campaigns.get_campaign_relationships_tags(id)
+```
+
+
+
+
+#### [Get Tags for Campaign](https://developers.klaviyo.com/en/v2024-10-15/reference/get_tags_for_campaign)
+
+```python
+## Positional Arguments
+
+# id | str
+
+## Keyword Arguments
+
+# fields_tag | List[str]
+
+klaviyo.Campaigns.get_tags_for_campaign(id, fields_tag=fields_tag)
+```
+##### Method alias:
+```python
+klaviyo.Campaigns.get_campaign_tags(id, fields_tag=fields_tag)
 ```
 
 
@@ -755,7 +767,7 @@ klaviyo.Campaigns.update_campaign_message(id, body)
 
 ## Catalogs
 
-#### [Add Category to Catalog Item](https://developers.klaviyo.com/en/v2024-10-15/reference/add_category_to_catalog_item)
+#### [Add Categories to Catalog Item](https://developers.klaviyo.com/en/v2024-10-15/reference/add_categories_to_catalog_item)
 
 ```python
 ## Positional Arguments
@@ -763,15 +775,19 @@ klaviyo.Campaigns.update_campaign_message(id, body)
 # id | str
 # body | dict
 
+klaviyo.Catalogs.add_categories_to_catalog_item(id, body)
+```
+##### Method alias:
+```python
 klaviyo.Catalogs.add_category_to_catalog_item(id, body)
 ```
 ##### Method alias:
 ```python
-klaviyo.Catalogs.create_catalog_item_relationships_categories(id, body)
+klaviyo.Catalogs.create_catalog_item_relationships_category(id, body)
 ```
 ##### Method alias:
 ```python
-klaviyo.Catalogs.create_catalog_item_relationships_category(id, body)
+klaviyo.Catalogs.create_catalog_item_relationships_categories(id, body)
 ```
 
 
@@ -789,11 +805,11 @@ klaviyo.Catalogs.add_items_to_catalog_category(id, body)
 ```
 ##### Method alias:
 ```python
-klaviyo.Catalogs.create_catalog_category_relationships_items(id, body)
+klaviyo.Catalogs.create_catalog_category_relationships_item(id, body)
 ```
 ##### Method alias:
 ```python
-klaviyo.Catalogs.create_catalog_category_relationships_item(id, body)
+klaviyo.Catalogs.create_catalog_category_relationships_items(id, body)
 ```
 
 
@@ -1940,27 +1956,6 @@ klaviyo.Coupons.get_coupon_code_bulk_create_job(job_id, fields_coupon_code_bulk_
 
 
 
-#### [Get Code IDs for Coupon](https://developers.klaviyo.com/en/v2024-10-15/reference/get_code_ids_for_coupon)
-
-```python
-## Positional Arguments
-
-# id | str
-
-## Keyword Arguments
-
-# page_cursor | str
-
-klaviyo.Coupons.get_code_ids_for_coupon(id, page_cursor=page_cursor)
-```
-##### Method alias:
-```python
-klaviyo.Coupons.get_coupon_code_relationships_coupon(id, page_cursor=page_cursor)
-```
-
-
-
-
 #### [Get Coupon](https://developers.klaviyo.com/en/v2024-10-15/reference/get_coupon)
 
 ```python
@@ -1997,6 +1992,35 @@ klaviyo.Coupons.get_coupon_code(id, fields_coupon_code=fields_coupon_code, field
 
 
 
+#### [Get Coupon Code IDs for Coupon](https://developers.klaviyo.com/en/v2024-10-15/reference/get_coupon_code_ids_for_coupon)
+
+```python
+## Positional Arguments
+
+# id | str
+
+## Keyword Arguments
+
+# page_cursor | str
+
+klaviyo.Coupons.get_coupon_code_ids_for_coupon(id, page_cursor=page_cursor)
+```
+##### Method alias:
+```python
+klaviyo.Coupons.get_coupon_code_relationships_coupon(id, page_cursor=page_cursor)
+```
+##### Method alias:
+```python
+klaviyo.Coupons.get_code_ids_for_coupon(id, page_cursor=page_cursor)
+```
+##### Method alias:
+```python
+klaviyo.Coupons.get_coupon_relationships_codes(id, page_cursor=page_cursor)
+```
+
+
+
+
 #### [Get Coupon Codes](https://developers.klaviyo.com/en/v2024-10-15/reference/get_coupon_codes)
 
 ```python
@@ -2015,7 +2039,7 @@ klaviyo.Coupons.get_coupon_codes(fields_coupon_code=fields_coupon_code, fields_c
 
 
 
-#### [Get Coupon Codes For Coupon](https://developers.klaviyo.com/en/v2024-10-15/reference/get_coupon_codes_for_coupon)
+#### [Get Coupon Codes for Coupon](https://developers.klaviyo.com/en/v2024-10-15/reference/get_coupon_codes_for_coupon)
 
 ```python
 ## Positional Arguments
@@ -2033,6 +2057,10 @@ klaviyo.Coupons.get_coupon_codes_for_coupon(id, fields_coupon_code=fields_coupon
 ##### Method alias:
 ```python
 klaviyo.Coupons.get_coupon_coupon_codes(id, fields_coupon_code=fields_coupon_code, filter=filter, page_cursor=page_cursor)
+```
+##### Method alias:
+```python
+klaviyo.Coupons.get_codes_for_coupon(id, fields_coupon_code=fields_coupon_code, filter=filter, page_cursor=page_cursor)
 ```
 
 
@@ -2194,41 +2222,6 @@ klaviyo.Events.get_event(id, fields_event=fields_event, fields_metric=fields_met
 
 
 
-#### [Get Event Metric](https://developers.klaviyo.com/en/v2024-10-15/reference/get_event_metric)
-
-```python
-## Positional Arguments
-
-# id | str
-
-## Keyword Arguments
-
-# fields_metric | List[str]
-
-klaviyo.Events.get_event_metric(id, fields_metric=fields_metric)
-```
-
-
-
-
-#### [Get Event Profile](https://developers.klaviyo.com/en/v2024-10-15/reference/get_event_profile)
-
-```python
-## Positional Arguments
-
-# id | str
-
-## Keyword Arguments
-
-# additional_fields_profile | List[str]
-# fields_profile | List[str]
-
-klaviyo.Events.get_event_profile(id, additional_fields_profile=additional_fields_profile, fields_profile=fields_profile)
-```
-
-
-
-
 #### [Get Events](https://developers.klaviyo.com/en/v2024-10-15/reference/get_events)
 
 ```python
@@ -2249,6 +2242,27 @@ klaviyo.Events.get_events(fields_event=fields_event, fields_metric=fields_metric
 
 
 
+#### [Get Metric for Event](https://developers.klaviyo.com/en/v2024-10-15/reference/get_metric_for_event)
+
+```python
+## Positional Arguments
+
+# id | str
+
+## Keyword Arguments
+
+# fields_metric | List[str]
+
+klaviyo.Events.get_metric_for_event(id, fields_metric=fields_metric)
+```
+##### Method alias:
+```python
+klaviyo.Events.get_event_metric(id, fields_metric=fields_metric)
+```
+
+
+
+
 #### [Get Metric ID for Event](https://developers.klaviyo.com/en/v2024-10-15/reference/get_metric_id_for_event)
 
 ```python
@@ -2261,6 +2275,28 @@ klaviyo.Events.get_metric_id_for_event(id)
 ##### Method alias:
 ```python
 klaviyo.Events.get_event_relationships_metric(id)
+```
+
+
+
+
+#### [Get Profile for Event](https://developers.klaviyo.com/en/v2024-10-15/reference/get_profile_for_event)
+
+```python
+## Positional Arguments
+
+# id | str
+
+## Keyword Arguments
+
+# additional_fields_profile | List[str]
+# fields_profile | List[str]
+
+klaviyo.Events.get_profile_for_event(id, additional_fields_profile=additional_fields_profile, fields_profile=fields_profile)
+```
+##### Method alias:
+```python
+klaviyo.Events.get_event_profile(id, additional_fields_profile=additional_fields_profile, fields_profile=fields_profile)
 ```
 
 
@@ -2295,6 +2331,27 @@ klaviyo.Events.get_event_relationships_profile(id)
 # id | str
 
 klaviyo.Flows.delete_flow(id)
+```
+
+
+
+
+#### [Get Action for Flow Message](https://developers.klaviyo.com/en/v2024-10-15/reference/get_action_for_flow_message)
+
+```python
+## Positional Arguments
+
+# id | str
+
+## Keyword Arguments
+
+# fields_flow_action | List[str]
+
+klaviyo.Flows.get_action_for_flow_message(id, fields_flow_action=fields_flow_action)
+```
+##### Method alias:
+```python
+klaviyo.Flows.get_flow_message_action(id, fields_flow_action=fields_flow_action)
 ```
 
 
@@ -2336,6 +2393,10 @@ klaviyo.Flows.get_action_ids_for_flow(id, filter=filter, page_size=page_size, so
 ```python
 klaviyo.Flows.get_flow_relationships_flow_actions(id, filter=filter, page_size=page_size, sort=sort)
 ```
+##### Method alias:
+```python
+klaviyo.Flows.get_flow_relationships_actions(id, filter=filter, page_size=page_size, sort=sort)
+```
 
 
 
@@ -2360,6 +2421,10 @@ klaviyo.Flows.get_actions_for_flow(id, fields_flow_action=fields_flow_action, fi
 ##### Method alias:
 ```python
 klaviyo.Flows.get_flow_flow_actions(id, fields_flow_action=fields_flow_action, filter=filter, page_cursor=page_cursor, page_size=page_size, sort=sort)
+```
+##### Method alias:
+```python
+klaviyo.Flows.get_flow_actions(id, fields_flow_action=fields_flow_action, filter=filter, page_cursor=page_cursor, page_size=page_size, sort=sort)
 ```
 
 
@@ -2405,7 +2470,7 @@ klaviyo.Flows.get_flow_action(id, fields_flow_action=fields_flow_action, fields_
 
 
 
-#### [Get Flow For Flow Action](https://developers.klaviyo.com/en/v2024-10-15/reference/get_flow_action_flow)
+#### [Get Flow for Flow Action](https://developers.klaviyo.com/en/v2024-10-15/reference/get_flow_for_flow_action)
 
 ```python
 ## Positional Arguments
@@ -2416,6 +2481,10 @@ klaviyo.Flows.get_flow_action(id, fields_flow_action=fields_flow_action, fields_
 
 # fields_flow | List[str]
 
+klaviyo.Flows.get_flow_for_flow_action(id, fields_flow=fields_flow)
+```
+##### Method alias:
+```python
 klaviyo.Flows.get_flow_action_flow(id, fields_flow=fields_flow)
 ```
 
@@ -2454,40 +2523,6 @@ klaviyo.Flows.get_flow_action_relationships_flow(id)
 # include | List[str]
 
 klaviyo.Flows.get_flow_message(id, fields_flow_action=fields_flow_action, fields_flow_message=fields_flow_message, fields_template=fields_template, include=include)
-```
-
-
-
-
-#### [Get Flow Action For Message](https://developers.klaviyo.com/en/v2024-10-15/reference/get_flow_message_action)
-
-```python
-## Positional Arguments
-
-# id | str
-
-## Keyword Arguments
-
-# fields_flow_action | List[str]
-
-klaviyo.Flows.get_flow_message_action(id, fields_flow_action=fields_flow_action)
-```
-
-
-
-
-#### [Get Flow Tags](https://developers.klaviyo.com/en/v2024-10-15/reference/get_flow_tags)
-
-```python
-## Positional Arguments
-
-# id | str
-
-## Keyword Arguments
-
-# fields_tag | List[str]
-
-klaviyo.Flows.get_flow_tags(id, fields_tag=fields_tag)
 ```
 
 
@@ -2574,6 +2609,27 @@ klaviyo.Flows.get_tag_ids_for_flow(id)
 ##### Method alias:
 ```python
 klaviyo.Flows.get_flow_relationships_tags(id)
+```
+
+
+
+
+#### [Get Tags for Flow](https://developers.klaviyo.com/en/v2024-10-15/reference/get_tags_for_flow)
+
+```python
+## Positional Arguments
+
+# id | str
+
+## Keyword Arguments
+
+# fields_tag | List[str]
+
+klaviyo.Flows.get_tags_for_flow(id, fields_tag=fields_tag)
+```
+##### Method alias:
+```python
+klaviyo.Flows.get_flow_tags(id, fields_tag=fields_tag)
 ```
 
 
@@ -2740,6 +2796,10 @@ klaviyo.Forms.get_version_ids_for_form(id)
 ```python
 klaviyo.Forms.get_form_relationships_form_versions(id)
 ```
+##### Method alias:
+```python
+klaviyo.Forms.get_form_relationships_versions(id)
+```
 
 
 
@@ -2764,6 +2824,10 @@ klaviyo.Forms.get_versions_for_form(id, fields_form_version=fields_form_version,
 ##### Method alias:
 ```python
 klaviyo.Forms.get_form_form_versions(id, fields_form_version=fields_form_version, filter=filter, page_cursor=page_cursor, page_size=page_size, sort=sort)
+```
+##### Method alias:
+```python
+klaviyo.Forms.get_form_versions(id, fields_form_version=fields_form_version, filter=filter, page_cursor=page_cursor, page_size=page_size, sort=sort)
 ```
 
 
@@ -2865,6 +2929,32 @@ klaviyo.Images.create_image(body)
 
 ## Lists
 
+#### [Add Profiles to List](https://developers.klaviyo.com/en/v2024-10-15/reference/add_profiles_to_list)
+
+```python
+## Positional Arguments
+
+# id | str
+# body | dict
+
+klaviyo.Lists.add_profiles_to_list(id, body)
+```
+##### Method alias:
+```python
+klaviyo.Lists.create_list_relationships(id, body)
+```
+##### Method alias:
+```python
+klaviyo.Lists.create_list_relationships_profile(id, body)
+```
+##### Method alias:
+```python
+klaviyo.Lists.create_list_relationships_profiles(id, body)
+```
+
+
+
+
 #### [Create List](https://developers.klaviyo.com/en/v2024-10-15/reference/create_list)
 
 ```python
@@ -2873,24 +2963,6 @@ klaviyo.Images.create_image(body)
 # body | dict
 
 klaviyo.Lists.create_list(body)
-```
-
-
-
-
-#### [Add Profile To List](https://developers.klaviyo.com/en/v2024-10-15/reference/create_list_relationships)
-
-```python
-## Positional Arguments
-
-# id | str
-# body | dict
-
-klaviyo.Lists.create_list_relationships(id, body)
-```
-##### Method alias:
-```python
-klaviyo.Lists.create_list_relationships_profile(id, body)
 ```
 
 
@@ -2909,19 +2981,47 @@ klaviyo.Lists.delete_list(id)
 
 
 
-#### [Remove Profile From List](https://developers.klaviyo.com/en/v2024-10-15/reference/delete_list_relationships)
+#### [Get Flows Triggered by List](https://developers.klaviyo.com/en/v2024-10-15/reference/get_flows_triggered_by_list)
 
 ```python
 ## Positional Arguments
 
 # id | str
-# body | dict
 
-klaviyo.Lists.delete_list_relationships(id, body)
+## Keyword Arguments
+
+# fields_flow | List[str]
+
+klaviyo.Lists.get_flows_triggered_by_list(id, fields_flow=fields_flow)
 ```
 ##### Method alias:
 ```python
-klaviyo.Lists.delete_list_relationships_profiles(id, body)
+klaviyo.Lists.get_flow_triggers_for_list(id, fields_flow=fields_flow)
+```
+##### Method alias:
+```python
+klaviyo.Lists.get_list_flow_triggers(id, fields_flow=fields_flow)
+```
+
+
+
+
+#### [Get IDs for Flows Triggered by List](https://developers.klaviyo.com/en/v2024-10-15/reference/get_ids_for_flows_triggered_by_list)
+
+```python
+## Positional Arguments
+
+# id | str
+
+klaviyo.Lists.get_ids_for_flows_triggered_by_list(id)
+```
+##### Method alias:
+```python
+klaviyo.Lists.get_flow_trigger_ids_for_list(id)
+```
+##### Method alias:
+```python
+klaviyo.Lists.get_list_relationships_flow_triggers(id)
 ```
 
 
@@ -2943,75 +3043,6 @@ klaviyo.Lists.delete_list_relationships_profiles(id, body)
 # include | List[str]
 
 klaviyo.Lists.get_list(id, additional_fields_list=additional_fields_list, fields_flow=fields_flow, fields_list=fields_list, fields_tag=fields_tag, include=include)
-```
-
-
-
-
-#### [Get List Flow Triggers](https://developers.klaviyo.com/en/v2024-10-15/reference/get_list_flow_triggers)
-
-```python
-## Positional Arguments
-
-# id | str
-
-## Keyword Arguments
-
-# fields_flow | List[str]
-
-klaviyo.Lists.get_list_flow_triggers(id, fields_flow=fields_flow)
-```
-
-
-
-
-#### [Get List Profiles](https://developers.klaviyo.com/en/v2024-10-15/reference/get_list_profiles)
-
-```python
-## Positional Arguments
-
-# id | str
-
-## Keyword Arguments
-
-# additional_fields_profile | List[str]
-# fields_profile | List[str]
-# filter | str
-# page_cursor | str
-# page_size | int
-# sort | str
-
-klaviyo.Lists.get_list_profiles(id, additional_fields_profile=additional_fields_profile, fields_profile=fields_profile, filter=filter, page_cursor=page_cursor, page_size=page_size, sort=sort)
-```
-
-
-
-
-#### [Get List Relationships Flow Triggers](https://developers.klaviyo.com/en/v2024-10-15/reference/get_list_relationships_flow_triggers)
-
-```python
-## Positional Arguments
-
-# id | str
-
-klaviyo.Lists.get_list_relationships_flow_triggers(id)
-```
-
-
-
-
-#### [Get List Tags](https://developers.klaviyo.com/en/v2024-10-15/reference/get_list_tags)
-
-```python
-## Positional Arguments
-
-# id | str
-
-## Keyword Arguments
-
-# fields_tag | List[str]
-
-klaviyo.Lists.get_list_tags(id, fields_tag=fields_tag)
 ```
 
 
@@ -3061,6 +3092,32 @@ klaviyo.Lists.get_list_relationships_profiles(id, filter=filter, page_cursor=pag
 
 
 
+#### [Get Profiles for List](https://developers.klaviyo.com/en/v2024-10-15/reference/get_profiles_for_list)
+
+```python
+## Positional Arguments
+
+# id | str
+
+## Keyword Arguments
+
+# additional_fields_profile | List[str]
+# fields_profile | List[str]
+# filter | str
+# page_cursor | str
+# page_size | int
+# sort | str
+
+klaviyo.Lists.get_profiles_for_list(id, additional_fields_profile=additional_fields_profile, fields_profile=fields_profile, filter=filter, page_cursor=page_cursor, page_size=page_size, sort=sort)
+```
+##### Method alias:
+```python
+klaviyo.Lists.get_list_profiles(id, additional_fields_profile=additional_fields_profile, fields_profile=fields_profile, filter=filter, page_cursor=page_cursor, page_size=page_size, sort=sort)
+```
+
+
+
+
 #### [Get Tag IDs for List](https://developers.klaviyo.com/en/v2024-10-15/reference/get_tag_ids_for_list)
 
 ```python
@@ -3073,6 +3130,49 @@ klaviyo.Lists.get_tag_ids_for_list(id)
 ##### Method alias:
 ```python
 klaviyo.Lists.get_list_relationships_tags(id)
+```
+
+
+
+
+#### [Get Tags for List](https://developers.klaviyo.com/en/v2024-10-15/reference/get_tags_for_list)
+
+```python
+## Positional Arguments
+
+# id | str
+
+## Keyword Arguments
+
+# fields_tag | List[str]
+
+klaviyo.Lists.get_tags_for_list(id, fields_tag=fields_tag)
+```
+##### Method alias:
+```python
+klaviyo.Lists.get_list_tags(id, fields_tag=fields_tag)
+```
+
+
+
+
+#### [Remove Profiles from List](https://developers.klaviyo.com/en/v2024-10-15/reference/remove_profiles_from_list)
+
+```python
+## Positional Arguments
+
+# id | str
+# body | dict
+
+klaviyo.Lists.remove_profiles_from_list(id, body)
+```
+##### Method alias:
+```python
+klaviyo.Lists.delete_list_relationships(id, body)
+```
+##### Method alias:
+```python
+klaviyo.Lists.delete_list_relationships_profiles(id, body)
 ```
 
 
@@ -3096,6 +3196,52 @@ klaviyo.Lists.update_list(id, body)
 
 ## Metrics
 
+#### [Get Flows Triggered by Metric](https://developers.klaviyo.com/en/v2024-10-15/reference/get_flows_triggered_by_metric)
+
+```python
+## Positional Arguments
+
+# id | str
+
+## Keyword Arguments
+
+# fields_flow | List[str]
+
+klaviyo.Metrics.get_flows_triggered_by_metric(id, fields_flow=fields_flow)
+```
+##### Method alias:
+```python
+klaviyo.Metrics.get_flow_triggers_for_metric(id, fields_flow=fields_flow)
+```
+##### Method alias:
+```python
+klaviyo.Metrics.get_metric_flow_triggers(id, fields_flow=fields_flow)
+```
+
+
+
+
+#### [Get IDs for Flows Triggered by Metric](https://developers.klaviyo.com/en/v2024-10-15/reference/get_ids_for_flows_triggered_by_metric)
+
+```python
+## Positional Arguments
+
+# id | str
+
+klaviyo.Metrics.get_ids_for_flows_triggered_by_metric(id)
+```
+##### Method alias:
+```python
+klaviyo.Metrics.get_flow_trigger_ids_for_metric(id)
+```
+##### Method alias:
+```python
+klaviyo.Metrics.get_metric_relationships_flow_triggers(id)
+```
+
+
+
+
 #### [Get Metric](https://developers.klaviyo.com/en/v2024-10-15/reference/get_metric)
 
 ```python
@@ -3110,23 +3256,6 @@ klaviyo.Lists.update_list(id, body)
 # include | List[str]
 
 klaviyo.Metrics.get_metric(id, fields_flow=fields_flow, fields_metric=fields_metric, include=include)
-```
-
-
-
-
-#### [Get Metric Flow Triggers](https://developers.klaviyo.com/en/v2024-10-15/reference/get_metric_flow_triggers)
-
-```python
-## Positional Arguments
-
-# id | str
-
-## Keyword Arguments
-
-# fields_flow | List[str]
-
-klaviyo.Metrics.get_metric_flow_triggers(id, fields_flow=fields_flow)
 ```
 
 
@@ -3190,19 +3319,6 @@ klaviyo.Metrics.get_metric_property(id, additional_fields_metric_property=additi
 
 
 
-#### [Get Metric Relationships Flow Triggers](https://developers.klaviyo.com/en/v2024-10-15/reference/get_metric_relationships_flow_triggers)
-
-```python
-## Positional Arguments
-
-# id | str
-
-klaviyo.Metrics.get_metric_relationships_flow_triggers(id)
-```
-
-
-
-
 #### [Get Metrics](https://developers.klaviyo.com/en/v2024-10-15/reference/get_metrics)
 
 ```python
@@ -3239,6 +3355,10 @@ klaviyo.Metrics.get_properties_for_metric(id, additional_fields_metric_property=
 ```python
 klaviyo.Metrics.get_metric_metric_properties(id, additional_fields_metric_property=additional_fields_metric_property, fields_metric_property=fields_metric_property)
 ```
+##### Method alias:
+```python
+klaviyo.Metrics.get_metric_properties(id, additional_fields_metric_property=additional_fields_metric_property, fields_metric_property=fields_metric_property)
+```
 
 
 
@@ -3255,6 +3375,10 @@ klaviyo.Metrics.get_property_ids_for_metric(id)
 ##### Method alias:
 ```python
 klaviyo.Metrics.get_metric_relationships_metric_properties(id)
+```
+##### Method alias:
+```python
+klaviyo.Metrics.get_metric_relationships_properties(id)
 ```
 
 
@@ -3280,6 +3404,27 @@ klaviyo.Metrics.create_metric_aggregate(body)
 
 
 ## Profiles
+
+#### [Bulk Import Profiles](https://developers.klaviyo.com/en/v2024-10-15/reference/bulk_import_profiles)
+
+```python
+## Positional Arguments
+
+# body | dict
+
+klaviyo.Profiles.bulk_import_profiles(body)
+```
+##### Method alias:
+```python
+klaviyo.Profiles.spawn_bulk_profile_import_job(body)
+```
+##### Method alias:
+```python
+klaviyo.Profiles.create_profile_bulk_import_job(body)
+```
+
+
+
 
 #### [Bulk Subscribe Profiles](https://developers.klaviyo.com/en/v2024-10-15/reference/bulk_subscribe_profiles)
 
@@ -3574,6 +3719,10 @@ klaviyo.Profiles.get_bulk_profile_import_job_import_errors(id, fields_import_err
 ```
 ##### Method alias:
 ```python
+klaviyo.Profiles.get_import_errors_for_profile_bulk_import_job(id, fields_import_error=fields_import_error, page_cursor=page_cursor, page_size=page_size)
+```
+##### Method alias:
+```python
 klaviyo.Profiles.get_profile_bulk_import_job_import_errors(id, fields_import_error=fields_import_error, page_cursor=page_cursor, page_size=page_size)
 ```
 
@@ -3599,6 +3748,10 @@ klaviyo.Profiles.get_bulk_profile_import_job_lists(id, fields_list=fields_list)
 ```
 ##### Method alias:
 ```python
+klaviyo.Profiles.get_lists_for_profile_bulk_import_job(id, fields_list=fields_list)
+```
+##### Method alias:
+```python
 klaviyo.Profiles.get_profile_bulk_import_job_lists(id, fields_list=fields_list)
 ```
 
@@ -3617,6 +3770,10 @@ klaviyo.Profiles.get_list_ids_for_bulk_import_profiles_job(id)
 ##### Method alias:
 ```python
 klaviyo.Profiles.get_bulk_profile_import_job_relationships_lists(id)
+```
+##### Method alias:
+```python
+klaviyo.Profiles.get_list_ids_for_profile_bulk_import_job(id)
 ```
 ##### Method alias:
 ```python
@@ -3707,6 +3864,10 @@ klaviyo.Profiles.get_bulk_profile_import_job_relationships_profiles(id, page_cur
 ```python
 klaviyo.Profiles.get_profile_bulk_import_job_relationships_profiles(id, page_cursor=page_cursor, page_size=page_size)
 ```
+##### Method alias:
+```python
+klaviyo.Profiles.get_profile_ids_for_profile_bulk_import_job(id, page_cursor=page_cursor, page_size=page_size)
+```
 
 
 
@@ -3753,6 +3914,10 @@ klaviyo.Profiles.get_bulk_profile_import_job_profiles(id, additional_fields_prof
 ##### Method alias:
 ```python
 klaviyo.Profiles.get_profile_bulk_import_job_profiles(id, additional_fields_profile=additional_fields_profile, fields_profile=fields_profile, page_cursor=page_cursor, page_size=page_size)
+```
+##### Method alias:
+```python
+klaviyo.Profiles.get_profiles_for_profile_bulk_import_job(id, additional_fields_profile=additional_fields_profile, fields_profile=fields_profile, page_cursor=page_cursor, page_size=page_size)
 ```
 
 
@@ -3813,27 +3978,6 @@ klaviyo.Profiles.create_profile_merge(body)
 
 
 
-#### [Spawn Bulk Profile Import Job](https://developers.klaviyo.com/en/v2024-10-15/reference/spawn_bulk_profile_import_job)
-
-```python
-## Positional Arguments
-
-# body | dict
-
-klaviyo.Profiles.spawn_bulk_profile_import_job(body)
-```
-##### Method alias:
-```python
-klaviyo.Profiles.bulk_import_profiles(body)
-```
-##### Method alias:
-```python
-klaviyo.Profiles.create_profile_bulk_import_job(body)
-```
-
-
-
-
 #### [Update Profile](https://developers.klaviyo.com/en/v2024-10-15/reference/update_profile)
 
 ```python
@@ -3873,6 +4017,10 @@ klaviyo.Reporting.query_campaign_values(body, page_cursor=page_cursor)
 ```python
 klaviyo.Reporting.create_campaign_value_report(body, page_cursor=page_cursor)
 ```
+##### Method alias:
+```python
+klaviyo.Reporting.create_campaign_values_report(body, page_cursor=page_cursor)
+```
 
 
 
@@ -3893,6 +4041,10 @@ klaviyo.Reporting.query_flow_series(body, page_cursor=page_cursor)
 ##### Method alias:
 ```python
 klaviyo.Reporting.create_flow_sery_report(body, page_cursor=page_cursor)
+```
+##### Method alias:
+```python
+klaviyo.Reporting.create_flow_series_report(body, page_cursor=page_cursor)
 ```
 
 
@@ -3915,6 +4067,10 @@ klaviyo.Reporting.query_flow_values(body, page_cursor=page_cursor)
 ```python
 klaviyo.Reporting.create_flow_value_report(body, page_cursor=page_cursor)
 ```
+##### Method alias:
+```python
+klaviyo.Reporting.create_flow_values_report(body, page_cursor=page_cursor)
+```
 
 
 
@@ -3931,6 +4087,10 @@ klaviyo.Reporting.query_form_series(body)
 ##### Method alias:
 ```python
 klaviyo.Reporting.create_form_sery_report(body)
+```
+##### Method alias:
+```python
+klaviyo.Reporting.create_form_series_report(body)
 ```
 
 
@@ -3949,6 +4109,10 @@ klaviyo.Reporting.query_form_values(body)
 ```python
 klaviyo.Reporting.create_form_value_report(body)
 ```
+##### Method alias:
+```python
+klaviyo.Reporting.create_form_values_report(body)
+```
 
 
 
@@ -3966,6 +4130,10 @@ klaviyo.Reporting.query_segment_series(body)
 ```python
 klaviyo.Reporting.create_segment_sery_report(body)
 ```
+##### Method alias:
+```python
+klaviyo.Reporting.create_segment_series_report(body)
+```
 
 
 
@@ -3982,6 +4150,10 @@ klaviyo.Reporting.query_segment_values(body)
 ##### Method alias:
 ```python
 klaviyo.Reporting.create_segment_value_report(body)
+```
+##### Method alias:
+```python
+klaviyo.Reporting.create_segment_values_report(body)
 ```
 
 
@@ -4060,6 +4232,52 @@ klaviyo.Segments.delete_segment(id)
 
 
 
+#### [Get Flows Triggered by Segment](https://developers.klaviyo.com/en/v2024-10-15/reference/get_flows_triggered_by_segment)
+
+```python
+## Positional Arguments
+
+# id | str
+
+## Keyword Arguments
+
+# fields_flow | List[str]
+
+klaviyo.Segments.get_flows_triggered_by_segment(id, fields_flow=fields_flow)
+```
+##### Method alias:
+```python
+klaviyo.Segments.get_flow_triggers_for_segment(id, fields_flow=fields_flow)
+```
+##### Method alias:
+```python
+klaviyo.Segments.get_segment_flow_triggers(id, fields_flow=fields_flow)
+```
+
+
+
+
+#### [Get IDs for Flows Triggered by Segment](https://developers.klaviyo.com/en/v2024-10-15/reference/get_ids_for_flows_triggered_by_segment)
+
+```python
+## Positional Arguments
+
+# id | str
+
+klaviyo.Segments.get_ids_for_flows_triggered_by_segment(id)
+```
+##### Method alias:
+```python
+klaviyo.Segments.get_flow_trigger_ids_for_segment(id)
+```
+##### Method alias:
+```python
+klaviyo.Segments.get_segment_relationships_flow_triggers(id)
+```
+
+
+
+
 #### [Get Profile IDs for Segment](https://developers.klaviyo.com/en/v2024-10-15/reference/get_profile_ids_for_segment)
 
 ```python
@@ -4126,36 +4344,6 @@ klaviyo.Segments.get_segment_profiles(id, additional_fields_profile=additional_f
 # include | List[str]
 
 klaviyo.Segments.get_segment(id, additional_fields_segment=additional_fields_segment, fields_flow=fields_flow, fields_segment=fields_segment, fields_tag=fields_tag, include=include)
-```
-
-
-
-
-#### [Get Segment Flow Triggers](https://developers.klaviyo.com/en/v2024-10-15/reference/get_segment_flow_triggers)
-
-```python
-## Positional Arguments
-
-# id | str
-
-## Keyword Arguments
-
-# fields_flow | List[str]
-
-klaviyo.Segments.get_segment_flow_triggers(id, fields_flow=fields_flow)
-```
-
-
-
-
-#### [Get Segment Relationships Flow Triggers](https://developers.klaviyo.com/en/v2024-10-15/reference/get_segment_relationships_flow_triggers)
-
-```python
-## Positional Arguments
-
-# id | str
-
-klaviyo.Segments.get_segment_relationships_flow_triggers(id)
 ```
 
 
@@ -4410,6 +4598,10 @@ klaviyo.Tags.get_tag_group_for_tag(id, fields_tag_group=fields_tag_group)
 ```python
 klaviyo.Tags.get_tag_tag_group(id, fields_tag_group=fields_tag_group)
 ```
+##### Method alias:
+```python
+klaviyo.Tags.get_group_for_tag(id, fields_tag_group=fields_tag_group)
+```
 
 
 
@@ -4426,6 +4618,14 @@ klaviyo.Tags.get_tag_group_id_for_tag(id)
 ##### Method alias:
 ```python
 klaviyo.Tags.get_tag_relationships_tag_group(id)
+```
+##### Method alias:
+```python
+klaviyo.Tags.get_group_id_for_tag(id)
+```
+##### Method alias:
+```python
+klaviyo.Tags.get_tag_relationships_group(id)
 ```
 
 
@@ -4519,6 +4719,10 @@ klaviyo.Tags.remove_tag_from_campaigns(id, body)
 ```python
 klaviyo.Tags.delete_tag_relationships_campaigns(id, body)
 ```
+##### Method alias:
+```python
+klaviyo.Tags.remove_campaigns_from_tag(id, body)
+```
 
 
 
@@ -4536,6 +4740,10 @@ klaviyo.Tags.remove_tag_from_flows(id, body)
 ##### Method alias:
 ```python
 klaviyo.Tags.delete_tag_relationships_flows(id, body)
+```
+##### Method alias:
+```python
+klaviyo.Tags.remove_flows_from_tag(id, body)
 ```
 
 
@@ -4555,6 +4763,10 @@ klaviyo.Tags.remove_tag_from_lists(id, body)
 ```python
 klaviyo.Tags.delete_tag_relationships_lists(id, body)
 ```
+##### Method alias:
+```python
+klaviyo.Tags.remove_lists_from_tag(id, body)
+```
 
 
 
@@ -4573,6 +4785,10 @@ klaviyo.Tags.remove_tag_from_segments(id, body)
 ```python
 klaviyo.Tags.delete_tag_relationships_segments(id, body)
 ```
+##### Method alias:
+```python
+klaviyo.Tags.remove_segments_from_tag(id, body)
+```
 
 
 
@@ -4589,11 +4805,15 @@ klaviyo.Tags.tag_campaigns(id, body)
 ```
 ##### Method alias:
 ```python
-klaviyo.Tags.create_tag_relationships_campaigns(id, body)
+klaviyo.Tags.create_tag_relationships_campaign(id, body)
 ```
 ##### Method alias:
 ```python
-klaviyo.Tags.create_tag_relationships_campaign(id, body)
+klaviyo.Tags.add_campaigns_to_tag(id, body)
+```
+##### Method alias:
+```python
+klaviyo.Tags.create_tag_relationships_campaigns(id, body)
 ```
 
 
@@ -4611,11 +4831,15 @@ klaviyo.Tags.tag_flows(id, body)
 ```
 ##### Method alias:
 ```python
-klaviyo.Tags.create_tag_relationships_flows(id, body)
+klaviyo.Tags.create_tag_relationships_flow(id, body)
 ```
 ##### Method alias:
 ```python
-klaviyo.Tags.create_tag_relationships_flow(id, body)
+klaviyo.Tags.add_flows_to_tag(id, body)
+```
+##### Method alias:
+```python
+klaviyo.Tags.create_tag_relationships_flows(id, body)
 ```
 
 
@@ -4633,11 +4857,15 @@ klaviyo.Tags.tag_lists(id, body)
 ```
 ##### Method alias:
 ```python
-klaviyo.Tags.create_tag_relationships_lists(id, body)
+klaviyo.Tags.create_tag_relationships_list(id, body)
 ```
 ##### Method alias:
 ```python
-klaviyo.Tags.create_tag_relationships_list(id, body)
+klaviyo.Tags.add_lists_to_tag(id, body)
+```
+##### Method alias:
+```python
+klaviyo.Tags.create_tag_relationships_lists(id, body)
 ```
 
 
@@ -4655,11 +4883,15 @@ klaviyo.Tags.tag_segments(id, body)
 ```
 ##### Method alias:
 ```python
-klaviyo.Tags.create_tag_relationships_segments(id, body)
+klaviyo.Tags.create_tag_relationships_segment(id, body)
 ```
 ##### Method alias:
 ```python
-klaviyo.Tags.create_tag_relationships_segment(id, body)
+klaviyo.Tags.add_segments_to_tag(id, body)
+```
+##### Method alias:
+```python
+klaviyo.Tags.create_tag_relationships_segments(id, body)
 ```
 
 

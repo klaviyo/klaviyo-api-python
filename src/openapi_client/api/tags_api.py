@@ -28,15 +28,15 @@ from typing_extensions import Annotated
 from openapi_client.models.delete_tag_group_response import DeleteTagGroupResponse
 from openapi_client.models.get_tag_campaign_relationships_response_collection import GetTagCampaignRelationshipsResponseCollection
 from openapi_client.models.get_tag_flow_relationships_response_collection import GetTagFlowRelationshipsResponseCollection
+from openapi_client.models.get_tag_group_relationship_response import GetTagGroupRelationshipResponse
 from openapi_client.models.get_tag_group_response import GetTagGroupResponse
 from openapi_client.models.get_tag_group_response_collection import GetTagGroupResponseCollection
-from openapi_client.models.get_tag_group_tag_relationships_response_collection import GetTagGroupTagRelationshipsResponseCollection
+from openapi_client.models.get_tag_group_tags_relationships_response_collection import GetTagGroupTagsRelationshipsResponseCollection
 from openapi_client.models.get_tag_list_relationships_response_collection import GetTagListRelationshipsResponseCollection
 from openapi_client.models.get_tag_response_collection import GetTagResponseCollection
 from openapi_client.models.get_tag_response_collection_compound_document import GetTagResponseCollectionCompoundDocument
 from openapi_client.models.get_tag_response_compound_document import GetTagResponseCompoundDocument
 from openapi_client.models.get_tag_segment_relationships_response_collection import GetTagSegmentRelationshipsResponseCollection
-from openapi_client.models.get_tag_tag_group_relationships_response import GetTagTagGroupRelationshipsResponse
 from openapi_client.models.patch_tag_group_response import PatchTagGroupResponse
 from openapi_client.models.post_tag_group_response import PostTagGroupResponse
 from openapi_client.models.post_tag_response import PostTagResponse
@@ -3385,6 +3385,9 @@ class TagsApi(object):
     # alias of get_tag_group_for_tag
     get_tag_tag_group = get_tag_group_for_tag
 
+    # alias of get_tag_group_for_tag
+    get_group_for_tag = get_tag_group_for_tag
+
     @validate_call
     def get_tag_group_for_tag_with_http_info(        
         self,
@@ -3472,6 +3475,9 @@ class TagsApi(object):
     # alias of `get_tag_group_for_tag_with_http_info`
     get_tag_tag_group_with_http_info = get_tag_group_for_tag_with_http_info
 
+    # alias of `get_tag_group_for_tag_with_http_info`
+    get_group_for_tag_with_http_info = get_tag_group_for_tag_with_http_info
+
     @validate_call
     def get_tag_group_for_tag_without_preload_content(
         self,
@@ -3544,6 +3550,9 @@ class TagsApi(object):
 
     # alias of `get_tag_group_for_tag_without_preload_content`
     get_tag_tag_group_without_preload_content = get_tag_group_for_tag_without_preload_content
+
+    # alias of `get_tag_group_for_tag_without_preload_content`
+    get_group_for_tag_without_preload_content = get_tag_group_for_tag_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -3634,6 +3643,9 @@ class TagsApi(object):
     # alias of `_get_tag_group_for_tag_serialize`
     _get_tag_tag_group_serialize = _get_tag_group_for_tag_serialize
 
+    # alias of `_get_tag_group_for_tag_serialize`
+    _get_group_for_tag_serialize = _get_tag_group_for_tag_serialize
+
 
 
     @validate_call
@@ -3653,7 +3665,7 @@ class TagsApi(object):
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
         options: Dict[str, Any] = {},
-) ->  Union[GetTagTagGroupRelationshipsResponse, Dict[str, object]]:
+) ->  Union[GetTagGroupRelationshipResponse, Dict[str, object]]:
         """Get Tag Group ID for Tag
 
         Returns the id of the tag group related to the given tag.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read`
@@ -3691,7 +3703,7 @@ class TagsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetTagTagGroupRelationshipsResponse,
+            '200': GetTagGroupRelationshipResponse,
             '4XX': GetAccounts4XXResponse,
             '5XX': GetAccounts4XXResponse,
         }
@@ -3721,6 +3733,12 @@ class TagsApi(object):
     # alias of get_tag_group_id_for_tag
     get_tag_relationships_tag_group = get_tag_group_id_for_tag
 
+    # alias of get_tag_group_id_for_tag
+    get_group_id_for_tag = get_tag_group_id_for_tag
+
+    # alias of get_tag_group_id_for_tag
+    get_tag_relationships_group = get_tag_group_id_for_tag
+
     @validate_call
     def get_tag_group_id_for_tag_with_http_info(        
         self,
@@ -3738,7 +3756,7 @@ class TagsApi(object):
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
         options: Dict[str, Any] = {},
-) -> ApiResponse[GetTagTagGroupRelationshipsResponse]:
+) -> ApiResponse[GetTagGroupRelationshipResponse]:
         """Get Tag Group ID for Tag
 
         Returns the id of the tag group related to the given tag.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read`
@@ -3776,7 +3794,7 @@ class TagsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetTagTagGroupRelationshipsResponse,
+            '200': GetTagGroupRelationshipResponse,
             '4XX': GetAccounts4XXResponse,
             '5XX': GetAccounts4XXResponse,
         }
@@ -3803,6 +3821,12 @@ class TagsApi(object):
 
     # alias of `get_tag_group_id_for_tag_with_http_info`
     get_tag_relationships_tag_group_with_http_info = get_tag_group_id_for_tag_with_http_info
+
+    # alias of `get_tag_group_id_for_tag_with_http_info`
+    get_group_id_for_tag_with_http_info = get_tag_group_id_for_tag_with_http_info
+
+    # alias of `get_tag_group_id_for_tag_with_http_info`
+    get_tag_relationships_group_with_http_info = get_tag_group_id_for_tag_with_http_info
 
     @validate_call
     def get_tag_group_id_for_tag_without_preload_content(
@@ -3857,7 +3881,7 @@ class TagsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetTagTagGroupRelationshipsResponse,
+            '200': GetTagGroupRelationshipResponse,
             '4XX': GetAccounts4XXResponse,
             '5XX': GetAccounts4XXResponse,
         }
@@ -3872,6 +3896,12 @@ class TagsApi(object):
 
     # alias of `get_tag_group_id_for_tag_without_preload_content`
     get_tag_relationships_tag_group_without_preload_content = get_tag_group_id_for_tag_without_preload_content
+
+    # alias of `get_tag_group_id_for_tag_without_preload_content`
+    get_group_id_for_tag_without_preload_content = get_tag_group_id_for_tag_without_preload_content
+
+    # alias of `get_tag_group_id_for_tag_without_preload_content`
+    get_tag_relationships_group_without_preload_content = get_tag_group_id_for_tag_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -3952,6 +3982,12 @@ class TagsApi(object):
 
     # alias of `_get_tag_group_id_for_tag_serialize`
     _get_tag_relationships_tag_group_serialize = _get_tag_group_id_for_tag_serialize
+
+    # alias of `_get_tag_group_id_for_tag_serialize`
+    _get_group_id_for_tag_serialize = _get_tag_group_id_for_tag_serialize
+
+    # alias of `_get_tag_group_id_for_tag_serialize`
+    _get_tag_relationships_group_serialize = _get_tag_group_id_for_tag_serialize
 
 
 
@@ -4345,7 +4381,7 @@ class TagsApi(object):
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
         options: Dict[str, Any] = {},
-) ->  Union[GetTagGroupTagRelationshipsResponseCollection, Dict[str, object]]:
+) ->  Union[GetTagGroupTagsRelationshipsResponseCollection, Dict[str, object]]:
         """Get Tag IDs for Tag Group
 
         Returns the tag IDs of all tags inside the given tag group.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read`
@@ -4383,7 +4419,7 @@ class TagsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetTagGroupTagRelationshipsResponseCollection,
+            '200': GetTagGroupTagsRelationshipsResponseCollection,
             '4XX': GetAccounts4XXResponse,
             '5XX': GetAccounts4XXResponse,
         }
@@ -4430,7 +4466,7 @@ class TagsApi(object):
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
         options: Dict[str, Any] = {},
-) -> ApiResponse[GetTagGroupTagRelationshipsResponseCollection]:
+) -> ApiResponse[GetTagGroupTagsRelationshipsResponseCollection]:
         """Get Tag IDs for Tag Group
 
         Returns the tag IDs of all tags inside the given tag group.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read`
@@ -4468,7 +4504,7 @@ class TagsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetTagGroupTagRelationshipsResponseCollection,
+            '200': GetTagGroupTagsRelationshipsResponseCollection,
             '4XX': GetAccounts4XXResponse,
             '5XX': GetAccounts4XXResponse,
         }
@@ -4549,7 +4585,7 @@ class TagsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetTagGroupTagRelationshipsResponseCollection,
+            '200': GetTagGroupTagsRelationshipsResponseCollection,
             '4XX': GetAccounts4XXResponse,
             '5XX': GetAccounts4XXResponse,
         }
@@ -5491,6 +5527,9 @@ class TagsApi(object):
     # alias of remove_tag_from_campaigns
     delete_tag_relationships_campaigns = remove_tag_from_campaigns
 
+    # alias of remove_tag_from_campaigns
+    remove_campaigns_from_tag = remove_tag_from_campaigns
+
     @validate_call
     def remove_tag_from_campaigns_with_http_info(        
         self,
@@ -5578,6 +5617,9 @@ class TagsApi(object):
     # alias of `remove_tag_from_campaigns_with_http_info`
     delete_tag_relationships_campaigns_with_http_info = remove_tag_from_campaigns_with_http_info
 
+    # alias of `remove_tag_from_campaigns_with_http_info`
+    remove_campaigns_from_tag_with_http_info = remove_tag_from_campaigns_with_http_info
+
     @validate_call
     def remove_tag_from_campaigns_without_preload_content(
         self,
@@ -5650,6 +5692,9 @@ class TagsApi(object):
 
     # alias of `remove_tag_from_campaigns_without_preload_content`
     delete_tag_relationships_campaigns_without_preload_content = remove_tag_from_campaigns_without_preload_content
+
+    # alias of `remove_tag_from_campaigns_without_preload_content`
+    remove_campaigns_from_tag_without_preload_content = remove_tag_from_campaigns_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -5747,6 +5792,9 @@ class TagsApi(object):
     # alias of `_remove_tag_from_campaigns_serialize`
     _delete_tag_relationships_campaigns_serialize = _remove_tag_from_campaigns_serialize
 
+    # alias of `_remove_tag_from_campaigns_serialize`
+    _remove_campaigns_from_tag_serialize = _remove_tag_from_campaigns_serialize
+
 
 
     @validate_call
@@ -5838,6 +5886,9 @@ class TagsApi(object):
     # alias of remove_tag_from_flows
     delete_tag_relationships_flows = remove_tag_from_flows
 
+    # alias of remove_tag_from_flows
+    remove_flows_from_tag = remove_tag_from_flows
+
     @validate_call
     def remove_tag_from_flows_with_http_info(        
         self,
@@ -5925,6 +5976,9 @@ class TagsApi(object):
     # alias of `remove_tag_from_flows_with_http_info`
     delete_tag_relationships_flows_with_http_info = remove_tag_from_flows_with_http_info
 
+    # alias of `remove_tag_from_flows_with_http_info`
+    remove_flows_from_tag_with_http_info = remove_tag_from_flows_with_http_info
+
     @validate_call
     def remove_tag_from_flows_without_preload_content(
         self,
@@ -5997,6 +6051,9 @@ class TagsApi(object):
 
     # alias of `remove_tag_from_flows_without_preload_content`
     delete_tag_relationships_flows_without_preload_content = remove_tag_from_flows_without_preload_content
+
+    # alias of `remove_tag_from_flows_without_preload_content`
+    remove_flows_from_tag_without_preload_content = remove_tag_from_flows_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -6094,6 +6151,9 @@ class TagsApi(object):
     # alias of `_remove_tag_from_flows_serialize`
     _delete_tag_relationships_flows_serialize = _remove_tag_from_flows_serialize
 
+    # alias of `_remove_tag_from_flows_serialize`
+    _remove_flows_from_tag_serialize = _remove_tag_from_flows_serialize
+
 
 
     @validate_call
@@ -6185,6 +6245,9 @@ class TagsApi(object):
     # alias of remove_tag_from_lists
     delete_tag_relationships_lists = remove_tag_from_lists
 
+    # alias of remove_tag_from_lists
+    remove_lists_from_tag = remove_tag_from_lists
+
     @validate_call
     def remove_tag_from_lists_with_http_info(        
         self,
@@ -6272,6 +6335,9 @@ class TagsApi(object):
     # alias of `remove_tag_from_lists_with_http_info`
     delete_tag_relationships_lists_with_http_info = remove_tag_from_lists_with_http_info
 
+    # alias of `remove_tag_from_lists_with_http_info`
+    remove_lists_from_tag_with_http_info = remove_tag_from_lists_with_http_info
+
     @validate_call
     def remove_tag_from_lists_without_preload_content(
         self,
@@ -6344,6 +6410,9 @@ class TagsApi(object):
 
     # alias of `remove_tag_from_lists_without_preload_content`
     delete_tag_relationships_lists_without_preload_content = remove_tag_from_lists_without_preload_content
+
+    # alias of `remove_tag_from_lists_without_preload_content`
+    remove_lists_from_tag_without_preload_content = remove_tag_from_lists_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -6441,6 +6510,9 @@ class TagsApi(object):
     # alias of `_remove_tag_from_lists_serialize`
     _delete_tag_relationships_lists_serialize = _remove_tag_from_lists_serialize
 
+    # alias of `_remove_tag_from_lists_serialize`
+    _remove_lists_from_tag_serialize = _remove_tag_from_lists_serialize
+
 
 
     @validate_call
@@ -6532,6 +6604,9 @@ class TagsApi(object):
     # alias of remove_tag_from_segments
     delete_tag_relationships_segments = remove_tag_from_segments
 
+    # alias of remove_tag_from_segments
+    remove_segments_from_tag = remove_tag_from_segments
+
     @validate_call
     def remove_tag_from_segments_with_http_info(        
         self,
@@ -6619,6 +6694,9 @@ class TagsApi(object):
     # alias of `remove_tag_from_segments_with_http_info`
     delete_tag_relationships_segments_with_http_info = remove_tag_from_segments_with_http_info
 
+    # alias of `remove_tag_from_segments_with_http_info`
+    remove_segments_from_tag_with_http_info = remove_tag_from_segments_with_http_info
+
     @validate_call
     def remove_tag_from_segments_without_preload_content(
         self,
@@ -6691,6 +6769,9 @@ class TagsApi(object):
 
     # alias of `remove_tag_from_segments_without_preload_content`
     delete_tag_relationships_segments_without_preload_content = remove_tag_from_segments_without_preload_content
+
+    # alias of `remove_tag_from_segments_without_preload_content`
+    remove_segments_from_tag_without_preload_content = remove_tag_from_segments_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -6788,6 +6869,9 @@ class TagsApi(object):
     # alias of `_remove_tag_from_segments_serialize`
     _delete_tag_relationships_segments_serialize = _remove_tag_from_segments_serialize
 
+    # alias of `_remove_tag_from_segments_serialize`
+    _remove_segments_from_tag_serialize = _remove_tag_from_segments_serialize
+
 
 
     @validate_call
@@ -6877,10 +6961,13 @@ class TagsApi(object):
 
 
     # alias of tag_campaigns
-    create_tag_relationships_campaigns = tag_campaigns
+    create_tag_relationships_campaign = tag_campaigns
 
     # alias of tag_campaigns
-    create_tag_relationships_campaign = tag_campaigns
+    add_campaigns_to_tag = tag_campaigns
+
+    # alias of tag_campaigns
+    create_tag_relationships_campaigns = tag_campaigns
 
     @validate_call
     def tag_campaigns_with_http_info(        
@@ -6967,10 +7054,13 @@ class TagsApi(object):
 
 
     # alias of `tag_campaigns_with_http_info`
-    create_tag_relationships_campaigns_with_http_info = tag_campaigns_with_http_info
+    create_tag_relationships_campaign_with_http_info = tag_campaigns_with_http_info
 
     # alias of `tag_campaigns_with_http_info`
-    create_tag_relationships_campaign_with_http_info = tag_campaigns_with_http_info
+    add_campaigns_to_tag_with_http_info = tag_campaigns_with_http_info
+
+    # alias of `tag_campaigns_with_http_info`
+    create_tag_relationships_campaigns_with_http_info = tag_campaigns_with_http_info
 
     @validate_call
     def tag_campaigns_without_preload_content(
@@ -7043,10 +7133,13 @@ class TagsApi(object):
 
 
     # alias of `tag_campaigns_without_preload_content`
-    create_tag_relationships_campaigns_without_preload_content = tag_campaigns_without_preload_content
+    create_tag_relationships_campaign_without_preload_content = tag_campaigns_without_preload_content
 
     # alias of `tag_campaigns_without_preload_content`
-    create_tag_relationships_campaign_without_preload_content = tag_campaigns_without_preload_content
+    add_campaigns_to_tag_without_preload_content = tag_campaigns_without_preload_content
+
+    # alias of `tag_campaigns_without_preload_content`
+    create_tag_relationships_campaigns_without_preload_content = tag_campaigns_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -7142,10 +7235,13 @@ class TagsApi(object):
 
 
     # alias of `_tag_campaigns_serialize`
-    _create_tag_relationships_campaigns_serialize = _tag_campaigns_serialize
+    _create_tag_relationships_campaign_serialize = _tag_campaigns_serialize
 
     # alias of `_tag_campaigns_serialize`
-    _create_tag_relationships_campaign_serialize = _tag_campaigns_serialize
+    _add_campaigns_to_tag_serialize = _tag_campaigns_serialize
+
+    # alias of `_tag_campaigns_serialize`
+    _create_tag_relationships_campaigns_serialize = _tag_campaigns_serialize
 
 
 
@@ -7236,10 +7332,13 @@ class TagsApi(object):
 
 
     # alias of tag_flows
-    create_tag_relationships_flows = tag_flows
+    create_tag_relationships_flow = tag_flows
 
     # alias of tag_flows
-    create_tag_relationships_flow = tag_flows
+    add_flows_to_tag = tag_flows
+
+    # alias of tag_flows
+    create_tag_relationships_flows = tag_flows
 
     @validate_call
     def tag_flows_with_http_info(        
@@ -7326,10 +7425,13 @@ class TagsApi(object):
 
 
     # alias of `tag_flows_with_http_info`
-    create_tag_relationships_flows_with_http_info = tag_flows_with_http_info
+    create_tag_relationships_flow_with_http_info = tag_flows_with_http_info
 
     # alias of `tag_flows_with_http_info`
-    create_tag_relationships_flow_with_http_info = tag_flows_with_http_info
+    add_flows_to_tag_with_http_info = tag_flows_with_http_info
+
+    # alias of `tag_flows_with_http_info`
+    create_tag_relationships_flows_with_http_info = tag_flows_with_http_info
 
     @validate_call
     def tag_flows_without_preload_content(
@@ -7402,10 +7504,13 @@ class TagsApi(object):
 
 
     # alias of `tag_flows_without_preload_content`
-    create_tag_relationships_flows_without_preload_content = tag_flows_without_preload_content
+    create_tag_relationships_flow_without_preload_content = tag_flows_without_preload_content
 
     # alias of `tag_flows_without_preload_content`
-    create_tag_relationships_flow_without_preload_content = tag_flows_without_preload_content
+    add_flows_to_tag_without_preload_content = tag_flows_without_preload_content
+
+    # alias of `tag_flows_without_preload_content`
+    create_tag_relationships_flows_without_preload_content = tag_flows_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -7501,10 +7606,13 @@ class TagsApi(object):
 
 
     # alias of `_tag_flows_serialize`
-    _create_tag_relationships_flows_serialize = _tag_flows_serialize
+    _create_tag_relationships_flow_serialize = _tag_flows_serialize
 
     # alias of `_tag_flows_serialize`
-    _create_tag_relationships_flow_serialize = _tag_flows_serialize
+    _add_flows_to_tag_serialize = _tag_flows_serialize
+
+    # alias of `_tag_flows_serialize`
+    _create_tag_relationships_flows_serialize = _tag_flows_serialize
 
 
 
@@ -7595,10 +7703,13 @@ class TagsApi(object):
 
 
     # alias of tag_lists
-    create_tag_relationships_lists = tag_lists
+    create_tag_relationships_list = tag_lists
 
     # alias of tag_lists
-    create_tag_relationships_list = tag_lists
+    add_lists_to_tag = tag_lists
+
+    # alias of tag_lists
+    create_tag_relationships_lists = tag_lists
 
     @validate_call
     def tag_lists_with_http_info(        
@@ -7685,10 +7796,13 @@ class TagsApi(object):
 
 
     # alias of `tag_lists_with_http_info`
-    create_tag_relationships_lists_with_http_info = tag_lists_with_http_info
+    create_tag_relationships_list_with_http_info = tag_lists_with_http_info
 
     # alias of `tag_lists_with_http_info`
-    create_tag_relationships_list_with_http_info = tag_lists_with_http_info
+    add_lists_to_tag_with_http_info = tag_lists_with_http_info
+
+    # alias of `tag_lists_with_http_info`
+    create_tag_relationships_lists_with_http_info = tag_lists_with_http_info
 
     @validate_call
     def tag_lists_without_preload_content(
@@ -7761,10 +7875,13 @@ class TagsApi(object):
 
 
     # alias of `tag_lists_without_preload_content`
-    create_tag_relationships_lists_without_preload_content = tag_lists_without_preload_content
+    create_tag_relationships_list_without_preload_content = tag_lists_without_preload_content
 
     # alias of `tag_lists_without_preload_content`
-    create_tag_relationships_list_without_preload_content = tag_lists_without_preload_content
+    add_lists_to_tag_without_preload_content = tag_lists_without_preload_content
+
+    # alias of `tag_lists_without_preload_content`
+    create_tag_relationships_lists_without_preload_content = tag_lists_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -7860,10 +7977,13 @@ class TagsApi(object):
 
 
     # alias of `_tag_lists_serialize`
-    _create_tag_relationships_lists_serialize = _tag_lists_serialize
+    _create_tag_relationships_list_serialize = _tag_lists_serialize
 
     # alias of `_tag_lists_serialize`
-    _create_tag_relationships_list_serialize = _tag_lists_serialize
+    _add_lists_to_tag_serialize = _tag_lists_serialize
+
+    # alias of `_tag_lists_serialize`
+    _create_tag_relationships_lists_serialize = _tag_lists_serialize
 
 
 
@@ -7954,10 +8074,13 @@ class TagsApi(object):
 
 
     # alias of tag_segments
-    create_tag_relationships_segments = tag_segments
+    create_tag_relationships_segment = tag_segments
 
     # alias of tag_segments
-    create_tag_relationships_segment = tag_segments
+    add_segments_to_tag = tag_segments
+
+    # alias of tag_segments
+    create_tag_relationships_segments = tag_segments
 
     @validate_call
     def tag_segments_with_http_info(        
@@ -8044,10 +8167,13 @@ class TagsApi(object):
 
 
     # alias of `tag_segments_with_http_info`
-    create_tag_relationships_segments_with_http_info = tag_segments_with_http_info
+    create_tag_relationships_segment_with_http_info = tag_segments_with_http_info
 
     # alias of `tag_segments_with_http_info`
-    create_tag_relationships_segment_with_http_info = tag_segments_with_http_info
+    add_segments_to_tag_with_http_info = tag_segments_with_http_info
+
+    # alias of `tag_segments_with_http_info`
+    create_tag_relationships_segments_with_http_info = tag_segments_with_http_info
 
     @validate_call
     def tag_segments_without_preload_content(
@@ -8120,10 +8246,13 @@ class TagsApi(object):
 
 
     # alias of `tag_segments_without_preload_content`
-    create_tag_relationships_segments_without_preload_content = tag_segments_without_preload_content
+    create_tag_relationships_segment_without_preload_content = tag_segments_without_preload_content
 
     # alias of `tag_segments_without_preload_content`
-    create_tag_relationships_segment_without_preload_content = tag_segments_without_preload_content
+    add_segments_to_tag_without_preload_content = tag_segments_without_preload_content
+
+    # alias of `tag_segments_without_preload_content`
+    create_tag_relationships_segments_without_preload_content = tag_segments_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -8219,10 +8348,13 @@ class TagsApi(object):
 
 
     # alias of `_tag_segments_serialize`
-    _create_tag_relationships_segments_serialize = _tag_segments_serialize
+    _create_tag_relationships_segment_serialize = _tag_segments_serialize
 
     # alias of `_tag_segments_serialize`
-    _create_tag_relationships_segment_serialize = _tag_segments_serialize
+    _add_segments_to_tag_serialize = _tag_segments_serialize
+
+    # alias of `_tag_segments_serialize`
+    _create_tag_relationships_segments_serialize = _tag_segments_serialize
 
 
 

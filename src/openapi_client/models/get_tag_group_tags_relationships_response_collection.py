@@ -20,15 +20,15 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List
-from openapi_client.models.get_metric_relationship_metric_property_response_collection_data_inner import GetMetricRelationshipMetricPropertyResponseCollectionDataInner
+from openapi_client.models.get_list_list_response_collection_compound_document_data_inner_all_of_relationships_tags_data_inner import GetListListResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsTagsDataInner
 from typing import Optional, Set
 from typing_extensions import Self
 
-class GetMetricRelationshipMetricPropertyResponseCollection(BaseModel):
+class GetTagGroupTagsRelationshipsResponseCollection(BaseModel):
     """
-    GetMetricRelationshipMetricPropertyResponseCollection
+    GetTagGroupTagsRelationshipsResponseCollection
     """ # noqa: E501
-    data: List[GetMetricRelationshipMetricPropertyResponseCollectionDataInner]
+    data: List[GetListListResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsTagsDataInner]
     __properties: ClassVar[List[str]] = ["data"]
 
     model_config = ConfigDict(
@@ -49,7 +49,7 @@ class GetMetricRelationshipMetricPropertyResponseCollection(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of GetMetricRelationshipMetricPropertyResponseCollection from a JSON string"""
+        """Create an instance of GetTagGroupTagsRelationshipsResponseCollection from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -81,7 +81,7 @@ class GetMetricRelationshipMetricPropertyResponseCollection(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of GetMetricRelationshipMetricPropertyResponseCollection from a dict"""
+        """Create an instance of GetTagGroupTagsRelationshipsResponseCollection from a dict"""
         if obj is None:
             return None
 
@@ -89,7 +89,7 @@ class GetMetricRelationshipMetricPropertyResponseCollection(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "data": [GetMetricRelationshipMetricPropertyResponseCollectionDataInner.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None
+            "data": [GetListListResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsTagsDataInner.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None
         })
         return _obj
 

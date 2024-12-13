@@ -29,7 +29,7 @@ class ReviewProductDTO(BaseModel):
     """ # noqa: E501
     url: StrictStr = Field(description="The URL of the product")
     name: StrictStr = Field(description="The name of the product")
-    image_url: Optional[StrictStr] = Field(description="The URL of the product image")
+    image_url: Optional[StrictStr] = Field(default=None, description="The URL of the product image")
     __properties: ClassVar[List[str]] = ["url", "name", "image_url"]
 
     model_config = ConfigDict(

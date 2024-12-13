@@ -20,15 +20,15 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List
-from openapi_client.models.get_coupon_code_relationship_coupon_response_data import GetCouponCodeRelationshipCouponResponseData
+from openapi_client.models.get_event_metric_relationship_response_data import GetEventMetricRelationshipResponseData
 from typing import Optional, Set
 from typing_extensions import Self
 
-class GetCouponCodeRelationshipCouponResponse(BaseModel):
+class GetMetricPropertyMetricRelationshipResponse(BaseModel):
     """
-    GetCouponCodeRelationshipCouponResponse
+    GetMetricPropertyMetricRelationshipResponse
     """ # noqa: E501
-    data: GetCouponCodeRelationshipCouponResponseData
+    data: GetEventMetricRelationshipResponseData
     __properties: ClassVar[List[str]] = ["data"]
 
     model_config = ConfigDict(
@@ -49,7 +49,7 @@ class GetCouponCodeRelationshipCouponResponse(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of GetCouponCodeRelationshipCouponResponse from a JSON string"""
+        """Create an instance of GetMetricPropertyMetricRelationshipResponse from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -77,7 +77,7 @@ class GetCouponCodeRelationshipCouponResponse(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of GetCouponCodeRelationshipCouponResponse from a dict"""
+        """Create an instance of GetMetricPropertyMetricRelationshipResponse from a dict"""
         if obj is None:
             return None
 
@@ -85,7 +85,7 @@ class GetCouponCodeRelationshipCouponResponse(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "data": GetCouponCodeRelationshipCouponResponseData.from_dict(obj["data"]) if obj.get("data") is not None else None
+            "data": GetEventMetricRelationshipResponseData.from_dict(obj["data"]) if obj.get("data") is not None else None
         })
         return _obj
 

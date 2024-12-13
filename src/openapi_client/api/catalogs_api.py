@@ -105,7 +105,7 @@ class CatalogsApi(object):
 
 
     @validate_call
-    def add_category_to_catalog_item(        
+    def add_categories_to_catalog_item(        
         self,
         id: Annotated[StrictStr, Field(description="The catalog item ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.")],
         catalog_item_category_op: CatalogItemCategoryOp,
@@ -123,7 +123,7 @@ class CatalogsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
         options: Dict[str, Any] = {},
 ) -> None:
-        """Add Category to Catalog Item
+        """Add Categories to Catalog Item
 
         Create a new catalog category relationship for the given item ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
 
@@ -153,7 +153,7 @@ class CatalogsApi(object):
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._add_category_to_catalog_item_serialize(
+        _param = self._add_categories_to_catalog_item_serialize(
             id=id,
             catalog_item_category_op=catalog_item_category_op,
             _request_auth=_request_auth,
@@ -190,14 +190,17 @@ class CatalogsApi(object):
         ).data
 
 
-    # alias of add_category_to_catalog_item
-    create_catalog_item_relationships_categories = add_category_to_catalog_item
+    # alias of add_categories_to_catalog_item
+    add_category_to_catalog_item = add_categories_to_catalog_item
 
-    # alias of add_category_to_catalog_item
-    create_catalog_item_relationships_category = add_category_to_catalog_item
+    # alias of add_categories_to_catalog_item
+    create_catalog_item_relationships_category = add_categories_to_catalog_item
+
+    # alias of add_categories_to_catalog_item
+    create_catalog_item_relationships_categories = add_categories_to_catalog_item
 
     @validate_call
-    def add_category_to_catalog_item_with_http_info(        
+    def add_categories_to_catalog_item_with_http_info(        
         self,
         id: Annotated[StrictStr, Field(description="The catalog item ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.")],
         catalog_item_category_op: CatalogItemCategoryOp,
@@ -215,7 +218,7 @@ class CatalogsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
         options: Dict[str, Any] = {},
 ) -> ApiResponse[None]:
-        """Add Category to Catalog Item
+        """Add Categories to Catalog Item
 
         Create a new catalog category relationship for the given item ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
 
@@ -245,7 +248,7 @@ class CatalogsApi(object):
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._add_category_to_catalog_item_serialize(
+        _param = self._add_categories_to_catalog_item_serialize(
             id=id,
             catalog_item_category_op=catalog_item_category_op,
             _request_auth=_request_auth,
@@ -280,14 +283,17 @@ class CatalogsApi(object):
         )
 
 
-    # alias of `add_category_to_catalog_item_with_http_info`
-    create_catalog_item_relationships_categories_with_http_info = add_category_to_catalog_item_with_http_info
+    # alias of `add_categories_to_catalog_item_with_http_info`
+    add_category_to_catalog_item_with_http_info = add_categories_to_catalog_item_with_http_info
 
-    # alias of `add_category_to_catalog_item_with_http_info`
-    create_catalog_item_relationships_category_with_http_info = add_category_to_catalog_item_with_http_info
+    # alias of `add_categories_to_catalog_item_with_http_info`
+    create_catalog_item_relationships_category_with_http_info = add_categories_to_catalog_item_with_http_info
+
+    # alias of `add_categories_to_catalog_item_with_http_info`
+    create_catalog_item_relationships_categories_with_http_info = add_categories_to_catalog_item_with_http_info
 
     @validate_call
-    def add_category_to_catalog_item_without_preload_content(
+    def add_categories_to_catalog_item_without_preload_content(
         self,
         id: Annotated[StrictStr, Field(description="The catalog item ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.")],
         catalog_item_category_op: CatalogItemCategoryOp,
@@ -303,7 +309,7 @@ class CatalogsApi(object):
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
-        """Add Category to Catalog Item
+        """Add Categories to Catalog Item
 
         Create a new catalog category relationship for the given item ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
 
@@ -333,7 +339,7 @@ class CatalogsApi(object):
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._add_category_to_catalog_item_serialize(
+        _param = self._add_categories_to_catalog_item_serialize(
             id=id,
             catalog_item_category_op=catalog_item_category_op,
             _request_auth=_request_auth,
@@ -356,11 +362,14 @@ class CatalogsApi(object):
         return response_data.response
 
 
-    # alias of `add_category_to_catalog_item_without_preload_content`
-    create_catalog_item_relationships_categories_without_preload_content = add_category_to_catalog_item_without_preload_content
+    # alias of `add_categories_to_catalog_item_without_preload_content`
+    add_category_to_catalog_item_without_preload_content = add_categories_to_catalog_item_without_preload_content
 
-    # alias of `add_category_to_catalog_item_without_preload_content`
-    create_catalog_item_relationships_category_without_preload_content = add_category_to_catalog_item_without_preload_content
+    # alias of `add_categories_to_catalog_item_without_preload_content`
+    create_catalog_item_relationships_category_without_preload_content = add_categories_to_catalog_item_without_preload_content
+
+    # alias of `add_categories_to_catalog_item_without_preload_content`
+    create_catalog_item_relationships_categories_without_preload_content = add_categories_to_catalog_item_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -379,7 +388,7 @@ class CatalogsApi(object):
 
         return response_types_map
 
-    def _add_category_to_catalog_item_serialize(
+    def _add_categories_to_catalog_item_serialize(
         self,
         id,
         catalog_item_category_op,
@@ -455,11 +464,14 @@ class CatalogsApi(object):
         )
 
 
-    # alias of `_add_category_to_catalog_item_serialize`
-    _create_catalog_item_relationships_categories_serialize = _add_category_to_catalog_item_serialize
+    # alias of `_add_categories_to_catalog_item_serialize`
+    _add_category_to_catalog_item_serialize = _add_categories_to_catalog_item_serialize
 
-    # alias of `_add_category_to_catalog_item_serialize`
-    _create_catalog_item_relationships_category_serialize = _add_category_to_catalog_item_serialize
+    # alias of `_add_categories_to_catalog_item_serialize`
+    _create_catalog_item_relationships_category_serialize = _add_categories_to_catalog_item_serialize
+
+    # alias of `_add_categories_to_catalog_item_serialize`
+    _create_catalog_item_relationships_categories_serialize = _add_categories_to_catalog_item_serialize
 
 
 
@@ -550,10 +562,10 @@ class CatalogsApi(object):
 
 
     # alias of add_items_to_catalog_category
-    create_catalog_category_relationships_items = add_items_to_catalog_category
+    create_catalog_category_relationships_item = add_items_to_catalog_category
 
     # alias of add_items_to_catalog_category
-    create_catalog_category_relationships_item = add_items_to_catalog_category
+    create_catalog_category_relationships_items = add_items_to_catalog_category
 
     @validate_call
     def add_items_to_catalog_category_with_http_info(        
@@ -640,10 +652,10 @@ class CatalogsApi(object):
 
 
     # alias of `add_items_to_catalog_category_with_http_info`
-    create_catalog_category_relationships_items_with_http_info = add_items_to_catalog_category_with_http_info
+    create_catalog_category_relationships_item_with_http_info = add_items_to_catalog_category_with_http_info
 
     # alias of `add_items_to_catalog_category_with_http_info`
-    create_catalog_category_relationships_item_with_http_info = add_items_to_catalog_category_with_http_info
+    create_catalog_category_relationships_items_with_http_info = add_items_to_catalog_category_with_http_info
 
     @validate_call
     def add_items_to_catalog_category_without_preload_content(
@@ -716,10 +728,10 @@ class CatalogsApi(object):
 
 
     # alias of `add_items_to_catalog_category_without_preload_content`
-    create_catalog_category_relationships_items_without_preload_content = add_items_to_catalog_category_without_preload_content
+    create_catalog_category_relationships_item_without_preload_content = add_items_to_catalog_category_without_preload_content
 
     # alias of `add_items_to_catalog_category_without_preload_content`
-    create_catalog_category_relationships_item_without_preload_content = add_items_to_catalog_category_without_preload_content
+    create_catalog_category_relationships_items_without_preload_content = add_items_to_catalog_category_without_preload_content
 
     def _uses_sparse_fields(self, args, values) -> Set[str]:
         for arg in args:
@@ -815,10 +827,10 @@ class CatalogsApi(object):
 
 
     # alias of `_add_items_to_catalog_category_serialize`
-    _create_catalog_category_relationships_items_serialize = _add_items_to_catalog_category_serialize
+    _create_catalog_category_relationships_item_serialize = _add_items_to_catalog_category_serialize
 
     # alias of `_add_items_to_catalog_category_serialize`
-    _create_catalog_category_relationships_item_serialize = _add_items_to_catalog_category_serialize
+    _create_catalog_category_relationships_items_serialize = _add_items_to_catalog_category_serialize
 
 
 
