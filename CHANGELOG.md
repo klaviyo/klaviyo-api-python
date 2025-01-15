@@ -32,6 +32,34 @@ NOTE: For more granular API-specific changes, please see our [API Changelog](htt
   - The following server-side APIs have been updated to an enhanced identity resolution processor to better follow the Klaviyo identity resolution identifier priority order.
     - `Profiles.create_profile`
     - `Profiles.update_profile`
+- **Breaking:** Renamed models
+  - `AudiencesSubObject` -> `Audiences`
+  - `GetCampaignTagRelationshipListResponseCollection` -> `GetCampaignTagsRelationshipsResponseCollection`
+  - `GetCatalogCategoryItemListResponseCollection` -> `GetCatalogCategoryItemsRelationshipsResponseCollection`
+  - `GetCatalogCategoryItemListResponseCollectionDataInner` -> `GetCatalogCategoryItemsRelationshipsResponseCollectionDataInner`
+  - `GetCatalogItemCategoryListResponseCollection` -> `GetCatalogItemCategoriesRelationshipsResponseCollection`
+  - `GetCatalogItemCategoryListResponseCollectionDataInner` -> `GetCatalogItemCategoriesRelationshipsResponseCollectionDataInner`
+  - `GetCouponRelationshipCouponCodesListResponseCollection` -> `GetCouponCodesRelationshipsResponseCollection`
+  - `GetCouponRelationshipCouponCodesListResponseCollectionDataInner` -> `GetCouponCodesRelationshipsResponseCollectionDataInner`
+  - `GetEventMetricRelationshipResponseData` -> `GetEventResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsMetricData`
+  - `GetFlowResponseCompoundDocument` -> `GetFlowResponseCompoundDocument`
+  - `GetFlowTagRelationshipListResponseCollection` -> `GetFlowTagsRelationshipsResponseCollection`
+  - `GetFormFormVersionRelationshipsResponseCollection` -> `GetFormVersionsRelationshipsResponseCollection`
+  - `GetListRelationshipsResponseCollection` -> `GetListProfilesRelationshipsResponseCollection`
+  - `GetListTagRelationshipListResponseCollection` -> `GetListTagsRelationshipsResponseCollection`
+  - `GetProfileImportJobProfileRelationshipsResponseCollection` -> `GetProfileBulkImportJobProfilesRelationshipsResponseCollection`
+  - `GetProfileListRelationshipsResponseCollection` -> `GetProfileListsRelationshipsResponseCollection`
+  - `GetProfileSegmentRelationshipsResponseCollection` -> `GetProfileSegmentsRelationshipsResponseCollection`
+  - `GetReviewResponseDTO20240715CollectionCompoundDocument` -> `GetReviewResponseDTOCollectionCompoundDocument`
+  - `GetReviewResponseDTO20240715CollectionCompoundDocumentDataInner` -> `GetReviewResponseDTOCollectionCompoundDocumentDataInner`
+  - `GetReviewResponseDTO20240715CollectionCompoundDocumentDataInnerAllOfRelationships` -> `GetReviewResponseDTOCollectionCompoundDocumentDataInnerAllOfRelationships`
+  - `GetReviewResponseDTO20240715CollectionCompoundDocumentDataInnerAllOfRelationshipsEvents` -> `GetReviewResponseDTOCollectionCompoundDocumentDataInnerAllOfRelationshipsEvents`
+  - `GetReviewResponseDTO20240715CollectionCompoundDocumentDataInnerAllOfRelationshipsEventsDataInner` -> `GetReviewResponseDTOCollectionCompoundDocumentDataInnerAllOfRelationshipsEventsDataInner`
+  - `GetReviewResponseDTO20240715CompoundDocument` -> `GetReviewResponseDTOCompoundDocument`
+  - `GetReviewResponseDTO20240715CompoundDocument` -> `GetReviewResponseDTOCompoundDocument`
+  - `GetSegmentTagRelationshipListResponseCollection` -> `GetSegmentTagsRelationshipsResponseCollection`
+  - `ReviewResponseDTO20240715ObjectResource` -> `ReviewResponseDTOObjectResource`
+  - `ReviewResponseDTO20240715ObjectResourceAttributes` -> `ReviewResponseDTOObjectResourceAttributes`
 
 ## [16.0.0] - revision 2024-10-15
 ### Changed
