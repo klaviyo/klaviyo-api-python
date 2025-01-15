@@ -7,6 +7,32 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 NOTE: For more granular API-specific changes, please see our [API Changelog](https://developers.klaviyo.com/en/docs/changelog_)
 
+## [17.0.0] - revision 2025-01-15
+### Added
+- Get and Update Reviews APIs
+  - Retrieve all reviews with `Reviews.get_reviews` or return a review with a specified ID using the `Reviews.get_review` endpoint.
+  - Manage your reviews programmatically with the `Reviews.update_review` endpoint, which allows you to change the status of a review, such as to reject or approve it. This endpoint modifies the moderation status of a review based on the provided review ID and status.
+- Get and Create Flows APIs
+  - Return a flow with the given flow ID using the `Flows.get_flow` endpoint.
+  - Create a new flow with the `Flows.create_flow` endpoint.
+- Campaigns API
+  - Manage the images for your campaigns with a new set of endpoints for the `Campaigns` API, including: `get_image_for_campaign_message`, `get_image_id_for_campaign_message`, and `update_image_for_campaign_message`.
+### Changed
+- **Breaking:** Subscription endpoints required field
+  - Calls to `Profiles.bulk_subscribe_profiles` and `Profiles.unsubscribe_profiles` now require the `subscriptions` field, which grants or revokes consent for the indicated message types on the specified channels, such as email or sms.
+- **Breaking:** Campaigns API push notification support
+  - The Campaigns API now supports the push notification channel.
+  - Support for push notifications includes **significant changes** to the following endpoints: `get_campaigns`, `get_campaign`, `create_campaign`, `update_campaign`, `create_campaign_clone`, `get_messages_for_campaign`, `get_campaign_message`, `update_campaign_message`, `get_campaign_for_campaign_message`, `get_campaign_id_for_campaign_message`.
+  - We recommend that you review the [Campaigns API Overview](https://developers.klaviyo.com/en/reference/campaigns_api_overview) for more detailed information about changes to the structure and responses of these endpoints.
+- **Breaking:** Pagination updates
+  - The `Flows.get_messages_for_flow_action` and `Flows.get_action_id_for_flow_message` endpoints have been updated from offset pagination to cursor pagination.
+- Create Template API
+  - The `Templates.create_template` endpoint now supports the creation of hybrid templates when `editor_type` is `USER_DRAGGABLE` and hybrid template HTML is included.
+- Profiles API
+  - The following server-side APIs have been updated to an enhanced identity resolution processor to better follow the Klaviyo identity resolution identifier priority order.
+    - `Profiles.create_profile`
+    - `Profiles.update_profile`
+
 ## [16.0.0] - revision 2024-10-15
 ### Changed
 - **Breaking:** New `RetryWithExponentialBackoff` class for smart retries to replace the `tenacity` retry decorator that wraps each API method.
