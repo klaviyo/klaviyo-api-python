@@ -19,7 +19,7 @@ class KlaviyoAPI:
     options: Dict[str, Any] = field(default_factory=dict)
 
 
-    _REVISION = "2024-10-15"
+    _REVISION = "2025-01-15"
 
     _STATUS_CODE_CONNECTION_RESET_BY_PEER = 104
     _STATUS_CODE_TOO_MANY_REQUESTS = 429
@@ -107,6 +107,10 @@ class KlaviyoAPI:
         Campaigns.get_campaign_recipient_estimation_job=self._page_cursor_update(self.retry_logic(Campaigns.get_campaign_recipient_estimation_job))
         Campaigns.get_campaign_send_job=self._page_cursor_update(self.retry_logic(Campaigns.get_campaign_send_job))
         Campaigns.get_campaigns=self._page_cursor_update(self.retry_logic(Campaigns.get_campaigns))
+        Campaigns.get_image_for_campaign_message=self._page_cursor_update(self.retry_logic(Campaigns.get_image_for_campaign_message))
+        Campaigns.get_campaign_message_image=self._page_cursor_update(self.retry_logic(Campaigns.get_campaign_message_image))
+        Campaigns.get_image_id_for_campaign_message=self._page_cursor_update(self.retry_logic(Campaigns.get_image_id_for_campaign_message))
+        Campaigns.get_campaign_message_relationships_image=self._page_cursor_update(self.retry_logic(Campaigns.get_campaign_message_relationships_image))
         Campaigns.get_message_ids_for_campaign=self._page_cursor_update(self.retry_logic(Campaigns.get_message_ids_for_campaign))
         Campaigns.get_campaign_relationships_campaign_messages=self._page_cursor_update(self.retry_logic(Campaigns.get_campaign_relationships_campaign_messages))
         Campaigns.get_campaign_relationships_messages=self._page_cursor_update(self.retry_logic(Campaigns.get_campaign_relationships_messages))
@@ -127,6 +131,8 @@ class KlaviyoAPI:
         Campaigns.create_campaign_send_job=self._page_cursor_update(self.retry_logic(Campaigns.create_campaign_send_job))
         Campaigns.update_campaign=self._page_cursor_update(self.retry_logic(Campaigns.update_campaign))
         Campaigns.update_campaign_message=self._page_cursor_update(self.retry_logic(Campaigns.update_campaign_message))
+        Campaigns.update_image_for_campaign_message=self._page_cursor_update(self.retry_logic(Campaigns.update_image_for_campaign_message))
+        Campaigns.update_campaign_message_relationships_image=self._page_cursor_update(self.retry_logic(Campaigns.update_campaign_message_relationships_image))
         
         return Campaigns
     
@@ -235,6 +241,8 @@ class KlaviyoAPI:
         Catalogs.get_catalog_variant_bulk_update_job=self._page_cursor_update(self.retry_logic(Catalogs.get_catalog_variant_bulk_update_job))
         Catalogs.get_update_variants_jobs=self._page_cursor_update(self.retry_logic(Catalogs.get_update_variants_jobs))
         Catalogs.get_catalog_variant_bulk_update_jobs=self._page_cursor_update(self.retry_logic(Catalogs.get_catalog_variant_bulk_update_jobs))
+        Catalogs.get_variant_ids_for_catalog_item=self._page_cursor_update(self.retry_logic(Catalogs.get_variant_ids_for_catalog_item))
+        Catalogs.get_catalog_item_relationships_variants=self._page_cursor_update(self.retry_logic(Catalogs.get_catalog_item_relationships_variants))
         Catalogs.get_variants_for_catalog_item=self._page_cursor_update(self.retry_logic(Catalogs.get_variants_for_catalog_item))
         Catalogs.get_catalog_item_variants=self._page_cursor_update(self.retry_logic(Catalogs.get_catalog_item_variants))
         Catalogs.remove_categories_from_catalog_item=self._page_cursor_update(self.retry_logic(Catalogs.remove_categories_from_catalog_item))
@@ -335,6 +343,7 @@ class KlaviyoAPI:
         Flows=flows_api.FlowsApi(self.api_client)
 
         ## Applying retry decorator to each endpoint in Flows
+        Flows.create_flow=self._page_cursor_update(self.retry_logic(Flows.create_flow))
         Flows.delete_flow=self._page_cursor_update(self.retry_logic(Flows.delete_flow))
         Flows.get_action_for_flow_message=self._page_cursor_update(self.retry_logic(Flows.get_action_for_flow_message))
         Flows.get_flow_message_action=self._page_cursor_update(self.retry_logic(Flows.get_flow_message_action))
@@ -348,6 +357,8 @@ class KlaviyoAPI:
         Flows.get_flow_actions=self._page_cursor_update(self.retry_logic(Flows.get_flow_actions))
         Flows.get_flow=self._page_cursor_update(self.retry_logic(Flows.get_flow))
         Flows.get_flow_action=self._page_cursor_update(self.retry_logic(Flows.get_flow_action))
+        Flows.get_flow_action_messages=self._page_cursor_update(self.retry_logic(Flows.get_flow_action_messages))
+        Flows.get_messages_for_flow_action=self._page_cursor_update(self.retry_logic(Flows.get_messages_for_flow_action))
         Flows.get_flow_for_flow_action=self._page_cursor_update(self.retry_logic(Flows.get_flow_for_flow_action))
         Flows.get_flow_action_flow=self._page_cursor_update(self.retry_logic(Flows.get_flow_action_flow))
         Flows.get_flow_id_for_flow_action=self._page_cursor_update(self.retry_logic(Flows.get_flow_id_for_flow_action))
@@ -356,8 +367,6 @@ class KlaviyoAPI:
         Flows.get_flows=self._page_cursor_update(self.retry_logic(Flows.get_flows))
         Flows.get_message_ids_for_flow_action=self._page_cursor_update(self.retry_logic(Flows.get_message_ids_for_flow_action))
         Flows.get_flow_action_relationships_messages=self._page_cursor_update(self.retry_logic(Flows.get_flow_action_relationships_messages))
-        Flows.get_messages_for_flow_action=self._page_cursor_update(self.retry_logic(Flows.get_messages_for_flow_action))
-        Flows.get_flow_action_messages=self._page_cursor_update(self.retry_logic(Flows.get_flow_action_messages))
         Flows.get_tag_ids_for_flow=self._page_cursor_update(self.retry_logic(Flows.get_tag_ids_for_flow))
         Flows.get_flow_relationships_tags=self._page_cursor_update(self.retry_logic(Flows.get_flow_relationships_tags))
         Flows.get_tags_for_flow=self._page_cursor_update(self.retry_logic(Flows.get_tags_for_flow))
@@ -600,6 +609,7 @@ class KlaviyoAPI:
         ## Applying retry decorator to each endpoint in Reviews
         Reviews.get_review=self._page_cursor_update(self.retry_logic(Reviews.get_review))
         Reviews.get_reviews=self._page_cursor_update(self.retry_logic(Reviews.get_reviews))
+        Reviews.update_review=self._page_cursor_update(self.retry_logic(Reviews.update_review))
         
         return Reviews
     
