@@ -13,10 +13,9 @@
 """  # noqa: E501
 
 import warnings
-from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt, BaseModel
+from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Set, Tuple, Union
 from typing_extensions import Annotated
-from openapi_client.models.get_accounts4_xx_response import GetAccounts4XXResponse
 
 import inspect
 
@@ -122,10 +121,10 @@ class TagsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '201': PostTagResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '201': "PostTagResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -204,10 +203,10 @@ class TagsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '201': PostTagResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '201': "PostTagResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -282,10 +281,10 @@ class TagsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '201': PostTagResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '201': "PostTagResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -442,10 +441,10 @@ class TagsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '201': PostTagGroupResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '201': "PostTagGroupResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -524,10 +523,10 @@ class TagsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '201': PostTagGroupResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '201': "PostTagGroupResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -602,10 +601,10 @@ class TagsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '201': PostTagGroupResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '201': "PostTagGroupResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -762,10 +761,10 @@ class TagsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -844,10 +843,10 @@ class TagsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -922,10 +921,10 @@ class TagsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -1069,10 +1068,10 @@ class TagsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': DeleteTagGroupResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "DeleteTagGroupResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -1151,10 +1150,10 @@ class TagsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': DeleteTagGroupResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "DeleteTagGroupResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -1229,10 +1228,10 @@ class TagsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': DeleteTagGroupResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "DeleteTagGroupResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -1376,10 +1375,10 @@ class TagsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetTagCampaignRelationshipsResponseCollection,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetTagCampaignRelationshipsResponseCollection",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -1461,10 +1460,10 @@ class TagsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetTagCampaignRelationshipsResponseCollection,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetTagCampaignRelationshipsResponseCollection",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -1542,10 +1541,10 @@ class TagsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetTagCampaignRelationshipsResponseCollection,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetTagCampaignRelationshipsResponseCollection",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -1695,10 +1694,10 @@ class TagsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetTagFlowRelationshipsResponseCollection,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetTagFlowRelationshipsResponseCollection",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -1780,10 +1779,10 @@ class TagsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetTagFlowRelationshipsResponseCollection,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetTagFlowRelationshipsResponseCollection",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -1861,10 +1860,10 @@ class TagsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetTagFlowRelationshipsResponseCollection,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetTagFlowRelationshipsResponseCollection",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -2014,10 +2013,10 @@ class TagsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetTagListRelationshipsResponseCollection,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetTagListRelationshipsResponseCollection",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -2099,10 +2098,10 @@ class TagsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetTagListRelationshipsResponseCollection,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetTagListRelationshipsResponseCollection",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -2180,10 +2179,10 @@ class TagsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetTagListRelationshipsResponseCollection,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetTagListRelationshipsResponseCollection",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -2333,10 +2332,10 @@ class TagsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetTagSegmentRelationshipsResponseCollection,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetTagSegmentRelationshipsResponseCollection",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -2418,10 +2417,10 @@ class TagsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetTagSegmentRelationshipsResponseCollection,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetTagSegmentRelationshipsResponseCollection",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -2499,10 +2498,10 @@ class TagsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetTagSegmentRelationshipsResponseCollection,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetTagSegmentRelationshipsResponseCollection",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -2664,10 +2663,10 @@ class TagsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetTagResponseCompoundDocument,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetTagResponseCompoundDocument",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -2758,10 +2757,10 @@ class TagsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetTagResponseCompoundDocument,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetTagResponseCompoundDocument",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -2848,10 +2847,10 @@ class TagsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetTagResponseCompoundDocument,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetTagResponseCompoundDocument",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -3026,10 +3025,10 @@ class TagsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetTagGroupResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetTagGroupResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -3112,10 +3111,10 @@ class TagsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetTagGroupResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetTagGroupResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -3194,10 +3193,10 @@ class TagsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetTagGroupResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetTagGroupResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -3354,10 +3353,10 @@ class TagsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetTagGroupResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetTagGroupResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -3446,10 +3445,10 @@ class TagsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetTagGroupResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetTagGroupResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -3534,10 +3533,10 @@ class TagsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetTagGroupResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetTagGroupResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -3702,10 +3701,10 @@ class TagsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetTagGroupRelationshipResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetTagGroupRelationshipResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -3793,10 +3792,10 @@ class TagsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetTagGroupRelationshipResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetTagGroupRelationshipResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -3880,10 +3879,10 @@ class TagsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetTagGroupRelationshipResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetTagGroupRelationshipResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -4057,10 +4056,10 @@ class TagsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetTagGroupResponseCollection,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetTagGroupResponseCollection",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -4151,10 +4150,10 @@ class TagsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetTagGroupResponseCollection,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetTagGroupResponseCollection",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -4241,10 +4240,10 @@ class TagsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetTagGroupResponseCollection,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetTagGroupResponseCollection",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -4418,10 +4417,10 @@ class TagsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetTagGroupTagsRelationshipsResponseCollection,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetTagGroupTagsRelationshipsResponseCollection",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -4503,10 +4502,10 @@ class TagsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetTagGroupTagsRelationshipsResponseCollection,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetTagGroupTagsRelationshipsResponseCollection",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -4584,10 +4583,10 @@ class TagsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetTagGroupTagsRelationshipsResponseCollection,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetTagGroupTagsRelationshipsResponseCollection",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -4757,10 +4756,10 @@ class TagsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetTagResponseCollectionCompoundDocument,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetTagResponseCollectionCompoundDocument",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -4859,10 +4858,10 @@ class TagsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetTagResponseCollectionCompoundDocument,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetTagResponseCollectionCompoundDocument",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -4957,10 +4956,10 @@ class TagsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetTagResponseCollectionCompoundDocument,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetTagResponseCollectionCompoundDocument",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -5156,10 +5155,10 @@ class TagsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetTagResponseCollection,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetTagResponseCollection",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -5245,10 +5244,10 @@ class TagsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetTagResponseCollection,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetTagResponseCollection",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -5330,10 +5329,10 @@ class TagsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetTagResponseCollection,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetTagResponseCollection",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -5496,10 +5495,10 @@ class TagsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -5588,10 +5587,10 @@ class TagsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -5676,10 +5675,10 @@ class TagsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -5855,10 +5854,10 @@ class TagsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -5947,10 +5946,10 @@ class TagsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -6035,10 +6034,10 @@ class TagsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -6214,10 +6213,10 @@ class TagsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -6306,10 +6305,10 @@ class TagsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -6394,10 +6393,10 @@ class TagsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -6573,10 +6572,10 @@ class TagsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -6665,10 +6664,10 @@ class TagsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -6753,10 +6752,10 @@ class TagsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -6932,10 +6931,10 @@ class TagsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -7027,10 +7026,10 @@ class TagsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -7118,10 +7117,10 @@ class TagsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -7303,10 +7302,10 @@ class TagsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -7398,10 +7397,10 @@ class TagsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -7489,10 +7488,10 @@ class TagsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -7674,10 +7673,10 @@ class TagsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -7769,10 +7768,10 @@ class TagsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -7860,10 +7859,10 @@ class TagsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -8045,10 +8044,10 @@ class TagsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -8140,10 +8139,10 @@ class TagsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -8231,10 +8230,10 @@ class TagsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -8416,10 +8415,10 @@ class TagsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -8502,10 +8501,10 @@ class TagsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -8584,10 +8583,10 @@ class TagsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -8751,10 +8750,10 @@ class TagsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': PatchTagGroupResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "PatchTagGroupResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -8837,10 +8836,10 @@ class TagsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': PatchTagGroupResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "PatchTagGroupResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -8919,10 +8918,10 @@ class TagsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': PatchTagGroupResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "PatchTagGroupResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}

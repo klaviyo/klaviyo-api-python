@@ -13,10 +13,9 @@
 """  # noqa: E501
 
 import warnings
-from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt, BaseModel
+from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Set, Tuple, Union
 from typing_extensions import Annotated
-from openapi_client.models.get_accounts4_xx_response import GetAccounts4XXResponse
 
 import inspect
 
@@ -163,10 +162,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -258,10 +257,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -349,10 +348,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -534,10 +533,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -626,10 +625,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -714,10 +713,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -889,10 +888,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '202': PostCatalogCategoryCreateJobResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '202': "PostCatalogCategoryCreateJobResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -977,10 +976,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '202': PostCatalogCategoryCreateJobResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '202': "PostCatalogCategoryCreateJobResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -1061,10 +1060,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '202': PostCatalogCategoryCreateJobResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '202': "PostCatalogCategoryCreateJobResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -1233,10 +1232,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '202': PostCatalogItemCreateJobResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '202': "PostCatalogItemCreateJobResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -1321,10 +1320,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '202': PostCatalogItemCreateJobResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '202': "PostCatalogItemCreateJobResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -1405,10 +1404,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '202': PostCatalogItemCreateJobResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '202': "PostCatalogItemCreateJobResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -1577,10 +1576,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '202': PostCatalogVariantCreateJobResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '202': "PostCatalogVariantCreateJobResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -1665,10 +1664,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '202': PostCatalogVariantCreateJobResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '202': "PostCatalogVariantCreateJobResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -1749,10 +1748,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '202': PostCatalogVariantCreateJobResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '202': "PostCatalogVariantCreateJobResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -1921,10 +1920,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '202': PostCatalogCategoryDeleteJobResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '202': "PostCatalogCategoryDeleteJobResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -2009,10 +2008,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '202': PostCatalogCategoryDeleteJobResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '202': "PostCatalogCategoryDeleteJobResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -2093,10 +2092,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '202': PostCatalogCategoryDeleteJobResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '202': "PostCatalogCategoryDeleteJobResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -2265,10 +2264,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '202': PostCatalogItemDeleteJobResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '202': "PostCatalogItemDeleteJobResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -2353,10 +2352,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '202': PostCatalogItemDeleteJobResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '202': "PostCatalogItemDeleteJobResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -2437,10 +2436,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '202': PostCatalogItemDeleteJobResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '202': "PostCatalogItemDeleteJobResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -2609,10 +2608,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '202': PostCatalogVariantDeleteJobResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '202': "PostCatalogVariantDeleteJobResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -2697,10 +2696,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '202': PostCatalogVariantDeleteJobResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '202': "PostCatalogVariantDeleteJobResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -2781,10 +2780,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '202': PostCatalogVariantDeleteJobResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '202': "PostCatalogVariantDeleteJobResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -2953,10 +2952,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '202': PostCatalogCategoryUpdateJobResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '202': "PostCatalogCategoryUpdateJobResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -3041,10 +3040,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '202': PostCatalogCategoryUpdateJobResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '202': "PostCatalogCategoryUpdateJobResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -3125,10 +3124,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '202': PostCatalogCategoryUpdateJobResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '202': "PostCatalogCategoryUpdateJobResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -3297,10 +3296,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '202': PostCatalogItemUpdateJobResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '202': "PostCatalogItemUpdateJobResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -3385,10 +3384,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '202': PostCatalogItemUpdateJobResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '202': "PostCatalogItemUpdateJobResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -3469,10 +3468,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '202': PostCatalogItemUpdateJobResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '202': "PostCatalogItemUpdateJobResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -3641,10 +3640,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '202': PostCatalogVariantUpdateJobResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '202': "PostCatalogVariantUpdateJobResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -3729,10 +3728,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '202': PostCatalogVariantUpdateJobResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '202': "PostCatalogVariantUpdateJobResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -3813,10 +3812,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '202': PostCatalogVariantUpdateJobResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '202': "PostCatalogVariantUpdateJobResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -3985,10 +3984,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '202': None,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -4067,10 +4066,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '202': None,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -4145,10 +4144,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '202': None,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -4305,10 +4304,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '201': PostCatalogCategoryResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '201': "PostCatalogCategoryResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -4387,10 +4386,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '201': PostCatalogCategoryResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '201': "PostCatalogCategoryResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -4465,10 +4464,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '201': PostCatalogCategoryResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '201': "PostCatalogCategoryResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -4625,10 +4624,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '201': PostCatalogItemResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '201': "PostCatalogItemResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -4707,10 +4706,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '201': PostCatalogItemResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '201': "PostCatalogItemResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -4785,10 +4784,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '201': PostCatalogItemResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '201': "PostCatalogItemResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -4945,10 +4944,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '201': PostCatalogVariantResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '201': "PostCatalogVariantResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -5027,10 +5026,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '201': PostCatalogVariantResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '201': "PostCatalogVariantResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -5105,10 +5104,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '201': PostCatalogVariantResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '201': "PostCatalogVariantResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -5265,10 +5264,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -5347,10 +5346,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -5425,10 +5424,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -5572,10 +5571,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -5654,10 +5653,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -5732,10 +5731,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -5879,10 +5878,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -5961,10 +5960,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -6039,10 +6038,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -6198,10 +6197,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogItemCreateJobResponseCompoundDocument,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogItemCreateJobResponseCompoundDocument",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -6298,10 +6297,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogItemCreateJobResponseCompoundDocument,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogItemCreateJobResponseCompoundDocument",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -6394,10 +6393,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogItemCreateJobResponseCompoundDocument,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogItemCreateJobResponseCompoundDocument",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -6588,10 +6587,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogItemCreateJobResponseCollectionCompoundDocument,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogItemCreateJobResponseCollectionCompoundDocument",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -6684,10 +6683,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogItemCreateJobResponseCollectionCompoundDocument,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogItemCreateJobResponseCollectionCompoundDocument",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -6776,10 +6775,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogItemCreateJobResponseCollectionCompoundDocument,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogItemCreateJobResponseCollectionCompoundDocument",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -6904,6 +6903,1548 @@ class CatalogsApi(object):
 
 
     @validate_call
+    def get_bulk_create_categories_job(        
+        self,
+        job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
+        fields_catalog_category_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_catalog_category: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#relationships")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: StrictStr = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+        options: Dict[str, Any] = {},
+) ->  Union[GetCatalogCategoryCreateJobResponseCompoundDocument, Dict[str, object]]:
+        """Get Bulk Create Categories Job
+
+        Get a catalog category bulk create job with the given job ID.  An `include` parameter can be provided to get the following related resource data: `categories`.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
+
+        :param job_id: ID of the job to retrieve. (required)
+        :type job_id: str
+        :param fields_catalog_category_bulk_create_job: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
+        :type fields_catalog_category_bulk_create_job: List[str]
+        :param fields_catalog_category: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
+        :type fields_catalog_category: List[str]
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#relationships
+        :type include: List[str]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_bulk_create_categories_job_serialize(
+            job_id=job_id,
+            fields_catalog_category_bulk_create_job=fields_catalog_category_bulk_create_job,
+            fields_catalog_category=fields_catalog_category,
+            include=include,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogCategoryCreateJobResponseCompoundDocument",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
+        }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
+        if _request_auth is not None:
+            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
+        ).data
+
+
+    # alias of get_bulk_create_categories_job
+    get_create_categories_job = get_bulk_create_categories_job
+
+    # alias of get_bulk_create_categories_job
+    get_catalog_category_bulk_create_job = get_bulk_create_categories_job
+
+    @validate_call
+    def get_bulk_create_categories_job_with_http_info(        
+        self,
+        job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
+        fields_catalog_category_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_catalog_category: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#relationships")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: StrictStr = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+        options: Dict[str, Any] = {},
+) -> ApiResponse[GetCatalogCategoryCreateJobResponseCompoundDocument]:
+        """Get Bulk Create Categories Job
+
+        Get a catalog category bulk create job with the given job ID.  An `include` parameter can be provided to get the following related resource data: `categories`.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
+
+        :param job_id: ID of the job to retrieve. (required)
+        :type job_id: str
+        :param fields_catalog_category_bulk_create_job: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
+        :type fields_catalog_category_bulk_create_job: List[str]
+        :param fields_catalog_category: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
+        :type fields_catalog_category: List[str]
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#relationships
+        :type include: List[str]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_bulk_create_categories_job_serialize(
+            job_id=job_id,
+            fields_catalog_category_bulk_create_job=fields_catalog_category_bulk_create_job,
+            fields_catalog_category=fields_catalog_category,
+            include=include,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogCategoryCreateJobResponseCompoundDocument",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
+        }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
+        if _request_auth is not None:
+            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    # alias of `get_bulk_create_categories_job_with_http_info`
+    get_create_categories_job_with_http_info = get_bulk_create_categories_job_with_http_info
+
+    # alias of `get_bulk_create_categories_job_with_http_info`
+    get_catalog_category_bulk_create_job_with_http_info = get_bulk_create_categories_job_with_http_info
+
+    @validate_call
+    def get_bulk_create_categories_job_without_preload_content(
+        self,
+        job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
+        fields_catalog_category_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_catalog_category: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#relationships")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: StrictStr = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
+        """Get Bulk Create Categories Job
+
+        Get a catalog category bulk create job with the given job ID.  An `include` parameter can be provided to get the following related resource data: `categories`.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
+
+        :param job_id: ID of the job to retrieve. (required)
+        :type job_id: str
+        :param fields_catalog_category_bulk_create_job: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
+        :type fields_catalog_category_bulk_create_job: List[str]
+        :param fields_catalog_category: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
+        :type fields_catalog_category: List[str]
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#relationships
+        :type include: List[str]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_bulk_create_categories_job_serialize(
+            job_id=job_id,
+            fields_catalog_category_bulk_create_job=fields_catalog_category_bulk_create_job,
+            fields_catalog_category=fields_catalog_category,
+            include=include,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogCategoryCreateJobResponseCompoundDocument",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
+        }
+        if _request_auth is not None:
+            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    # alias of `get_bulk_create_categories_job_without_preload_content`
+    get_create_categories_job_without_preload_content = get_bulk_create_categories_job_without_preload_content
+
+    # alias of `get_bulk_create_categories_job_without_preload_content`
+    get_catalog_category_bulk_create_job_without_preload_content = get_bulk_create_categories_job_without_preload_content
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
+
+    def _get_bulk_create_categories_job_serialize(
+        self,
+        job_id,
+        fields_catalog_category_bulk_create_job,
+        fields_catalog_category,
+        include,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+            'fields[catalog-category-bulk-create-job]': 'csv',
+            'fields[catalog-category]': 'csv',
+            'include': 'csv',
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if job_id is not None:
+            _path_params['job_id'] = job_id
+        # process the query parameters
+        if fields_catalog_category_bulk_create_job is not None:
+            
+            if isinstance(fields_catalog_category_bulk_create_job, EnumMeta):
+                _query_params.append(('fields[catalog-category-bulk-create-job]', fields_catalog_category_bulk_create_job))
+            else:
+                _query_params.append(('fields[catalog-category-bulk-create-job]', fields_catalog_category_bulk_create_job))
+            
+        if fields_catalog_category is not None:
+            
+            if isinstance(fields_catalog_category, EnumMeta):
+                _query_params.append(('fields[catalog-category]', fields_catalog_category))
+            else:
+                _query_params.append(('fields[catalog-category]', fields_catalog_category))
+            
+        if include is not None:
+            
+            if isinstance(include, EnumMeta):
+                _query_params.append(('include', include))
+            else:
+                _query_params.append(('include', include))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/vnd.api+json'
+            ]
+        )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'Klaviyo-API-Key', 
+            'OAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/api/catalog-category-bulk-create-jobs/{job_id}',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+    # alias of `_get_bulk_create_categories_job_serialize`
+    _get_create_categories_job_serialize = _get_bulk_create_categories_job_serialize
+
+    # alias of `_get_bulk_create_categories_job_serialize`
+    _get_catalog_category_bulk_create_job_serialize = _get_bulk_create_categories_job_serialize
+
+
+
+    @validate_call
+    def get_bulk_create_categories_jobs(        
+        self,
+        fields_catalog_category_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#pagination")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: StrictStr = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+        options: Dict[str, Any] = {},
+) ->  Union[GetCatalogCategoryCreateJobResponseCollectionCompoundDocument, Dict[str, object]]:
+        """Get Bulk Create Categories Jobs
+
+        Get all catalog category bulk create jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
+
+        :param fields_catalog_category_bulk_create_job: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
+        :type fields_catalog_category_bulk_create_job: List[str]
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
+        :type filter: str
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#pagination
+        :type page_cursor: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_bulk_create_categories_jobs_serialize(
+            fields_catalog_category_bulk_create_job=fields_catalog_category_bulk_create_job,
+            filter=filter,
+            page_cursor=page_cursor,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogCategoryCreateJobResponseCollectionCompoundDocument",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
+        }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
+        if _request_auth is not None:
+            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
+        ).data
+
+
+    # alias of get_bulk_create_categories_jobs
+    get_create_categories_jobs = get_bulk_create_categories_jobs
+
+    # alias of get_bulk_create_categories_jobs
+    get_catalog_category_bulk_create_jobs = get_bulk_create_categories_jobs
+
+    @validate_call
+    def get_bulk_create_categories_jobs_with_http_info(        
+        self,
+        fields_catalog_category_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#pagination")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: StrictStr = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+        options: Dict[str, Any] = {},
+) -> ApiResponse[GetCatalogCategoryCreateJobResponseCollectionCompoundDocument]:
+        """Get Bulk Create Categories Jobs
+
+        Get all catalog category bulk create jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
+
+        :param fields_catalog_category_bulk_create_job: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
+        :type fields_catalog_category_bulk_create_job: List[str]
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
+        :type filter: str
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#pagination
+        :type page_cursor: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_bulk_create_categories_jobs_serialize(
+            fields_catalog_category_bulk_create_job=fields_catalog_category_bulk_create_job,
+            filter=filter,
+            page_cursor=page_cursor,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogCategoryCreateJobResponseCollectionCompoundDocument",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
+        }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
+        if _request_auth is not None:
+            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    # alias of `get_bulk_create_categories_jobs_with_http_info`
+    get_create_categories_jobs_with_http_info = get_bulk_create_categories_jobs_with_http_info
+
+    # alias of `get_bulk_create_categories_jobs_with_http_info`
+    get_catalog_category_bulk_create_jobs_with_http_info = get_bulk_create_categories_jobs_with_http_info
+
+    @validate_call
+    def get_bulk_create_categories_jobs_without_preload_content(
+        self,
+        fields_catalog_category_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#pagination")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: StrictStr = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
+        """Get Bulk Create Categories Jobs
+
+        Get all catalog category bulk create jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
+
+        :param fields_catalog_category_bulk_create_job: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
+        :type fields_catalog_category_bulk_create_job: List[str]
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
+        :type filter: str
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#pagination
+        :type page_cursor: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_bulk_create_categories_jobs_serialize(
+            fields_catalog_category_bulk_create_job=fields_catalog_category_bulk_create_job,
+            filter=filter,
+            page_cursor=page_cursor,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogCategoryCreateJobResponseCollectionCompoundDocument",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
+        }
+        if _request_auth is not None:
+            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    # alias of `get_bulk_create_categories_jobs_without_preload_content`
+    get_create_categories_jobs_without_preload_content = get_bulk_create_categories_jobs_without_preload_content
+
+    # alias of `get_bulk_create_categories_jobs_without_preload_content`
+    get_catalog_category_bulk_create_jobs_without_preload_content = get_bulk_create_categories_jobs_without_preload_content
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
+
+    def _get_bulk_create_categories_jobs_serialize(
+        self,
+        fields_catalog_category_bulk_create_job,
+        filter,
+        page_cursor,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+            'fields[catalog-category-bulk-create-job]': 'csv',
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        if fields_catalog_category_bulk_create_job is not None:
+            
+            if isinstance(fields_catalog_category_bulk_create_job, EnumMeta):
+                _query_params.append(('fields[catalog-category-bulk-create-job]', fields_catalog_category_bulk_create_job))
+            else:
+                _query_params.append(('fields[catalog-category-bulk-create-job]', fields_catalog_category_bulk_create_job))
+            
+        if filter is not None:
+            
+            if isinstance(filter, EnumMeta):
+                _query_params.append(('filter', filter))
+            else:
+                _query_params.append(('filter', filter))
+            
+        if page_cursor is not None:
+            
+            if isinstance(page_cursor, EnumMeta):
+                _query_params.append(('page[cursor]', page_cursor))
+            else:
+                _query_params.append(('page[cursor]', page_cursor))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/vnd.api+json'
+            ]
+        )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'Klaviyo-API-Key', 
+            'OAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/api/catalog-category-bulk-create-jobs',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+    # alias of `_get_bulk_create_categories_jobs_serialize`
+    _get_create_categories_jobs_serialize = _get_bulk_create_categories_jobs_serialize
+
+    # alias of `_get_bulk_create_categories_jobs_serialize`
+    _get_catalog_category_bulk_create_jobs_serialize = _get_bulk_create_categories_jobs_serialize
+
+
+
+    @validate_call
+    def get_bulk_create_variants_job(        
+        self,
+        job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
+        fields_catalog_variant_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_catalog_variant: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#relationships")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: StrictStr = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+        options: Dict[str, Any] = {},
+) ->  Union[GetCatalogVariantCreateJobResponseCompoundDocument, Dict[str, object]]:
+        """Get Bulk Create Variants Job
+
+        Get a catalog variant bulk create job with the given job ID.  An `include` parameter can be provided to get the following related resource data: `variants`.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
+
+        :param job_id: ID of the job to retrieve. (required)
+        :type job_id: str
+        :param fields_catalog_variant_bulk_create_job: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
+        :type fields_catalog_variant_bulk_create_job: List[str]
+        :param fields_catalog_variant: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
+        :type fields_catalog_variant: List[str]
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#relationships
+        :type include: List[str]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_bulk_create_variants_job_serialize(
+            job_id=job_id,
+            fields_catalog_variant_bulk_create_job=fields_catalog_variant_bulk_create_job,
+            fields_catalog_variant=fields_catalog_variant,
+            include=include,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogVariantCreateJobResponseCompoundDocument",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
+        }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
+        if _request_auth is not None:
+            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
+        ).data
+
+
+    # alias of get_bulk_create_variants_job
+    get_create_variants_job = get_bulk_create_variants_job
+
+    # alias of get_bulk_create_variants_job
+    get_catalog_variant_bulk_create_job = get_bulk_create_variants_job
+
+    @validate_call
+    def get_bulk_create_variants_job_with_http_info(        
+        self,
+        job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
+        fields_catalog_variant_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_catalog_variant: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#relationships")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: StrictStr = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+        options: Dict[str, Any] = {},
+) -> ApiResponse[GetCatalogVariantCreateJobResponseCompoundDocument]:
+        """Get Bulk Create Variants Job
+
+        Get a catalog variant bulk create job with the given job ID.  An `include` parameter can be provided to get the following related resource data: `variants`.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
+
+        :param job_id: ID of the job to retrieve. (required)
+        :type job_id: str
+        :param fields_catalog_variant_bulk_create_job: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
+        :type fields_catalog_variant_bulk_create_job: List[str]
+        :param fields_catalog_variant: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
+        :type fields_catalog_variant: List[str]
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#relationships
+        :type include: List[str]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_bulk_create_variants_job_serialize(
+            job_id=job_id,
+            fields_catalog_variant_bulk_create_job=fields_catalog_variant_bulk_create_job,
+            fields_catalog_variant=fields_catalog_variant,
+            include=include,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogVariantCreateJobResponseCompoundDocument",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
+        }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
+        if _request_auth is not None:
+            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    # alias of `get_bulk_create_variants_job_with_http_info`
+    get_create_variants_job_with_http_info = get_bulk_create_variants_job_with_http_info
+
+    # alias of `get_bulk_create_variants_job_with_http_info`
+    get_catalog_variant_bulk_create_job_with_http_info = get_bulk_create_variants_job_with_http_info
+
+    @validate_call
+    def get_bulk_create_variants_job_without_preload_content(
+        self,
+        job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
+        fields_catalog_variant_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_catalog_variant: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#relationships")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: StrictStr = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
+        """Get Bulk Create Variants Job
+
+        Get a catalog variant bulk create job with the given job ID.  An `include` parameter can be provided to get the following related resource data: `variants`.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
+
+        :param job_id: ID of the job to retrieve. (required)
+        :type job_id: str
+        :param fields_catalog_variant_bulk_create_job: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
+        :type fields_catalog_variant_bulk_create_job: List[str]
+        :param fields_catalog_variant: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
+        :type fields_catalog_variant: List[str]
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#relationships
+        :type include: List[str]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_bulk_create_variants_job_serialize(
+            job_id=job_id,
+            fields_catalog_variant_bulk_create_job=fields_catalog_variant_bulk_create_job,
+            fields_catalog_variant=fields_catalog_variant,
+            include=include,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogVariantCreateJobResponseCompoundDocument",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
+        }
+        if _request_auth is not None:
+            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    # alias of `get_bulk_create_variants_job_without_preload_content`
+    get_create_variants_job_without_preload_content = get_bulk_create_variants_job_without_preload_content
+
+    # alias of `get_bulk_create_variants_job_without_preload_content`
+    get_catalog_variant_bulk_create_job_without_preload_content = get_bulk_create_variants_job_without_preload_content
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
+
+    def _get_bulk_create_variants_job_serialize(
+        self,
+        job_id,
+        fields_catalog_variant_bulk_create_job,
+        fields_catalog_variant,
+        include,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+            'fields[catalog-variant-bulk-create-job]': 'csv',
+            'fields[catalog-variant]': 'csv',
+            'include': 'csv',
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if job_id is not None:
+            _path_params['job_id'] = job_id
+        # process the query parameters
+        if fields_catalog_variant_bulk_create_job is not None:
+            
+            if isinstance(fields_catalog_variant_bulk_create_job, EnumMeta):
+                _query_params.append(('fields[catalog-variant-bulk-create-job]', fields_catalog_variant_bulk_create_job))
+            else:
+                _query_params.append(('fields[catalog-variant-bulk-create-job]', fields_catalog_variant_bulk_create_job))
+            
+        if fields_catalog_variant is not None:
+            
+            if isinstance(fields_catalog_variant, EnumMeta):
+                _query_params.append(('fields[catalog-variant]', fields_catalog_variant))
+            else:
+                _query_params.append(('fields[catalog-variant]', fields_catalog_variant))
+            
+        if include is not None:
+            
+            if isinstance(include, EnumMeta):
+                _query_params.append(('include', include))
+            else:
+                _query_params.append(('include', include))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/vnd.api+json'
+            ]
+        )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'Klaviyo-API-Key', 
+            'OAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/api/catalog-variant-bulk-create-jobs/{job_id}',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+    # alias of `_get_bulk_create_variants_job_serialize`
+    _get_create_variants_job_serialize = _get_bulk_create_variants_job_serialize
+
+    # alias of `_get_bulk_create_variants_job_serialize`
+    _get_catalog_variant_bulk_create_job_serialize = _get_bulk_create_variants_job_serialize
+
+
+
+    @validate_call
+    def get_bulk_create_variants_jobs(        
+        self,
+        fields_catalog_variant_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#pagination")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: StrictStr = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+        options: Dict[str, Any] = {},
+) ->  Union[GetCatalogVariantCreateJobResponseCollectionCompoundDocument, Dict[str, object]]:
+        """Get Bulk Create Variants Jobs
+
+        Get all catalog variant bulk create jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
+
+        :param fields_catalog_variant_bulk_create_job: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
+        :type fields_catalog_variant_bulk_create_job: List[str]
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
+        :type filter: str
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#pagination
+        :type page_cursor: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_bulk_create_variants_jobs_serialize(
+            fields_catalog_variant_bulk_create_job=fields_catalog_variant_bulk_create_job,
+            filter=filter,
+            page_cursor=page_cursor,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogVariantCreateJobResponseCollectionCompoundDocument",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
+        }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
+        if _request_auth is not None:
+            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
+        ).data
+
+
+    # alias of get_bulk_create_variants_jobs
+    get_create_variants_jobs = get_bulk_create_variants_jobs
+
+    # alias of get_bulk_create_variants_jobs
+    get_catalog_variant_bulk_create_jobs = get_bulk_create_variants_jobs
+
+    @validate_call
+    def get_bulk_create_variants_jobs_with_http_info(        
+        self,
+        fields_catalog_variant_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#pagination")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: StrictStr = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+        options: Dict[str, Any] = {},
+) -> ApiResponse[GetCatalogVariantCreateJobResponseCollectionCompoundDocument]:
+        """Get Bulk Create Variants Jobs
+
+        Get all catalog variant bulk create jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
+
+        :param fields_catalog_variant_bulk_create_job: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
+        :type fields_catalog_variant_bulk_create_job: List[str]
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
+        :type filter: str
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#pagination
+        :type page_cursor: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_bulk_create_variants_jobs_serialize(
+            fields_catalog_variant_bulk_create_job=fields_catalog_variant_bulk_create_job,
+            filter=filter,
+            page_cursor=page_cursor,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogVariantCreateJobResponseCollectionCompoundDocument",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
+        }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
+        if _request_auth is not None:
+            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    # alias of `get_bulk_create_variants_jobs_with_http_info`
+    get_create_variants_jobs_with_http_info = get_bulk_create_variants_jobs_with_http_info
+
+    # alias of `get_bulk_create_variants_jobs_with_http_info`
+    get_catalog_variant_bulk_create_jobs_with_http_info = get_bulk_create_variants_jobs_with_http_info
+
+    @validate_call
+    def get_bulk_create_variants_jobs_without_preload_content(
+        self,
+        fields_catalog_variant_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#pagination")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: StrictStr = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
+        """Get Bulk Create Variants Jobs
+
+        Get all catalog variant bulk create jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
+
+        :param fields_catalog_variant_bulk_create_job: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
+        :type fields_catalog_variant_bulk_create_job: List[str]
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
+        :type filter: str
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#pagination
+        :type page_cursor: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_bulk_create_variants_jobs_serialize(
+            fields_catalog_variant_bulk_create_job=fields_catalog_variant_bulk_create_job,
+            filter=filter,
+            page_cursor=page_cursor,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogVariantCreateJobResponseCollectionCompoundDocument",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
+        }
+        if _request_auth is not None:
+            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    # alias of `get_bulk_create_variants_jobs_without_preload_content`
+    get_create_variants_jobs_without_preload_content = get_bulk_create_variants_jobs_without_preload_content
+
+    # alias of `get_bulk_create_variants_jobs_without_preload_content`
+    get_catalog_variant_bulk_create_jobs_without_preload_content = get_bulk_create_variants_jobs_without_preload_content
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
+
+    def _get_bulk_create_variants_jobs_serialize(
+        self,
+        fields_catalog_variant_bulk_create_job,
+        filter,
+        page_cursor,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+            'fields[catalog-variant-bulk-create-job]': 'csv',
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        if fields_catalog_variant_bulk_create_job is not None:
+            
+            if isinstance(fields_catalog_variant_bulk_create_job, EnumMeta):
+                _query_params.append(('fields[catalog-variant-bulk-create-job]', fields_catalog_variant_bulk_create_job))
+            else:
+                _query_params.append(('fields[catalog-variant-bulk-create-job]', fields_catalog_variant_bulk_create_job))
+            
+        if filter is not None:
+            
+            if isinstance(filter, EnumMeta):
+                _query_params.append(('filter', filter))
+            else:
+                _query_params.append(('filter', filter))
+            
+        if page_cursor is not None:
+            
+            if isinstance(page_cursor, EnumMeta):
+                _query_params.append(('page[cursor]', page_cursor))
+            else:
+                _query_params.append(('page[cursor]', page_cursor))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/vnd.api+json'
+            ]
+        )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'Klaviyo-API-Key', 
+            'OAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/api/catalog-variant-bulk-create-jobs',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+    # alias of `_get_bulk_create_variants_jobs_serialize`
+    _get_create_variants_jobs_serialize = _get_bulk_create_variants_jobs_serialize
+
+    # alias of `_get_bulk_create_variants_jobs_serialize`
+    _get_catalog_variant_bulk_create_jobs_serialize = _get_bulk_create_variants_jobs_serialize
+
+
+
+    @validate_call
     def get_bulk_delete_catalog_items_job(        
         self,
         job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
@@ -6961,10 +8502,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogItemDeleteJobResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogItemDeleteJobResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -7053,10 +8594,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogItemDeleteJobResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogItemDeleteJobResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -7141,10 +8682,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogItemDeleteJobResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogItemDeleteJobResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -7317,10 +8858,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogItemDeleteJobResponseCollection,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogItemDeleteJobResponseCollection",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -7413,10 +8954,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogItemDeleteJobResponseCollection,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogItemDeleteJobResponseCollection",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -7505,10 +9046,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogItemDeleteJobResponseCollection,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogItemDeleteJobResponseCollection",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -7633,6 +9174,1464 @@ class CatalogsApi(object):
 
 
     @validate_call
+    def get_bulk_delete_categories_job(        
+        self,
+        job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
+        fields_catalog_category_bulk_delete_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: StrictStr = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+        options: Dict[str, Any] = {},
+) ->  Union[GetCatalogCategoryDeleteJobResponse, Dict[str, object]]:
+        """Get Bulk Delete Categories Job
+
+        Get a catalog category bulk delete job with the given job ID.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
+
+        :param job_id: ID of the job to retrieve. (required)
+        :type job_id: str
+        :param fields_catalog_category_bulk_delete_job: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
+        :type fields_catalog_category_bulk_delete_job: List[str]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_bulk_delete_categories_job_serialize(
+            job_id=job_id,
+            fields_catalog_category_bulk_delete_job=fields_catalog_category_bulk_delete_job,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogCategoryDeleteJobResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
+        }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
+        if _request_auth is not None:
+            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
+        ).data
+
+
+    # alias of get_bulk_delete_categories_job
+    get_delete_categories_job = get_bulk_delete_categories_job
+
+    # alias of get_bulk_delete_categories_job
+    get_catalog_category_bulk_delete_job = get_bulk_delete_categories_job
+
+    @validate_call
+    def get_bulk_delete_categories_job_with_http_info(        
+        self,
+        job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
+        fields_catalog_category_bulk_delete_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: StrictStr = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+        options: Dict[str, Any] = {},
+) -> ApiResponse[GetCatalogCategoryDeleteJobResponse]:
+        """Get Bulk Delete Categories Job
+
+        Get a catalog category bulk delete job with the given job ID.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
+
+        :param job_id: ID of the job to retrieve. (required)
+        :type job_id: str
+        :param fields_catalog_category_bulk_delete_job: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
+        :type fields_catalog_category_bulk_delete_job: List[str]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_bulk_delete_categories_job_serialize(
+            job_id=job_id,
+            fields_catalog_category_bulk_delete_job=fields_catalog_category_bulk_delete_job,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogCategoryDeleteJobResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
+        }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
+        if _request_auth is not None:
+            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    # alias of `get_bulk_delete_categories_job_with_http_info`
+    get_delete_categories_job_with_http_info = get_bulk_delete_categories_job_with_http_info
+
+    # alias of `get_bulk_delete_categories_job_with_http_info`
+    get_catalog_category_bulk_delete_job_with_http_info = get_bulk_delete_categories_job_with_http_info
+
+    @validate_call
+    def get_bulk_delete_categories_job_without_preload_content(
+        self,
+        job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
+        fields_catalog_category_bulk_delete_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: StrictStr = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
+        """Get Bulk Delete Categories Job
+
+        Get a catalog category bulk delete job with the given job ID.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
+
+        :param job_id: ID of the job to retrieve. (required)
+        :type job_id: str
+        :param fields_catalog_category_bulk_delete_job: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
+        :type fields_catalog_category_bulk_delete_job: List[str]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_bulk_delete_categories_job_serialize(
+            job_id=job_id,
+            fields_catalog_category_bulk_delete_job=fields_catalog_category_bulk_delete_job,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogCategoryDeleteJobResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
+        }
+        if _request_auth is not None:
+            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    # alias of `get_bulk_delete_categories_job_without_preload_content`
+    get_delete_categories_job_without_preload_content = get_bulk_delete_categories_job_without_preload_content
+
+    # alias of `get_bulk_delete_categories_job_without_preload_content`
+    get_catalog_category_bulk_delete_job_without_preload_content = get_bulk_delete_categories_job_without_preload_content
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
+
+    def _get_bulk_delete_categories_job_serialize(
+        self,
+        job_id,
+        fields_catalog_category_bulk_delete_job,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+            'fields[catalog-category-bulk-delete-job]': 'csv',
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if job_id is not None:
+            _path_params['job_id'] = job_id
+        # process the query parameters
+        if fields_catalog_category_bulk_delete_job is not None:
+            
+            if isinstance(fields_catalog_category_bulk_delete_job, EnumMeta):
+                _query_params.append(('fields[catalog-category-bulk-delete-job]', fields_catalog_category_bulk_delete_job))
+            else:
+                _query_params.append(('fields[catalog-category-bulk-delete-job]', fields_catalog_category_bulk_delete_job))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/vnd.api+json'
+            ]
+        )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'Klaviyo-API-Key', 
+            'OAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/api/catalog-category-bulk-delete-jobs/{job_id}',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+    # alias of `_get_bulk_delete_categories_job_serialize`
+    _get_delete_categories_job_serialize = _get_bulk_delete_categories_job_serialize
+
+    # alias of `_get_bulk_delete_categories_job_serialize`
+    _get_catalog_category_bulk_delete_job_serialize = _get_bulk_delete_categories_job_serialize
+
+
+
+    @validate_call
+    def get_bulk_delete_categories_jobs(        
+        self,
+        fields_catalog_category_bulk_delete_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#pagination")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: StrictStr = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+        options: Dict[str, Any] = {},
+) ->  Union[GetCatalogCategoryDeleteJobResponseCollection, Dict[str, object]]:
+        """Get Bulk Delete Categories Jobs
+
+        Get all catalog category bulk delete jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
+
+        :param fields_catalog_category_bulk_delete_job: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
+        :type fields_catalog_category_bulk_delete_job: List[str]
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
+        :type filter: str
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#pagination
+        :type page_cursor: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_bulk_delete_categories_jobs_serialize(
+            fields_catalog_category_bulk_delete_job=fields_catalog_category_bulk_delete_job,
+            filter=filter,
+            page_cursor=page_cursor,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogCategoryDeleteJobResponseCollection",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
+        }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
+        if _request_auth is not None:
+            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
+        ).data
+
+
+    # alias of get_bulk_delete_categories_jobs
+    get_delete_categories_jobs = get_bulk_delete_categories_jobs
+
+    # alias of get_bulk_delete_categories_jobs
+    get_catalog_category_bulk_delete_jobs = get_bulk_delete_categories_jobs
+
+    @validate_call
+    def get_bulk_delete_categories_jobs_with_http_info(        
+        self,
+        fields_catalog_category_bulk_delete_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#pagination")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: StrictStr = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+        options: Dict[str, Any] = {},
+) -> ApiResponse[GetCatalogCategoryDeleteJobResponseCollection]:
+        """Get Bulk Delete Categories Jobs
+
+        Get all catalog category bulk delete jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
+
+        :param fields_catalog_category_bulk_delete_job: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
+        :type fields_catalog_category_bulk_delete_job: List[str]
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
+        :type filter: str
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#pagination
+        :type page_cursor: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_bulk_delete_categories_jobs_serialize(
+            fields_catalog_category_bulk_delete_job=fields_catalog_category_bulk_delete_job,
+            filter=filter,
+            page_cursor=page_cursor,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogCategoryDeleteJobResponseCollection",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
+        }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
+        if _request_auth is not None:
+            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    # alias of `get_bulk_delete_categories_jobs_with_http_info`
+    get_delete_categories_jobs_with_http_info = get_bulk_delete_categories_jobs_with_http_info
+
+    # alias of `get_bulk_delete_categories_jobs_with_http_info`
+    get_catalog_category_bulk_delete_jobs_with_http_info = get_bulk_delete_categories_jobs_with_http_info
+
+    @validate_call
+    def get_bulk_delete_categories_jobs_without_preload_content(
+        self,
+        fields_catalog_category_bulk_delete_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#pagination")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: StrictStr = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
+        """Get Bulk Delete Categories Jobs
+
+        Get all catalog category bulk delete jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
+
+        :param fields_catalog_category_bulk_delete_job: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
+        :type fields_catalog_category_bulk_delete_job: List[str]
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
+        :type filter: str
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#pagination
+        :type page_cursor: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_bulk_delete_categories_jobs_serialize(
+            fields_catalog_category_bulk_delete_job=fields_catalog_category_bulk_delete_job,
+            filter=filter,
+            page_cursor=page_cursor,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogCategoryDeleteJobResponseCollection",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
+        }
+        if _request_auth is not None:
+            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    # alias of `get_bulk_delete_categories_jobs_without_preload_content`
+    get_delete_categories_jobs_without_preload_content = get_bulk_delete_categories_jobs_without_preload_content
+
+    # alias of `get_bulk_delete_categories_jobs_without_preload_content`
+    get_catalog_category_bulk_delete_jobs_without_preload_content = get_bulk_delete_categories_jobs_without_preload_content
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
+
+    def _get_bulk_delete_categories_jobs_serialize(
+        self,
+        fields_catalog_category_bulk_delete_job,
+        filter,
+        page_cursor,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+            'fields[catalog-category-bulk-delete-job]': 'csv',
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        if fields_catalog_category_bulk_delete_job is not None:
+            
+            if isinstance(fields_catalog_category_bulk_delete_job, EnumMeta):
+                _query_params.append(('fields[catalog-category-bulk-delete-job]', fields_catalog_category_bulk_delete_job))
+            else:
+                _query_params.append(('fields[catalog-category-bulk-delete-job]', fields_catalog_category_bulk_delete_job))
+            
+        if filter is not None:
+            
+            if isinstance(filter, EnumMeta):
+                _query_params.append(('filter', filter))
+            else:
+                _query_params.append(('filter', filter))
+            
+        if page_cursor is not None:
+            
+            if isinstance(page_cursor, EnumMeta):
+                _query_params.append(('page[cursor]', page_cursor))
+            else:
+                _query_params.append(('page[cursor]', page_cursor))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/vnd.api+json'
+            ]
+        )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'Klaviyo-API-Key', 
+            'OAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/api/catalog-category-bulk-delete-jobs',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+    # alias of `_get_bulk_delete_categories_jobs_serialize`
+    _get_delete_categories_jobs_serialize = _get_bulk_delete_categories_jobs_serialize
+
+    # alias of `_get_bulk_delete_categories_jobs_serialize`
+    _get_catalog_category_bulk_delete_jobs_serialize = _get_bulk_delete_categories_jobs_serialize
+
+
+
+    @validate_call
+    def get_bulk_delete_variants_job(        
+        self,
+        job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
+        fields_catalog_variant_bulk_delete_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: StrictStr = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+        options: Dict[str, Any] = {},
+) ->  Union[GetCatalogVariantDeleteJobResponse, Dict[str, object]]:
+        """Get Bulk Delete Variants Job
+
+        Get a catalog variant bulk delete job with the given job ID.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
+
+        :param job_id: ID of the job to retrieve. (required)
+        :type job_id: str
+        :param fields_catalog_variant_bulk_delete_job: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
+        :type fields_catalog_variant_bulk_delete_job: List[str]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_bulk_delete_variants_job_serialize(
+            job_id=job_id,
+            fields_catalog_variant_bulk_delete_job=fields_catalog_variant_bulk_delete_job,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogVariantDeleteJobResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
+        }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
+        if _request_auth is not None:
+            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
+        ).data
+
+
+    # alias of get_bulk_delete_variants_job
+    get_delete_variants_job = get_bulk_delete_variants_job
+
+    # alias of get_bulk_delete_variants_job
+    get_catalog_variant_bulk_delete_job = get_bulk_delete_variants_job
+
+    @validate_call
+    def get_bulk_delete_variants_job_with_http_info(        
+        self,
+        job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
+        fields_catalog_variant_bulk_delete_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: StrictStr = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+        options: Dict[str, Any] = {},
+) -> ApiResponse[GetCatalogVariantDeleteJobResponse]:
+        """Get Bulk Delete Variants Job
+
+        Get a catalog variant bulk delete job with the given job ID.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
+
+        :param job_id: ID of the job to retrieve. (required)
+        :type job_id: str
+        :param fields_catalog_variant_bulk_delete_job: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
+        :type fields_catalog_variant_bulk_delete_job: List[str]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_bulk_delete_variants_job_serialize(
+            job_id=job_id,
+            fields_catalog_variant_bulk_delete_job=fields_catalog_variant_bulk_delete_job,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogVariantDeleteJobResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
+        }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
+        if _request_auth is not None:
+            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    # alias of `get_bulk_delete_variants_job_with_http_info`
+    get_delete_variants_job_with_http_info = get_bulk_delete_variants_job_with_http_info
+
+    # alias of `get_bulk_delete_variants_job_with_http_info`
+    get_catalog_variant_bulk_delete_job_with_http_info = get_bulk_delete_variants_job_with_http_info
+
+    @validate_call
+    def get_bulk_delete_variants_job_without_preload_content(
+        self,
+        job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
+        fields_catalog_variant_bulk_delete_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: StrictStr = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
+        """Get Bulk Delete Variants Job
+
+        Get a catalog variant bulk delete job with the given job ID.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
+
+        :param job_id: ID of the job to retrieve. (required)
+        :type job_id: str
+        :param fields_catalog_variant_bulk_delete_job: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
+        :type fields_catalog_variant_bulk_delete_job: List[str]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_bulk_delete_variants_job_serialize(
+            job_id=job_id,
+            fields_catalog_variant_bulk_delete_job=fields_catalog_variant_bulk_delete_job,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogVariantDeleteJobResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
+        }
+        if _request_auth is not None:
+            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    # alias of `get_bulk_delete_variants_job_without_preload_content`
+    get_delete_variants_job_without_preload_content = get_bulk_delete_variants_job_without_preload_content
+
+    # alias of `get_bulk_delete_variants_job_without_preload_content`
+    get_catalog_variant_bulk_delete_job_without_preload_content = get_bulk_delete_variants_job_without_preload_content
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
+
+    def _get_bulk_delete_variants_job_serialize(
+        self,
+        job_id,
+        fields_catalog_variant_bulk_delete_job,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+            'fields[catalog-variant-bulk-delete-job]': 'csv',
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if job_id is not None:
+            _path_params['job_id'] = job_id
+        # process the query parameters
+        if fields_catalog_variant_bulk_delete_job is not None:
+            
+            if isinstance(fields_catalog_variant_bulk_delete_job, EnumMeta):
+                _query_params.append(('fields[catalog-variant-bulk-delete-job]', fields_catalog_variant_bulk_delete_job))
+            else:
+                _query_params.append(('fields[catalog-variant-bulk-delete-job]', fields_catalog_variant_bulk_delete_job))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/vnd.api+json'
+            ]
+        )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'Klaviyo-API-Key', 
+            'OAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/api/catalog-variant-bulk-delete-jobs/{job_id}',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+    # alias of `_get_bulk_delete_variants_job_serialize`
+    _get_delete_variants_job_serialize = _get_bulk_delete_variants_job_serialize
+
+    # alias of `_get_bulk_delete_variants_job_serialize`
+    _get_catalog_variant_bulk_delete_job_serialize = _get_bulk_delete_variants_job_serialize
+
+
+
+    @validate_call
+    def get_bulk_delete_variants_jobs(        
+        self,
+        fields_catalog_variant_bulk_delete_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#pagination")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: StrictStr = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+        options: Dict[str, Any] = {},
+) ->  Union[GetCatalogVariantDeleteJobResponseCollection, Dict[str, object]]:
+        """Get Bulk Delete Variants Jobs
+
+        Get all catalog variant bulk delete jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
+
+        :param fields_catalog_variant_bulk_delete_job: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
+        :type fields_catalog_variant_bulk_delete_job: List[str]
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
+        :type filter: str
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#pagination
+        :type page_cursor: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_bulk_delete_variants_jobs_serialize(
+            fields_catalog_variant_bulk_delete_job=fields_catalog_variant_bulk_delete_job,
+            filter=filter,
+            page_cursor=page_cursor,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogVariantDeleteJobResponseCollection",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
+        }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
+        if _request_auth is not None:
+            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
+        ).data
+
+
+    # alias of get_bulk_delete_variants_jobs
+    get_delete_variants_jobs = get_bulk_delete_variants_jobs
+
+    # alias of get_bulk_delete_variants_jobs
+    get_catalog_variant_bulk_delete_jobs = get_bulk_delete_variants_jobs
+
+    @validate_call
+    def get_bulk_delete_variants_jobs_with_http_info(        
+        self,
+        fields_catalog_variant_bulk_delete_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#pagination")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: StrictStr = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+        options: Dict[str, Any] = {},
+) -> ApiResponse[GetCatalogVariantDeleteJobResponseCollection]:
+        """Get Bulk Delete Variants Jobs
+
+        Get all catalog variant bulk delete jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
+
+        :param fields_catalog_variant_bulk_delete_job: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
+        :type fields_catalog_variant_bulk_delete_job: List[str]
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
+        :type filter: str
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#pagination
+        :type page_cursor: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_bulk_delete_variants_jobs_serialize(
+            fields_catalog_variant_bulk_delete_job=fields_catalog_variant_bulk_delete_job,
+            filter=filter,
+            page_cursor=page_cursor,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogVariantDeleteJobResponseCollection",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
+        }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
+        if _request_auth is not None:
+            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    # alias of `get_bulk_delete_variants_jobs_with_http_info`
+    get_delete_variants_jobs_with_http_info = get_bulk_delete_variants_jobs_with_http_info
+
+    # alias of `get_bulk_delete_variants_jobs_with_http_info`
+    get_catalog_variant_bulk_delete_jobs_with_http_info = get_bulk_delete_variants_jobs_with_http_info
+
+    @validate_call
+    def get_bulk_delete_variants_jobs_without_preload_content(
+        self,
+        fields_catalog_variant_bulk_delete_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#pagination")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: StrictStr = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
+        """Get Bulk Delete Variants Jobs
+
+        Get all catalog variant bulk delete jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
+
+        :param fields_catalog_variant_bulk_delete_job: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
+        :type fields_catalog_variant_bulk_delete_job: List[str]
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
+        :type filter: str
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#pagination
+        :type page_cursor: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_bulk_delete_variants_jobs_serialize(
+            fields_catalog_variant_bulk_delete_job=fields_catalog_variant_bulk_delete_job,
+            filter=filter,
+            page_cursor=page_cursor,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogVariantDeleteJobResponseCollection",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
+        }
+        if _request_auth is not None:
+            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    # alias of `get_bulk_delete_variants_jobs_without_preload_content`
+    get_delete_variants_jobs_without_preload_content = get_bulk_delete_variants_jobs_without_preload_content
+
+    # alias of `get_bulk_delete_variants_jobs_without_preload_content`
+    get_catalog_variant_bulk_delete_jobs_without_preload_content = get_bulk_delete_variants_jobs_without_preload_content
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
+
+    def _get_bulk_delete_variants_jobs_serialize(
+        self,
+        fields_catalog_variant_bulk_delete_job,
+        filter,
+        page_cursor,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+            'fields[catalog-variant-bulk-delete-job]': 'csv',
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        if fields_catalog_variant_bulk_delete_job is not None:
+            
+            if isinstance(fields_catalog_variant_bulk_delete_job, EnumMeta):
+                _query_params.append(('fields[catalog-variant-bulk-delete-job]', fields_catalog_variant_bulk_delete_job))
+            else:
+                _query_params.append(('fields[catalog-variant-bulk-delete-job]', fields_catalog_variant_bulk_delete_job))
+            
+        if filter is not None:
+            
+            if isinstance(filter, EnumMeta):
+                _query_params.append(('filter', filter))
+            else:
+                _query_params.append(('filter', filter))
+            
+        if page_cursor is not None:
+            
+            if isinstance(page_cursor, EnumMeta):
+                _query_params.append(('page[cursor]', page_cursor))
+            else:
+                _query_params.append(('page[cursor]', page_cursor))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/vnd.api+json'
+            ]
+        )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'Klaviyo-API-Key', 
+            'OAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/api/catalog-variant-bulk-delete-jobs',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+    # alias of `_get_bulk_delete_variants_jobs_serialize`
+    _get_delete_variants_jobs_serialize = _get_bulk_delete_variants_jobs_serialize
+
+    # alias of `_get_bulk_delete_variants_jobs_serialize`
+    _get_catalog_variant_bulk_delete_jobs_serialize = _get_bulk_delete_variants_jobs_serialize
+
+
+
+    @validate_call
     def get_bulk_update_catalog_items_job(        
         self,
         job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
@@ -7698,10 +10697,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogItemUpdateJobResponseCompoundDocument,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogItemUpdateJobResponseCompoundDocument",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -7798,10 +10797,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogItemUpdateJobResponseCompoundDocument,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogItemUpdateJobResponseCompoundDocument",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -7894,10 +10893,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogItemUpdateJobResponseCompoundDocument,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogItemUpdateJobResponseCompoundDocument",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -8088,10 +11087,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogItemUpdateJobResponseCollectionCompoundDocument,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogItemUpdateJobResponseCollectionCompoundDocument",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -8184,10 +11183,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogItemUpdateJobResponseCollectionCompoundDocument,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogItemUpdateJobResponseCollectionCompoundDocument",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -8276,10 +11275,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogItemUpdateJobResponseCollectionCompoundDocument,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogItemUpdateJobResponseCollectionCompoundDocument",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -8404,6 +11403,1548 @@ class CatalogsApi(object):
 
 
     @validate_call
+    def get_bulk_update_categories_job(        
+        self,
+        job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
+        fields_catalog_category_bulk_update_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_catalog_category: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#relationships")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: StrictStr = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+        options: Dict[str, Any] = {},
+) ->  Union[GetCatalogCategoryUpdateJobResponseCompoundDocument, Dict[str, object]]:
+        """Get Bulk Update Categories Job
+
+        Get a catalog category bulk update job with the given job ID.  An `include` parameter can be provided to get the following related resource data: `categories`.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
+
+        :param job_id: ID of the job to retrieve. (required)
+        :type job_id: str
+        :param fields_catalog_category_bulk_update_job: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
+        :type fields_catalog_category_bulk_update_job: List[str]
+        :param fields_catalog_category: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
+        :type fields_catalog_category: List[str]
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#relationships
+        :type include: List[str]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_bulk_update_categories_job_serialize(
+            job_id=job_id,
+            fields_catalog_category_bulk_update_job=fields_catalog_category_bulk_update_job,
+            fields_catalog_category=fields_catalog_category,
+            include=include,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogCategoryUpdateJobResponseCompoundDocument",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
+        }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
+        if _request_auth is not None:
+            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
+        ).data
+
+
+    # alias of get_bulk_update_categories_job
+    get_update_categories_job = get_bulk_update_categories_job
+
+    # alias of get_bulk_update_categories_job
+    get_catalog_category_bulk_update_job = get_bulk_update_categories_job
+
+    @validate_call
+    def get_bulk_update_categories_job_with_http_info(        
+        self,
+        job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
+        fields_catalog_category_bulk_update_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_catalog_category: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#relationships")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: StrictStr = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+        options: Dict[str, Any] = {},
+) -> ApiResponse[GetCatalogCategoryUpdateJobResponseCompoundDocument]:
+        """Get Bulk Update Categories Job
+
+        Get a catalog category bulk update job with the given job ID.  An `include` parameter can be provided to get the following related resource data: `categories`.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
+
+        :param job_id: ID of the job to retrieve. (required)
+        :type job_id: str
+        :param fields_catalog_category_bulk_update_job: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
+        :type fields_catalog_category_bulk_update_job: List[str]
+        :param fields_catalog_category: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
+        :type fields_catalog_category: List[str]
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#relationships
+        :type include: List[str]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_bulk_update_categories_job_serialize(
+            job_id=job_id,
+            fields_catalog_category_bulk_update_job=fields_catalog_category_bulk_update_job,
+            fields_catalog_category=fields_catalog_category,
+            include=include,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogCategoryUpdateJobResponseCompoundDocument",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
+        }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
+        if _request_auth is not None:
+            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    # alias of `get_bulk_update_categories_job_with_http_info`
+    get_update_categories_job_with_http_info = get_bulk_update_categories_job_with_http_info
+
+    # alias of `get_bulk_update_categories_job_with_http_info`
+    get_catalog_category_bulk_update_job_with_http_info = get_bulk_update_categories_job_with_http_info
+
+    @validate_call
+    def get_bulk_update_categories_job_without_preload_content(
+        self,
+        job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
+        fields_catalog_category_bulk_update_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_catalog_category: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#relationships")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: StrictStr = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
+        """Get Bulk Update Categories Job
+
+        Get a catalog category bulk update job with the given job ID.  An `include` parameter can be provided to get the following related resource data: `categories`.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
+
+        :param job_id: ID of the job to retrieve. (required)
+        :type job_id: str
+        :param fields_catalog_category_bulk_update_job: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
+        :type fields_catalog_category_bulk_update_job: List[str]
+        :param fields_catalog_category: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
+        :type fields_catalog_category: List[str]
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#relationships
+        :type include: List[str]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_bulk_update_categories_job_serialize(
+            job_id=job_id,
+            fields_catalog_category_bulk_update_job=fields_catalog_category_bulk_update_job,
+            fields_catalog_category=fields_catalog_category,
+            include=include,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogCategoryUpdateJobResponseCompoundDocument",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
+        }
+        if _request_auth is not None:
+            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    # alias of `get_bulk_update_categories_job_without_preload_content`
+    get_update_categories_job_without_preload_content = get_bulk_update_categories_job_without_preload_content
+
+    # alias of `get_bulk_update_categories_job_without_preload_content`
+    get_catalog_category_bulk_update_job_without_preload_content = get_bulk_update_categories_job_without_preload_content
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
+
+    def _get_bulk_update_categories_job_serialize(
+        self,
+        job_id,
+        fields_catalog_category_bulk_update_job,
+        fields_catalog_category,
+        include,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+            'fields[catalog-category-bulk-update-job]': 'csv',
+            'fields[catalog-category]': 'csv',
+            'include': 'csv',
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if job_id is not None:
+            _path_params['job_id'] = job_id
+        # process the query parameters
+        if fields_catalog_category_bulk_update_job is not None:
+            
+            if isinstance(fields_catalog_category_bulk_update_job, EnumMeta):
+                _query_params.append(('fields[catalog-category-bulk-update-job]', fields_catalog_category_bulk_update_job))
+            else:
+                _query_params.append(('fields[catalog-category-bulk-update-job]', fields_catalog_category_bulk_update_job))
+            
+        if fields_catalog_category is not None:
+            
+            if isinstance(fields_catalog_category, EnumMeta):
+                _query_params.append(('fields[catalog-category]', fields_catalog_category))
+            else:
+                _query_params.append(('fields[catalog-category]', fields_catalog_category))
+            
+        if include is not None:
+            
+            if isinstance(include, EnumMeta):
+                _query_params.append(('include', include))
+            else:
+                _query_params.append(('include', include))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/vnd.api+json'
+            ]
+        )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'Klaviyo-API-Key', 
+            'OAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/api/catalog-category-bulk-update-jobs/{job_id}',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+    # alias of `_get_bulk_update_categories_job_serialize`
+    _get_update_categories_job_serialize = _get_bulk_update_categories_job_serialize
+
+    # alias of `_get_bulk_update_categories_job_serialize`
+    _get_catalog_category_bulk_update_job_serialize = _get_bulk_update_categories_job_serialize
+
+
+
+    @validate_call
+    def get_bulk_update_categories_jobs(        
+        self,
+        fields_catalog_category_bulk_update_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#pagination")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: StrictStr = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+        options: Dict[str, Any] = {},
+) ->  Union[GetCatalogCategoryUpdateJobResponseCollectionCompoundDocument, Dict[str, object]]:
+        """Get Bulk Update Categories Jobs
+
+        Get all catalog category bulk update jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
+
+        :param fields_catalog_category_bulk_update_job: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
+        :type fields_catalog_category_bulk_update_job: List[str]
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
+        :type filter: str
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#pagination
+        :type page_cursor: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_bulk_update_categories_jobs_serialize(
+            fields_catalog_category_bulk_update_job=fields_catalog_category_bulk_update_job,
+            filter=filter,
+            page_cursor=page_cursor,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogCategoryUpdateJobResponseCollectionCompoundDocument",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
+        }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
+        if _request_auth is not None:
+            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
+        ).data
+
+
+    # alias of get_bulk_update_categories_jobs
+    get_update_categories_jobs = get_bulk_update_categories_jobs
+
+    # alias of get_bulk_update_categories_jobs
+    get_catalog_category_bulk_update_jobs = get_bulk_update_categories_jobs
+
+    @validate_call
+    def get_bulk_update_categories_jobs_with_http_info(        
+        self,
+        fields_catalog_category_bulk_update_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#pagination")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: StrictStr = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+        options: Dict[str, Any] = {},
+) -> ApiResponse[GetCatalogCategoryUpdateJobResponseCollectionCompoundDocument]:
+        """Get Bulk Update Categories Jobs
+
+        Get all catalog category bulk update jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
+
+        :param fields_catalog_category_bulk_update_job: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
+        :type fields_catalog_category_bulk_update_job: List[str]
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
+        :type filter: str
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#pagination
+        :type page_cursor: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_bulk_update_categories_jobs_serialize(
+            fields_catalog_category_bulk_update_job=fields_catalog_category_bulk_update_job,
+            filter=filter,
+            page_cursor=page_cursor,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogCategoryUpdateJobResponseCollectionCompoundDocument",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
+        }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
+        if _request_auth is not None:
+            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    # alias of `get_bulk_update_categories_jobs_with_http_info`
+    get_update_categories_jobs_with_http_info = get_bulk_update_categories_jobs_with_http_info
+
+    # alias of `get_bulk_update_categories_jobs_with_http_info`
+    get_catalog_category_bulk_update_jobs_with_http_info = get_bulk_update_categories_jobs_with_http_info
+
+    @validate_call
+    def get_bulk_update_categories_jobs_without_preload_content(
+        self,
+        fields_catalog_category_bulk_update_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#pagination")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: StrictStr = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
+        """Get Bulk Update Categories Jobs
+
+        Get all catalog category bulk update jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
+
+        :param fields_catalog_category_bulk_update_job: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
+        :type fields_catalog_category_bulk_update_job: List[str]
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
+        :type filter: str
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#pagination
+        :type page_cursor: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_bulk_update_categories_jobs_serialize(
+            fields_catalog_category_bulk_update_job=fields_catalog_category_bulk_update_job,
+            filter=filter,
+            page_cursor=page_cursor,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogCategoryUpdateJobResponseCollectionCompoundDocument",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
+        }
+        if _request_auth is not None:
+            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    # alias of `get_bulk_update_categories_jobs_without_preload_content`
+    get_update_categories_jobs_without_preload_content = get_bulk_update_categories_jobs_without_preload_content
+
+    # alias of `get_bulk_update_categories_jobs_without_preload_content`
+    get_catalog_category_bulk_update_jobs_without_preload_content = get_bulk_update_categories_jobs_without_preload_content
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
+
+    def _get_bulk_update_categories_jobs_serialize(
+        self,
+        fields_catalog_category_bulk_update_job,
+        filter,
+        page_cursor,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+            'fields[catalog-category-bulk-update-job]': 'csv',
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        if fields_catalog_category_bulk_update_job is not None:
+            
+            if isinstance(fields_catalog_category_bulk_update_job, EnumMeta):
+                _query_params.append(('fields[catalog-category-bulk-update-job]', fields_catalog_category_bulk_update_job))
+            else:
+                _query_params.append(('fields[catalog-category-bulk-update-job]', fields_catalog_category_bulk_update_job))
+            
+        if filter is not None:
+            
+            if isinstance(filter, EnumMeta):
+                _query_params.append(('filter', filter))
+            else:
+                _query_params.append(('filter', filter))
+            
+        if page_cursor is not None:
+            
+            if isinstance(page_cursor, EnumMeta):
+                _query_params.append(('page[cursor]', page_cursor))
+            else:
+                _query_params.append(('page[cursor]', page_cursor))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/vnd.api+json'
+            ]
+        )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'Klaviyo-API-Key', 
+            'OAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/api/catalog-category-bulk-update-jobs',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+    # alias of `_get_bulk_update_categories_jobs_serialize`
+    _get_update_categories_jobs_serialize = _get_bulk_update_categories_jobs_serialize
+
+    # alias of `_get_bulk_update_categories_jobs_serialize`
+    _get_catalog_category_bulk_update_jobs_serialize = _get_bulk_update_categories_jobs_serialize
+
+
+
+    @validate_call
+    def get_bulk_update_variants_job(        
+        self,
+        job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
+        fields_catalog_variant_bulk_update_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_catalog_variant: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#relationships")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: StrictStr = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+        options: Dict[str, Any] = {},
+) ->  Union[GetCatalogVariantUpdateJobResponseCompoundDocument, Dict[str, object]]:
+        """Get Bulk Update Variants Job
+
+        Get a catalog variate bulk update job with the given job ID.  An `include` parameter can be provided to get the following related resource data: `variants`.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
+
+        :param job_id: ID of the job to retrieve. (required)
+        :type job_id: str
+        :param fields_catalog_variant_bulk_update_job: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
+        :type fields_catalog_variant_bulk_update_job: List[str]
+        :param fields_catalog_variant: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
+        :type fields_catalog_variant: List[str]
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#relationships
+        :type include: List[str]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_bulk_update_variants_job_serialize(
+            job_id=job_id,
+            fields_catalog_variant_bulk_update_job=fields_catalog_variant_bulk_update_job,
+            fields_catalog_variant=fields_catalog_variant,
+            include=include,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogVariantUpdateJobResponseCompoundDocument",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
+        }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
+        if _request_auth is not None:
+            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
+        ).data
+
+
+    # alias of get_bulk_update_variants_job
+    get_update_variants_job = get_bulk_update_variants_job
+
+    # alias of get_bulk_update_variants_job
+    get_catalog_variant_bulk_update_job = get_bulk_update_variants_job
+
+    @validate_call
+    def get_bulk_update_variants_job_with_http_info(        
+        self,
+        job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
+        fields_catalog_variant_bulk_update_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_catalog_variant: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#relationships")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: StrictStr = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+        options: Dict[str, Any] = {},
+) -> ApiResponse[GetCatalogVariantUpdateJobResponseCompoundDocument]:
+        """Get Bulk Update Variants Job
+
+        Get a catalog variate bulk update job with the given job ID.  An `include` parameter can be provided to get the following related resource data: `variants`.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
+
+        :param job_id: ID of the job to retrieve. (required)
+        :type job_id: str
+        :param fields_catalog_variant_bulk_update_job: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
+        :type fields_catalog_variant_bulk_update_job: List[str]
+        :param fields_catalog_variant: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
+        :type fields_catalog_variant: List[str]
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#relationships
+        :type include: List[str]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_bulk_update_variants_job_serialize(
+            job_id=job_id,
+            fields_catalog_variant_bulk_update_job=fields_catalog_variant_bulk_update_job,
+            fields_catalog_variant=fields_catalog_variant,
+            include=include,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogVariantUpdateJobResponseCompoundDocument",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
+        }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
+        if _request_auth is not None:
+            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    # alias of `get_bulk_update_variants_job_with_http_info`
+    get_update_variants_job_with_http_info = get_bulk_update_variants_job_with_http_info
+
+    # alias of `get_bulk_update_variants_job_with_http_info`
+    get_catalog_variant_bulk_update_job_with_http_info = get_bulk_update_variants_job_with_http_info
+
+    @validate_call
+    def get_bulk_update_variants_job_without_preload_content(
+        self,
+        job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
+        fields_catalog_variant_bulk_update_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_catalog_variant: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#relationships")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: StrictStr = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
+        """Get Bulk Update Variants Job
+
+        Get a catalog variate bulk update job with the given job ID.  An `include` parameter can be provided to get the following related resource data: `variants`.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
+
+        :param job_id: ID of the job to retrieve. (required)
+        :type job_id: str
+        :param fields_catalog_variant_bulk_update_job: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
+        :type fields_catalog_variant_bulk_update_job: List[str]
+        :param fields_catalog_variant: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
+        :type fields_catalog_variant: List[str]
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#relationships
+        :type include: List[str]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_bulk_update_variants_job_serialize(
+            job_id=job_id,
+            fields_catalog_variant_bulk_update_job=fields_catalog_variant_bulk_update_job,
+            fields_catalog_variant=fields_catalog_variant,
+            include=include,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogVariantUpdateJobResponseCompoundDocument",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
+        }
+        if _request_auth is not None:
+            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    # alias of `get_bulk_update_variants_job_without_preload_content`
+    get_update_variants_job_without_preload_content = get_bulk_update_variants_job_without_preload_content
+
+    # alias of `get_bulk_update_variants_job_without_preload_content`
+    get_catalog_variant_bulk_update_job_without_preload_content = get_bulk_update_variants_job_without_preload_content
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
+
+    def _get_bulk_update_variants_job_serialize(
+        self,
+        job_id,
+        fields_catalog_variant_bulk_update_job,
+        fields_catalog_variant,
+        include,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+            'fields[catalog-variant-bulk-update-job]': 'csv',
+            'fields[catalog-variant]': 'csv',
+            'include': 'csv',
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if job_id is not None:
+            _path_params['job_id'] = job_id
+        # process the query parameters
+        if fields_catalog_variant_bulk_update_job is not None:
+            
+            if isinstance(fields_catalog_variant_bulk_update_job, EnumMeta):
+                _query_params.append(('fields[catalog-variant-bulk-update-job]', fields_catalog_variant_bulk_update_job))
+            else:
+                _query_params.append(('fields[catalog-variant-bulk-update-job]', fields_catalog_variant_bulk_update_job))
+            
+        if fields_catalog_variant is not None:
+            
+            if isinstance(fields_catalog_variant, EnumMeta):
+                _query_params.append(('fields[catalog-variant]', fields_catalog_variant))
+            else:
+                _query_params.append(('fields[catalog-variant]', fields_catalog_variant))
+            
+        if include is not None:
+            
+            if isinstance(include, EnumMeta):
+                _query_params.append(('include', include))
+            else:
+                _query_params.append(('include', include))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/vnd.api+json'
+            ]
+        )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'Klaviyo-API-Key', 
+            'OAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/api/catalog-variant-bulk-update-jobs/{job_id}',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+    # alias of `_get_bulk_update_variants_job_serialize`
+    _get_update_variants_job_serialize = _get_bulk_update_variants_job_serialize
+
+    # alias of `_get_bulk_update_variants_job_serialize`
+    _get_catalog_variant_bulk_update_job_serialize = _get_bulk_update_variants_job_serialize
+
+
+
+    @validate_call
+    def get_bulk_update_variants_jobs(        
+        self,
+        fields_catalog_variant_bulk_update_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#pagination")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: StrictStr = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+        options: Dict[str, Any] = {},
+) ->  Union[GetCatalogVariantUpdateJobResponseCollectionCompoundDocument, Dict[str, object]]:
+        """Get Bulk Update Variants Jobs
+
+        Get all catalog variant bulk update jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
+
+        :param fields_catalog_variant_bulk_update_job: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
+        :type fields_catalog_variant_bulk_update_job: List[str]
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
+        :type filter: str
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#pagination
+        :type page_cursor: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_bulk_update_variants_jobs_serialize(
+            fields_catalog_variant_bulk_update_job=fields_catalog_variant_bulk_update_job,
+            filter=filter,
+            page_cursor=page_cursor,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogVariantUpdateJobResponseCollectionCompoundDocument",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
+        }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
+        if _request_auth is not None:
+            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
+        ).data
+
+
+    # alias of get_bulk_update_variants_jobs
+    get_update_variants_jobs = get_bulk_update_variants_jobs
+
+    # alias of get_bulk_update_variants_jobs
+    get_catalog_variant_bulk_update_jobs = get_bulk_update_variants_jobs
+
+    @validate_call
+    def get_bulk_update_variants_jobs_with_http_info(        
+        self,
+        fields_catalog_variant_bulk_update_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#pagination")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: StrictStr = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+        options: Dict[str, Any] = {},
+) -> ApiResponse[GetCatalogVariantUpdateJobResponseCollectionCompoundDocument]:
+        """Get Bulk Update Variants Jobs
+
+        Get all catalog variant bulk update jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
+
+        :param fields_catalog_variant_bulk_update_job: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
+        :type fields_catalog_variant_bulk_update_job: List[str]
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
+        :type filter: str
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#pagination
+        :type page_cursor: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_bulk_update_variants_jobs_serialize(
+            fields_catalog_variant_bulk_update_job=fields_catalog_variant_bulk_update_job,
+            filter=filter,
+            page_cursor=page_cursor,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogVariantUpdateJobResponseCollectionCompoundDocument",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
+        }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
+        if _request_auth is not None:
+            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    # alias of `get_bulk_update_variants_jobs_with_http_info`
+    get_update_variants_jobs_with_http_info = get_bulk_update_variants_jobs_with_http_info
+
+    # alias of `get_bulk_update_variants_jobs_with_http_info`
+    get_catalog_variant_bulk_update_jobs_with_http_info = get_bulk_update_variants_jobs_with_http_info
+
+    @validate_call
+    def get_bulk_update_variants_jobs_without_preload_content(
+        self,
+        fields_catalog_variant_bulk_update_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#pagination")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: StrictStr = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
+        """Get Bulk Update Variants Jobs
+
+        Get all catalog variant bulk update jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
+
+        :param fields_catalog_variant_bulk_update_job: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
+        :type fields_catalog_variant_bulk_update_job: List[str]
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
+        :type filter: str
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#pagination
+        :type page_cursor: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_bulk_update_variants_jobs_serialize(
+            fields_catalog_variant_bulk_update_job=fields_catalog_variant_bulk_update_job,
+            filter=filter,
+            page_cursor=page_cursor,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogVariantUpdateJobResponseCollectionCompoundDocument",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
+        }
+        if _request_auth is not None:
+            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    # alias of `get_bulk_update_variants_jobs_without_preload_content`
+    get_update_variants_jobs_without_preload_content = get_bulk_update_variants_jobs_without_preload_content
+
+    # alias of `get_bulk_update_variants_jobs_without_preload_content`
+    get_catalog_variant_bulk_update_jobs_without_preload_content = get_bulk_update_variants_jobs_without_preload_content
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
+
+    def _get_bulk_update_variants_jobs_serialize(
+        self,
+        fields_catalog_variant_bulk_update_job,
+        filter,
+        page_cursor,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+            'fields[catalog-variant-bulk-update-job]': 'csv',
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        if fields_catalog_variant_bulk_update_job is not None:
+            
+            if isinstance(fields_catalog_variant_bulk_update_job, EnumMeta):
+                _query_params.append(('fields[catalog-variant-bulk-update-job]', fields_catalog_variant_bulk_update_job))
+            else:
+                _query_params.append(('fields[catalog-variant-bulk-update-job]', fields_catalog_variant_bulk_update_job))
+            
+        if filter is not None:
+            
+            if isinstance(filter, EnumMeta):
+                _query_params.append(('filter', filter))
+            else:
+                _query_params.append(('filter', filter))
+            
+        if page_cursor is not None:
+            
+            if isinstance(page_cursor, EnumMeta):
+                _query_params.append(('page[cursor]', page_cursor))
+            else:
+                _query_params.append(('page[cursor]', page_cursor))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/vnd.api+json'
+            ]
+        )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'Klaviyo-API-Key', 
+            'OAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/api/catalog-variant-bulk-update-jobs',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+    # alias of `_get_bulk_update_variants_jobs_serialize`
+    _get_update_variants_jobs_serialize = _get_bulk_update_variants_jobs_serialize
+
+    # alias of `_get_bulk_update_variants_jobs_serialize`
+    _get_catalog_variant_bulk_update_jobs_serialize = _get_bulk_update_variants_jobs_serialize
+
+
+
+    @validate_call
     def get_catalog_categories(        
         self,
         fields_catalog_category: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
@@ -8469,10 +13010,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogCategoryResponseCollection,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogCategoryResponseCollection",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -8563,10 +13104,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogCategoryResponseCollection,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogCategoryResponseCollection",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -8653,10 +13194,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogCategoryResponseCollection,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogCategoryResponseCollection",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -8834,10 +13375,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogCategoryResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogCategoryResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -8920,10 +13461,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogCategoryResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogCategoryResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -9002,10 +13543,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogCategoryResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogCategoryResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -9170,10 +13711,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogItemResponseCompoundDocument,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogItemResponseCompoundDocument",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -9264,10 +13805,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogItemResponseCompoundDocument,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogItemResponseCompoundDocument",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -9354,10 +13895,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogItemResponseCompoundDocument,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogItemResponseCompoundDocument",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -9548,10 +14089,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogItemResponseCollectionCompoundDocument,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogItemResponseCollectionCompoundDocument",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -9650,10 +14191,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogItemResponseCollectionCompoundDocument,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogItemResponseCollectionCompoundDocument",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -9748,10 +14289,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogItemResponseCollectionCompoundDocument,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogItemResponseCollectionCompoundDocument",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -9947,10 +14488,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogVariantResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogVariantResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -10033,10 +14574,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogVariantResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogVariantResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -10115,10 +14656,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogVariantResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogVariantResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -10283,10 +14824,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogVariantResponseCollection,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogVariantResponseCollection",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -10377,10 +14918,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogVariantResponseCollection,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogVariantResponseCollection",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -10467,10 +15008,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogVariantResponseCollection,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogVariantResponseCollection",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -10660,10 +15201,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogCategoryResponseCollection,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogCategoryResponseCollection",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -10761,10 +15302,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogCategoryResponseCollection,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogCategoryResponseCollection",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -10858,10 +15399,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogCategoryResponseCollection,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogCategoryResponseCollection",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -11056,10 +15597,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogItemCategoriesRelationshipsResponseCollection,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogItemCategoriesRelationshipsResponseCollection",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -11153,10 +15694,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogItemCategoriesRelationshipsResponseCollection,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogItemCategoriesRelationshipsResponseCollection",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -11246,10 +15787,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogItemCategoriesRelationshipsResponseCollection,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogItemCategoriesRelationshipsResponseCollection",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -11370,2910 +15911,6 @@ class CatalogsApi(object):
 
 
     @validate_call
-    def get_create_categories_job(        
-        self,
-        job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
-        fields_catalog_category_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_catalog_category: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#relationships")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: StrictStr = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-        options: Dict[str, Any] = {},
-) ->  Union[GetCatalogCategoryCreateJobResponseCompoundDocument, Dict[str, object]]:
-        """Get Create Categories Job
-
-        Get a catalog category bulk create job with the given job ID.  An `include` parameter can be provided to get the following related resource data: `categories`.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
-
-        :param job_id: ID of the job to retrieve. (required)
-        :type job_id: str
-        :param fields_catalog_category_bulk_create_job: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
-        :type fields_catalog_category_bulk_create_job: List[str]
-        :param fields_catalog_category: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
-        :type fields_catalog_category: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#relationships
-        :type include: List[str]
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_create_categories_job_serialize(
-            job_id=job_id,
-            fields_catalog_category_bulk_create_job=fields_catalog_category_bulk_create_job,
-            fields_catalog_category=fields_catalog_category,
-            include=include,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogCategoryCreateJobResponseCompoundDocument,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
-        }
-        frame = inspect.currentframe()
-        args, _, _, values = inspect.getargvalues(frame)
-        uses_sparse_fields = self._uses_sparse_fields(args, values)
-
-        if _request_auth is not None:
-            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
-
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-
-        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
-            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
-
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-            exclude_none=uses_sparse_fields
-        ).data
-
-
-    # alias of get_create_categories_job
-    get_catalog_category_bulk_create_job = get_create_categories_job
-
-    @validate_call
-    def get_create_categories_job_with_http_info(        
-        self,
-        job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
-        fields_catalog_category_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_catalog_category: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#relationships")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: StrictStr = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-        options: Dict[str, Any] = {},
-) -> ApiResponse[GetCatalogCategoryCreateJobResponseCompoundDocument]:
-        """Get Create Categories Job
-
-        Get a catalog category bulk create job with the given job ID.  An `include` parameter can be provided to get the following related resource data: `categories`.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
-
-        :param job_id: ID of the job to retrieve. (required)
-        :type job_id: str
-        :param fields_catalog_category_bulk_create_job: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
-        :type fields_catalog_category_bulk_create_job: List[str]
-        :param fields_catalog_category: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
-        :type fields_catalog_category: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#relationships
-        :type include: List[str]
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_create_categories_job_serialize(
-            job_id=job_id,
-            fields_catalog_category_bulk_create_job=fields_catalog_category_bulk_create_job,
-            fields_catalog_category=fields_catalog_category,
-            include=include,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogCategoryCreateJobResponseCompoundDocument,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
-        }
-        frame = inspect.currentframe()
-        args, _, _, values = inspect.getargvalues(frame)
-        uses_sparse_fields = self._uses_sparse_fields(args, values)
-
-        if _request_auth is not None:
-            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
-
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
-            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
-
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    # alias of `get_create_categories_job_with_http_info`
-    get_catalog_category_bulk_create_job_with_http_info = get_create_categories_job_with_http_info
-
-    @validate_call
-    def get_create_categories_job_without_preload_content(
-        self,
-        job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
-        fields_catalog_category_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_catalog_category: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#relationships")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: StrictStr = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
-        """Get Create Categories Job
-
-        Get a catalog category bulk create job with the given job ID.  An `include` parameter can be provided to get the following related resource data: `categories`.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
-
-        :param job_id: ID of the job to retrieve. (required)
-        :type job_id: str
-        :param fields_catalog_category_bulk_create_job: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
-        :type fields_catalog_category_bulk_create_job: List[str]
-        :param fields_catalog_category: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
-        :type fields_catalog_category: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#relationships
-        :type include: List[str]
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_create_categories_job_serialize(
-            job_id=job_id,
-            fields_catalog_category_bulk_create_job=fields_catalog_category_bulk_create_job,
-            fields_catalog_category=fields_catalog_category,
-            include=include,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogCategoryCreateJobResponseCompoundDocument,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
-        }
-        if _request_auth is not None:
-            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    # alias of `get_create_categories_job_without_preload_content`
-    get_catalog_category_bulk_create_job_without_preload_content = get_create_categories_job_without_preload_content
-
-    def _uses_sparse_fields(self, args, values) -> Set[str]:
-        for arg in args:
-             if arg.startswith('fields'):
-                 if values[arg] is not None:
-                      return True
-        return False
-
-
-    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
-        for key, value in response_types_map.items():
-            if key.startswith('2'):
-                if value is not None:
-                    # Replace the Type for this key with a Dict type
-                    response_types_map[key] = 'Dict[str, object]'
-
-        return response_types_map
-
-    def _get_create_categories_job_serialize(
-        self,
-        job_id,
-        fields_catalog_category_bulk_create_job,
-        fields_catalog_category,
-        include,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-            'fields[catalog-category-bulk-create-job]': 'csv',
-            'fields[catalog-category]': 'csv',
-            'include': 'csv',
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if job_id is not None:
-            _path_params['job_id'] = job_id
-        # process the query parameters
-        if fields_catalog_category_bulk_create_job is not None:
-            
-            if isinstance(fields_catalog_category_bulk_create_job, EnumMeta):
-                _query_params.append(('fields[catalog-category-bulk-create-job]', fields_catalog_category_bulk_create_job))
-            else:
-                _query_params.append(('fields[catalog-category-bulk-create-job]', fields_catalog_category_bulk_create_job))
-            
-        if fields_catalog_category is not None:
-            
-            if isinstance(fields_catalog_category, EnumMeta):
-                _query_params.append(('fields[catalog-category]', fields_catalog_category))
-            else:
-                _query_params.append(('fields[catalog-category]', fields_catalog_category))
-            
-        if include is not None:
-            
-            if isinstance(include, EnumMeta):
-                _query_params.append(('include', include))
-            else:
-                _query_params.append(('include', include))
-            
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/vnd.api+json'
-            ]
-        )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'Klaviyo-API-Key', 
-            'OAuth'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/catalog-category-bulk-create-jobs/{job_id}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-    # alias of `_get_create_categories_job_serialize`
-    _get_catalog_category_bulk_create_job_serialize = _get_create_categories_job_serialize
-
-
-
-    @validate_call
-    def get_create_categories_jobs(        
-        self,
-        fields_catalog_category_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#pagination")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: StrictStr = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-        options: Dict[str, Any] = {},
-) ->  Union[GetCatalogCategoryCreateJobResponseCollectionCompoundDocument, Dict[str, object]]:
-        """Get Create Categories Jobs
-
-        Get all catalog category bulk create jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
-
-        :param fields_catalog_category_bulk_create_job: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
-        :type fields_catalog_category_bulk_create_job: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
-        :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#pagination
-        :type page_cursor: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_create_categories_jobs_serialize(
-            fields_catalog_category_bulk_create_job=fields_catalog_category_bulk_create_job,
-            filter=filter,
-            page_cursor=page_cursor,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogCategoryCreateJobResponseCollectionCompoundDocument,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
-        }
-        frame = inspect.currentframe()
-        args, _, _, values = inspect.getargvalues(frame)
-        uses_sparse_fields = self._uses_sparse_fields(args, values)
-
-        if _request_auth is not None:
-            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
-
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-
-        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
-            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
-
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-            exclude_none=uses_sparse_fields
-        ).data
-
-
-    # alias of get_create_categories_jobs
-    get_catalog_category_bulk_create_jobs = get_create_categories_jobs
-
-    @validate_call
-    def get_create_categories_jobs_with_http_info(        
-        self,
-        fields_catalog_category_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#pagination")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: StrictStr = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-        options: Dict[str, Any] = {},
-) -> ApiResponse[GetCatalogCategoryCreateJobResponseCollectionCompoundDocument]:
-        """Get Create Categories Jobs
-
-        Get all catalog category bulk create jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
-
-        :param fields_catalog_category_bulk_create_job: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
-        :type fields_catalog_category_bulk_create_job: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
-        :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#pagination
-        :type page_cursor: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_create_categories_jobs_serialize(
-            fields_catalog_category_bulk_create_job=fields_catalog_category_bulk_create_job,
-            filter=filter,
-            page_cursor=page_cursor,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogCategoryCreateJobResponseCollectionCompoundDocument,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
-        }
-        frame = inspect.currentframe()
-        args, _, _, values = inspect.getargvalues(frame)
-        uses_sparse_fields = self._uses_sparse_fields(args, values)
-
-        if _request_auth is not None:
-            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
-
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
-            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
-
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    # alias of `get_create_categories_jobs_with_http_info`
-    get_catalog_category_bulk_create_jobs_with_http_info = get_create_categories_jobs_with_http_info
-
-    @validate_call
-    def get_create_categories_jobs_without_preload_content(
-        self,
-        fields_catalog_category_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#pagination")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: StrictStr = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
-        """Get Create Categories Jobs
-
-        Get all catalog category bulk create jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
-
-        :param fields_catalog_category_bulk_create_job: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
-        :type fields_catalog_category_bulk_create_job: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
-        :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#pagination
-        :type page_cursor: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_create_categories_jobs_serialize(
-            fields_catalog_category_bulk_create_job=fields_catalog_category_bulk_create_job,
-            filter=filter,
-            page_cursor=page_cursor,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogCategoryCreateJobResponseCollectionCompoundDocument,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
-        }
-        if _request_auth is not None:
-            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    # alias of `get_create_categories_jobs_without_preload_content`
-    get_catalog_category_bulk_create_jobs_without_preload_content = get_create_categories_jobs_without_preload_content
-
-    def _uses_sparse_fields(self, args, values) -> Set[str]:
-        for arg in args:
-             if arg.startswith('fields'):
-                 if values[arg] is not None:
-                      return True
-        return False
-
-
-    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
-        for key, value in response_types_map.items():
-            if key.startswith('2'):
-                if value is not None:
-                    # Replace the Type for this key with a Dict type
-                    response_types_map[key] = 'Dict[str, object]'
-
-        return response_types_map
-
-    def _get_create_categories_jobs_serialize(
-        self,
-        fields_catalog_category_bulk_create_job,
-        filter,
-        page_cursor,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-            'fields[catalog-category-bulk-create-job]': 'csv',
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        # process the query parameters
-        if fields_catalog_category_bulk_create_job is not None:
-            
-            if isinstance(fields_catalog_category_bulk_create_job, EnumMeta):
-                _query_params.append(('fields[catalog-category-bulk-create-job]', fields_catalog_category_bulk_create_job))
-            else:
-                _query_params.append(('fields[catalog-category-bulk-create-job]', fields_catalog_category_bulk_create_job))
-            
-        if filter is not None:
-            
-            if isinstance(filter, EnumMeta):
-                _query_params.append(('filter', filter))
-            else:
-                _query_params.append(('filter', filter))
-            
-        if page_cursor is not None:
-            
-            if isinstance(page_cursor, EnumMeta):
-                _query_params.append(('page[cursor]', page_cursor))
-            else:
-                _query_params.append(('page[cursor]', page_cursor))
-            
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/vnd.api+json'
-            ]
-        )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'Klaviyo-API-Key', 
-            'OAuth'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/catalog-category-bulk-create-jobs',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-    # alias of `_get_create_categories_jobs_serialize`
-    _get_catalog_category_bulk_create_jobs_serialize = _get_create_categories_jobs_serialize
-
-
-
-    @validate_call
-    def get_create_variants_job(        
-        self,
-        job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
-        fields_catalog_variant_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_catalog_variant: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#relationships")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: StrictStr = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-        options: Dict[str, Any] = {},
-) ->  Union[GetCatalogVariantCreateJobResponseCompoundDocument, Dict[str, object]]:
-        """Get Create Variants Job
-
-        Get a catalog variant bulk create job with the given job ID.  An `include` parameter can be provided to get the following related resource data: `variants`.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
-
-        :param job_id: ID of the job to retrieve. (required)
-        :type job_id: str
-        :param fields_catalog_variant_bulk_create_job: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
-        :type fields_catalog_variant_bulk_create_job: List[str]
-        :param fields_catalog_variant: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
-        :type fields_catalog_variant: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#relationships
-        :type include: List[str]
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_create_variants_job_serialize(
-            job_id=job_id,
-            fields_catalog_variant_bulk_create_job=fields_catalog_variant_bulk_create_job,
-            fields_catalog_variant=fields_catalog_variant,
-            include=include,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogVariantCreateJobResponseCompoundDocument,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
-        }
-        frame = inspect.currentframe()
-        args, _, _, values = inspect.getargvalues(frame)
-        uses_sparse_fields = self._uses_sparse_fields(args, values)
-
-        if _request_auth is not None:
-            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
-
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-
-        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
-            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
-
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-            exclude_none=uses_sparse_fields
-        ).data
-
-
-    # alias of get_create_variants_job
-    get_catalog_variant_bulk_create_job = get_create_variants_job
-
-    @validate_call
-    def get_create_variants_job_with_http_info(        
-        self,
-        job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
-        fields_catalog_variant_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_catalog_variant: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#relationships")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: StrictStr = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-        options: Dict[str, Any] = {},
-) -> ApiResponse[GetCatalogVariantCreateJobResponseCompoundDocument]:
-        """Get Create Variants Job
-
-        Get a catalog variant bulk create job with the given job ID.  An `include` parameter can be provided to get the following related resource data: `variants`.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
-
-        :param job_id: ID of the job to retrieve. (required)
-        :type job_id: str
-        :param fields_catalog_variant_bulk_create_job: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
-        :type fields_catalog_variant_bulk_create_job: List[str]
-        :param fields_catalog_variant: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
-        :type fields_catalog_variant: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#relationships
-        :type include: List[str]
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_create_variants_job_serialize(
-            job_id=job_id,
-            fields_catalog_variant_bulk_create_job=fields_catalog_variant_bulk_create_job,
-            fields_catalog_variant=fields_catalog_variant,
-            include=include,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogVariantCreateJobResponseCompoundDocument,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
-        }
-        frame = inspect.currentframe()
-        args, _, _, values = inspect.getargvalues(frame)
-        uses_sparse_fields = self._uses_sparse_fields(args, values)
-
-        if _request_auth is not None:
-            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
-
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
-            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
-
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    # alias of `get_create_variants_job_with_http_info`
-    get_catalog_variant_bulk_create_job_with_http_info = get_create_variants_job_with_http_info
-
-    @validate_call
-    def get_create_variants_job_without_preload_content(
-        self,
-        job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
-        fields_catalog_variant_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_catalog_variant: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#relationships")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: StrictStr = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
-        """Get Create Variants Job
-
-        Get a catalog variant bulk create job with the given job ID.  An `include` parameter can be provided to get the following related resource data: `variants`.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
-
-        :param job_id: ID of the job to retrieve. (required)
-        :type job_id: str
-        :param fields_catalog_variant_bulk_create_job: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
-        :type fields_catalog_variant_bulk_create_job: List[str]
-        :param fields_catalog_variant: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
-        :type fields_catalog_variant: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#relationships
-        :type include: List[str]
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_create_variants_job_serialize(
-            job_id=job_id,
-            fields_catalog_variant_bulk_create_job=fields_catalog_variant_bulk_create_job,
-            fields_catalog_variant=fields_catalog_variant,
-            include=include,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogVariantCreateJobResponseCompoundDocument,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
-        }
-        if _request_auth is not None:
-            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    # alias of `get_create_variants_job_without_preload_content`
-    get_catalog_variant_bulk_create_job_without_preload_content = get_create_variants_job_without_preload_content
-
-    def _uses_sparse_fields(self, args, values) -> Set[str]:
-        for arg in args:
-             if arg.startswith('fields'):
-                 if values[arg] is not None:
-                      return True
-        return False
-
-
-    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
-        for key, value in response_types_map.items():
-            if key.startswith('2'):
-                if value is not None:
-                    # Replace the Type for this key with a Dict type
-                    response_types_map[key] = 'Dict[str, object]'
-
-        return response_types_map
-
-    def _get_create_variants_job_serialize(
-        self,
-        job_id,
-        fields_catalog_variant_bulk_create_job,
-        fields_catalog_variant,
-        include,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-            'fields[catalog-variant-bulk-create-job]': 'csv',
-            'fields[catalog-variant]': 'csv',
-            'include': 'csv',
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if job_id is not None:
-            _path_params['job_id'] = job_id
-        # process the query parameters
-        if fields_catalog_variant_bulk_create_job is not None:
-            
-            if isinstance(fields_catalog_variant_bulk_create_job, EnumMeta):
-                _query_params.append(('fields[catalog-variant-bulk-create-job]', fields_catalog_variant_bulk_create_job))
-            else:
-                _query_params.append(('fields[catalog-variant-bulk-create-job]', fields_catalog_variant_bulk_create_job))
-            
-        if fields_catalog_variant is not None:
-            
-            if isinstance(fields_catalog_variant, EnumMeta):
-                _query_params.append(('fields[catalog-variant]', fields_catalog_variant))
-            else:
-                _query_params.append(('fields[catalog-variant]', fields_catalog_variant))
-            
-        if include is not None:
-            
-            if isinstance(include, EnumMeta):
-                _query_params.append(('include', include))
-            else:
-                _query_params.append(('include', include))
-            
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/vnd.api+json'
-            ]
-        )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'Klaviyo-API-Key', 
-            'OAuth'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/catalog-variant-bulk-create-jobs/{job_id}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-    # alias of `_get_create_variants_job_serialize`
-    _get_catalog_variant_bulk_create_job_serialize = _get_create_variants_job_serialize
-
-
-
-    @validate_call
-    def get_create_variants_jobs(        
-        self,
-        fields_catalog_variant_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#pagination")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: StrictStr = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-        options: Dict[str, Any] = {},
-) ->  Union[GetCatalogVariantCreateJobResponseCollectionCompoundDocument, Dict[str, object]]:
-        """Get Create Variants Jobs
-
-        Get all catalog variant bulk create jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
-
-        :param fields_catalog_variant_bulk_create_job: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
-        :type fields_catalog_variant_bulk_create_job: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
-        :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#pagination
-        :type page_cursor: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_create_variants_jobs_serialize(
-            fields_catalog_variant_bulk_create_job=fields_catalog_variant_bulk_create_job,
-            filter=filter,
-            page_cursor=page_cursor,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogVariantCreateJobResponseCollectionCompoundDocument,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
-        }
-        frame = inspect.currentframe()
-        args, _, _, values = inspect.getargvalues(frame)
-        uses_sparse_fields = self._uses_sparse_fields(args, values)
-
-        if _request_auth is not None:
-            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
-
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-
-        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
-            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
-
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-            exclude_none=uses_sparse_fields
-        ).data
-
-
-    # alias of get_create_variants_jobs
-    get_catalog_variant_bulk_create_jobs = get_create_variants_jobs
-
-    @validate_call
-    def get_create_variants_jobs_with_http_info(        
-        self,
-        fields_catalog_variant_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#pagination")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: StrictStr = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-        options: Dict[str, Any] = {},
-) -> ApiResponse[GetCatalogVariantCreateJobResponseCollectionCompoundDocument]:
-        """Get Create Variants Jobs
-
-        Get all catalog variant bulk create jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
-
-        :param fields_catalog_variant_bulk_create_job: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
-        :type fields_catalog_variant_bulk_create_job: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
-        :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#pagination
-        :type page_cursor: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_create_variants_jobs_serialize(
-            fields_catalog_variant_bulk_create_job=fields_catalog_variant_bulk_create_job,
-            filter=filter,
-            page_cursor=page_cursor,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogVariantCreateJobResponseCollectionCompoundDocument,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
-        }
-        frame = inspect.currentframe()
-        args, _, _, values = inspect.getargvalues(frame)
-        uses_sparse_fields = self._uses_sparse_fields(args, values)
-
-        if _request_auth is not None:
-            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
-
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
-            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
-
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    # alias of `get_create_variants_jobs_with_http_info`
-    get_catalog_variant_bulk_create_jobs_with_http_info = get_create_variants_jobs_with_http_info
-
-    @validate_call
-    def get_create_variants_jobs_without_preload_content(
-        self,
-        fields_catalog_variant_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#pagination")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: StrictStr = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
-        """Get Create Variants Jobs
-
-        Get all catalog variant bulk create jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
-
-        :param fields_catalog_variant_bulk_create_job: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
-        :type fields_catalog_variant_bulk_create_job: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
-        :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#pagination
-        :type page_cursor: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_create_variants_jobs_serialize(
-            fields_catalog_variant_bulk_create_job=fields_catalog_variant_bulk_create_job,
-            filter=filter,
-            page_cursor=page_cursor,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogVariantCreateJobResponseCollectionCompoundDocument,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
-        }
-        if _request_auth is not None:
-            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    # alias of `get_create_variants_jobs_without_preload_content`
-    get_catalog_variant_bulk_create_jobs_without_preload_content = get_create_variants_jobs_without_preload_content
-
-    def _uses_sparse_fields(self, args, values) -> Set[str]:
-        for arg in args:
-             if arg.startswith('fields'):
-                 if values[arg] is not None:
-                      return True
-        return False
-
-
-    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
-        for key, value in response_types_map.items():
-            if key.startswith('2'):
-                if value is not None:
-                    # Replace the Type for this key with a Dict type
-                    response_types_map[key] = 'Dict[str, object]'
-
-        return response_types_map
-
-    def _get_create_variants_jobs_serialize(
-        self,
-        fields_catalog_variant_bulk_create_job,
-        filter,
-        page_cursor,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-            'fields[catalog-variant-bulk-create-job]': 'csv',
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        # process the query parameters
-        if fields_catalog_variant_bulk_create_job is not None:
-            
-            if isinstance(fields_catalog_variant_bulk_create_job, EnumMeta):
-                _query_params.append(('fields[catalog-variant-bulk-create-job]', fields_catalog_variant_bulk_create_job))
-            else:
-                _query_params.append(('fields[catalog-variant-bulk-create-job]', fields_catalog_variant_bulk_create_job))
-            
-        if filter is not None:
-            
-            if isinstance(filter, EnumMeta):
-                _query_params.append(('filter', filter))
-            else:
-                _query_params.append(('filter', filter))
-            
-        if page_cursor is not None:
-            
-            if isinstance(page_cursor, EnumMeta):
-                _query_params.append(('page[cursor]', page_cursor))
-            else:
-                _query_params.append(('page[cursor]', page_cursor))
-            
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/vnd.api+json'
-            ]
-        )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'Klaviyo-API-Key', 
-            'OAuth'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/catalog-variant-bulk-create-jobs',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-    # alias of `_get_create_variants_jobs_serialize`
-    _get_catalog_variant_bulk_create_jobs_serialize = _get_create_variants_jobs_serialize
-
-
-
-    @validate_call
-    def get_delete_categories_job(        
-        self,
-        job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
-        fields_catalog_category_bulk_delete_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: StrictStr = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-        options: Dict[str, Any] = {},
-) ->  Union[GetCatalogCategoryDeleteJobResponse, Dict[str, object]]:
-        """Get Delete Categories Job
-
-        Get a catalog category bulk delete job with the given job ID.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
-
-        :param job_id: ID of the job to retrieve. (required)
-        :type job_id: str
-        :param fields_catalog_category_bulk_delete_job: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
-        :type fields_catalog_category_bulk_delete_job: List[str]
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_delete_categories_job_serialize(
-            job_id=job_id,
-            fields_catalog_category_bulk_delete_job=fields_catalog_category_bulk_delete_job,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogCategoryDeleteJobResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
-        }
-        frame = inspect.currentframe()
-        args, _, _, values = inspect.getargvalues(frame)
-        uses_sparse_fields = self._uses_sparse_fields(args, values)
-
-        if _request_auth is not None:
-            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
-
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-
-        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
-            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
-
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-            exclude_none=uses_sparse_fields
-        ).data
-
-
-    # alias of get_delete_categories_job
-    get_catalog_category_bulk_delete_job = get_delete_categories_job
-
-    @validate_call
-    def get_delete_categories_job_with_http_info(        
-        self,
-        job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
-        fields_catalog_category_bulk_delete_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: StrictStr = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-        options: Dict[str, Any] = {},
-) -> ApiResponse[GetCatalogCategoryDeleteJobResponse]:
-        """Get Delete Categories Job
-
-        Get a catalog category bulk delete job with the given job ID.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
-
-        :param job_id: ID of the job to retrieve. (required)
-        :type job_id: str
-        :param fields_catalog_category_bulk_delete_job: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
-        :type fields_catalog_category_bulk_delete_job: List[str]
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_delete_categories_job_serialize(
-            job_id=job_id,
-            fields_catalog_category_bulk_delete_job=fields_catalog_category_bulk_delete_job,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogCategoryDeleteJobResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
-        }
-        frame = inspect.currentframe()
-        args, _, _, values = inspect.getargvalues(frame)
-        uses_sparse_fields = self._uses_sparse_fields(args, values)
-
-        if _request_auth is not None:
-            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
-
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
-            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
-
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    # alias of `get_delete_categories_job_with_http_info`
-    get_catalog_category_bulk_delete_job_with_http_info = get_delete_categories_job_with_http_info
-
-    @validate_call
-    def get_delete_categories_job_without_preload_content(
-        self,
-        job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
-        fields_catalog_category_bulk_delete_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: StrictStr = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
-        """Get Delete Categories Job
-
-        Get a catalog category bulk delete job with the given job ID.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
-
-        :param job_id: ID of the job to retrieve. (required)
-        :type job_id: str
-        :param fields_catalog_category_bulk_delete_job: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
-        :type fields_catalog_category_bulk_delete_job: List[str]
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_delete_categories_job_serialize(
-            job_id=job_id,
-            fields_catalog_category_bulk_delete_job=fields_catalog_category_bulk_delete_job,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogCategoryDeleteJobResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
-        }
-        if _request_auth is not None:
-            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    # alias of `get_delete_categories_job_without_preload_content`
-    get_catalog_category_bulk_delete_job_without_preload_content = get_delete_categories_job_without_preload_content
-
-    def _uses_sparse_fields(self, args, values) -> Set[str]:
-        for arg in args:
-             if arg.startswith('fields'):
-                 if values[arg] is not None:
-                      return True
-        return False
-
-
-    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
-        for key, value in response_types_map.items():
-            if key.startswith('2'):
-                if value is not None:
-                    # Replace the Type for this key with a Dict type
-                    response_types_map[key] = 'Dict[str, object]'
-
-        return response_types_map
-
-    def _get_delete_categories_job_serialize(
-        self,
-        job_id,
-        fields_catalog_category_bulk_delete_job,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-            'fields[catalog-category-bulk-delete-job]': 'csv',
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if job_id is not None:
-            _path_params['job_id'] = job_id
-        # process the query parameters
-        if fields_catalog_category_bulk_delete_job is not None:
-            
-            if isinstance(fields_catalog_category_bulk_delete_job, EnumMeta):
-                _query_params.append(('fields[catalog-category-bulk-delete-job]', fields_catalog_category_bulk_delete_job))
-            else:
-                _query_params.append(('fields[catalog-category-bulk-delete-job]', fields_catalog_category_bulk_delete_job))
-            
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/vnd.api+json'
-            ]
-        )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'Klaviyo-API-Key', 
-            'OAuth'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/catalog-category-bulk-delete-jobs/{job_id}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-    # alias of `_get_delete_categories_job_serialize`
-    _get_catalog_category_bulk_delete_job_serialize = _get_delete_categories_job_serialize
-
-
-
-    @validate_call
-    def get_delete_categories_jobs(        
-        self,
-        fields_catalog_category_bulk_delete_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#pagination")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: StrictStr = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-        options: Dict[str, Any] = {},
-) ->  Union[GetCatalogCategoryDeleteJobResponseCollection, Dict[str, object]]:
-        """Get Delete Categories Jobs
-
-        Get all catalog category bulk delete jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
-
-        :param fields_catalog_category_bulk_delete_job: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
-        :type fields_catalog_category_bulk_delete_job: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
-        :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#pagination
-        :type page_cursor: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_delete_categories_jobs_serialize(
-            fields_catalog_category_bulk_delete_job=fields_catalog_category_bulk_delete_job,
-            filter=filter,
-            page_cursor=page_cursor,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogCategoryDeleteJobResponseCollection,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
-        }
-        frame = inspect.currentframe()
-        args, _, _, values = inspect.getargvalues(frame)
-        uses_sparse_fields = self._uses_sparse_fields(args, values)
-
-        if _request_auth is not None:
-            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
-
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-
-        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
-            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
-
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-            exclude_none=uses_sparse_fields
-        ).data
-
-
-    # alias of get_delete_categories_jobs
-    get_catalog_category_bulk_delete_jobs = get_delete_categories_jobs
-
-    @validate_call
-    def get_delete_categories_jobs_with_http_info(        
-        self,
-        fields_catalog_category_bulk_delete_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#pagination")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: StrictStr = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-        options: Dict[str, Any] = {},
-) -> ApiResponse[GetCatalogCategoryDeleteJobResponseCollection]:
-        """Get Delete Categories Jobs
-
-        Get all catalog category bulk delete jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
-
-        :param fields_catalog_category_bulk_delete_job: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
-        :type fields_catalog_category_bulk_delete_job: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
-        :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#pagination
-        :type page_cursor: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_delete_categories_jobs_serialize(
-            fields_catalog_category_bulk_delete_job=fields_catalog_category_bulk_delete_job,
-            filter=filter,
-            page_cursor=page_cursor,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogCategoryDeleteJobResponseCollection,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
-        }
-        frame = inspect.currentframe()
-        args, _, _, values = inspect.getargvalues(frame)
-        uses_sparse_fields = self._uses_sparse_fields(args, values)
-
-        if _request_auth is not None:
-            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
-
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
-            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
-
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    # alias of `get_delete_categories_jobs_with_http_info`
-    get_catalog_category_bulk_delete_jobs_with_http_info = get_delete_categories_jobs_with_http_info
-
-    @validate_call
-    def get_delete_categories_jobs_without_preload_content(
-        self,
-        fields_catalog_category_bulk_delete_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#pagination")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: StrictStr = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
-        """Get Delete Categories Jobs
-
-        Get all catalog category bulk delete jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
-
-        :param fields_catalog_category_bulk_delete_job: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
-        :type fields_catalog_category_bulk_delete_job: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
-        :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#pagination
-        :type page_cursor: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_delete_categories_jobs_serialize(
-            fields_catalog_category_bulk_delete_job=fields_catalog_category_bulk_delete_job,
-            filter=filter,
-            page_cursor=page_cursor,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogCategoryDeleteJobResponseCollection,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
-        }
-        if _request_auth is not None:
-            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    # alias of `get_delete_categories_jobs_without_preload_content`
-    get_catalog_category_bulk_delete_jobs_without_preload_content = get_delete_categories_jobs_without_preload_content
-
-    def _uses_sparse_fields(self, args, values) -> Set[str]:
-        for arg in args:
-             if arg.startswith('fields'):
-                 if values[arg] is not None:
-                      return True
-        return False
-
-
-    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
-        for key, value in response_types_map.items():
-            if key.startswith('2'):
-                if value is not None:
-                    # Replace the Type for this key with a Dict type
-                    response_types_map[key] = 'Dict[str, object]'
-
-        return response_types_map
-
-    def _get_delete_categories_jobs_serialize(
-        self,
-        fields_catalog_category_bulk_delete_job,
-        filter,
-        page_cursor,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-            'fields[catalog-category-bulk-delete-job]': 'csv',
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        # process the query parameters
-        if fields_catalog_category_bulk_delete_job is not None:
-            
-            if isinstance(fields_catalog_category_bulk_delete_job, EnumMeta):
-                _query_params.append(('fields[catalog-category-bulk-delete-job]', fields_catalog_category_bulk_delete_job))
-            else:
-                _query_params.append(('fields[catalog-category-bulk-delete-job]', fields_catalog_category_bulk_delete_job))
-            
-        if filter is not None:
-            
-            if isinstance(filter, EnumMeta):
-                _query_params.append(('filter', filter))
-            else:
-                _query_params.append(('filter', filter))
-            
-        if page_cursor is not None:
-            
-            if isinstance(page_cursor, EnumMeta):
-                _query_params.append(('page[cursor]', page_cursor))
-            else:
-                _query_params.append(('page[cursor]', page_cursor))
-            
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/vnd.api+json'
-            ]
-        )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'Klaviyo-API-Key', 
-            'OAuth'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/catalog-category-bulk-delete-jobs',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-    # alias of `_get_delete_categories_jobs_serialize`
-    _get_catalog_category_bulk_delete_jobs_serialize = _get_delete_categories_jobs_serialize
-
-
-
-    @validate_call
-    def get_delete_variants_job(        
-        self,
-        job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
-        fields_catalog_variant_bulk_delete_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: StrictStr = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-        options: Dict[str, Any] = {},
-) ->  Union[GetCatalogVariantDeleteJobResponse, Dict[str, object]]:
-        """Get Delete Variants Job
-
-        Get a catalog variant bulk delete job with the given job ID.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
-
-        :param job_id: ID of the job to retrieve. (required)
-        :type job_id: str
-        :param fields_catalog_variant_bulk_delete_job: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
-        :type fields_catalog_variant_bulk_delete_job: List[str]
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_delete_variants_job_serialize(
-            job_id=job_id,
-            fields_catalog_variant_bulk_delete_job=fields_catalog_variant_bulk_delete_job,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogVariantDeleteJobResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
-        }
-        frame = inspect.currentframe()
-        args, _, _, values = inspect.getargvalues(frame)
-        uses_sparse_fields = self._uses_sparse_fields(args, values)
-
-        if _request_auth is not None:
-            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
-
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-
-        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
-            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
-
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-            exclude_none=uses_sparse_fields
-        ).data
-
-
-    # alias of get_delete_variants_job
-    get_catalog_variant_bulk_delete_job = get_delete_variants_job
-
-    @validate_call
-    def get_delete_variants_job_with_http_info(        
-        self,
-        job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
-        fields_catalog_variant_bulk_delete_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: StrictStr = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-        options: Dict[str, Any] = {},
-) -> ApiResponse[GetCatalogVariantDeleteJobResponse]:
-        """Get Delete Variants Job
-
-        Get a catalog variant bulk delete job with the given job ID.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
-
-        :param job_id: ID of the job to retrieve. (required)
-        :type job_id: str
-        :param fields_catalog_variant_bulk_delete_job: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
-        :type fields_catalog_variant_bulk_delete_job: List[str]
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_delete_variants_job_serialize(
-            job_id=job_id,
-            fields_catalog_variant_bulk_delete_job=fields_catalog_variant_bulk_delete_job,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogVariantDeleteJobResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
-        }
-        frame = inspect.currentframe()
-        args, _, _, values = inspect.getargvalues(frame)
-        uses_sparse_fields = self._uses_sparse_fields(args, values)
-
-        if _request_auth is not None:
-            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
-
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
-            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
-
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    # alias of `get_delete_variants_job_with_http_info`
-    get_catalog_variant_bulk_delete_job_with_http_info = get_delete_variants_job_with_http_info
-
-    @validate_call
-    def get_delete_variants_job_without_preload_content(
-        self,
-        job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
-        fields_catalog_variant_bulk_delete_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: StrictStr = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
-        """Get Delete Variants Job
-
-        Get a catalog variant bulk delete job with the given job ID.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
-
-        :param job_id: ID of the job to retrieve. (required)
-        :type job_id: str
-        :param fields_catalog_variant_bulk_delete_job: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
-        :type fields_catalog_variant_bulk_delete_job: List[str]
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_delete_variants_job_serialize(
-            job_id=job_id,
-            fields_catalog_variant_bulk_delete_job=fields_catalog_variant_bulk_delete_job,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogVariantDeleteJobResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
-        }
-        if _request_auth is not None:
-            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    # alias of `get_delete_variants_job_without_preload_content`
-    get_catalog_variant_bulk_delete_job_without_preload_content = get_delete_variants_job_without_preload_content
-
-    def _uses_sparse_fields(self, args, values) -> Set[str]:
-        for arg in args:
-             if arg.startswith('fields'):
-                 if values[arg] is not None:
-                      return True
-        return False
-
-
-    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
-        for key, value in response_types_map.items():
-            if key.startswith('2'):
-                if value is not None:
-                    # Replace the Type for this key with a Dict type
-                    response_types_map[key] = 'Dict[str, object]'
-
-        return response_types_map
-
-    def _get_delete_variants_job_serialize(
-        self,
-        job_id,
-        fields_catalog_variant_bulk_delete_job,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-            'fields[catalog-variant-bulk-delete-job]': 'csv',
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if job_id is not None:
-            _path_params['job_id'] = job_id
-        # process the query parameters
-        if fields_catalog_variant_bulk_delete_job is not None:
-            
-            if isinstance(fields_catalog_variant_bulk_delete_job, EnumMeta):
-                _query_params.append(('fields[catalog-variant-bulk-delete-job]', fields_catalog_variant_bulk_delete_job))
-            else:
-                _query_params.append(('fields[catalog-variant-bulk-delete-job]', fields_catalog_variant_bulk_delete_job))
-            
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/vnd.api+json'
-            ]
-        )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'Klaviyo-API-Key', 
-            'OAuth'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/catalog-variant-bulk-delete-jobs/{job_id}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-    # alias of `_get_delete_variants_job_serialize`
-    _get_catalog_variant_bulk_delete_job_serialize = _get_delete_variants_job_serialize
-
-
-
-    @validate_call
-    def get_delete_variants_jobs(        
-        self,
-        fields_catalog_variant_bulk_delete_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#pagination")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: StrictStr = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-        options: Dict[str, Any] = {},
-) ->  Union[GetCatalogVariantDeleteJobResponseCollection, Dict[str, object]]:
-        """Get Delete Variants Jobs
-
-        Get all catalog variant bulk delete jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
-
-        :param fields_catalog_variant_bulk_delete_job: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
-        :type fields_catalog_variant_bulk_delete_job: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
-        :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#pagination
-        :type page_cursor: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_delete_variants_jobs_serialize(
-            fields_catalog_variant_bulk_delete_job=fields_catalog_variant_bulk_delete_job,
-            filter=filter,
-            page_cursor=page_cursor,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogVariantDeleteJobResponseCollection,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
-        }
-        frame = inspect.currentframe()
-        args, _, _, values = inspect.getargvalues(frame)
-        uses_sparse_fields = self._uses_sparse_fields(args, values)
-
-        if _request_auth is not None:
-            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
-
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-
-        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
-            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
-
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-            exclude_none=uses_sparse_fields
-        ).data
-
-
-    # alias of get_delete_variants_jobs
-    get_catalog_variant_bulk_delete_jobs = get_delete_variants_jobs
-
-    @validate_call
-    def get_delete_variants_jobs_with_http_info(        
-        self,
-        fields_catalog_variant_bulk_delete_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#pagination")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: StrictStr = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-        options: Dict[str, Any] = {},
-) -> ApiResponse[GetCatalogVariantDeleteJobResponseCollection]:
-        """Get Delete Variants Jobs
-
-        Get all catalog variant bulk delete jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
-
-        :param fields_catalog_variant_bulk_delete_job: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
-        :type fields_catalog_variant_bulk_delete_job: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
-        :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#pagination
-        :type page_cursor: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_delete_variants_jobs_serialize(
-            fields_catalog_variant_bulk_delete_job=fields_catalog_variant_bulk_delete_job,
-            filter=filter,
-            page_cursor=page_cursor,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogVariantDeleteJobResponseCollection,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
-        }
-        frame = inspect.currentframe()
-        args, _, _, values = inspect.getargvalues(frame)
-        uses_sparse_fields = self._uses_sparse_fields(args, values)
-
-        if _request_auth is not None:
-            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
-
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
-            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
-
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    # alias of `get_delete_variants_jobs_with_http_info`
-    get_catalog_variant_bulk_delete_jobs_with_http_info = get_delete_variants_jobs_with_http_info
-
-    @validate_call
-    def get_delete_variants_jobs_without_preload_content(
-        self,
-        fields_catalog_variant_bulk_delete_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#pagination")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: StrictStr = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
-        """Get Delete Variants Jobs
-
-        Get all catalog variant bulk delete jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
-
-        :param fields_catalog_variant_bulk_delete_job: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
-        :type fields_catalog_variant_bulk_delete_job: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
-        :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#pagination
-        :type page_cursor: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_delete_variants_jobs_serialize(
-            fields_catalog_variant_bulk_delete_job=fields_catalog_variant_bulk_delete_job,
-            filter=filter,
-            page_cursor=page_cursor,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogVariantDeleteJobResponseCollection,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
-        }
-        if _request_auth is not None:
-            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    # alias of `get_delete_variants_jobs_without_preload_content`
-    get_catalog_variant_bulk_delete_jobs_without_preload_content = get_delete_variants_jobs_without_preload_content
-
-    def _uses_sparse_fields(self, args, values) -> Set[str]:
-        for arg in args:
-             if arg.startswith('fields'):
-                 if values[arg] is not None:
-                      return True
-        return False
-
-
-    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
-        for key, value in response_types_map.items():
-            if key.startswith('2'):
-                if value is not None:
-                    # Replace the Type for this key with a Dict type
-                    response_types_map[key] = 'Dict[str, object]'
-
-        return response_types_map
-
-    def _get_delete_variants_jobs_serialize(
-        self,
-        fields_catalog_variant_bulk_delete_job,
-        filter,
-        page_cursor,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-            'fields[catalog-variant-bulk-delete-job]': 'csv',
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        # process the query parameters
-        if fields_catalog_variant_bulk_delete_job is not None:
-            
-            if isinstance(fields_catalog_variant_bulk_delete_job, EnumMeta):
-                _query_params.append(('fields[catalog-variant-bulk-delete-job]', fields_catalog_variant_bulk_delete_job))
-            else:
-                _query_params.append(('fields[catalog-variant-bulk-delete-job]', fields_catalog_variant_bulk_delete_job))
-            
-        if filter is not None:
-            
-            if isinstance(filter, EnumMeta):
-                _query_params.append(('filter', filter))
-            else:
-                _query_params.append(('filter', filter))
-            
-        if page_cursor is not None:
-            
-            if isinstance(page_cursor, EnumMeta):
-                _query_params.append(('page[cursor]', page_cursor))
-            else:
-                _query_params.append(('page[cursor]', page_cursor))
-            
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/vnd.api+json'
-            ]
-        )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'Klaviyo-API-Key', 
-            'OAuth'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/catalog-variant-bulk-delete-jobs',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-    # alias of `_get_delete_variants_jobs_serialize`
-    _get_catalog_variant_bulk_delete_jobs_serialize = _get_delete_variants_jobs_serialize
-
-
-
-    @validate_call
     def get_item_ids_for_catalog_category(        
         self,
         id: Annotated[Optional[StrictStr], Field(description="The catalog category ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.")],
@@ -14339,10 +15976,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogCategoryItemsRelationshipsResponseCollection,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogCategoryItemsRelationshipsResponseCollection",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -14436,10 +16073,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogCategoryItemsRelationshipsResponseCollection,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogCategoryItemsRelationshipsResponseCollection",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -14529,10 +16166,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogCategoryItemsRelationshipsResponseCollection,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogCategoryItemsRelationshipsResponseCollection",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -14730,10 +16367,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogItemResponseCollectionCompoundDocument,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogItemResponseCollectionCompoundDocument",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -14839,10 +16476,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogItemResponseCollectionCompoundDocument,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogItemResponseCollectionCompoundDocument",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -14944,10 +16581,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogItemResponseCollectionCompoundDocument,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogItemResponseCollectionCompoundDocument",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -15095,1500 +16732,6 @@ class CatalogsApi(object):
 
 
     @validate_call
-    def get_update_categories_job(        
-        self,
-        job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
-        fields_catalog_category_bulk_update_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_catalog_category: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#relationships")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: StrictStr = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-        options: Dict[str, Any] = {},
-) ->  Union[GetCatalogCategoryUpdateJobResponseCompoundDocument, Dict[str, object]]:
-        """Get Update Categories Job
-
-        Get a catalog category bulk update job with the given job ID.  An `include` parameter can be provided to get the following related resource data: `categories`.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
-
-        :param job_id: ID of the job to retrieve. (required)
-        :type job_id: str
-        :param fields_catalog_category_bulk_update_job: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
-        :type fields_catalog_category_bulk_update_job: List[str]
-        :param fields_catalog_category: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
-        :type fields_catalog_category: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#relationships
-        :type include: List[str]
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_update_categories_job_serialize(
-            job_id=job_id,
-            fields_catalog_category_bulk_update_job=fields_catalog_category_bulk_update_job,
-            fields_catalog_category=fields_catalog_category,
-            include=include,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogCategoryUpdateJobResponseCompoundDocument,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
-        }
-        frame = inspect.currentframe()
-        args, _, _, values = inspect.getargvalues(frame)
-        uses_sparse_fields = self._uses_sparse_fields(args, values)
-
-        if _request_auth is not None:
-            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
-
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-
-        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
-            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
-
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-            exclude_none=uses_sparse_fields
-        ).data
-
-
-    # alias of get_update_categories_job
-    get_catalog_category_bulk_update_job = get_update_categories_job
-
-    @validate_call
-    def get_update_categories_job_with_http_info(        
-        self,
-        job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
-        fields_catalog_category_bulk_update_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_catalog_category: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#relationships")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: StrictStr = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-        options: Dict[str, Any] = {},
-) -> ApiResponse[GetCatalogCategoryUpdateJobResponseCompoundDocument]:
-        """Get Update Categories Job
-
-        Get a catalog category bulk update job with the given job ID.  An `include` parameter can be provided to get the following related resource data: `categories`.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
-
-        :param job_id: ID of the job to retrieve. (required)
-        :type job_id: str
-        :param fields_catalog_category_bulk_update_job: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
-        :type fields_catalog_category_bulk_update_job: List[str]
-        :param fields_catalog_category: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
-        :type fields_catalog_category: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#relationships
-        :type include: List[str]
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_update_categories_job_serialize(
-            job_id=job_id,
-            fields_catalog_category_bulk_update_job=fields_catalog_category_bulk_update_job,
-            fields_catalog_category=fields_catalog_category,
-            include=include,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogCategoryUpdateJobResponseCompoundDocument,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
-        }
-        frame = inspect.currentframe()
-        args, _, _, values = inspect.getargvalues(frame)
-        uses_sparse_fields = self._uses_sparse_fields(args, values)
-
-        if _request_auth is not None:
-            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
-
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
-            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
-
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    # alias of `get_update_categories_job_with_http_info`
-    get_catalog_category_bulk_update_job_with_http_info = get_update_categories_job_with_http_info
-
-    @validate_call
-    def get_update_categories_job_without_preload_content(
-        self,
-        job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
-        fields_catalog_category_bulk_update_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_catalog_category: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#relationships")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: StrictStr = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
-        """Get Update Categories Job
-
-        Get a catalog category bulk update job with the given job ID.  An `include` parameter can be provided to get the following related resource data: `categories`.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
-
-        :param job_id: ID of the job to retrieve. (required)
-        :type job_id: str
-        :param fields_catalog_category_bulk_update_job: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
-        :type fields_catalog_category_bulk_update_job: List[str]
-        :param fields_catalog_category: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
-        :type fields_catalog_category: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#relationships
-        :type include: List[str]
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_update_categories_job_serialize(
-            job_id=job_id,
-            fields_catalog_category_bulk_update_job=fields_catalog_category_bulk_update_job,
-            fields_catalog_category=fields_catalog_category,
-            include=include,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogCategoryUpdateJobResponseCompoundDocument,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
-        }
-        if _request_auth is not None:
-            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    # alias of `get_update_categories_job_without_preload_content`
-    get_catalog_category_bulk_update_job_without_preload_content = get_update_categories_job_without_preload_content
-
-    def _uses_sparse_fields(self, args, values) -> Set[str]:
-        for arg in args:
-             if arg.startswith('fields'):
-                 if values[arg] is not None:
-                      return True
-        return False
-
-
-    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
-        for key, value in response_types_map.items():
-            if key.startswith('2'):
-                if value is not None:
-                    # Replace the Type for this key with a Dict type
-                    response_types_map[key] = 'Dict[str, object]'
-
-        return response_types_map
-
-    def _get_update_categories_job_serialize(
-        self,
-        job_id,
-        fields_catalog_category_bulk_update_job,
-        fields_catalog_category,
-        include,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-            'fields[catalog-category-bulk-update-job]': 'csv',
-            'fields[catalog-category]': 'csv',
-            'include': 'csv',
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if job_id is not None:
-            _path_params['job_id'] = job_id
-        # process the query parameters
-        if fields_catalog_category_bulk_update_job is not None:
-            
-            if isinstance(fields_catalog_category_bulk_update_job, EnumMeta):
-                _query_params.append(('fields[catalog-category-bulk-update-job]', fields_catalog_category_bulk_update_job))
-            else:
-                _query_params.append(('fields[catalog-category-bulk-update-job]', fields_catalog_category_bulk_update_job))
-            
-        if fields_catalog_category is not None:
-            
-            if isinstance(fields_catalog_category, EnumMeta):
-                _query_params.append(('fields[catalog-category]', fields_catalog_category))
-            else:
-                _query_params.append(('fields[catalog-category]', fields_catalog_category))
-            
-        if include is not None:
-            
-            if isinstance(include, EnumMeta):
-                _query_params.append(('include', include))
-            else:
-                _query_params.append(('include', include))
-            
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/vnd.api+json'
-            ]
-        )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'Klaviyo-API-Key', 
-            'OAuth'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/catalog-category-bulk-update-jobs/{job_id}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-    # alias of `_get_update_categories_job_serialize`
-    _get_catalog_category_bulk_update_job_serialize = _get_update_categories_job_serialize
-
-
-
-    @validate_call
-    def get_update_categories_jobs(        
-        self,
-        fields_catalog_category_bulk_update_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#pagination")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: StrictStr = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-        options: Dict[str, Any] = {},
-) ->  Union[GetCatalogCategoryUpdateJobResponseCollectionCompoundDocument, Dict[str, object]]:
-        """Get Update Categories Jobs
-
-        Get all catalog category bulk update jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
-
-        :param fields_catalog_category_bulk_update_job: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
-        :type fields_catalog_category_bulk_update_job: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
-        :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#pagination
-        :type page_cursor: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_update_categories_jobs_serialize(
-            fields_catalog_category_bulk_update_job=fields_catalog_category_bulk_update_job,
-            filter=filter,
-            page_cursor=page_cursor,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogCategoryUpdateJobResponseCollectionCompoundDocument,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
-        }
-        frame = inspect.currentframe()
-        args, _, _, values = inspect.getargvalues(frame)
-        uses_sparse_fields = self._uses_sparse_fields(args, values)
-
-        if _request_auth is not None:
-            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
-
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-
-        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
-            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
-
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-            exclude_none=uses_sparse_fields
-        ).data
-
-
-    # alias of get_update_categories_jobs
-    get_catalog_category_bulk_update_jobs = get_update_categories_jobs
-
-    @validate_call
-    def get_update_categories_jobs_with_http_info(        
-        self,
-        fields_catalog_category_bulk_update_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#pagination")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: StrictStr = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-        options: Dict[str, Any] = {},
-) -> ApiResponse[GetCatalogCategoryUpdateJobResponseCollectionCompoundDocument]:
-        """Get Update Categories Jobs
-
-        Get all catalog category bulk update jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
-
-        :param fields_catalog_category_bulk_update_job: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
-        :type fields_catalog_category_bulk_update_job: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
-        :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#pagination
-        :type page_cursor: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_update_categories_jobs_serialize(
-            fields_catalog_category_bulk_update_job=fields_catalog_category_bulk_update_job,
-            filter=filter,
-            page_cursor=page_cursor,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogCategoryUpdateJobResponseCollectionCompoundDocument,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
-        }
-        frame = inspect.currentframe()
-        args, _, _, values = inspect.getargvalues(frame)
-        uses_sparse_fields = self._uses_sparse_fields(args, values)
-
-        if _request_auth is not None:
-            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
-
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
-            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
-
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    # alias of `get_update_categories_jobs_with_http_info`
-    get_catalog_category_bulk_update_jobs_with_http_info = get_update_categories_jobs_with_http_info
-
-    @validate_call
-    def get_update_categories_jobs_without_preload_content(
-        self,
-        fields_catalog_category_bulk_update_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#pagination")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: StrictStr = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
-        """Get Update Categories Jobs
-
-        Get all catalog category bulk update jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
-
-        :param fields_catalog_category_bulk_update_job: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
-        :type fields_catalog_category_bulk_update_job: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
-        :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#pagination
-        :type page_cursor: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_update_categories_jobs_serialize(
-            fields_catalog_category_bulk_update_job=fields_catalog_category_bulk_update_job,
-            filter=filter,
-            page_cursor=page_cursor,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogCategoryUpdateJobResponseCollectionCompoundDocument,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
-        }
-        if _request_auth is not None:
-            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    # alias of `get_update_categories_jobs_without_preload_content`
-    get_catalog_category_bulk_update_jobs_without_preload_content = get_update_categories_jobs_without_preload_content
-
-    def _uses_sparse_fields(self, args, values) -> Set[str]:
-        for arg in args:
-             if arg.startswith('fields'):
-                 if values[arg] is not None:
-                      return True
-        return False
-
-
-    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
-        for key, value in response_types_map.items():
-            if key.startswith('2'):
-                if value is not None:
-                    # Replace the Type for this key with a Dict type
-                    response_types_map[key] = 'Dict[str, object]'
-
-        return response_types_map
-
-    def _get_update_categories_jobs_serialize(
-        self,
-        fields_catalog_category_bulk_update_job,
-        filter,
-        page_cursor,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-            'fields[catalog-category-bulk-update-job]': 'csv',
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        # process the query parameters
-        if fields_catalog_category_bulk_update_job is not None:
-            
-            if isinstance(fields_catalog_category_bulk_update_job, EnumMeta):
-                _query_params.append(('fields[catalog-category-bulk-update-job]', fields_catalog_category_bulk_update_job))
-            else:
-                _query_params.append(('fields[catalog-category-bulk-update-job]', fields_catalog_category_bulk_update_job))
-            
-        if filter is not None:
-            
-            if isinstance(filter, EnumMeta):
-                _query_params.append(('filter', filter))
-            else:
-                _query_params.append(('filter', filter))
-            
-        if page_cursor is not None:
-            
-            if isinstance(page_cursor, EnumMeta):
-                _query_params.append(('page[cursor]', page_cursor))
-            else:
-                _query_params.append(('page[cursor]', page_cursor))
-            
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/vnd.api+json'
-            ]
-        )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'Klaviyo-API-Key', 
-            'OAuth'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/catalog-category-bulk-update-jobs',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-    # alias of `_get_update_categories_jobs_serialize`
-    _get_catalog_category_bulk_update_jobs_serialize = _get_update_categories_jobs_serialize
-
-
-
-    @validate_call
-    def get_update_variants_job(        
-        self,
-        job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
-        fields_catalog_variant_bulk_update_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_catalog_variant: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#relationships")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: StrictStr = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-        options: Dict[str, Any] = {},
-) ->  Union[GetCatalogVariantUpdateJobResponseCompoundDocument, Dict[str, object]]:
-        """Get Update Variants Job
-
-        Get a catalog variate bulk update job with the given job ID.  An `include` parameter can be provided to get the following related resource data: `variants`.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
-
-        :param job_id: ID of the job to retrieve. (required)
-        :type job_id: str
-        :param fields_catalog_variant_bulk_update_job: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
-        :type fields_catalog_variant_bulk_update_job: List[str]
-        :param fields_catalog_variant: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
-        :type fields_catalog_variant: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#relationships
-        :type include: List[str]
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_update_variants_job_serialize(
-            job_id=job_id,
-            fields_catalog_variant_bulk_update_job=fields_catalog_variant_bulk_update_job,
-            fields_catalog_variant=fields_catalog_variant,
-            include=include,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogVariantUpdateJobResponseCompoundDocument,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
-        }
-        frame = inspect.currentframe()
-        args, _, _, values = inspect.getargvalues(frame)
-        uses_sparse_fields = self._uses_sparse_fields(args, values)
-
-        if _request_auth is not None:
-            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
-
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-
-        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
-            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
-
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-            exclude_none=uses_sparse_fields
-        ).data
-
-
-    # alias of get_update_variants_job
-    get_catalog_variant_bulk_update_job = get_update_variants_job
-
-    @validate_call
-    def get_update_variants_job_with_http_info(        
-        self,
-        job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
-        fields_catalog_variant_bulk_update_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_catalog_variant: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#relationships")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: StrictStr = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-        options: Dict[str, Any] = {},
-) -> ApiResponse[GetCatalogVariantUpdateJobResponseCompoundDocument]:
-        """Get Update Variants Job
-
-        Get a catalog variate bulk update job with the given job ID.  An `include` parameter can be provided to get the following related resource data: `variants`.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
-
-        :param job_id: ID of the job to retrieve. (required)
-        :type job_id: str
-        :param fields_catalog_variant_bulk_update_job: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
-        :type fields_catalog_variant_bulk_update_job: List[str]
-        :param fields_catalog_variant: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
-        :type fields_catalog_variant: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#relationships
-        :type include: List[str]
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_update_variants_job_serialize(
-            job_id=job_id,
-            fields_catalog_variant_bulk_update_job=fields_catalog_variant_bulk_update_job,
-            fields_catalog_variant=fields_catalog_variant,
-            include=include,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogVariantUpdateJobResponseCompoundDocument,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
-        }
-        frame = inspect.currentframe()
-        args, _, _, values = inspect.getargvalues(frame)
-        uses_sparse_fields = self._uses_sparse_fields(args, values)
-
-        if _request_auth is not None:
-            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
-
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
-            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
-
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    # alias of `get_update_variants_job_with_http_info`
-    get_catalog_variant_bulk_update_job_with_http_info = get_update_variants_job_with_http_info
-
-    @validate_call
-    def get_update_variants_job_without_preload_content(
-        self,
-        job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
-        fields_catalog_variant_bulk_update_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_catalog_variant: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#relationships")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: StrictStr = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
-        """Get Update Variants Job
-
-        Get a catalog variate bulk update job with the given job ID.  An `include` parameter can be provided to get the following related resource data: `variants`.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
-
-        :param job_id: ID of the job to retrieve. (required)
-        :type job_id: str
-        :param fields_catalog_variant_bulk_update_job: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
-        :type fields_catalog_variant_bulk_update_job: List[str]
-        :param fields_catalog_variant: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
-        :type fields_catalog_variant: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#relationships
-        :type include: List[str]
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_update_variants_job_serialize(
-            job_id=job_id,
-            fields_catalog_variant_bulk_update_job=fields_catalog_variant_bulk_update_job,
-            fields_catalog_variant=fields_catalog_variant,
-            include=include,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogVariantUpdateJobResponseCompoundDocument,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
-        }
-        if _request_auth is not None:
-            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    # alias of `get_update_variants_job_without_preload_content`
-    get_catalog_variant_bulk_update_job_without_preload_content = get_update_variants_job_without_preload_content
-
-    def _uses_sparse_fields(self, args, values) -> Set[str]:
-        for arg in args:
-             if arg.startswith('fields'):
-                 if values[arg] is not None:
-                      return True
-        return False
-
-
-    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
-        for key, value in response_types_map.items():
-            if key.startswith('2'):
-                if value is not None:
-                    # Replace the Type for this key with a Dict type
-                    response_types_map[key] = 'Dict[str, object]'
-
-        return response_types_map
-
-    def _get_update_variants_job_serialize(
-        self,
-        job_id,
-        fields_catalog_variant_bulk_update_job,
-        fields_catalog_variant,
-        include,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-            'fields[catalog-variant-bulk-update-job]': 'csv',
-            'fields[catalog-variant]': 'csv',
-            'include': 'csv',
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if job_id is not None:
-            _path_params['job_id'] = job_id
-        # process the query parameters
-        if fields_catalog_variant_bulk_update_job is not None:
-            
-            if isinstance(fields_catalog_variant_bulk_update_job, EnumMeta):
-                _query_params.append(('fields[catalog-variant-bulk-update-job]', fields_catalog_variant_bulk_update_job))
-            else:
-                _query_params.append(('fields[catalog-variant-bulk-update-job]', fields_catalog_variant_bulk_update_job))
-            
-        if fields_catalog_variant is not None:
-            
-            if isinstance(fields_catalog_variant, EnumMeta):
-                _query_params.append(('fields[catalog-variant]', fields_catalog_variant))
-            else:
-                _query_params.append(('fields[catalog-variant]', fields_catalog_variant))
-            
-        if include is not None:
-            
-            if isinstance(include, EnumMeta):
-                _query_params.append(('include', include))
-            else:
-                _query_params.append(('include', include))
-            
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/vnd.api+json'
-            ]
-        )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'Klaviyo-API-Key', 
-            'OAuth'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/catalog-variant-bulk-update-jobs/{job_id}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-    # alias of `_get_update_variants_job_serialize`
-    _get_catalog_variant_bulk_update_job_serialize = _get_update_variants_job_serialize
-
-
-
-    @validate_call
-    def get_update_variants_jobs(        
-        self,
-        fields_catalog_variant_bulk_update_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#pagination")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: StrictStr = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-        options: Dict[str, Any] = {},
-) ->  Union[GetCatalogVariantUpdateJobResponseCollectionCompoundDocument, Dict[str, object]]:
-        """Get Update Variants Jobs
-
-        Get all catalog variant bulk update jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
-
-        :param fields_catalog_variant_bulk_update_job: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
-        :type fields_catalog_variant_bulk_update_job: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
-        :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#pagination
-        :type page_cursor: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_update_variants_jobs_serialize(
-            fields_catalog_variant_bulk_update_job=fields_catalog_variant_bulk_update_job,
-            filter=filter,
-            page_cursor=page_cursor,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogVariantUpdateJobResponseCollectionCompoundDocument,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
-        }
-        frame = inspect.currentframe()
-        args, _, _, values = inspect.getargvalues(frame)
-        uses_sparse_fields = self._uses_sparse_fields(args, values)
-
-        if _request_auth is not None:
-            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
-
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-
-        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
-            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
-
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-            exclude_none=uses_sparse_fields
-        ).data
-
-
-    # alias of get_update_variants_jobs
-    get_catalog_variant_bulk_update_jobs = get_update_variants_jobs
-
-    @validate_call
-    def get_update_variants_jobs_with_http_info(        
-        self,
-        fields_catalog_variant_bulk_update_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#pagination")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: StrictStr = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-        options: Dict[str, Any] = {},
-) -> ApiResponse[GetCatalogVariantUpdateJobResponseCollectionCompoundDocument]:
-        """Get Update Variants Jobs
-
-        Get all catalog variant bulk update jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
-
-        :param fields_catalog_variant_bulk_update_job: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
-        :type fields_catalog_variant_bulk_update_job: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
-        :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#pagination
-        :type page_cursor: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_update_variants_jobs_serialize(
-            fields_catalog_variant_bulk_update_job=fields_catalog_variant_bulk_update_job,
-            filter=filter,
-            page_cursor=page_cursor,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogVariantUpdateJobResponseCollectionCompoundDocument,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
-        }
-        frame = inspect.currentframe()
-        args, _, _, values = inspect.getargvalues(frame)
-        uses_sparse_fields = self._uses_sparse_fields(args, values)
-
-        if _request_auth is not None:
-            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
-
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
-            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
-
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    # alias of `get_update_variants_jobs_with_http_info`
-    get_catalog_variant_bulk_update_jobs_with_http_info = get_update_variants_jobs_with_http_info
-
-    @validate_call
-    def get_update_variants_jobs_without_preload_content(
-        self,
-        fields_catalog_variant_bulk_update_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#pagination")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: StrictStr = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
-        """Get Update Variants Jobs
-
-        Get all catalog variant bulk update jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
-
-        :param fields_catalog_variant_bulk_update_job: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#sparse-fieldsets
-        :type fields_catalog_variant_bulk_update_job: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
-        :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2025-01-15/reference/api-overview#pagination
-        :type page_cursor: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_update_variants_jobs_serialize(
-            fields_catalog_variant_bulk_update_job=fields_catalog_variant_bulk_update_job,
-            filter=filter,
-            page_cursor=page_cursor,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogVariantUpdateJobResponseCollectionCompoundDocument,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
-        }
-        if _request_auth is not None:
-            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    # alias of `get_update_variants_jobs_without_preload_content`
-    get_catalog_variant_bulk_update_jobs_without_preload_content = get_update_variants_jobs_without_preload_content
-
-    def _uses_sparse_fields(self, args, values) -> Set[str]:
-        for arg in args:
-             if arg.startswith('fields'):
-                 if values[arg] is not None:
-                      return True
-        return False
-
-
-    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
-        for key, value in response_types_map.items():
-            if key.startswith('2'):
-                if value is not None:
-                    # Replace the Type for this key with a Dict type
-                    response_types_map[key] = 'Dict[str, object]'
-
-        return response_types_map
-
-    def _get_update_variants_jobs_serialize(
-        self,
-        fields_catalog_variant_bulk_update_job,
-        filter,
-        page_cursor,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-            'fields[catalog-variant-bulk-update-job]': 'csv',
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        # process the query parameters
-        if fields_catalog_variant_bulk_update_job is not None:
-            
-            if isinstance(fields_catalog_variant_bulk_update_job, EnumMeta):
-                _query_params.append(('fields[catalog-variant-bulk-update-job]', fields_catalog_variant_bulk_update_job))
-            else:
-                _query_params.append(('fields[catalog-variant-bulk-update-job]', fields_catalog_variant_bulk_update_job))
-            
-        if filter is not None:
-            
-            if isinstance(filter, EnumMeta):
-                _query_params.append(('filter', filter))
-            else:
-                _query_params.append(('filter', filter))
-            
-        if page_cursor is not None:
-            
-            if isinstance(page_cursor, EnumMeta):
-                _query_params.append(('page[cursor]', page_cursor))
-            else:
-                _query_params.append(('page[cursor]', page_cursor))
-            
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/vnd.api+json'
-            ]
-        )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'Klaviyo-API-Key', 
-            'OAuth'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/api/catalog-variant-bulk-update-jobs',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-    # alias of `_get_update_variants_jobs_serialize`
-    _get_catalog_variant_bulk_update_jobs_serialize = _get_update_variants_jobs_serialize
-
-
-
-    @validate_call
     def get_variant_ids_for_catalog_item(        
         self,
         id: Annotated[Optional[StrictStr], Field(description="The catalog item ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.")],
@@ -16654,10 +16797,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogItemVariantsRelationshipsResponseCollection,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogItemVariantsRelationshipsResponseCollection",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -16751,10 +16894,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogItemVariantsRelationshipsResponseCollection,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogItemVariantsRelationshipsResponseCollection",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -16844,10 +16987,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogItemVariantsRelationshipsResponseCollection,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogItemVariantsRelationshipsResponseCollection",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -17037,10 +17180,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogVariantResponseCollection,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogVariantResponseCollection",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -17138,10 +17281,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogVariantResponseCollection,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogVariantResponseCollection",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -17235,10 +17378,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetCatalogVariantResponseCollection,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCatalogVariantResponseCollection",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -17425,10 +17568,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -17514,10 +17657,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -17599,10 +17742,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -17772,10 +17915,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -17861,10 +18004,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -17946,10 +18089,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -18119,10 +18262,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': PatchCatalogCategoryResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "PatchCatalogCategoryResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -18205,10 +18348,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': PatchCatalogCategoryResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "PatchCatalogCategoryResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -18287,10 +18430,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': PatchCatalogCategoryResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "PatchCatalogCategoryResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -18454,10 +18597,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': PatchCatalogItemResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "PatchCatalogItemResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -18540,10 +18683,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': PatchCatalogItemResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "PatchCatalogItemResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -18622,10 +18765,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': PatchCatalogItemResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "PatchCatalogItemResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -18789,10 +18932,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': PatchCatalogVariantResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "PatchCatalogVariantResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -18875,10 +19018,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': PatchCatalogVariantResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "PatchCatalogVariantResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -18957,10 +19100,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': PatchCatalogVariantResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "PatchCatalogVariantResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -19124,10 +19267,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -19213,10 +19356,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -19298,10 +19441,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -19471,10 +19614,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -19560,10 +19703,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -19645,10 +19788,10 @@ class CatalogsApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}

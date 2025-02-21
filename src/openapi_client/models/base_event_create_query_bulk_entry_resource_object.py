@@ -20,17 +20,17 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List
-from openapi_client.models.base_event_create_query_resource_object_attributes import BaseEventCreateQueryResourceObjectAttributes
+from openapi_client.models.base_event_create_query_bulk_entry_resource_object_attributes import BaseEventCreateQueryBulkEntryResourceObjectAttributes
 from openapi_client.models.event_enum import EventEnum
 from typing import Optional, Set
 from typing_extensions import Self
 
-class BaseEventCreateQueryResourceObject(BaseModel):
+class BaseEventCreateQueryBulkEntryResourceObject(BaseModel):
     """
-    BaseEventCreateQueryResourceObject
+    BaseEventCreateQueryBulkEntryResourceObject
     """ # noqa: E501
     type: EventEnum
-    attributes: BaseEventCreateQueryResourceObjectAttributes
+    attributes: BaseEventCreateQueryBulkEntryResourceObjectAttributes
     __properties: ClassVar[List[str]] = ["type", "attributes"]
 
     model_config = ConfigDict(
@@ -51,7 +51,7 @@ class BaseEventCreateQueryResourceObject(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of BaseEventCreateQueryResourceObject from a JSON string"""
+        """Create an instance of BaseEventCreateQueryBulkEntryResourceObject from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -79,7 +79,7 @@ class BaseEventCreateQueryResourceObject(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of BaseEventCreateQueryResourceObject from a dict"""
+        """Create an instance of BaseEventCreateQueryBulkEntryResourceObject from a dict"""
         if obj is None:
             return None
 
@@ -88,7 +88,7 @@ class BaseEventCreateQueryResourceObject(BaseModel):
 
         _obj = cls.model_validate({
             "type": obj.get("type"),
-            "attributes": BaseEventCreateQueryResourceObjectAttributes.from_dict(obj["attributes"]) if obj.get("attributes") is not None else None
+            "attributes": BaseEventCreateQueryBulkEntryResourceObjectAttributes.from_dict(obj["attributes"]) if obj.get("attributes") is not None else None
         })
         return _obj
 

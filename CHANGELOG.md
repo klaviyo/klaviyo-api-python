@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 NOTE: For more granular API-specific changes, please see our [API Changelog](https://developers.klaviyo.com/en/docs/changelog_)
 
+## [18.0.0] - revision 2025-01-15
+### Changed
+- **Breaking:** Minimum Python version is now 3.7
+- Lazy importing now happens automatically. No need to use the `KLAVIYO_PYTHON_SDK_LAZY_IMPORTS` environment variable.
+- **Breaking:** Renamed classes
+  - `BaseEventCreateQueryResourceObject` -> `BaseEventCreateQueryBulkEntryResourceObject`
+  - `BaseEventCreateQueryResourceObjectAttributes` -> `BaseEventCreateQueryBulkEntryResourceObjectAttributes`
+  - `UnionFilter` -> `FlowDefinitionProfileFilter`
+  - `UnionConditionGroup` -> `FlowDefinitionProfileFilterConditionGroupsInner`
+
 ## [17.0.0] - revision 2025-01-15
 ### Added
 - Get and Update Reviews APIs

@@ -31,7 +31,7 @@ class FlowSeriesRequestDTOResourceObjectAttributes(BaseModel):
     timeframe: Dict[str, Any] = Field(description="The timeframe to query for data within. The max length a timeframe can be is 1 year")
     interval: Optional[StrictStr] = Field(description="The interval used to aggregate data within the series request. If hourly is used, the timeframe cannot be longer than 7 days. If daily is used, the timeframe cannot be longer than 60 days. If monthly is used, the timeframe cannot be longer than 52 weeks.")
     conversion_metric_id: Optional[StrictStr] = Field(description="ID of the metric to be used for conversion statistics")
-    filter: Optional[StrictStr] = Field(default=None, description="API filter string used to filter the query. Allowed filters are flow_id, send_channel, flow_message_id. Allowed operators are equals, contains-any. Only one filter can be used per attribute, only AND can be used as a combination operator. Max of 100 messages per ANY filter. When filtering on send_channel, allowed values are email, push-notification, sms, whatsapp.")
+    filter: Optional[StrictStr] = Field(default=None, description="API filter string used to filter the query. Allowed filters are flow_id, send_channel, flow_message_id. Allowed operators are equals, contains-any. Only one filter can be used per attribute, only AND can be used as a combination operator. Max of 100 messages per ANY filter. When filtering on send_channel, allowed values are email, sms, push-notification.")
     __properties: ClassVar[List[str]] = ["statistics", "timeframe", "interval", "conversion_metric_id", "filter"]
 
     @field_validator('statistics')

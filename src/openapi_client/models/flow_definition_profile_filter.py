@@ -20,15 +20,15 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List
-from openapi_client.models.union_condition_group import UnionConditionGroup
+from openapi_client.models.flow_definition_profile_filter_condition_groups_inner import FlowDefinitionProfileFilterConditionGroupsInner
 from typing import Optional, Set
 from typing_extensions import Self
 
-class UnionFilter(BaseModel):
+class FlowDefinitionProfileFilter(BaseModel):
     """
-    UnionFilter
+    Filters for users entering the flow. These filters are used on every action in the flow.
     """ # noqa: E501
-    condition_groups: List[UnionConditionGroup]
+    condition_groups: List[FlowDefinitionProfileFilterConditionGroupsInner]
     __properties: ClassVar[List[str]] = ["condition_groups"]
 
     model_config = ConfigDict(
@@ -49,7 +49,7 @@ class UnionFilter(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of UnionFilter from a JSON string"""
+        """Create an instance of FlowDefinitionProfileFilter from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -81,7 +81,7 @@ class UnionFilter(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of UnionFilter from a dict"""
+        """Create an instance of FlowDefinitionProfileFilter from a dict"""
         if obj is None:
             return None
 
@@ -89,7 +89,7 @@ class UnionFilter(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "condition_groups": [UnionConditionGroup.from_dict(_item) for _item in obj["condition_groups"]] if obj.get("condition_groups") is not None else None
+            "condition_groups": [FlowDefinitionProfileFilterConditionGroupsInner.from_dict(_item) for _item in obj["condition_groups"]] if obj.get("condition_groups") is not None else None
         })
         return _obj
 

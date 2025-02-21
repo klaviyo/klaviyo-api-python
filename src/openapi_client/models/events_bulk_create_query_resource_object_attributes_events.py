@@ -20,7 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List
-from openapi_client.models.base_event_create_query_resource_object import BaseEventCreateQueryResourceObject
+from openapi_client.models.base_event_create_query_bulk_entry_resource_object import BaseEventCreateQueryBulkEntryResourceObject
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,7 +28,7 @@ class EventsBulkCreateQueryResourceObjectAttributesEvents(BaseModel):
     """
     EventsBulkCreateQueryResourceObjectAttributesEvents
     """ # noqa: E501
-    data: List[BaseEventCreateQueryResourceObject]
+    data: List[BaseEventCreateQueryBulkEntryResourceObject]
     __properties: ClassVar[List[str]] = ["data"]
 
     model_config = ConfigDict(
@@ -89,7 +89,7 @@ class EventsBulkCreateQueryResourceObjectAttributesEvents(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "data": [BaseEventCreateQueryResourceObject.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None
+            "data": [BaseEventCreateQueryBulkEntryResourceObject.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None
         })
         return _obj
 

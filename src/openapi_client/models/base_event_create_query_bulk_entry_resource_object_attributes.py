@@ -25,17 +25,17 @@ from openapi_client.models.event_create_query_v2_resource_object_attributes_metr
 from typing import Optional, Set
 from typing_extensions import Self
 
-class BaseEventCreateQueryResourceObjectAttributes(BaseModel):
+class BaseEventCreateQueryBulkEntryResourceObjectAttributes(BaseModel):
     """
-    BaseEventCreateQueryResourceObjectAttributes
+    BaseEventCreateQueryBulkEntryResourceObjectAttributes
     """ # noqa: E501
     properties: Dict[str, Any] = Field(description="Properties of this event. Any top level property (that are not objects) can be used to create segments. The $extra property is a special property. This records any non-segmentable values that can be referenced later. For example, HTML templates are useful on a segment but are not used to create a segment. There are limits placed onto the size of the data present. This must not exceed 5 MB. This must not exceed 300 event properties. A single string cannot be larger than 100 KB. Each array must not exceed 4000 elements. The properties cannot contain more than 10 nested levels.")
     time: Optional[datetime] = Field(default=None, description="When this event occurred. By default, the time the request was received will be used. The time is truncated to the second. The time must be after the year 2000 and can only be up to 1 year in the future.")
     value: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="A numeric, monetary value to associate with this event. For example, the dollar amount of a purchase.")
     value_currency: Optional[StrictStr] = Field(default=None, description="The ISO 4217 currency code of the value associated with the event.")
-    unique_id: Optional[StrictStr] = Field(default=None, description="A unique identifier for an event. If the unique_id is repeated for the same profile and metric, only the first processed event will be recorded. If this is not present, this will use the time to the second. Using the default, this limits only one event per profile per second.")
     metric: EventCreateQueryV2ResourceObjectAttributesMetric
-    __properties: ClassVar[List[str]] = ["properties", "time", "value", "value_currency", "unique_id", "metric"]
+    unique_id: Optional[StrictStr] = Field(default=None, description="A unique identifier for an event. If a unique_id is repeated for the same profile and metric, the request will fail and no events will be processed. If this field is not present, this field will use the time to the second. Using the default, this limits only one event per profile per second.")
+    __properties: ClassVar[List[str]] = ["properties", "time", "value", "value_currency", "metric", "unique_id"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -55,7 +55,7 @@ class BaseEventCreateQueryResourceObjectAttributes(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of BaseEventCreateQueryResourceObjectAttributes from a JSON string"""
+        """Create an instance of BaseEventCreateQueryBulkEntryResourceObjectAttributes from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -103,7 +103,7 @@ class BaseEventCreateQueryResourceObjectAttributes(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of BaseEventCreateQueryResourceObjectAttributes from a dict"""
+        """Create an instance of BaseEventCreateQueryBulkEntryResourceObjectAttributes from a dict"""
         if obj is None:
             return None
 
@@ -115,8 +115,8 @@ class BaseEventCreateQueryResourceObjectAttributes(BaseModel):
             "time": obj.get("time"),
             "value": obj.get("value"),
             "value_currency": obj.get("value_currency"),
-            "unique_id": obj.get("unique_id"),
-            "metric": EventCreateQueryV2ResourceObjectAttributesMetric.from_dict(obj["metric"]) if obj.get("metric") is not None else None
+            "metric": EventCreateQueryV2ResourceObjectAttributesMetric.from_dict(obj["metric"]) if obj.get("metric") is not None else None,
+            "unique_id": obj.get("unique_id")
         })
         return _obj
 

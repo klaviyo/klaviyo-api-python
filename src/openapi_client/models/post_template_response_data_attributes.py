@@ -32,9 +32,10 @@ class PostTemplateResponseDataAttributes(BaseModel):
     editor_type: StrictStr = Field(description="`editor_type` has a fixed set of values: * SYSTEM_DRAGGABLE: indicates a drag-and-drop editor template * SIMPLE: A rich text editor template * CODE: A custom HTML template * USER_DRAGGABLE: A hybrid template, using custom HTML in the drag-and-drop editor")
     html: StrictStr = Field(description="The rendered HTML of the template")
     text: Optional[StrictStr] = Field(default=None, description="The template plain_text")
+    amp: Optional[StrictStr] = Field(default=None, description="The AMP version of the template. Requires AMP Email to be enabled to access in-app. Refer to the AMP Email setup guide at https://developers.klaviyo.com/en/docs/send_amp_emails_in_klaviyo")
     created: Optional[datetime] = Field(default=None, description="The date the template was created in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm)")
     updated: Optional[datetime] = Field(default=None, description="The date the template was updated in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm)")
-    __properties: ClassVar[List[str]] = ["name", "editor_type", "html", "text", "created", "updated"]
+    __properties: ClassVar[List[str]] = ["name", "editor_type", "html", "text", "amp", "created", "updated"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -80,6 +81,11 @@ class PostTemplateResponseDataAttributes(BaseModel):
         if self.text is None and "text" in self.model_fields_set:
             _dict['text'] = None
 
+        # set to None if amp (nullable) is None
+        # and model_fields_set contains the field
+        if self.amp is None and "amp" in self.model_fields_set:
+            _dict['amp'] = None
+
         # set to None if created (nullable) is None
         # and model_fields_set contains the field
         if self.created is None and "created" in self.model_fields_set:
@@ -106,6 +112,7 @@ class PostTemplateResponseDataAttributes(BaseModel):
             "editor_type": obj.get("editor_type"),
             "html": obj.get("html"),
             "text": obj.get("text"),
+            "amp": obj.get("amp"),
             "created": obj.get("created"),
             "updated": obj.get("updated")
         })

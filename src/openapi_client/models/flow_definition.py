@@ -20,7 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.union_filter import UnionFilter
+from openapi_client.models.flow_definition_profile_filter import FlowDefinitionProfileFilter
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,7 +29,7 @@ class FlowDefinition(BaseModel):
     FlowDefinition
     """ # noqa: E501
     triggers: List[Dict[str, Any]] = Field(description="Corresponds to the object which triggers the flow. Only one trigger is supported.")
-    profile_filter: UnionFilter
+    profile_filter: Optional[FlowDefinitionProfileFilter] = None
     actions: List[Dict[str, Any]] = Field(description="A list of actions that make up the flow. Actions are linked to each other by their ids.")
     entry_action_id: Optional[StrictStr] = Field(description="The ID of the action that is the entry point of the flow.")
     __properties: ClassVar[List[str]] = ["triggers", "profile_filter", "actions", "entry_action_id"]
@@ -76,6 +76,11 @@ class FlowDefinition(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of profile_filter
         if self.profile_filter:
             _dict['profile_filter'] = self.profile_filter.to_dict()
+        # set to None if profile_filter (nullable) is None
+        # and model_fields_set contains the field
+        if self.profile_filter is None and "profile_filter" in self.model_fields_set:
+            _dict['profile_filter'] = None
+
         # set to None if entry_action_id (nullable) is None
         # and model_fields_set contains the field
         if self.entry_action_id is None and "entry_action_id" in self.model_fields_set:
@@ -94,7 +99,7 @@ class FlowDefinition(BaseModel):
 
         _obj = cls.model_validate({
             "triggers": obj.get("triggers"),
-            "profile_filter": UnionFilter.from_dict(obj["profile_filter"]) if obj.get("profile_filter") is not None else None,
+            "profile_filter": FlowDefinitionProfileFilter.from_dict(obj["profile_filter"]) if obj.get("profile_filter") is not None else None,
             "actions": obj.get("actions"),
             "entry_action_id": obj.get("entry_action_id")
         })
