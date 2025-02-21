@@ -13,10 +13,9 @@
 """  # noqa: E501
 
 import warnings
-from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt, BaseModel
+from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Set, Tuple, Union
 from typing_extensions import Annotated
-from openapi_client.models.get_accounts4_xx_response import GetAccounts4XXResponse
 
 import inspect
 
@@ -113,10 +112,10 @@ class TemplatesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '201': PostTemplateResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '201': "PostTemplateResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -198,10 +197,10 @@ class TemplatesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '201': PostTemplateResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '201': "PostTemplateResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -279,10 +278,10 @@ class TemplatesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '201': PostTemplateResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '201': "PostTemplateResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -445,10 +444,10 @@ class TemplatesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '201': PostTemplateResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '201': "PostTemplateResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -527,10 +526,10 @@ class TemplatesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '201': PostTemplateResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '201': "PostTemplateResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -605,10 +604,10 @@ class TemplatesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '201': PostTemplateResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '201': "PostTemplateResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -765,10 +764,10 @@ class TemplatesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '201': PostUniversalContentResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '201': "PostUniversalContentResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -850,10 +849,10 @@ class TemplatesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '201': PostUniversalContentResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '201': "PostUniversalContentResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -931,10 +930,10 @@ class TemplatesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '201': PostUniversalContentResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '201': "PostUniversalContentResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -1097,10 +1096,10 @@ class TemplatesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -1179,10 +1178,10 @@ class TemplatesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -1257,10 +1256,10 @@ class TemplatesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -1404,10 +1403,10 @@ class TemplatesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -1489,10 +1488,10 @@ class TemplatesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -1570,10 +1569,10 @@ class TemplatesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
+        _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -1739,10 +1738,10 @@ class TemplatesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetUniversalContentResponseCollection,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetUniversalContentResponseCollection",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -1840,10 +1839,10 @@ class TemplatesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetUniversalContentResponseCollection,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetUniversalContentResponseCollection",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -1937,10 +1936,10 @@ class TemplatesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetUniversalContentResponseCollection,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetUniversalContentResponseCollection",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -2132,10 +2131,10 @@ class TemplatesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetTemplateResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetTemplateResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -2218,10 +2217,10 @@ class TemplatesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetTemplateResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetTemplateResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -2300,10 +2299,10 @@ class TemplatesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetTemplateResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetTemplateResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -2468,10 +2467,10 @@ class TemplatesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetTemplateResponseCollection,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetTemplateResponseCollection",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -2562,10 +2561,10 @@ class TemplatesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetTemplateResponseCollection,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetTemplateResponseCollection",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -2652,10 +2651,10 @@ class TemplatesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetTemplateResponseCollection,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetTemplateResponseCollection",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -2833,10 +2832,10 @@ class TemplatesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetUniversalContentResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetUniversalContentResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -2919,10 +2918,10 @@ class TemplatesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetUniversalContentResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetUniversalContentResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -3001,10 +3000,10 @@ class TemplatesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': GetUniversalContentResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetUniversalContentResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -3123,7 +3122,7 @@ class TemplatesApi(object):
 ) ->  Union[PostTemplateResponse, Dict[str, object]]:
         """Render Template
 
-        Render a template with the given template ID and context attribute. Returns the HTML and plain text versions of the email template.  **Request body parameters** (nested under `attributes`):  * `return_fields`: Request specific fields using [sparse fieldsets](https://developers.klaviyo.com/en/reference/api_overview#sparse-fieldsets).  * `context`: This is the context your email template will be rendered with. You must pass in a `context` object as a JSON object.  Email templates are rendered with contexts in a similar manner to Django templates. Nested template variables can be referenced via dot notation. Template variables without corresponding `context` values are treated as `FALSE` and output nothing.  Ex. `{ \"name\" : \"George Washington\", \"state\" : \"VA\" }`<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `templates:read`
+        Render a template with the given template ID and context attribute. Returns the AMP, HTML, and plain text versions of the email template.  **Request body parameters** (nested under `attributes`):  * `return_fields`: Request specific fields using [sparse fieldsets](https://developers.klaviyo.com/en/reference/api_overview#sparse-fieldsets).  * `context`: This is the context your email template will be rendered with. You must pass in a `context` object as a JSON object.  Email templates are rendered with contexts in a similar manner to Django templates. Nested template variables can be referenced via dot notation. Template variables without corresponding `context` values are treated as `FALSE` and output nothing.  Ex. `{ \"name\" : \"George Washington\", \"state\" : \"VA\" }`<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `templates:read`
 
         :param template_render_query: (required)
         :type template_render_query: TemplateRenderQuery
@@ -3157,10 +3156,10 @@ class TemplatesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '201': PostTemplateResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '201': "PostTemplateResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -3208,7 +3207,7 @@ class TemplatesApi(object):
 ) -> ApiResponse[PostTemplateResponse]:
         """Render Template
 
-        Render a template with the given template ID and context attribute. Returns the HTML and plain text versions of the email template.  **Request body parameters** (nested under `attributes`):  * `return_fields`: Request specific fields using [sparse fieldsets](https://developers.klaviyo.com/en/reference/api_overview#sparse-fieldsets).  * `context`: This is the context your email template will be rendered with. You must pass in a `context` object as a JSON object.  Email templates are rendered with contexts in a similar manner to Django templates. Nested template variables can be referenced via dot notation. Template variables without corresponding `context` values are treated as `FALSE` and output nothing.  Ex. `{ \"name\" : \"George Washington\", \"state\" : \"VA\" }`<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `templates:read`
+        Render a template with the given template ID and context attribute. Returns the AMP, HTML, and plain text versions of the email template.  **Request body parameters** (nested under `attributes`):  * `return_fields`: Request specific fields using [sparse fieldsets](https://developers.klaviyo.com/en/reference/api_overview#sparse-fieldsets).  * `context`: This is the context your email template will be rendered with. You must pass in a `context` object as a JSON object.  Email templates are rendered with contexts in a similar manner to Django templates. Nested template variables can be referenced via dot notation. Template variables without corresponding `context` values are treated as `FALSE` and output nothing.  Ex. `{ \"name\" : \"George Washington\", \"state\" : \"VA\" }`<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `templates:read`
 
         :param template_render_query: (required)
         :type template_render_query: TemplateRenderQuery
@@ -3242,10 +3241,10 @@ class TemplatesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '201': PostTemplateResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '201': "PostTemplateResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -3289,7 +3288,7 @@ class TemplatesApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Render Template
 
-        Render a template with the given template ID and context attribute. Returns the HTML and plain text versions of the email template.  **Request body parameters** (nested under `attributes`):  * `return_fields`: Request specific fields using [sparse fieldsets](https://developers.klaviyo.com/en/reference/api_overview#sparse-fieldsets).  * `context`: This is the context your email template will be rendered with. You must pass in a `context` object as a JSON object.  Email templates are rendered with contexts in a similar manner to Django templates. Nested template variables can be referenced via dot notation. Template variables without corresponding `context` values are treated as `FALSE` and output nothing.  Ex. `{ \"name\" : \"George Washington\", \"state\" : \"VA\" }`<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `templates:read`
+        Render a template with the given template ID and context attribute. Returns the AMP, HTML, and plain text versions of the email template.  **Request body parameters** (nested under `attributes`):  * `return_fields`: Request specific fields using [sparse fieldsets](https://developers.klaviyo.com/en/reference/api_overview#sparse-fieldsets).  * `context`: This is the context your email template will be rendered with. You must pass in a `context` object as a JSON object.  Email templates are rendered with contexts in a similar manner to Django templates. Nested template variables can be referenced via dot notation. Template variables without corresponding `context` values are treated as `FALSE` and output nothing.  Ex. `{ \"name\" : \"George Washington\", \"state\" : \"VA\" }`<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `templates:read`
 
         :param template_render_query: (required)
         :type template_render_query: TemplateRenderQuery
@@ -3323,10 +3322,10 @@ class TemplatesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '201': PostTemplateResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '201': "PostTemplateResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -3493,10 +3492,10 @@ class TemplatesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': PatchTemplateResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "PatchTemplateResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -3579,10 +3578,10 @@ class TemplatesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': PatchTemplateResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "PatchTemplateResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -3661,10 +3660,10 @@ class TemplatesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': PatchTemplateResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "PatchTemplateResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
@@ -3828,10 +3827,10 @@ class TemplatesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': PatchUniversalContentResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "PatchUniversalContentResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -3917,10 +3916,10 @@ class TemplatesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': PatchUniversalContentResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "PatchUniversalContentResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         frame = inspect.currentframe()
         args, _, _, values = inspect.getargvalues(frame)
@@ -4002,10 +4001,10 @@ class TemplatesApi(object):
             _host_index=_host_index
         )
 
-        _response_types_map: Dict[str, Optional[BaseModel]] = {
-            '200': PatchUniversalContentResponse,
-            '4XX': GetAccounts4XXResponse,
-            '5XX': GetAccounts4XXResponse,
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "PatchUniversalContentResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
         }
         if _request_auth is not None:
             _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}

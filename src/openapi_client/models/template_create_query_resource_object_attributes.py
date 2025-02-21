@@ -31,7 +31,8 @@ class TemplateCreateQueryResourceObjectAttributes(BaseModel):
     editor_type: Optional[StrictStr] = Field(description="Restricted to CODE and USER_DRAGGABLE")
     html: Optional[StrictStr] = Field(default=None, description="The HTML contents of the template")
     text: Optional[StrictStr] = Field(default=None, description="The plaintext version of the template")
-    __properties: ClassVar[List[str]] = ["name", "editor_type", "html", "text"]
+    amp: Optional[StrictStr] = Field(default=None, description="The AMP version of the template. Requires AMP Email to be enabled to access in-app. Refer to the AMP Email setup guide at https://developers.klaviyo.com/en/docs/send_amp_emails_in_klaviyo")
+    __properties: ClassVar[List[str]] = ["name", "editor_type", "html", "text", "amp"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -92,6 +93,11 @@ class TemplateCreateQueryResourceObjectAttributes(BaseModel):
         if self.text is None and "text" in self.model_fields_set:
             _dict['text'] = None
 
+        # set to None if amp (nullable) is None
+        # and model_fields_set contains the field
+        if self.amp is None and "amp" in self.model_fields_set:
+            _dict['amp'] = None
+
         return _dict
 
     @classmethod
@@ -107,7 +113,8 @@ class TemplateCreateQueryResourceObjectAttributes(BaseModel):
             "name": obj.get("name"),
             "editor_type": obj.get("editor_type"),
             "html": obj.get("html"),
-            "text": obj.get("text")
+            "text": obj.get("text"),
+            "amp": obj.get("amp")
         })
         return _obj
 

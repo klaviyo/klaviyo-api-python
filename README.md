@@ -1,6 +1,6 @@
 # Klaviyo Python SDK
 
-- SDK version: 17.0.0
+- SDK version: 18.0.0
 - API revision: 2025-01-15
 
 ## Table of Contents
@@ -1204,6 +1204,108 @@ klaviyo.Catalogs.get_catalog_item_bulk_create_jobs(fields_catalog_item_bulk_crea
 
 
 
+#### [Get Bulk Create Categories Job](https://developers.klaviyo.com/en/v2025-01-15/reference/get_bulk_create_categories_job)
+
+```python
+## Positional Arguments
+
+# job_id | str
+
+## Keyword Arguments
+
+# fields_catalog_category_bulk_create_job | List[str]
+# fields_catalog_category | List[str]
+# include | List[str]
+
+klaviyo.Catalogs.get_bulk_create_categories_job(job_id, fields_catalog_category_bulk_create_job=fields_catalog_category_bulk_create_job, fields_catalog_category=fields_catalog_category, include=include)
+```
+##### Method alias:
+```python
+klaviyo.Catalogs.get_create_categories_job(job_id, fields_catalog_category_bulk_create_job=fields_catalog_category_bulk_create_job, fields_catalog_category=fields_catalog_category, include=include)
+```
+##### Method alias:
+```python
+klaviyo.Catalogs.get_catalog_category_bulk_create_job(job_id, fields_catalog_category_bulk_create_job=fields_catalog_category_bulk_create_job, fields_catalog_category=fields_catalog_category, include=include)
+```
+
+
+
+
+#### [Get Bulk Create Categories Jobs](https://developers.klaviyo.com/en/v2025-01-15/reference/get_bulk_create_categories_jobs)
+
+```python
+
+## Keyword Arguments
+
+# fields_catalog_category_bulk_create_job | List[str]
+# filter | str
+# page_cursor | str
+
+klaviyo.Catalogs.get_bulk_create_categories_jobs(fields_catalog_category_bulk_create_job=fields_catalog_category_bulk_create_job, filter=filter, page_cursor=page_cursor)
+```
+##### Method alias:
+```python
+klaviyo.Catalogs.get_create_categories_jobs(fields_catalog_category_bulk_create_job=fields_catalog_category_bulk_create_job, filter=filter, page_cursor=page_cursor)
+```
+##### Method alias:
+```python
+klaviyo.Catalogs.get_catalog_category_bulk_create_jobs(fields_catalog_category_bulk_create_job=fields_catalog_category_bulk_create_job, filter=filter, page_cursor=page_cursor)
+```
+
+
+
+
+#### [Get Bulk Create Variants Job](https://developers.klaviyo.com/en/v2025-01-15/reference/get_bulk_create_variants_job)
+
+```python
+## Positional Arguments
+
+# job_id | str
+
+## Keyword Arguments
+
+# fields_catalog_variant_bulk_create_job | List[str]
+# fields_catalog_variant | List[str]
+# include | List[str]
+
+klaviyo.Catalogs.get_bulk_create_variants_job(job_id, fields_catalog_variant_bulk_create_job=fields_catalog_variant_bulk_create_job, fields_catalog_variant=fields_catalog_variant, include=include)
+```
+##### Method alias:
+```python
+klaviyo.Catalogs.get_create_variants_job(job_id, fields_catalog_variant_bulk_create_job=fields_catalog_variant_bulk_create_job, fields_catalog_variant=fields_catalog_variant, include=include)
+```
+##### Method alias:
+```python
+klaviyo.Catalogs.get_catalog_variant_bulk_create_job(job_id, fields_catalog_variant_bulk_create_job=fields_catalog_variant_bulk_create_job, fields_catalog_variant=fields_catalog_variant, include=include)
+```
+
+
+
+
+#### [Get Bulk Create Variants Jobs](https://developers.klaviyo.com/en/v2025-01-15/reference/get_bulk_create_variants_jobs)
+
+```python
+
+## Keyword Arguments
+
+# fields_catalog_variant_bulk_create_job | List[str]
+# filter | str
+# page_cursor | str
+
+klaviyo.Catalogs.get_bulk_create_variants_jobs(fields_catalog_variant_bulk_create_job=fields_catalog_variant_bulk_create_job, filter=filter, page_cursor=page_cursor)
+```
+##### Method alias:
+```python
+klaviyo.Catalogs.get_create_variants_jobs(fields_catalog_variant_bulk_create_job=fields_catalog_variant_bulk_create_job, filter=filter, page_cursor=page_cursor)
+```
+##### Method alias:
+```python
+klaviyo.Catalogs.get_catalog_variant_bulk_create_jobs(fields_catalog_variant_bulk_create_job=fields_catalog_variant_bulk_create_job, filter=filter, page_cursor=page_cursor)
+```
+
+
+
+
 #### [Get Bulk Delete Catalog Items Job](https://developers.klaviyo.com/en/v2025-01-15/reference/get_bulk_delete_catalog_items_job)
 
 ```python
@@ -1248,6 +1350,104 @@ klaviyo.Catalogs.get_delete_items_jobs(fields_catalog_item_bulk_delete_job=field
 ##### Method alias:
 ```python
 klaviyo.Catalogs.get_catalog_item_bulk_delete_jobs(fields_catalog_item_bulk_delete_job=fields_catalog_item_bulk_delete_job, filter=filter, page_cursor=page_cursor)
+```
+
+
+
+
+#### [Get Bulk Delete Categories Job](https://developers.klaviyo.com/en/v2025-01-15/reference/get_bulk_delete_categories_job)
+
+```python
+## Positional Arguments
+
+# job_id | str
+
+## Keyword Arguments
+
+# fields_catalog_category_bulk_delete_job | List[str]
+
+klaviyo.Catalogs.get_bulk_delete_categories_job(job_id, fields_catalog_category_bulk_delete_job=fields_catalog_category_bulk_delete_job)
+```
+##### Method alias:
+```python
+klaviyo.Catalogs.get_delete_categories_job(job_id, fields_catalog_category_bulk_delete_job=fields_catalog_category_bulk_delete_job)
+```
+##### Method alias:
+```python
+klaviyo.Catalogs.get_catalog_category_bulk_delete_job(job_id, fields_catalog_category_bulk_delete_job=fields_catalog_category_bulk_delete_job)
+```
+
+
+
+
+#### [Get Bulk Delete Categories Jobs](https://developers.klaviyo.com/en/v2025-01-15/reference/get_bulk_delete_categories_jobs)
+
+```python
+
+## Keyword Arguments
+
+# fields_catalog_category_bulk_delete_job | List[str]
+# filter | str
+# page_cursor | str
+
+klaviyo.Catalogs.get_bulk_delete_categories_jobs(fields_catalog_category_bulk_delete_job=fields_catalog_category_bulk_delete_job, filter=filter, page_cursor=page_cursor)
+```
+##### Method alias:
+```python
+klaviyo.Catalogs.get_delete_categories_jobs(fields_catalog_category_bulk_delete_job=fields_catalog_category_bulk_delete_job, filter=filter, page_cursor=page_cursor)
+```
+##### Method alias:
+```python
+klaviyo.Catalogs.get_catalog_category_bulk_delete_jobs(fields_catalog_category_bulk_delete_job=fields_catalog_category_bulk_delete_job, filter=filter, page_cursor=page_cursor)
+```
+
+
+
+
+#### [Get Bulk Delete Variants Job](https://developers.klaviyo.com/en/v2025-01-15/reference/get_bulk_delete_variants_job)
+
+```python
+## Positional Arguments
+
+# job_id | str
+
+## Keyword Arguments
+
+# fields_catalog_variant_bulk_delete_job | List[str]
+
+klaviyo.Catalogs.get_bulk_delete_variants_job(job_id, fields_catalog_variant_bulk_delete_job=fields_catalog_variant_bulk_delete_job)
+```
+##### Method alias:
+```python
+klaviyo.Catalogs.get_delete_variants_job(job_id, fields_catalog_variant_bulk_delete_job=fields_catalog_variant_bulk_delete_job)
+```
+##### Method alias:
+```python
+klaviyo.Catalogs.get_catalog_variant_bulk_delete_job(job_id, fields_catalog_variant_bulk_delete_job=fields_catalog_variant_bulk_delete_job)
+```
+
+
+
+
+#### [Get Bulk Delete Variants Jobs](https://developers.klaviyo.com/en/v2025-01-15/reference/get_bulk_delete_variants_jobs)
+
+```python
+
+## Keyword Arguments
+
+# fields_catalog_variant_bulk_delete_job | List[str]
+# filter | str
+# page_cursor | str
+
+klaviyo.Catalogs.get_bulk_delete_variants_jobs(fields_catalog_variant_bulk_delete_job=fields_catalog_variant_bulk_delete_job, filter=filter, page_cursor=page_cursor)
+```
+##### Method alias:
+```python
+klaviyo.Catalogs.get_delete_variants_jobs(fields_catalog_variant_bulk_delete_job=fields_catalog_variant_bulk_delete_job, filter=filter, page_cursor=page_cursor)
+```
+##### Method alias:
+```python
+klaviyo.Catalogs.get_catalog_variant_bulk_delete_jobs(fields_catalog_variant_bulk_delete_job=fields_catalog_variant_bulk_delete_job, filter=filter, page_cursor=page_cursor)
 ```
 
 
@@ -1299,6 +1499,108 @@ klaviyo.Catalogs.get_update_items_jobs(fields_catalog_item_bulk_update_job=field
 ##### Method alias:
 ```python
 klaviyo.Catalogs.get_catalog_item_bulk_update_jobs(fields_catalog_item_bulk_update_job=fields_catalog_item_bulk_update_job, filter=filter, page_cursor=page_cursor)
+```
+
+
+
+
+#### [Get Bulk Update Categories Job](https://developers.klaviyo.com/en/v2025-01-15/reference/get_bulk_update_categories_job)
+
+```python
+## Positional Arguments
+
+# job_id | str
+
+## Keyword Arguments
+
+# fields_catalog_category_bulk_update_job | List[str]
+# fields_catalog_category | List[str]
+# include | List[str]
+
+klaviyo.Catalogs.get_bulk_update_categories_job(job_id, fields_catalog_category_bulk_update_job=fields_catalog_category_bulk_update_job, fields_catalog_category=fields_catalog_category, include=include)
+```
+##### Method alias:
+```python
+klaviyo.Catalogs.get_update_categories_job(job_id, fields_catalog_category_bulk_update_job=fields_catalog_category_bulk_update_job, fields_catalog_category=fields_catalog_category, include=include)
+```
+##### Method alias:
+```python
+klaviyo.Catalogs.get_catalog_category_bulk_update_job(job_id, fields_catalog_category_bulk_update_job=fields_catalog_category_bulk_update_job, fields_catalog_category=fields_catalog_category, include=include)
+```
+
+
+
+
+#### [Get Bulk Update Categories Jobs](https://developers.klaviyo.com/en/v2025-01-15/reference/get_bulk_update_categories_jobs)
+
+```python
+
+## Keyword Arguments
+
+# fields_catalog_category_bulk_update_job | List[str]
+# filter | str
+# page_cursor | str
+
+klaviyo.Catalogs.get_bulk_update_categories_jobs(fields_catalog_category_bulk_update_job=fields_catalog_category_bulk_update_job, filter=filter, page_cursor=page_cursor)
+```
+##### Method alias:
+```python
+klaviyo.Catalogs.get_update_categories_jobs(fields_catalog_category_bulk_update_job=fields_catalog_category_bulk_update_job, filter=filter, page_cursor=page_cursor)
+```
+##### Method alias:
+```python
+klaviyo.Catalogs.get_catalog_category_bulk_update_jobs(fields_catalog_category_bulk_update_job=fields_catalog_category_bulk_update_job, filter=filter, page_cursor=page_cursor)
+```
+
+
+
+
+#### [Get Bulk Update Variants Job](https://developers.klaviyo.com/en/v2025-01-15/reference/get_bulk_update_variants_job)
+
+```python
+## Positional Arguments
+
+# job_id | str
+
+## Keyword Arguments
+
+# fields_catalog_variant_bulk_update_job | List[str]
+# fields_catalog_variant | List[str]
+# include | List[str]
+
+klaviyo.Catalogs.get_bulk_update_variants_job(job_id, fields_catalog_variant_bulk_update_job=fields_catalog_variant_bulk_update_job, fields_catalog_variant=fields_catalog_variant, include=include)
+```
+##### Method alias:
+```python
+klaviyo.Catalogs.get_update_variants_job(job_id, fields_catalog_variant_bulk_update_job=fields_catalog_variant_bulk_update_job, fields_catalog_variant=fields_catalog_variant, include=include)
+```
+##### Method alias:
+```python
+klaviyo.Catalogs.get_catalog_variant_bulk_update_job(job_id, fields_catalog_variant_bulk_update_job=fields_catalog_variant_bulk_update_job, fields_catalog_variant=fields_catalog_variant, include=include)
+```
+
+
+
+
+#### [Get Bulk Update Variants Jobs](https://developers.klaviyo.com/en/v2025-01-15/reference/get_bulk_update_variants_jobs)
+
+```python
+
+## Keyword Arguments
+
+# fields_catalog_variant_bulk_update_job | List[str]
+# filter | str
+# page_cursor | str
+
+klaviyo.Catalogs.get_bulk_update_variants_jobs(fields_catalog_variant_bulk_update_job=fields_catalog_variant_bulk_update_job, filter=filter, page_cursor=page_cursor)
+```
+##### Method alias:
+```python
+klaviyo.Catalogs.get_update_variants_jobs(fields_catalog_variant_bulk_update_job=fields_catalog_variant_bulk_update_job, filter=filter, page_cursor=page_cursor)
+```
+##### Method alias:
+```python
+klaviyo.Catalogs.get_catalog_variant_bulk_update_jobs(fields_catalog_variant_bulk_update_job=fields_catalog_variant_bulk_update_job, filter=filter, page_cursor=page_cursor)
 ```
 
 
@@ -1457,174 +1759,6 @@ klaviyo.Catalogs.get_catalog_item_relationships_categories(id, filter=filter, pa
 
 
 
-#### [Get Create Categories Job](https://developers.klaviyo.com/en/v2025-01-15/reference/get_create_categories_job)
-
-```python
-## Positional Arguments
-
-# job_id | str
-
-## Keyword Arguments
-
-# fields_catalog_category_bulk_create_job | List[str]
-# fields_catalog_category | List[str]
-# include | List[str]
-
-klaviyo.Catalogs.get_create_categories_job(job_id, fields_catalog_category_bulk_create_job=fields_catalog_category_bulk_create_job, fields_catalog_category=fields_catalog_category, include=include)
-```
-##### Method alias:
-```python
-klaviyo.Catalogs.get_catalog_category_bulk_create_job(job_id, fields_catalog_category_bulk_create_job=fields_catalog_category_bulk_create_job, fields_catalog_category=fields_catalog_category, include=include)
-```
-
-
-
-
-#### [Get Create Categories Jobs](https://developers.klaviyo.com/en/v2025-01-15/reference/get_create_categories_jobs)
-
-```python
-
-## Keyword Arguments
-
-# fields_catalog_category_bulk_create_job | List[str]
-# filter | str
-# page_cursor | str
-
-klaviyo.Catalogs.get_create_categories_jobs(fields_catalog_category_bulk_create_job=fields_catalog_category_bulk_create_job, filter=filter, page_cursor=page_cursor)
-```
-##### Method alias:
-```python
-klaviyo.Catalogs.get_catalog_category_bulk_create_jobs(fields_catalog_category_bulk_create_job=fields_catalog_category_bulk_create_job, filter=filter, page_cursor=page_cursor)
-```
-
-
-
-
-#### [Get Create Variants Job](https://developers.klaviyo.com/en/v2025-01-15/reference/get_create_variants_job)
-
-```python
-## Positional Arguments
-
-# job_id | str
-
-## Keyword Arguments
-
-# fields_catalog_variant_bulk_create_job | List[str]
-# fields_catalog_variant | List[str]
-# include | List[str]
-
-klaviyo.Catalogs.get_create_variants_job(job_id, fields_catalog_variant_bulk_create_job=fields_catalog_variant_bulk_create_job, fields_catalog_variant=fields_catalog_variant, include=include)
-```
-##### Method alias:
-```python
-klaviyo.Catalogs.get_catalog_variant_bulk_create_job(job_id, fields_catalog_variant_bulk_create_job=fields_catalog_variant_bulk_create_job, fields_catalog_variant=fields_catalog_variant, include=include)
-```
-
-
-
-
-#### [Get Create Variants Jobs](https://developers.klaviyo.com/en/v2025-01-15/reference/get_create_variants_jobs)
-
-```python
-
-## Keyword Arguments
-
-# fields_catalog_variant_bulk_create_job | List[str]
-# filter | str
-# page_cursor | str
-
-klaviyo.Catalogs.get_create_variants_jobs(fields_catalog_variant_bulk_create_job=fields_catalog_variant_bulk_create_job, filter=filter, page_cursor=page_cursor)
-```
-##### Method alias:
-```python
-klaviyo.Catalogs.get_catalog_variant_bulk_create_jobs(fields_catalog_variant_bulk_create_job=fields_catalog_variant_bulk_create_job, filter=filter, page_cursor=page_cursor)
-```
-
-
-
-
-#### [Get Delete Categories Job](https://developers.klaviyo.com/en/v2025-01-15/reference/get_delete_categories_job)
-
-```python
-## Positional Arguments
-
-# job_id | str
-
-## Keyword Arguments
-
-# fields_catalog_category_bulk_delete_job | List[str]
-
-klaviyo.Catalogs.get_delete_categories_job(job_id, fields_catalog_category_bulk_delete_job=fields_catalog_category_bulk_delete_job)
-```
-##### Method alias:
-```python
-klaviyo.Catalogs.get_catalog_category_bulk_delete_job(job_id, fields_catalog_category_bulk_delete_job=fields_catalog_category_bulk_delete_job)
-```
-
-
-
-
-#### [Get Delete Categories Jobs](https://developers.klaviyo.com/en/v2025-01-15/reference/get_delete_categories_jobs)
-
-```python
-
-## Keyword Arguments
-
-# fields_catalog_category_bulk_delete_job | List[str]
-# filter | str
-# page_cursor | str
-
-klaviyo.Catalogs.get_delete_categories_jobs(fields_catalog_category_bulk_delete_job=fields_catalog_category_bulk_delete_job, filter=filter, page_cursor=page_cursor)
-```
-##### Method alias:
-```python
-klaviyo.Catalogs.get_catalog_category_bulk_delete_jobs(fields_catalog_category_bulk_delete_job=fields_catalog_category_bulk_delete_job, filter=filter, page_cursor=page_cursor)
-```
-
-
-
-
-#### [Get Delete Variants Job](https://developers.klaviyo.com/en/v2025-01-15/reference/get_delete_variants_job)
-
-```python
-## Positional Arguments
-
-# job_id | str
-
-## Keyword Arguments
-
-# fields_catalog_variant_bulk_delete_job | List[str]
-
-klaviyo.Catalogs.get_delete_variants_job(job_id, fields_catalog_variant_bulk_delete_job=fields_catalog_variant_bulk_delete_job)
-```
-##### Method alias:
-```python
-klaviyo.Catalogs.get_catalog_variant_bulk_delete_job(job_id, fields_catalog_variant_bulk_delete_job=fields_catalog_variant_bulk_delete_job)
-```
-
-
-
-
-#### [Get Delete Variants Jobs](https://developers.klaviyo.com/en/v2025-01-15/reference/get_delete_variants_jobs)
-
-```python
-
-## Keyword Arguments
-
-# fields_catalog_variant_bulk_delete_job | List[str]
-# filter | str
-# page_cursor | str
-
-klaviyo.Catalogs.get_delete_variants_jobs(fields_catalog_variant_bulk_delete_job=fields_catalog_variant_bulk_delete_job, filter=filter, page_cursor=page_cursor)
-```
-##### Method alias:
-```python
-klaviyo.Catalogs.get_catalog_variant_bulk_delete_jobs(fields_catalog_variant_bulk_delete_job=fields_catalog_variant_bulk_delete_job, filter=filter, page_cursor=page_cursor)
-```
-
-
-
-
 #### [Get Item IDs for Catalog Category](https://developers.klaviyo.com/en/v2025-01-15/reference/get_item_ids_for_catalog_category)
 
 ```python
@@ -1669,92 +1803,6 @@ klaviyo.Catalogs.get_items_for_catalog_category(id, fields_catalog_item=fields_c
 ##### Method alias:
 ```python
 klaviyo.Catalogs.get_catalog_category_items(id, fields_catalog_item=fields_catalog_item, fields_catalog_variant=fields_catalog_variant, filter=filter, include=include, page_cursor=page_cursor, sort=sort)
-```
-
-
-
-
-#### [Get Update Categories Job](https://developers.klaviyo.com/en/v2025-01-15/reference/get_update_categories_job)
-
-```python
-## Positional Arguments
-
-# job_id | str
-
-## Keyword Arguments
-
-# fields_catalog_category_bulk_update_job | List[str]
-# fields_catalog_category | List[str]
-# include | List[str]
-
-klaviyo.Catalogs.get_update_categories_job(job_id, fields_catalog_category_bulk_update_job=fields_catalog_category_bulk_update_job, fields_catalog_category=fields_catalog_category, include=include)
-```
-##### Method alias:
-```python
-klaviyo.Catalogs.get_catalog_category_bulk_update_job(job_id, fields_catalog_category_bulk_update_job=fields_catalog_category_bulk_update_job, fields_catalog_category=fields_catalog_category, include=include)
-```
-
-
-
-
-#### [Get Update Categories Jobs](https://developers.klaviyo.com/en/v2025-01-15/reference/get_update_categories_jobs)
-
-```python
-
-## Keyword Arguments
-
-# fields_catalog_category_bulk_update_job | List[str]
-# filter | str
-# page_cursor | str
-
-klaviyo.Catalogs.get_update_categories_jobs(fields_catalog_category_bulk_update_job=fields_catalog_category_bulk_update_job, filter=filter, page_cursor=page_cursor)
-```
-##### Method alias:
-```python
-klaviyo.Catalogs.get_catalog_category_bulk_update_jobs(fields_catalog_category_bulk_update_job=fields_catalog_category_bulk_update_job, filter=filter, page_cursor=page_cursor)
-```
-
-
-
-
-#### [Get Update Variants Job](https://developers.klaviyo.com/en/v2025-01-15/reference/get_update_variants_job)
-
-```python
-## Positional Arguments
-
-# job_id | str
-
-## Keyword Arguments
-
-# fields_catalog_variant_bulk_update_job | List[str]
-# fields_catalog_variant | List[str]
-# include | List[str]
-
-klaviyo.Catalogs.get_update_variants_job(job_id, fields_catalog_variant_bulk_update_job=fields_catalog_variant_bulk_update_job, fields_catalog_variant=fields_catalog_variant, include=include)
-```
-##### Method alias:
-```python
-klaviyo.Catalogs.get_catalog_variant_bulk_update_job(job_id, fields_catalog_variant_bulk_update_job=fields_catalog_variant_bulk_update_job, fields_catalog_variant=fields_catalog_variant, include=include)
-```
-
-
-
-
-#### [Get Update Variants Jobs](https://developers.klaviyo.com/en/v2025-01-15/reference/get_update_variants_jobs)
-
-```python
-
-## Keyword Arguments
-
-# fields_catalog_variant_bulk_update_job | List[str]
-# filter | str
-# page_cursor | str
-
-klaviyo.Catalogs.get_update_variants_jobs(fields_catalog_variant_bulk_update_job=fields_catalog_variant_bulk_update_job, filter=filter, page_cursor=page_cursor)
-```
-##### Method alias:
-```python
-klaviyo.Catalogs.get_catalog_variant_bulk_update_jobs(fields_catalog_variant_bulk_update_job=fields_catalog_variant_bulk_update_job, filter=filter, page_cursor=page_cursor)
 ```
 
 
@@ -2110,16 +2158,18 @@ klaviyo.Coupons.get_coupon_relationships_codes(id, filter=filter, page_cursor=pa
 #### [Get Coupon Codes](https://developers.klaviyo.com/en/v2025-01-15/reference/get_coupon_codes)
 
 ```python
+## Positional Arguments
+
+# filter | str
 
 ## Keyword Arguments
 
 # fields_coupon_code | List[str]
 # fields_coupon | List[str]
-# filter | str
 # include | List[str]
 # page_cursor | str
 
-klaviyo.Coupons.get_coupon_codes(fields_coupon_code=fields_coupon_code, fields_coupon=fields_coupon, filter=filter, include=include, page_cursor=page_cursor)
+klaviyo.Coupons.get_coupon_codes(filter, fields_coupon_code=fields_coupon_code, fields_coupon=fields_coupon, include=include, page_cursor=page_cursor)
 ```
 
 
@@ -5579,20 +5629,3 @@ Select APIs do not yet have fully typed responses. Please use our API docs to in
     - [Get Messages for Flow Action](https://developers.klaviyo.com/en/reference/get_messages_for_flow_action)
     - [Get Campaign for Campaign Message](https://developers.klaviyo.com/en/reference/get_campaign_for_campaign_message)
     - [Get Messages for Campaign](https://developers.klaviyo.com/en/reference/get_messages_for_campaign)
-
-
-## Lazy Imports
-If the `klaviyo_api` import has a long load time, you can set the following environment variable to speed it up:
-```shell
-export KLAVIYO_PYTHON_SDK_LAZY_IMPORTS=true
-```
-With this, API classes and models will be imported per-API (e.g. when you use the Profiles API, it only imports profiles-related classes).
-
-**With this setting, you can no longer tersely import from `openapi_client`**. That is, instead of:
-```python
-from openapi_client import CampaignCreateQuery
-```
-you will need:
-```python
-from openapi_client.models.campaign_create_query import CampaignCreateQuery
-```
