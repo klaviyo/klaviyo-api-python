@@ -8,7 +8,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 NOTE: For more granular API-specific changes, please see our [API Changelog](https://developers.klaviyo.com/en/docs/changelog_)
 
 ## [19.0.0] - revision 2025-04-15
-## [19.0.0] - revision 2025-04-15
 
 ### Added
 #### Web Feeds API
@@ -24,12 +23,6 @@ NOTE: For more granular API-specific changes, please see our [API Changelog](htt
 > 🚧
 >
 > Standard accounts can only have 1 custom metric. Upgrade to Klaviyo's [Advanced KDP](https://www.klaviyo.com/products/advanced-cdp) or [Marketing Analytics](https://www.klaviyo.com/solutions/analytics) plan to create up to 50 custom metrics. To learn more about these plans, visit our [billing guide](https://help.klaviyo.com/hc/en-us/articles/115000976672).
-
-#### Reviews Client APIs
-
-- Retrieve reviews from publicly-browseable, client-side environments with [Get Client Reviews](https://developers.klaviyo.com/en/reference/get_client_reviews).
-- Create a new review in client-side environments with the [Create Client Review](https://developers.klaviyo.com/en/reference/create_client_review) endpoint.
-- Fetch statistics for client reviews over a provided timeframe with [Get Client Review Values Reports](https://developers.klaviyo.com/en/reference/get_client_review_values_reports).
 
 #### Get and Delete Push Token APIs
 
@@ -51,7 +44,6 @@ NOTE: For more granular API-specific changes, please see our [API Changelog](htt
 
 - We've added support for creating and updating AMP versions of an email template through an optional `amp` field (under `attributes`) in our Create and Update Template APIs.
 - This field requires AMP Email to be enabled. Refer to our [AMP Email setup guide](https://developers.klaviyo.com/en/docs/send_amp_emails_in_klaviyo) for more information.
-
 
 ## [18.0.0] - revision 2025-01-15
 ### Changed
