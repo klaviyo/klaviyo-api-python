@@ -23,6 +23,7 @@ if TYPE_CHECKING:
     from openapi_client.api.tags_api import TagsApi
     from openapi_client.api.templates_api import TemplatesApi
     from openapi_client.api.tracking_settings_api import TrackingSettingsApi
+    from openapi_client.api.web_feeds_api import WebFeedsApi
     from openapi_client.api.webhooks_api import WebhooksApi
     
 
@@ -49,6 +50,7 @@ object_origins = {
     "TagsApi": "openapi_client.api.tags_api",
     "TemplatesApi": "openapi_client.api.templates_api",
     "TrackingSettingsApi": "openapi_client.api.tracking_settings_api",
+    "WebFeedsApi": "openapi_client.api.web_feeds_api",
     "WebhooksApi": "openapi_client.api.webhooks_api",
     
 }

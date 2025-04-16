@@ -19,7 +19,7 @@ class KlaviyoAPI:
     options: Dict[str, Any] = field(default_factory=dict)
 
 
-    _REVISION = "2025-01-15"
+    _REVISION = "2025-04-15"
 
     _STATUS_CODE_CONNECTION_RESET_BY_PEER = 104
     _STATUS_CODE_TOO_MANY_REQUESTS = 429
@@ -399,6 +399,7 @@ class KlaviyoAPI:
         Forms=forms_api.FormsApi(self.api_client)
 
         ## Applying retry decorator to each endpoint in Forms
+        Forms.delete_form=self._page_cursor_update(self.retry_logic(Forms.delete_form))
         Forms.get_form=self._page_cursor_update(self.retry_logic(Forms.get_form))
         Forms.get_form_for_form_version=self._page_cursor_update(self.retry_logic(Forms.get_form_for_form_version))
         Forms.get_form_version_form=self._page_cursor_update(self.retry_logic(Forms.get_form_version_form))
@@ -478,6 +479,10 @@ class KlaviyoAPI:
         Metrics=metrics_api.MetricsApi(self.api_client)
 
         ## Applying retry decorator to each endpoint in Metrics
+        Metrics.create_custom_metric=self._page_cursor_update(self.retry_logic(Metrics.create_custom_metric))
+        Metrics.delete_custom_metric=self._page_cursor_update(self.retry_logic(Metrics.delete_custom_metric))
+        Metrics.get_custom_metric=self._page_cursor_update(self.retry_logic(Metrics.get_custom_metric))
+        Metrics.get_custom_metrics=self._page_cursor_update(self.retry_logic(Metrics.get_custom_metrics))
         Metrics.get_flows_triggered_by_metric=self._page_cursor_update(self.retry_logic(Metrics.get_flows_triggered_by_metric))
         Metrics.get_flow_triggers_for_metric=self._page_cursor_update(self.retry_logic(Metrics.get_flow_triggers_for_metric))
         Metrics.get_metric_flow_triggers=self._page_cursor_update(self.retry_logic(Metrics.get_metric_flow_triggers))
@@ -489,8 +494,12 @@ class KlaviyoAPI:
         Metrics.get_metric_property_metric=self._page_cursor_update(self.retry_logic(Metrics.get_metric_property_metric))
         Metrics.get_metric_id_for_metric_property=self._page_cursor_update(self.retry_logic(Metrics.get_metric_id_for_metric_property))
         Metrics.get_metric_property_relationships_metric=self._page_cursor_update(self.retry_logic(Metrics.get_metric_property_relationships_metric))
+        Metrics.get_metric_ids_for_custom_metric=self._page_cursor_update(self.retry_logic(Metrics.get_metric_ids_for_custom_metric))
+        Metrics.get_custom_metric_relationships_metrics=self._page_cursor_update(self.retry_logic(Metrics.get_custom_metric_relationships_metrics))
         Metrics.get_metric_property=self._page_cursor_update(self.retry_logic(Metrics.get_metric_property))
         Metrics.get_metrics=self._page_cursor_update(self.retry_logic(Metrics.get_metrics))
+        Metrics.get_metrics_for_custom_metric=self._page_cursor_update(self.retry_logic(Metrics.get_metrics_for_custom_metric))
+        Metrics.get_custom_metric_metrics=self._page_cursor_update(self.retry_logic(Metrics.get_custom_metric_metrics))
         Metrics.get_properties_for_metric=self._page_cursor_update(self.retry_logic(Metrics.get_properties_for_metric))
         Metrics.get_metric_metric_properties=self._page_cursor_update(self.retry_logic(Metrics.get_metric_metric_properties))
         Metrics.get_metric_properties=self._page_cursor_update(self.retry_logic(Metrics.get_metric_properties))
@@ -499,6 +508,7 @@ class KlaviyoAPI:
         Metrics.get_metric_relationships_properties=self._page_cursor_update(self.retry_logic(Metrics.get_metric_relationships_properties))
         Metrics.query_metric_aggregates=self._page_cursor_update(self.retry_logic(Metrics.query_metric_aggregates))
         Metrics.create_metric_aggregate=self._page_cursor_update(self.retry_logic(Metrics.create_metric_aggregate))
+        Metrics.update_custom_metric=self._page_cursor_update(self.retry_logic(Metrics.update_custom_metric))
         
         return Metrics
     
@@ -529,6 +539,7 @@ class KlaviyoAPI:
         Profiles.create_profile_import=self._page_cursor_update(self.retry_logic(Profiles.create_profile_import))
         Profiles.create_profile=self._page_cursor_update(self.retry_logic(Profiles.create_profile))
         Profiles.create_push_token=self._page_cursor_update(self.retry_logic(Profiles.create_push_token))
+        Profiles.delete_push_token=self._page_cursor_update(self.retry_logic(Profiles.delete_push_token))
         Profiles.get_bulk_import_profiles_job=self._page_cursor_update(self.retry_logic(Profiles.get_bulk_import_profiles_job))
         Profiles.get_bulk_profile_import_job=self._page_cursor_update(self.retry_logic(Profiles.get_bulk_profile_import_job))
         Profiles.get_profile_bulk_import_job=self._page_cursor_update(self.retry_logic(Profiles.get_profile_bulk_import_job))
@@ -560,6 +571,10 @@ class KlaviyoAPI:
         Profiles.get_lists_for_profile=self._page_cursor_update(self.retry_logic(Profiles.get_lists_for_profile))
         Profiles.get_profile_lists=self._page_cursor_update(self.retry_logic(Profiles.get_profile_lists))
         Profiles.get_profile=self._page_cursor_update(self.retry_logic(Profiles.get_profile))
+        Profiles.get_profile_for_push_token=self._page_cursor_update(self.retry_logic(Profiles.get_profile_for_push_token))
+        Profiles.get_push_token_profile=self._page_cursor_update(self.retry_logic(Profiles.get_push_token_profile))
+        Profiles.get_profile_id_for_push_token=self._page_cursor_update(self.retry_logic(Profiles.get_profile_id_for_push_token))
+        Profiles.get_push_token_relationships_profile=self._page_cursor_update(self.retry_logic(Profiles.get_push_token_relationships_profile))
         Profiles.get_profile_ids_for_bulk_import_profiles_job=self._page_cursor_update(self.retry_logic(Profiles.get_profile_ids_for_bulk_import_profiles_job))
         Profiles.get_bulk_profile_import_job_relationships_profiles=self._page_cursor_update(self.retry_logic(Profiles.get_bulk_profile_import_job_relationships_profiles))
         Profiles.get_profile_bulk_import_job_relationships_profiles=self._page_cursor_update(self.retry_logic(Profiles.get_profile_bulk_import_job_relationships_profiles))
@@ -569,6 +584,12 @@ class KlaviyoAPI:
         Profiles.get_bulk_profile_import_job_profiles=self._page_cursor_update(self.retry_logic(Profiles.get_bulk_profile_import_job_profiles))
         Profiles.get_profile_bulk_import_job_profiles=self._page_cursor_update(self.retry_logic(Profiles.get_profile_bulk_import_job_profiles))
         Profiles.get_profiles_for_profile_bulk_import_job=self._page_cursor_update(self.retry_logic(Profiles.get_profiles_for_profile_bulk_import_job))
+        Profiles.get_push_token=self._page_cursor_update(self.retry_logic(Profiles.get_push_token))
+        Profiles.get_push_token_ids_for_profile=self._page_cursor_update(self.retry_logic(Profiles.get_push_token_ids_for_profile))
+        Profiles.get_profile_relationships_push_tokens=self._page_cursor_update(self.retry_logic(Profiles.get_profile_relationships_push_tokens))
+        Profiles.get_push_tokens=self._page_cursor_update(self.retry_logic(Profiles.get_push_tokens))
+        Profiles.get_push_tokens_for_profile=self._page_cursor_update(self.retry_logic(Profiles.get_push_tokens_for_profile))
+        Profiles.get_profile_push_tokens=self._page_cursor_update(self.retry_logic(Profiles.get_profile_push_tokens))
         Profiles.get_segment_ids_for_profile=self._page_cursor_update(self.retry_logic(Profiles.get_segment_ids_for_profile))
         Profiles.get_profile_relationships_segments=self._page_cursor_update(self.retry_logic(Profiles.get_profile_relationships_segments))
         Profiles.get_segments_for_profile=self._page_cursor_update(self.retry_logic(Profiles.get_segments_for_profile))
@@ -765,6 +786,22 @@ class KlaviyoAPI:
         Tracking_Settings.update_tracking_setting=self._page_cursor_update(self.retry_logic(Tracking_Settings.update_tracking_setting))
         
         return Tracking_Settings
+    
+    @property
+    def Web_Feeds(self):
+        from openapi_client.api import web_feeds_api
+
+        ## Adding Web_Feeds to Client
+        Web_Feeds=web_feeds_api.WebFeedsApi(self.api_client)
+
+        ## Applying retry decorator to each endpoint in Web_Feeds
+        Web_Feeds.create_web_feed=self._page_cursor_update(self.retry_logic(Web_Feeds.create_web_feed))
+        Web_Feeds.delete_web_feed=self._page_cursor_update(self.retry_logic(Web_Feeds.delete_web_feed))
+        Web_Feeds.get_web_feed=self._page_cursor_update(self.retry_logic(Web_Feeds.get_web_feed))
+        Web_Feeds.get_web_feeds=self._page_cursor_update(self.retry_logic(Web_Feeds.get_web_feeds))
+        Web_Feeds.update_web_feed=self._page_cursor_update(self.retry_logic(Web_Feeds.update_web_feed))
+        
+        return Web_Feeds
     
     @property
     def Webhooks(self):
