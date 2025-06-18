@@ -729,7 +729,7 @@ class TemplatesApi(object):
 ) ->  Union[PostUniversalContentResponse, Dict[str, object]]:
         """Create Universal Content
 
-        Create universal content. Only text blocks, which can include text or HTML, are supported at this time.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `templates:write`
+        Create universal content. Currently supported block types are: `button`, `drop_shadow`, `horizontal_rule`, `html`, `image`, `spacer`, and `text`.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `templates:write`
 
         :param universal_content_create_query: Create a template universal content (required)
         :type universal_content_create_query: UniversalContentCreateQuery
@@ -814,7 +814,7 @@ class TemplatesApi(object):
 ) -> ApiResponse[PostUniversalContentResponse]:
         """Create Universal Content
 
-        Create universal content. Only text blocks, which can include text or HTML, are supported at this time.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `templates:write`
+        Create universal content. Currently supported block types are: `button`, `drop_shadow`, `horizontal_rule`, `html`, `image`, `spacer`, and `text`.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `templates:write`
 
         :param universal_content_create_query: Create a template universal content (required)
         :type universal_content_create_query: UniversalContentCreateQuery
@@ -895,7 +895,7 @@ class TemplatesApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Create Universal Content
 
-        Create universal content. Only text blocks, which can include text or HTML, are supported at this time.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `templates:write`
+        Create universal content. Currently supported block types are: `button`, `drop_shadow`, `horizontal_rule`, `html`, `image`, `spacer`, and `text`.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `templates:write`
 
         :param universal_content_create_query: Create a template universal content (required)
         :type universal_content_create_query: UniversalContentCreateQuery
@@ -3789,7 +3789,7 @@ class TemplatesApi(object):
 ) ->  Union[PatchUniversalContentResponse, Dict[str, object]]:
         """Update Universal Content
 
-        Update universal content. The `definition` field can only be updated for text blocks at this time.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `templates:write`
+        Update universal content. The `definition` field can only be updated on the following block types at this time: `button`, `drop_shadow`, `horizontal_rule`, `html`, `image`, `spacer`, and `text`.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `templates:write`
 
         :param id: The ID of the template universal content (required)
         :type id: str
@@ -3878,7 +3878,7 @@ class TemplatesApi(object):
 ) -> ApiResponse[PatchUniversalContentResponse]:
         """Update Universal Content
 
-        Update universal content. The `definition` field can only be updated for text blocks at this time.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `templates:write`
+        Update universal content. The `definition` field can only be updated on the following block types at this time: `button`, `drop_shadow`, `horizontal_rule`, `html`, `image`, `spacer`, and `text`.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `templates:write`
 
         :param id: The ID of the template universal content (required)
         :type id: str
@@ -3963,7 +3963,7 @@ class TemplatesApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Update Universal Content
 
-        Update universal content. The `definition` field can only be updated for text blocks at this time.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `templates:write`
+        Update universal content. The `definition` field can only be updated on the following block types at this time: `button`, `drop_shadow`, `horizontal_rule`, `html`, `image`, `spacer`, and `text`.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `templates:write`
 
         :param id: The ID of the template universal content (required)
         :type id: str

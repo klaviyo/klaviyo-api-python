@@ -27,7 +27,7 @@ class FormValuesRequestDTOResourceObjectAttributes(BaseModel):
     FormValuesRequestDTOResourceObjectAttributes
     """ # noqa: E501
     statistics: List[StrictStr] = Field(description="List of statistics to query for. All rate statistics will be returned in fractional form [0.0, 1.0]")
-    timeframe: Dict[str, Any] = Field(description="The timeframe to query for data within. The max length a timeframe can be is 1 year")
+    timeframe: Dict[str, Any] = Field(description="The time frame to pull data from (Max length: 1 year). See [available time frames](https://developers.klaviyo.com/en/reference/reporting_api_overview#available-time-frames).")
     group_by: Optional[List[StrictStr]] = Field(default=None, description="List of attributes to group the data by. Allowed group-bys are form_id, form_version_id. If not passed in, the data will be grouped by form_id. If a group by has prerequisites, they must be passed in together. The prerequisites for form_version_id is form_id")
     filter: Optional[StrictStr] = Field(default=None, description="API filter string used to filter the query. Allowed filters are form_id, form_version_id. Allowed operators are equals, any. Only one filter can be used per attribute, only AND can be used as a combination operator. Max of 100 messages per ANY filter.")
     __properties: ClassVar[List[str]] = ["statistics", "timeframe", "group_by", "filter"]
