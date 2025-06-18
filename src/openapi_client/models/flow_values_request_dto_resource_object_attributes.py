@@ -27,7 +27,7 @@ class FlowValuesRequestDTOResourceObjectAttributes(BaseModel):
     FlowValuesRequestDTOResourceObjectAttributes
     """ # noqa: E501
     statistics: List[StrictStr] = Field(description="List of statistics to query for. All rate statistics will be returned in fractional form [0.0, 1.0]")
-    timeframe: Dict[str, Any] = Field(description="The timeframe to query for data within. The max length a timeframe can be is 1 year")
+    timeframe: Dict[str, Any] = Field(description="The time frame to pull data from (Max length: 1 year). See [available time frames](https://developers.klaviyo.com/en/reference/reporting_api_overview#available-time-frames).")
     conversion_metric_id: Optional[StrictStr] = Field(description="ID of the metric to be used for conversion statistics")
     filter: Optional[StrictStr] = Field(default=None, description="API filter string used to filter the query. Allowed filters are flow_id, send_channel, flow_message_id. Allowed operators are equals, contains-any. Only one filter can be used per attribute, only AND can be used as a combination operator. Max of 100 messages per ANY filter. When filtering on send_channel, allowed values are email, sms, push-notification.")
     __properties: ClassVar[List[str]] = ["statistics", "timeframe", "conversion_metric_id", "filter"]

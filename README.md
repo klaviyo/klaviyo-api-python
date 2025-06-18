@@ -1,6 +1,6 @@
 # Klaviyo Python SDK
 
-- SDK version: 19.0.1
+- SDK version: 19.0.2
 - API revision: 2025-04-15
 
 ## Table of Contents
@@ -48,7 +48,6 @@
   * [Typed Responses](#typed-responses)
     * [Backwards Compatibility](#backwards-compatibility)
   * [Untyped Response Data for Specific APIs](#untyped-response-data-for-specific-apis)
-  * [Lazy Imports](#lazy-imports)
 <!-- TOC -->
 
 ## Helpful Resources

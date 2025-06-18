@@ -27,7 +27,7 @@ class SegmentSeriesRequestDTOResourceObjectAttributes(BaseModel):
     SegmentSeriesRequestDTOResourceObjectAttributes
     """ # noqa: E501
     statistics: List[StrictStr] = Field(description="List of statistics to query for.")
-    timeframe: Dict[str, Any] = Field(description="The timeframe to query for data within. Data is unavailable before June 1st, 2023. Please use a timeframe after this date. The max length a timeframe can be is 1 year")
+    timeframe: Dict[str, Any] = Field(description="The time frame to pull data from (Max length: 1 year). Data is unavailable before June 1st, 2023. Please use a time frame after this date. See [available time frames](https://developers.klaviyo.com/en/reference/reporting_api_overview#available-time-frames).")
     interval: Optional[StrictStr] = Field(description="The interval used to aggregate data within the series request. If hourly is used, the timeframe cannot be longer than 7 days. If daily is used, the timeframe cannot be longer than 60 days. If monthly is used, the timeframe cannot be longer than 52 weeks.")
     filter: Optional[StrictStr] = Field(default=None, description="API filter string used to filter the query. Allowed filters are segment_id. Allowed operators are equals, any. Only one filter can be used per attribute. Max of 100 messages per ANY filter.")
     __properties: ClassVar[List[str]] = ["statistics", "timeframe", "interval", "filter"]

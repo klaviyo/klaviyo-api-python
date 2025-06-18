@@ -129,7 +129,7 @@ class CampaignsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "PostCampaignMessageResponse",
+            '200': "PostCampaignMessageResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -214,7 +214,7 @@ class CampaignsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "PostCampaignMessageResponse",
+            '200': "PostCampaignMessageResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -295,7 +295,7 @@ class CampaignsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "PostCampaignMessageResponse",
+            '200': "PostCampaignMessageResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }

@@ -68,7 +68,7 @@ class TrackingSettingsApi(object):
 ) ->  Union[GetTrackingSettingResponse, Dict[str, object]]:
         """Get Tracking Setting
 
-        Get the tracking setting with the given account ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `tracking-settings:read`
+        Get the UTM tracking setting with the given account ID.  More information about UTM tracking settings can be found [here](https://help.klaviyo.com/hc/en-us/articles/115005247808).<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `tracking-settings:read`
 
         :param id: The id of the tracking setting (account ID). (required)
         :type id: str
@@ -154,7 +154,7 @@ class TrackingSettingsApi(object):
 ) -> ApiResponse[GetTrackingSettingResponse]:
         """Get Tracking Setting
 
-        Get the tracking setting with the given account ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `tracking-settings:read`
+        Get the UTM tracking setting with the given account ID.  More information about UTM tracking settings can be found [here](https://help.klaviyo.com/hc/en-us/articles/115005247808).<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `tracking-settings:read`
 
         :param id: The id of the tracking setting (account ID). (required)
         :type id: str
@@ -236,7 +236,7 @@ class TrackingSettingsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Tracking Setting
 
-        Get the tracking setting with the given account ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `tracking-settings:read`
+        Get the UTM tracking setting with the given account ID.  More information about UTM tracking settings can be found [here](https://help.klaviyo.com/hc/en-us/articles/115005247808).<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `tracking-settings:read`
 
         :param id: The id of the tracking setting (account ID). (required)
         :type id: str
@@ -397,7 +397,7 @@ class TrackingSettingsApi(object):
 ) ->  Union[GetTrackingSettingResponseCollection, Dict[str, object]]:
         """Get Tracking Settings
 
-        Get all tracking settings in an account. Returns an array with a single tracking setting.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `tracking-settings:read`
+        Get all UTM tracking settings in an account. Returns an array with a single tracking setting.  More information about UTM tracking settings can be found [here](https://help.klaviyo.com/hc/en-us/articles/115005247808).<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `tracking-settings:read`
 
         :param fields_tracking_setting: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets
         :type fields_tracking_setting: List[str]
@@ -487,7 +487,7 @@ class TrackingSettingsApi(object):
 ) -> ApiResponse[GetTrackingSettingResponseCollection]:
         """Get Tracking Settings
 
-        Get all tracking settings in an account. Returns an array with a single tracking setting.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `tracking-settings:read`
+        Get all UTM tracking settings in an account. Returns an array with a single tracking setting.  More information about UTM tracking settings can be found [here](https://help.klaviyo.com/hc/en-us/articles/115005247808).<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `tracking-settings:read`
 
         :param fields_tracking_setting: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets
         :type fields_tracking_setting: List[str]
@@ -573,7 +573,7 @@ class TrackingSettingsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Tracking Settings
 
-        Get all tracking settings in an account. Returns an array with a single tracking setting.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `tracking-settings:read`
+        Get all UTM tracking settings in an account. Returns an array with a single tracking setting.  More information about UTM tracking settings can be found [here](https://help.klaviyo.com/hc/en-us/articles/115005247808).<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `tracking-settings:read`
 
         :param fields_tracking_setting: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets
         :type fields_tracking_setting: List[str]
@@ -749,7 +749,7 @@ class TrackingSettingsApi(object):
 ) ->  Union[PatchTrackingSettingResponse, Dict[str, object]]:
         """Update Tracking Setting
 
-        Update the tracking setting with the given account ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `tracking-settings:write`
+        Update the UTM tracking setting with the given account ID.  More information about UTM tracking settings can be found [here](https://help.klaviyo.com/hc/en-us/articles/115005247808).<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `tracking-settings:write`
 
         :param id: The id of the tracking setting (account ID). (required)
         :type id: str
@@ -835,7 +835,7 @@ class TrackingSettingsApi(object):
 ) -> ApiResponse[PatchTrackingSettingResponse]:
         """Update Tracking Setting
 
-        Update the tracking setting with the given account ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `tracking-settings:write`
+        Update the UTM tracking setting with the given account ID.  More information about UTM tracking settings can be found [here](https://help.klaviyo.com/hc/en-us/articles/115005247808).<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `tracking-settings:write`
 
         :param id: The id of the tracking setting (account ID). (required)
         :type id: str
@@ -917,7 +917,7 @@ class TrackingSettingsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Update Tracking Setting
 
-        Update the tracking setting with the given account ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `tracking-settings:write`
+        Update the UTM tracking setting with the given account ID.  More information about UTM tracking settings can be found [here](https://help.klaviyo.com/hc/en-us/articles/115005247808).<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `tracking-settings:write`
 
         :param id: The id of the tracking setting (account ID). (required)
         :type id: str
