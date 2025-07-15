@@ -17,22 +17,18 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List
-from openapi_client.models.custom_metric_definition import CustomMetricDefinition
+from openapi_client.models.data_source_record_resource_object import DataSourceRecordResourceObject
 from typing import Optional, Set
 from typing_extensions import Self
 
-class PostCustomMetricResponseDataAttributes(BaseModel):
+class DataSourceRecordBulkCreateJobCreateQueryResourceObjectAttributesDataSourceRecords(BaseModel):
     """
-    PostCustomMetricResponseDataAttributes
+    The records to ingest.
     """ # noqa: E501
-    name: StrictStr = Field(description="The name for this custom metric. Names must be unique across the account.         Attempting to create a metric with a duplicate name will return a 400 status code.")
-    created: datetime = Field(description="The datetime when this custom metric was created.")
-    updated: datetime = Field(description="The datetime when this custom metric was updated.")
-    definition: CustomMetricDefinition
-    __properties: ClassVar[List[str]] = ["name", "created", "updated", "definition"]
+    data: List[DataSourceRecordResourceObject]
+    __properties: ClassVar[List[str]] = ["data"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -52,7 +48,7 @@ class PostCustomMetricResponseDataAttributes(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of PostCustomMetricResponseDataAttributes from a JSON string"""
+        """Create an instance of DataSourceRecordBulkCreateJobCreateQueryResourceObjectAttributesDataSourceRecords from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -73,14 +69,18 @@ class PostCustomMetricResponseDataAttributes(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of definition
-        if self.definition:
-            _dict['definition'] = self.definition.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in data (list)
+        _items = []
+        if self.data:
+            for _item in self.data:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['data'] = _items
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of PostCustomMetricResponseDataAttributes from a dict"""
+        """Create an instance of DataSourceRecordBulkCreateJobCreateQueryResourceObjectAttributesDataSourceRecords from a dict"""
         if obj is None:
             return None
 
@@ -88,10 +88,7 @@ class PostCustomMetricResponseDataAttributes(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "name": obj.get("name"),
-            "created": obj.get("created"),
-            "updated": obj.get("updated"),
-            "definition": CustomMetricDefinition.from_dict(obj["definition"]) if obj.get("definition") is not None else None
+            "data": [DataSourceRecordResourceObject.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None
         })
         return _obj
 

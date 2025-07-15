@@ -51,7 +51,7 @@ class TrackingSettingsApi(object):
     def get_tracking_setting(        
         self,
         id: Annotated[StrictStr, Field(description="The id of the tracking setting (account ID).")],
-        fields_tracking_setting: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_tracking_setting: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -72,7 +72,7 @@ class TrackingSettingsApi(object):
 
         :param id: The id of the tracking setting (account ID). (required)
         :type id: str
-        :param fields_tracking_setting: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_tracking_setting: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets
         :type fields_tracking_setting: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -137,7 +137,7 @@ class TrackingSettingsApi(object):
     def get_tracking_setting_with_http_info(        
         self,
         id: Annotated[StrictStr, Field(description="The id of the tracking setting (account ID).")],
-        fields_tracking_setting: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_tracking_setting: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -158,7 +158,7 @@ class TrackingSettingsApi(object):
 
         :param id: The id of the tracking setting (account ID). (required)
         :type id: str
-        :param fields_tracking_setting: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_tracking_setting: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets
         :type fields_tracking_setting: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -221,7 +221,7 @@ class TrackingSettingsApi(object):
     def get_tracking_setting_without_preload_content(
         self,
         id: Annotated[StrictStr, Field(description="The id of the tracking setting (account ID).")],
-        fields_tracking_setting: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_tracking_setting: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -240,7 +240,7 @@ class TrackingSettingsApi(object):
 
         :param id: The id of the tracking setting (account ID). (required)
         :type id: str
-        :param fields_tracking_setting: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_tracking_setting: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets
         :type fields_tracking_setting: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -378,8 +378,8 @@ class TrackingSettingsApi(object):
     @validate_call
     def get_tracking_settings(        
         self,
-        fields_tracking_setting: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#pagination")] = None,
+        fields_tracking_setting: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination")] = None,
         page_size: Annotated[Optional[Annotated[int, Field(le=1, strict=True, ge=1)]], Field(description="Default: 1. Min: 1. Max: 1.")] = None,
         _request_timeout: Union[
             None,
@@ -399,9 +399,9 @@ class TrackingSettingsApi(object):
 
         Get all UTM tracking settings in an account. Returns an array with a single tracking setting.  More information about UTM tracking settings can be found [here](https://help.klaviyo.com/hc/en-us/articles/115005247808).<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `tracking-settings:read`
 
-        :param fields_tracking_setting: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_tracking_setting: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets
         :type fields_tracking_setting: List[str]
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination
         :type page_cursor: str
         :param page_size: Default: 1. Min: 1. Max: 1.
         :type page_size: int
@@ -468,8 +468,8 @@ class TrackingSettingsApi(object):
     @validate_call
     def get_tracking_settings_with_http_info(        
         self,
-        fields_tracking_setting: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#pagination")] = None,
+        fields_tracking_setting: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination")] = None,
         page_size: Annotated[Optional[Annotated[int, Field(le=1, strict=True, ge=1)]], Field(description="Default: 1. Min: 1. Max: 1.")] = None,
         _request_timeout: Union[
             None,
@@ -489,9 +489,9 @@ class TrackingSettingsApi(object):
 
         Get all UTM tracking settings in an account. Returns an array with a single tracking setting.  More information about UTM tracking settings can be found [here](https://help.klaviyo.com/hc/en-us/articles/115005247808).<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `tracking-settings:read`
 
-        :param fields_tracking_setting: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_tracking_setting: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets
         :type fields_tracking_setting: List[str]
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination
         :type page_cursor: str
         :param page_size: Default: 1. Min: 1. Max: 1.
         :type page_size: int
@@ -556,8 +556,8 @@ class TrackingSettingsApi(object):
     @validate_call
     def get_tracking_settings_without_preload_content(
         self,
-        fields_tracking_setting: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#pagination")] = None,
+        fields_tracking_setting: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination")] = None,
         page_size: Annotated[Optional[Annotated[int, Field(le=1, strict=True, ge=1)]], Field(description="Default: 1. Min: 1. Max: 1.")] = None,
         _request_timeout: Union[
             None,
@@ -575,9 +575,9 @@ class TrackingSettingsApi(object):
 
         Get all UTM tracking settings in an account. Returns an array with a single tracking setting.  More information about UTM tracking settings can be found [here](https://help.klaviyo.com/hc/en-us/articles/115005247808).<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `tracking-settings:read`
 
-        :param fields_tracking_setting: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_tracking_setting: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets
         :type fields_tracking_setting: List[str]
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination
         :type page_cursor: str
         :param page_size: Default: 1. Min: 1. Max: 1.
         :type page_size: int

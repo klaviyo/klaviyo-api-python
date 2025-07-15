@@ -26,10 +26,10 @@ class WebhookCreateQueryResourceObjectAttributes(BaseModel):
     """
     WebhookCreateQueryResourceObjectAttributes
     """ # noqa: E501
-    name: Optional[StrictStr] = Field(description="A name for the webhook.")
+    name: StrictStr = Field(description="A name for the webhook.")
     description: Optional[StrictStr] = Field(default=None, description="A description for the webhook.")
-    endpoint_url: Optional[StrictStr] = Field(description="A url to send webhook calls to. Must be https.")
-    secret_key: Optional[StrictStr] = Field(description="A secret key, that will be used for webhook request signing.")
+    endpoint_url: StrictStr = Field(description="A url to send webhook calls to. Must be https.")
+    secret_key: StrictStr = Field(description="A secret key, that will be used for webhook request signing.")
     __properties: ClassVar[List[str]] = ["name", "description", "endpoint_url", "secret_key"]
 
     model_config = ConfigDict(
@@ -71,25 +71,10 @@ class WebhookCreateQueryResourceObjectAttributes(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if name (nullable) is None
-        # and model_fields_set contains the field
-        if self.name is None and "name" in self.model_fields_set:
-            _dict['name'] = None
-
         # set to None if description (nullable) is None
         # and model_fields_set contains the field
         if self.description is None and "description" in self.model_fields_set:
             _dict['description'] = None
-
-        # set to None if endpoint_url (nullable) is None
-        # and model_fields_set contains the field
-        if self.endpoint_url is None and "endpoint_url" in self.model_fields_set:
-            _dict['endpoint_url'] = None
-
-        # set to None if secret_key (nullable) is None
-        # and model_fields_set contains the field
-        if self.secret_key is None and "secret_key" in self.model_fields_set:
-            _dict['secret_key'] = None
 
         return _dict
 

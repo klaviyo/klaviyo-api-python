@@ -49,7 +49,7 @@ class AccountsApi(object):
     def get_account(        
         self,
         id: Annotated[StrictStr, Field(description="The ID of the account")],
-        fields_account: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_account: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -70,7 +70,7 @@ class AccountsApi(object):
 
         :param id: The ID of the account (required)
         :type id: str
-        :param fields_account: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_account: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets
         :type fields_account: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -135,7 +135,7 @@ class AccountsApi(object):
     def get_account_with_http_info(        
         self,
         id: Annotated[StrictStr, Field(description="The ID of the account")],
-        fields_account: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_account: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -156,7 +156,7 @@ class AccountsApi(object):
 
         :param id: The ID of the account (required)
         :type id: str
-        :param fields_account: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_account: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets
         :type fields_account: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -219,7 +219,7 @@ class AccountsApi(object):
     def get_account_without_preload_content(
         self,
         id: Annotated[StrictStr, Field(description="The ID of the account")],
-        fields_account: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_account: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -238,7 +238,7 @@ class AccountsApi(object):
 
         :param id: The ID of the account (required)
         :type id: str
-        :param fields_account: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_account: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets
         :type fields_account: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -376,7 +376,7 @@ class AccountsApi(object):
     @validate_call
     def get_accounts(        
         self,
-        fields_account: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_account: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -395,7 +395,7 @@ class AccountsApi(object):
 
         Retrieve the account(s) associated with a given private API key. This will return 1 account object within the array.  You can use this to retrieve account-specific data (contact information, timezone, currency, Public API key, etc.) or test if a Private API Key belongs to the correct account prior to performing subsequent actions with the API.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `accounts:read`
 
-        :param fields_account: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_account: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets
         :type fields_account: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -458,7 +458,7 @@ class AccountsApi(object):
     @validate_call
     def get_accounts_with_http_info(        
         self,
-        fields_account: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_account: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -477,7 +477,7 @@ class AccountsApi(object):
 
         Retrieve the account(s) associated with a given private API key. This will return 1 account object within the array.  You can use this to retrieve account-specific data (contact information, timezone, currency, Public API key, etc.) or test if a Private API Key belongs to the correct account prior to performing subsequent actions with the API.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `accounts:read`
 
-        :param fields_account: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_account: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets
         :type fields_account: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -538,7 +538,7 @@ class AccountsApi(object):
     @validate_call
     def get_accounts_without_preload_content(
         self,
-        fields_account: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_account: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -555,7 +555,7 @@ class AccountsApi(object):
 
         Retrieve the account(s) associated with a given private API key. This will return 1 account object within the array.  You can use this to retrieve account-specific data (contact information, timezone, currency, Public API key, etc.) or test if a Private API Key belongs to the correct account prior to performing subsequent actions with the API.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `accounts:read`
 
-        :param fields_account: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_account: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets
         :type fields_account: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request

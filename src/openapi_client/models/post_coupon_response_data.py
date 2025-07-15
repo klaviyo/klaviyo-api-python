@@ -20,8 +20,8 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
 from openapi_client.models.coupon_enum import CouponEnum
+from openapi_client.models.coupon_response_object_resource_attributes import CouponResponseObjectResourceAttributes
 from openapi_client.models.object_links import ObjectLinks
-from openapi_client.models.post_coupon_response_data_attributes import PostCouponResponseDataAttributes
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -31,7 +31,7 @@ class PostCouponResponseData(BaseModel):
     """ # noqa: E501
     type: CouponEnum
     id: StrictStr = Field(description="The internal id of a Coupon is equivalent to its external id stored within an integration.")
-    attributes: PostCouponResponseDataAttributes
+    attributes: CouponResponseObjectResourceAttributes
     links: ObjectLinks
     __properties: ClassVar[List[str]] = ["type", "id", "attributes", "links"]
 
@@ -94,7 +94,7 @@ class PostCouponResponseData(BaseModel):
         _obj = cls.model_validate({
             "type": obj.get("type"),
             "id": obj.get("id"),
-            "attributes": PostCouponResponseDataAttributes.from_dict(obj["attributes"]) if obj.get("attributes") is not None else None,
+            "attributes": CouponResponseObjectResourceAttributes.from_dict(obj["attributes"]) if obj.get("attributes") is not None else None,
             "links": ObjectLinks.from_dict(obj["links"]) if obj.get("links") is not None else None
         })
         return _obj

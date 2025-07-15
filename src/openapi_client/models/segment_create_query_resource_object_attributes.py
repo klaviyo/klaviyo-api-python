@@ -27,7 +27,7 @@ class SegmentCreateQueryResourceObjectAttributes(BaseModel):
     """
     SegmentCreateQueryResourceObjectAttributes
     """ # noqa: E501
-    name: Optional[StrictStr]
+    name: StrictStr
     definition: SegmentDefinition
     is_starred: Optional[StrictBool] = False
     __properties: ClassVar[List[str]] = ["name", "definition", "is_starred"]
@@ -74,11 +74,6 @@ class SegmentCreateQueryResourceObjectAttributes(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of definition
         if self.definition:
             _dict['definition'] = self.definition.to_dict()
-        # set to None if name (nullable) is None
-        # and model_fields_set contains the field
-        if self.name is None and "name" in self.model_fields_set:
-            _dict['name'] = None
-
         # set to None if is_starred (nullable) is None
         # and model_fields_set contains the field
         if self.is_starred is None and "is_starred" in self.model_fields_set:

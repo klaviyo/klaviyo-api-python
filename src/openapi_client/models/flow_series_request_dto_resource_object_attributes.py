@@ -28,8 +28,8 @@ class FlowSeriesRequestDTOResourceObjectAttributes(BaseModel):
     """ # noqa: E501
     statistics: List[StrictStr] = Field(description="List of statistics to query for. All rate statistics will be returned in fractional form [0.0, 1.0]")
     timeframe: Dict[str, Any] = Field(description="The time frame to pull data from (Max length: 1 year). See [available time frames](https://developers.klaviyo.com/en/reference/reporting_api_overview#available-time-frames).")
-    interval: Optional[StrictStr] = Field(description="The interval used to aggregate data within the series request. If hourly is used, the timeframe cannot be longer than 7 days. If daily is used, the timeframe cannot be longer than 60 days. If monthly is used, the timeframe cannot be longer than 52 weeks.")
-    conversion_metric_id: Optional[StrictStr] = Field(description="ID of the metric to be used for conversion statistics")
+    interval: StrictStr = Field(description="The interval used to aggregate data within the series request. If hourly is used, the timeframe cannot be longer than 7 days. If daily is used, the timeframe cannot be longer than 60 days. If monthly is used, the timeframe cannot be longer than 52 weeks.")
+    conversion_metric_id: StrictStr = Field(description="ID of the metric to be used for conversion statistics")
     filter: Optional[StrictStr] = Field(default=None, description="API filter string used to filter the query. Allowed filters are flow_id, send_channel, flow_message_id. Allowed operators are equals, contains-any. Only one filter can be used per attribute, only AND can be used as a combination operator. Max of 100 messages per ANY filter. When filtering on send_channel, allowed values are email, sms, push-notification.")
     __properties: ClassVar[List[str]] = ["statistics", "timeframe", "interval", "conversion_metric_id", "filter"]
 
@@ -44,9 +44,6 @@ class FlowSeriesRequestDTOResourceObjectAttributes(BaseModel):
     @field_validator('interval')
     def interval_validate_enum(cls, value):
         """Validates the enum"""
-        if value is None:
-            return value
-
         if value not in set(['daily', 'hourly', 'monthly', 'weekly']):
             raise ValueError("must be one of enum values ('daily', 'hourly', 'monthly', 'weekly')")
         return value
@@ -90,16 +87,6 @@ class FlowSeriesRequestDTOResourceObjectAttributes(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if interval (nullable) is None
-        # and model_fields_set contains the field
-        if self.interval is None and "interval" in self.model_fields_set:
-            _dict['interval'] = None
-
-        # set to None if conversion_metric_id (nullable) is None
-        # and model_fields_set contains the field
-        if self.conversion_metric_id is None and "conversion_metric_id" in self.model_fields_set:
-            _dict['conversion_metric_id'] = None
-
         # set to None if filter (nullable) is None
         # and model_fields_set contains the field
         if self.filter is None and "filter" in self.model_fields_set:

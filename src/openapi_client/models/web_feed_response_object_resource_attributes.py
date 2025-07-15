@@ -27,21 +27,18 @@ class WebFeedResponseObjectResourceAttributes(BaseModel):
     """
     WebFeedResponseObjectResourceAttributes
     """ # noqa: E501
-    name: Optional[StrictStr] = Field(description="The name of this web feed")
-    url: Optional[StrictStr] = Field(description="The URL of the web feed")
-    request_method: Optional[StrictStr] = Field(description="The HTTP method for requesting the web feed")
-    content_type: Optional[StrictStr] = Field(description="The content-type of the web feed")
-    created: Optional[datetime] = Field(description="Date and time when the web feed was created, in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm)")
-    updated: Optional[datetime] = Field(description="Date and time when the web feed was updated, in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm)")
+    name: StrictStr = Field(description="The name of this web feed")
+    url: StrictStr = Field(description="The URL of the web feed")
+    request_method: StrictStr = Field(description="The HTTP method for requesting the web feed")
+    content_type: StrictStr = Field(description="The content-type of the web feed")
+    created: datetime = Field(description="Date and time when the web feed was created, in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm)")
+    updated: datetime = Field(description="Date and time when the web feed was updated, in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm)")
     status: Optional[StrictStr] = Field(default=None, description="The cache status of this web feed if it exists")
     __properties: ClassVar[List[str]] = ["name", "url", "request_method", "content_type", "created", "updated", "status"]
 
     @field_validator('request_method')
     def request_method_validate_enum(cls, value):
         """Validates the enum"""
-        if value is None:
-            return value
-
         if value not in set(['get', 'post']):
             raise ValueError("must be one of enum values ('get', 'post')")
         return value
@@ -49,9 +46,6 @@ class WebFeedResponseObjectResourceAttributes(BaseModel):
     @field_validator('content_type')
     def content_type_validate_enum(cls, value):
         """Validates the enum"""
-        if value is None:
-            return value
-
         if value not in set(['json', 'xml']):
             raise ValueError("must be one of enum values ('json', 'xml')")
         return value
@@ -105,36 +99,6 @@ class WebFeedResponseObjectResourceAttributes(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if name (nullable) is None
-        # and model_fields_set contains the field
-        if self.name is None and "name" in self.model_fields_set:
-            _dict['name'] = None
-
-        # set to None if url (nullable) is None
-        # and model_fields_set contains the field
-        if self.url is None and "url" in self.model_fields_set:
-            _dict['url'] = None
-
-        # set to None if request_method (nullable) is None
-        # and model_fields_set contains the field
-        if self.request_method is None and "request_method" in self.model_fields_set:
-            _dict['request_method'] = None
-
-        # set to None if content_type (nullable) is None
-        # and model_fields_set contains the field
-        if self.content_type is None and "content_type" in self.model_fields_set:
-            _dict['content_type'] = None
-
-        # set to None if created (nullable) is None
-        # and model_fields_set contains the field
-        if self.created is None and "created" in self.model_fields_set:
-            _dict['created'] = None
-
-        # set to None if updated (nullable) is None
-        # and model_fields_set contains the field
-        if self.updated is None and "updated" in self.model_fields_set:
-            _dict['updated'] = None
-
         # set to None if status (nullable) is None
         # and model_fields_set contains the field
         if self.status is None and "status" in self.model_fields_set:

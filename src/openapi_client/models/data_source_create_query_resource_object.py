@@ -17,23 +17,20 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
-from pydantic import BaseModel, ConfigDict, StrictBool, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List
+from openapi_client.models.data_source_create_query_resource_object_attributes import DataSourceCreateQueryResourceObjectAttributes
+from openapi_client.models.data_source_enum import DataSourceEnum
 from typing import Optional, Set
 from typing_extensions import Self
 
-class PostImageResponseDataAttributes(BaseModel):
+class DataSourceCreateQueryResourceObject(BaseModel):
     """
-    PostImageResponseDataAttributes
+    DataSourceCreateQueryResourceObject
     """ # noqa: E501
-    name: StrictStr
-    image_url: StrictStr
-    format: StrictStr
-    size: StrictInt
-    hidden: StrictBool
-    updated_at: datetime
-    __properties: ClassVar[List[str]] = ["name", "image_url", "format", "size", "hidden", "updated_at"]
+    type: DataSourceEnum
+    attributes: DataSourceCreateQueryResourceObjectAttributes
+    __properties: ClassVar[List[str]] = ["type", "attributes"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -53,7 +50,7 @@ class PostImageResponseDataAttributes(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of PostImageResponseDataAttributes from a JSON string"""
+        """Create an instance of DataSourceCreateQueryResourceObject from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -74,11 +71,14 @@ class PostImageResponseDataAttributes(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of attributes
+        if self.attributes:
+            _dict['attributes'] = self.attributes.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of PostImageResponseDataAttributes from a dict"""
+        """Create an instance of DataSourceCreateQueryResourceObject from a dict"""
         if obj is None:
             return None
 
@@ -86,12 +86,8 @@ class PostImageResponseDataAttributes(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "name": obj.get("name"),
-            "image_url": obj.get("image_url"),
-            "format": obj.get("format"),
-            "size": obj.get("size"),
-            "hidden": obj.get("hidden"),
-            "updated_at": obj.get("updated_at")
+            "type": obj.get("type"),
+            "attributes": DataSourceCreateQueryResourceObjectAttributes.from_dict(obj["attributes"]) if obj.get("attributes") is not None else None
         })
         return _obj
 

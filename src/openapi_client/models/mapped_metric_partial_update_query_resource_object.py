@@ -17,18 +17,28 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
+from openapi_client.models.mapped_metric_enum import MappedMetricEnum
+from openapi_client.models.mapped_metric_partial_update_query_resource_object_relationships import MappedMetricPartialUpdateQueryResourceObjectRelationships
 from typing import Optional, Set
 from typing_extensions import Self
 
-class PostCouponResponseDataAttributes(BaseModel):
+class MappedMetricPartialUpdateQueryResourceObject(BaseModel):
     """
-    PostCouponResponseDataAttributes
+    MappedMetricPartialUpdateQueryResourceObject
     """ # noqa: E501
-    external_id: StrictStr = Field(description="This is the id that is stored in an integration such as Shopify or Magento.")
-    description: Optional[StrictStr] = Field(default=None, description="A description of the coupon.")
-    __properties: ClassVar[List[str]] = ["external_id", "description"]
+    type: MappedMetricEnum
+    id: StrictStr = Field(description="The type of mapping.")
+    relationships: Optional[MappedMetricPartialUpdateQueryResourceObjectRelationships] = None
+    __properties: ClassVar[List[str]] = ["type", "id", "relationships"]
+
+    @field_validator('id')
+    def id_validate_enum(cls, value):
+        """Validates the enum"""
+        if value not in set(['added_to_cart', 'cancelled_sales', 'ordered_product', 'refunded_sales', 'revenue', 'started_checkout', 'viewed_product']):
+            raise ValueError("must be one of enum values ('added_to_cart', 'cancelled_sales', 'ordered_product', 'refunded_sales', 'revenue', 'started_checkout', 'viewed_product')")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -48,7 +58,7 @@ class PostCouponResponseDataAttributes(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of PostCouponResponseDataAttributes from a JSON string"""
+        """Create an instance of MappedMetricPartialUpdateQueryResourceObject from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -69,16 +79,14 @@ class PostCouponResponseDataAttributes(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if description (nullable) is None
-        # and model_fields_set contains the field
-        if self.description is None and "description" in self.model_fields_set:
-            _dict['description'] = None
-
+        # override the default output from pydantic by calling `to_dict()` of relationships
+        if self.relationships:
+            _dict['relationships'] = self.relationships.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of PostCouponResponseDataAttributes from a dict"""
+        """Create an instance of MappedMetricPartialUpdateQueryResourceObject from a dict"""
         if obj is None:
             return None
 
@@ -86,8 +94,9 @@ class PostCouponResponseDataAttributes(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "external_id": obj.get("external_id"),
-            "description": obj.get("description")
+            "type": obj.get("type"),
+            "id": obj.get("id"),
+            "relationships": MappedMetricPartialUpdateQueryResourceObjectRelationships.from_dict(obj["relationships"]) if obj.get("relationships") is not None else None
         })
         return _obj
 

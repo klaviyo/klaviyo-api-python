@@ -28,10 +28,10 @@ class PushTokenCreateQueryResourceObjectAttributes(BaseModel):
     """
     PushTokenCreateQueryResourceObjectAttributes
     """ # noqa: E501
-    token: Optional[StrictStr] = Field(description="A push token from APNS or FCM.")
-    platform: Optional[StrictStr] = Field(description="The platform on which the push token was created.")
+    token: StrictStr = Field(description="A push token from APNS or FCM.")
+    platform: StrictStr = Field(description="The platform on which the push token was created.")
     enablement_status: Optional[StrictStr] = Field(default='AUTHORIZED', description="This is the enablement status for the individual push token.")
-    vendor: Optional[StrictStr] = Field(description="The vendor of the push token.")
+    vendor: StrictStr = Field(description="The vendor of the push token.")
     background: Optional[StrictStr] = Field(default='AVAILABLE', description="The background state of the push token.")
     device_metadata: Optional[DeviceMetadata] = None
     profile: PushTokenCreateQueryResourceObjectAttributesProfile
@@ -40,9 +40,6 @@ class PushTokenCreateQueryResourceObjectAttributes(BaseModel):
     @field_validator('platform')
     def platform_validate_enum(cls, value):
         """Validates the enum"""
-        if value is None:
-            return value
-
         if value not in set(['android', 'ios']):
             raise ValueError("must be one of enum values ('android', 'ios')")
         return value
@@ -60,9 +57,6 @@ class PushTokenCreateQueryResourceObjectAttributes(BaseModel):
     @field_validator('vendor')
     def vendor_validate_enum(cls, value):
         """Validates the enum"""
-        if value is None:
-            return value
-
         if value not in set(['apns', 'fcm']):
             raise ValueError("must be one of enum values ('apns', 'fcm')")
         return value
@@ -122,25 +116,10 @@ class PushTokenCreateQueryResourceObjectAttributes(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of profile
         if self.profile:
             _dict['profile'] = self.profile.to_dict()
-        # set to None if token (nullable) is None
-        # and model_fields_set contains the field
-        if self.token is None and "token" in self.model_fields_set:
-            _dict['token'] = None
-
-        # set to None if platform (nullable) is None
-        # and model_fields_set contains the field
-        if self.platform is None and "platform" in self.model_fields_set:
-            _dict['platform'] = None
-
         # set to None if enablement_status (nullable) is None
         # and model_fields_set contains the field
         if self.enablement_status is None and "enablement_status" in self.model_fields_set:
             _dict['enablement_status'] = None
-
-        # set to None if vendor (nullable) is None
-        # and model_fields_set contains the field
-        if self.vendor is None and "vendor" in self.model_fields_set:
-            _dict['vendor'] = None
 
         # set to None if background (nullable) is None
         # and model_fields_set contains the field

@@ -27,8 +27,8 @@ class FlowMessageResponseObjectResourceAttributes(BaseModel):
     """
     FlowMessageResponseObjectResourceAttributes
     """ # noqa: E501
-    name: Optional[StrictStr]
-    channel: Optional[StrictStr]
+    name: StrictStr
+    channel: StrictStr
     content: Dict[str, Any]
     created: Optional[datetime] = None
     updated: Optional[datetime] = None
@@ -73,16 +73,6 @@ class FlowMessageResponseObjectResourceAttributes(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if name (nullable) is None
-        # and model_fields_set contains the field
-        if self.name is None and "name" in self.model_fields_set:
-            _dict['name'] = None
-
-        # set to None if channel (nullable) is None
-        # and model_fields_set contains the field
-        if self.channel is None and "channel" in self.model_fields_set:
-            _dict['channel'] = None
-
         # set to None if created (nullable) is None
         # and model_fields_set contains the field
         if self.created is None and "created" in self.model_fields_set:

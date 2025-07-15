@@ -27,12 +27,12 @@ class WebhookResponseObjectResourceAttributes(BaseModel):
     """
     WebhookResponseObjectResourceAttributes
     """ # noqa: E501
-    name: Optional[StrictStr] = Field(description="A name for the webhook.")
+    name: StrictStr = Field(description="A name for the webhook.")
     description: Optional[StrictStr] = Field(default=None, description="A description for the webhook.")
-    endpoint_url: Optional[StrictStr] = Field(description="The url to send webhook requests to, truncated for security.")
+    endpoint_url: StrictStr = Field(description="The url to send webhook requests to, truncated for security.")
     enabled: StrictBool = Field(description="Is the webhook enabled.")
-    created_at: Optional[datetime] = Field(description="Date and time when the webhook was created, in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm)")
-    updated_at: Optional[datetime] = Field(description="Date and time when the webhook was last updated, in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm)")
+    created_at: datetime = Field(description="Date and time when the webhook was created, in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm)")
+    updated_at: datetime = Field(description="Date and time when the webhook was last updated, in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm)")
     __properties: ClassVar[List[str]] = ["name", "description", "endpoint_url", "enabled", "created_at", "updated_at"]
 
     model_config = ConfigDict(
@@ -74,30 +74,10 @@ class WebhookResponseObjectResourceAttributes(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if name (nullable) is None
-        # and model_fields_set contains the field
-        if self.name is None and "name" in self.model_fields_set:
-            _dict['name'] = None
-
         # set to None if description (nullable) is None
         # and model_fields_set contains the field
         if self.description is None and "description" in self.model_fields_set:
             _dict['description'] = None
-
-        # set to None if endpoint_url (nullable) is None
-        # and model_fields_set contains the field
-        if self.endpoint_url is None and "endpoint_url" in self.model_fields_set:
-            _dict['endpoint_url'] = None
-
-        # set to None if created_at (nullable) is None
-        # and model_fields_set contains the field
-        if self.created_at is None and "created_at" in self.model_fields_set:
-            _dict['created_at'] = None
-
-        # set to None if updated_at (nullable) is None
-        # and model_fields_set contains the field
-        if self.updated_at is None and "updated_at" in self.model_fields_set:
-            _dict['updated_at'] = None
 
         return _dict
 

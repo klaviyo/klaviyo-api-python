@@ -26,7 +26,7 @@ class MetricCreateQueryResourceObjectAttributes(BaseModel):
     """
     MetricCreateQueryResourceObjectAttributes
     """ # noqa: E501
-    name: Optional[StrictStr] = Field(description="Name of the event. Must be less than 128 characters.")
+    name: StrictStr = Field(description="Name of the event. Must be less than 128 characters.")
     service: Optional[StrictStr] = Field(default=None, description="This is for advanced usage. For api requests, this should use the default, which is set to api.")
     __properties: ClassVar[List[str]] = ["name", "service"]
 
@@ -69,11 +69,6 @@ class MetricCreateQueryResourceObjectAttributes(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if name (nullable) is None
-        # and model_fields_set contains the field
-        if self.name is None and "name" in self.model_fields_set:
-            _dict['name'] = None
-
         # set to None if service (nullable) is None
         # and model_fields_set contains the field
         if self.service is None and "service" in self.model_fields_set:

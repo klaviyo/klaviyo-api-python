@@ -26,7 +26,7 @@ class MetricAggregateQueryResourceObjectAttributes(BaseModel):
     """
     MetricAggregateQueryResourceObjectAttributes
     """ # noqa: E501
-    metric_id: Optional[StrictStr] = Field(description="The metric ID used in the aggregation.")
+    metric_id: StrictStr = Field(description="The metric ID used in the aggregation.")
     page_cursor: Optional[StrictStr] = Field(default=None, description="Optional pagination cursor to iterate over large result sets")
     measurements: List[StrictStr] = Field(description="Measurement key, e.g. `unique`, `sum_value`, `count`")
     interval: Optional[StrictStr] = Field(default='day', description="Aggregation interval, e.g. \"hour\", \"day\", \"week\", \"month\"")
@@ -116,11 +116,6 @@ class MetricAggregateQueryResourceObjectAttributes(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if metric_id (nullable) is None
-        # and model_fields_set contains the field
-        if self.metric_id is None and "metric_id" in self.model_fields_set:
-            _dict['metric_id'] = None
-
         # set to None if page_cursor (nullable) is None
         # and model_fields_set contains the field
         if self.page_cursor is None and "page_cursor" in self.model_fields_set:

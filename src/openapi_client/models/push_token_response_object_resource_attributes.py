@@ -28,22 +28,19 @@ class PushTokenResponseObjectResourceAttributes(BaseModel):
     """
     PushTokenResponseObjectResourceAttributes
     """ # noqa: E501
-    created: Optional[datetime] = Field(description="The time at which the token was created")
-    token: Optional[StrictStr] = Field(description="The push token")
-    enablement_status: Optional[StrictStr] = Field(description="The enablement status of the push token")
-    platform: Optional[StrictStr] = Field(description="The platform of the push token('ios', 'android')")
-    vendor: Optional[StrictStr] = Field(description="The vendor of the push token('APNs', 'FCM')")
-    background: Optional[StrictStr] = Field(description="The background state of the push token")
-    recorded_date: Optional[StrictStr] = Field(description="The date the push token was recorded")
+    created: datetime = Field(description="The time at which the token was created")
+    token: StrictStr = Field(description="The push token")
+    enablement_status: StrictStr = Field(description="The enablement status of the push token")
+    platform: StrictStr = Field(description="The platform of the push token('ios', 'android')")
+    vendor: StrictStr = Field(description="The vendor of the push token('APNs', 'FCM')")
+    background: StrictStr = Field(description="The background state of the push token")
+    recorded_date: StrictStr = Field(description="The date the push token was recorded")
     metadata: Optional[DeviceMetadata] = None
     __properties: ClassVar[List[str]] = ["created", "token", "enablement_status", "platform", "vendor", "background", "recorded_date", "metadata"]
 
     @field_validator('enablement_status')
     def enablement_status_validate_enum(cls, value):
         """Validates the enum"""
-        if value is None:
-            return value
-
         if value not in set(['AUTHORIZED', 'DENIED', 'NOT_DETERMINED', 'PROVISIONAL', 'UNAUTHORIZED']):
             raise ValueError("must be one of enum values ('AUTHORIZED', 'DENIED', 'NOT_DETERMINED', 'PROVISIONAL', 'UNAUTHORIZED')")
         return value
@@ -51,9 +48,6 @@ class PushTokenResponseObjectResourceAttributes(BaseModel):
     @field_validator('platform')
     def platform_validate_enum(cls, value):
         """Validates the enum"""
-        if value is None:
-            return value
-
         if value not in set(['android', 'ios']):
             raise ValueError("must be one of enum values ('android', 'ios')")
         return value
@@ -100,41 +94,6 @@ class PushTokenResponseObjectResourceAttributes(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of metadata
         if self.metadata:
             _dict['metadata'] = self.metadata.to_dict()
-        # set to None if created (nullable) is None
-        # and model_fields_set contains the field
-        if self.created is None and "created" in self.model_fields_set:
-            _dict['created'] = None
-
-        # set to None if token (nullable) is None
-        # and model_fields_set contains the field
-        if self.token is None and "token" in self.model_fields_set:
-            _dict['token'] = None
-
-        # set to None if enablement_status (nullable) is None
-        # and model_fields_set contains the field
-        if self.enablement_status is None and "enablement_status" in self.model_fields_set:
-            _dict['enablement_status'] = None
-
-        # set to None if platform (nullable) is None
-        # and model_fields_set contains the field
-        if self.platform is None and "platform" in self.model_fields_set:
-            _dict['platform'] = None
-
-        # set to None if vendor (nullable) is None
-        # and model_fields_set contains the field
-        if self.vendor is None and "vendor" in self.model_fields_set:
-            _dict['vendor'] = None
-
-        # set to None if background (nullable) is None
-        # and model_fields_set contains the field
-        if self.background is None and "background" in self.model_fields_set:
-            _dict['background'] = None
-
-        # set to None if recorded_date (nullable) is None
-        # and model_fields_set contains the field
-        if self.recorded_date is None and "recorded_date" in self.model_fields_set:
-            _dict['recorded_date'] = None
-
         return _dict
 
     @classmethod

@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -26,9 +26,9 @@ class MetricPropertyResponseObjectResourceAttributes(BaseModel):
     """
     MetricPropertyResponseObjectResourceAttributes
     """ # noqa: E501
-    label: Optional[StrictStr] = Field(description="The label for this metric property")
-    var_property: Optional[StrictStr] = Field(description="The property for this metric property", alias="property")
-    inferred_type: Optional[StrictStr] = Field(description="Inferred type for this metric property")
+    label: StrictStr = Field(description="The label for this metric property")
+    var_property: StrictStr = Field(description="The property for this metric property", alias="property")
+    inferred_type: StrictStr = Field(description="Inferred type for this metric property")
     __properties: ClassVar[List[str]] = ["label", "property", "inferred_type"]
 
     model_config = ConfigDict(
@@ -70,21 +70,6 @@ class MetricPropertyResponseObjectResourceAttributes(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if label (nullable) is None
-        # and model_fields_set contains the field
-        if self.label is None and "label" in self.model_fields_set:
-            _dict['label'] = None
-
-        # set to None if var_property (nullable) is None
-        # and model_fields_set contains the field
-        if self.var_property is None and "var_property" in self.model_fields_set:
-            _dict['property'] = None
-
-        # set to None if inferred_type (nullable) is None
-        # and model_fields_set contains the field
-        if self.inferred_type is None and "inferred_type" in self.model_fields_set:
-            _dict['inferred_type'] = None
-
         return _dict
 
     @classmethod

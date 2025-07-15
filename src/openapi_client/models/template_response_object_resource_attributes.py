@@ -27,9 +27,9 @@ class TemplateResponseObjectResourceAttributes(BaseModel):
     """
     TemplateResponseObjectResourceAttributes
     """ # noqa: E501
-    name: Optional[StrictStr] = Field(description="The name of the template")
-    editor_type: Optional[StrictStr] = Field(description="`editor_type` has a fixed set of values: * SYSTEM_DRAGGABLE: indicates a drag-and-drop editor template * SIMPLE: A rich text editor template * CODE: A custom HTML template * USER_DRAGGABLE: A hybrid template, using custom HTML in the drag-and-drop editor")
-    html: Optional[StrictStr] = Field(description="The rendered HTML of the template")
+    name: StrictStr = Field(description="The name of the template")
+    editor_type: StrictStr = Field(description="`editor_type` has a fixed set of values: * SYSTEM_DRAGGABLE: indicates a drag-and-drop editor template * SIMPLE: A rich text editor template * CODE: A custom HTML template * USER_DRAGGABLE: A hybrid template, using custom HTML in the drag-and-drop editor")
+    html: StrictStr = Field(description="The rendered HTML of the template")
     text: Optional[StrictStr] = Field(default=None, description="The template plain_text")
     amp: Optional[StrictStr] = Field(default=None, description="The AMP version of the template. Requires AMP Email to be enabled to access in-app. Refer to the AMP Email setup guide at https://developers.klaviyo.com/en/docs/send_amp_emails_in_klaviyo")
     created: Optional[datetime] = Field(default=None, description="The date the template was created in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm)")
@@ -75,21 +75,6 @@ class TemplateResponseObjectResourceAttributes(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if name (nullable) is None
-        # and model_fields_set contains the field
-        if self.name is None and "name" in self.model_fields_set:
-            _dict['name'] = None
-
-        # set to None if editor_type (nullable) is None
-        # and model_fields_set contains the field
-        if self.editor_type is None and "editor_type" in self.model_fields_set:
-            _dict['editor_type'] = None
-
-        # set to None if html (nullable) is None
-        # and model_fields_set contains the field
-        if self.html is None and "html" in self.model_fields_set:
-            _dict['html'] = None
-
         # set to None if text (nullable) is None
         # and model_fields_set contains the field
         if self.text is None and "text" in self.model_fields_set:

@@ -26,9 +26,14 @@ from typing_extensions import Annotated
 from openapi_client.models.custom_metric_create_query import CustomMetricCreateQuery
 from openapi_client.models.custom_metric_partial_update_query import CustomMetricPartialUpdateQuery
 from openapi_client.models.get_custom_metric_metrics_relationships_response_collection import GetCustomMetricMetricsRelationshipsResponseCollection
+from openapi_client.models.get_custom_metric_response import GetCustomMetricResponse
 from openapi_client.models.get_custom_metric_response_collection_compound_document import GetCustomMetricResponseCollectionCompoundDocument
 from openapi_client.models.get_custom_metric_response_compound_document import GetCustomMetricResponseCompoundDocument
 from openapi_client.models.get_flow_response_collection import GetFlowResponseCollection
+from openapi_client.models.get_mapped_metric_custom_metric_relationship_response import GetMappedMetricCustomMetricRelationshipResponse
+from openapi_client.models.get_mapped_metric_metric_relationship_response import GetMappedMetricMetricRelationshipResponse
+from openapi_client.models.get_mapped_metric_response_collection_compound_document import GetMappedMetricResponseCollectionCompoundDocument
+from openapi_client.models.get_mapped_metric_response_compound_document import GetMappedMetricResponseCompoundDocument
 from openapi_client.models.get_metric_flow_triggers_relationships_response_collection import GetMetricFlowTriggersRelationshipsResponseCollection
 from openapi_client.models.get_metric_properties_relationships_response_collection import GetMetricPropertiesRelationshipsResponseCollection
 from openapi_client.models.get_metric_property_metric_relationship_response import GetMetricPropertyMetricRelationshipResponse
@@ -38,8 +43,10 @@ from openapi_client.models.get_metric_response import GetMetricResponse
 from openapi_client.models.get_metric_response_collection import GetMetricResponseCollection
 from openapi_client.models.get_metric_response_collection_compound_document import GetMetricResponseCollectionCompoundDocument
 from openapi_client.models.get_metric_response_compound_document import GetMetricResponseCompoundDocument
+from openapi_client.models.mapped_metric_partial_update_query import MappedMetricPartialUpdateQuery
 from openapi_client.models.metric_aggregate_query import MetricAggregateQuery
 from openapi_client.models.patch_custom_metric_response import PatchCustomMetricResponse
+from openapi_client.models.patch_mapped_metric_response import PatchMappedMetricResponse
 from openapi_client.models.post_custom_metric_response import PostCustomMetricResponse
 from openapi_client.models.post_metric_aggregate_response import PostMetricAggregateResponse
 
@@ -693,9 +700,9 @@ class MetricsApi(object):
     def get_custom_metric(        
         self,
         id: Annotated[StrictStr, Field(description="The ID of the custom metric")],
-        fields_custom_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#relationships")] = None,
+        fields_custom_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -716,11 +723,11 @@ class MetricsApi(object):
 
         :param id: The ID of the custom metric (required)
         :type id: str
-        :param fields_custom_metric: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_custom_metric: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets
         :type fields_custom_metric: List[str]
-        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets
         :type fields_metric: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -787,9 +794,9 @@ class MetricsApi(object):
     def get_custom_metric_with_http_info(        
         self,
         id: Annotated[StrictStr, Field(description="The ID of the custom metric")],
-        fields_custom_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#relationships")] = None,
+        fields_custom_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -810,11 +817,11 @@ class MetricsApi(object):
 
         :param id: The ID of the custom metric (required)
         :type id: str
-        :param fields_custom_metric: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_custom_metric: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets
         :type fields_custom_metric: List[str]
-        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets
         :type fields_metric: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -879,9 +886,9 @@ class MetricsApi(object):
     def get_custom_metric_without_preload_content(
         self,
         id: Annotated[StrictStr, Field(description="The ID of the custom metric")],
-        fields_custom_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#relationships")] = None,
+        fields_custom_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -900,11 +907,11 @@ class MetricsApi(object):
 
         :param id: The ID of the custom metric (required)
         :type id: str
-        :param fields_custom_metric: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_custom_metric: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets
         :type fields_custom_metric: List[str]
-        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets
         :type fields_metric: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1060,11 +1067,670 @@ class MetricsApi(object):
 
 
     @validate_call
+    def get_custom_metric_for_mapped_metric(        
+        self,
+        id: Annotated[StrictStr, Field(description="The type of mapping.")],
+        fields_custom_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: StrictStr = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+        options: Dict[str, Any] = {},
+) ->  Union[GetCustomMetricResponse, Dict[str, object]]:
+        """Get Custom Metric for Mapped Metric
+
+        Get the custom metric for the given mapped metric ID (if applicable).<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`
+
+        :param id: The type of mapping. (required)
+        :type id: str
+        :param fields_custom_metric: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_custom_metric: List[str]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_custom_metric_for_mapped_metric_serialize(
+            id=id,
+            fields_custom_metric=fields_custom_metric,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCustomMetricResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
+        }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
+        if _request_auth is not None:
+            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
+        ).data
+
+
+    # alias of get_custom_metric_for_mapped_metric
+    get_mapped_metric_custom_metric = get_custom_metric_for_mapped_metric
+
+    @validate_call
+    def get_custom_metric_for_mapped_metric_with_http_info(        
+        self,
+        id: Annotated[StrictStr, Field(description="The type of mapping.")],
+        fields_custom_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: StrictStr = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+        options: Dict[str, Any] = {},
+) -> ApiResponse[GetCustomMetricResponse]:
+        """Get Custom Metric for Mapped Metric
+
+        Get the custom metric for the given mapped metric ID (if applicable).<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`
+
+        :param id: The type of mapping. (required)
+        :type id: str
+        :param fields_custom_metric: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_custom_metric: List[str]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_custom_metric_for_mapped_metric_serialize(
+            id=id,
+            fields_custom_metric=fields_custom_metric,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCustomMetricResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
+        }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
+        if _request_auth is not None:
+            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    # alias of `get_custom_metric_for_mapped_metric_with_http_info`
+    get_mapped_metric_custom_metric_with_http_info = get_custom_metric_for_mapped_metric_with_http_info
+
+    @validate_call
+    def get_custom_metric_for_mapped_metric_without_preload_content(
+        self,
+        id: Annotated[StrictStr, Field(description="The type of mapping.")],
+        fields_custom_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: StrictStr = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
+        """Get Custom Metric for Mapped Metric
+
+        Get the custom metric for the given mapped metric ID (if applicable).<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`
+
+        :param id: The type of mapping. (required)
+        :type id: str
+        :param fields_custom_metric: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_custom_metric: List[str]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_custom_metric_for_mapped_metric_serialize(
+            id=id,
+            fields_custom_metric=fields_custom_metric,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCustomMetricResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
+        }
+        if _request_auth is not None:
+            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    # alias of `get_custom_metric_for_mapped_metric_without_preload_content`
+    get_mapped_metric_custom_metric_without_preload_content = get_custom_metric_for_mapped_metric_without_preload_content
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
+
+    def _get_custom_metric_for_mapped_metric_serialize(
+        self,
+        id,
+        fields_custom_metric,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+            'fields[custom-metric]': 'csv',
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if id is not None:
+            _path_params['id'] = id
+        # process the query parameters
+        if fields_custom_metric is not None:
+            
+            if isinstance(fields_custom_metric, EnumMeta):
+                _query_params.append(('fields[custom-metric]', fields_custom_metric))
+            else:
+                _query_params.append(('fields[custom-metric]', fields_custom_metric))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/vnd.api+json'
+            ]
+        )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'Klaviyo-API-Key', 
+            'OAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/api/mapped-metrics/{id}/custom-metric',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+    # alias of `_get_custom_metric_for_mapped_metric_serialize`
+    _get_mapped_metric_custom_metric_serialize = _get_custom_metric_for_mapped_metric_serialize
+
+
+
+    @validate_call
+    def get_custom_metric_id_for_mapped_metric(        
+        self,
+        id: Annotated[StrictStr, Field(description="The type of mapping.")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: StrictStr = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+        options: Dict[str, Any] = {},
+) ->  Union[GetMappedMetricCustomMetricRelationshipResponse, Dict[str, object]]:
+        """Get Custom Metric ID for Mapped Metric
+
+        Get the ID of the custom metric for the given mapped metric.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`
+
+        :param id: The type of mapping. (required)
+        :type id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_custom_metric_id_for_mapped_metric_serialize(
+            id=id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetMappedMetricCustomMetricRelationshipResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
+        }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
+        if _request_auth is not None:
+            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
+        ).data
+
+
+    # alias of get_custom_metric_id_for_mapped_metric
+    get_mapped_metric_relationships_custom_metric = get_custom_metric_id_for_mapped_metric
+
+    @validate_call
+    def get_custom_metric_id_for_mapped_metric_with_http_info(        
+        self,
+        id: Annotated[StrictStr, Field(description="The type of mapping.")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: StrictStr = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+        options: Dict[str, Any] = {},
+) -> ApiResponse[GetMappedMetricCustomMetricRelationshipResponse]:
+        """Get Custom Metric ID for Mapped Metric
+
+        Get the ID of the custom metric for the given mapped metric.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`
+
+        :param id: The type of mapping. (required)
+        :type id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_custom_metric_id_for_mapped_metric_serialize(
+            id=id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetMappedMetricCustomMetricRelationshipResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
+        }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
+        if _request_auth is not None:
+            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    # alias of `get_custom_metric_id_for_mapped_metric_with_http_info`
+    get_mapped_metric_relationships_custom_metric_with_http_info = get_custom_metric_id_for_mapped_metric_with_http_info
+
+    @validate_call
+    def get_custom_metric_id_for_mapped_metric_without_preload_content(
+        self,
+        id: Annotated[StrictStr, Field(description="The type of mapping.")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: StrictStr = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
+        """Get Custom Metric ID for Mapped Metric
+
+        Get the ID of the custom metric for the given mapped metric.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`
+
+        :param id: The type of mapping. (required)
+        :type id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_custom_metric_id_for_mapped_metric_serialize(
+            id=id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetMappedMetricCustomMetricRelationshipResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
+        }
+        if _request_auth is not None:
+            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    # alias of `get_custom_metric_id_for_mapped_metric_without_preload_content`
+    get_mapped_metric_relationships_custom_metric_without_preload_content = get_custom_metric_id_for_mapped_metric_without_preload_content
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
+
+    def _get_custom_metric_id_for_mapped_metric_serialize(
+        self,
+        id,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if id is not None:
+            _path_params['id'] = id
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/vnd.api+json'
+            ]
+        )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'Klaviyo-API-Key', 
+            'OAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/api/mapped-metrics/{id}/relationships/custom-metric',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+    # alias of `_get_custom_metric_id_for_mapped_metric_serialize`
+    _get_mapped_metric_relationships_custom_metric_serialize = _get_custom_metric_id_for_mapped_metric_serialize
+
+
+
+    @validate_call
     def get_custom_metrics(        
         self,
-        fields_custom_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#relationships")] = None,
+        fields_custom_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1083,11 +1749,11 @@ class MetricsApi(object):
 
         Get all custom metrics in an account.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`
 
-        :param fields_custom_metric: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_custom_metric: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets
         :type fields_custom_metric: List[str]
-        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets
         :type fields_metric: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1152,9 +1818,9 @@ class MetricsApi(object):
     @validate_call
     def get_custom_metrics_with_http_info(        
         self,
-        fields_custom_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#relationships")] = None,
+        fields_custom_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1173,11 +1839,11 @@ class MetricsApi(object):
 
         Get all custom metrics in an account.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`
 
-        :param fields_custom_metric: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_custom_metric: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets
         :type fields_custom_metric: List[str]
-        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets
         :type fields_metric: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1240,9 +1906,9 @@ class MetricsApi(object):
     @validate_call
     def get_custom_metrics_without_preload_content(
         self,
-        fields_custom_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#relationships")] = None,
+        fields_custom_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1259,11 +1925,11 @@ class MetricsApi(object):
 
         Get all custom metrics in an account.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`
 
-        :param fields_custom_metric: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_custom_metric: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets
         :type fields_custom_metric: List[str]
-        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets
         :type fields_metric: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1418,7 +2084,7 @@ class MetricsApi(object):
     def get_flows_triggered_by_metric(        
         self,
         id: StrictStr,
-        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1439,7 +2105,7 @@ class MetricsApi(object):
 
         :param id:  (required)
         :type id: str
-        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets
         :type fields_flow: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1510,7 +2176,7 @@ class MetricsApi(object):
     def get_flows_triggered_by_metric_with_http_info(        
         self,
         id: StrictStr,
-        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1531,7 +2197,7 @@ class MetricsApi(object):
 
         :param id:  (required)
         :type id: str
-        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets
         :type fields_flow: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1600,7 +2266,7 @@ class MetricsApi(object):
     def get_flows_triggered_by_metric_without_preload_content(
         self,
         id: StrictStr,
-        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1619,7 +2285,7 @@ class MetricsApi(object):
 
         :param id:  (required)
         :type id: str
-        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets
         :type fields_flow: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2098,12 +2764,779 @@ class MetricsApi(object):
 
 
     @validate_call
+    def get_mapped_metric(        
+        self,
+        id: Annotated[StrictStr, Field(description="The type of mapping.")],
+        fields_custom_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_mapped_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: StrictStr = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+        options: Dict[str, Any] = {},
+) ->  Union[GetMappedMetricResponseCompoundDocument, Dict[str, object]]:
+        """Get Mapped Metric
+
+        Get the mapped metric with the given ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`
+
+        :param id: The type of mapping. (required)
+        :type id: str
+        :param fields_custom_metric: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_custom_metric: List[str]
+        :param fields_mapped_metric: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_mapped_metric: List[str]
+        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_metric: List[str]
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships
+        :type include: List[str]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_mapped_metric_serialize(
+            id=id,
+            fields_custom_metric=fields_custom_metric,
+            fields_mapped_metric=fields_mapped_metric,
+            fields_metric=fields_metric,
+            include=include,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetMappedMetricResponseCompoundDocument",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
+        }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
+        if _request_auth is not None:
+            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
+        ).data
+
+
+    @validate_call
+    def get_mapped_metric_with_http_info(        
+        self,
+        id: Annotated[StrictStr, Field(description="The type of mapping.")],
+        fields_custom_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_mapped_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: StrictStr = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+        options: Dict[str, Any] = {},
+) -> ApiResponse[GetMappedMetricResponseCompoundDocument]:
+        """Get Mapped Metric
+
+        Get the mapped metric with the given ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`
+
+        :param id: The type of mapping. (required)
+        :type id: str
+        :param fields_custom_metric: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_custom_metric: List[str]
+        :param fields_mapped_metric: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_mapped_metric: List[str]
+        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_metric: List[str]
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships
+        :type include: List[str]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_mapped_metric_serialize(
+            id=id,
+            fields_custom_metric=fields_custom_metric,
+            fields_mapped_metric=fields_mapped_metric,
+            fields_metric=fields_metric,
+            include=include,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetMappedMetricResponseCompoundDocument",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
+        }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
+        if _request_auth is not None:
+            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def get_mapped_metric_without_preload_content(
+        self,
+        id: Annotated[StrictStr, Field(description="The type of mapping.")],
+        fields_custom_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_mapped_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: StrictStr = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
+        """Get Mapped Metric
+
+        Get the mapped metric with the given ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`
+
+        :param id: The type of mapping. (required)
+        :type id: str
+        :param fields_custom_metric: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_custom_metric: List[str]
+        :param fields_mapped_metric: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_mapped_metric: List[str]
+        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_metric: List[str]
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships
+        :type include: List[str]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_mapped_metric_serialize(
+            id=id,
+            fields_custom_metric=fields_custom_metric,
+            fields_mapped_metric=fields_mapped_metric,
+            fields_metric=fields_metric,
+            include=include,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetMappedMetricResponseCompoundDocument",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
+        }
+        if _request_auth is not None:
+            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
+
+    def _get_mapped_metric_serialize(
+        self,
+        id,
+        fields_custom_metric,
+        fields_mapped_metric,
+        fields_metric,
+        include,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+            'fields[custom-metric]': 'csv',
+            'fields[mapped-metric]': 'csv',
+            'fields[metric]': 'csv',
+            'include': 'csv',
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if id is not None:
+            _path_params['id'] = id
+        # process the query parameters
+        if fields_custom_metric is not None:
+            
+            if isinstance(fields_custom_metric, EnumMeta):
+                _query_params.append(('fields[custom-metric]', fields_custom_metric))
+            else:
+                _query_params.append(('fields[custom-metric]', fields_custom_metric))
+            
+        if fields_mapped_metric is not None:
+            
+            if isinstance(fields_mapped_metric, EnumMeta):
+                _query_params.append(('fields[mapped-metric]', fields_mapped_metric))
+            else:
+                _query_params.append(('fields[mapped-metric]', fields_mapped_metric))
+            
+        if fields_metric is not None:
+            
+            if isinstance(fields_metric, EnumMeta):
+                _query_params.append(('fields[metric]', fields_metric))
+            else:
+                _query_params.append(('fields[metric]', fields_metric))
+            
+        if include is not None:
+            
+            if isinstance(include, EnumMeta):
+                _query_params.append(('include', include))
+            else:
+                _query_params.append(('include', include))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/vnd.api+json'
+            ]
+        )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'Klaviyo-API-Key', 
+            'OAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/api/mapped-metrics/{id}',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def get_mapped_metrics(        
+        self,
+        fields_custom_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_mapped_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: StrictStr = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+        options: Dict[str, Any] = {},
+) ->  Union[GetMappedMetricResponseCollectionCompoundDocument, Dict[str, object]]:
+        """Get Mapped Metrics
+
+        Get all mapped metrics in an account.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`
+
+        :param fields_custom_metric: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_custom_metric: List[str]
+        :param fields_mapped_metric: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_mapped_metric: List[str]
+        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_metric: List[str]
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships
+        :type include: List[str]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_mapped_metrics_serialize(
+            fields_custom_metric=fields_custom_metric,
+            fields_mapped_metric=fields_mapped_metric,
+            fields_metric=fields_metric,
+            include=include,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetMappedMetricResponseCollectionCompoundDocument",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
+        }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
+        if _request_auth is not None:
+            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
+        ).data
+
+
+    @validate_call
+    def get_mapped_metrics_with_http_info(        
+        self,
+        fields_custom_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_mapped_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: StrictStr = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+        options: Dict[str, Any] = {},
+) -> ApiResponse[GetMappedMetricResponseCollectionCompoundDocument]:
+        """Get Mapped Metrics
+
+        Get all mapped metrics in an account.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`
+
+        :param fields_custom_metric: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_custom_metric: List[str]
+        :param fields_mapped_metric: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_mapped_metric: List[str]
+        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_metric: List[str]
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships
+        :type include: List[str]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_mapped_metrics_serialize(
+            fields_custom_metric=fields_custom_metric,
+            fields_mapped_metric=fields_mapped_metric,
+            fields_metric=fields_metric,
+            include=include,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetMappedMetricResponseCollectionCompoundDocument",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
+        }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
+        if _request_auth is not None:
+            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def get_mapped_metrics_without_preload_content(
+        self,
+        fields_custom_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_mapped_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: StrictStr = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
+        """Get Mapped Metrics
+
+        Get all mapped metrics in an account.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`
+
+        :param fields_custom_metric: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_custom_metric: List[str]
+        :param fields_mapped_metric: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_mapped_metric: List[str]
+        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_metric: List[str]
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships
+        :type include: List[str]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_mapped_metrics_serialize(
+            fields_custom_metric=fields_custom_metric,
+            fields_mapped_metric=fields_mapped_metric,
+            fields_metric=fields_metric,
+            include=include,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetMappedMetricResponseCollectionCompoundDocument",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
+        }
+        if _request_auth is not None:
+            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
+
+    def _get_mapped_metrics_serialize(
+        self,
+        fields_custom_metric,
+        fields_mapped_metric,
+        fields_metric,
+        include,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+            'fields[custom-metric]': 'csv',
+            'fields[mapped-metric]': 'csv',
+            'fields[metric]': 'csv',
+            'include': 'csv',
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        if fields_custom_metric is not None:
+            
+            if isinstance(fields_custom_metric, EnumMeta):
+                _query_params.append(('fields[custom-metric]', fields_custom_metric))
+            else:
+                _query_params.append(('fields[custom-metric]', fields_custom_metric))
+            
+        if fields_mapped_metric is not None:
+            
+            if isinstance(fields_mapped_metric, EnumMeta):
+                _query_params.append(('fields[mapped-metric]', fields_mapped_metric))
+            else:
+                _query_params.append(('fields[mapped-metric]', fields_mapped_metric))
+            
+        if fields_metric is not None:
+            
+            if isinstance(fields_metric, EnumMeta):
+                _query_params.append(('fields[metric]', fields_metric))
+            else:
+                _query_params.append(('fields[metric]', fields_metric))
+            
+        if include is not None:
+            
+            if isinstance(include, EnumMeta):
+                _query_params.append(('include', include))
+            else:
+                _query_params.append(('include', include))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/vnd.api+json'
+            ]
+        )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'Klaviyo-API-Key', 
+            'OAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/api/mapped-metrics',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
     def get_metric(        
         self,
         id: Annotated[StrictStr, Field(description="Metric ID")],
-        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#relationships")] = None,
+        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2124,11 +3557,11 @@ class MetricsApi(object):
 
         :param id: Metric ID (required)
         :type id: str
-        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets
         :type fields_flow: List[str]
-        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets
         :type fields_metric: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2195,9 +3628,9 @@ class MetricsApi(object):
     def get_metric_with_http_info(        
         self,
         id: Annotated[StrictStr, Field(description="Metric ID")],
-        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#relationships")] = None,
+        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2218,11 +3651,11 @@ class MetricsApi(object):
 
         :param id: Metric ID (required)
         :type id: str
-        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets
         :type fields_flow: List[str]
-        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets
         :type fields_metric: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2287,9 +3720,9 @@ class MetricsApi(object):
     def get_metric_without_preload_content(
         self,
         id: Annotated[StrictStr, Field(description="Metric ID")],
-        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#relationships")] = None,
+        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2308,11 +3741,11 @@ class MetricsApi(object):
 
         :param id: Metric ID (required)
         :type id: str
-        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets
         :type fields_flow: List[str]
-        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets
         :type fields_metric: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2468,10 +3901,350 @@ class MetricsApi(object):
 
 
     @validate_call
+    def get_metric_for_mapped_metric(        
+        self,
+        id: Annotated[StrictStr, Field(description="The type of mapping.")],
+        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: StrictStr = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+        options: Dict[str, Any] = {},
+) ->  Union[GetMetricResponse, Dict[str, object]]:
+        """Get Metric for Mapped Metric
+
+        Get the metric for the given mapped metric ID (if applicable).<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`
+
+        :param id: The type of mapping. (required)
+        :type id: str
+        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_metric: List[str]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_metric_for_mapped_metric_serialize(
+            id=id,
+            fields_metric=fields_metric,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetMetricResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
+        }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
+        if _request_auth is not None:
+            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
+        ).data
+
+
+    # alias of get_metric_for_mapped_metric
+    get_mapped_metric_metric = get_metric_for_mapped_metric
+
+    @validate_call
+    def get_metric_for_mapped_metric_with_http_info(        
+        self,
+        id: Annotated[StrictStr, Field(description="The type of mapping.")],
+        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: StrictStr = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+        options: Dict[str, Any] = {},
+) -> ApiResponse[GetMetricResponse]:
+        """Get Metric for Mapped Metric
+
+        Get the metric for the given mapped metric ID (if applicable).<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`
+
+        :param id: The type of mapping. (required)
+        :type id: str
+        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_metric: List[str]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_metric_for_mapped_metric_serialize(
+            id=id,
+            fields_metric=fields_metric,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetMetricResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
+        }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
+        if _request_auth is not None:
+            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    # alias of `get_metric_for_mapped_metric_with_http_info`
+    get_mapped_metric_metric_with_http_info = get_metric_for_mapped_metric_with_http_info
+
+    @validate_call
+    def get_metric_for_mapped_metric_without_preload_content(
+        self,
+        id: Annotated[StrictStr, Field(description="The type of mapping.")],
+        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: StrictStr = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
+        """Get Metric for Mapped Metric
+
+        Get the metric for the given mapped metric ID (if applicable).<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`
+
+        :param id: The type of mapping. (required)
+        :type id: str
+        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_metric: List[str]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_metric_for_mapped_metric_serialize(
+            id=id,
+            fields_metric=fields_metric,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetMetricResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
+        }
+        if _request_auth is not None:
+            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    # alias of `get_metric_for_mapped_metric_without_preload_content`
+    get_mapped_metric_metric_without_preload_content = get_metric_for_mapped_metric_without_preload_content
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
+
+    def _get_metric_for_mapped_metric_serialize(
+        self,
+        id,
+        fields_metric,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+            'fields[metric]': 'csv',
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if id is not None:
+            _path_params['id'] = id
+        # process the query parameters
+        if fields_metric is not None:
+            
+            if isinstance(fields_metric, EnumMeta):
+                _query_params.append(('fields[metric]', fields_metric))
+            else:
+                _query_params.append(('fields[metric]', fields_metric))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/vnd.api+json'
+            ]
+        )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'Klaviyo-API-Key', 
+            'OAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/api/mapped-metrics/{id}/metric',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+    # alias of `_get_metric_for_mapped_metric_serialize`
+    _get_mapped_metric_metric_serialize = _get_metric_for_mapped_metric_serialize
+
+
+
+    @validate_call
     def get_metric_for_metric_property(        
         self,
         id: Annotated[StrictStr, Field(description="The ID of the metric property")],
-        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2492,7 +4265,7 @@ class MetricsApi(object):
 
         :param id: The ID of the metric property (required)
         :type id: str
-        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets
         :type fields_metric: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2560,7 +4333,7 @@ class MetricsApi(object):
     def get_metric_for_metric_property_with_http_info(        
         self,
         id: Annotated[StrictStr, Field(description="The ID of the metric property")],
-        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2581,7 +4354,7 @@ class MetricsApi(object):
 
         :param id: The ID of the metric property (required)
         :type id: str
-        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets
         :type fields_metric: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2647,7 +4420,7 @@ class MetricsApi(object):
     def get_metric_for_metric_property_without_preload_content(
         self,
         id: Annotated[StrictStr, Field(description="The ID of the metric property")],
-        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2666,7 +4439,7 @@ class MetricsApi(object):
 
         :param id: The ID of the metric property (required)
         :type id: str
-        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets
         :type fields_metric: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2804,6 +4577,325 @@ class MetricsApi(object):
 
     # alias of `_get_metric_for_metric_property_serialize`
     _get_metric_property_metric_serialize = _get_metric_for_metric_property_serialize
+
+
+
+    @validate_call
+    def get_metric_id_for_mapped_metric(        
+        self,
+        id: Annotated[StrictStr, Field(description="The type of mapping.")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: StrictStr = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+        options: Dict[str, Any] = {},
+) ->  Union[GetMappedMetricMetricRelationshipResponse, Dict[str, object]]:
+        """Get Metric ID for Mapped Metric
+
+        Get the ID of the metric for the given mapped metric.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`
+
+        :param id: The type of mapping. (required)
+        :type id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_metric_id_for_mapped_metric_serialize(
+            id=id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetMappedMetricMetricRelationshipResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
+        }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
+        if _request_auth is not None:
+            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
+        ).data
+
+
+    # alias of get_metric_id_for_mapped_metric
+    get_mapped_metric_relationships_metric = get_metric_id_for_mapped_metric
+
+    @validate_call
+    def get_metric_id_for_mapped_metric_with_http_info(        
+        self,
+        id: Annotated[StrictStr, Field(description="The type of mapping.")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: StrictStr = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+        options: Dict[str, Any] = {},
+) -> ApiResponse[GetMappedMetricMetricRelationshipResponse]:
+        """Get Metric ID for Mapped Metric
+
+        Get the ID of the metric for the given mapped metric.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`
+
+        :param id: The type of mapping. (required)
+        :type id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_metric_id_for_mapped_metric_serialize(
+            id=id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetMappedMetricMetricRelationshipResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
+        }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
+        if _request_auth is not None:
+            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    # alias of `get_metric_id_for_mapped_metric_with_http_info`
+    get_mapped_metric_relationships_metric_with_http_info = get_metric_id_for_mapped_metric_with_http_info
+
+    @validate_call
+    def get_metric_id_for_mapped_metric_without_preload_content(
+        self,
+        id: Annotated[StrictStr, Field(description="The type of mapping.")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: StrictStr = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
+        """Get Metric ID for Mapped Metric
+
+        Get the ID of the metric for the given mapped metric.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`
+
+        :param id: The type of mapping. (required)
+        :type id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_metric_id_for_mapped_metric_serialize(
+            id=id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetMappedMetricMetricRelationshipResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
+        }
+        if _request_auth is not None:
+            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    # alias of `get_metric_id_for_mapped_metric_without_preload_content`
+    get_mapped_metric_relationships_metric_without_preload_content = get_metric_id_for_mapped_metric_without_preload_content
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
+
+    def _get_metric_id_for_mapped_metric_serialize(
+        self,
+        id,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if id is not None:
+            _path_params['id'] = id
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/vnd.api+json'
+            ]
+        )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'Klaviyo-API-Key', 
+            'OAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/api/mapped-metrics/{id}/relationships/metric',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+    # alias of `_get_metric_id_for_mapped_metric_serialize`
+    _get_mapped_metric_relationships_metric_serialize = _get_metric_id_for_mapped_metric_serialize
 
 
 
@@ -3450,9 +5542,9 @@ class MetricsApi(object):
         self,
         id: Annotated[StrictStr, Field(description="The ID of the metric property")],
         additional_fields_metric_property: Annotated[Optional[List[StrictStr]], Field(description="Request additional fields not included by default in the response. Supported values: 'sample_values'")] = None,
-        fields_metric_property: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#relationships")] = None,
+        fields_metric_property: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3475,11 +5567,11 @@ class MetricsApi(object):
         :type id: str
         :param additional_fields_metric_property: Request additional fields not included by default in the response. Supported values: 'sample_values'
         :type additional_fields_metric_property: List[str]
-        :param fields_metric_property: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_metric_property: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets
         :type fields_metric_property: List[str]
-        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets
         :type fields_metric: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3548,9 +5640,9 @@ class MetricsApi(object):
         self,
         id: Annotated[StrictStr, Field(description="The ID of the metric property")],
         additional_fields_metric_property: Annotated[Optional[List[StrictStr]], Field(description="Request additional fields not included by default in the response. Supported values: 'sample_values'")] = None,
-        fields_metric_property: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#relationships")] = None,
+        fields_metric_property: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3573,11 +5665,11 @@ class MetricsApi(object):
         :type id: str
         :param additional_fields_metric_property: Request additional fields not included by default in the response. Supported values: 'sample_values'
         :type additional_fields_metric_property: List[str]
-        :param fields_metric_property: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_metric_property: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets
         :type fields_metric_property: List[str]
-        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets
         :type fields_metric: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3644,9 +5736,9 @@ class MetricsApi(object):
         self,
         id: Annotated[StrictStr, Field(description="The ID of the metric property")],
         additional_fields_metric_property: Annotated[Optional[List[StrictStr]], Field(description="Request additional fields not included by default in the response. Supported values: 'sample_values'")] = None,
-        fields_metric_property: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#relationships")] = None,
+        fields_metric_property: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3667,11 +5759,11 @@ class MetricsApi(object):
         :type id: str
         :param additional_fields_metric_property: Request additional fields not included by default in the response. Supported values: 'sample_values'
         :type additional_fields_metric_property: List[str]
-        :param fields_metric_property: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_metric_property: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets
         :type fields_metric_property: List[str]
-        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets
         :type fields_metric: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3839,11 +5931,11 @@ class MetricsApi(object):
     @validate_call
     def get_metrics(        
         self,
-        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`integration.name`: `equals`<br>`integration.category`: `equals`")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#relationships")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#pagination")] = None,
+        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`integration.name`: `equals`<br>`integration.category`: `equals`")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3862,15 +5954,15 @@ class MetricsApi(object):
 
         Get all metrics in an account.  Requests can be filtered by the following fields: integration `name`, integration `category`  Returns a maximum of 200 results per page.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `metrics:read`
 
-        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets
         :type fields_flow: List[str]
-        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets
         :type fields_metric: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`integration.name`: `equals`<br>`integration.category`: `equals`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`integration.name`: `equals`<br>`integration.category`: `equals`
         :type filter: str
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships
         :type include: List[str]
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination
         :type page_cursor: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3937,11 +6029,11 @@ class MetricsApi(object):
     @validate_call
     def get_metrics_with_http_info(        
         self,
-        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`integration.name`: `equals`<br>`integration.category`: `equals`")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#relationships")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#pagination")] = None,
+        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`integration.name`: `equals`<br>`integration.category`: `equals`")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3960,15 +6052,15 @@ class MetricsApi(object):
 
         Get all metrics in an account.  Requests can be filtered by the following fields: integration `name`, integration `category`  Returns a maximum of 200 results per page.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `metrics:read`
 
-        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets
         :type fields_flow: List[str]
-        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets
         :type fields_metric: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`integration.name`: `equals`<br>`integration.category`: `equals`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`integration.name`: `equals`<br>`integration.category`: `equals`
         :type filter: str
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships
         :type include: List[str]
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination
         :type page_cursor: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -4033,11 +6125,11 @@ class MetricsApi(object):
     @validate_call
     def get_metrics_without_preload_content(
         self,
-        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`integration.name`: `equals`<br>`integration.category`: `equals`")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#relationships")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#pagination")] = None,
+        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`integration.name`: `equals`<br>`integration.category`: `equals`")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4054,15 +6146,15 @@ class MetricsApi(object):
 
         Get all metrics in an account.  Requests can be filtered by the following fields: integration `name`, integration `category`  Returns a maximum of 200 results per page.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `metrics:read`
 
-        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets
         :type fields_flow: List[str]
-        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets
         :type fields_metric: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`integration.name`: `equals`<br>`integration.category`: `equals`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`integration.name`: `equals`<br>`integration.category`: `equals`
         :type filter: str
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#relationships
         :type include: List[str]
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#pagination
         :type page_cursor: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -4235,7 +6327,7 @@ class MetricsApi(object):
     def get_metrics_for_custom_metric(        
         self,
         id: Annotated[StrictStr, Field(description="The ID of the custom metric")],
-        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4256,7 +6348,7 @@ class MetricsApi(object):
 
         :param id: The ID of the custom metric (required)
         :type id: str
-        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets
         :type fields_metric: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -4324,7 +6416,7 @@ class MetricsApi(object):
     def get_metrics_for_custom_metric_with_http_info(        
         self,
         id: Annotated[StrictStr, Field(description="The ID of the custom metric")],
-        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4345,7 +6437,7 @@ class MetricsApi(object):
 
         :param id: The ID of the custom metric (required)
         :type id: str
-        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets
         :type fields_metric: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -4411,7 +6503,7 @@ class MetricsApi(object):
     def get_metrics_for_custom_metric_without_preload_content(
         self,
         id: Annotated[StrictStr, Field(description="The ID of the custom metric")],
-        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4430,7 +6522,7 @@ class MetricsApi(object):
 
         :param id: The ID of the custom metric (required)
         :type id: str
-        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets
         :type fields_metric: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -4576,7 +6668,7 @@ class MetricsApi(object):
         self,
         id: Annotated[StrictStr, Field(description="The ID of the metric")],
         additional_fields_metric_property: Annotated[Optional[List[StrictStr]], Field(description="Request additional fields not included by default in the response. Supported values: 'sample_values'")] = None,
-        fields_metric_property: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_metric_property: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4599,7 +6691,7 @@ class MetricsApi(object):
         :type id: str
         :param additional_fields_metric_property: Request additional fields not included by default in the response. Supported values: 'sample_values'
         :type additional_fields_metric_property: List[str]
-        :param fields_metric_property: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_metric_property: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets
         :type fields_metric_property: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -4672,7 +6764,7 @@ class MetricsApi(object):
         self,
         id: Annotated[StrictStr, Field(description="The ID of the metric")],
         additional_fields_metric_property: Annotated[Optional[List[StrictStr]], Field(description="Request additional fields not included by default in the response. Supported values: 'sample_values'")] = None,
-        fields_metric_property: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_metric_property: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4695,7 +6787,7 @@ class MetricsApi(object):
         :type id: str
         :param additional_fields_metric_property: Request additional fields not included by default in the response. Supported values: 'sample_values'
         :type additional_fields_metric_property: List[str]
-        :param fields_metric_property: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_metric_property: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets
         :type fields_metric_property: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -4766,7 +6858,7 @@ class MetricsApi(object):
         self,
         id: Annotated[StrictStr, Field(description="The ID of the metric")],
         additional_fields_metric_property: Annotated[Optional[List[StrictStr]], Field(description="Request additional fields not included by default in the response. Supported values: 'sample_values'")] = None,
-        fields_metric_property: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_metric_property: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4787,7 +6879,7 @@ class MetricsApi(object):
         :type id: str
         :param additional_fields_metric_property: Request additional fields not included by default in the response. Supported values: 'sample_values'
         :type additional_fields_metric_property: List[str]
-        :param fields_metric_property: For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_metric_property: For more information please visit https://developers.klaviyo.com/en/v2025-07-15/reference/api-overview#sparse-fieldsets
         :type fields_metric_property: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -5927,6 +8019,341 @@ class MetricsApi(object):
         return self.api_client.param_serialize(
             method='PATCH',
             resource_path='/api/custom-metrics/{id}',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def update_mapped_metric(        
+        self,
+        id: Annotated[StrictStr, Field(description="The type of mapping.")],
+        mapped_metric_partial_update_query: Annotated[MappedMetricPartialUpdateQuery, Field(description="Update a mapped metric by ID")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: StrictStr = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+        options: Dict[str, Any] = {},
+) ->  Union[PatchMappedMetricResponse, Dict[str, object]]:
+        """Update Mapped Metric
+
+        Update the mapped metric with the given ID.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`<br>Daily: `30/d`  **Scopes:** `metrics:write`
+
+        :param id: The type of mapping. (required)
+        :type id: str
+        :param mapped_metric_partial_update_query: Update a mapped metric by ID (required)
+        :type mapped_metric_partial_update_query: MappedMetricPartialUpdateQuery
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._update_mapped_metric_serialize(
+            id=id,
+            mapped_metric_partial_update_query=mapped_metric_partial_update_query,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "PatchMappedMetricResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
+        }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
+        if _request_auth is not None:
+            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
+        ).data
+
+
+    @validate_call
+    def update_mapped_metric_with_http_info(        
+        self,
+        id: Annotated[StrictStr, Field(description="The type of mapping.")],
+        mapped_metric_partial_update_query: Annotated[MappedMetricPartialUpdateQuery, Field(description="Update a mapped metric by ID")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: StrictStr = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+        options: Dict[str, Any] = {},
+) -> ApiResponse[PatchMappedMetricResponse]:
+        """Update Mapped Metric
+
+        Update the mapped metric with the given ID.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`<br>Daily: `30/d`  **Scopes:** `metrics:write`
+
+        :param id: The type of mapping. (required)
+        :type id: str
+        :param mapped_metric_partial_update_query: Update a mapped metric by ID (required)
+        :type mapped_metric_partial_update_query: MappedMetricPartialUpdateQuery
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._update_mapped_metric_serialize(
+            id=id,
+            mapped_metric_partial_update_query=mapped_metric_partial_update_query,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "PatchMappedMetricResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
+        }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
+        if _request_auth is not None:
+            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def update_mapped_metric_without_preload_content(
+        self,
+        id: Annotated[StrictStr, Field(description="The type of mapping.")],
+        mapped_metric_partial_update_query: Annotated[MappedMetricPartialUpdateQuery, Field(description="Update a mapped metric by ID")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: StrictStr = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
+        """Update Mapped Metric
+
+        Update the mapped metric with the given ID.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`<br>Daily: `30/d`  **Scopes:** `metrics:write`
+
+        :param id: The type of mapping. (required)
+        :type id: str
+        :param mapped_metric_partial_update_query: Update a mapped metric by ID (required)
+        :type mapped_metric_partial_update_query: MappedMetricPartialUpdateQuery
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._update_mapped_metric_serialize(
+            id=id,
+            mapped_metric_partial_update_query=mapped_metric_partial_update_query,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "PatchMappedMetricResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
+        }
+        if _request_auth is not None:
+            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
+
+    def _update_mapped_metric_serialize(
+        self,
+        id,
+        mapped_metric_partial_update_query,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if id is not None:
+            _path_params['id'] = id
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if mapped_metric_partial_update_query is not None:
+            _body_params = mapped_metric_partial_update_query
+
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/vnd.api+json'
+            ]
+        )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/vnd.api+json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'Klaviyo-API-Key', 
+            'OAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='PATCH',
+            resource_path='/api/mapped-metrics/{id}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

@@ -20,8 +20,8 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
 from openapi_client.models.campaign_recipient_estimation_job_enum import CampaignRecipientEstimationJobEnum
+from openapi_client.models.campaign_recipient_estimation_job_response_object_resource_attributes import CampaignRecipientEstimationJobResponseObjectResourceAttributes
 from openapi_client.models.object_links import ObjectLinks
-from openapi_client.models.post_campaign_recipient_estimation_job_response_data_attributes import PostCampaignRecipientEstimationJobResponseDataAttributes
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -31,7 +31,7 @@ class PostCampaignRecipientEstimationJobResponseData(BaseModel):
     """ # noqa: E501
     type: CampaignRecipientEstimationJobEnum
     id: StrictStr = Field(description="The ID of the campaign used for estimating recipients")
-    attributes: PostCampaignRecipientEstimationJobResponseDataAttributes
+    attributes: CampaignRecipientEstimationJobResponseObjectResourceAttributes
     links: ObjectLinks
     __properties: ClassVar[List[str]] = ["type", "id", "attributes", "links"]
 
@@ -94,7 +94,7 @@ class PostCampaignRecipientEstimationJobResponseData(BaseModel):
         _obj = cls.model_validate({
             "type": obj.get("type"),
             "id": obj.get("id"),
-            "attributes": PostCampaignRecipientEstimationJobResponseDataAttributes.from_dict(obj["attributes"]) if obj.get("attributes") is not None else None,
+            "attributes": CampaignRecipientEstimationJobResponseObjectResourceAttributes.from_dict(obj["attributes"]) if obj.get("attributes") is not None else None,
             "links": ObjectLinks.from_dict(obj["links"]) if obj.get("links") is not None else None
         })
         return _obj

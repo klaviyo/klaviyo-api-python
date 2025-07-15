@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -26,7 +26,7 @@ class UniversalContentCreateQueryResourceObjectAttributes(BaseModel):
     """
     UniversalContentCreateQueryResourceObjectAttributes
     """ # noqa: E501
-    name: Optional[StrictStr] = Field(description="The name for this universal content")
+    name: StrictStr = Field(description="The name for this universal content")
     definition: Dict[str, Any]
     __properties: ClassVar[List[str]] = ["name", "definition"]
 
@@ -69,11 +69,6 @@ class UniversalContentCreateQueryResourceObjectAttributes(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if name (nullable) is None
-        # and model_fields_set contains the field
-        if self.name is None and "name" in self.model_fields_set:
-            _dict['name'] = None
-
         return _dict
 
     @classmethod

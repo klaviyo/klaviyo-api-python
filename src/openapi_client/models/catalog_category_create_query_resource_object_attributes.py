@@ -26,8 +26,8 @@ class CatalogCategoryCreateQueryResourceObjectAttributes(BaseModel):
     """
     CatalogCategoryCreateQueryResourceObjectAttributes
     """ # noqa: E501
-    external_id: Optional[StrictStr] = Field(description="The ID of the catalog category in an external system.")
-    name: Optional[StrictStr] = Field(description="The name of the catalog category.")
+    external_id: StrictStr = Field(description="The ID of the catalog category in an external system.")
+    name: StrictStr = Field(description="The name of the catalog category.")
     integration_type: Optional[StrictStr] = Field(default='$custom', description="The integration type. Currently only \"$custom\" is supported.")
     catalog_type: Optional[StrictStr] = Field(default='$default', description="The type of catalog. Currently only \"$default\" is supported.")
     __properties: ClassVar[List[str]] = ["external_id", "name", "integration_type", "catalog_type"]
@@ -81,16 +81,6 @@ class CatalogCategoryCreateQueryResourceObjectAttributes(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if external_id (nullable) is None
-        # and model_fields_set contains the field
-        if self.external_id is None and "external_id" in self.model_fields_set:
-            _dict['external_id'] = None
-
-        # set to None if name (nullable) is None
-        # and model_fields_set contains the field
-        if self.name is None and "name" in self.model_fields_set:
-            _dict['name'] = None
-
         # set to None if integration_type (nullable) is None
         # and model_fields_set contains the field
         if self.integration_type is None and "integration_type" in self.model_fields_set:

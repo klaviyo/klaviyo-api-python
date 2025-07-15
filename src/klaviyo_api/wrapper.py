@@ -19,7 +19,7 @@ class KlaviyoAPI:
     options: Dict[str, Any] = field(default_factory=dict)
 
 
-    _REVISION = "2025-04-15"
+    _REVISION = "2025-07-15"
 
     _STATUS_CODE_CONNECTION_RESET_BY_PEER = 104
     _STATUS_CODE_TOO_MANY_REQUESTS = 429
@@ -311,6 +311,23 @@ class KlaviyoAPI:
         return Coupons
     
     @property
+    def Custom_Objects(self):
+        from openapi_client.api import custom_objects_api
+
+        ## Adding Custom_Objects to Client
+        Custom_Objects=custom_objects_api.CustomObjectsApi(self.api_client)
+
+        ## Applying retry decorator to each endpoint in Custom_Objects
+        Custom_Objects.bulk_create_data_source_records=self._page_cursor_update(self.retry_logic(Custom_Objects.bulk_create_data_source_records))
+        Custom_Objects.create_data_source_record_bulk_create_job=self._page_cursor_update(self.retry_logic(Custom_Objects.create_data_source_record_bulk_create_job))
+        Custom_Objects.create_data_source=self._page_cursor_update(self.retry_logic(Custom_Objects.create_data_source))
+        Custom_Objects.delete_data_source=self._page_cursor_update(self.retry_logic(Custom_Objects.delete_data_source))
+        Custom_Objects.get_data_source=self._page_cursor_update(self.retry_logic(Custom_Objects.get_data_source))
+        Custom_Objects.get_data_sources=self._page_cursor_update(self.retry_logic(Custom_Objects.get_data_sources))
+        
+        return Custom_Objects
+    
+    @property
     def Data_Privacy(self):
         from openapi_client.api import data_privacy_api
 
@@ -482,6 +499,10 @@ class KlaviyoAPI:
         Metrics.create_custom_metric=self._page_cursor_update(self.retry_logic(Metrics.create_custom_metric))
         Metrics.delete_custom_metric=self._page_cursor_update(self.retry_logic(Metrics.delete_custom_metric))
         Metrics.get_custom_metric=self._page_cursor_update(self.retry_logic(Metrics.get_custom_metric))
+        Metrics.get_custom_metric_for_mapped_metric=self._page_cursor_update(self.retry_logic(Metrics.get_custom_metric_for_mapped_metric))
+        Metrics.get_mapped_metric_custom_metric=self._page_cursor_update(self.retry_logic(Metrics.get_mapped_metric_custom_metric))
+        Metrics.get_custom_metric_id_for_mapped_metric=self._page_cursor_update(self.retry_logic(Metrics.get_custom_metric_id_for_mapped_metric))
+        Metrics.get_mapped_metric_relationships_custom_metric=self._page_cursor_update(self.retry_logic(Metrics.get_mapped_metric_relationships_custom_metric))
         Metrics.get_custom_metrics=self._page_cursor_update(self.retry_logic(Metrics.get_custom_metrics))
         Metrics.get_flows_triggered_by_metric=self._page_cursor_update(self.retry_logic(Metrics.get_flows_triggered_by_metric))
         Metrics.get_flow_triggers_for_metric=self._page_cursor_update(self.retry_logic(Metrics.get_flow_triggers_for_metric))
@@ -489,9 +510,15 @@ class KlaviyoAPI:
         Metrics.get_ids_for_flows_triggered_by_metric=self._page_cursor_update(self.retry_logic(Metrics.get_ids_for_flows_triggered_by_metric))
         Metrics.get_flow_trigger_ids_for_metric=self._page_cursor_update(self.retry_logic(Metrics.get_flow_trigger_ids_for_metric))
         Metrics.get_metric_relationships_flow_triggers=self._page_cursor_update(self.retry_logic(Metrics.get_metric_relationships_flow_triggers))
+        Metrics.get_mapped_metric=self._page_cursor_update(self.retry_logic(Metrics.get_mapped_metric))
+        Metrics.get_mapped_metrics=self._page_cursor_update(self.retry_logic(Metrics.get_mapped_metrics))
         Metrics.get_metric=self._page_cursor_update(self.retry_logic(Metrics.get_metric))
+        Metrics.get_metric_for_mapped_metric=self._page_cursor_update(self.retry_logic(Metrics.get_metric_for_mapped_metric))
+        Metrics.get_mapped_metric_metric=self._page_cursor_update(self.retry_logic(Metrics.get_mapped_metric_metric))
         Metrics.get_metric_for_metric_property=self._page_cursor_update(self.retry_logic(Metrics.get_metric_for_metric_property))
         Metrics.get_metric_property_metric=self._page_cursor_update(self.retry_logic(Metrics.get_metric_property_metric))
+        Metrics.get_metric_id_for_mapped_metric=self._page_cursor_update(self.retry_logic(Metrics.get_metric_id_for_mapped_metric))
+        Metrics.get_mapped_metric_relationships_metric=self._page_cursor_update(self.retry_logic(Metrics.get_mapped_metric_relationships_metric))
         Metrics.get_metric_id_for_metric_property=self._page_cursor_update(self.retry_logic(Metrics.get_metric_id_for_metric_property))
         Metrics.get_metric_property_relationships_metric=self._page_cursor_update(self.retry_logic(Metrics.get_metric_property_relationships_metric))
         Metrics.get_metric_ids_for_custom_metric=self._page_cursor_update(self.retry_logic(Metrics.get_metric_ids_for_custom_metric))
@@ -509,6 +536,7 @@ class KlaviyoAPI:
         Metrics.query_metric_aggregates=self._page_cursor_update(self.retry_logic(Metrics.query_metric_aggregates))
         Metrics.create_metric_aggregate=self._page_cursor_update(self.retry_logic(Metrics.create_metric_aggregate))
         Metrics.update_custom_metric=self._page_cursor_update(self.retry_logic(Metrics.update_custom_metric))
+        Metrics.update_mapped_metric=self._page_cursor_update(self.retry_logic(Metrics.update_mapped_metric))
         
         return Metrics
     
