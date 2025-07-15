@@ -17,30 +17,23 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
-from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from typing import Any, ClassVar, Dict, List
+from openapi_client.models.data_source_enum import DataSourceEnum
+from openapi_client.models.data_source_response_object_resource_attributes import DataSourceResponseObjectResourceAttributes
+from openapi_client.models.object_links import ObjectLinks
 from typing import Optional, Set
 from typing_extensions import Self
 
-class PostUniversalContentResponseDataAttributes(BaseModel):
+class PostDataSourceResponseData(BaseModel):
     """
-    PostUniversalContentResponseDataAttributes
+    PostDataSourceResponseData
     """ # noqa: E501
-    name: StrictStr = Field(description="The name for this universal content")
-    definition: Optional[Dict[str, Any]] = None
-    created: datetime = Field(description="The datetime when this universal content was created")
-    updated: datetime = Field(description="The datetime when this universal content was updated")
-    screenshot_status: StrictStr = Field(description="The status of a universal content screenshot.")
-    screenshot_url: StrictStr
-    __properties: ClassVar[List[str]] = ["name", "definition", "created", "updated", "screenshot_status", "screenshot_url"]
-
-    @field_validator('screenshot_status')
-    def screenshot_status_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['completed', 'failed', 'generating', 'never_generated', 'not_renderable', 'stale']):
-            raise ValueError("must be one of enum values ('completed', 'failed', 'generating', 'never_generated', 'not_renderable', 'stale')")
-        return value
+    type: DataSourceEnum
+    id: StrictStr = Field(description="The ID of the data source")
+    attributes: DataSourceResponseObjectResourceAttributes
+    links: ObjectLinks
+    __properties: ClassVar[List[str]] = ["type", "id", "attributes", "links"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -60,7 +53,7 @@ class PostUniversalContentResponseDataAttributes(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of PostUniversalContentResponseDataAttributes from a JSON string"""
+        """Create an instance of PostDataSourceResponseData from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -81,16 +74,17 @@ class PostUniversalContentResponseDataAttributes(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if definition (nullable) is None
-        # and model_fields_set contains the field
-        if self.definition is None and "definition" in self.model_fields_set:
-            _dict['definition'] = None
-
+        # override the default output from pydantic by calling `to_dict()` of attributes
+        if self.attributes:
+            _dict['attributes'] = self.attributes.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of links
+        if self.links:
+            _dict['links'] = self.links.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of PostUniversalContentResponseDataAttributes from a dict"""
+        """Create an instance of PostDataSourceResponseData from a dict"""
         if obj is None:
             return None
 
@@ -98,12 +92,10 @@ class PostUniversalContentResponseDataAttributes(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "name": obj.get("name"),
-            "definition": obj.get("definition"),
-            "created": obj.get("created"),
-            "updated": obj.get("updated"),
-            "screenshot_status": obj.get("screenshot_status"),
-            "screenshot_url": obj.get("screenshot_url")
+            "type": obj.get("type"),
+            "id": obj.get("id"),
+            "attributes": DataSourceResponseObjectResourceAttributes.from_dict(obj["attributes"]) if obj.get("attributes") is not None else None,
+            "links": ObjectLinks.from_dict(obj["links"]) if obj.get("links") is not None else None
         })
         return _obj
 

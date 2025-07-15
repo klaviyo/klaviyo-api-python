@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -26,7 +26,7 @@ class FlowUpdateQueryResourceObjectAttributes(BaseModel):
     """
     FlowUpdateQueryResourceObjectAttributes
     """ # noqa: E501
-    status: Optional[StrictStr] = Field(description="Status you want to update the flow to. ['draft', 'manual', or 'live']")
+    status: StrictStr = Field(description="Status you want to update the flow to. ['draft', 'manual', or 'live']")
     __properties: ClassVar[List[str]] = ["status"]
 
     model_config = ConfigDict(
@@ -68,11 +68,6 @@ class FlowUpdateQueryResourceObjectAttributes(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if status (nullable) is None
-        # and model_fields_set contains the field
-        if self.status is None and "status" in self.model_fields_set:
-            _dict['status'] = None
-
         return _dict
 
     @classmethod

@@ -26,16 +26,16 @@ class CatalogVariantCreateQueryResourceObjectAttributes(BaseModel):
     """
     CatalogVariantCreateQueryResourceObjectAttributes
     """ # noqa: E501
-    external_id: Optional[StrictStr] = Field(description="The ID of the catalog item variant in an external system.")
+    external_id: StrictStr = Field(description="The ID of the catalog item variant in an external system.")
     catalog_type: Optional[StrictStr] = Field(default='$default', description="The type of catalog. Currently only \"$default\" is supported.")
     integration_type: Optional[StrictStr] = Field(default='$custom', description="The integration type. Currently only \"$custom\" is supported.")
-    title: Optional[StrictStr] = Field(description="The title of the catalog item variant.")
-    description: Optional[StrictStr] = Field(description="A description of the catalog item variant.")
-    sku: Optional[StrictStr] = Field(description="The SKU of the catalog item variant.")
+    title: StrictStr = Field(description="The title of the catalog item variant.")
+    description: StrictStr = Field(description="A description of the catalog item variant.")
+    sku: StrictStr = Field(description="The SKU of the catalog item variant.")
     inventory_policy: Optional[StrictInt] = Field(default=0, description="This field controls the visibility of this catalog item variant in product feeds/blocks. This field supports the following values: `1`: a product will not appear in dynamic product recommendation feeds and blocks if it is out of stock. `0` or `2`: a product can appear in dynamic product recommendation feeds and blocks regardless of inventory quantity.")
     inventory_quantity: Union[StrictFloat, StrictInt] = Field(description="The quantity of the catalog item variant currently in stock.")
     price: Union[StrictFloat, StrictInt] = Field(description="This field can be used to set the price on the catalog item variant, which is what gets displayed for the item variant when included in emails. For most price-update use cases, you will also want to update the `price` on any parent items using the [Update Catalog Item Endpoint](https://developers.klaviyo.com/en/reference/update_catalog_item).")
-    url: Optional[StrictStr] = Field(description="URL pointing to the location of the catalog item variant on your website.")
+    url: StrictStr = Field(description="URL pointing to the location of the catalog item variant on your website.")
     image_full_url: Optional[StrictStr] = Field(default=None, description="URL pointing to the location of a full image of the catalog item variant.")
     image_thumbnail_url: Optional[StrictStr] = Field(default=None, description="URL pointing to the location of an image thumbnail of the catalog item variant.")
     images: Optional[List[StrictStr]] = Field(default=None, description="List of URLs pointing to the locations of images of the catalog item variant.")
@@ -102,11 +102,6 @@ class CatalogVariantCreateQueryResourceObjectAttributes(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if external_id (nullable) is None
-        # and model_fields_set contains the field
-        if self.external_id is None and "external_id" in self.model_fields_set:
-            _dict['external_id'] = None
-
         # set to None if catalog_type (nullable) is None
         # and model_fields_set contains the field
         if self.catalog_type is None and "catalog_type" in self.model_fields_set:
@@ -117,30 +112,10 @@ class CatalogVariantCreateQueryResourceObjectAttributes(BaseModel):
         if self.integration_type is None and "integration_type" in self.model_fields_set:
             _dict['integration_type'] = None
 
-        # set to None if title (nullable) is None
-        # and model_fields_set contains the field
-        if self.title is None and "title" in self.model_fields_set:
-            _dict['title'] = None
-
-        # set to None if description (nullable) is None
-        # and model_fields_set contains the field
-        if self.description is None and "description" in self.model_fields_set:
-            _dict['description'] = None
-
-        # set to None if sku (nullable) is None
-        # and model_fields_set contains the field
-        if self.sku is None and "sku" in self.model_fields_set:
-            _dict['sku'] = None
-
         # set to None if inventory_policy (nullable) is None
         # and model_fields_set contains the field
         if self.inventory_policy is None and "inventory_policy" in self.model_fields_set:
             _dict['inventory_policy'] = None
-
-        # set to None if url (nullable) is None
-        # and model_fields_set contains the field
-        if self.url is None and "url" in self.model_fields_set:
-            _dict['url'] = None
 
         # set to None if image_full_url (nullable) is None
         # and model_fields_set contains the field

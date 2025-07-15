@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -26,7 +26,7 @@ class ProfileSuppressionDeleteQueryResourceObjectAttributes(BaseModel):
     """
     ProfileSuppressionDeleteQueryResourceObjectAttributes
     """ # noqa: E501
-    email: Optional[StrictStr] = Field(description="The email of the profile to unsuppress.")
+    email: StrictStr = Field(description="The email of the profile to unsuppress.")
     __properties: ClassVar[List[str]] = ["email"]
 
     model_config = ConfigDict(
@@ -68,11 +68,6 @@ class ProfileSuppressionDeleteQueryResourceObjectAttributes(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if email (nullable) is None
-        # and model_fields_set contains the field
-        if self.email is None and "email" in self.model_fields_set:
-            _dict['email'] = None
-
         return _dict
 
     @classmethod

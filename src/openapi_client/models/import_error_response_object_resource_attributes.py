@@ -27,9 +27,9 @@ class ImportErrorResponseObjectResourceAttributes(BaseModel):
     """
     ImportErrorResponseObjectResourceAttributes
     """ # noqa: E501
-    code: Optional[StrictStr] = Field(description="A code for classifying the error type.")
-    title: Optional[StrictStr] = Field(description="A high-level message about the error.")
-    detail: Optional[StrictStr] = Field(description="Specific details about the error.")
+    code: StrictStr = Field(description="A code for classifying the error type.")
+    title: StrictStr = Field(description="A high-level message about the error.")
+    detail: StrictStr = Field(description="Specific details about the error.")
     source: ErrorSource
     original_payload: Optional[Dict[str, Any]] = None
     __properties: ClassVar[List[str]] = ["code", "title", "detail", "source", "original_payload"]
@@ -76,21 +76,6 @@ class ImportErrorResponseObjectResourceAttributes(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of source
         if self.source:
             _dict['source'] = self.source.to_dict()
-        # set to None if code (nullable) is None
-        # and model_fields_set contains the field
-        if self.code is None and "code" in self.model_fields_set:
-            _dict['code'] = None
-
-        # set to None if title (nullable) is None
-        # and model_fields_set contains the field
-        if self.title is None and "title" in self.model_fields_set:
-            _dict['title'] = None
-
-        # set to None if detail (nullable) is None
-        # and model_fields_set contains the field
-        if self.detail is None and "detail" in self.model_fields_set:
-            _dict['detail'] = None
-
         # set to None if original_payload (nullable) is None
         # and model_fields_set contains the field
         if self.original_payload is None and "original_payload" in self.model_fields_set:

@@ -17,24 +17,18 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
-from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, ConfigDict, Field
+from typing import Any, ClassVar, Dict, List, Optional
+from openapi_client.models.data_source_record_bulk_create_job_create_query_resource_object_relationships_data_source import DataSourceRecordBulkCreateJobCreateQueryResourceObjectRelationshipsDataSource
 from typing import Optional, Set
 from typing_extensions import Self
 
-class PostCampaignSendJobResponseDataAttributes(BaseModel):
+class DataSourceRecordBulkCreateJobCreateQueryResourceObjectRelationships(BaseModel):
     """
-    PostCampaignSendJobResponseDataAttributes
+    DataSourceRecordBulkCreateJobCreateQueryResourceObjectRelationships
     """ # noqa: E501
-    status: StrictStr = Field(description="The status of the send job")
-    __properties: ClassVar[List[str]] = ["status"]
-
-    @field_validator('status')
-    def status_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['cancelled', 'complete', 'processing', 'queued']):
-            raise ValueError("must be one of enum values ('cancelled', 'complete', 'processing', 'queued')")
-        return value
+    data_source: Optional[DataSourceRecordBulkCreateJobCreateQueryResourceObjectRelationshipsDataSource] = Field(default=None, alias="data-source")
+    __properties: ClassVar[List[str]] = ["data-source"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -54,7 +48,7 @@ class PostCampaignSendJobResponseDataAttributes(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of PostCampaignSendJobResponseDataAttributes from a JSON string"""
+        """Create an instance of DataSourceRecordBulkCreateJobCreateQueryResourceObjectRelationships from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -75,11 +69,14 @@ class PostCampaignSendJobResponseDataAttributes(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of data_source
+        if self.data_source:
+            _dict['data-source'] = self.data_source.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of PostCampaignSendJobResponseDataAttributes from a dict"""
+        """Create an instance of DataSourceRecordBulkCreateJobCreateQueryResourceObjectRelationships from a dict"""
         if obj is None:
             return None
 
@@ -87,7 +84,7 @@ class PostCampaignSendJobResponseDataAttributes(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "status": obj.get("status")
+            "data-source": DataSourceRecordBulkCreateJobCreateQueryResourceObjectRelationshipsDataSource.from_dict(obj["data-source"]) if obj.get("data-source") is not None else None
         })
         return _obj
 

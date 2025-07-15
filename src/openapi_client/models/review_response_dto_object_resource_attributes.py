@@ -32,9 +32,9 @@ class ReviewResponseDTOObjectResourceAttributes(BaseModel):
     email: Optional[StrictStr] = Field(default=None, description="The email of the author of this review")
     status: Optional[Dict[str, Any]] = Field(default=None, description="The status of this review")
     verified: StrictBool = Field(description="The verification status of this review (aka whether or not we have confirmation that the customer bought the product)")
-    review_type: Optional[StrictStr] = Field(description="The type of this review — either a review, question, or rating")
-    created: Optional[datetime] = Field(description="The datetime when this review was created")
-    updated: Optional[datetime] = Field(description="The datetime when this review was updated")
+    review_type: StrictStr = Field(description="The type of this review — either a review, question, or rating")
+    created: datetime = Field(description="The datetime when this review was created")
+    updated: datetime = Field(description="The datetime when this review was updated")
     images: List[StrictStr] = Field(description="The list of images submitted with this review (represented as a list of urls). If there are no images, this field will be an empty list.")
     product: Optional[ReviewProductDTO] = None
     rating: Optional[StrictInt] = Field(default=None, description="The rating of this review on a scale from 1-5. If the review type is \"question\", this field will be null.")
@@ -48,9 +48,6 @@ class ReviewResponseDTOObjectResourceAttributes(BaseModel):
     @field_validator('review_type')
     def review_type_validate_enum(cls, value):
         """Validates the enum"""
-        if value is None:
-            return value
-
         if value not in set(['question', 'rating', 'review', 'store']):
             raise ValueError("must be one of enum values ('question', 'rating', 'review', 'store')")
         return value
@@ -109,21 +106,6 @@ class ReviewResponseDTOObjectResourceAttributes(BaseModel):
         # and model_fields_set contains the field
         if self.status is None and "status" in self.model_fields_set:
             _dict['status'] = None
-
-        # set to None if review_type (nullable) is None
-        # and model_fields_set contains the field
-        if self.review_type is None and "review_type" in self.model_fields_set:
-            _dict['review_type'] = None
-
-        # set to None if created (nullable) is None
-        # and model_fields_set contains the field
-        if self.created is None and "created" in self.model_fields_set:
-            _dict['created'] = None
-
-        # set to None if updated (nullable) is None
-        # and model_fields_set contains the field
-        if self.updated is None and "updated" in self.model_fields_set:
-            _dict['updated'] = None
 
         # set to None if rating (nullable) is None
         # and model_fields_set contains the field

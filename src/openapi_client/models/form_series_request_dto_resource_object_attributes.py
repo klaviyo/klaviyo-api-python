@@ -28,7 +28,7 @@ class FormSeriesRequestDTOResourceObjectAttributes(BaseModel):
     """ # noqa: E501
     statistics: List[StrictStr] = Field(description="List of statistics to query for. All rate statistics will be returned in fractional form [0.0, 1.0]")
     timeframe: Dict[str, Any] = Field(description="The time frame to pull data from (Max length: 1 year). See [available time frames](https://developers.klaviyo.com/en/reference/reporting_api_overview#available-time-frames).")
-    interval: Optional[StrictStr] = Field(description="The interval used to aggregate data within the series request. If hourly is used, the timeframe cannot be longer than 7 days. If daily is used, the timeframe cannot be longer than 60 days. If monthly is used, the timeframe cannot be longer than 52 weeks.")
+    interval: StrictStr = Field(description="The interval used to aggregate data within the series request. If hourly is used, the timeframe cannot be longer than 7 days. If daily is used, the timeframe cannot be longer than 60 days. If monthly is used, the timeframe cannot be longer than 52 weeks.")
     group_by: Optional[List[StrictStr]] = Field(default=None, description="List of attributes to group the data by. Allowed group-bys are form_id, form_version_id. If not passed in, the data will be grouped by form_id. If a group by has prerequisites, they must be passed in together. The prerequisites for form_version_id is form_id")
     filter: Optional[StrictStr] = Field(default=None, description="API filter string used to filter the query. Allowed filters are form_id, form_version_id. Allowed operators are equals, any. Only one filter can be used per attribute, only AND can be used as a combination operator. Max of 100 messages per ANY filter.")
     __properties: ClassVar[List[str]] = ["statistics", "timeframe", "interval", "group_by", "filter"]
@@ -44,9 +44,6 @@ class FormSeriesRequestDTOResourceObjectAttributes(BaseModel):
     @field_validator('interval')
     def interval_validate_enum(cls, value):
         """Validates the enum"""
-        if value is None:
-            return value
-
         if value not in set(['daily', 'hourly', 'monthly', 'weekly']):
             raise ValueError("must be one of enum values ('daily', 'hourly', 'monthly', 'weekly')")
         return value
@@ -101,11 +98,6 @@ class FormSeriesRequestDTOResourceObjectAttributes(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if interval (nullable) is None
-        # and model_fields_set contains the field
-        if self.interval is None and "interval" in self.model_fields_set:
-            _dict['interval'] = None
-
         # set to None if group_by (nullable) is None
         # and model_fields_set contains the field
         if self.group_by is None and "group_by" in self.model_fields_set:

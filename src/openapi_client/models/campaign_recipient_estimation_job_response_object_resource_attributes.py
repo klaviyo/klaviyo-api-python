@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -26,15 +26,12 @@ class CampaignRecipientEstimationJobResponseObjectResourceAttributes(BaseModel):
     """
     CampaignRecipientEstimationJobResponseObjectResourceAttributes
     """ # noqa: E501
-    status: Optional[StrictStr] = Field(description="The status of the recipient estimation job")
+    status: StrictStr = Field(description="The status of the recipient estimation job")
     __properties: ClassVar[List[str]] = ["status"]
 
     @field_validator('status')
     def status_validate_enum(cls, value):
         """Validates the enum"""
-        if value is None:
-            return value
-
         if value not in set(['cancelled', 'complete', 'processing', 'queued']):
             raise ValueError("must be one of enum values ('cancelled', 'complete', 'processing', 'queued')")
         return value
@@ -78,11 +75,6 @@ class CampaignRecipientEstimationJobResponseObjectResourceAttributes(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if status (nullable) is None
-        # and model_fields_set contains the field
-        if self.status is None and "status" in self.model_fields_set:
-            _dict['status'] = None
-
         return _dict
 
     @classmethod

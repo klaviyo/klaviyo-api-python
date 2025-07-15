@@ -20,8 +20,8 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
 from openapi_client.models.campaign_send_job_enum import CampaignSendJobEnum
+from openapi_client.models.campaign_send_job_response_object_resource_attributes import CampaignSendJobResponseObjectResourceAttributes
 from openapi_client.models.object_links import ObjectLinks
-from openapi_client.models.post_campaign_send_job_response_data_attributes import PostCampaignSendJobResponseDataAttributes
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -31,7 +31,7 @@ class PostCampaignSendJobResponseData(BaseModel):
     """ # noqa: E501
     type: CampaignSendJobEnum
     id: StrictStr = Field(description="The ID of the campaign to send")
-    attributes: PostCampaignSendJobResponseDataAttributes
+    attributes: CampaignSendJobResponseObjectResourceAttributes
     links: ObjectLinks
     __properties: ClassVar[List[str]] = ["type", "id", "attributes", "links"]
 
@@ -94,7 +94,7 @@ class PostCampaignSendJobResponseData(BaseModel):
         _obj = cls.model_validate({
             "type": obj.get("type"),
             "id": obj.get("id"),
-            "attributes": PostCampaignSendJobResponseDataAttributes.from_dict(obj["attributes"]) if obj.get("attributes") is not None else None,
+            "attributes": CampaignSendJobResponseObjectResourceAttributes.from_dict(obj["attributes"]) if obj.get("attributes") is not None else None,
             "links": ObjectLinks.from_dict(obj["links"]) if obj.get("links") is not None else None
         })
         return _obj

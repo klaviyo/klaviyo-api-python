@@ -26,8 +26,8 @@ class TemplateCreateQueryResourceObjectAttributes(BaseModel):
     """
     TemplateCreateQueryResourceObjectAttributes
     """ # noqa: E501
-    name: Optional[StrictStr] = Field(description="The name of the template")
-    editor_type: Optional[StrictStr] = Field(description="Restricted to CODE and USER_DRAGGABLE")
+    name: StrictStr = Field(description="The name of the template")
+    editor_type: StrictStr = Field(description="Restricted to CODE and USER_DRAGGABLE")
     html: Optional[StrictStr] = Field(default=None, description="The HTML contents of the template")
     text: Optional[StrictStr] = Field(default=None, description="The plaintext version of the template")
     amp: Optional[StrictStr] = Field(default=None, description="The AMP version of the template. Requires AMP Email to be enabled to access in-app. Refer to the AMP Email setup guide at https://developers.klaviyo.com/en/docs/send_amp_emails_in_klaviyo")
@@ -72,16 +72,6 @@ class TemplateCreateQueryResourceObjectAttributes(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if name (nullable) is None
-        # and model_fields_set contains the field
-        if self.name is None and "name" in self.model_fields_set:
-            _dict['name'] = None
-
-        # set to None if editor_type (nullable) is None
-        # and model_fields_set contains the field
-        if self.editor_type is None and "editor_type" in self.model_fields_set:
-            _dict['editor_type'] = None
-
         # set to None if html (nullable) is None
         # and model_fields_set contains the field
         if self.html is None and "html" in self.model_fields_set:

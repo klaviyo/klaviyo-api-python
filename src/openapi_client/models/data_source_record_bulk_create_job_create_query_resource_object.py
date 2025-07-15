@@ -17,23 +17,22 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
+from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
+from openapi_client.models.data_source_record_bulk_create_job_create_query_resource_object_attributes import DataSourceRecordBulkCreateJobCreateQueryResourceObjectAttributes
+from openapi_client.models.data_source_record_bulk_create_job_create_query_resource_object_relationships import DataSourceRecordBulkCreateJobCreateQueryResourceObjectRelationships
+from openapi_client.models.data_source_record_bulk_create_job_enum import DataSourceRecordBulkCreateJobEnum
 from typing import Optional, Set
 from typing_extensions import Self
 
-class PostWebhookResponseDataAttributes(BaseModel):
+class DataSourceRecordBulkCreateJobCreateQueryResourceObject(BaseModel):
     """
-    PostWebhookResponseDataAttributes
+    DataSourceRecordBulkCreateJobCreateQueryResourceObject
     """ # noqa: E501
-    name: StrictStr = Field(description="A name for the webhook.")
-    description: Optional[StrictStr] = Field(default=None, description="A description for the webhook.")
-    endpoint_url: StrictStr = Field(description="The url to send webhook requests to, truncated for security.")
-    enabled: StrictBool = Field(description="Is the webhook enabled.")
-    created_at: datetime = Field(description="Date and time when the webhook was created, in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm)")
-    updated_at: datetime = Field(description="Date and time when the webhook was last updated, in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm)")
-    __properties: ClassVar[List[str]] = ["name", "description", "endpoint_url", "enabled", "created_at", "updated_at"]
+    type: DataSourceRecordBulkCreateJobEnum
+    attributes: DataSourceRecordBulkCreateJobCreateQueryResourceObjectAttributes
+    relationships: Optional[DataSourceRecordBulkCreateJobCreateQueryResourceObjectRelationships] = None
+    __properties: ClassVar[List[str]] = ["type", "attributes", "relationships"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -53,7 +52,7 @@ class PostWebhookResponseDataAttributes(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of PostWebhookResponseDataAttributes from a JSON string"""
+        """Create an instance of DataSourceRecordBulkCreateJobCreateQueryResourceObject from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -74,16 +73,17 @@ class PostWebhookResponseDataAttributes(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if description (nullable) is None
-        # and model_fields_set contains the field
-        if self.description is None and "description" in self.model_fields_set:
-            _dict['description'] = None
-
+        # override the default output from pydantic by calling `to_dict()` of attributes
+        if self.attributes:
+            _dict['attributes'] = self.attributes.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of relationships
+        if self.relationships:
+            _dict['relationships'] = self.relationships.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of PostWebhookResponseDataAttributes from a dict"""
+        """Create an instance of DataSourceRecordBulkCreateJobCreateQueryResourceObject from a dict"""
         if obj is None:
             return None
 
@@ -91,12 +91,9 @@ class PostWebhookResponseDataAttributes(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "name": obj.get("name"),
-            "description": obj.get("description"),
-            "endpoint_url": obj.get("endpoint_url"),
-            "enabled": obj.get("enabled"),
-            "created_at": obj.get("created_at"),
-            "updated_at": obj.get("updated_at")
+            "type": obj.get("type"),
+            "attributes": DataSourceRecordBulkCreateJobCreateQueryResourceObjectAttributes.from_dict(obj["attributes"]) if obj.get("attributes") is not None else None,
+            "relationships": DataSourceRecordBulkCreateJobCreateQueryResourceObjectRelationships.from_dict(obj["relationships"]) if obj.get("relationships") is not None else None
         })
         return _obj
 

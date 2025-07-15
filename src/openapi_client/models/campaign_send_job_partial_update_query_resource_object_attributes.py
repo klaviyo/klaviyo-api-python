@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -26,15 +26,12 @@ class CampaignSendJobPartialUpdateQueryResourceObjectAttributes(BaseModel):
     """
     CampaignSendJobPartialUpdateQueryResourceObjectAttributes
     """ # noqa: E501
-    action: Optional[StrictStr] = Field(description="The action you would like to take with this send job from among 'cancel' and 'revert'")
+    action: StrictStr = Field(description="The action you would like to take with this send job from among 'cancel' and 'revert'")
     __properties: ClassVar[List[str]] = ["action"]
 
     @field_validator('action')
     def action_validate_enum(cls, value):
         """Validates the enum"""
-        if value is None:
-            return value
-
         if value not in set(['cancel', 'revert']):
             raise ValueError("must be one of enum values ('cancel', 'revert')")
         return value
@@ -78,11 +75,6 @@ class CampaignSendJobPartialUpdateQueryResourceObjectAttributes(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if action (nullable) is None
-        # and model_fields_set contains the field
-        if self.action is None and "action" in self.model_fields_set:
-            _dict['action'] = None
-
         return _dict
 
     @classmethod

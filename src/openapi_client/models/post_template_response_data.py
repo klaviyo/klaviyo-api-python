@@ -20,8 +20,8 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
 from openapi_client.models.object_links import ObjectLinks
-from openapi_client.models.post_template_response_data_attributes import PostTemplateResponseDataAttributes
 from openapi_client.models.template_enum import TemplateEnum
+from openapi_client.models.template_response_object_resource_attributes import TemplateResponseObjectResourceAttributes
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -31,7 +31,7 @@ class PostTemplateResponseData(BaseModel):
     """ # noqa: E501
     type: TemplateEnum
     id: StrictStr = Field(description="The ID of template")
-    attributes: PostTemplateResponseDataAttributes
+    attributes: TemplateResponseObjectResourceAttributes
     links: ObjectLinks
     __properties: ClassVar[List[str]] = ["type", "id", "attributes", "links"]
 
@@ -94,7 +94,7 @@ class PostTemplateResponseData(BaseModel):
         _obj = cls.model_validate({
             "type": obj.get("type"),
             "id": obj.get("id"),
-            "attributes": PostTemplateResponseDataAttributes.from_dict(obj["attributes"]) if obj.get("attributes") is not None else None,
+            "attributes": TemplateResponseObjectResourceAttributes.from_dict(obj["attributes"]) if obj.get("attributes") is not None else None,
             "links": ObjectLinks.from_dict(obj["links"]) if obj.get("links") is not None else None
         })
         return _obj

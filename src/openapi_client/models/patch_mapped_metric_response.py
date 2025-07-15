@@ -17,19 +17,18 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
+from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List
+from openapi_client.models.patch_mapped_metric_response_data import PatchMappedMetricResponseData
 from typing import Optional, Set
 from typing_extensions import Self
 
-class PostTagGroupResponseDataAttributes(BaseModel):
+class PatchMappedMetricResponse(BaseModel):
     """
-    PostTagGroupResponseDataAttributes
+    PatchMappedMetricResponse
     """ # noqa: E501
-    name: StrictStr = Field(description="The Tag Group name")
-    exclusive: StrictBool = Field(description="If a tag group is non-exclusive, any given related resource (campaign, flow, etc.) can be linked to multiple tags from that tag group. If a tag group is exclusive, any given related resource can only be linked to one tag from that tag group.")
-    default: StrictBool = Field(description="Every company automatically has one Default Tag Group. The Default Tag Group cannot be deleted, and no other Default Tag Groups can be created. This value is true for the Default Tag Group and false for all other Tag Groups.")
-    __properties: ClassVar[List[str]] = ["name", "exclusive", "default"]
+    data: PatchMappedMetricResponseData
+    __properties: ClassVar[List[str]] = ["data"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -49,7 +48,7 @@ class PostTagGroupResponseDataAttributes(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of PostTagGroupResponseDataAttributes from a JSON string"""
+        """Create an instance of PatchMappedMetricResponse from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -70,11 +69,14 @@ class PostTagGroupResponseDataAttributes(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of data
+        if self.data:
+            _dict['data'] = self.data.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of PostTagGroupResponseDataAttributes from a dict"""
+        """Create an instance of PatchMappedMetricResponse from a dict"""
         if obj is None:
             return None
 
@@ -82,9 +84,7 @@ class PostTagGroupResponseDataAttributes(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "name": obj.get("name"),
-            "exclusive": obj.get("exclusive"),
-            "default": obj.get("default")
+            "data": PatchMappedMetricResponseData.from_dict(obj["data"]) if obj.get("data") is not None else None
         })
         return _obj
 

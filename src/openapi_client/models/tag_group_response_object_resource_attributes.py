@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -26,7 +26,7 @@ class TagGroupResponseObjectResourceAttributes(BaseModel):
     """
     TagGroupResponseObjectResourceAttributes
     """ # noqa: E501
-    name: Optional[StrictStr] = Field(description="The Tag Group name")
+    name: StrictStr = Field(description="The Tag Group name")
     exclusive: StrictBool = Field(description="If a tag group is non-exclusive, any given related resource (campaign, flow, etc.) can be linked to multiple tags from that tag group. If a tag group is exclusive, any given related resource can only be linked to one tag from that tag group.")
     default: StrictBool = Field(description="Every company automatically has one Default Tag Group. The Default Tag Group cannot be deleted, and no other Default Tag Groups can be created. This value is true for the Default Tag Group and false for all other Tag Groups.")
     __properties: ClassVar[List[str]] = ["name", "exclusive", "default"]
@@ -70,11 +70,6 @@ class TagGroupResponseObjectResourceAttributes(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if name (nullable) is None
-        # and model_fields_set contains the field
-        if self.name is None and "name" in self.model_fields_set:
-            _dict['name'] = None
-
         return _dict
 
     @classmethod

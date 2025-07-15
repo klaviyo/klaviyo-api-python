@@ -19,7 +19,7 @@ import json
 
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from openapi_client.models.custom_metric_definition import CustomMetricDefinition
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,9 +28,9 @@ class CustomMetricResponseObjectResourceAttributes(BaseModel):
     """
     CustomMetricResponseObjectResourceAttributes
     """ # noqa: E501
-    name: Optional[StrictStr] = Field(description="The name for this custom metric. Names must be unique across the account.         Attempting to create a metric with a duplicate name will return a 400 status code.")
-    created: Optional[datetime] = Field(description="The datetime when this custom metric was created.")
-    updated: Optional[datetime] = Field(description="The datetime when this custom metric was updated.")
+    name: StrictStr = Field(description="The name for this custom metric. Names must be unique across the account.         Attempting to create a metric with a duplicate name will return a 400 status code.")
+    created: datetime = Field(description="The datetime when this custom metric was created.")
+    updated: datetime = Field(description="The datetime when this custom metric was updated.")
     definition: CustomMetricDefinition
     __properties: ClassVar[List[str]] = ["name", "created", "updated", "definition"]
 
@@ -76,21 +76,6 @@ class CustomMetricResponseObjectResourceAttributes(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of definition
         if self.definition:
             _dict['definition'] = self.definition.to_dict()
-        # set to None if name (nullable) is None
-        # and model_fields_set contains the field
-        if self.name is None and "name" in self.model_fields_set:
-            _dict['name'] = None
-
-        # set to None if created (nullable) is None
-        # and model_fields_set contains the field
-        if self.created is None and "created" in self.model_fields_set:
-            _dict['created'] = None
-
-        # set to None if updated (nullable) is None
-        # and model_fields_set contains the field
-        if self.updated is None and "updated" in self.model_fields_set:
-            _dict['updated'] = None
-
         return _dict
 
     @classmethod

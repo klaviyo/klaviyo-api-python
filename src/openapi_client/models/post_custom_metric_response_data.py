@@ -20,9 +20,9 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.custom_metric_enum import CustomMetricEnum
+from openapi_client.models.custom_metric_response_object_resource_attributes import CustomMetricResponseObjectResourceAttributes
 from openapi_client.models.get_custom_metric_response_collection_compound_document_data_inner_all_of_relationships import GetCustomMetricResponseCollectionCompoundDocumentDataInnerAllOfRelationships
 from openapi_client.models.object_links import ObjectLinks
-from openapi_client.models.post_custom_metric_response_data_attributes import PostCustomMetricResponseDataAttributes
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -32,7 +32,7 @@ class PostCustomMetricResponseData(BaseModel):
     """ # noqa: E501
     type: CustomMetricEnum
     id: StrictStr = Field(description="The ID of the custom metric")
-    attributes: PostCustomMetricResponseDataAttributes
+    attributes: CustomMetricResponseObjectResourceAttributes
     relationships: Optional[GetCustomMetricResponseCollectionCompoundDocumentDataInnerAllOfRelationships] = None
     links: ObjectLinks
     __properties: ClassVar[List[str]] = ["type", "id", "attributes", "relationships", "links"]
@@ -99,7 +99,7 @@ class PostCustomMetricResponseData(BaseModel):
         _obj = cls.model_validate({
             "type": obj.get("type"),
             "id": obj.get("id"),
-            "attributes": PostCustomMetricResponseDataAttributes.from_dict(obj["attributes"]) if obj.get("attributes") is not None else None,
+            "attributes": CustomMetricResponseObjectResourceAttributes.from_dict(obj["attributes"]) if obj.get("attributes") is not None else None,
             "relationships": GetCustomMetricResponseCollectionCompoundDocumentDataInnerAllOfRelationships.from_dict(obj["relationships"]) if obj.get("relationships") is not None else None,
             "links": ObjectLinks.from_dict(obj["links"]) if obj.get("links") is not None else None
         })

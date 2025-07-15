@@ -26,13 +26,13 @@ class CatalogItemCreateQueryResourceObjectAttributes(BaseModel):
     """
     CatalogItemCreateQueryResourceObjectAttributes
     """ # noqa: E501
-    external_id: Optional[StrictStr] = Field(description="The ID of the catalog item in an external system.")
+    external_id: StrictStr = Field(description="The ID of the catalog item in an external system.")
     integration_type: Optional[StrictStr] = Field(default='$custom', description="The integration type. Currently only \"$custom\" is supported.")
-    title: Optional[StrictStr] = Field(description="The title of the catalog item.")
+    title: StrictStr = Field(description="The title of the catalog item.")
     price: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="This field can be used to set the price on the catalog item, which is what gets displayed for the item when included in emails. For most price-update use cases, you will also want to update the `price` on any child variants, using the [Update Catalog Variant Endpoint](https://developers.klaviyo.com/en/reference/update_catalog_variant).")
     catalog_type: Optional[StrictStr] = Field(default='$default', description="The type of catalog. Currently only \"$default\" is supported.")
-    description: Optional[StrictStr] = Field(description="A description of the catalog item.")
-    url: Optional[StrictStr] = Field(description="URL pointing to the location of the catalog item on your website.")
+    description: StrictStr = Field(description="A description of the catalog item.")
+    url: StrictStr = Field(description="URL pointing to the location of the catalog item on your website.")
     image_full_url: Optional[StrictStr] = Field(default=None, description="URL pointing to the location of a full image of the catalog item.")
     image_thumbnail_url: Optional[StrictStr] = Field(default=None, description="URL pointing to the location of an image thumbnail of the catalog item")
     images: Optional[List[StrictStr]] = Field(default=None, description="List of URLs pointing to the locations of images of the catalog item.")
@@ -89,20 +89,10 @@ class CatalogItemCreateQueryResourceObjectAttributes(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if external_id (nullable) is None
-        # and model_fields_set contains the field
-        if self.external_id is None and "external_id" in self.model_fields_set:
-            _dict['external_id'] = None
-
         # set to None if integration_type (nullable) is None
         # and model_fields_set contains the field
         if self.integration_type is None and "integration_type" in self.model_fields_set:
             _dict['integration_type'] = None
-
-        # set to None if title (nullable) is None
-        # and model_fields_set contains the field
-        if self.title is None and "title" in self.model_fields_set:
-            _dict['title'] = None
 
         # set to None if price (nullable) is None
         # and model_fields_set contains the field
@@ -113,16 +103,6 @@ class CatalogItemCreateQueryResourceObjectAttributes(BaseModel):
         # and model_fields_set contains the field
         if self.catalog_type is None and "catalog_type" in self.model_fields_set:
             _dict['catalog_type'] = None
-
-        # set to None if description (nullable) is None
-        # and model_fields_set contains the field
-        if self.description is None and "description" in self.model_fields_set:
-            _dict['description'] = None
-
-        # set to None if url (nullable) is None
-        # and model_fields_set contains the field
-        if self.url is None and "url" in self.model_fields_set:
-            _dict['url'] = None
 
         # set to None if image_full_url (nullable) is None
         # and model_fields_set contains the field

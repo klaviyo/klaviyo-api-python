@@ -27,7 +27,7 @@ class CouponCodeCreateQueryResourceObjectAttributes(BaseModel):
     """
     CouponCodeCreateQueryResourceObjectAttributes
     """ # noqa: E501
-    unique_code: Optional[StrictStr] = Field(description="This is a unique string that will be or is assigned to each customer/profile and is associated with a coupon.")
+    unique_code: StrictStr = Field(description="This is a unique string that will be or is assigned to each customer/profile and is associated with a coupon.")
     expires_at: Optional[datetime] = Field(default=None, description="The datetime when this coupon code will expire. If not specified or set to null, it will be automatically set to 1 year.")
     __properties: ClassVar[List[str]] = ["unique_code", "expires_at"]
 
@@ -70,11 +70,6 @@ class CouponCodeCreateQueryResourceObjectAttributes(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if unique_code (nullable) is None
-        # and model_fields_set contains the field
-        if self.unique_code is None and "unique_code" in self.model_fields_set:
-            _dict['unique_code'] = None
-
         # set to None if expires_at (nullable) is None
         # and model_fields_set contains the field
         if self.expires_at is None and "expires_at" in self.model_fields_set:

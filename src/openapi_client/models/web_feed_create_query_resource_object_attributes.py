@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -26,18 +26,15 @@ class WebFeedCreateQueryResourceObjectAttributes(BaseModel):
     """
     WebFeedCreateQueryResourceObjectAttributes
     """ # noqa: E501
-    name: Optional[StrictStr] = Field(description="The name for this web feed")
-    url: Optional[StrictStr] = Field(description="The URL of the web feed")
-    request_method: Optional[StrictStr] = Field(description="The HTTP method for requesting the web feed")
-    content_type: Optional[StrictStr] = Field(description="The content-type of the web feed")
+    name: StrictStr = Field(description="The name for this web feed")
+    url: StrictStr = Field(description="The URL of the web feed")
+    request_method: StrictStr = Field(description="The HTTP method for requesting the web feed")
+    content_type: StrictStr = Field(description="The content-type of the web feed")
     __properties: ClassVar[List[str]] = ["name", "url", "request_method", "content_type"]
 
     @field_validator('request_method')
     def request_method_validate_enum(cls, value):
         """Validates the enum"""
-        if value is None:
-            return value
-
         if value not in set(['get', 'post']):
             raise ValueError("must be one of enum values ('get', 'post')")
         return value
@@ -45,9 +42,6 @@ class WebFeedCreateQueryResourceObjectAttributes(BaseModel):
     @field_validator('content_type')
     def content_type_validate_enum(cls, value):
         """Validates the enum"""
-        if value is None:
-            return value
-
         if value not in set(['json', 'xml']):
             raise ValueError("must be one of enum values ('json', 'xml')")
         return value
@@ -91,26 +85,6 @@ class WebFeedCreateQueryResourceObjectAttributes(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if name (nullable) is None
-        # and model_fields_set contains the field
-        if self.name is None and "name" in self.model_fields_set:
-            _dict['name'] = None
-
-        # set to None if url (nullable) is None
-        # and model_fields_set contains the field
-        if self.url is None and "url" in self.model_fields_set:
-            _dict['url'] = None
-
-        # set to None if request_method (nullable) is None
-        # and model_fields_set contains the field
-        if self.request_method is None and "request_method" in self.model_fields_set:
-            _dict['request_method'] = None
-
-        # set to None if content_type (nullable) is None
-        # and model_fields_set contains the field
-        if self.content_type is None and "content_type" in self.model_fields_set:
-            _dict['content_type'] = None
-
         return _dict
 
     @classmethod

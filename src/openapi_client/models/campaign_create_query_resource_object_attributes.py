@@ -28,7 +28,7 @@ class CampaignCreateQueryResourceObjectAttributes(BaseModel):
     """
     CampaignCreateQueryResourceObjectAttributes
     """ # noqa: E501
-    name: Optional[StrictStr] = Field(description="The campaign name")
+    name: StrictStr = Field(description="The campaign name")
     audiences: Audiences
     send_strategy: Optional[Dict[str, Any]] = Field(default=None, description="The send strategy the campaign will send with. Defaults to 'Immediate' send strategy.")
     send_options: Optional[Dict[str, Any]] = Field(default=None, description="Options to use when sending a campaign")
@@ -81,11 +81,6 @@ class CampaignCreateQueryResourceObjectAttributes(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of campaign_messages
         if self.campaign_messages:
             _dict['campaign-messages'] = self.campaign_messages.to_dict()
-        # set to None if name (nullable) is None
-        # and model_fields_set contains the field
-        if self.name is None and "name" in self.model_fields_set:
-            _dict['name'] = None
-
         # set to None if send_strategy (nullable) is None
         # and model_fields_set contains the field
         if self.send_strategy is None and "send_strategy" in self.model_fields_set:

@@ -21,8 +21,8 @@ from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.get_webhook_response_collection_compound_document_data_inner_all_of_relationships import GetWebhookResponseCollectionCompoundDocumentDataInnerAllOfRelationships
 from openapi_client.models.object_links import ObjectLinks
-from openapi_client.models.post_webhook_response_data_attributes import PostWebhookResponseDataAttributes
 from openapi_client.models.webhook_enum import WebhookEnum
+from openapi_client.models.webhook_response_object_resource_attributes import WebhookResponseObjectResourceAttributes
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -32,7 +32,7 @@ class PostWebhookResponseData(BaseModel):
     """ # noqa: E501
     type: WebhookEnum
     id: StrictStr = Field(description="The ID of the webhook.")
-    attributes: PostWebhookResponseDataAttributes
+    attributes: WebhookResponseObjectResourceAttributes
     relationships: Optional[GetWebhookResponseCollectionCompoundDocumentDataInnerAllOfRelationships] = None
     links: ObjectLinks
     __properties: ClassVar[List[str]] = ["type", "id", "attributes", "relationships", "links"]
@@ -99,7 +99,7 @@ class PostWebhookResponseData(BaseModel):
         _obj = cls.model_validate({
             "type": obj.get("type"),
             "id": obj.get("id"),
-            "attributes": PostWebhookResponseDataAttributes.from_dict(obj["attributes"]) if obj.get("attributes") is not None else None,
+            "attributes": WebhookResponseObjectResourceAttributes.from_dict(obj["attributes"]) if obj.get("attributes") is not None else None,
             "relationships": GetWebhookResponseCollectionCompoundDocumentDataInnerAllOfRelationships.from_dict(obj["relationships"]) if obj.get("relationships") is not None else None,
             "links": ObjectLinks.from_dict(obj["links"]) if obj.get("links") is not None else None
         })

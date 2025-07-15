@@ -26,7 +26,7 @@ class CouponResponseObjectResourceAttributes(BaseModel):
     """
     CouponResponseObjectResourceAttributes
     """ # noqa: E501
-    external_id: Optional[StrictStr] = Field(description="This is the id that is stored in an integration such as Shopify or Magento.")
+    external_id: StrictStr = Field(description="This is the id that is stored in an integration such as Shopify or Magento.")
     description: Optional[StrictStr] = Field(default=None, description="A description of the coupon.")
     __properties: ClassVar[List[str]] = ["external_id", "description"]
 
@@ -69,11 +69,6 @@ class CouponResponseObjectResourceAttributes(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if external_id (nullable) is None
-        # and model_fields_set contains the field
-        if self.external_id is None and "external_id" in self.model_fields_set:
-            _dict['external_id'] = None
-
         # set to None if description (nullable) is None
         # and model_fields_set contains the field
         if self.description is None and "description" in self.model_fields_set:

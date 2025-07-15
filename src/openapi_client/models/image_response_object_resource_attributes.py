@@ -19,7 +19,7 @@ import json
 
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, StrictBool, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,12 +27,12 @@ class ImageResponseObjectResourceAttributes(BaseModel):
     """
     ImageResponseObjectResourceAttributes
     """ # noqa: E501
-    name: Optional[StrictStr]
-    image_url: Optional[StrictStr]
-    format: Optional[StrictStr]
+    name: StrictStr
+    image_url: StrictStr
+    format: StrictStr
     size: StrictInt
     hidden: StrictBool
-    updated_at: Optional[datetime]
+    updated_at: datetime
     __properties: ClassVar[List[str]] = ["name", "image_url", "format", "size", "hidden", "updated_at"]
 
     model_config = ConfigDict(
@@ -74,26 +74,6 @@ class ImageResponseObjectResourceAttributes(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if name (nullable) is None
-        # and model_fields_set contains the field
-        if self.name is None and "name" in self.model_fields_set:
-            _dict['name'] = None
-
-        # set to None if image_url (nullable) is None
-        # and model_fields_set contains the field
-        if self.image_url is None and "image_url" in self.model_fields_set:
-            _dict['image_url'] = None
-
-        # set to None if format (nullable) is None
-        # and model_fields_set contains the field
-        if self.format is None and "format" in self.model_fields_set:
-            _dict['format'] = None
-
-        # set to None if updated_at (nullable) is None
-        # and model_fields_set contains the field
-        if self.updated_at is None and "updated_at" in self.model_fields_set:
-            _dict['updated_at'] = None
-
         return _dict
 
     @classmethod

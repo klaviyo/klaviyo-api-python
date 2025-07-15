@@ -20,8 +20,8 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
 from openapi_client.models.image_enum import ImageEnum
+from openapi_client.models.image_response_object_resource_attributes import ImageResponseObjectResourceAttributes
 from openapi_client.models.object_links import ObjectLinks
-from openapi_client.models.post_image_response_data_attributes import PostImageResponseDataAttributes
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -31,7 +31,7 @@ class PostImageResponseData(BaseModel):
     """ # noqa: E501
     type: ImageEnum
     id: StrictStr = Field(description="The ID of the image")
-    attributes: PostImageResponseDataAttributes
+    attributes: ImageResponseObjectResourceAttributes
     links: ObjectLinks
     __properties: ClassVar[List[str]] = ["type", "id", "attributes", "links"]
 
@@ -94,7 +94,7 @@ class PostImageResponseData(BaseModel):
         _obj = cls.model_validate({
             "type": obj.get("type"),
             "id": obj.get("id"),
-            "attributes": PostImageResponseDataAttributes.from_dict(obj["attributes"]) if obj.get("attributes") is not None else None,
+            "attributes": ImageResponseObjectResourceAttributes.from_dict(obj["attributes"]) if obj.get("attributes") is not None else None,
             "links": ObjectLinks.from_dict(obj["links"]) if obj.get("links") is not None else None
         })
         return _obj

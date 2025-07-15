@@ -19,7 +19,7 @@ import json
 
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,19 +27,16 @@ class FormResponseObjectResourceAttributes(BaseModel):
     """
     FormResponseObjectResourceAttributes
     """ # noqa: E501
-    name: Optional[StrictStr] = Field(description="Name of the form.")
-    status: Optional[StrictStr] = Field(description="Status of the form. A live form with an in-progress draft is considered \"live\".")
+    name: StrictStr = Field(description="Name of the form.")
+    status: StrictStr = Field(description="Status of the form. A live form with an in-progress draft is considered \"live\".")
     ab_test: StrictBool = Field(description="Whether the form has an A/B test configured, regardless of its status.")
-    created_at: Optional[datetime] = Field(description="ISO8601 timestamp when the form was created.")
-    updated_at: Optional[datetime] = Field(description="ISO8601 timestamp when the form was last updated.")
+    created_at: datetime = Field(description="ISO8601 timestamp when the form was created.")
+    updated_at: datetime = Field(description="ISO8601 timestamp when the form was last updated.")
     __properties: ClassVar[List[str]] = ["name", "status", "ab_test", "created_at", "updated_at"]
 
     @field_validator('status')
     def status_validate_enum(cls, value):
         """Validates the enum"""
-        if value is None:
-            return value
-
         if value not in set(['draft', 'live']):
             raise ValueError("must be one of enum values ('draft', 'live')")
         return value
@@ -83,26 +80,6 @@ class FormResponseObjectResourceAttributes(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if name (nullable) is None
-        # and model_fields_set contains the field
-        if self.name is None and "name" in self.model_fields_set:
-            _dict['name'] = None
-
-        # set to None if status (nullable) is None
-        # and model_fields_set contains the field
-        if self.status is None and "status" in self.model_fields_set:
-            _dict['status'] = None
-
-        # set to None if created_at (nullable) is None
-        # and model_fields_set contains the field
-        if self.created_at is None and "created_at" in self.model_fields_set:
-            _dict['created_at'] = None
-
-        # set to None if updated_at (nullable) is None
-        # and model_fields_set contains the field
-        if self.updated_at is None and "updated_at" in self.model_fields_set:
-            _dict['updated_at'] = None
-
         return _dict
 
     @classmethod

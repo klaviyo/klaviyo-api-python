@@ -44,7 +44,7 @@ class ListMemberResponseObjectResourceExtendedAttributes(BaseModel):
     last_event_date: Optional[datetime] = Field(default=None, description="Date and time of the most recent event the triggered an update to the profile, in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm)")
     location: Optional[ProfileLocation] = None
     properties: Optional[Dict[str, Any]] = Field(default=None, description="An object containing key/value pairs for any custom properties assigned to this profile")
-    joined_group_at: Optional[datetime] = Field(description="The datetime when this profile most recently joined the list.")
+    joined_group_at: datetime = Field(description="The datetime when this profile most recently joined the list.")
     subscriptions: Optional[Subscriptions] = None
     predictive_analytics: Optional[PredictiveAnalytics] = None
     __properties: ClassVar[List[str]] = ["email", "phone_number", "external_id", "first_name", "last_name", "organization", "locale", "title", "image", "created", "updated", "last_event_date", "location", "properties", "joined_group_at", "subscriptions", "predictive_analytics"]
@@ -161,11 +161,6 @@ class ListMemberResponseObjectResourceExtendedAttributes(BaseModel):
         # and model_fields_set contains the field
         if self.properties is None and "properties" in self.model_fields_set:
             _dict['properties'] = None
-
-        # set to None if joined_group_at (nullable) is None
-        # and model_fields_set contains the field
-        if self.joined_group_at is None and "joined_group_at" in self.model_fields_set:
-            _dict['joined_group_at'] = None
 
         return _dict
 

@@ -28,19 +28,16 @@ class FormVersionResponseObjectResourceAttributes(BaseModel):
     """
     FormVersionResponseObjectResourceAttributes
     """ # noqa: E501
-    form_type: Optional[StrictStr] = Field(description="The type of form.")
+    form_type: StrictStr = Field(description="The type of form.")
     ab_test: Optional[FormVersionABTest] = None
-    status: Optional[StrictStr] = Field(description="Status of the form version. \"live\" means it's live on site.")
-    created_at: Optional[datetime] = Field(description="ISO8601 timestamp when the form version was created.")
-    updated_at: Optional[datetime] = Field(description="ISO8601 timestamp when the form version was last updated.")
+    status: StrictStr = Field(description="Status of the form version. \"live\" means it's live on site.")
+    created_at: datetime = Field(description="ISO8601 timestamp when the form version was created.")
+    updated_at: datetime = Field(description="ISO8601 timestamp when the form version was last updated.")
     __properties: ClassVar[List[str]] = ["form_type", "ab_test", "status", "created_at", "updated_at"]
 
     @field_validator('form_type')
     def form_type_validate_enum(cls, value):
         """Validates the enum"""
-        if value is None:
-            return value
-
         if value not in set(['banner', 'embed', 'flyout', 'full_page', 'popup']):
             raise ValueError("must be one of enum values ('banner', 'embed', 'flyout', 'full_page', 'popup')")
         return value
@@ -48,9 +45,6 @@ class FormVersionResponseObjectResourceAttributes(BaseModel):
     @field_validator('status')
     def status_validate_enum(cls, value):
         """Validates the enum"""
-        if value is None:
-            return value
-
         if value not in set(['draft', 'live']):
             raise ValueError("must be one of enum values ('draft', 'live')")
         return value
@@ -97,26 +91,6 @@ class FormVersionResponseObjectResourceAttributes(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of ab_test
         if self.ab_test:
             _dict['ab_test'] = self.ab_test.to_dict()
-        # set to None if form_type (nullable) is None
-        # and model_fields_set contains the field
-        if self.form_type is None and "form_type" in self.model_fields_set:
-            _dict['form_type'] = None
-
-        # set to None if status (nullable) is None
-        # and model_fields_set contains the field
-        if self.status is None and "status" in self.model_fields_set:
-            _dict['status'] = None
-
-        # set to None if created_at (nullable) is None
-        # and model_fields_set contains the field
-        if self.created_at is None and "created_at" in self.model_fields_set:
-            _dict['created_at'] = None
-
-        # set to None if updated_at (nullable) is None
-        # and model_fields_set contains the field
-        if self.updated_at is None and "updated_at" in self.model_fields_set:
-            _dict['updated_at'] = None
-
         return _dict
 
     @classmethod

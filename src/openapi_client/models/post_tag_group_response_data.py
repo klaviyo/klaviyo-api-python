@@ -20,9 +20,9 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.object_links import ObjectLinks
-from openapi_client.models.post_tag_group_response_data_attributes import PostTagGroupResponseDataAttributes
 from openapi_client.models.post_tag_group_response_data_relationships import PostTagGroupResponseDataRelationships
 from openapi_client.models.tag_group_enum import TagGroupEnum
+from openapi_client.models.tag_group_response_object_resource_attributes import TagGroupResponseObjectResourceAttributes
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -32,7 +32,7 @@ class PostTagGroupResponseData(BaseModel):
     """ # noqa: E501
     type: TagGroupEnum
     id: StrictStr = Field(description="The Tag Group ID")
-    attributes: PostTagGroupResponseDataAttributes
+    attributes: TagGroupResponseObjectResourceAttributes
     relationships: Optional[PostTagGroupResponseDataRelationships] = None
     links: ObjectLinks
     __properties: ClassVar[List[str]] = ["type", "id", "attributes", "relationships", "links"]
@@ -99,7 +99,7 @@ class PostTagGroupResponseData(BaseModel):
         _obj = cls.model_validate({
             "type": obj.get("type"),
             "id": obj.get("id"),
-            "attributes": PostTagGroupResponseDataAttributes.from_dict(obj["attributes"]) if obj.get("attributes") is not None else None,
+            "attributes": TagGroupResponseObjectResourceAttributes.from_dict(obj["attributes"]) if obj.get("attributes") is not None else None,
             "relationships": PostTagGroupResponseDataRelationships.from_dict(obj["relationships"]) if obj.get("relationships") is not None else None,
             "links": ObjectLinks.from_dict(obj["links"]) if obj.get("links") is not None else None
         })

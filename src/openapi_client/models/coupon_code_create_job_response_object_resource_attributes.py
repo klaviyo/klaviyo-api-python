@@ -28,8 +28,8 @@ class CouponCodeCreateJobResponseObjectResourceAttributes(BaseModel):
     """
     CouponCodeCreateJobResponseObjectResourceAttributes
     """ # noqa: E501
-    status: Optional[StrictStr] = Field(description="Status of the asynchronous job.")
-    created_at: Optional[datetime] = Field(description="The date and time the job was created in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm).")
+    status: StrictStr = Field(description="Status of the asynchronous job.")
+    created_at: datetime = Field(description="The date and time the job was created in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm).")
     total_count: StrictInt = Field(description="The total number of operations to be processed by the job. See `completed_count` for the job's current progress.")
     completed_count: Optional[StrictInt] = Field(default=0, description="The total number of operations that have been completed by the job.")
     failed_count: Optional[StrictInt] = Field(default=0, description="The total number of operations that have failed as part of the job.")
@@ -41,9 +41,6 @@ class CouponCodeCreateJobResponseObjectResourceAttributes(BaseModel):
     @field_validator('status')
     def status_validate_enum(cls, value):
         """Validates the enum"""
-        if value is None:
-            return value
-
         if value not in set(['cancelled', 'complete', 'processing', 'queued']):
             raise ValueError("must be one of enum values ('cancelled', 'complete', 'processing', 'queued')")
         return value
@@ -94,16 +91,6 @@ class CouponCodeCreateJobResponseObjectResourceAttributes(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['errors'] = _items
-        # set to None if status (nullable) is None
-        # and model_fields_set contains the field
-        if self.status is None and "status" in self.model_fields_set:
-            _dict['status'] = None
-
-        # set to None if created_at (nullable) is None
-        # and model_fields_set contains the field
-        if self.created_at is None and "created_at" in self.model_fields_set:
-            _dict['created_at'] = None
-
         # set to None if completed_count (nullable) is None
         # and model_fields_set contains the field
         if self.completed_count is None and "completed_count" in self.model_fields_set:

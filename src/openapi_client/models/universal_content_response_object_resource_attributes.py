@@ -27,20 +27,17 @@ class UniversalContentResponseObjectResourceAttributes(BaseModel):
     """
     UniversalContentResponseObjectResourceAttributes
     """ # noqa: E501
-    name: Optional[StrictStr] = Field(description="The name for this universal content")
+    name: StrictStr = Field(description="The name for this universal content")
     definition: Optional[Dict[str, Any]] = None
-    created: Optional[datetime] = Field(description="The datetime when this universal content was created")
-    updated: Optional[datetime] = Field(description="The datetime when this universal content was updated")
-    screenshot_status: Optional[StrictStr] = Field(description="The status of a universal content screenshot.")
-    screenshot_url: Optional[StrictStr]
+    created: datetime = Field(description="The datetime when this universal content was created")
+    updated: datetime = Field(description="The datetime when this universal content was updated")
+    screenshot_status: StrictStr = Field(description="The status of a universal content screenshot.")
+    screenshot_url: StrictStr
     __properties: ClassVar[List[str]] = ["name", "definition", "created", "updated", "screenshot_status", "screenshot_url"]
 
     @field_validator('screenshot_status')
     def screenshot_status_validate_enum(cls, value):
         """Validates the enum"""
-        if value is None:
-            return value
-
         if value not in set(['completed', 'failed', 'generating', 'never_generated', 'not_renderable', 'stale']):
             raise ValueError("must be one of enum values ('completed', 'failed', 'generating', 'never_generated', 'not_renderable', 'stale')")
         return value
@@ -84,35 +81,10 @@ class UniversalContentResponseObjectResourceAttributes(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if name (nullable) is None
-        # and model_fields_set contains the field
-        if self.name is None and "name" in self.model_fields_set:
-            _dict['name'] = None
-
         # set to None if definition (nullable) is None
         # and model_fields_set contains the field
         if self.definition is None and "definition" in self.model_fields_set:
             _dict['definition'] = None
-
-        # set to None if created (nullable) is None
-        # and model_fields_set contains the field
-        if self.created is None and "created" in self.model_fields_set:
-            _dict['created'] = None
-
-        # set to None if updated (nullable) is None
-        # and model_fields_set contains the field
-        if self.updated is None and "updated" in self.model_fields_set:
-            _dict['updated'] = None
-
-        # set to None if screenshot_status (nullable) is None
-        # and model_fields_set contains the field
-        if self.screenshot_status is None and "screenshot_status" in self.model_fields_set:
-            _dict['screenshot_status'] = None
-
-        # set to None if screenshot_url (nullable) is None
-        # and model_fields_set contains the field
-        if self.screenshot_url is None and "screenshot_url" in self.model_fields_set:
-            _dict['screenshot_url'] = None
 
         return _dict
 

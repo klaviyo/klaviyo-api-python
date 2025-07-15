@@ -28,25 +28,22 @@ class CampaignResponseObjectResourceAttributes(BaseModel):
     """
     CampaignResponseObjectResourceAttributes
     """ # noqa: E501
-    name: Optional[StrictStr] = Field(description="The campaign name")
-    status: Optional[StrictStr] = Field(description="The current status of the campaign")
+    name: StrictStr = Field(description="The campaign name")
+    status: StrictStr = Field(description="The current status of the campaign")
     archived: StrictBool = Field(description="Whether the campaign has been archived or not")
     audiences: Audiences
     send_options: Dict[str, Any] = Field(description="Options to use when sending a campaign")
     tracking_options: Optional[Dict[str, Any]] = Field(default=None, description="The tracking options associated with the campaign")
     send_strategy: Dict[str, Any] = Field(description="The send strategy the campaign will send with")
-    created_at: Optional[datetime] = Field(description="The datetime when the campaign was created")
+    created_at: datetime = Field(description="The datetime when the campaign was created")
     scheduled_at: Optional[datetime] = Field(default=None, description="The datetime when the campaign was scheduled for future sending")
-    updated_at: Optional[datetime] = Field(description="The datetime when the campaign was last updated by a user or the system")
+    updated_at: datetime = Field(description="The datetime when the campaign was last updated by a user or the system")
     send_time: Optional[datetime] = Field(default=None, description="The datetime when the campaign will be / was sent or None if not yet scheduled by a send_job.")
     __properties: ClassVar[List[str]] = ["name", "status", "archived", "audiences", "send_options", "tracking_options", "send_strategy", "created_at", "scheduled_at", "updated_at", "send_time"]
 
     @field_validator('status')
     def status_validate_enum(cls, value):
         """Validates the enum"""
-        if value is None:
-            return value
-
         if value not in set(['Adding Recipients', 'Cancelled', 'Cancelled: Account Disabled', 'Cancelled: Internal Error', 'Cancelled: No Recipients', 'Cancelled: Smart Sending', 'Draft', 'Preparing to schedule', 'Preparing to send', 'Queued without Recipients', 'Scheduled', 'Sending', 'Sending Segments', 'Sent', 'Unknown', 'Variations Sent']):
             raise ValueError("must be one of enum values ('Adding Recipients', 'Cancelled', 'Cancelled: Account Disabled', 'Cancelled: Internal Error', 'Cancelled: No Recipients', 'Cancelled: Smart Sending', 'Draft', 'Preparing to schedule', 'Preparing to send', 'Queued without Recipients', 'Scheduled', 'Sending', 'Sending Segments', 'Sent', 'Unknown', 'Variations Sent')")
         return value
@@ -93,35 +90,15 @@ class CampaignResponseObjectResourceAttributes(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of audiences
         if self.audiences:
             _dict['audiences'] = self.audiences.to_dict()
-        # set to None if name (nullable) is None
-        # and model_fields_set contains the field
-        if self.name is None and "name" in self.model_fields_set:
-            _dict['name'] = None
-
-        # set to None if status (nullable) is None
-        # and model_fields_set contains the field
-        if self.status is None and "status" in self.model_fields_set:
-            _dict['status'] = None
-
         # set to None if tracking_options (nullable) is None
         # and model_fields_set contains the field
         if self.tracking_options is None and "tracking_options" in self.model_fields_set:
             _dict['tracking_options'] = None
 
-        # set to None if created_at (nullable) is None
-        # and model_fields_set contains the field
-        if self.created_at is None and "created_at" in self.model_fields_set:
-            _dict['created_at'] = None
-
         # set to None if scheduled_at (nullable) is None
         # and model_fields_set contains the field
         if self.scheduled_at is None and "scheduled_at" in self.model_fields_set:
             _dict['scheduled_at'] = None
-
-        # set to None if updated_at (nullable) is None
-        # and model_fields_set contains the field
-        if self.updated_at is None and "updated_at" in self.model_fields_set:
-            _dict['updated_at'] = None
 
         # set to None if send_time (nullable) is None
         # and model_fields_set contains the field

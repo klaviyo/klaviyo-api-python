@@ -27,7 +27,7 @@ class ImageCreateQueryResourceObjectAttributes(BaseModel):
     ImageCreateQueryResourceObjectAttributes
     """ # noqa: E501
     name: Optional[StrictStr] = Field(default=None, description="A name for the image.  Defaults to the filename if not provided.  If the name matches an existing image, a suffix will be added.")
-    import_from_url: Optional[StrictStr] = Field(description="An existing image url to import the image from. Alternatively, you may specify a base-64 encoded data-uri (`data:image/...`). Supported image formats: jpeg,png,gif. Maximum image size: 5MB.")
+    import_from_url: StrictStr = Field(description="An existing image url to import the image from. Alternatively, you may specify a base-64 encoded data-uri (`data:image/...`). Supported image formats: jpeg,png,gif. Maximum image size: 5MB.")
     hidden: Optional[StrictBool] = Field(default=False, description="If true, this image is not shown in the asset library.")
     __properties: ClassVar[List[str]] = ["name", "import_from_url", "hidden"]
 
@@ -74,11 +74,6 @@ class ImageCreateQueryResourceObjectAttributes(BaseModel):
         # and model_fields_set contains the field
         if self.name is None and "name" in self.model_fields_set:
             _dict['name'] = None
-
-        # set to None if import_from_url (nullable) is None
-        # and model_fields_set contains the field
-        if self.import_from_url is None and "import_from_url" in self.model_fields_set:
-            _dict['import_from_url'] = None
 
         # set to None if hidden (nullable) is None
         # and model_fields_set contains the field

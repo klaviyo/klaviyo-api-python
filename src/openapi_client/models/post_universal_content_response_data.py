@@ -20,8 +20,8 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
 from openapi_client.models.object_links import ObjectLinks
-from openapi_client.models.post_universal_content_response_data_attributes import PostUniversalContentResponseDataAttributes
 from openapi_client.models.template_universal_content_enum import TemplateUniversalContentEnum
+from openapi_client.models.universal_content_response_object_resource_attributes import UniversalContentResponseObjectResourceAttributes
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -31,7 +31,7 @@ class PostUniversalContentResponseData(BaseModel):
     """ # noqa: E501
     type: TemplateUniversalContentEnum
     id: StrictStr = Field(description="The ID of the universal content")
-    attributes: PostUniversalContentResponseDataAttributes
+    attributes: UniversalContentResponseObjectResourceAttributes
     links: ObjectLinks
     __properties: ClassVar[List[str]] = ["type", "id", "attributes", "links"]
 
@@ -94,7 +94,7 @@ class PostUniversalContentResponseData(BaseModel):
         _obj = cls.model_validate({
             "type": obj.get("type"),
             "id": obj.get("id"),
-            "attributes": PostUniversalContentResponseDataAttributes.from_dict(obj["attributes"]) if obj.get("attributes") is not None else None,
+            "attributes": UniversalContentResponseObjectResourceAttributes.from_dict(obj["attributes"]) if obj.get("attributes") is not None else None,
             "links": ObjectLinks.from_dict(obj["links"]) if obj.get("links") is not None else None
         })
         return _obj
