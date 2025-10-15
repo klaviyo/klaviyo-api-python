@@ -31,8 +31,8 @@ class WebhookResponseObjectResourceAttributes(BaseModel):
     description: Optional[StrictStr] = Field(default=None, description="A description for the webhook.")
     endpoint_url: StrictStr = Field(description="The url to send webhook requests to, truncated for security.")
     enabled: StrictBool = Field(description="Is the webhook enabled.")
-    created_at: datetime = Field(description="Date and time when the webhook was created, in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm)")
-    updated_at: datetime = Field(description="Date and time when the webhook was last updated, in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm)")
+    created_at: Optional[datetime] = Field(default=None, description="Date and time when the webhook was created, in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm)")
+    updated_at: Optional[datetime] = Field(default=None, description="Date and time when the webhook was last updated, in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm)")
     __properties: ClassVar[List[str]] = ["name", "description", "endpoint_url", "enabled", "created_at", "updated_at"]
 
     model_config = ConfigDict(
@@ -78,6 +78,16 @@ class WebhookResponseObjectResourceAttributes(BaseModel):
         # and model_fields_set contains the field
         if self.description is None and "description" in self.model_fields_set:
             _dict['description'] = None
+
+        # set to None if created_at (nullable) is None
+        # and model_fields_set contains the field
+        if self.created_at is None and "created_at" in self.model_fields_set:
+            _dict['created_at'] = None
+
+        # set to None if updated_at (nullable) is None
+        # and model_fields_set contains the field
+        if self.updated_at is None and "updated_at" in self.model_fields_set:
+            _dict['updated_at'] = None
 
         return _dict
 

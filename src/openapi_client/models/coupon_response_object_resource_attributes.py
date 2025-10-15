@@ -28,7 +28,8 @@ class CouponResponseObjectResourceAttributes(BaseModel):
     """ # noqa: E501
     external_id: StrictStr = Field(description="This is the id that is stored in an integration such as Shopify or Magento.")
     description: Optional[StrictStr] = Field(default=None, description="A description of the coupon.")
-    __properties: ClassVar[List[str]] = ["external_id", "description"]
+    monitor_configuration: Optional[Dict[str, Any]] = Field(default=None, description="The monitor configuration for the coupon.")
+    __properties: ClassVar[List[str]] = ["external_id", "description", "monitor_configuration"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -74,6 +75,11 @@ class CouponResponseObjectResourceAttributes(BaseModel):
         if self.description is None and "description" in self.model_fields_set:
             _dict['description'] = None
 
+        # set to None if monitor_configuration (nullable) is None
+        # and model_fields_set contains the field
+        if self.monitor_configuration is None and "monitor_configuration" in self.model_fields_set:
+            _dict['monitor_configuration'] = None
+
         return _dict
 
     @classmethod
@@ -87,7 +93,8 @@ class CouponResponseObjectResourceAttributes(BaseModel):
 
         _obj = cls.model_validate({
             "external_id": obj.get("external_id"),
-            "description": obj.get("description")
+            "description": obj.get("description"),
+            "monitor_configuration": obj.get("monitor_configuration")
         })
         return _obj
 

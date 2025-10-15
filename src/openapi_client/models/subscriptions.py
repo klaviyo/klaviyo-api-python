@@ -22,6 +22,7 @@ from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.email_channel import EmailChannel
 from openapi_client.models.push_channel import PushChannel
 from openapi_client.models.sms_channel import SMSChannel
+from openapi_client.models.whatsapp_channel import WhatsappChannel
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -32,7 +33,8 @@ class Subscriptions(BaseModel):
     email: Optional[EmailChannel] = None
     sms: Optional[SMSChannel] = None
     mobile_push: Optional[PushChannel] = None
-    __properties: ClassVar[List[str]] = ["email", "sms", "mobile_push"]
+    whatsapp: Optional[WhatsappChannel] = None
+    __properties: ClassVar[List[str]] = ["email", "sms", "mobile_push", "whatsapp"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -82,6 +84,9 @@ class Subscriptions(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of mobile_push
         if self.mobile_push:
             _dict['mobile_push'] = self.mobile_push.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of whatsapp
+        if self.whatsapp:
+            _dict['whatsapp'] = self.whatsapp.to_dict()
         return _dict
 
     @classmethod
@@ -96,7 +101,8 @@ class Subscriptions(BaseModel):
         _obj = cls.model_validate({
             "email": EmailChannel.from_dict(obj["email"]) if obj.get("email") is not None else None,
             "sms": SMSChannel.from_dict(obj["sms"]) if obj.get("sms") is not None else None,
-            "mobile_push": PushChannel.from_dict(obj["mobile_push"]) if obj.get("mobile_push") is not None else None
+            "mobile_push": PushChannel.from_dict(obj["mobile_push"]) if obj.get("mobile_push") is not None else None,
+            "whatsapp": WhatsappChannel.from_dict(obj["whatsapp"]) if obj.get("whatsapp") is not None else None
         })
         return _obj
 

@@ -1,7 +1,7 @@
 # Klaviyo Python SDK
 
-- SDK version: 20.0.0
-- API revision: 2025-07-15
+- SDK version: 21.0.0
+- API revision: 2025-10-15
 
 ## Table of Contents
 <!-- TOC -->
@@ -52,8 +52,8 @@
 
 ## Helpful Resources
 
-- [API Reference](https://developers.klaviyo.com/en/v2025-07-15/reference)
-- [API Guides](https://developers.klaviyo.com/en/v2025-07-15/docs)
+- [API Reference](https://developers.klaviyo.com/en/v2025-10-15/reference)
+- [API Guides](https://developers.klaviyo.com/en/v2025-10-15/docs)
 - [Postman Workspace](https://www.postman.com/klaviyo/workspace/klaviyo-developers)
 - [Interactive Guide (Jupyter Notebook)](https://github.com/klaviyo-labs/klaviyo-api-guides)
 
@@ -305,7 +305,7 @@ An `ApiException` consists of the following attributes:
 ## Important Notes
 
 - The main difference between this SDK and the language-agnostic API Docs that the below endpoints link to is that this SDK automatically adds the `revision` header corresponding to the SDK version.
-- Organization: Resource groups and operation_ids are listed below in alphabetical order, first by Resource name, then by **OpenAPI Summary**. Operation summaries are those listed in the right side bar of the [API Reference](https://developers.klaviyo.com/en/v2025-07-15/reference/get_events).
+- Organization: Resource groups and operation_ids are listed below in alphabetical order, first by Resource name, then by **OpenAPI Summary**. Operation summaries are those listed in the right side bar of the [API Reference](https://developers.klaviyo.com/en/v2025-10-15/reference/get_events).
 - For example values / data types, as well as whether parameters are required/optional, please reference the corresponding API Reference link.
 - Some keyword args may potentially be required for the API call to succeed, the linked API docs are the source of truth regarding which keyword params are required.
 - JSON payloads should be passed in as native python dictionaries.
@@ -319,7 +319,7 @@ An `ApiException` consists of the following attributes:
 
 ## Accounts
 
-#### [Get Account](https://developers.klaviyo.com/en/v2025-07-15/reference/get_account)
+#### [Get Account](https://developers.klaviyo.com/en/v2025-10-15/reference/get_account)
 
 ```python
 ## Positional Arguments
@@ -336,7 +336,7 @@ klaviyo.Accounts.get_account(id, fields_account=fields_account)
 
 
 
-#### [Get Accounts](https://developers.klaviyo.com/en/v2025-07-15/reference/get_accounts)
+#### [Get Accounts](https://developers.klaviyo.com/en/v2025-10-15/reference/get_accounts)
 
 ```python
 
@@ -354,7 +354,7 @@ klaviyo.Accounts.get_accounts(fields_account=fields_account)
 
 ## Campaigns
 
-#### [Assign Template to Campaign Message](https://developers.klaviyo.com/en/v2025-07-15/reference/assign_template_to_campaign_message)
+#### [Assign Template to Campaign Message](https://developers.klaviyo.com/en/v2025-10-15/reference/assign_template_to_campaign_message)
 
 ```python
 ## Positional Arguments
@@ -371,7 +371,7 @@ klaviyo.Campaigns.create_campaign_message_assign_template(body)
 
 
 
-#### [Cancel Campaign Send](https://developers.klaviyo.com/en/v2025-07-15/reference/cancel_campaign_send)
+#### [Cancel Campaign Send](https://developers.klaviyo.com/en/v2025-10-15/reference/cancel_campaign_send)
 
 ```python
 ## Positional Arguments
@@ -389,7 +389,7 @@ klaviyo.Campaigns.update_campaign_send_job(id, body)
 
 
 
-#### [Create Campaign](https://developers.klaviyo.com/en/v2025-07-15/reference/create_campaign)
+#### [Create Campaign](https://developers.klaviyo.com/en/v2025-10-15/reference/create_campaign)
 
 ```python
 ## Positional Arguments
@@ -402,7 +402,7 @@ klaviyo.Campaigns.create_campaign(body)
 
 
 
-#### [Create Campaign Clone](https://developers.klaviyo.com/en/v2025-07-15/reference/create_campaign_clone)
+#### [Create Campaign Clone](https://developers.klaviyo.com/en/v2025-10-15/reference/create_campaign_clone)
 
 ```python
 ## Positional Arguments
@@ -419,7 +419,7 @@ klaviyo.Campaigns.clone_campaign(body)
 
 
 
-#### [Delete Campaign](https://developers.klaviyo.com/en/v2025-07-15/reference/delete_campaign)
+#### [Delete Campaign](https://developers.klaviyo.com/en/v2025-10-15/reference/delete_campaign)
 
 ```python
 ## Positional Arguments
@@ -432,7 +432,7 @@ klaviyo.Campaigns.delete_campaign(id)
 
 
 
-#### [Get Campaign](https://developers.klaviyo.com/en/v2025-07-15/reference/get_campaign)
+#### [Get Campaign](https://developers.klaviyo.com/en/v2025-10-15/reference/get_campaign)
 
 ```python
 ## Positional Arguments
@@ -452,7 +452,7 @@ klaviyo.Campaigns.get_campaign(id, fields_campaign_message=fields_campaign_messa
 
 
 
-#### [Get Campaign for Campaign Message](https://developers.klaviyo.com/en/v2025-07-15/reference/get_campaign_for_campaign_message)
+#### [Get Campaign for Campaign Message](https://developers.klaviyo.com/en/v2025-10-15/reference/get_campaign_for_campaign_message)
 
 ```python
 ## Positional Arguments
@@ -473,7 +473,7 @@ klaviyo.Campaigns.get_campaign_message_campaign(id, fields_campaign=fields_campa
 
 
 
-#### [Get Campaign ID for Campaign Message](https://developers.klaviyo.com/en/v2025-07-15/reference/get_campaign_id_for_campaign_message)
+#### [Get Campaign ID for Campaign Message](https://developers.klaviyo.com/en/v2025-10-15/reference/get_campaign_id_for_campaign_message)
 
 ```python
 ## Positional Arguments
@@ -490,7 +490,7 @@ klaviyo.Campaigns.get_campaign_message_relationships_campaign(id)
 
 
 
-#### [Get Campaign Message](https://developers.klaviyo.com/en/v2025-07-15/reference/get_campaign_message)
+#### [Get Campaign Message](https://developers.klaviyo.com/en/v2025-10-15/reference/get_campaign_message)
 
 ```python
 ## Positional Arguments
@@ -511,7 +511,7 @@ klaviyo.Campaigns.get_campaign_message(id, fields_campaign_message=fields_campai
 
 
 
-#### [Get Campaign Recipient Estimation](https://developers.klaviyo.com/en/v2025-07-15/reference/get_campaign_recipient_estimation)
+#### [Get Campaign Recipient Estimation](https://developers.klaviyo.com/en/v2025-10-15/reference/get_campaign_recipient_estimation)
 
 ```python
 ## Positional Arguments
@@ -528,7 +528,7 @@ klaviyo.Campaigns.get_campaign_recipient_estimation(id, fields_campaign_recipien
 
 
 
-#### [Get Campaign Recipient Estimation Job](https://developers.klaviyo.com/en/v2025-07-15/reference/get_campaign_recipient_estimation_job)
+#### [Get Campaign Recipient Estimation Job](https://developers.klaviyo.com/en/v2025-10-15/reference/get_campaign_recipient_estimation_job)
 
 ```python
 ## Positional Arguments
@@ -545,7 +545,7 @@ klaviyo.Campaigns.get_campaign_recipient_estimation_job(id, fields_campaign_reci
 
 
 
-#### [Get Campaign Send Job](https://developers.klaviyo.com/en/v2025-07-15/reference/get_campaign_send_job)
+#### [Get Campaign Send Job](https://developers.klaviyo.com/en/v2025-10-15/reference/get_campaign_send_job)
 
 ```python
 ## Positional Arguments
@@ -562,7 +562,7 @@ klaviyo.Campaigns.get_campaign_send_job(id, fields_campaign_send_job=fields_camp
 
 
 
-#### [Get Campaigns](https://developers.klaviyo.com/en/v2025-07-15/reference/get_campaigns)
+#### [Get Campaigns](https://developers.klaviyo.com/en/v2025-10-15/reference/get_campaigns)
 
 ```python
 ## Positional Arguments
@@ -584,7 +584,7 @@ klaviyo.Campaigns.get_campaigns(filter, fields_campaign_message=fields_campaign_
 
 
 
-#### [Get Image for Campaign Message](https://developers.klaviyo.com/en/v2025-07-15/reference/get_image_for_campaign_message)
+#### [Get Image for Campaign Message](https://developers.klaviyo.com/en/v2025-10-15/reference/get_image_for_campaign_message)
 
 ```python
 ## Positional Arguments
@@ -605,7 +605,7 @@ klaviyo.Campaigns.get_campaign_message_image(id, fields_image=fields_image)
 
 
 
-#### [Get Image ID for Campaign Message](https://developers.klaviyo.com/en/v2025-07-15/reference/get_image_id_for_campaign_message)
+#### [Get Image ID for Campaign Message](https://developers.klaviyo.com/en/v2025-10-15/reference/get_image_id_for_campaign_message)
 
 ```python
 ## Positional Arguments
@@ -622,7 +622,7 @@ klaviyo.Campaigns.get_campaign_message_relationships_image(id)
 
 
 
-#### [Get Message IDs for Campaign](https://developers.klaviyo.com/en/v2025-07-15/reference/get_message_ids_for_campaign)
+#### [Get Message IDs for Campaign](https://developers.klaviyo.com/en/v2025-10-15/reference/get_message_ids_for_campaign)
 
 ```python
 ## Positional Arguments
@@ -643,7 +643,7 @@ klaviyo.Campaigns.get_campaign_relationships_messages(id)
 
 
 
-#### [Get Messages for Campaign](https://developers.klaviyo.com/en/v2025-07-15/reference/get_messages_for_campaign)
+#### [Get Messages for Campaign](https://developers.klaviyo.com/en/v2025-10-15/reference/get_messages_for_campaign)
 
 ```python
 ## Positional Arguments
@@ -672,7 +672,7 @@ klaviyo.Campaigns.get_campaign_messages(id, fields_campaign_message=fields_campa
 
 
 
-#### [Get Tag IDs for Campaign](https://developers.klaviyo.com/en/v2025-07-15/reference/get_tag_ids_for_campaign)
+#### [Get Tag IDs for Campaign](https://developers.klaviyo.com/en/v2025-10-15/reference/get_tag_ids_for_campaign)
 
 ```python
 ## Positional Arguments
@@ -689,7 +689,7 @@ klaviyo.Campaigns.get_campaign_relationships_tags(id)
 
 
 
-#### [Get Tags for Campaign](https://developers.klaviyo.com/en/v2025-07-15/reference/get_tags_for_campaign)
+#### [Get Tags for Campaign](https://developers.klaviyo.com/en/v2025-10-15/reference/get_tags_for_campaign)
 
 ```python
 ## Positional Arguments
@@ -710,7 +710,7 @@ klaviyo.Campaigns.get_campaign_tags(id, fields_tag=fields_tag)
 
 
 
-#### [Get Template for Campaign Message](https://developers.klaviyo.com/en/v2025-07-15/reference/get_template_for_campaign_message)
+#### [Get Template for Campaign Message](https://developers.klaviyo.com/en/v2025-10-15/reference/get_template_for_campaign_message)
 
 ```python
 ## Positional Arguments
@@ -731,7 +731,7 @@ klaviyo.Campaigns.get_campaign_message_template(id, fields_template=fields_templ
 
 
 
-#### [Get Template ID for Campaign Message](https://developers.klaviyo.com/en/v2025-07-15/reference/get_template_id_for_campaign_message)
+#### [Get Template ID for Campaign Message](https://developers.klaviyo.com/en/v2025-10-15/reference/get_template_id_for_campaign_message)
 
 ```python
 ## Positional Arguments
@@ -748,7 +748,7 @@ klaviyo.Campaigns.get_campaign_message_relationships_template(id)
 
 
 
-#### [Refresh Campaign Recipient Estimation](https://developers.klaviyo.com/en/v2025-07-15/reference/refresh_campaign_recipient_estimation)
+#### [Refresh Campaign Recipient Estimation](https://developers.klaviyo.com/en/v2025-10-15/reference/refresh_campaign_recipient_estimation)
 
 ```python
 ## Positional Arguments
@@ -765,7 +765,7 @@ klaviyo.Campaigns.create_campaign_recipient_estimation_job(body)
 
 
 
-#### [Send Campaign](https://developers.klaviyo.com/en/v2025-07-15/reference/send_campaign)
+#### [Send Campaign](https://developers.klaviyo.com/en/v2025-10-15/reference/send_campaign)
 
 ```python
 ## Positional Arguments
@@ -782,7 +782,7 @@ klaviyo.Campaigns.create_campaign_send_job(body)
 
 
 
-#### [Update Campaign](https://developers.klaviyo.com/en/v2025-07-15/reference/update_campaign)
+#### [Update Campaign](https://developers.klaviyo.com/en/v2025-10-15/reference/update_campaign)
 
 ```python
 ## Positional Arguments
@@ -796,7 +796,7 @@ klaviyo.Campaigns.update_campaign(id, body)
 
 
 
-#### [Update Campaign Message](https://developers.klaviyo.com/en/v2025-07-15/reference/update_campaign_message)
+#### [Update Campaign Message](https://developers.klaviyo.com/en/v2025-10-15/reference/update_campaign_message)
 
 ```python
 ## Positional Arguments
@@ -810,7 +810,7 @@ klaviyo.Campaigns.update_campaign_message(id, body)
 
 
 
-#### [Update Image for Campaign Message](https://developers.klaviyo.com/en/v2025-07-15/reference/update_image_for_campaign_message)
+#### [Update Image for Campaign Message](https://developers.klaviyo.com/en/v2025-10-15/reference/update_image_for_campaign_message)
 
 ```python
 ## Positional Arguments
@@ -832,7 +832,7 @@ klaviyo.Campaigns.update_campaign_message_relationships_image(id, body)
 
 ## Catalogs
 
-#### [Add Categories to Catalog Item](https://developers.klaviyo.com/en/v2025-07-15/reference/add_categories_to_catalog_item)
+#### [Add Categories to Catalog Item](https://developers.klaviyo.com/en/v2025-10-15/reference/add_categories_to_catalog_item)
 
 ```python
 ## Positional Arguments
@@ -858,7 +858,7 @@ klaviyo.Catalogs.create_catalog_item_relationships_categories(id, body)
 
 
 
-#### [Add Items to Catalog Category](https://developers.klaviyo.com/en/v2025-07-15/reference/add_items_to_catalog_category)
+#### [Add Items to Catalog Category](https://developers.klaviyo.com/en/v2025-10-15/reference/add_items_to_catalog_category)
 
 ```python
 ## Positional Arguments
@@ -880,7 +880,7 @@ klaviyo.Catalogs.create_catalog_category_relationships_items(id, body)
 
 
 
-#### [Bulk Create Catalog Categories](https://developers.klaviyo.com/en/v2025-07-15/reference/bulk_create_catalog_categories)
+#### [Bulk Create Catalog Categories](https://developers.klaviyo.com/en/v2025-10-15/reference/bulk_create_catalog_categories)
 
 ```python
 ## Positional Arguments
@@ -901,7 +901,7 @@ klaviyo.Catalogs.create_catalog_category_bulk_create_job(body)
 
 
 
-#### [Bulk Create Catalog Items](https://developers.klaviyo.com/en/v2025-07-15/reference/bulk_create_catalog_items)
+#### [Bulk Create Catalog Items](https://developers.klaviyo.com/en/v2025-10-15/reference/bulk_create_catalog_items)
 
 ```python
 ## Positional Arguments
@@ -922,7 +922,7 @@ klaviyo.Catalogs.create_catalog_item_bulk_create_job(body)
 
 
 
-#### [Bulk Create Catalog Variants](https://developers.klaviyo.com/en/v2025-07-15/reference/bulk_create_catalog_variants)
+#### [Bulk Create Catalog Variants](https://developers.klaviyo.com/en/v2025-10-15/reference/bulk_create_catalog_variants)
 
 ```python
 ## Positional Arguments
@@ -943,7 +943,7 @@ klaviyo.Catalogs.create_catalog_variant_bulk_create_job(body)
 
 
 
-#### [Bulk Delete Catalog Categories](https://developers.klaviyo.com/en/v2025-07-15/reference/bulk_delete_catalog_categories)
+#### [Bulk Delete Catalog Categories](https://developers.klaviyo.com/en/v2025-10-15/reference/bulk_delete_catalog_categories)
 
 ```python
 ## Positional Arguments
@@ -964,7 +964,7 @@ klaviyo.Catalogs.create_catalog_category_bulk_delete_job(body)
 
 
 
-#### [Bulk Delete Catalog Items](https://developers.klaviyo.com/en/v2025-07-15/reference/bulk_delete_catalog_items)
+#### [Bulk Delete Catalog Items](https://developers.klaviyo.com/en/v2025-10-15/reference/bulk_delete_catalog_items)
 
 ```python
 ## Positional Arguments
@@ -985,7 +985,7 @@ klaviyo.Catalogs.create_catalog_item_bulk_delete_job(body)
 
 
 
-#### [Bulk Delete Catalog Variants](https://developers.klaviyo.com/en/v2025-07-15/reference/bulk_delete_catalog_variants)
+#### [Bulk Delete Catalog Variants](https://developers.klaviyo.com/en/v2025-10-15/reference/bulk_delete_catalog_variants)
 
 ```python
 ## Positional Arguments
@@ -1006,7 +1006,7 @@ klaviyo.Catalogs.create_catalog_variant_bulk_delete_job(body)
 
 
 
-#### [Bulk Update Catalog Categories](https://developers.klaviyo.com/en/v2025-07-15/reference/bulk_update_catalog_categories)
+#### [Bulk Update Catalog Categories](https://developers.klaviyo.com/en/v2025-10-15/reference/bulk_update_catalog_categories)
 
 ```python
 ## Positional Arguments
@@ -1027,7 +1027,7 @@ klaviyo.Catalogs.create_catalog_category_bulk_update_job(body)
 
 
 
-#### [Bulk Update Catalog Items](https://developers.klaviyo.com/en/v2025-07-15/reference/bulk_update_catalog_items)
+#### [Bulk Update Catalog Items](https://developers.klaviyo.com/en/v2025-10-15/reference/bulk_update_catalog_items)
 
 ```python
 ## Positional Arguments
@@ -1048,7 +1048,7 @@ klaviyo.Catalogs.create_catalog_item_bulk_update_job(body)
 
 
 
-#### [Bulk Update Catalog Variants](https://developers.klaviyo.com/en/v2025-07-15/reference/bulk_update_catalog_variants)
+#### [Bulk Update Catalog Variants](https://developers.klaviyo.com/en/v2025-10-15/reference/bulk_update_catalog_variants)
 
 ```python
 ## Positional Arguments
@@ -1069,7 +1069,7 @@ klaviyo.Catalogs.create_catalog_variant_bulk_update_job(body)
 
 
 
-#### [Create Back In Stock Subscription](https://developers.klaviyo.com/en/v2025-07-15/reference/create_back_in_stock_subscription)
+#### [Create Back In Stock Subscription](https://developers.klaviyo.com/en/v2025-10-15/reference/create_back_in_stock_subscription)
 
 ```python
 ## Positional Arguments
@@ -1082,7 +1082,7 @@ klaviyo.Catalogs.create_back_in_stock_subscription(body)
 
 
 
-#### [Create Catalog Category](https://developers.klaviyo.com/en/v2025-07-15/reference/create_catalog_category)
+#### [Create Catalog Category](https://developers.klaviyo.com/en/v2025-10-15/reference/create_catalog_category)
 
 ```python
 ## Positional Arguments
@@ -1095,7 +1095,7 @@ klaviyo.Catalogs.create_catalog_category(body)
 
 
 
-#### [Create Catalog Item](https://developers.klaviyo.com/en/v2025-07-15/reference/create_catalog_item)
+#### [Create Catalog Item](https://developers.klaviyo.com/en/v2025-10-15/reference/create_catalog_item)
 
 ```python
 ## Positional Arguments
@@ -1108,7 +1108,7 @@ klaviyo.Catalogs.create_catalog_item(body)
 
 
 
-#### [Create Catalog Variant](https://developers.klaviyo.com/en/v2025-07-15/reference/create_catalog_variant)
+#### [Create Catalog Variant](https://developers.klaviyo.com/en/v2025-10-15/reference/create_catalog_variant)
 
 ```python
 ## Positional Arguments
@@ -1121,7 +1121,7 @@ klaviyo.Catalogs.create_catalog_variant(body)
 
 
 
-#### [Delete Catalog Category](https://developers.klaviyo.com/en/v2025-07-15/reference/delete_catalog_category)
+#### [Delete Catalog Category](https://developers.klaviyo.com/en/v2025-10-15/reference/delete_catalog_category)
 
 ```python
 ## Positional Arguments
@@ -1134,7 +1134,7 @@ klaviyo.Catalogs.delete_catalog_category(id)
 
 
 
-#### [Delete Catalog Item](https://developers.klaviyo.com/en/v2025-07-15/reference/delete_catalog_item)
+#### [Delete Catalog Item](https://developers.klaviyo.com/en/v2025-10-15/reference/delete_catalog_item)
 
 ```python
 ## Positional Arguments
@@ -1147,7 +1147,7 @@ klaviyo.Catalogs.delete_catalog_item(id)
 
 
 
-#### [Delete Catalog Variant](https://developers.klaviyo.com/en/v2025-07-15/reference/delete_catalog_variant)
+#### [Delete Catalog Variant](https://developers.klaviyo.com/en/v2025-10-15/reference/delete_catalog_variant)
 
 ```python
 ## Positional Arguments
@@ -1160,7 +1160,7 @@ klaviyo.Catalogs.delete_catalog_variant(id)
 
 
 
-#### [Get Bulk Create Catalog Items Job](https://developers.klaviyo.com/en/v2025-07-15/reference/get_bulk_create_catalog_items_job)
+#### [Get Bulk Create Catalog Items Job](https://developers.klaviyo.com/en/v2025-10-15/reference/get_bulk_create_catalog_items_job)
 
 ```python
 ## Positional Arguments
@@ -1187,7 +1187,7 @@ klaviyo.Catalogs.get_catalog_item_bulk_create_job(job_id, fields_catalog_item_bu
 
 
 
-#### [Get Bulk Create Catalog Items Jobs](https://developers.klaviyo.com/en/v2025-07-15/reference/get_bulk_create_catalog_items_jobs)
+#### [Get Bulk Create Catalog Items Jobs](https://developers.klaviyo.com/en/v2025-10-15/reference/get_bulk_create_catalog_items_jobs)
 
 ```python
 
@@ -1211,7 +1211,7 @@ klaviyo.Catalogs.get_catalog_item_bulk_create_jobs(fields_catalog_item_bulk_crea
 
 
 
-#### [Get Bulk Create Categories Job](https://developers.klaviyo.com/en/v2025-07-15/reference/get_bulk_create_categories_job)
+#### [Get Bulk Create Categories Job](https://developers.klaviyo.com/en/v2025-10-15/reference/get_bulk_create_categories_job)
 
 ```python
 ## Positional Arguments
@@ -1238,7 +1238,7 @@ klaviyo.Catalogs.get_catalog_category_bulk_create_job(job_id, fields_catalog_cat
 
 
 
-#### [Get Bulk Create Categories Jobs](https://developers.klaviyo.com/en/v2025-07-15/reference/get_bulk_create_categories_jobs)
+#### [Get Bulk Create Categories Jobs](https://developers.klaviyo.com/en/v2025-10-15/reference/get_bulk_create_categories_jobs)
 
 ```python
 
@@ -1262,7 +1262,7 @@ klaviyo.Catalogs.get_catalog_category_bulk_create_jobs(fields_catalog_category_b
 
 
 
-#### [Get Bulk Create Variants Job](https://developers.klaviyo.com/en/v2025-07-15/reference/get_bulk_create_variants_job)
+#### [Get Bulk Create Variants Job](https://developers.klaviyo.com/en/v2025-10-15/reference/get_bulk_create_variants_job)
 
 ```python
 ## Positional Arguments
@@ -1289,7 +1289,7 @@ klaviyo.Catalogs.get_catalog_variant_bulk_create_job(job_id, fields_catalog_vari
 
 
 
-#### [Get Bulk Create Variants Jobs](https://developers.klaviyo.com/en/v2025-07-15/reference/get_bulk_create_variants_jobs)
+#### [Get Bulk Create Variants Jobs](https://developers.klaviyo.com/en/v2025-10-15/reference/get_bulk_create_variants_jobs)
 
 ```python
 
@@ -1313,7 +1313,7 @@ klaviyo.Catalogs.get_catalog_variant_bulk_create_jobs(fields_catalog_variant_bul
 
 
 
-#### [Get Bulk Delete Catalog Items Job](https://developers.klaviyo.com/en/v2025-07-15/reference/get_bulk_delete_catalog_items_job)
+#### [Get Bulk Delete Catalog Items Job](https://developers.klaviyo.com/en/v2025-10-15/reference/get_bulk_delete_catalog_items_job)
 
 ```python
 ## Positional Arguments
@@ -1338,7 +1338,7 @@ klaviyo.Catalogs.get_catalog_item_bulk_delete_job(job_id, fields_catalog_item_bu
 
 
 
-#### [Get Bulk Delete Catalog Items Jobs](https://developers.klaviyo.com/en/v2025-07-15/reference/get_bulk_delete_catalog_items_jobs)
+#### [Get Bulk Delete Catalog Items Jobs](https://developers.klaviyo.com/en/v2025-10-15/reference/get_bulk_delete_catalog_items_jobs)
 
 ```python
 
@@ -1362,7 +1362,7 @@ klaviyo.Catalogs.get_catalog_item_bulk_delete_jobs(fields_catalog_item_bulk_dele
 
 
 
-#### [Get Bulk Delete Categories Job](https://developers.klaviyo.com/en/v2025-07-15/reference/get_bulk_delete_categories_job)
+#### [Get Bulk Delete Categories Job](https://developers.klaviyo.com/en/v2025-10-15/reference/get_bulk_delete_categories_job)
 
 ```python
 ## Positional Arguments
@@ -1387,7 +1387,7 @@ klaviyo.Catalogs.get_catalog_category_bulk_delete_job(job_id, fields_catalog_cat
 
 
 
-#### [Get Bulk Delete Categories Jobs](https://developers.klaviyo.com/en/v2025-07-15/reference/get_bulk_delete_categories_jobs)
+#### [Get Bulk Delete Categories Jobs](https://developers.klaviyo.com/en/v2025-10-15/reference/get_bulk_delete_categories_jobs)
 
 ```python
 
@@ -1411,7 +1411,7 @@ klaviyo.Catalogs.get_catalog_category_bulk_delete_jobs(fields_catalog_category_b
 
 
 
-#### [Get Bulk Delete Variants Job](https://developers.klaviyo.com/en/v2025-07-15/reference/get_bulk_delete_variants_job)
+#### [Get Bulk Delete Variants Job](https://developers.klaviyo.com/en/v2025-10-15/reference/get_bulk_delete_variants_job)
 
 ```python
 ## Positional Arguments
@@ -1436,7 +1436,7 @@ klaviyo.Catalogs.get_catalog_variant_bulk_delete_job(job_id, fields_catalog_vari
 
 
 
-#### [Get Bulk Delete Variants Jobs](https://developers.klaviyo.com/en/v2025-07-15/reference/get_bulk_delete_variants_jobs)
+#### [Get Bulk Delete Variants Jobs](https://developers.klaviyo.com/en/v2025-10-15/reference/get_bulk_delete_variants_jobs)
 
 ```python
 
@@ -1460,7 +1460,7 @@ klaviyo.Catalogs.get_catalog_variant_bulk_delete_jobs(fields_catalog_variant_bul
 
 
 
-#### [Get Bulk Update Catalog Items Job](https://developers.klaviyo.com/en/v2025-07-15/reference/get_bulk_update_catalog_items_job)
+#### [Get Bulk Update Catalog Items Job](https://developers.klaviyo.com/en/v2025-10-15/reference/get_bulk_update_catalog_items_job)
 
 ```python
 ## Positional Arguments
@@ -1487,7 +1487,7 @@ klaviyo.Catalogs.get_catalog_item_bulk_update_job(job_id, fields_catalog_item_bu
 
 
 
-#### [Get Bulk Update Catalog Items Jobs](https://developers.klaviyo.com/en/v2025-07-15/reference/get_bulk_update_catalog_items_jobs)
+#### [Get Bulk Update Catalog Items Jobs](https://developers.klaviyo.com/en/v2025-10-15/reference/get_bulk_update_catalog_items_jobs)
 
 ```python
 
@@ -1511,7 +1511,7 @@ klaviyo.Catalogs.get_catalog_item_bulk_update_jobs(fields_catalog_item_bulk_upda
 
 
 
-#### [Get Bulk Update Categories Job](https://developers.klaviyo.com/en/v2025-07-15/reference/get_bulk_update_categories_job)
+#### [Get Bulk Update Categories Job](https://developers.klaviyo.com/en/v2025-10-15/reference/get_bulk_update_categories_job)
 
 ```python
 ## Positional Arguments
@@ -1538,7 +1538,7 @@ klaviyo.Catalogs.get_catalog_category_bulk_update_job(job_id, fields_catalog_cat
 
 
 
-#### [Get Bulk Update Categories Jobs](https://developers.klaviyo.com/en/v2025-07-15/reference/get_bulk_update_categories_jobs)
+#### [Get Bulk Update Categories Jobs](https://developers.klaviyo.com/en/v2025-10-15/reference/get_bulk_update_categories_jobs)
 
 ```python
 
@@ -1562,7 +1562,7 @@ klaviyo.Catalogs.get_catalog_category_bulk_update_jobs(fields_catalog_category_b
 
 
 
-#### [Get Bulk Update Variants Job](https://developers.klaviyo.com/en/v2025-07-15/reference/get_bulk_update_variants_job)
+#### [Get Bulk Update Variants Job](https://developers.klaviyo.com/en/v2025-10-15/reference/get_bulk_update_variants_job)
 
 ```python
 ## Positional Arguments
@@ -1589,7 +1589,7 @@ klaviyo.Catalogs.get_catalog_variant_bulk_update_job(job_id, fields_catalog_vari
 
 
 
-#### [Get Bulk Update Variants Jobs](https://developers.klaviyo.com/en/v2025-07-15/reference/get_bulk_update_variants_jobs)
+#### [Get Bulk Update Variants Jobs](https://developers.klaviyo.com/en/v2025-10-15/reference/get_bulk_update_variants_jobs)
 
 ```python
 
@@ -1613,7 +1613,7 @@ klaviyo.Catalogs.get_catalog_variant_bulk_update_jobs(fields_catalog_variant_bul
 
 
 
-#### [Get Catalog Categories](https://developers.klaviyo.com/en/v2025-07-15/reference/get_catalog_categories)
+#### [Get Catalog Categories](https://developers.klaviyo.com/en/v2025-10-15/reference/get_catalog_categories)
 
 ```python
 
@@ -1630,7 +1630,7 @@ klaviyo.Catalogs.get_catalog_categories(fields_catalog_category=fields_catalog_c
 
 
 
-#### [Get Catalog Category](https://developers.klaviyo.com/en/v2025-07-15/reference/get_catalog_category)
+#### [Get Catalog Category](https://developers.klaviyo.com/en/v2025-10-15/reference/get_catalog_category)
 
 ```python
 ## Positional Arguments
@@ -1647,7 +1647,7 @@ klaviyo.Catalogs.get_catalog_category(id, fields_catalog_category=fields_catalog
 
 
 
-#### [Get Catalog Item](https://developers.klaviyo.com/en/v2025-07-15/reference/get_catalog_item)
+#### [Get Catalog Item](https://developers.klaviyo.com/en/v2025-10-15/reference/get_catalog_item)
 
 ```python
 ## Positional Arguments
@@ -1666,7 +1666,7 @@ klaviyo.Catalogs.get_catalog_item(id, fields_catalog_item=fields_catalog_item, f
 
 
 
-#### [Get Catalog Items](https://developers.klaviyo.com/en/v2025-07-15/reference/get_catalog_items)
+#### [Get Catalog Items](https://developers.klaviyo.com/en/v2025-10-15/reference/get_catalog_items)
 
 ```python
 
@@ -1685,7 +1685,7 @@ klaviyo.Catalogs.get_catalog_items(fields_catalog_item=fields_catalog_item, fiel
 
 
 
-#### [Get Catalog Variant](https://developers.klaviyo.com/en/v2025-07-15/reference/get_catalog_variant)
+#### [Get Catalog Variant](https://developers.klaviyo.com/en/v2025-10-15/reference/get_catalog_variant)
 
 ```python
 ## Positional Arguments
@@ -1702,7 +1702,7 @@ klaviyo.Catalogs.get_catalog_variant(id, fields_catalog_variant=fields_catalog_v
 
 
 
-#### [Get Catalog Variants](https://developers.klaviyo.com/en/v2025-07-15/reference/get_catalog_variants)
+#### [Get Catalog Variants](https://developers.klaviyo.com/en/v2025-10-15/reference/get_catalog_variants)
 
 ```python
 
@@ -1719,7 +1719,7 @@ klaviyo.Catalogs.get_catalog_variants(fields_catalog_variant=fields_catalog_vari
 
 
 
-#### [Get Categories for Catalog Item](https://developers.klaviyo.com/en/v2025-07-15/reference/get_categories_for_catalog_item)
+#### [Get Categories for Catalog Item](https://developers.klaviyo.com/en/v2025-10-15/reference/get_categories_for_catalog_item)
 
 ```python
 ## Positional Arguments
@@ -1743,7 +1743,7 @@ klaviyo.Catalogs.get_catalog_item_categories(id, fields_catalog_category=fields_
 
 
 
-#### [Get Category IDs for Catalog Item](https://developers.klaviyo.com/en/v2025-07-15/reference/get_category_ids_for_catalog_item)
+#### [Get Category IDs for Catalog Item](https://developers.klaviyo.com/en/v2025-10-15/reference/get_category_ids_for_catalog_item)
 
 ```python
 ## Positional Arguments
@@ -1766,7 +1766,7 @@ klaviyo.Catalogs.get_catalog_item_relationships_categories(id, filter=filter, pa
 
 
 
-#### [Get Item IDs for Catalog Category](https://developers.klaviyo.com/en/v2025-07-15/reference/get_item_ids_for_catalog_category)
+#### [Get Item IDs for Catalog Category](https://developers.klaviyo.com/en/v2025-10-15/reference/get_item_ids_for_catalog_category)
 
 ```python
 ## Positional Arguments
@@ -1789,7 +1789,7 @@ klaviyo.Catalogs.get_catalog_category_relationships_items(id, filter=filter, pag
 
 
 
-#### [Get Items for Catalog Category](https://developers.klaviyo.com/en/v2025-07-15/reference/get_items_for_catalog_category)
+#### [Get Items for Catalog Category](https://developers.klaviyo.com/en/v2025-10-15/reference/get_items_for_catalog_category)
 
 ```python
 ## Positional Arguments
@@ -1815,7 +1815,7 @@ klaviyo.Catalogs.get_catalog_category_items(id, fields_catalog_item=fields_catal
 
 
 
-#### [Get Variant IDs for Catalog Item](https://developers.klaviyo.com/en/v2025-07-15/reference/get_variant_ids_for_catalog_item)
+#### [Get Variant IDs for Catalog Item](https://developers.klaviyo.com/en/v2025-10-15/reference/get_variant_ids_for_catalog_item)
 
 ```python
 ## Positional Arguments
@@ -1838,7 +1838,7 @@ klaviyo.Catalogs.get_catalog_item_relationships_variants(id, filter=filter, page
 
 
 
-#### [Get Variants for Catalog Item](https://developers.klaviyo.com/en/v2025-07-15/reference/get_variants_for_catalog_item)
+#### [Get Variants for Catalog Item](https://developers.klaviyo.com/en/v2025-10-15/reference/get_variants_for_catalog_item)
 
 ```python
 ## Positional Arguments
@@ -1862,7 +1862,7 @@ klaviyo.Catalogs.get_catalog_item_variants(id, fields_catalog_variant=fields_cat
 
 
 
-#### [Remove Categories from Catalog Item](https://developers.klaviyo.com/en/v2025-07-15/reference/remove_categories_from_catalog_item)
+#### [Remove Categories from Catalog Item](https://developers.klaviyo.com/en/v2025-10-15/reference/remove_categories_from_catalog_item)
 
 ```python
 ## Positional Arguments
@@ -1880,7 +1880,7 @@ klaviyo.Catalogs.delete_catalog_item_relationships_categories(id, body)
 
 
 
-#### [Remove Items from Catalog Category](https://developers.klaviyo.com/en/v2025-07-15/reference/remove_items_from_catalog_category)
+#### [Remove Items from Catalog Category](https://developers.klaviyo.com/en/v2025-10-15/reference/remove_items_from_catalog_category)
 
 ```python
 ## Positional Arguments
@@ -1898,7 +1898,7 @@ klaviyo.Catalogs.delete_catalog_category_relationships_items(id, body)
 
 
 
-#### [Update Catalog Category](https://developers.klaviyo.com/en/v2025-07-15/reference/update_catalog_category)
+#### [Update Catalog Category](https://developers.klaviyo.com/en/v2025-10-15/reference/update_catalog_category)
 
 ```python
 ## Positional Arguments
@@ -1912,7 +1912,7 @@ klaviyo.Catalogs.update_catalog_category(id, body)
 
 
 
-#### [Update Catalog Item](https://developers.klaviyo.com/en/v2025-07-15/reference/update_catalog_item)
+#### [Update Catalog Item](https://developers.klaviyo.com/en/v2025-10-15/reference/update_catalog_item)
 
 ```python
 ## Positional Arguments
@@ -1926,7 +1926,7 @@ klaviyo.Catalogs.update_catalog_item(id, body)
 
 
 
-#### [Update Catalog Variant](https://developers.klaviyo.com/en/v2025-07-15/reference/update_catalog_variant)
+#### [Update Catalog Variant](https://developers.klaviyo.com/en/v2025-10-15/reference/update_catalog_variant)
 
 ```python
 ## Positional Arguments
@@ -1940,7 +1940,7 @@ klaviyo.Catalogs.update_catalog_variant(id, body)
 
 
 
-#### [Update Categories for Catalog Item](https://developers.klaviyo.com/en/v2025-07-15/reference/update_categories_for_catalog_item)
+#### [Update Categories for Catalog Item](https://developers.klaviyo.com/en/v2025-10-15/reference/update_categories_for_catalog_item)
 
 ```python
 ## Positional Arguments
@@ -1958,7 +1958,7 @@ klaviyo.Catalogs.update_catalog_item_relationships_categories(id, body)
 
 
 
-#### [Update Items for Catalog Category](https://developers.klaviyo.com/en/v2025-07-15/reference/update_items_for_catalog_category)
+#### [Update Items for Catalog Category](https://developers.klaviyo.com/en/v2025-10-15/reference/update_items_for_catalog_category)
 
 ```python
 ## Positional Arguments
@@ -1980,7 +1980,7 @@ klaviyo.Catalogs.update_catalog_category_relationships_items(id, body)
 
 ## Coupons
 
-#### [Bulk Create Coupon Codes](https://developers.klaviyo.com/en/v2025-07-15/reference/bulk_create_coupon_codes)
+#### [Bulk Create Coupon Codes](https://developers.klaviyo.com/en/v2025-10-15/reference/bulk_create_coupon_codes)
 
 ```python
 ## Positional Arguments
@@ -2001,7 +2001,7 @@ klaviyo.Coupons.create_coupon_code_bulk_create_job(body)
 
 
 
-#### [Create Coupon](https://developers.klaviyo.com/en/v2025-07-15/reference/create_coupon)
+#### [Create Coupon](https://developers.klaviyo.com/en/v2025-10-15/reference/create_coupon)
 
 ```python
 ## Positional Arguments
@@ -2014,7 +2014,7 @@ klaviyo.Coupons.create_coupon(body)
 
 
 
-#### [Create Coupon Code](https://developers.klaviyo.com/en/v2025-07-15/reference/create_coupon_code)
+#### [Create Coupon Code](https://developers.klaviyo.com/en/v2025-10-15/reference/create_coupon_code)
 
 ```python
 ## Positional Arguments
@@ -2027,7 +2027,7 @@ klaviyo.Coupons.create_coupon_code(body)
 
 
 
-#### [Delete Coupon](https://developers.klaviyo.com/en/v2025-07-15/reference/delete_coupon)
+#### [Delete Coupon](https://developers.klaviyo.com/en/v2025-10-15/reference/delete_coupon)
 
 ```python
 ## Positional Arguments
@@ -2040,7 +2040,7 @@ klaviyo.Coupons.delete_coupon(id)
 
 
 
-#### [Delete Coupon Code](https://developers.klaviyo.com/en/v2025-07-15/reference/delete_coupon_code)
+#### [Delete Coupon Code](https://developers.klaviyo.com/en/v2025-10-15/reference/delete_coupon_code)
 
 ```python
 ## Positional Arguments
@@ -2053,7 +2053,7 @@ klaviyo.Coupons.delete_coupon_code(id)
 
 
 
-#### [Get Bulk Create Coupon Code Jobs](https://developers.klaviyo.com/en/v2025-07-15/reference/get_bulk_create_coupon_code_jobs)
+#### [Get Bulk Create Coupon Code Jobs](https://developers.klaviyo.com/en/v2025-10-15/reference/get_bulk_create_coupon_code_jobs)
 
 ```python
 
@@ -2073,7 +2073,7 @@ klaviyo.Coupons.get_coupon_code_bulk_create_jobs(fields_coupon_code_bulk_create_
 
 
 
-#### [Get Bulk Create Coupon Codes Job](https://developers.klaviyo.com/en/v2025-07-15/reference/get_bulk_create_coupon_codes_job)
+#### [Get Bulk Create Coupon Codes Job](https://developers.klaviyo.com/en/v2025-10-15/reference/get_bulk_create_coupon_codes_job)
 
 ```python
 ## Positional Arguments
@@ -2096,7 +2096,7 @@ klaviyo.Coupons.get_coupon_code_bulk_create_job(job_id, fields_coupon_code_bulk_
 
 
 
-#### [Get Coupon](https://developers.klaviyo.com/en/v2025-07-15/reference/get_coupon)
+#### [Get Coupon](https://developers.klaviyo.com/en/v2025-10-15/reference/get_coupon)
 
 ```python
 ## Positional Arguments
@@ -2113,7 +2113,7 @@ klaviyo.Coupons.get_coupon(id, fields_coupon=fields_coupon)
 
 
 
-#### [Get Coupon Code](https://developers.klaviyo.com/en/v2025-07-15/reference/get_coupon_code)
+#### [Get Coupon Code](https://developers.klaviyo.com/en/v2025-10-15/reference/get_coupon_code)
 
 ```python
 ## Positional Arguments
@@ -2132,7 +2132,7 @@ klaviyo.Coupons.get_coupon_code(id, fields_coupon_code=fields_coupon_code, field
 
 
 
-#### [Get Coupon Code IDs for Coupon](https://developers.klaviyo.com/en/v2025-07-15/reference/get_coupon_code_ids_for_coupon)
+#### [Get Coupon Code IDs for Coupon](https://developers.klaviyo.com/en/v2025-10-15/reference/get_coupon_code_ids_for_coupon)
 
 ```python
 ## Positional Arguments
@@ -2162,7 +2162,7 @@ klaviyo.Coupons.get_coupon_relationships_codes(id, filter=filter, page_cursor=pa
 
 
 
-#### [Get Coupon Codes](https://developers.klaviyo.com/en/v2025-07-15/reference/get_coupon_codes)
+#### [Get Coupon Codes](https://developers.klaviyo.com/en/v2025-10-15/reference/get_coupon_codes)
 
 ```python
 ## Positional Arguments
@@ -2182,7 +2182,7 @@ klaviyo.Coupons.get_coupon_codes(filter, fields_coupon_code=fields_coupon_code, 
 
 
 
-#### [Get Coupon Codes for Coupon](https://developers.klaviyo.com/en/v2025-07-15/reference/get_coupon_codes_for_coupon)
+#### [Get Coupon Codes for Coupon](https://developers.klaviyo.com/en/v2025-10-15/reference/get_coupon_codes_for_coupon)
 
 ```python
 ## Positional Arguments
@@ -2209,7 +2209,7 @@ klaviyo.Coupons.get_codes_for_coupon(id, fields_coupon_code=fields_coupon_code, 
 
 
 
-#### [Get Coupon For Coupon Code](https://developers.klaviyo.com/en/v2025-07-15/reference/get_coupon_for_coupon_code)
+#### [Get Coupon For Coupon Code](https://developers.klaviyo.com/en/v2025-10-15/reference/get_coupon_for_coupon_code)
 
 ```python
 ## Positional Arguments
@@ -2230,7 +2230,7 @@ klaviyo.Coupons.get_coupon_code_coupon(id, fields_coupon=fields_coupon)
 
 
 
-#### [Get Coupon ID for Coupon Code](https://developers.klaviyo.com/en/v2025-07-15/reference/get_coupon_id_for_coupon_code)
+#### [Get Coupon ID for Coupon Code](https://developers.klaviyo.com/en/v2025-10-15/reference/get_coupon_id_for_coupon_code)
 
 ```python
 ## Positional Arguments
@@ -2247,7 +2247,7 @@ klaviyo.Coupons.get_coupon_relationships_coupon_codes(id)
 
 
 
-#### [Get Coupons](https://developers.klaviyo.com/en/v2025-07-15/reference/get_coupons)
+#### [Get Coupons](https://developers.klaviyo.com/en/v2025-10-15/reference/get_coupons)
 
 ```python
 
@@ -2262,7 +2262,7 @@ klaviyo.Coupons.get_coupons(fields_coupon=fields_coupon, page_cursor=page_cursor
 
 
 
-#### [Update Coupon](https://developers.klaviyo.com/en/v2025-07-15/reference/update_coupon)
+#### [Update Coupon](https://developers.klaviyo.com/en/v2025-10-15/reference/update_coupon)
 
 ```python
 ## Positional Arguments
@@ -2276,7 +2276,7 @@ klaviyo.Coupons.update_coupon(id, body)
 
 
 
-#### [Update Coupon Code](https://developers.klaviyo.com/en/v2025-07-15/reference/update_coupon_code)
+#### [Update Coupon Code](https://developers.klaviyo.com/en/v2025-10-15/reference/update_coupon_code)
 
 ```python
 ## Positional Arguments
@@ -2294,7 +2294,7 @@ klaviyo.Coupons.update_coupon_code(id, body)
 
 ## Custom_Objects
 
-#### [Bulk Create Data Source Records](https://developers.klaviyo.com/en/v2025-07-15/reference/bulk_create_data_source_records)
+#### [Bulk Create Data Source Records](https://developers.klaviyo.com/en/v2025-10-15/reference/bulk_create_data_source_records)
 
 ```python
 ## Positional Arguments
@@ -2311,7 +2311,7 @@ klaviyo.Custom_Objects.create_data_source_record_bulk_create_job(body)
 
 
 
-#### [Create Data Source](https://developers.klaviyo.com/en/v2025-07-15/reference/create_data_source)
+#### [Create Data Source](https://developers.klaviyo.com/en/v2025-10-15/reference/create_data_source)
 
 ```python
 ## Positional Arguments
@@ -2324,7 +2324,7 @@ klaviyo.Custom_Objects.create_data_source(body)
 
 
 
-#### [Delete Data Source](https://developers.klaviyo.com/en/v2025-07-15/reference/delete_data_source)
+#### [Delete Data Source](https://developers.klaviyo.com/en/v2025-10-15/reference/delete_data_source)
 
 ```python
 ## Positional Arguments
@@ -2337,7 +2337,7 @@ klaviyo.Custom_Objects.delete_data_source(id)
 
 
 
-#### [Get Data Source](https://developers.klaviyo.com/en/v2025-07-15/reference/get_data_source)
+#### [Get Data Source](https://developers.klaviyo.com/en/v2025-10-15/reference/get_data_source)
 
 ```python
 ## Positional Arguments
@@ -2354,7 +2354,7 @@ klaviyo.Custom_Objects.get_data_source(id, fields_data_source=fields_data_source
 
 
 
-#### [Get Data Sources](https://developers.klaviyo.com/en/v2025-07-15/reference/get_data_sources)
+#### [Get Data Sources](https://developers.klaviyo.com/en/v2025-10-15/reference/get_data_sources)
 
 ```python
 
@@ -2374,7 +2374,7 @@ klaviyo.Custom_Objects.get_data_sources(fields_data_source=fields_data_source, p
 
 ## Data_Privacy
 
-#### [Request Profile Deletion](https://developers.klaviyo.com/en/v2025-07-15/reference/request_profile_deletion)
+#### [Request Profile Deletion](https://developers.klaviyo.com/en/v2025-10-15/reference/request_profile_deletion)
 
 ```python
 ## Positional Arguments
@@ -2395,7 +2395,7 @@ klaviyo.Data_Privacy.create_data_privacy_deletion_job(body)
 
 ## Events
 
-#### [Bulk Create Events](https://developers.klaviyo.com/en/v2025-07-15/reference/bulk_create_events)
+#### [Bulk Create Events](https://developers.klaviyo.com/en/v2025-10-15/reference/bulk_create_events)
 
 ```python
 ## Positional Arguments
@@ -2412,7 +2412,7 @@ klaviyo.Events.create_event_bulk_create_job(body)
 
 
 
-#### [Create Event](https://developers.klaviyo.com/en/v2025-07-15/reference/create_event)
+#### [Create Event](https://developers.klaviyo.com/en/v2025-10-15/reference/create_event)
 
 ```python
 ## Positional Arguments
@@ -2425,7 +2425,7 @@ klaviyo.Events.create_event(body)
 
 
 
-#### [Get Event](https://developers.klaviyo.com/en/v2025-07-15/reference/get_event)
+#### [Get Event](https://developers.klaviyo.com/en/v2025-10-15/reference/get_event)
 
 ```python
 ## Positional Arguments
@@ -2445,7 +2445,7 @@ klaviyo.Events.get_event(id, fields_event=fields_event, fields_metric=fields_met
 
 
 
-#### [Get Events](https://developers.klaviyo.com/en/v2025-07-15/reference/get_events)
+#### [Get Events](https://developers.klaviyo.com/en/v2025-10-15/reference/get_events)
 
 ```python
 
@@ -2465,7 +2465,7 @@ klaviyo.Events.get_events(fields_event=fields_event, fields_metric=fields_metric
 
 
 
-#### [Get Metric for Event](https://developers.klaviyo.com/en/v2025-07-15/reference/get_metric_for_event)
+#### [Get Metric for Event](https://developers.klaviyo.com/en/v2025-10-15/reference/get_metric_for_event)
 
 ```python
 ## Positional Arguments
@@ -2486,7 +2486,7 @@ klaviyo.Events.get_event_metric(id, fields_metric=fields_metric)
 
 
 
-#### [Get Metric ID for Event](https://developers.klaviyo.com/en/v2025-07-15/reference/get_metric_id_for_event)
+#### [Get Metric ID for Event](https://developers.klaviyo.com/en/v2025-10-15/reference/get_metric_id_for_event)
 
 ```python
 ## Positional Arguments
@@ -2503,7 +2503,7 @@ klaviyo.Events.get_event_relationships_metric(id)
 
 
 
-#### [Get Profile for Event](https://developers.klaviyo.com/en/v2025-07-15/reference/get_profile_for_event)
+#### [Get Profile for Event](https://developers.klaviyo.com/en/v2025-10-15/reference/get_profile_for_event)
 
 ```python
 ## Positional Arguments
@@ -2525,7 +2525,7 @@ klaviyo.Events.get_event_profile(id, additional_fields_profile=additional_fields
 
 
 
-#### [Get Profile ID for Event](https://developers.klaviyo.com/en/v2025-07-15/reference/get_profile_id_for_event)
+#### [Get Profile ID for Event](https://developers.klaviyo.com/en/v2025-10-15/reference/get_profile_id_for_event)
 
 ```python
 ## Positional Arguments
@@ -2546,7 +2546,7 @@ klaviyo.Events.get_event_relationships_profile(id)
 
 ## Flows
 
-#### [Create Flow](https://developers.klaviyo.com/en/v2025-07-15/reference/create_flow)
+#### [Create Flow](https://developers.klaviyo.com/en/v2025-10-15/reference/create_flow)
 
 ```python
 ## Positional Arguments
@@ -2563,7 +2563,7 @@ klaviyo.Flows.create_flow(body, additional_fields_flow=additional_fields_flow)
 
 
 
-#### [Delete Flow](https://developers.klaviyo.com/en/v2025-07-15/reference/delete_flow)
+#### [Delete Flow](https://developers.klaviyo.com/en/v2025-10-15/reference/delete_flow)
 
 ```python
 ## Positional Arguments
@@ -2576,7 +2576,7 @@ klaviyo.Flows.delete_flow(id)
 
 
 
-#### [Get Action for Flow Message](https://developers.klaviyo.com/en/v2025-07-15/reference/get_action_for_flow_message)
+#### [Get Action for Flow Message](https://developers.klaviyo.com/en/v2025-10-15/reference/get_action_for_flow_message)
 
 ```python
 ## Positional Arguments
@@ -2597,7 +2597,7 @@ klaviyo.Flows.get_flow_message_action(id, fields_flow_action=fields_flow_action)
 
 
 
-#### [Get Action ID for Flow Message](https://developers.klaviyo.com/en/v2025-07-15/reference/get_action_id_for_flow_message)
+#### [Get Action ID for Flow Message](https://developers.klaviyo.com/en/v2025-10-15/reference/get_action_id_for_flow_message)
 
 ```python
 ## Positional Arguments
@@ -2614,7 +2614,7 @@ klaviyo.Flows.get_flow_message_relationships_action(id)
 
 
 
-#### [Get Action IDs for Flow](https://developers.klaviyo.com/en/v2025-07-15/reference/get_action_ids_for_flow)
+#### [Get Action IDs for Flow](https://developers.klaviyo.com/en/v2025-10-15/reference/get_action_ids_for_flow)
 
 ```python
 ## Positional Arguments
@@ -2642,7 +2642,7 @@ klaviyo.Flows.get_flow_relationships_actions(id, filter=filter, page_cursor=page
 
 
 
-#### [Get Actions for Flow](https://developers.klaviyo.com/en/v2025-07-15/reference/get_actions_for_flow)
+#### [Get Actions for Flow](https://developers.klaviyo.com/en/v2025-10-15/reference/get_actions_for_flow)
 
 ```python
 ## Positional Arguments
@@ -2671,7 +2671,7 @@ klaviyo.Flows.get_flow_actions(id, fields_flow_action=fields_flow_action, filter
 
 
 
-#### [Get Flow](https://developers.klaviyo.com/en/v2025-07-15/reference/get_flow)
+#### [Get Flow](https://developers.klaviyo.com/en/v2025-10-15/reference/get_flow)
 
 ```python
 ## Positional Arguments
@@ -2692,7 +2692,7 @@ klaviyo.Flows.get_flow(id, additional_fields_flow=additional_fields_flow, fields
 
 
 
-#### [Get Flow Action](https://developers.klaviyo.com/en/v2025-07-15/reference/get_flow_action)
+#### [Get Flow Action](https://developers.klaviyo.com/en/v2025-10-15/reference/get_flow_action)
 
 ```python
 ## Positional Arguments
@@ -2712,7 +2712,7 @@ klaviyo.Flows.get_flow_action(id, fields_flow_action=fields_flow_action, fields_
 
 
 
-#### [Get Messages For Flow Action](https://developers.klaviyo.com/en/v2025-07-15/reference/get_flow_action_messages)
+#### [Get Messages For Flow Action](https://developers.klaviyo.com/en/v2025-10-15/reference/get_flow_action_messages)
 
 ```python
 ## Positional Arguments
@@ -2737,7 +2737,7 @@ klaviyo.Flows.get_messages_for_flow_action(id, fields_flow_message=fields_flow_m
 
 
 
-#### [Get Flow for Flow Action](https://developers.klaviyo.com/en/v2025-07-15/reference/get_flow_for_flow_action)
+#### [Get Flow for Flow Action](https://developers.klaviyo.com/en/v2025-10-15/reference/get_flow_for_flow_action)
 
 ```python
 ## Positional Arguments
@@ -2758,7 +2758,7 @@ klaviyo.Flows.get_flow_action_flow(id, fields_flow=fields_flow)
 
 
 
-#### [Get Flow ID for Flow Action](https://developers.klaviyo.com/en/v2025-07-15/reference/get_flow_id_for_flow_action)
+#### [Get Flow ID for Flow Action](https://developers.klaviyo.com/en/v2025-10-15/reference/get_flow_id_for_flow_action)
 
 ```python
 ## Positional Arguments
@@ -2775,7 +2775,7 @@ klaviyo.Flows.get_flow_action_relationships_flow(id)
 
 
 
-#### [Get Flow Message](https://developers.klaviyo.com/en/v2025-07-15/reference/get_flow_message)
+#### [Get Flow Message](https://developers.klaviyo.com/en/v2025-10-15/reference/get_flow_message)
 
 ```python
 ## Positional Arguments
@@ -2795,7 +2795,7 @@ klaviyo.Flows.get_flow_message(id, fields_flow_action=fields_flow_action, fields
 
 
 
-#### [Get Flows](https://developers.klaviyo.com/en/v2025-07-15/reference/get_flows)
+#### [Get Flows](https://developers.klaviyo.com/en/v2025-10-15/reference/get_flows)
 
 ```python
 
@@ -2816,7 +2816,7 @@ klaviyo.Flows.get_flows(fields_flow_action=fields_flow_action, fields_flow=field
 
 
 
-#### [Get Message IDs for Flow Action](https://developers.klaviyo.com/en/v2025-07-15/reference/get_message_ids_for_flow_action)
+#### [Get Message IDs for Flow Action](https://developers.klaviyo.com/en/v2025-10-15/reference/get_message_ids_for_flow_action)
 
 ```python
 ## Positional Arguments
@@ -2840,7 +2840,7 @@ klaviyo.Flows.get_flow_action_relationships_messages(id, filter=filter, page_cur
 
 
 
-#### [Get Tag IDs for Flow](https://developers.klaviyo.com/en/v2025-07-15/reference/get_tag_ids_for_flow)
+#### [Get Tag IDs for Flow](https://developers.klaviyo.com/en/v2025-10-15/reference/get_tag_ids_for_flow)
 
 ```python
 ## Positional Arguments
@@ -2857,7 +2857,7 @@ klaviyo.Flows.get_flow_relationships_tags(id)
 
 
 
-#### [Get Tags for Flow](https://developers.klaviyo.com/en/v2025-07-15/reference/get_tags_for_flow)
+#### [Get Tags for Flow](https://developers.klaviyo.com/en/v2025-10-15/reference/get_tags_for_flow)
 
 ```python
 ## Positional Arguments
@@ -2878,7 +2878,7 @@ klaviyo.Flows.get_flow_tags(id, fields_tag=fields_tag)
 
 
 
-#### [Get Template for Flow Message](https://developers.klaviyo.com/en/v2025-07-15/reference/get_template_for_flow_message)
+#### [Get Template for Flow Message](https://developers.klaviyo.com/en/v2025-10-15/reference/get_template_for_flow_message)
 
 ```python
 ## Positional Arguments
@@ -2899,7 +2899,7 @@ klaviyo.Flows.get_flow_message_template(id, fields_template=fields_template)
 
 
 
-#### [Get Template ID for Flow Message](https://developers.klaviyo.com/en/v2025-07-15/reference/get_template_id_for_flow_message)
+#### [Get Template ID for Flow Message](https://developers.klaviyo.com/en/v2025-10-15/reference/get_template_id_for_flow_message)
 
 ```python
 ## Positional Arguments
@@ -2916,7 +2916,7 @@ klaviyo.Flows.get_flow_message_relationships_template(id)
 
 
 
-#### [Update Flow Status](https://developers.klaviyo.com/en/v2025-07-15/reference/update_flow)
+#### [Update Flow Status](https://developers.klaviyo.com/en/v2025-10-15/reference/update_flow)
 
 ```python
 ## Positional Arguments
@@ -2930,11 +2930,38 @@ klaviyo.Flows.update_flow(id, body)
 
 
 
+#### [Update Flow Action](https://developers.klaviyo.com/en/v2025-10-15/reference/update_flow_action)
+
+```python
+## Positional Arguments
+
+# id | str
+# body | dict
+
+klaviyo.Flows.update_flow_action(id, body)
+```
+
+
+
+
 
 
 ## Forms
 
-#### [Delete Form](https://developers.klaviyo.com/en/v2025-07-15/reference/delete_form)
+#### [Create Form](https://developers.klaviyo.com/en/v2025-10-15/reference/create_form)
+
+```python
+## Positional Arguments
+
+# body | dict
+
+klaviyo.Forms.create_form(body)
+```
+
+
+
+
+#### [Delete Form](https://developers.klaviyo.com/en/v2025-10-15/reference/delete_form)
 
 ```python
 ## Positional Arguments
@@ -2947,7 +2974,7 @@ klaviyo.Forms.delete_form(id)
 
 
 
-#### [Get Form](https://developers.klaviyo.com/en/v2025-07-15/reference/get_form)
+#### [Get Form](https://developers.klaviyo.com/en/v2025-10-15/reference/get_form)
 
 ```python
 ## Positional Arguments
@@ -2956,17 +2983,15 @@ klaviyo.Forms.delete_form(id)
 
 ## Keyword Arguments
 
-# fields_form_version | List[str]
 # fields_form | List[str]
-# include | List[str]
 
-klaviyo.Forms.get_form(id, fields_form_version=fields_form_version, fields_form=fields_form, include=include)
+klaviyo.Forms.get_form(id, fields_form=fields_form)
 ```
 
 
 
 
-#### [Get Form for Form Version](https://developers.klaviyo.com/en/v2025-07-15/reference/get_form_for_form_version)
+#### [Get Form for Form Version](https://developers.klaviyo.com/en/v2025-10-15/reference/get_form_for_form_version)
 
 ```python
 ## Positional Arguments
@@ -2987,7 +3012,7 @@ klaviyo.Forms.get_form_version_form(id, fields_form=fields_form)
 
 
 
-#### [Get Form ID for Form Version](https://developers.klaviyo.com/en/v2025-07-15/reference/get_form_id_for_form_version)
+#### [Get Form ID for Form Version](https://developers.klaviyo.com/en/v2025-10-15/reference/get_form_id_for_form_version)
 
 ```python
 ## Positional Arguments
@@ -3004,7 +3029,7 @@ klaviyo.Forms.get_form_version_relationships_form(id)
 
 
 
-#### [Get Form Version](https://developers.klaviyo.com/en/v2025-07-15/reference/get_form_version)
+#### [Get Form Version](https://developers.klaviyo.com/en/v2025-10-15/reference/get_form_version)
 
 ```python
 ## Positional Arguments
@@ -3021,7 +3046,7 @@ klaviyo.Forms.get_form_version(id, fields_form_version=fields_form_version)
 
 
 
-#### [Get Forms](https://developers.klaviyo.com/en/v2025-07-15/reference/get_forms)
+#### [Get Forms](https://developers.klaviyo.com/en/v2025-10-15/reference/get_forms)
 
 ```python
 
@@ -3039,7 +3064,7 @@ klaviyo.Forms.get_forms(fields_form=fields_form, filter=filter, page_cursor=page
 
 
 
-#### [Get Version IDs for Form](https://developers.klaviyo.com/en/v2025-07-15/reference/get_version_ids_for_form)
+#### [Get Version IDs for Form](https://developers.klaviyo.com/en/v2025-10-15/reference/get_version_ids_for_form)
 
 ```python
 ## Positional Arguments
@@ -3067,7 +3092,7 @@ klaviyo.Forms.get_form_relationships_versions(id, filter=filter, page_cursor=pag
 
 
 
-#### [Get Versions for Form](https://developers.klaviyo.com/en/v2025-07-15/reference/get_versions_for_form)
+#### [Get Versions for Form](https://developers.klaviyo.com/en/v2025-10-15/reference/get_versions_for_form)
 
 ```python
 ## Positional Arguments
@@ -3100,7 +3125,7 @@ klaviyo.Forms.get_form_versions(id, fields_form_version=fields_form_version, fil
 
 ## Images
 
-#### [Get Image](https://developers.klaviyo.com/en/v2025-07-15/reference/get_image)
+#### [Get Image](https://developers.klaviyo.com/en/v2025-10-15/reference/get_image)
 
 ```python
 ## Positional Arguments
@@ -3117,7 +3142,7 @@ klaviyo.Images.get_image(id, fields_image=fields_image)
 
 
 
-#### [Get Images](https://developers.klaviyo.com/en/v2025-07-15/reference/get_images)
+#### [Get Images](https://developers.klaviyo.com/en/v2025-10-15/reference/get_images)
 
 ```python
 
@@ -3135,7 +3160,7 @@ klaviyo.Images.get_images(fields_image=fields_image, filter=filter, page_cursor=
 
 
 
-#### [Update Image](https://developers.klaviyo.com/en/v2025-07-15/reference/update_image)
+#### [Update Image](https://developers.klaviyo.com/en/v2025-10-15/reference/update_image)
 
 ```python
 ## Positional Arguments
@@ -3149,7 +3174,7 @@ klaviyo.Images.update_image(id, body)
 
 
 
-#### [Upload Image From File](https://developers.klaviyo.com/en/v2025-07-15/reference/upload_image_from_file)
+#### [Upload Image From File](https://developers.klaviyo.com/en/v2025-10-15/reference/upload_image_from_file)
 
 ```python
 ## Positional Arguments
@@ -3171,7 +3196,7 @@ klaviyo.Images.create_image_upload(file, name=name, hidden=hidden)
 
 
 
-#### [Upload Image From URL](https://developers.klaviyo.com/en/v2025-07-15/reference/upload_image_from_url)
+#### [Upload Image From URL](https://developers.klaviyo.com/en/v2025-10-15/reference/upload_image_from_url)
 
 ```python
 ## Positional Arguments
@@ -3192,7 +3217,7 @@ klaviyo.Images.create_image(body)
 
 ## Lists
 
-#### [Add Profiles to List](https://developers.klaviyo.com/en/v2025-07-15/reference/add_profiles_to_list)
+#### [Add Profiles to List](https://developers.klaviyo.com/en/v2025-10-15/reference/add_profiles_to_list)
 
 ```python
 ## Positional Arguments
@@ -3218,7 +3243,7 @@ klaviyo.Lists.create_list_relationships_profiles(id, body)
 
 
 
-#### [Create List](https://developers.klaviyo.com/en/v2025-07-15/reference/create_list)
+#### [Create List](https://developers.klaviyo.com/en/v2025-10-15/reference/create_list)
 
 ```python
 ## Positional Arguments
@@ -3231,7 +3256,7 @@ klaviyo.Lists.create_list(body)
 
 
 
-#### [Delete List](https://developers.klaviyo.com/en/v2025-07-15/reference/delete_list)
+#### [Delete List](https://developers.klaviyo.com/en/v2025-10-15/reference/delete_list)
 
 ```python
 ## Positional Arguments
@@ -3244,7 +3269,7 @@ klaviyo.Lists.delete_list(id)
 
 
 
-#### [Get Flows Triggered by List](https://developers.klaviyo.com/en/v2025-07-15/reference/get_flows_triggered_by_list)
+#### [Get Flows Triggered by List](https://developers.klaviyo.com/en/v2025-10-15/reference/get_flows_triggered_by_list)
 
 ```python
 ## Positional Arguments
@@ -3269,7 +3294,7 @@ klaviyo.Lists.get_list_flow_triggers(id, fields_flow=fields_flow)
 
 
 
-#### [Get IDs for Flows Triggered by List](https://developers.klaviyo.com/en/v2025-07-15/reference/get_ids_for_flows_triggered_by_list)
+#### [Get IDs for Flows Triggered by List](https://developers.klaviyo.com/en/v2025-10-15/reference/get_ids_for_flows_triggered_by_list)
 
 ```python
 ## Positional Arguments
@@ -3290,7 +3315,7 @@ klaviyo.Lists.get_list_relationships_flow_triggers(id)
 
 
 
-#### [Get List](https://developers.klaviyo.com/en/v2025-07-15/reference/get_list)
+#### [Get List](https://developers.klaviyo.com/en/v2025-10-15/reference/get_list)
 
 ```python
 ## Positional Arguments
@@ -3311,7 +3336,7 @@ klaviyo.Lists.get_list(id, additional_fields_list=additional_fields_list, fields
 
 
 
-#### [Get Lists](https://developers.klaviyo.com/en/v2025-07-15/reference/get_lists)
+#### [Get Lists](https://developers.klaviyo.com/en/v2025-10-15/reference/get_lists)
 
 ```python
 
@@ -3331,7 +3356,7 @@ klaviyo.Lists.get_lists(fields_flow=fields_flow, fields_list=fields_list, fields
 
 
 
-#### [Get Profile IDs for List](https://developers.klaviyo.com/en/v2025-07-15/reference/get_profile_ids_for_list)
+#### [Get Profile IDs for List](https://developers.klaviyo.com/en/v2025-10-15/reference/get_profile_ids_for_list)
 
 ```python
 ## Positional Arguments
@@ -3355,7 +3380,7 @@ klaviyo.Lists.get_list_relationships_profiles(id, filter=filter, page_cursor=pag
 
 
 
-#### [Get Profiles for List](https://developers.klaviyo.com/en/v2025-07-15/reference/get_profiles_for_list)
+#### [Get Profiles for List](https://developers.klaviyo.com/en/v2025-10-15/reference/get_profiles_for_list)
 
 ```python
 ## Positional Arguments
@@ -3381,7 +3406,7 @@ klaviyo.Lists.get_list_profiles(id, additional_fields_profile=additional_fields_
 
 
 
-#### [Get Tag IDs for List](https://developers.klaviyo.com/en/v2025-07-15/reference/get_tag_ids_for_list)
+#### [Get Tag IDs for List](https://developers.klaviyo.com/en/v2025-10-15/reference/get_tag_ids_for_list)
 
 ```python
 ## Positional Arguments
@@ -3398,7 +3423,7 @@ klaviyo.Lists.get_list_relationships_tags(id)
 
 
 
-#### [Get Tags for List](https://developers.klaviyo.com/en/v2025-07-15/reference/get_tags_for_list)
+#### [Get Tags for List](https://developers.klaviyo.com/en/v2025-10-15/reference/get_tags_for_list)
 
 ```python
 ## Positional Arguments
@@ -3419,7 +3444,7 @@ klaviyo.Lists.get_list_tags(id, fields_tag=fields_tag)
 
 
 
-#### [Remove Profiles from List](https://developers.klaviyo.com/en/v2025-07-15/reference/remove_profiles_from_list)
+#### [Remove Profiles from List](https://developers.klaviyo.com/en/v2025-10-15/reference/remove_profiles_from_list)
 
 ```python
 ## Positional Arguments
@@ -3441,7 +3466,7 @@ klaviyo.Lists.delete_list_relationships_profiles(id, body)
 
 
 
-#### [Update List](https://developers.klaviyo.com/en/v2025-07-15/reference/update_list)
+#### [Update List](https://developers.klaviyo.com/en/v2025-10-15/reference/update_list)
 
 ```python
 ## Positional Arguments
@@ -3459,7 +3484,7 @@ klaviyo.Lists.update_list(id, body)
 
 ## Metrics
 
-#### [Create Custom Metric](https://developers.klaviyo.com/en/v2025-07-15/reference/create_custom_metric)
+#### [Create Custom Metric](https://developers.klaviyo.com/en/v2025-10-15/reference/create_custom_metric)
 
 ```python
 ## Positional Arguments
@@ -3472,7 +3497,7 @@ klaviyo.Metrics.create_custom_metric(body)
 
 
 
-#### [Delete Custom Metric](https://developers.klaviyo.com/en/v2025-07-15/reference/delete_custom_metric)
+#### [Delete Custom Metric](https://developers.klaviyo.com/en/v2025-10-15/reference/delete_custom_metric)
 
 ```python
 ## Positional Arguments
@@ -3485,7 +3510,7 @@ klaviyo.Metrics.delete_custom_metric(id)
 
 
 
-#### [Get Custom Metric](https://developers.klaviyo.com/en/v2025-07-15/reference/get_custom_metric)
+#### [Get Custom Metric](https://developers.klaviyo.com/en/v2025-10-15/reference/get_custom_metric)
 
 ```python
 ## Positional Arguments
@@ -3504,7 +3529,7 @@ klaviyo.Metrics.get_custom_metric(id, fields_custom_metric=fields_custom_metric,
 
 
 
-#### [Get Custom Metric for Mapped Metric](https://developers.klaviyo.com/en/v2025-07-15/reference/get_custom_metric_for_mapped_metric)
+#### [Get Custom Metric for Mapped Metric](https://developers.klaviyo.com/en/v2025-10-15/reference/get_custom_metric_for_mapped_metric)
 
 ```python
 ## Positional Arguments
@@ -3525,7 +3550,7 @@ klaviyo.Metrics.get_mapped_metric_custom_metric(id, fields_custom_metric=fields_
 
 
 
-#### [Get Custom Metric ID for Mapped Metric](https://developers.klaviyo.com/en/v2025-07-15/reference/get_custom_metric_id_for_mapped_metric)
+#### [Get Custom Metric ID for Mapped Metric](https://developers.klaviyo.com/en/v2025-10-15/reference/get_custom_metric_id_for_mapped_metric)
 
 ```python
 ## Positional Arguments
@@ -3542,7 +3567,7 @@ klaviyo.Metrics.get_mapped_metric_relationships_custom_metric(id)
 
 
 
-#### [Get Custom Metrics](https://developers.klaviyo.com/en/v2025-07-15/reference/get_custom_metrics)
+#### [Get Custom Metrics](https://developers.klaviyo.com/en/v2025-10-15/reference/get_custom_metrics)
 
 ```python
 
@@ -3558,7 +3583,7 @@ klaviyo.Metrics.get_custom_metrics(fields_custom_metric=fields_custom_metric, fi
 
 
 
-#### [Get Flows Triggered by Metric](https://developers.klaviyo.com/en/v2025-07-15/reference/get_flows_triggered_by_metric)
+#### [Get Flows Triggered by Metric](https://developers.klaviyo.com/en/v2025-10-15/reference/get_flows_triggered_by_metric)
 
 ```python
 ## Positional Arguments
@@ -3583,7 +3608,7 @@ klaviyo.Metrics.get_metric_flow_triggers(id, fields_flow=fields_flow)
 
 
 
-#### [Get IDs for Flows Triggered by Metric](https://developers.klaviyo.com/en/v2025-07-15/reference/get_ids_for_flows_triggered_by_metric)
+#### [Get IDs for Flows Triggered by Metric](https://developers.klaviyo.com/en/v2025-10-15/reference/get_ids_for_flows_triggered_by_metric)
 
 ```python
 ## Positional Arguments
@@ -3604,7 +3629,7 @@ klaviyo.Metrics.get_metric_relationships_flow_triggers(id)
 
 
 
-#### [Get Mapped Metric](https://developers.klaviyo.com/en/v2025-07-15/reference/get_mapped_metric)
+#### [Get Mapped Metric](https://developers.klaviyo.com/en/v2025-10-15/reference/get_mapped_metric)
 
 ```python
 ## Positional Arguments
@@ -3624,7 +3649,7 @@ klaviyo.Metrics.get_mapped_metric(id, fields_custom_metric=fields_custom_metric,
 
 
 
-#### [Get Mapped Metrics](https://developers.klaviyo.com/en/v2025-07-15/reference/get_mapped_metrics)
+#### [Get Mapped Metrics](https://developers.klaviyo.com/en/v2025-10-15/reference/get_mapped_metrics)
 
 ```python
 
@@ -3641,7 +3666,7 @@ klaviyo.Metrics.get_mapped_metrics(fields_custom_metric=fields_custom_metric, fi
 
 
 
-#### [Get Metric](https://developers.klaviyo.com/en/v2025-07-15/reference/get_metric)
+#### [Get Metric](https://developers.klaviyo.com/en/v2025-10-15/reference/get_metric)
 
 ```python
 ## Positional Arguments
@@ -3660,7 +3685,7 @@ klaviyo.Metrics.get_metric(id, fields_flow=fields_flow, fields_metric=fields_met
 
 
 
-#### [Get Metric for Mapped Metric](https://developers.klaviyo.com/en/v2025-07-15/reference/get_metric_for_mapped_metric)
+#### [Get Metric for Mapped Metric](https://developers.klaviyo.com/en/v2025-10-15/reference/get_metric_for_mapped_metric)
 
 ```python
 ## Positional Arguments
@@ -3681,7 +3706,7 @@ klaviyo.Metrics.get_mapped_metric_metric(id, fields_metric=fields_metric)
 
 
 
-#### [Get Metric for Metric Property](https://developers.klaviyo.com/en/v2025-07-15/reference/get_metric_for_metric_property)
+#### [Get Metric for Metric Property](https://developers.klaviyo.com/en/v2025-10-15/reference/get_metric_for_metric_property)
 
 ```python
 ## Positional Arguments
@@ -3702,7 +3727,7 @@ klaviyo.Metrics.get_metric_property_metric(id, fields_metric=fields_metric)
 
 
 
-#### [Get Metric ID for Mapped Metric](https://developers.klaviyo.com/en/v2025-07-15/reference/get_metric_id_for_mapped_metric)
+#### [Get Metric ID for Mapped Metric](https://developers.klaviyo.com/en/v2025-10-15/reference/get_metric_id_for_mapped_metric)
 
 ```python
 ## Positional Arguments
@@ -3719,7 +3744,7 @@ klaviyo.Metrics.get_mapped_metric_relationships_metric(id)
 
 
 
-#### [Get Metric ID for Metric Property](https://developers.klaviyo.com/en/v2025-07-15/reference/get_metric_id_for_metric_property)
+#### [Get Metric ID for Metric Property](https://developers.klaviyo.com/en/v2025-10-15/reference/get_metric_id_for_metric_property)
 
 ```python
 ## Positional Arguments
@@ -3736,7 +3761,7 @@ klaviyo.Metrics.get_metric_property_relationships_metric(id)
 
 
 
-#### [Get Metric IDs for Custom Metric](https://developers.klaviyo.com/en/v2025-07-15/reference/get_metric_ids_for_custom_metric)
+#### [Get Metric IDs for Custom Metric](https://developers.klaviyo.com/en/v2025-10-15/reference/get_metric_ids_for_custom_metric)
 
 ```python
 ## Positional Arguments
@@ -3753,7 +3778,7 @@ klaviyo.Metrics.get_custom_metric_relationships_metrics(id)
 
 
 
-#### [Get Metric Property](https://developers.klaviyo.com/en/v2025-07-15/reference/get_metric_property)
+#### [Get Metric Property](https://developers.klaviyo.com/en/v2025-10-15/reference/get_metric_property)
 
 ```python
 ## Positional Arguments
@@ -3773,7 +3798,7 @@ klaviyo.Metrics.get_metric_property(id, additional_fields_metric_property=additi
 
 
 
-#### [Get Metrics](https://developers.klaviyo.com/en/v2025-07-15/reference/get_metrics)
+#### [Get Metrics](https://developers.klaviyo.com/en/v2025-10-15/reference/get_metrics)
 
 ```python
 
@@ -3791,7 +3816,7 @@ klaviyo.Metrics.get_metrics(fields_flow=fields_flow, fields_metric=fields_metric
 
 
 
-#### [Get Metrics for Custom Metric](https://developers.klaviyo.com/en/v2025-07-15/reference/get_metrics_for_custom_metric)
+#### [Get Metrics for Custom Metric](https://developers.klaviyo.com/en/v2025-10-15/reference/get_metrics_for_custom_metric)
 
 ```python
 ## Positional Arguments
@@ -3812,7 +3837,7 @@ klaviyo.Metrics.get_custom_metric_metrics(id, fields_metric=fields_metric)
 
 
 
-#### [Get Properties for Metric](https://developers.klaviyo.com/en/v2025-07-15/reference/get_properties_for_metric)
+#### [Get Properties for Metric](https://developers.klaviyo.com/en/v2025-10-15/reference/get_properties_for_metric)
 
 ```python
 ## Positional Arguments
@@ -3838,7 +3863,7 @@ klaviyo.Metrics.get_metric_properties(id, additional_fields_metric_property=addi
 
 
 
-#### [Get Property IDs for Metric](https://developers.klaviyo.com/en/v2025-07-15/reference/get_property_ids_for_metric)
+#### [Get Property IDs for Metric](https://developers.klaviyo.com/en/v2025-10-15/reference/get_property_ids_for_metric)
 
 ```python
 ## Positional Arguments
@@ -3859,7 +3884,7 @@ klaviyo.Metrics.get_metric_relationships_properties(id)
 
 
 
-#### [Query Metric Aggregates](https://developers.klaviyo.com/en/v2025-07-15/reference/query_metric_aggregates)
+#### [Query Metric Aggregates](https://developers.klaviyo.com/en/v2025-10-15/reference/query_metric_aggregates)
 
 ```python
 ## Positional Arguments
@@ -3876,7 +3901,7 @@ klaviyo.Metrics.create_metric_aggregate(body)
 
 
 
-#### [Update Custom Metric](https://developers.klaviyo.com/en/v2025-07-15/reference/update_custom_metric)
+#### [Update Custom Metric](https://developers.klaviyo.com/en/v2025-10-15/reference/update_custom_metric)
 
 ```python
 ## Positional Arguments
@@ -3890,7 +3915,7 @@ klaviyo.Metrics.update_custom_metric(id, body)
 
 
 
-#### [Update Mapped Metric](https://developers.klaviyo.com/en/v2025-07-15/reference/update_mapped_metric)
+#### [Update Mapped Metric](https://developers.klaviyo.com/en/v2025-10-15/reference/update_mapped_metric)
 
 ```python
 ## Positional Arguments
@@ -3908,7 +3933,7 @@ klaviyo.Metrics.update_mapped_metric(id, body)
 
 ## Profiles
 
-#### [Bulk Import Profiles](https://developers.klaviyo.com/en/v2025-07-15/reference/bulk_import_profiles)
+#### [Bulk Import Profiles](https://developers.klaviyo.com/en/v2025-10-15/reference/bulk_import_profiles)
 
 ```python
 ## Positional Arguments
@@ -3929,7 +3954,7 @@ klaviyo.Profiles.create_profile_bulk_import_job(body)
 
 
 
-#### [Bulk Subscribe Profiles](https://developers.klaviyo.com/en/v2025-07-15/reference/bulk_subscribe_profiles)
+#### [Bulk Subscribe Profiles](https://developers.klaviyo.com/en/v2025-10-15/reference/bulk_subscribe_profiles)
 
 ```python
 ## Positional Arguments
@@ -3950,7 +3975,7 @@ klaviyo.Profiles.create_profile_subscription_bulk_create_job(body)
 
 
 
-#### [Bulk Suppress Profiles](https://developers.klaviyo.com/en/v2025-07-15/reference/bulk_suppress_profiles)
+#### [Bulk Suppress Profiles](https://developers.klaviyo.com/en/v2025-10-15/reference/bulk_suppress_profiles)
 
 ```python
 ## Positional Arguments
@@ -3971,7 +3996,7 @@ klaviyo.Profiles.create_profile_suppression_bulk_create_job(body)
 
 
 
-#### [Bulk Unsubscribe Profiles](https://developers.klaviyo.com/en/v2025-07-15/reference/bulk_unsubscribe_profiles)
+#### [Bulk Unsubscribe Profiles](https://developers.klaviyo.com/en/v2025-10-15/reference/bulk_unsubscribe_profiles)
 
 ```python
 ## Positional Arguments
@@ -3992,7 +4017,7 @@ klaviyo.Profiles.create_profile_subscription_bulk_delete_job(body)
 
 
 
-#### [Bulk Unsuppress Profiles](https://developers.klaviyo.com/en/v2025-07-15/reference/bulk_unsuppress_profiles)
+#### [Bulk Unsuppress Profiles](https://developers.klaviyo.com/en/v2025-10-15/reference/bulk_unsuppress_profiles)
 
 ```python
 ## Positional Arguments
@@ -4013,7 +4038,7 @@ klaviyo.Profiles.create_profile_suppression_bulk_delete_job(body)
 
 
 
-#### [Create or Update Profile](https://developers.klaviyo.com/en/v2025-07-15/reference/create_or_update_profile)
+#### [Create or Update Profile](https://developers.klaviyo.com/en/v2025-10-15/reference/create_or_update_profile)
 
 ```python
 ## Positional Arguments
@@ -4034,7 +4059,7 @@ klaviyo.Profiles.create_profile_import(body, additional_fields_profile=additiona
 
 
 
-#### [Create Profile](https://developers.klaviyo.com/en/v2025-07-15/reference/create_profile)
+#### [Create Profile](https://developers.klaviyo.com/en/v2025-10-15/reference/create_profile)
 
 ```python
 ## Positional Arguments
@@ -4051,7 +4076,7 @@ klaviyo.Profiles.create_profile(body, additional_fields_profile=additional_field
 
 
 
-#### [Create or Update Push Token](https://developers.klaviyo.com/en/v2025-07-15/reference/create_push_token)
+#### [Create or Update Push Token](https://developers.klaviyo.com/en/v2025-10-15/reference/create_push_token)
 
 ```python
 ## Positional Arguments
@@ -4064,7 +4089,7 @@ klaviyo.Profiles.create_push_token(body)
 
 
 
-#### [Delete Push Token](https://developers.klaviyo.com/en/v2025-07-15/reference/delete_push_token)
+#### [Delete Push Token](https://developers.klaviyo.com/en/v2025-10-15/reference/delete_push_token)
 
 ```python
 ## Positional Arguments
@@ -4077,7 +4102,7 @@ klaviyo.Profiles.delete_push_token(id)
 
 
 
-#### [Get Bulk Import Profiles Job](https://developers.klaviyo.com/en/v2025-07-15/reference/get_bulk_import_profiles_job)
+#### [Get Bulk Import Profiles Job](https://developers.klaviyo.com/en/v2025-10-15/reference/get_bulk_import_profiles_job)
 
 ```python
 ## Positional Arguments
@@ -4104,7 +4129,7 @@ klaviyo.Profiles.get_profile_bulk_import_job(job_id, fields_list=fields_list, fi
 
 
 
-#### [Get Bulk Import Profiles Jobs](https://developers.klaviyo.com/en/v2025-07-15/reference/get_bulk_import_profiles_jobs)
+#### [Get Bulk Import Profiles Jobs](https://developers.klaviyo.com/en/v2025-10-15/reference/get_bulk_import_profiles_jobs)
 
 ```python
 
@@ -4130,7 +4155,7 @@ klaviyo.Profiles.get_profile_bulk_import_jobs(fields_profile_bulk_import_job=fie
 
 
 
-#### [Get Bulk Suppress Profiles Job](https://developers.klaviyo.com/en/v2025-07-15/reference/get_bulk_suppress_profiles_job)
+#### [Get Bulk Suppress Profiles Job](https://developers.klaviyo.com/en/v2025-10-15/reference/get_bulk_suppress_profiles_job)
 
 ```python
 ## Positional Arguments
@@ -4151,7 +4176,7 @@ klaviyo.Profiles.get_profile_suppression_bulk_create_job(job_id, fields_profile_
 
 
 
-#### [Get Bulk Suppress Profiles Jobs](https://developers.klaviyo.com/en/v2025-07-15/reference/get_bulk_suppress_profiles_jobs)
+#### [Get Bulk Suppress Profiles Jobs](https://developers.klaviyo.com/en/v2025-10-15/reference/get_bulk_suppress_profiles_jobs)
 
 ```python
 
@@ -4172,7 +4197,7 @@ klaviyo.Profiles.get_profile_suppression_bulk_create_jobs(fields_profile_suppres
 
 
 
-#### [Get Bulk Unsuppress Profiles Job](https://developers.klaviyo.com/en/v2025-07-15/reference/get_bulk_unsuppress_profiles_job)
+#### [Get Bulk Unsuppress Profiles Job](https://developers.klaviyo.com/en/v2025-10-15/reference/get_bulk_unsuppress_profiles_job)
 
 ```python
 ## Positional Arguments
@@ -4193,7 +4218,7 @@ klaviyo.Profiles.get_profile_suppression_bulk_delete_job(job_id, fields_profile_
 
 
 
-#### [Get Bulk Unsuppress Profiles Jobs](https://developers.klaviyo.com/en/v2025-07-15/reference/get_bulk_unsuppress_profiles_jobs)
+#### [Get Bulk Unsuppress Profiles Jobs](https://developers.klaviyo.com/en/v2025-10-15/reference/get_bulk_unsuppress_profiles_jobs)
 
 ```python
 
@@ -4214,7 +4239,7 @@ klaviyo.Profiles.get_profile_suppression_bulk_delete_jobs(fields_profile_suppres
 
 
 
-#### [Get Errors for Bulk Import Profiles Job](https://developers.klaviyo.com/en/v2025-07-15/reference/get_errors_for_bulk_import_profiles_job)
+#### [Get Errors for Bulk Import Profiles Job](https://developers.klaviyo.com/en/v2025-10-15/reference/get_errors_for_bulk_import_profiles_job)
 
 ```python
 ## Positional Arguments
@@ -4245,7 +4270,7 @@ klaviyo.Profiles.get_profile_bulk_import_job_import_errors(id, fields_import_err
 
 
 
-#### [Get List for Bulk Import Profiles Job](https://developers.klaviyo.com/en/v2025-07-15/reference/get_list_for_bulk_import_profiles_job)
+#### [Get List for Bulk Import Profiles Job](https://developers.klaviyo.com/en/v2025-10-15/reference/get_list_for_bulk_import_profiles_job)
 
 ```python
 ## Positional Arguments
@@ -4274,7 +4299,7 @@ klaviyo.Profiles.get_profile_bulk_import_job_lists(id, fields_list=fields_list)
 
 
 
-#### [Get List IDs for Bulk Import Profiles Job](https://developers.klaviyo.com/en/v2025-07-15/reference/get_list_ids_for_bulk_import_profiles_job)
+#### [Get List IDs for Bulk Import Profiles Job](https://developers.klaviyo.com/en/v2025-10-15/reference/get_list_ids_for_bulk_import_profiles_job)
 
 ```python
 ## Positional Arguments
@@ -4299,7 +4324,7 @@ klaviyo.Profiles.get_profile_bulk_import_job_relationships_lists(id)
 
 
 
-#### [Get List IDs for Profile](https://developers.klaviyo.com/en/v2025-07-15/reference/get_list_ids_for_profile)
+#### [Get List IDs for Profile](https://developers.klaviyo.com/en/v2025-10-15/reference/get_list_ids_for_profile)
 
 ```python
 ## Positional Arguments
@@ -4316,7 +4341,7 @@ klaviyo.Profiles.get_profile_relationships_lists(id)
 
 
 
-#### [Get Lists for Profile](https://developers.klaviyo.com/en/v2025-07-15/reference/get_lists_for_profile)
+#### [Get Lists for Profile](https://developers.klaviyo.com/en/v2025-10-15/reference/get_lists_for_profile)
 
 ```python
 ## Positional Arguments
@@ -4337,7 +4362,7 @@ klaviyo.Profiles.get_profile_lists(id, fields_list=fields_list)
 
 
 
-#### [Get Profile](https://developers.klaviyo.com/en/v2025-07-15/reference/get_profile)
+#### [Get Profile](https://developers.klaviyo.com/en/v2025-10-15/reference/get_profile)
 
 ```python
 ## Positional Arguments
@@ -4359,7 +4384,7 @@ klaviyo.Profiles.get_profile(id, additional_fields_profile=additional_fields_pro
 
 
 
-#### [Get Profile for Push Token](https://developers.klaviyo.com/en/v2025-07-15/reference/get_profile_for_push_token)
+#### [Get Profile for Push Token](https://developers.klaviyo.com/en/v2025-10-15/reference/get_profile_for_push_token)
 
 ```python
 ## Positional Arguments
@@ -4381,7 +4406,7 @@ klaviyo.Profiles.get_push_token_profile(id, additional_fields_profile=additional
 
 
 
-#### [Get Profile ID for Push Token](https://developers.klaviyo.com/en/v2025-07-15/reference/get_profile_id_for_push_token)
+#### [Get Profile ID for Push Token](https://developers.klaviyo.com/en/v2025-10-15/reference/get_profile_id_for_push_token)
 
 ```python
 ## Positional Arguments
@@ -4398,7 +4423,7 @@ klaviyo.Profiles.get_push_token_relationships_profile(id)
 
 
 
-#### [Get Profile IDs for Bulk Import Profiles Job](https://developers.klaviyo.com/en/v2025-07-15/reference/get_profile_ids_for_bulk_import_profiles_job)
+#### [Get Profile IDs for Bulk Import Profiles Job](https://developers.klaviyo.com/en/v2025-10-15/reference/get_profile_ids_for_bulk_import_profiles_job)
 
 ```python
 ## Positional Arguments
@@ -4428,7 +4453,7 @@ klaviyo.Profiles.get_profile_ids_for_profile_bulk_import_job(id, page_cursor=pag
 
 
 
-#### [Get Profiles](https://developers.klaviyo.com/en/v2025-07-15/reference/get_profiles)
+#### [Get Profiles](https://developers.klaviyo.com/en/v2025-10-15/reference/get_profiles)
 
 ```python
 
@@ -4448,7 +4473,7 @@ klaviyo.Profiles.get_profiles(additional_fields_profile=additional_fields_profil
 
 
 
-#### [Get Profiles for Bulk Import Profiles Job](https://developers.klaviyo.com/en/v2025-07-15/reference/get_profiles_for_bulk_import_profiles_job)
+#### [Get Profiles for Bulk Import Profiles Job](https://developers.klaviyo.com/en/v2025-10-15/reference/get_profiles_for_bulk_import_profiles_job)
 
 ```python
 ## Positional Arguments
@@ -4480,7 +4505,7 @@ klaviyo.Profiles.get_profiles_for_profile_bulk_import_job(id, additional_fields_
 
 
 
-#### [Get Push Token](https://developers.klaviyo.com/en/v2025-07-15/reference/get_push_token)
+#### [Get Push Token](https://developers.klaviyo.com/en/v2025-10-15/reference/get_push_token)
 
 ```python
 ## Positional Arguments
@@ -4499,7 +4524,7 @@ klaviyo.Profiles.get_push_token(id, fields_profile=fields_profile, fields_push_t
 
 
 
-#### [Get Push Token IDs for Profile](https://developers.klaviyo.com/en/v2025-07-15/reference/get_push_token_ids_for_profile)
+#### [Get Push Token IDs for Profile](https://developers.klaviyo.com/en/v2025-10-15/reference/get_push_token_ids_for_profile)
 
 ```python
 ## Positional Arguments
@@ -4516,7 +4541,7 @@ klaviyo.Profiles.get_profile_relationships_push_tokens(id)
 
 
 
-#### [Get Push Tokens](https://developers.klaviyo.com/en/v2025-07-15/reference/get_push_tokens)
+#### [Get Push Tokens](https://developers.klaviyo.com/en/v2025-10-15/reference/get_push_tokens)
 
 ```python
 
@@ -4535,7 +4560,7 @@ klaviyo.Profiles.get_push_tokens(fields_profile=fields_profile, fields_push_toke
 
 
 
-#### [Get Push Tokens for Profile](https://developers.klaviyo.com/en/v2025-07-15/reference/get_push_tokens_for_profile)
+#### [Get Push Tokens for Profile](https://developers.klaviyo.com/en/v2025-10-15/reference/get_push_tokens_for_profile)
 
 ```python
 ## Positional Arguments
@@ -4556,7 +4581,7 @@ klaviyo.Profiles.get_profile_push_tokens(id, fields_push_token=fields_push_token
 
 
 
-#### [Get Segment IDs for Profile](https://developers.klaviyo.com/en/v2025-07-15/reference/get_segment_ids_for_profile)
+#### [Get Segment IDs for Profile](https://developers.klaviyo.com/en/v2025-10-15/reference/get_segment_ids_for_profile)
 
 ```python
 ## Positional Arguments
@@ -4573,7 +4598,7 @@ klaviyo.Profiles.get_profile_relationships_segments(id)
 
 
 
-#### [Get Segments for Profile](https://developers.klaviyo.com/en/v2025-07-15/reference/get_segments_for_profile)
+#### [Get Segments for Profile](https://developers.klaviyo.com/en/v2025-10-15/reference/get_segments_for_profile)
 
 ```python
 ## Positional Arguments
@@ -4594,7 +4619,7 @@ klaviyo.Profiles.get_profile_segments(id, fields_segment=fields_segment)
 
 
 
-#### [Merge Profiles](https://developers.klaviyo.com/en/v2025-07-15/reference/merge_profiles)
+#### [Merge Profiles](https://developers.klaviyo.com/en/v2025-10-15/reference/merge_profiles)
 
 ```python
 ## Positional Arguments
@@ -4611,7 +4636,7 @@ klaviyo.Profiles.create_profile_merge(body)
 
 
 
-#### [Update Profile](https://developers.klaviyo.com/en/v2025-07-15/reference/update_profile)
+#### [Update Profile](https://developers.klaviyo.com/en/v2025-10-15/reference/update_profile)
 
 ```python
 ## Positional Arguments
@@ -4633,7 +4658,7 @@ klaviyo.Profiles.update_profile(id, body, additional_fields_profile=additional_f
 
 ## Reporting
 
-#### [Query Campaign Values](https://developers.klaviyo.com/en/v2025-07-15/reference/query_campaign_values)
+#### [Query Campaign Values](https://developers.klaviyo.com/en/v2025-10-15/reference/query_campaign_values)
 
 ```python
 ## Positional Arguments
@@ -4658,7 +4683,7 @@ klaviyo.Reporting.create_campaign_values_report(body, page_cursor=page_cursor)
 
 
 
-#### [Query Flow Series](https://developers.klaviyo.com/en/v2025-07-15/reference/query_flow_series)
+#### [Query Flow Series](https://developers.klaviyo.com/en/v2025-10-15/reference/query_flow_series)
 
 ```python
 ## Positional Arguments
@@ -4683,7 +4708,7 @@ klaviyo.Reporting.create_flow_series_report(body, page_cursor=page_cursor)
 
 
 
-#### [Query Flow Values](https://developers.klaviyo.com/en/v2025-07-15/reference/query_flow_values)
+#### [Query Flow Values](https://developers.klaviyo.com/en/v2025-10-15/reference/query_flow_values)
 
 ```python
 ## Positional Arguments
@@ -4708,7 +4733,7 @@ klaviyo.Reporting.create_flow_values_report(body, page_cursor=page_cursor)
 
 
 
-#### [Query Form Series](https://developers.klaviyo.com/en/v2025-07-15/reference/query_form_series)
+#### [Query Form Series](https://developers.klaviyo.com/en/v2025-10-15/reference/query_form_series)
 
 ```python
 ## Positional Arguments
@@ -4729,7 +4754,7 @@ klaviyo.Reporting.create_form_series_report(body)
 
 
 
-#### [Query Form Values](https://developers.klaviyo.com/en/v2025-07-15/reference/query_form_values)
+#### [Query Form Values](https://developers.klaviyo.com/en/v2025-10-15/reference/query_form_values)
 
 ```python
 ## Positional Arguments
@@ -4750,7 +4775,7 @@ klaviyo.Reporting.create_form_values_report(body)
 
 
 
-#### [Query Segment Series](https://developers.klaviyo.com/en/v2025-07-15/reference/query_segment_series)
+#### [Query Segment Series](https://developers.klaviyo.com/en/v2025-10-15/reference/query_segment_series)
 
 ```python
 ## Positional Arguments
@@ -4771,7 +4796,7 @@ klaviyo.Reporting.create_segment_series_report(body)
 
 
 
-#### [Query Segment Values](https://developers.klaviyo.com/en/v2025-07-15/reference/query_segment_values)
+#### [Query Segment Values](https://developers.klaviyo.com/en/v2025-10-15/reference/query_segment_values)
 
 ```python
 ## Positional Arguments
@@ -4796,7 +4821,7 @@ klaviyo.Reporting.create_segment_values_report(body)
 
 ## Reviews
 
-#### [Get Review](https://developers.klaviyo.com/en/v2025-07-15/reference/get_review)
+#### [Get Review](https://developers.klaviyo.com/en/v2025-10-15/reference/get_review)
 
 ```python
 ## Positional Arguments
@@ -4815,7 +4840,7 @@ klaviyo.Reviews.get_review(id, fields_event=fields_event, fields_review=fields_r
 
 
 
-#### [Get Reviews](https://developers.klaviyo.com/en/v2025-07-15/reference/get_reviews)
+#### [Get Reviews](https://developers.klaviyo.com/en/v2025-10-15/reference/get_reviews)
 
 ```python
 
@@ -4835,7 +4860,7 @@ klaviyo.Reviews.get_reviews(fields_event=fields_event, fields_review=fields_revi
 
 
 
-#### [Update Review](https://developers.klaviyo.com/en/v2025-07-15/reference/update_review)
+#### [Update Review](https://developers.klaviyo.com/en/v2025-10-15/reference/update_review)
 
 ```python
 ## Positional Arguments
@@ -4853,7 +4878,7 @@ klaviyo.Reviews.update_review(id, body)
 
 ## Segments
 
-#### [Create Segment](https://developers.klaviyo.com/en/v2025-07-15/reference/create_segment)
+#### [Create Segment](https://developers.klaviyo.com/en/v2025-10-15/reference/create_segment)
 
 ```python
 ## Positional Arguments
@@ -4866,7 +4891,7 @@ klaviyo.Segments.create_segment(body)
 
 
 
-#### [Delete Segment](https://developers.klaviyo.com/en/v2025-07-15/reference/delete_segment)
+#### [Delete Segment](https://developers.klaviyo.com/en/v2025-10-15/reference/delete_segment)
 
 ```python
 ## Positional Arguments
@@ -4879,7 +4904,7 @@ klaviyo.Segments.delete_segment(id)
 
 
 
-#### [Get Flows Triggered by Segment](https://developers.klaviyo.com/en/v2025-07-15/reference/get_flows_triggered_by_segment)
+#### [Get Flows Triggered by Segment](https://developers.klaviyo.com/en/v2025-10-15/reference/get_flows_triggered_by_segment)
 
 ```python
 ## Positional Arguments
@@ -4904,7 +4929,7 @@ klaviyo.Segments.get_segment_flow_triggers(id, fields_flow=fields_flow)
 
 
 
-#### [Get IDs for Flows Triggered by Segment](https://developers.klaviyo.com/en/v2025-07-15/reference/get_ids_for_flows_triggered_by_segment)
+#### [Get IDs for Flows Triggered by Segment](https://developers.klaviyo.com/en/v2025-10-15/reference/get_ids_for_flows_triggered_by_segment)
 
 ```python
 ## Positional Arguments
@@ -4925,7 +4950,7 @@ klaviyo.Segments.get_segment_relationships_flow_triggers(id)
 
 
 
-#### [Get Profile IDs for Segment](https://developers.klaviyo.com/en/v2025-07-15/reference/get_profile_ids_for_segment)
+#### [Get Profile IDs for Segment](https://developers.klaviyo.com/en/v2025-10-15/reference/get_profile_ids_for_segment)
 
 ```python
 ## Positional Arguments
@@ -4949,7 +4974,7 @@ klaviyo.Segments.get_segment_relationships_profiles(id, filter=filter, page_curs
 
 
 
-#### [Get Profiles for Segment](https://developers.klaviyo.com/en/v2025-07-15/reference/get_profiles_for_segment)
+#### [Get Profiles for Segment](https://developers.klaviyo.com/en/v2025-10-15/reference/get_profiles_for_segment)
 
 ```python
 ## Positional Arguments
@@ -4975,7 +5000,7 @@ klaviyo.Segments.get_segment_profiles(id, additional_fields_profile=additional_f
 
 
 
-#### [Get Segment](https://developers.klaviyo.com/en/v2025-07-15/reference/get_segment)
+#### [Get Segment](https://developers.klaviyo.com/en/v2025-10-15/reference/get_segment)
 
 ```python
 ## Positional Arguments
@@ -4996,7 +5021,7 @@ klaviyo.Segments.get_segment(id, additional_fields_segment=additional_fields_seg
 
 
 
-#### [Get Segments](https://developers.klaviyo.com/en/v2025-07-15/reference/get_segments)
+#### [Get Segments](https://developers.klaviyo.com/en/v2025-10-15/reference/get_segments)
 
 ```python
 
@@ -5016,7 +5041,7 @@ klaviyo.Segments.get_segments(fields_flow=fields_flow, fields_segment=fields_seg
 
 
 
-#### [Get Tag IDs for Segment](https://developers.klaviyo.com/en/v2025-07-15/reference/get_tag_ids_for_segment)
+#### [Get Tag IDs for Segment](https://developers.klaviyo.com/en/v2025-10-15/reference/get_tag_ids_for_segment)
 
 ```python
 ## Positional Arguments
@@ -5033,7 +5058,7 @@ klaviyo.Segments.get_segment_relationships_tags(id)
 
 
 
-#### [Get Tags for Segment](https://developers.klaviyo.com/en/v2025-07-15/reference/get_tags_for_segment)
+#### [Get Tags for Segment](https://developers.klaviyo.com/en/v2025-10-15/reference/get_tags_for_segment)
 
 ```python
 ## Positional Arguments
@@ -5054,7 +5079,7 @@ klaviyo.Segments.get_segment_tags(id, fields_tag=fields_tag)
 
 
 
-#### [Update Segment](https://developers.klaviyo.com/en/v2025-07-15/reference/update_segment)
+#### [Update Segment](https://developers.klaviyo.com/en/v2025-10-15/reference/update_segment)
 
 ```python
 ## Positional Arguments
@@ -5072,7 +5097,7 @@ klaviyo.Segments.update_segment(id, body)
 
 ## Tags
 
-#### [Create Tag](https://developers.klaviyo.com/en/v2025-07-15/reference/create_tag)
+#### [Create Tag](https://developers.klaviyo.com/en/v2025-10-15/reference/create_tag)
 
 ```python
 ## Positional Arguments
@@ -5085,7 +5110,7 @@ klaviyo.Tags.create_tag(body)
 
 
 
-#### [Create Tag Group](https://developers.klaviyo.com/en/v2025-07-15/reference/create_tag_group)
+#### [Create Tag Group](https://developers.klaviyo.com/en/v2025-10-15/reference/create_tag_group)
 
 ```python
 ## Positional Arguments
@@ -5098,7 +5123,7 @@ klaviyo.Tags.create_tag_group(body)
 
 
 
-#### [Delete Tag](https://developers.klaviyo.com/en/v2025-07-15/reference/delete_tag)
+#### [Delete Tag](https://developers.klaviyo.com/en/v2025-10-15/reference/delete_tag)
 
 ```python
 ## Positional Arguments
@@ -5111,7 +5136,7 @@ klaviyo.Tags.delete_tag(id)
 
 
 
-#### [Delete Tag Group](https://developers.klaviyo.com/en/v2025-07-15/reference/delete_tag_group)
+#### [Delete Tag Group](https://developers.klaviyo.com/en/v2025-10-15/reference/delete_tag_group)
 
 ```python
 ## Positional Arguments
@@ -5124,7 +5149,7 @@ klaviyo.Tags.delete_tag_group(id)
 
 
 
-#### [Get Campaign IDs for Tag](https://developers.klaviyo.com/en/v2025-07-15/reference/get_campaign_ids_for_tag)
+#### [Get Campaign IDs for Tag](https://developers.klaviyo.com/en/v2025-10-15/reference/get_campaign_ids_for_tag)
 
 ```python
 ## Positional Arguments
@@ -5141,7 +5166,7 @@ klaviyo.Tags.get_tag_relationships_campaigns(id)
 
 
 
-#### [Get Flow IDs for Tag](https://developers.klaviyo.com/en/v2025-07-15/reference/get_flow_ids_for_tag)
+#### [Get Flow IDs for Tag](https://developers.klaviyo.com/en/v2025-10-15/reference/get_flow_ids_for_tag)
 
 ```python
 ## Positional Arguments
@@ -5158,7 +5183,7 @@ klaviyo.Tags.get_tag_relationships_flows(id)
 
 
 
-#### [Get List IDs for Tag](https://developers.klaviyo.com/en/v2025-07-15/reference/get_list_ids_for_tag)
+#### [Get List IDs for Tag](https://developers.klaviyo.com/en/v2025-10-15/reference/get_list_ids_for_tag)
 
 ```python
 ## Positional Arguments
@@ -5175,7 +5200,7 @@ klaviyo.Tags.get_tag_relationships_lists(id)
 
 
 
-#### [Get Segment IDs for Tag](https://developers.klaviyo.com/en/v2025-07-15/reference/get_segment_ids_for_tag)
+#### [Get Segment IDs for Tag](https://developers.klaviyo.com/en/v2025-10-15/reference/get_segment_ids_for_tag)
 
 ```python
 ## Positional Arguments
@@ -5192,7 +5217,7 @@ klaviyo.Tags.get_tag_relationships_segments(id)
 
 
 
-#### [Get Tag](https://developers.klaviyo.com/en/v2025-07-15/reference/get_tag)
+#### [Get Tag](https://developers.klaviyo.com/en/v2025-10-15/reference/get_tag)
 
 ```python
 ## Positional Arguments
@@ -5211,7 +5236,7 @@ klaviyo.Tags.get_tag(id, fields_tag_group=fields_tag_group, fields_tag=fields_ta
 
 
 
-#### [Get Tag Group](https://developers.klaviyo.com/en/v2025-07-15/reference/get_tag_group)
+#### [Get Tag Group](https://developers.klaviyo.com/en/v2025-10-15/reference/get_tag_group)
 
 ```python
 ## Positional Arguments
@@ -5228,7 +5253,7 @@ klaviyo.Tags.get_tag_group(id, fields_tag_group=fields_tag_group)
 
 
 
-#### [Get Tag Group for Tag](https://developers.klaviyo.com/en/v2025-07-15/reference/get_tag_group_for_tag)
+#### [Get Tag Group for Tag](https://developers.klaviyo.com/en/v2025-10-15/reference/get_tag_group_for_tag)
 
 ```python
 ## Positional Arguments
@@ -5253,7 +5278,7 @@ klaviyo.Tags.get_group_for_tag(id, fields_tag_group=fields_tag_group)
 
 
 
-#### [Get Tag Group ID for Tag](https://developers.klaviyo.com/en/v2025-07-15/reference/get_tag_group_id_for_tag)
+#### [Get Tag Group ID for Tag](https://developers.klaviyo.com/en/v2025-10-15/reference/get_tag_group_id_for_tag)
 
 ```python
 ## Positional Arguments
@@ -5278,7 +5303,7 @@ klaviyo.Tags.get_tag_relationships_group(id)
 
 
 
-#### [Get Tag Groups](https://developers.klaviyo.com/en/v2025-07-15/reference/get_tag_groups)
+#### [Get Tag Groups](https://developers.klaviyo.com/en/v2025-10-15/reference/get_tag_groups)
 
 ```python
 
@@ -5295,7 +5320,7 @@ klaviyo.Tags.get_tag_groups(fields_tag_group=fields_tag_group, filter=filter, pa
 
 
 
-#### [Get Tag IDs for Tag Group](https://developers.klaviyo.com/en/v2025-07-15/reference/get_tag_ids_for_tag_group)
+#### [Get Tag IDs for Tag Group](https://developers.klaviyo.com/en/v2025-10-15/reference/get_tag_ids_for_tag_group)
 
 ```python
 ## Positional Arguments
@@ -5312,7 +5337,7 @@ klaviyo.Tags.get_tag_group_relationships_tags(id)
 
 
 
-#### [Get Tags](https://developers.klaviyo.com/en/v2025-07-15/reference/get_tags)
+#### [Get Tags](https://developers.klaviyo.com/en/v2025-10-15/reference/get_tags)
 
 ```python
 
@@ -5331,7 +5356,7 @@ klaviyo.Tags.get_tags(fields_tag_group=fields_tag_group, fields_tag=fields_tag, 
 
 
 
-#### [Get Tags for Tag Group](https://developers.klaviyo.com/en/v2025-07-15/reference/get_tags_for_tag_group)
+#### [Get Tags for Tag Group](https://developers.klaviyo.com/en/v2025-10-15/reference/get_tags_for_tag_group)
 
 ```python
 ## Positional Arguments
@@ -5352,7 +5377,7 @@ klaviyo.Tags.get_tag_group_tags(id, fields_tag=fields_tag)
 
 
 
-#### [Remove Tag from Campaigns](https://developers.klaviyo.com/en/v2025-07-15/reference/remove_tag_from_campaigns)
+#### [Remove Tag from Campaigns](https://developers.klaviyo.com/en/v2025-10-15/reference/remove_tag_from_campaigns)
 
 ```python
 ## Positional Arguments
@@ -5374,7 +5399,7 @@ klaviyo.Tags.remove_campaigns_from_tag(id, body)
 
 
 
-#### [Remove Tag from Flows](https://developers.klaviyo.com/en/v2025-07-15/reference/remove_tag_from_flows)
+#### [Remove Tag from Flows](https://developers.klaviyo.com/en/v2025-10-15/reference/remove_tag_from_flows)
 
 ```python
 ## Positional Arguments
@@ -5396,7 +5421,7 @@ klaviyo.Tags.remove_flows_from_tag(id, body)
 
 
 
-#### [Remove Tag from Lists](https://developers.klaviyo.com/en/v2025-07-15/reference/remove_tag_from_lists)
+#### [Remove Tag from Lists](https://developers.klaviyo.com/en/v2025-10-15/reference/remove_tag_from_lists)
 
 ```python
 ## Positional Arguments
@@ -5418,7 +5443,7 @@ klaviyo.Tags.remove_lists_from_tag(id, body)
 
 
 
-#### [Remove Tag from Segments](https://developers.klaviyo.com/en/v2025-07-15/reference/remove_tag_from_segments)
+#### [Remove Tag from Segments](https://developers.klaviyo.com/en/v2025-10-15/reference/remove_tag_from_segments)
 
 ```python
 ## Positional Arguments
@@ -5440,7 +5465,7 @@ klaviyo.Tags.remove_segments_from_tag(id, body)
 
 
 
-#### [Tag Campaigns](https://developers.klaviyo.com/en/v2025-07-15/reference/tag_campaigns)
+#### [Tag Campaigns](https://developers.klaviyo.com/en/v2025-10-15/reference/tag_campaigns)
 
 ```python
 ## Positional Arguments
@@ -5466,7 +5491,7 @@ klaviyo.Tags.create_tag_relationships_campaigns(id, body)
 
 
 
-#### [Tag Flows](https://developers.klaviyo.com/en/v2025-07-15/reference/tag_flows)
+#### [Tag Flows](https://developers.klaviyo.com/en/v2025-10-15/reference/tag_flows)
 
 ```python
 ## Positional Arguments
@@ -5492,7 +5517,7 @@ klaviyo.Tags.create_tag_relationships_flows(id, body)
 
 
 
-#### [Tag Lists](https://developers.klaviyo.com/en/v2025-07-15/reference/tag_lists)
+#### [Tag Lists](https://developers.klaviyo.com/en/v2025-10-15/reference/tag_lists)
 
 ```python
 ## Positional Arguments
@@ -5518,7 +5543,7 @@ klaviyo.Tags.create_tag_relationships_lists(id, body)
 
 
 
-#### [Tag Segments](https://developers.klaviyo.com/en/v2025-07-15/reference/tag_segments)
+#### [Tag Segments](https://developers.klaviyo.com/en/v2025-10-15/reference/tag_segments)
 
 ```python
 ## Positional Arguments
@@ -5544,7 +5569,7 @@ klaviyo.Tags.create_tag_relationships_segments(id, body)
 
 
 
-#### [Update Tag](https://developers.klaviyo.com/en/v2025-07-15/reference/update_tag)
+#### [Update Tag](https://developers.klaviyo.com/en/v2025-10-15/reference/update_tag)
 
 ```python
 ## Positional Arguments
@@ -5558,7 +5583,7 @@ klaviyo.Tags.update_tag(id, body)
 
 
 
-#### [Update Tag Group](https://developers.klaviyo.com/en/v2025-07-15/reference/update_tag_group)
+#### [Update Tag Group](https://developers.klaviyo.com/en/v2025-10-15/reference/update_tag_group)
 
 ```python
 ## Positional Arguments
@@ -5576,7 +5601,7 @@ klaviyo.Tags.update_tag_group(id, body)
 
 ## Templates
 
-#### [Clone Template](https://developers.klaviyo.com/en/v2025-07-15/reference/clone_template)
+#### [Clone Template](https://developers.klaviyo.com/en/v2025-10-15/reference/clone_template)
 
 ```python
 ## Positional Arguments
@@ -5593,7 +5618,7 @@ klaviyo.Templates.create_template_clone(body)
 
 
 
-#### [Create Template](https://developers.klaviyo.com/en/v2025-07-15/reference/create_template)
+#### [Create Template](https://developers.klaviyo.com/en/v2025-10-15/reference/create_template)
 
 ```python
 ## Positional Arguments
@@ -5606,7 +5631,7 @@ klaviyo.Templates.create_template(body)
 
 
 
-#### [Create Universal Content](https://developers.klaviyo.com/en/v2025-07-15/reference/create_universal_content)
+#### [Create Universal Content](https://developers.klaviyo.com/en/v2025-10-15/reference/create_universal_content)
 
 ```python
 ## Positional Arguments
@@ -5623,7 +5648,7 @@ klaviyo.Templates.create_template_universal_content(body)
 
 
 
-#### [Delete Template](https://developers.klaviyo.com/en/v2025-07-15/reference/delete_template)
+#### [Delete Template](https://developers.klaviyo.com/en/v2025-10-15/reference/delete_template)
 
 ```python
 ## Positional Arguments
@@ -5636,7 +5661,7 @@ klaviyo.Templates.delete_template(id)
 
 
 
-#### [Delete Universal Content](https://developers.klaviyo.com/en/v2025-07-15/reference/delete_universal_content)
+#### [Delete Universal Content](https://developers.klaviyo.com/en/v2025-10-15/reference/delete_universal_content)
 
 ```python
 ## Positional Arguments
@@ -5653,7 +5678,7 @@ klaviyo.Templates.delete_template_universal_content(id)
 
 
 
-#### [Get All Universal Content](https://developers.klaviyo.com/en/v2025-07-15/reference/get_all_universal_content)
+#### [Get All Universal Content](https://developers.klaviyo.com/en/v2025-10-15/reference/get_all_universal_content)
 
 ```python
 
@@ -5675,7 +5700,7 @@ klaviyo.Templates.get_template_universal_content(fields_template_universal_conte
 
 
 
-#### [Get Template](https://developers.klaviyo.com/en/v2025-07-15/reference/get_template)
+#### [Get Template](https://developers.klaviyo.com/en/v2025-10-15/reference/get_template)
 
 ```python
 ## Positional Arguments
@@ -5692,7 +5717,7 @@ klaviyo.Templates.get_template(id, fields_template=fields_template)
 
 
 
-#### [Get Templates](https://developers.klaviyo.com/en/v2025-07-15/reference/get_templates)
+#### [Get Templates](https://developers.klaviyo.com/en/v2025-10-15/reference/get_templates)
 
 ```python
 
@@ -5709,7 +5734,7 @@ klaviyo.Templates.get_templates(fields_template=fields_template, filter=filter, 
 
 
 
-#### [Get Universal Content](https://developers.klaviyo.com/en/v2025-07-15/reference/get_universal_content)
+#### [Get Universal Content](https://developers.klaviyo.com/en/v2025-10-15/reference/get_universal_content)
 
 ```python
 ## Positional Arguments
@@ -5726,7 +5751,7 @@ klaviyo.Templates.get_universal_content(id, fields_template_universal_content=fi
 
 
 
-#### [Render Template](https://developers.klaviyo.com/en/v2025-07-15/reference/render_template)
+#### [Render Template](https://developers.klaviyo.com/en/v2025-10-15/reference/render_template)
 
 ```python
 ## Positional Arguments
@@ -5743,7 +5768,7 @@ klaviyo.Templates.create_template_render(body)
 
 
 
-#### [Update Template](https://developers.klaviyo.com/en/v2025-07-15/reference/update_template)
+#### [Update Template](https://developers.klaviyo.com/en/v2025-10-15/reference/update_template)
 
 ```python
 ## Positional Arguments
@@ -5757,7 +5782,7 @@ klaviyo.Templates.update_template(id, body)
 
 
 
-#### [Update Universal Content](https://developers.klaviyo.com/en/v2025-07-15/reference/update_universal_content)
+#### [Update Universal Content](https://developers.klaviyo.com/en/v2025-10-15/reference/update_universal_content)
 
 ```python
 ## Positional Arguments
@@ -5779,7 +5804,7 @@ klaviyo.Templates.update_template_universal_content(id, body)
 
 ## Tracking_Settings
 
-#### [Get Tracking Setting](https://developers.klaviyo.com/en/v2025-07-15/reference/get_tracking_setting)
+#### [Get Tracking Setting](https://developers.klaviyo.com/en/v2025-10-15/reference/get_tracking_setting)
 
 ```python
 ## Positional Arguments
@@ -5796,7 +5821,7 @@ klaviyo.Tracking_Settings.get_tracking_setting(id, fields_tracking_setting=field
 
 
 
-#### [Get Tracking Settings](https://developers.klaviyo.com/en/v2025-07-15/reference/get_tracking_settings)
+#### [Get Tracking Settings](https://developers.klaviyo.com/en/v2025-10-15/reference/get_tracking_settings)
 
 ```python
 
@@ -5812,7 +5837,7 @@ klaviyo.Tracking_Settings.get_tracking_settings(fields_tracking_setting=fields_t
 
 
 
-#### [Update Tracking Setting](https://developers.klaviyo.com/en/v2025-07-15/reference/update_tracking_setting)
+#### [Update Tracking Setting](https://developers.klaviyo.com/en/v2025-10-15/reference/update_tracking_setting)
 
 ```python
 ## Positional Arguments
@@ -5830,7 +5855,7 @@ klaviyo.Tracking_Settings.update_tracking_setting(id, body)
 
 ## Web_Feeds
 
-#### [Create Web Feed](https://developers.klaviyo.com/en/v2025-07-15/reference/create_web_feed)
+#### [Create Web Feed](https://developers.klaviyo.com/en/v2025-10-15/reference/create_web_feed)
 
 ```python
 ## Positional Arguments
@@ -5843,7 +5868,7 @@ klaviyo.Web_Feeds.create_web_feed(body)
 
 
 
-#### [Delete Web Feed](https://developers.klaviyo.com/en/v2025-07-15/reference/delete_web_feed)
+#### [Delete Web Feed](https://developers.klaviyo.com/en/v2025-10-15/reference/delete_web_feed)
 
 ```python
 ## Positional Arguments
@@ -5856,7 +5881,7 @@ klaviyo.Web_Feeds.delete_web_feed(id)
 
 
 
-#### [Get Web Feed](https://developers.klaviyo.com/en/v2025-07-15/reference/get_web_feed)
+#### [Get Web Feed](https://developers.klaviyo.com/en/v2025-10-15/reference/get_web_feed)
 
 ```python
 ## Positional Arguments
@@ -5873,7 +5898,7 @@ klaviyo.Web_Feeds.get_web_feed(id, fields_web_feed=fields_web_feed)
 
 
 
-#### [Get Web Feeds](https://developers.klaviyo.com/en/v2025-07-15/reference/get_web_feeds)
+#### [Get Web Feeds](https://developers.klaviyo.com/en/v2025-10-15/reference/get_web_feeds)
 
 ```python
 
@@ -5891,7 +5916,7 @@ klaviyo.Web_Feeds.get_web_feeds(fields_web_feed=fields_web_feed, filter=filter, 
 
 
 
-#### [Update Web Feed](https://developers.klaviyo.com/en/v2025-07-15/reference/update_web_feed)
+#### [Update Web Feed](https://developers.klaviyo.com/en/v2025-10-15/reference/update_web_feed)
 
 ```python
 ## Positional Arguments
@@ -5909,7 +5934,7 @@ klaviyo.Web_Feeds.update_web_feed(id, body)
 
 ## Webhooks
 
-#### [Create Webhook](https://developers.klaviyo.com/en/v2025-07-15/reference/create_webhook)
+#### [Create Webhook](https://developers.klaviyo.com/en/v2025-10-15/reference/create_webhook)
 
 ```python
 ## Positional Arguments
@@ -5922,7 +5947,7 @@ klaviyo.Webhooks.create_webhook(body)
 
 
 
-#### [Delete Webhook](https://developers.klaviyo.com/en/v2025-07-15/reference/delete_webhook)
+#### [Delete Webhook](https://developers.klaviyo.com/en/v2025-10-15/reference/delete_webhook)
 
 ```python
 ## Positional Arguments
@@ -5935,7 +5960,7 @@ klaviyo.Webhooks.delete_webhook(id)
 
 
 
-#### [Get Webhook](https://developers.klaviyo.com/en/v2025-07-15/reference/get_webhook)
+#### [Get Webhook](https://developers.klaviyo.com/en/v2025-10-15/reference/get_webhook)
 
 ```python
 ## Positional Arguments
@@ -5953,7 +5978,7 @@ klaviyo.Webhooks.get_webhook(id, fields_webhook=fields_webhook, include=include)
 
 
 
-#### [Get Webhook Topic](https://developers.klaviyo.com/en/v2025-07-15/reference/get_webhook_topic)
+#### [Get Webhook Topic](https://developers.klaviyo.com/en/v2025-10-15/reference/get_webhook_topic)
 
 ```python
 ## Positional Arguments
@@ -5966,7 +5991,7 @@ klaviyo.Webhooks.get_webhook_topic(id)
 
 
 
-#### [Get Webhook Topics](https://developers.klaviyo.com/en/v2025-07-15/reference/get_webhook_topics)
+#### [Get Webhook Topics](https://developers.klaviyo.com/en/v2025-10-15/reference/get_webhook_topics)
 
 ```python
 
@@ -5976,7 +6001,7 @@ klaviyo.Webhooks.get_webhook_topics()
 
 
 
-#### [Get Webhooks](https://developers.klaviyo.com/en/v2025-07-15/reference/get_webhooks)
+#### [Get Webhooks](https://developers.klaviyo.com/en/v2025-10-15/reference/get_webhooks)
 
 ```python
 
@@ -5991,7 +6016,7 @@ klaviyo.Webhooks.get_webhooks(fields_webhook=fields_webhook, include=include)
 
 
 
-#### [Update Webhook](https://developers.klaviyo.com/en/v2025-07-15/reference/update_webhook)
+#### [Update Webhook](https://developers.klaviyo.com/en/v2025-10-15/reference/update_webhook)
 
 ```python
 ## Positional Arguments

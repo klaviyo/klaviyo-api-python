@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List
-from openapi_client.models.get_flow_action_response_compound_document_data_all_of_relationships_flow_messages_data_inner import GetFlowActionResponseCompoundDocumentDataAllOfRelationshipsFlowMessagesDataInner
+from openapi_client.models.get_flow_action_encoded_response_compound_document_data_all_of_relationships_flow_messages_data_inner import GetFlowActionEncodedResponseCompoundDocumentDataAllOfRelationshipsFlowMessagesDataInner
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,7 +27,7 @@ class GetFlowActionFlowMessageRelationshipResponseCollection(BaseModel):
     """
     GetFlowActionFlowMessageRelationshipResponseCollection
     """ # noqa: E501
-    data: List[GetFlowActionResponseCompoundDocumentDataAllOfRelationshipsFlowMessagesDataInner]
+    data: List[GetFlowActionEncodedResponseCompoundDocumentDataAllOfRelationshipsFlowMessagesDataInner]
     __properties: ClassVar[List[str]] = ["data"]
 
     model_config = ConfigDict(
@@ -88,7 +88,7 @@ class GetFlowActionFlowMessageRelationshipResponseCollection(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "data": [GetFlowActionResponseCompoundDocumentDataAllOfRelationshipsFlowMessagesDataInner.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None
+            "data": [GetFlowActionEncodedResponseCompoundDocumentDataAllOfRelationshipsFlowMessagesDataInner.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None
         })
         return _obj
 

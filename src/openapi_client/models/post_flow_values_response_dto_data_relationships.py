@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.get_flow_action_response_compound_document_data_all_of_relationships_flow_messages import GetFlowActionResponseCompoundDocumentDataAllOfRelationshipsFlowMessages
+from openapi_client.models.get_flow_action_encoded_response_compound_document_data_all_of_relationships_flow_messages import GetFlowActionEncodedResponseCompoundDocumentDataAllOfRelationshipsFlowMessages
 from openapi_client.models.get_metric_response_collection_compound_document_data_inner_all_of_relationships_flow_triggers import GetMetricResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsFlowTriggers
 from typing import Optional, Set
 from typing_extensions import Self
@@ -29,7 +29,7 @@ class PostFlowValuesResponseDTODataRelationships(BaseModel):
     PostFlowValuesResponseDTODataRelationships
     """ # noqa: E501
     flows: Optional[GetMetricResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsFlowTriggers] = None
-    flow_messages: Optional[GetFlowActionResponseCompoundDocumentDataAllOfRelationshipsFlowMessages] = Field(default=None, alias="flow-messages")
+    flow_messages: Optional[GetFlowActionEncodedResponseCompoundDocumentDataAllOfRelationshipsFlowMessages] = Field(default=None, alias="flow-messages")
     __properties: ClassVar[List[str]] = ["flows", "flow-messages"]
 
     model_config = ConfigDict(
@@ -90,7 +90,7 @@ class PostFlowValuesResponseDTODataRelationships(BaseModel):
 
         _obj = cls.model_validate({
             "flows": GetMetricResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsFlowTriggers.from_dict(obj["flows"]) if obj.get("flows") is not None else None,
-            "flow-messages": GetFlowActionResponseCompoundDocumentDataAllOfRelationshipsFlowMessages.from_dict(obj["flow-messages"]) if obj.get("flow-messages") is not None else None
+            "flow-messages": GetFlowActionEncodedResponseCompoundDocumentDataAllOfRelationshipsFlowMessages.from_dict(obj["flow-messages"]) if obj.get("flow-messages") is not None else None
         })
         return _obj
 

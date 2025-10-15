@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
+from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing import Optional, Set
 from typing_extensions import Self
@@ -36,7 +36,19 @@ class PredictiveAnalytics(BaseModel):
     average_order_value: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Average value of placed orders")
     churn_probability: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Probability the customer has churned")
     expected_date_of_next_order: Optional[datetime] = Field(default=None, description="Expected date of next order, as calculated at the time of their most recent order")
-    __properties: ClassVar[List[str]] = ["historic_clv", "predicted_clv", "total_clv", "historic_number_of_orders", "predicted_number_of_orders", "average_days_between_orders", "average_order_value", "churn_probability", "expected_date_of_next_order"]
+    ranked_channel_affinity: Optional[List[StrictStr]] = Field(default=None, description="List of channels ranked by their predicted effectiveness for this profile, with the best channel being listed first at index 0")
+    __properties: ClassVar[List[str]] = ["historic_clv", "predicted_clv", "total_clv", "historic_number_of_orders", "predicted_number_of_orders", "average_days_between_orders", "average_order_value", "churn_probability", "expected_date_of_next_order", "ranked_channel_affinity"]
+
+    @field_validator('ranked_channel_affinity')
+    def ranked_channel_affinity_validate_enum(cls, value):
+        """Validates the enum"""
+        if value is None:
+            return value
+
+        for i in value:
+            if i not in set(['email', 'push', 'sms']):
+                raise ValueError("each list item must be one of ('email', 'push', 'sms')")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -122,6 +134,11 @@ class PredictiveAnalytics(BaseModel):
         if self.expected_date_of_next_order is None and "expected_date_of_next_order" in self.model_fields_set:
             _dict['expected_date_of_next_order'] = None
 
+        # set to None if ranked_channel_affinity (nullable) is None
+        # and model_fields_set contains the field
+        if self.ranked_channel_affinity is None and "ranked_channel_affinity" in self.model_fields_set:
+            _dict['ranked_channel_affinity'] = None
+
         return _dict
 
     @classmethod
@@ -142,7 +159,8 @@ class PredictiveAnalytics(BaseModel):
             "average_days_between_orders": obj.get("average_days_between_orders"),
             "average_order_value": obj.get("average_order_value"),
             "churn_probability": obj.get("churn_probability"),
-            "expected_date_of_next_order": obj.get("expected_date_of_next_order")
+            "expected_date_of_next_order": obj.get("expected_date_of_next_order"),
+            "ranked_channel_affinity": obj.get("ranked_channel_affinity")
         })
         return _obj
 
