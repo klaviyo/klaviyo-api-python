@@ -27,7 +27,8 @@ class CouponUpdateQueryResourceObjectAttributes(BaseModel):
     CouponUpdateQueryResourceObjectAttributes
     """ # noqa: E501
     description: Optional[StrictStr] = Field(default=None, description="A description of the coupon.")
-    __properties: ClassVar[List[str]] = ["description"]
+    monitor_configuration: Optional[Dict[str, Any]] = Field(default=None, description="The monitor configuration for the coupon.")
+    __properties: ClassVar[List[str]] = ["description", "monitor_configuration"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -73,6 +74,11 @@ class CouponUpdateQueryResourceObjectAttributes(BaseModel):
         if self.description is None and "description" in self.model_fields_set:
             _dict['description'] = None
 
+        # set to None if monitor_configuration (nullable) is None
+        # and model_fields_set contains the field
+        if self.monitor_configuration is None and "monitor_configuration" in self.model_fields_set:
+            _dict['monitor_configuration'] = None
+
         return _dict
 
     @classmethod
@@ -85,7 +91,8 @@ class CouponUpdateQueryResourceObjectAttributes(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "description": obj.get("description")
+            "description": obj.get("description"),
+            "monitor_configuration": obj.get("monitor_configuration")
         })
         return _obj
 

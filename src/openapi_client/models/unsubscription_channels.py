@@ -21,6 +21,7 @@ from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.email_unsubscription_parameters import EmailUnsubscriptionParameters
 from openapi_client.models.sms_unsubscription_parameters import SMSUnsubscriptionParameters
+from openapi_client.models.whats_app_unsubscription_parameters import WhatsAppUnsubscriptionParameters
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -30,7 +31,8 @@ class UnsubscriptionChannels(BaseModel):
     """ # noqa: E501
     email: Optional[EmailUnsubscriptionParameters] = None
     sms: Optional[SMSUnsubscriptionParameters] = None
-    __properties: ClassVar[List[str]] = ["email", "sms"]
+    whatsapp: Optional[WhatsAppUnsubscriptionParameters] = None
+    __properties: ClassVar[List[str]] = ["email", "sms", "whatsapp"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -77,6 +79,9 @@ class UnsubscriptionChannels(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of sms
         if self.sms:
             _dict['sms'] = self.sms.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of whatsapp
+        if self.whatsapp:
+            _dict['whatsapp'] = self.whatsapp.to_dict()
         return _dict
 
     @classmethod
@@ -90,7 +95,8 @@ class UnsubscriptionChannels(BaseModel):
 
         _obj = cls.model_validate({
             "email": EmailUnsubscriptionParameters.from_dict(obj["email"]) if obj.get("email") is not None else None,
-            "sms": SMSUnsubscriptionParameters.from_dict(obj["sms"]) if obj.get("sms") is not None else None
+            "sms": SMSUnsubscriptionParameters.from_dict(obj["sms"]) if obj.get("sms") is not None else None,
+            "whatsapp": WhatsAppUnsubscriptionParameters.from_dict(obj["whatsapp"]) if obj.get("whatsapp") is not None else None
         })
         return _obj
 
