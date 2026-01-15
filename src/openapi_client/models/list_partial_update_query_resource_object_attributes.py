@@ -17,21 +17,18 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
-class ListListResponseObjectResourceAttributes(BaseModel):
+class ListPartialUpdateQueryResourceObjectAttributes(BaseModel):
     """
-    ListListResponseObjectResourceAttributes
+    ListPartialUpdateQueryResourceObjectAttributes
     """ # noqa: E501
     name: Optional[StrictStr] = Field(default=None, description="A helpful name to label the list")
-    created: Optional[datetime] = Field(default=None, description="Date and time when the list was created, in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm)")
-    updated: Optional[datetime] = Field(default=None, description="Date and time when the list was last updated, in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm)")
     opt_in_process: Optional[StrictStr] = Field(default=None, description="The opt-in process for this list. Valid values: 'double_opt_in', 'single_opt_in'.")
-    __properties: ClassVar[List[str]] = ["name", "created", "updated", "opt_in_process"]
+    __properties: ClassVar[List[str]] = ["name", "opt_in_process"]
 
     @field_validator('opt_in_process')
     def opt_in_process_validate_enum(cls, value):
@@ -61,7 +58,7 @@ class ListListResponseObjectResourceAttributes(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of ListListResponseObjectResourceAttributes from a JSON string"""
+        """Create an instance of ListPartialUpdateQueryResourceObjectAttributes from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -87,16 +84,6 @@ class ListListResponseObjectResourceAttributes(BaseModel):
         if self.name is None and "name" in self.model_fields_set:
             _dict['name'] = None
 
-        # set to None if created (nullable) is None
-        # and model_fields_set contains the field
-        if self.created is None and "created" in self.model_fields_set:
-            _dict['created'] = None
-
-        # set to None if updated (nullable) is None
-        # and model_fields_set contains the field
-        if self.updated is None and "updated" in self.model_fields_set:
-            _dict['updated'] = None
-
         # set to None if opt_in_process (nullable) is None
         # and model_fields_set contains the field
         if self.opt_in_process is None and "opt_in_process" in self.model_fields_set:
@@ -106,7 +93,7 @@ class ListListResponseObjectResourceAttributes(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of ListListResponseObjectResourceAttributes from a dict"""
+        """Create an instance of ListPartialUpdateQueryResourceObjectAttributes from a dict"""
         if obj is None:
             return None
 
@@ -115,8 +102,6 @@ class ListListResponseObjectResourceAttributes(BaseModel):
 
         _obj = cls.model_validate({
             "name": obj.get("name"),
-            "created": obj.get("created"),
-            "updated": obj.get("updated"),
             "opt_in_process": obj.get("opt_in_process")
         })
         return _obj

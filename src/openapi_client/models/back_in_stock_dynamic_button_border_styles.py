@@ -81,6 +81,11 @@ class BackInStockDynamicButtonBorderStyles(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # set to None if style (nullable) is None
+        # and model_fields_set contains the field
+        if self.style is None and "style" in self.model_fields_set:
+            _dict['style'] = None
+
         return _dict
 
     @classmethod

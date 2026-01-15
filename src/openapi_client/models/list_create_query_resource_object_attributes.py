@@ -17,8 +17,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,7 +27,18 @@ class ListCreateQueryResourceObjectAttributes(BaseModel):
     ListCreateQueryResourceObjectAttributes
     """ # noqa: E501
     name: StrictStr = Field(description="A helpful name to label the list")
-    __properties: ClassVar[List[str]] = ["name"]
+    opt_in_process: Optional[StrictStr] = Field(default=None, description="The opt-in process for this list. Valid values: 'double_opt_in', 'single_opt_in'. If not provided, uses account default.")
+    __properties: ClassVar[List[str]] = ["name", "opt_in_process"]
+
+    @field_validator('opt_in_process')
+    def opt_in_process_validate_enum(cls, value):
+        """Validates the enum"""
+        if value is None:
+            return value
+
+        if value not in set(['double_opt_in', 'single_opt_in']):
+            raise ValueError("must be one of enum values ('double_opt_in', 'single_opt_in')")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -68,6 +79,11 @@ class ListCreateQueryResourceObjectAttributes(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # set to None if opt_in_process (nullable) is None
+        # and model_fields_set contains the field
+        if self.opt_in_process is None and "opt_in_process" in self.model_fields_set:
+            _dict['opt_in_process'] = None
+
         return _dict
 
     @classmethod
@@ -80,7 +96,8 @@ class ListCreateQueryResourceObjectAttributes(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "name": obj.get("name")
+            "name": obj.get("name"),
+            "opt_in_process": obj.get("opt_in_process")
         })
         return _obj
 

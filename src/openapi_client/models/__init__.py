@@ -250,6 +250,11 @@ if TYPE_CHECKING:
     from openapi_client.models.data_source_record_bulk_create_job_create_query_resource_object_relationships_data_source import DataSourceRecordBulkCreateJobCreateQueryResourceObjectRelationshipsDataSource
     from openapi_client.models.data_source_record_bulk_create_job_create_query_resource_object_relationships_data_source_data import DataSourceRecordBulkCreateJobCreateQueryResourceObjectRelationshipsDataSourceData
     from openapi_client.models.data_source_record_bulk_create_job_enum import DataSourceRecordBulkCreateJobEnum
+    from openapi_client.models.data_source_record_create_job_create_query import DataSourceRecordCreateJobCreateQuery
+    from openapi_client.models.data_source_record_create_job_create_query_resource_object import DataSourceRecordCreateJobCreateQueryResourceObject
+    from openapi_client.models.data_source_record_create_job_create_query_resource_object_attributes import DataSourceRecordCreateJobCreateQueryResourceObjectAttributes
+    from openapi_client.models.data_source_record_create_job_create_query_resource_object_attributes_data_source_record import DataSourceRecordCreateJobCreateQueryResourceObjectAttributesDataSourceRecord
+    from openapi_client.models.data_source_record_create_job_enum import DataSourceRecordCreateJobEnum
     from openapi_client.models.data_source_record_enum import DataSourceRecordEnum
     from openapi_client.models.data_source_record_resource_object import DataSourceRecordResourceObject
     from openapi_client.models.data_source_record_resource_object_attributes import DataSourceRecordResourceObjectAttributes
@@ -720,6 +725,7 @@ if TYPE_CHECKING:
     from openapi_client.models.list_members_delete_query import ListMembersDeleteQuery
     from openapi_client.models.list_partial_update_query import ListPartialUpdateQuery
     from openapi_client.models.list_partial_update_query_resource_object import ListPartialUpdateQueryResourceObject
+    from openapi_client.models.list_partial_update_query_resource_object_attributes import ListPartialUpdateQueryResourceObjectAttributes
     from openapi_client.models.list_response_object_resource import ListResponseObjectResource
     from openapi_client.models.list_retrieve_response_object_resource_attributes import ListRetrieveResponseObjectResourceAttributes
     from openapi_client.models.list_retrieve_response_object_resource_extended import ListRetrieveResponseObjectResourceExtended
@@ -953,7 +959,6 @@ if TYPE_CHECKING:
     from openapi_client.models.profile_meta_patch_properties import ProfileMetaPatchProperties
     from openapi_client.models.profile_partial_update_query import ProfilePartialUpdateQuery
     from openapi_client.models.profile_partial_update_query_resource_object import ProfilePartialUpdateQueryResourceObject
-    from openapi_client.models.profile_partial_update_query_resource_object_attributes import ProfilePartialUpdateQueryResourceObjectAttributes
     from openapi_client.models.profile_response_object_resource import ProfileResponseObjectResource
     from openapi_client.models.profile_response_object_resource_attributes import ProfileResponseObjectResourceAttributes
     from openapi_client.models.profile_response_object_resource_extended import ProfileResponseObjectResourceExtended
@@ -1410,6 +1415,11 @@ object_origins = {
     "DataSourceRecordBulkCreateJobCreateQueryResourceObjectRelationshipsDataSource": "openapi_client.models.data_source_record_bulk_create_job_create_query_resource_object_relationships_data_source",
     "DataSourceRecordBulkCreateJobCreateQueryResourceObjectRelationshipsDataSourceData": "openapi_client.models.data_source_record_bulk_create_job_create_query_resource_object_relationships_data_source_data",
     "DataSourceRecordBulkCreateJobEnum": "openapi_client.models.data_source_record_bulk_create_job_enum",
+    "DataSourceRecordCreateJobCreateQuery": "openapi_client.models.data_source_record_create_job_create_query",
+    "DataSourceRecordCreateJobCreateQueryResourceObject": "openapi_client.models.data_source_record_create_job_create_query_resource_object",
+    "DataSourceRecordCreateJobCreateQueryResourceObjectAttributes": "openapi_client.models.data_source_record_create_job_create_query_resource_object_attributes",
+    "DataSourceRecordCreateJobCreateQueryResourceObjectAttributesDataSourceRecord": "openapi_client.models.data_source_record_create_job_create_query_resource_object_attributes_data_source_record",
+    "DataSourceRecordCreateJobEnum": "openapi_client.models.data_source_record_create_job_enum",
     "DataSourceRecordEnum": "openapi_client.models.data_source_record_enum",
     "DataSourceRecordResourceObject": "openapi_client.models.data_source_record_resource_object",
     "DataSourceRecordResourceObjectAttributes": "openapi_client.models.data_source_record_resource_object_attributes",
@@ -1880,6 +1890,7 @@ object_origins = {
     "ListMembersDeleteQuery": "openapi_client.models.list_members_delete_query",
     "ListPartialUpdateQuery": "openapi_client.models.list_partial_update_query",
     "ListPartialUpdateQueryResourceObject": "openapi_client.models.list_partial_update_query_resource_object",
+    "ListPartialUpdateQueryResourceObjectAttributes": "openapi_client.models.list_partial_update_query_resource_object_attributes",
     "ListResponseObjectResource": "openapi_client.models.list_response_object_resource",
     "ListRetrieveResponseObjectResourceAttributes": "openapi_client.models.list_retrieve_response_object_resource_attributes",
     "ListRetrieveResponseObjectResourceExtended": "openapi_client.models.list_retrieve_response_object_resource_extended",
@@ -2113,7 +2124,6 @@ object_origins = {
     "ProfileMetaPatchProperties": "openapi_client.models.profile_meta_patch_properties",
     "ProfilePartialUpdateQuery": "openapi_client.models.profile_partial_update_query",
     "ProfilePartialUpdateQueryResourceObject": "openapi_client.models.profile_partial_update_query_resource_object",
-    "ProfilePartialUpdateQueryResourceObjectAttributes": "openapi_client.models.profile_partial_update_query_resource_object_attributes",
     "ProfileResponseObjectResource": "openapi_client.models.profile_response_object_resource",
     "ProfileResponseObjectResourceAttributes": "openapi_client.models.profile_response_object_resource_attributes",
     "ProfileResponseObjectResourceExtended": "openapi_client.models.profile_response_object_resource_extended",
