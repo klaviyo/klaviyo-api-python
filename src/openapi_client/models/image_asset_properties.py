@@ -26,12 +26,12 @@ class ImageAssetProperties(BaseModel):
     """
     ImageAssetProperties
     """ # noqa: E501
-    id: StrictInt
     src: Optional[StrictStr] = None
     alt_text: Optional[StrictStr] = None
     original_image_url: Optional[StrictStr] = None
+    id: Optional[StrictInt] = None
     asset_id: Optional[StrictInt] = None
-    __properties: ClassVar[List[str]] = ["id", "src", "alt_text", "original_image_url", "asset_id"]
+    __properties: ClassVar[List[str]] = ["src", "alt_text", "original_image_url", "id", "asset_id"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -72,6 +72,11 @@ class ImageAssetProperties(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # set to None if src (nullable) is None
+        # and model_fields_set contains the field
+        if self.src is None and "src" in self.model_fields_set:
+            _dict['src'] = None
+
         # set to None if alt_text (nullable) is None
         # and model_fields_set contains the field
         if self.alt_text is None and "alt_text" in self.model_fields_set:
@@ -81,6 +86,11 @@ class ImageAssetProperties(BaseModel):
         # and model_fields_set contains the field
         if self.original_image_url is None and "original_image_url" in self.model_fields_set:
             _dict['original_image_url'] = None
+
+        # set to None if id (nullable) is None
+        # and model_fields_set contains the field
+        if self.id is None and "id" in self.model_fields_set:
+            _dict['id'] = None
 
         # set to None if asset_id (nullable) is None
         # and model_fields_set contains the field
@@ -99,10 +109,10 @@ class ImageAssetProperties(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "id": obj.get("id"),
             "src": obj.get("src"),
             "alt_text": obj.get("alt_text"),
             "original_image_url": obj.get("original_image_url"),
+            "id": obj.get("id"),
             "asset_id": obj.get("asset_id")
         })
         return _obj

@@ -29,8 +29,9 @@ class FlowValuesRequestDTOResourceObjectAttributes(BaseModel):
     statistics: List[StrictStr] = Field(description="List of statistics to query for. All rate statistics will be returned in fractional form [0.0, 1.0]")
     timeframe: Dict[str, Any] = Field(description="The time frame to pull data from (Max length: 1 year). See [available time frames](https://developers.klaviyo.com/en/reference/reporting_api_overview#available-time-frames).")
     conversion_metric_id: StrictStr = Field(description="ID of the metric to be used for conversion statistics")
-    filter: Optional[StrictStr] = Field(default=None, description="API filter string used to filter the query. Allowed filters are flow_id, send_channel, flow_message_id. Allowed operators are equals, contains-any. Only one filter can be used per attribute, only AND can be used as a combination operator. Max of 100 messages per ANY filter. When filtering on send_channel, allowed values are email, sms, push-notification.")
-    __properties: ClassVar[List[str]] = ["statistics", "timeframe", "conversion_metric_id", "filter"]
+    group_by: Optional[List[StrictStr]] = Field(default=None, description="List of attributes to group the data by. Allowed group-bys are flow_id, flow_message_id, send_channel. If not passed in, the data will be grouped by flow_id, flow_message_id, send_channel. The following group by attributes are required: flow_message_id, flow_id.")
+    filter: Optional[StrictStr] = Field(default=None, description="API filter string used to filter the query. Allowed filters are flow_id, send_channel, flow_message_id. Allowed operators are equals, contains-any. Only one filter can be used per attribute, only AND can be used as a combination operator. Max of 100 messages per ANY filter. When filtering on send_channel, allowed values are email, sms, push-notification, whatsapp.")
+    __properties: ClassVar[List[str]] = ["statistics", "timeframe", "conversion_metric_id", "group_by", "filter"]
 
     @field_validator('statistics')
     def statistics_validate_enum(cls, value):
@@ -38,6 +39,17 @@ class FlowValuesRequestDTOResourceObjectAttributes(BaseModel):
         for i in value:
             if i not in set(['average_order_value', 'bounce_rate', 'bounced', 'bounced_or_failed', 'bounced_or_failed_rate', 'click_rate', 'click_to_open_rate', 'clicks', 'clicks_unique', 'conversion_rate', 'conversion_uniques', 'conversion_value', 'conversions', 'delivered', 'delivery_rate', 'failed', 'failed_rate', 'message_segment_count_sum', 'open_rate', 'opens', 'opens_unique', 'recipients', 'revenue_per_recipient', 'spam_complaint_rate', 'spam_complaints', 'text_message_credit_usage_amount', 'text_message_roi', 'text_message_spend', 'unsubscribe_rate', 'unsubscribe_uniques', 'unsubscribes']):
                 raise ValueError("each list item must be one of ('average_order_value', 'bounce_rate', 'bounced', 'bounced_or_failed', 'bounced_or_failed_rate', 'click_rate', 'click_to_open_rate', 'clicks', 'clicks_unique', 'conversion_rate', 'conversion_uniques', 'conversion_value', 'conversions', 'delivered', 'delivery_rate', 'failed', 'failed_rate', 'message_segment_count_sum', 'open_rate', 'opens', 'opens_unique', 'recipients', 'revenue_per_recipient', 'spam_complaint_rate', 'spam_complaints', 'text_message_credit_usage_amount', 'text_message_roi', 'text_message_spend', 'unsubscribe_rate', 'unsubscribe_uniques', 'unsubscribes')")
+        return value
+
+    @field_validator('group_by')
+    def group_by_validate_enum(cls, value):
+        """Validates the enum"""
+        if value is None:
+            return value
+
+        for i in value:
+            if i not in set(['flow_id', 'flow_message_id', 'send_channel']):
+                raise ValueError("each list item must be one of ('flow_id', 'flow_message_id', 'send_channel')")
         return value
 
     model_config = ConfigDict(
@@ -79,6 +91,11 @@ class FlowValuesRequestDTOResourceObjectAttributes(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # set to None if group_by (nullable) is None
+        # and model_fields_set contains the field
+        if self.group_by is None and "group_by" in self.model_fields_set:
+            _dict['group_by'] = None
+
         # set to None if filter (nullable) is None
         # and model_fields_set contains the field
         if self.filter is None and "filter" in self.model_fields_set:
@@ -99,6 +116,7 @@ class FlowValuesRequestDTOResourceObjectAttributes(BaseModel):
             "statistics": obj.get("statistics"),
             "timeframe": obj.get("timeframe"),
             "conversion_metric_id": obj.get("conversion_metric_id"),
+            "group_by": obj.get("group_by"),
             "filter": obj.get("filter")
         })
         return _obj

@@ -30,7 +30,7 @@ class ListRetrieveResponseObjectResourceAttributes(BaseModel):
     name: Optional[StrictStr] = Field(default=None, description="A helpful name to label the list")
     created: Optional[datetime] = Field(default=None, description="Date and time when the list was created, in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm)")
     updated: Optional[datetime] = Field(default=None, description="Date and time when the list was last updated, in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm)")
-    opt_in_process: Optional[StrictStr] = Field(default=None, description="The opt-in process for this list.  Could be either 'single_opt_in' or 'double_opt_in'.")
+    opt_in_process: Optional[StrictStr] = Field(default=None, description="The opt-in process for this list. Valid values: 'double_opt_in', 'single_opt_in'.")
     __properties: ClassVar[List[str]] = ["name", "created", "updated", "opt_in_process"]
 
     @field_validator('opt_in_process')

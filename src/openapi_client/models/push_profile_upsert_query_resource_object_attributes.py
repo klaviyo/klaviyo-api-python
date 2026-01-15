@@ -30,7 +30,6 @@ class PushProfileUpsertQueryResourceObjectAttributes(BaseModel):
     """ # noqa: E501
     phone_number: Optional[StrictStr] = Field(default=None, description="Individual's phone number in E.164 format")
     external_id: Optional[StrictStr] = Field(default=None, description="A unique identifier used by customers to associate Klaviyo profiles with profiles in an external system, such as a point-of-sale system. Format varies based on the external system.")
-    anonymous_id: Optional[StrictStr] = Field(default=None, description="Id that can be used to identify a profile when other identifiers are not available")
     kx: Optional[StrictStr] = Field(default=None, description="Also known as the `exchange_id`, this is an encrypted identifier used for identifying a profile by Klaviyo's web tracking.  You can use this field as a filter when retrieving profiles via the Get Profiles endpoint.", alias="_kx")
     first_name: Optional[StrictStr] = Field(default=None, description="Individual's first name")
     last_name: Optional[StrictStr] = Field(default=None, description="Individual's last name")
@@ -42,7 +41,7 @@ class PushProfileUpsertQueryResourceObjectAttributes(BaseModel):
     properties: Optional[Dict[str, Any]] = Field(default=None, description="An object containing key/value pairs for any custom properties assigned to this profile")
     meta: Optional[ProfileMeta] = None
     email: Optional[StrictStr] = Field(default=None, description="Individual's email address")
-    __properties: ClassVar[List[str]] = ["phone_number", "external_id", "anonymous_id", "_kx", "first_name", "last_name", "organization", "locale", "title", "image", "location", "properties", "meta", "email"]
+    __properties: ClassVar[List[str]] = ["phone_number", "external_id", "_kx", "first_name", "last_name", "organization", "locale", "title", "image", "location", "properties", "meta", "email"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -98,11 +97,6 @@ class PushProfileUpsertQueryResourceObjectAttributes(BaseModel):
         # and model_fields_set contains the field
         if self.external_id is None and "external_id" in self.model_fields_set:
             _dict['external_id'] = None
-
-        # set to None if anonymous_id (nullable) is None
-        # and model_fields_set contains the field
-        if self.anonymous_id is None and "anonymous_id" in self.model_fields_set:
-            _dict['anonymous_id'] = None
 
         # set to None if kx (nullable) is None
         # and model_fields_set contains the field
@@ -163,7 +157,6 @@ class PushProfileUpsertQueryResourceObjectAttributes(BaseModel):
         _obj = cls.model_validate({
             "phone_number": obj.get("phone_number"),
             "external_id": obj.get("external_id"),
-            "anonymous_id": obj.get("anonymous_id"),
             "_kx": obj.get("_kx"),
             "first_name": obj.get("first_name"),
             "last_name": obj.get("last_name"),
