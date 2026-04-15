@@ -9,9 +9,6 @@ NOTE: For more granular API-specific changes, please see our [API Changelog](htt
 
 ## [23.0.0] - revision 2026-04-15
 ### Added
-- Geofencing API
-   - Get all geofences in an account with Get Geofences (paginated; max 100 results per page; default 20). This endpoint is designed for mobile SDK consumption and does not require authentication.
-   - Filter results using the `X-Klaviyo-API-Filters` header (instead of query parameters) to avoid passing sensitive latitude/longitude in the URL. Supported filters: `lat` (equals) and `lng` (equals). When both are provided, results are sorted by distance (closest first). Example: `X-Klaviyo-API-Filters:and(equals(lat,40.7128),equals(long,-74.0060))`
 - Conversations API
   - Send an outbound message to a profile with Create Conversation Message. Supports SMS and WhatsApp — the channel is determined automatically from the conversation. Conversation message endpoints use the SMALL rate limit tier (3 requests/second burst, 60 requests/minute steady).
   - Retrieve the conversation thread for a given profile with Get Conversation for Profile, or include it inline on profile retrievals using `?include=conversation`.
