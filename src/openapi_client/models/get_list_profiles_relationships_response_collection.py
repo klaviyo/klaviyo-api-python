@@ -18,7 +18,8 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
+from openapi_client.models.collection_links import CollectionLinks
 from openapi_client.models.get_event_profile_relationship_response_data import GetEventProfileRelationshipResponseData
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,7 +29,8 @@ class GetListProfilesRelationshipsResponseCollection(BaseModel):
     GetListProfilesRelationshipsResponseCollection
     """ # noqa: E501
     data: List[GetEventProfileRelationshipResponseData]
-    __properties: ClassVar[List[str]] = ["data"]
+    links: Optional[CollectionLinks] = None
+    __properties: ClassVar[List[str]] = ["data", "links"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -76,6 +78,9 @@ class GetListProfilesRelationshipsResponseCollection(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['data'] = _items
+        # override the default output from pydantic by calling `to_dict()` of links
+        if self.links:
+            _dict['links'] = self.links.to_dict()
         return _dict
 
     @classmethod
@@ -88,7 +93,8 @@ class GetListProfilesRelationshipsResponseCollection(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "data": [GetEventProfileRelationshipResponseData.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None
+            "data": [GetEventProfileRelationshipResponseData.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None,
+            "links": CollectionLinks.from_dict(obj["links"]) if obj.get("links") is not None else None
         })
         return _obj
 

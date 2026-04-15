@@ -19,7 +19,7 @@ class KlaviyoAPI:
     options: Dict[str, Any] = field(default_factory=dict)
 
 
-    _REVISION = "2026-01-15"
+    _REVISION = "2026-04-15"
 
     _STATUS_CODE_CONNECTION_RESET_BY_PEER = 104
     _STATUS_CODE_TOO_MANY_REQUESTS = 429
@@ -270,6 +270,18 @@ class KlaviyoAPI:
         Catalogs.update_catalog_category_relationships_items=self._page_cursor_update(self.retry_logic(Catalogs.update_catalog_category_relationships_items))
         
         return Catalogs
+    
+    @property
+    def Conversations(self):
+        from openapi_client.api import conversations_api
+
+        ## Adding Conversations to Client
+        Conversations=conversations_api.ConversationsApi(self.api_client)
+
+        ## Applying retry decorator to each endpoint in Conversations
+        Conversations.create_conversation_message=self._page_cursor_update(self.retry_logic(Conversations.create_conversation_message))
+        
+        return Conversations
     
     @property
     def Coupons(self):
@@ -586,6 +598,10 @@ class KlaviyoAPI:
         Profiles.get_profile_suppression_bulk_delete_job=self._page_cursor_update(self.retry_logic(Profiles.get_profile_suppression_bulk_delete_job))
         Profiles.get_bulk_unsuppress_profiles_jobs=self._page_cursor_update(self.retry_logic(Profiles.get_bulk_unsuppress_profiles_jobs))
         Profiles.get_profile_suppression_bulk_delete_jobs=self._page_cursor_update(self.retry_logic(Profiles.get_profile_suppression_bulk_delete_jobs))
+        Profiles.get_conversation_for_profile=self._page_cursor_update(self.retry_logic(Profiles.get_conversation_for_profile))
+        Profiles.get_profile_conversation=self._page_cursor_update(self.retry_logic(Profiles.get_profile_conversation))
+        Profiles.get_conversation_id_for_profile=self._page_cursor_update(self.retry_logic(Profiles.get_conversation_id_for_profile))
+        Profiles.get_profile_relationships_conversation=self._page_cursor_update(self.retry_logic(Profiles.get_profile_relationships_conversation))
         Profiles.get_errors_for_bulk_import_profiles_job=self._page_cursor_update(self.retry_logic(Profiles.get_errors_for_bulk_import_profiles_job))
         Profiles.get_bulk_profile_import_job_import_errors=self._page_cursor_update(self.retry_logic(Profiles.get_bulk_profile_import_job_import_errors))
         Profiles.get_import_errors_for_profile_bulk_import_job=self._page_cursor_update(self.retry_logic(Profiles.get_import_errors_for_profile_bulk_import_job))

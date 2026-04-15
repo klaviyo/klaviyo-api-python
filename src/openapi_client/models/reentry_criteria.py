@@ -17,20 +17,18 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel, ConfigDict, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.collection_links import CollectionLinks
-from openapi_client.models.template_response_object_resource import TemplateResponseObjectResource
 from typing import Optional, Set
 from typing_extensions import Self
 
-class GetTemplateResponseCollection(BaseModel):
+class ReentryCriteria(BaseModel):
     """
-    GetTemplateResponseCollection
+    ReentryCriteria
     """ # noqa: E501
-    data: List[TemplateResponseObjectResource]
-    links: Optional[CollectionLinks] = None
-    __properties: ClassVar[List[str]] = ["data", "links"]
+    duration: StrictInt
+    unit: Optional[Any]
+    __properties: ClassVar[List[str]] = ["duration", "unit"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -50,7 +48,7 @@ class GetTemplateResponseCollection(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of GetTemplateResponseCollection from a JSON string"""
+        """Create an instance of ReentryCriteria from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -71,21 +69,16 @@ class GetTemplateResponseCollection(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of each item in data (list)
-        _items = []
-        if self.data:
-            for _item in self.data:
-                if _item:
-                    _items.append(_item.to_dict())
-            _dict['data'] = _items
-        # override the default output from pydantic by calling `to_dict()` of links
-        if self.links:
-            _dict['links'] = self.links.to_dict()
+        # set to None if unit (nullable) is None
+        # and model_fields_set contains the field
+        if self.unit is None and "unit" in self.model_fields_set:
+            _dict['unit'] = None
+
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of GetTemplateResponseCollection from a dict"""
+        """Create an instance of ReentryCriteria from a dict"""
         if obj is None:
             return None
 
@@ -93,8 +86,8 @@ class GetTemplateResponseCollection(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "data": [TemplateResponseObjectResource.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None,
-            "links": CollectionLinks.from_dict(obj["links"]) if obj.get("links") is not None else None
+            "duration": obj.get("duration"),
+            "unit": obj.get("unit")
         })
         return _obj
 

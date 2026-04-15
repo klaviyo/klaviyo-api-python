@@ -27,9 +27,10 @@ class DataSourceResponseObjectResourceAttributes(BaseModel):
     DataSourceResponseObjectResourceAttributes
     """ # noqa: E501
     title: StrictStr = Field(description="The title of the data source")
-    visibility: StrictStr = Field(description="The status of this data source")
+    visibility: StrictStr = Field(description="The status of the data source")
     description: StrictStr = Field(description="The description of the data source")
-    __properties: ClassVar[List[str]] = ["title", "visibility", "description"]
+    namespace: StrictStr = Field(description="The namespace of the data source")
+    __properties: ClassVar[List[str]] = ["title", "visibility", "description", "namespace"]
 
     @field_validator('visibility')
     def visibility_validate_enum(cls, value):
@@ -91,7 +92,8 @@ class DataSourceResponseObjectResourceAttributes(BaseModel):
         _obj = cls.model_validate({
             "title": obj.get("title"),
             "visibility": obj.get("visibility"),
-            "description": obj.get("description")
+            "description": obj.get("description"),
+            "namespace": obj.get("namespace")
         })
         return _obj
 

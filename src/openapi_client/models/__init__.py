@@ -36,6 +36,9 @@ if TYPE_CHECKING:
     from openapi_client.models.banner_styles import BannerStyles
     from openapi_client.models.base_event_create_query_bulk_entry_resource_object import BaseEventCreateQueryBulkEntryResourceObject
     from openapi_client.models.base_event_create_query_bulk_entry_resource_object_attributes import BaseEventCreateQueryBulkEntryResourceObjectAttributes
+    from openapi_client.models.body import Body
+    from openapi_client.models.body_properties import BodyProperties
+    from openapi_client.models.body_styles import BodyStyles
     from openapi_client.models.border_style import BorderStyle
     from openapi_client.models.bulk_profile_suppressions_create_job_response_object_resource import BulkProfileSuppressionsCreateJobResponseObjectResource
     from openapi_client.models.bulk_profile_suppressions_create_job_response_object_resource_attributes import BulkProfileSuppressionsCreateJobResponseObjectResourceAttributes
@@ -188,10 +191,21 @@ if TYPE_CHECKING:
     from openapi_client.models.catalog_variant_update_query_resource_object_attributes import CatalogVariantUpdateQueryResourceObjectAttributes
     from openapi_client.models.close_button_style import CloseButtonStyle
     from openapi_client.models.collection_links import CollectionLinks
-    from openapi_client.models.column import Column
     from openapi_client.models.column_styles import ColumnStyles
+    from openapi_client.models.column_v0 import ColumnV0
+    from openapi_client.models.column_v1 import ColumnV1
     from openapi_client.models.condition_group import ConditionGroup
     from openapi_client.models.contact_information import ContactInformation
+    from openapi_client.models.content_repeat_v1 import ContentRepeatV1
+    from openapi_client.models.conversation_enum import ConversationEnum
+    from openapi_client.models.conversation_message_create_query import ConversationMessageCreateQuery
+    from openapi_client.models.conversation_message_create_query_resource_object import ConversationMessageCreateQueryResourceObject
+    from openapi_client.models.conversation_message_create_query_resource_object_attributes import ConversationMessageCreateQueryResourceObjectAttributes
+    from openapi_client.models.conversation_message_create_query_resource_object_relationships import ConversationMessageCreateQueryResourceObjectRelationships
+    from openapi_client.models.conversation_message_create_query_resource_object_relationships_conversation import ConversationMessageCreateQueryResourceObjectRelationshipsConversation
+    from openapi_client.models.conversation_message_create_query_resource_object_relationships_conversation_data import ConversationMessageCreateQueryResourceObjectRelationshipsConversationData
+    from openapi_client.models.conversation_message_enum import ConversationMessageEnum
+    from openapi_client.models.conversation_response_object_resource import ConversationResponseObjectResource
     from openapi_client.models.coupon_code_bulk_create_job_enum import CouponCodeBulkCreateJobEnum
     from openapi_client.models.coupon_code_create_job_create_query import CouponCodeCreateJobCreateQuery
     from openapi_client.models.coupon_code_create_job_create_query_resource_object import CouponCodeCreateJobCreateQueryResourceObject
@@ -262,6 +276,7 @@ if TYPE_CHECKING:
     from openapi_client.models.data_source_response_object_resource_attributes import DataSourceResponseObjectResourceAttributes
     from openapi_client.models.delete_tag_group_response import DeleteTagGroupResponse
     from openapi_client.models.device_metadata import DeviceMetadata
+    from openapi_client.models.display_options import DisplayOptions
     from openapi_client.models.drop_shadow import DropShadow
     from openapi_client.models.dynamic_button import DynamicButton
     from openapi_client.models.email_channel import EmailChannel
@@ -453,6 +468,8 @@ if TYPE_CHECKING:
     from openapi_client.models.get_catalog_variant_update_job_response_collection_compound_document_data_inner_all_of_relationships_variants import GetCatalogVariantUpdateJobResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsVariants
     from openapi_client.models.get_catalog_variant_update_job_response_collection_compound_document_data_inner_all_of_relationships_variants_data_inner import GetCatalogVariantUpdateJobResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsVariantsDataInner
     from openapi_client.models.get_catalog_variant_update_job_response_compound_document import GetCatalogVariantUpdateJobResponseCompoundDocument
+    from openapi_client.models.get_conversation_response import GetConversationResponse
+    from openapi_client.models.get_conversation_response_data import GetConversationResponseData
     from openapi_client.models.get_coupon_code_coupon_relationship_response import GetCouponCodeCouponRelationshipResponse
     from openapi_client.models.get_coupon_code_coupon_relationship_response_data import GetCouponCodeCouponRelationshipResponseData
     from openapi_client.models.get_coupon_code_create_job_response_collection_compound_document import GetCouponCodeCreateJobResponseCollectionCompoundDocument
@@ -487,7 +504,7 @@ if TYPE_CHECKING:
     from openapi_client.models.get_custom_metric_response_data_all_of_relationships import GetCustomMetricResponseDataAllOfRelationships
     from openapi_client.models.get_data_source_response import GetDataSourceResponse
     from openapi_client.models.get_data_source_response_collection import GetDataSourceResponseCollection
-    from openapi_client.models.get_encoded_form_response_compound_document import GetEncodedFormResponseCompoundDocument
+    from openapi_client.models.get_encoded_form_response import GetEncodedFormResponse
     from openapi_client.models.get_event_metric_relationship_response import GetEventMetricRelationshipResponse
     from openapi_client.models.get_event_profile_relationship_response import GetEventProfileRelationshipResponse
     from openapi_client.models.get_event_profile_relationship_response_data import GetEventProfileRelationshipResponseData
@@ -539,9 +556,9 @@ if TYPE_CHECKING:
     from openapi_client.models.get_flow_v2_response_compound_document import GetFlowV2ResponseCompoundDocument
     from openapi_client.models.get_flow_v2_response_compound_document_data import GetFlowV2ResponseCompoundDocumentData
     from openapi_client.models.get_form_response import GetFormResponse
-    from openapi_client.models.get_form_response_collection_compound_document import GetFormResponseCollectionCompoundDocument
-    from openapi_client.models.get_form_response_collection_compound_document_data_inner import GetFormResponseCollectionCompoundDocumentDataInner
-    from openapi_client.models.get_form_response_collection_compound_document_data_inner_all_of_relationships import GetFormResponseCollectionCompoundDocumentDataInnerAllOfRelationships
+    from openapi_client.models.get_form_response_collection import GetFormResponseCollection
+    from openapi_client.models.get_form_response_collection_data_inner import GetFormResponseCollectionDataInner
+    from openapi_client.models.get_form_response_collection_data_inner_all_of_relationships import GetFormResponseCollectionDataInnerAllOfRelationships
     from openapi_client.models.get_form_version_form_relationship_response import GetFormVersionFormRelationshipResponse
     from openapi_client.models.get_form_version_form_relationship_response_data import GetFormVersionFormRelationshipResponseData
     from openapi_client.models.get_form_version_response import GetFormVersionResponse
@@ -602,6 +619,8 @@ if TYPE_CHECKING:
     from openapi_client.models.get_metric_response_data_all_of_relationships import GetMetricResponseDataAllOfRelationships
     from openapi_client.models.get_profile_bulk_import_job_lists_relationships_response_collection import GetProfileBulkImportJobListsRelationshipsResponseCollection
     from openapi_client.models.get_profile_bulk_import_job_profiles_relationships_response_collection import GetProfileBulkImportJobProfilesRelationshipsResponseCollection
+    from openapi_client.models.get_profile_conversation_relationship_response import GetProfileConversationRelationshipResponse
+    from openapi_client.models.get_profile_conversation_relationship_response_data import GetProfileConversationRelationshipResponseData
     from openapi_client.models.get_profile_import_job_response_collection_compound_document import GetProfileImportJobResponseCollectionCompoundDocument
     from openapi_client.models.get_profile_import_job_response_collection_compound_document_data_inner import GetProfileImportJobResponseCollectionCompoundDocumentDataInner
     from openapi_client.models.get_profile_import_job_response_collection_compound_document_data_inner_all_of_relationships import GetProfileImportJobResponseCollectionCompoundDocumentDataInnerAllOfRelationships
@@ -681,8 +700,9 @@ if TYPE_CHECKING:
     from openapi_client.models.get_tag_response_compound_document import GetTagResponseCompoundDocument
     from openapi_client.models.get_tag_segment_relationships_response_collection import GetTagSegmentRelationshipsResponseCollection
     from openapi_client.models.get_tag_segment_relationships_response_collection_data_inner import GetTagSegmentRelationshipsResponseCollectionDataInner
+    from openapi_client.models.get_template_dnd_response import GetTemplateDndResponse
+    from openapi_client.models.get_template_dnd_response_collection import GetTemplateDndResponseCollection
     from openapi_client.models.get_template_response import GetTemplateResponse
-    from openapi_client.models.get_template_response_collection import GetTemplateResponseCollection
     from openapi_client.models.get_tracking_setting_response import GetTrackingSettingResponse
     from openapi_client.models.get_tracking_setting_response_collection import GetTrackingSettingResponseCollection
     from openapi_client.models.get_universal_content_response import GetUniversalContentResponse
@@ -787,7 +807,7 @@ if TYPE_CHECKING:
     from openapi_client.models.patch_review_response_dto_data_relationships_item_data import PatchReviewResponseDTODataRelationshipsItemData
     from openapi_client.models.patch_segment_partial_update_response import PatchSegmentPartialUpdateResponse
     from openapi_client.models.patch_tag_group_response import PatchTagGroupResponse
-    from openapi_client.models.patch_template_response import PatchTemplateResponse
+    from openapi_client.models.patch_template_dnd_response import PatchTemplateDndResponse
     from openapi_client.models.patch_tracking_setting_response import PatchTrackingSettingResponse
     from openapi_client.models.patch_tracking_setting_response_data import PatchTrackingSettingResponseData
     from openapi_client.models.patch_universal_content_response import PatchUniversalContentResponse
@@ -923,6 +943,9 @@ if TYPE_CHECKING:
     from openapi_client.models.post_tag_response_data_relationships import PostTagResponseDataRelationships
     from openapi_client.models.post_tag_response_data_relationships_campaigns import PostTagResponseDataRelationshipsCampaigns
     from openapi_client.models.post_tag_response_data_relationships_campaigns_data_inner import PostTagResponseDataRelationshipsCampaignsDataInner
+    from openapi_client.models.post_template_dnd_response import PostTemplateDndResponse
+    from openapi_client.models.post_template_dnd_response_data import PostTemplateDndResponseData
+    from openapi_client.models.post_template_dnd_response_data_attributes import PostTemplateDndResponseDataAttributes
     from openapi_client.models.post_template_response import PostTemplateResponse
     from openapi_client.models.post_template_response_data import PostTemplateResponseData
     from openapi_client.models.post_universal_content_response import PostUniversalContentResponse
@@ -982,13 +1005,18 @@ if TYPE_CHECKING:
     from openapi_client.models.push_marketing import PushMarketing
     from openapi_client.models.push_profile_upsert_query_resource_object import PushProfileUpsertQueryResourceObject
     from openapi_client.models.push_profile_upsert_query_resource_object_attributes import PushProfileUpsertQueryResourceObjectAttributes
+    from openapi_client.models.push_subscription_parameters import PushSubscriptionParameters
     from openapi_client.models.push_token_create_query import PushTokenCreateQuery
     from openapi_client.models.push_token_create_query_resource_object import PushTokenCreateQueryResourceObject
     from openapi_client.models.push_token_create_query_resource_object_attributes import PushTokenCreateQueryResourceObjectAttributes
     from openapi_client.models.push_token_create_query_resource_object_attributes_profile import PushTokenCreateQueryResourceObjectAttributesProfile
+    from openapi_client.models.push_token_device_metadata import PushTokenDeviceMetadata
+    from openapi_client.models.push_token_entry import PushTokenEntry
     from openapi_client.models.push_token_enum import PushTokenEnum
     from openapi_client.models.push_token_response_object_resource import PushTokenResponseObjectResource
     from openapi_client.models.push_token_response_object_resource_attributes import PushTokenResponseObjectResourceAttributes
+    from openapi_client.models.push_unsubscription_parameters import PushUnsubscriptionParameters
+    from openapi_client.models.reentry_criteria import ReentryCriteria
     from openapi_client.models.relationship_links import RelationshipLinks
     from openapi_client.models.render_options_sub_object import RenderOptionsSubObject
     from openapi_client.models.review_enum import ReviewEnum
@@ -1002,12 +1030,19 @@ if TYPE_CHECKING:
     from openapi_client.models.rich_text_margin import RichTextMargin
     from openapi_client.models.rich_text_style import RichTextStyle
     from openapi_client.models.rich_text_styles import RichTextStyles
-    from openapi_client.models.row import Row
+    from openapi_client.models.row_data import RowData
+    from openapi_client.models.row_styles import RowStyles
+    from openapi_client.models.row_v0 import RowV0
+    from openapi_client.models.row_v1 import RowV1
     from openapi_client.models.sms_channel import SMSChannel
     from openapi_client.models.sms_marketing import SMSMarketing
     from openapi_client.models.sms_subscription_parameters import SMSSubscriptionParameters
     from openapi_client.models.sms_transactional import SMSTransactional
     from openapi_client.models.sms_unsubscription_parameters import SMSUnsubscriptionParameters
+    from openapi_client.models.section_data import SectionData
+    from openapi_client.models.section_properties import SectionProperties
+    from openapi_client.models.section_styles import SectionStyles
+    from openapi_client.models.section_v1 import SectionV1
     from openapi_client.models.segment_create_query import SegmentCreateQuery
     from openapi_client.models.segment_create_query_resource_object import SegmentCreateQueryResourceObject
     from openapi_client.models.segment_create_query_resource_object_attributes import SegmentCreateQueryResourceObjectAttributes
@@ -1113,9 +1148,11 @@ if TYPE_CHECKING:
     from openapi_client.models.template_clone_query import TemplateCloneQuery
     from openapi_client.models.template_clone_query_resource_object import TemplateCloneQueryResourceObject
     from openapi_client.models.template_clone_query_resource_object_attributes import TemplateCloneQueryResourceObjectAttributes
-    from openapi_client.models.template_create_query import TemplateCreateQuery
-    from openapi_client.models.template_create_query_resource_object import TemplateCreateQueryResourceObject
-    from openapi_client.models.template_create_query_resource_object_attributes import TemplateCreateQueryResourceObjectAttributes
+    from openapi_client.models.template_create_html_or_dnd_query import TemplateCreateHtmlOrDndQuery
+    from openapi_client.models.template_create_html_or_dnd_query_resource_object import TemplateCreateHtmlOrDndQueryResourceObject
+    from openapi_client.models.template_create_html_or_dnd_query_resource_object_attributes import TemplateCreateHtmlOrDndQueryResourceObjectAttributes
+    from openapi_client.models.template_definition import TemplateDefinition
+    from openapi_client.models.template_dnd_response_object_resource import TemplateDndResponseObjectResource
     from openapi_client.models.template_enum import TemplateEnum
     from openapi_client.models.template_render_query import TemplateRenderQuery
     from openapi_client.models.template_render_query_resource_object import TemplateRenderQueryResourceObject
@@ -1123,10 +1160,10 @@ if TYPE_CHECKING:
     from openapi_client.models.template_response_object_resource import TemplateResponseObjectResource
     from openapi_client.models.template_response_object_resource_attributes import TemplateResponseObjectResourceAttributes
     from openapi_client.models.template_universal_content_enum import TemplateUniversalContentEnum
-    from openapi_client.models.template_update_query import TemplateUpdateQuery
-    from openapi_client.models.template_update_query_resource_object import TemplateUpdateQueryResourceObject
-    from openapi_client.models.template_update_query_resource_object_attributes import TemplateUpdateQueryResourceObjectAttributes
-    from openapi_client.models.text_style import TextStyle
+    from openapi_client.models.template_update_html_or_dnd_query import TemplateUpdateHtmlOrDndQuery
+    from openapi_client.models.template_update_html_or_dnd_query_resource_object import TemplateUpdateHtmlOrDndQueryResourceObject
+    from openapi_client.models.template_update_html_or_dnd_query_resource_object_attributes import TemplateUpdateHtmlOrDndQueryResourceObjectAttributes
+    from openapi_client.models.text_style_v0 import TextStyleV0
     from openapi_client.models.tracking_param_dto import TrackingParamDTO
     from openapi_client.models.tracking_setting_enum import TrackingSettingEnum
     from openapi_client.models.tracking_setting_partial_update_query import TrackingSettingPartialUpdateQuery
@@ -1134,7 +1171,6 @@ if TYPE_CHECKING:
     from openapi_client.models.tracking_setting_partial_update_query_resource_object_attributes import TrackingSettingPartialUpdateQueryResourceObjectAttributes
     from openapi_client.models.tracking_setting_response_object_resource import TrackingSettingResponseObjectResource
     from openapi_client.models.tracking_setting_response_object_resource_attributes import TrackingSettingResponseObjectResourceAttributes
-    from openapi_client.models.underline_enum import UnderlineEnum
     from openapi_client.models.universal_content_create_query import UniversalContentCreateQuery
     from openapi_client.models.universal_content_create_query_resource_object import UniversalContentCreateQueryResourceObject
     from openapi_client.models.universal_content_create_query_resource_object_attributes import UniversalContentCreateQueryResourceObjectAttributes
@@ -1149,6 +1185,7 @@ if TYPE_CHECKING:
     from openapi_client.models.version import Version
     from openapi_client.models.version_properties import VersionProperties
     from openapi_client.models.version_styles import VersionStyles
+    from openapi_client.models.visibility import Visibility
     from openapi_client.models.web_feed_create_query import WebFeedCreateQuery
     from openapi_client.models.web_feed_create_query_resource_object import WebFeedCreateQueryResourceObject
     from openapi_client.models.web_feed_create_query_resource_object_attributes import WebFeedCreateQueryResourceObjectAttributes
@@ -1201,6 +1238,9 @@ object_origins = {
     "BannerStyles": "openapi_client.models.banner_styles",
     "BaseEventCreateQueryBulkEntryResourceObject": "openapi_client.models.base_event_create_query_bulk_entry_resource_object",
     "BaseEventCreateQueryBulkEntryResourceObjectAttributes": "openapi_client.models.base_event_create_query_bulk_entry_resource_object_attributes",
+    "Body": "openapi_client.models.body",
+    "BodyProperties": "openapi_client.models.body_properties",
+    "BodyStyles": "openapi_client.models.body_styles",
     "BorderStyle": "openapi_client.models.border_style",
     "BulkProfileSuppressionsCreateJobResponseObjectResource": "openapi_client.models.bulk_profile_suppressions_create_job_response_object_resource",
     "BulkProfileSuppressionsCreateJobResponseObjectResourceAttributes": "openapi_client.models.bulk_profile_suppressions_create_job_response_object_resource_attributes",
@@ -1353,10 +1393,21 @@ object_origins = {
     "CatalogVariantUpdateQueryResourceObjectAttributes": "openapi_client.models.catalog_variant_update_query_resource_object_attributes",
     "CloseButtonStyle": "openapi_client.models.close_button_style",
     "CollectionLinks": "openapi_client.models.collection_links",
-    "Column": "openapi_client.models.column",
     "ColumnStyles": "openapi_client.models.column_styles",
+    "ColumnV0": "openapi_client.models.column_v0",
+    "ColumnV1": "openapi_client.models.column_v1",
     "ConditionGroup": "openapi_client.models.condition_group",
     "ContactInformation": "openapi_client.models.contact_information",
+    "ContentRepeatV1": "openapi_client.models.content_repeat_v1",
+    "ConversationEnum": "openapi_client.models.conversation_enum",
+    "ConversationMessageCreateQuery": "openapi_client.models.conversation_message_create_query",
+    "ConversationMessageCreateQueryResourceObject": "openapi_client.models.conversation_message_create_query_resource_object",
+    "ConversationMessageCreateQueryResourceObjectAttributes": "openapi_client.models.conversation_message_create_query_resource_object_attributes",
+    "ConversationMessageCreateQueryResourceObjectRelationships": "openapi_client.models.conversation_message_create_query_resource_object_relationships",
+    "ConversationMessageCreateQueryResourceObjectRelationshipsConversation": "openapi_client.models.conversation_message_create_query_resource_object_relationships_conversation",
+    "ConversationMessageCreateQueryResourceObjectRelationshipsConversationData": "openapi_client.models.conversation_message_create_query_resource_object_relationships_conversation_data",
+    "ConversationMessageEnum": "openapi_client.models.conversation_message_enum",
+    "ConversationResponseObjectResource": "openapi_client.models.conversation_response_object_resource",
     "CouponCodeBulkCreateJobEnum": "openapi_client.models.coupon_code_bulk_create_job_enum",
     "CouponCodeCreateJobCreateQuery": "openapi_client.models.coupon_code_create_job_create_query",
     "CouponCodeCreateJobCreateQueryResourceObject": "openapi_client.models.coupon_code_create_job_create_query_resource_object",
@@ -1427,6 +1478,7 @@ object_origins = {
     "DataSourceResponseObjectResourceAttributes": "openapi_client.models.data_source_response_object_resource_attributes",
     "DeleteTagGroupResponse": "openapi_client.models.delete_tag_group_response",
     "DeviceMetadata": "openapi_client.models.device_metadata",
+    "DisplayOptions": "openapi_client.models.display_options",
     "DropShadow": "openapi_client.models.drop_shadow",
     "DynamicButton": "openapi_client.models.dynamic_button",
     "EmailChannel": "openapi_client.models.email_channel",
@@ -1618,6 +1670,8 @@ object_origins = {
     "GetCatalogVariantUpdateJobResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsVariants": "openapi_client.models.get_catalog_variant_update_job_response_collection_compound_document_data_inner_all_of_relationships_variants",
     "GetCatalogVariantUpdateJobResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsVariantsDataInner": "openapi_client.models.get_catalog_variant_update_job_response_collection_compound_document_data_inner_all_of_relationships_variants_data_inner",
     "GetCatalogVariantUpdateJobResponseCompoundDocument": "openapi_client.models.get_catalog_variant_update_job_response_compound_document",
+    "GetConversationResponse": "openapi_client.models.get_conversation_response",
+    "GetConversationResponseData": "openapi_client.models.get_conversation_response_data",
     "GetCouponCodeCouponRelationshipResponse": "openapi_client.models.get_coupon_code_coupon_relationship_response",
     "GetCouponCodeCouponRelationshipResponseData": "openapi_client.models.get_coupon_code_coupon_relationship_response_data",
     "GetCouponCodeCreateJobResponseCollectionCompoundDocument": "openapi_client.models.get_coupon_code_create_job_response_collection_compound_document",
@@ -1652,7 +1706,7 @@ object_origins = {
     "GetCustomMetricResponseDataAllOfRelationships": "openapi_client.models.get_custom_metric_response_data_all_of_relationships",
     "GetDataSourceResponse": "openapi_client.models.get_data_source_response",
     "GetDataSourceResponseCollection": "openapi_client.models.get_data_source_response_collection",
-    "GetEncodedFormResponseCompoundDocument": "openapi_client.models.get_encoded_form_response_compound_document",
+    "GetEncodedFormResponse": "openapi_client.models.get_encoded_form_response",
     "GetEventMetricRelationshipResponse": "openapi_client.models.get_event_metric_relationship_response",
     "GetEventProfileRelationshipResponse": "openapi_client.models.get_event_profile_relationship_response",
     "GetEventProfileRelationshipResponseData": "openapi_client.models.get_event_profile_relationship_response_data",
@@ -1704,9 +1758,9 @@ object_origins = {
     "GetFlowV2ResponseCompoundDocument": "openapi_client.models.get_flow_v2_response_compound_document",
     "GetFlowV2ResponseCompoundDocumentData": "openapi_client.models.get_flow_v2_response_compound_document_data",
     "GetFormResponse": "openapi_client.models.get_form_response",
-    "GetFormResponseCollectionCompoundDocument": "openapi_client.models.get_form_response_collection_compound_document",
-    "GetFormResponseCollectionCompoundDocumentDataInner": "openapi_client.models.get_form_response_collection_compound_document_data_inner",
-    "GetFormResponseCollectionCompoundDocumentDataInnerAllOfRelationships": "openapi_client.models.get_form_response_collection_compound_document_data_inner_all_of_relationships",
+    "GetFormResponseCollection": "openapi_client.models.get_form_response_collection",
+    "GetFormResponseCollectionDataInner": "openapi_client.models.get_form_response_collection_data_inner",
+    "GetFormResponseCollectionDataInnerAllOfRelationships": "openapi_client.models.get_form_response_collection_data_inner_all_of_relationships",
     "GetFormVersionFormRelationshipResponse": "openapi_client.models.get_form_version_form_relationship_response",
     "GetFormVersionFormRelationshipResponseData": "openapi_client.models.get_form_version_form_relationship_response_data",
     "GetFormVersionResponse": "openapi_client.models.get_form_version_response",
@@ -1767,6 +1821,8 @@ object_origins = {
     "GetMetricResponseDataAllOfRelationships": "openapi_client.models.get_metric_response_data_all_of_relationships",
     "GetProfileBulkImportJobListsRelationshipsResponseCollection": "openapi_client.models.get_profile_bulk_import_job_lists_relationships_response_collection",
     "GetProfileBulkImportJobProfilesRelationshipsResponseCollection": "openapi_client.models.get_profile_bulk_import_job_profiles_relationships_response_collection",
+    "GetProfileConversationRelationshipResponse": "openapi_client.models.get_profile_conversation_relationship_response",
+    "GetProfileConversationRelationshipResponseData": "openapi_client.models.get_profile_conversation_relationship_response_data",
     "GetProfileImportJobResponseCollectionCompoundDocument": "openapi_client.models.get_profile_import_job_response_collection_compound_document",
     "GetProfileImportJobResponseCollectionCompoundDocumentDataInner": "openapi_client.models.get_profile_import_job_response_collection_compound_document_data_inner",
     "GetProfileImportJobResponseCollectionCompoundDocumentDataInnerAllOfRelationships": "openapi_client.models.get_profile_import_job_response_collection_compound_document_data_inner_all_of_relationships",
@@ -1846,8 +1902,9 @@ object_origins = {
     "GetTagResponseCompoundDocument": "openapi_client.models.get_tag_response_compound_document",
     "GetTagSegmentRelationshipsResponseCollection": "openapi_client.models.get_tag_segment_relationships_response_collection",
     "GetTagSegmentRelationshipsResponseCollectionDataInner": "openapi_client.models.get_tag_segment_relationships_response_collection_data_inner",
+    "GetTemplateDndResponse": "openapi_client.models.get_template_dnd_response",
+    "GetTemplateDndResponseCollection": "openapi_client.models.get_template_dnd_response_collection",
     "GetTemplateResponse": "openapi_client.models.get_template_response",
-    "GetTemplateResponseCollection": "openapi_client.models.get_template_response_collection",
     "GetTrackingSettingResponse": "openapi_client.models.get_tracking_setting_response",
     "GetTrackingSettingResponseCollection": "openapi_client.models.get_tracking_setting_response_collection",
     "GetUniversalContentResponse": "openapi_client.models.get_universal_content_response",
@@ -1952,7 +2009,7 @@ object_origins = {
     "PatchReviewResponseDTODataRelationshipsItemData": "openapi_client.models.patch_review_response_dto_data_relationships_item_data",
     "PatchSegmentPartialUpdateResponse": "openapi_client.models.patch_segment_partial_update_response",
     "PatchTagGroupResponse": "openapi_client.models.patch_tag_group_response",
-    "PatchTemplateResponse": "openapi_client.models.patch_template_response",
+    "PatchTemplateDndResponse": "openapi_client.models.patch_template_dnd_response",
     "PatchTrackingSettingResponse": "openapi_client.models.patch_tracking_setting_response",
     "PatchTrackingSettingResponseData": "openapi_client.models.patch_tracking_setting_response_data",
     "PatchUniversalContentResponse": "openapi_client.models.patch_universal_content_response",
@@ -2088,6 +2145,9 @@ object_origins = {
     "PostTagResponseDataRelationships": "openapi_client.models.post_tag_response_data_relationships",
     "PostTagResponseDataRelationshipsCampaigns": "openapi_client.models.post_tag_response_data_relationships_campaigns",
     "PostTagResponseDataRelationshipsCampaignsDataInner": "openapi_client.models.post_tag_response_data_relationships_campaigns_data_inner",
+    "PostTemplateDndResponse": "openapi_client.models.post_template_dnd_response",
+    "PostTemplateDndResponseData": "openapi_client.models.post_template_dnd_response_data",
+    "PostTemplateDndResponseDataAttributes": "openapi_client.models.post_template_dnd_response_data_attributes",
     "PostTemplateResponse": "openapi_client.models.post_template_response",
     "PostTemplateResponseData": "openapi_client.models.post_template_response_data",
     "PostUniversalContentResponse": "openapi_client.models.post_universal_content_response",
@@ -2147,13 +2207,18 @@ object_origins = {
     "PushMarketing": "openapi_client.models.push_marketing",
     "PushProfileUpsertQueryResourceObject": "openapi_client.models.push_profile_upsert_query_resource_object",
     "PushProfileUpsertQueryResourceObjectAttributes": "openapi_client.models.push_profile_upsert_query_resource_object_attributes",
+    "PushSubscriptionParameters": "openapi_client.models.push_subscription_parameters",
     "PushTokenCreateQuery": "openapi_client.models.push_token_create_query",
     "PushTokenCreateQueryResourceObject": "openapi_client.models.push_token_create_query_resource_object",
     "PushTokenCreateQueryResourceObjectAttributes": "openapi_client.models.push_token_create_query_resource_object_attributes",
     "PushTokenCreateQueryResourceObjectAttributesProfile": "openapi_client.models.push_token_create_query_resource_object_attributes_profile",
+    "PushTokenDeviceMetadata": "openapi_client.models.push_token_device_metadata",
+    "PushTokenEntry": "openapi_client.models.push_token_entry",
     "PushTokenEnum": "openapi_client.models.push_token_enum",
     "PushTokenResponseObjectResource": "openapi_client.models.push_token_response_object_resource",
     "PushTokenResponseObjectResourceAttributes": "openapi_client.models.push_token_response_object_resource_attributes",
+    "PushUnsubscriptionParameters": "openapi_client.models.push_unsubscription_parameters",
+    "ReentryCriteria": "openapi_client.models.reentry_criteria",
     "RelationshipLinks": "openapi_client.models.relationship_links",
     "RenderOptionsSubObject": "openapi_client.models.render_options_sub_object",
     "ReviewEnum": "openapi_client.models.review_enum",
@@ -2167,12 +2232,19 @@ object_origins = {
     "RichTextMargin": "openapi_client.models.rich_text_margin",
     "RichTextStyle": "openapi_client.models.rich_text_style",
     "RichTextStyles": "openapi_client.models.rich_text_styles",
-    "Row": "openapi_client.models.row",
+    "RowData": "openapi_client.models.row_data",
+    "RowStyles": "openapi_client.models.row_styles",
+    "RowV0": "openapi_client.models.row_v0",
+    "RowV1": "openapi_client.models.row_v1",
     "SMSChannel": "openapi_client.models.sms_channel",
     "SMSMarketing": "openapi_client.models.sms_marketing",
     "SMSSubscriptionParameters": "openapi_client.models.sms_subscription_parameters",
     "SMSTransactional": "openapi_client.models.sms_transactional",
     "SMSUnsubscriptionParameters": "openapi_client.models.sms_unsubscription_parameters",
+    "SectionData": "openapi_client.models.section_data",
+    "SectionProperties": "openapi_client.models.section_properties",
+    "SectionStyles": "openapi_client.models.section_styles",
+    "SectionV1": "openapi_client.models.section_v1",
     "SegmentCreateQuery": "openapi_client.models.segment_create_query",
     "SegmentCreateQueryResourceObject": "openapi_client.models.segment_create_query_resource_object",
     "SegmentCreateQueryResourceObjectAttributes": "openapi_client.models.segment_create_query_resource_object_attributes",
@@ -2278,9 +2350,11 @@ object_origins = {
     "TemplateCloneQuery": "openapi_client.models.template_clone_query",
     "TemplateCloneQueryResourceObject": "openapi_client.models.template_clone_query_resource_object",
     "TemplateCloneQueryResourceObjectAttributes": "openapi_client.models.template_clone_query_resource_object_attributes",
-    "TemplateCreateQuery": "openapi_client.models.template_create_query",
-    "TemplateCreateQueryResourceObject": "openapi_client.models.template_create_query_resource_object",
-    "TemplateCreateQueryResourceObjectAttributes": "openapi_client.models.template_create_query_resource_object_attributes",
+    "TemplateCreateHtmlOrDndQuery": "openapi_client.models.template_create_html_or_dnd_query",
+    "TemplateCreateHtmlOrDndQueryResourceObject": "openapi_client.models.template_create_html_or_dnd_query_resource_object",
+    "TemplateCreateHtmlOrDndQueryResourceObjectAttributes": "openapi_client.models.template_create_html_or_dnd_query_resource_object_attributes",
+    "TemplateDefinition": "openapi_client.models.template_definition",
+    "TemplateDndResponseObjectResource": "openapi_client.models.template_dnd_response_object_resource",
     "TemplateEnum": "openapi_client.models.template_enum",
     "TemplateRenderQuery": "openapi_client.models.template_render_query",
     "TemplateRenderQueryResourceObject": "openapi_client.models.template_render_query_resource_object",
@@ -2288,10 +2362,10 @@ object_origins = {
     "TemplateResponseObjectResource": "openapi_client.models.template_response_object_resource",
     "TemplateResponseObjectResourceAttributes": "openapi_client.models.template_response_object_resource_attributes",
     "TemplateUniversalContentEnum": "openapi_client.models.template_universal_content_enum",
-    "TemplateUpdateQuery": "openapi_client.models.template_update_query",
-    "TemplateUpdateQueryResourceObject": "openapi_client.models.template_update_query_resource_object",
-    "TemplateUpdateQueryResourceObjectAttributes": "openapi_client.models.template_update_query_resource_object_attributes",
-    "TextStyle": "openapi_client.models.text_style",
+    "TemplateUpdateHtmlOrDndQuery": "openapi_client.models.template_update_html_or_dnd_query",
+    "TemplateUpdateHtmlOrDndQueryResourceObject": "openapi_client.models.template_update_html_or_dnd_query_resource_object",
+    "TemplateUpdateHtmlOrDndQueryResourceObjectAttributes": "openapi_client.models.template_update_html_or_dnd_query_resource_object_attributes",
+    "TextStyleV0": "openapi_client.models.text_style_v0",
     "TrackingParamDTO": "openapi_client.models.tracking_param_dto",
     "TrackingSettingEnum": "openapi_client.models.tracking_setting_enum",
     "TrackingSettingPartialUpdateQuery": "openapi_client.models.tracking_setting_partial_update_query",
@@ -2299,7 +2373,6 @@ object_origins = {
     "TrackingSettingPartialUpdateQueryResourceObjectAttributes": "openapi_client.models.tracking_setting_partial_update_query_resource_object_attributes",
     "TrackingSettingResponseObjectResource": "openapi_client.models.tracking_setting_response_object_resource",
     "TrackingSettingResponseObjectResourceAttributes": "openapi_client.models.tracking_setting_response_object_resource_attributes",
-    "UnderlineEnum": "openapi_client.models.underline_enum",
     "UniversalContentCreateQuery": "openapi_client.models.universal_content_create_query",
     "UniversalContentCreateQueryResourceObject": "openapi_client.models.universal_content_create_query_resource_object",
     "UniversalContentCreateQueryResourceObjectAttributes": "openapi_client.models.universal_content_create_query_resource_object_attributes",
@@ -2314,6 +2387,7 @@ object_origins = {
     "Version": "openapi_client.models.version",
     "VersionProperties": "openapi_client.models.version_properties",
     "VersionStyles": "openapi_client.models.version_styles",
+    "Visibility": "openapi_client.models.visibility",
     "WebFeedCreateQuery": "openapi_client.models.web_feed_create_query",
     "WebFeedCreateQueryResourceObject": "openapi_client.models.web_feed_create_query_resource_object",
     "WebFeedCreateQueryResourceObjectAttributes": "openapi_client.models.web_feed_create_query_resource_object_attributes",

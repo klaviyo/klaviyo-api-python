@@ -19,19 +19,19 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from openapi_client.models.column_styles import ColumnStyles
+from openapi_client.models.row_v0 import RowV0
 from typing import Optional, Set
 from typing_extensions import Self
 
-class TemplateCreateQueryResourceObjectAttributes(BaseModel):
+class ColumnV0(BaseModel):
     """
-    TemplateCreateQueryResourceObjectAttributes
+    ColumnV0
     """ # noqa: E501
-    name: StrictStr = Field(description="The name of the template")
-    editor_type: StrictStr = Field(description="Restricted to CODE and USER_DRAGGABLE")
-    html: Optional[StrictStr] = Field(default=None, description="The HTML contents of the template")
-    text: Optional[StrictStr] = Field(default=None, description="The plaintext version of the template")
-    amp: Optional[StrictStr] = Field(default=None, description="The AMP version of the template. Requires AMP Email to be enabled to access in-app. Refer to the AMP Email setup guide at https://developers.klaviyo.com/en/docs/send_amp_emails_in_klaviyo")
-    __properties: ClassVar[List[str]] = ["name", "editor_type", "html", "text", "amp"]
+    id: Optional[StrictStr] = Field(default=None, description="Not allowed on create.")
+    rows: Optional[List[RowV0]] = None
+    styles: Optional[ColumnStyles] = None
+    __properties: ClassVar[List[str]] = ["id", "rows", "styles"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -51,7 +51,7 @@ class TemplateCreateQueryResourceObjectAttributes(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of TemplateCreateQueryResourceObjectAttributes from a JSON string"""
+        """Create an instance of ColumnV0 from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -72,26 +72,26 @@ class TemplateCreateQueryResourceObjectAttributes(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if html (nullable) is None
+        # override the default output from pydantic by calling `to_dict()` of each item in rows (list)
+        _items = []
+        if self.rows:
+            for _item in self.rows:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['rows'] = _items
+        # override the default output from pydantic by calling `to_dict()` of styles
+        if self.styles:
+            _dict['styles'] = self.styles.to_dict()
+        # set to None if id (nullable) is None
         # and model_fields_set contains the field
-        if self.html is None and "html" in self.model_fields_set:
-            _dict['html'] = None
-
-        # set to None if text (nullable) is None
-        # and model_fields_set contains the field
-        if self.text is None and "text" in self.model_fields_set:
-            _dict['text'] = None
-
-        # set to None if amp (nullable) is None
-        # and model_fields_set contains the field
-        if self.amp is None and "amp" in self.model_fields_set:
-            _dict['amp'] = None
+        if self.id is None and "id" in self.model_fields_set:
+            _dict['id'] = None
 
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of TemplateCreateQueryResourceObjectAttributes from a dict"""
+        """Create an instance of ColumnV0 from a dict"""
         if obj is None:
             return None
 
@@ -99,11 +99,9 @@ class TemplateCreateQueryResourceObjectAttributes(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "name": obj.get("name"),
-            "editor_type": obj.get("editor_type"),
-            "html": obj.get("html"),
-            "text": obj.get("text"),
-            "amp": obj.get("amp")
+            "id": obj.get("id"),
+            "rows": [RowV0.from_dict(_item) for _item in obj["rows"]] if obj.get("rows") is not None else None,
+            "styles": ColumnStyles.from_dict(obj["styles"]) if obj.get("styles") is not None else None
         })
         return _obj
 

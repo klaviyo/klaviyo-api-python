@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 NOTE: For more granular API-specific changes, please see our [API Changelog](https://developers.klaviyo.com/en/docs/changelog_)
 
+## [23.0.0] - revision 2026-04-15
+### Added
+- Geofencing API
+   - Get all geofences in an account with Get Geofences (paginated; max 100 results per page; default 20). This endpoint is designed for mobile SDK consumption and does not require authentication.
+   - Filter results using the `X-Klaviyo-API-Filters` header (instead of query parameters) to avoid passing sensitive latitude/longitude in the URL. Supported filters: `lat` (equals) and `lng` (equals). When both are provided, results are sorted by distance (closest first). Example: `X-Klaviyo-API-Filters:and(equals(lat,40.7128),equals(long,-74.0060))`
+- Conversations API
+  - Send an outbound message to a profile with Create Conversation Message. Supports SMS and WhatsApp — the channel is determined automatically from the conversation. Conversation message endpoints use the SMALL rate limit tier (3 requests/second burst, 60 requests/minute steady).
+  - Retrieve the conversation thread for a given profile with Get Conversation for Profile, or include it inline on profile retrievals using `?include=conversation`.
+### Changed
+- Drag-and-drop templates
+  - Create drag-and-drop email templates programmaatically by setting `editor_type: SYSTEM_DRAGGABLE` and providing a `definition` body (mutually exclusive with `html`) via Create Template. DnD template endpoints use the SMALL rate limit tier (3 requests/second burst, 60 requests/minute steady).
+  - List and retrieve drag-and-drog templates with Get Templates and Get Template. Use `additional-fields[template]=definition` to include the full template definition in the response.
+  - Update an existing drag-and-drop template’s `definition`, `name`, or `text` independently via Update Template.
+
 ## [22.0.0] - revision 2026-01-15
 ### Added
 - Added a new [single data source record create endpoint](https://github.com/klaviyo/klaviyo-api-python?tab=readme-ov-file#create-data-source-record) for one-at-a-time ingestion workloads

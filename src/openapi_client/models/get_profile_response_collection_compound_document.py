@@ -30,7 +30,8 @@ class GetProfileResponseCollectionCompoundDocument(BaseModel):
     """ # noqa: E501
     data: List[GetProfileResponseCollectionCompoundDocumentDataInner]
     links: Optional[CollectionLinks] = None
-    __properties: ClassVar[List[str]] = ["data", "links"]
+    included: Optional[List[Dict[str, Any]]] = None
+    __properties: ClassVar[List[str]] = ["data", "links", "included"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -94,7 +95,8 @@ class GetProfileResponseCollectionCompoundDocument(BaseModel):
 
         _obj = cls.model_validate({
             "data": [GetProfileResponseCollectionCompoundDocumentDataInner.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None,
-            "links": CollectionLinks.from_dict(obj["links"]) if obj.get("links") is not None else None
+            "links": CollectionLinks.from_dict(obj["links"]) if obj.get("links") is not None else None,
+            "included": obj.get("included")
         })
         return _obj
 

@@ -18,19 +18,19 @@ from enum import Enum
 from typing_extensions import Self
 
 
-class UnderlineEnum(str, Enum):
+class ConversationMessageEnum(str, Enum):
     """
-    UnderlineEnum
+    ConversationMessageEnum
     """
 
     """
     allowed enum values
     """
-    UNDERLINE = 'underline'
+    CONVERSATION_MINUS_MESSAGE = 'conversation-message'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:
-        """Create an instance of UnderlineEnum from a JSON string"""
+        """Create an instance of ConversationMessageEnum from a JSON string"""
         return cls(json.loads(json_str))
 
 

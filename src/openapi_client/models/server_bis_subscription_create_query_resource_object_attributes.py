@@ -35,8 +35,8 @@ class ServerBISSubscriptionCreateQueryResourceObjectAttributes(BaseModel):
     def channels_validate_enum(cls, value):
         """Validates the enum"""
         for i in value:
-            if i not in set(['EMAIL', 'PUSH', 'SMS']):
-                raise ValueError("each list item must be one of ('EMAIL', 'PUSH', 'SMS')")
+            if i not in set(['EMAIL', 'PUSH', 'SMS', 'WHATSAPP']):
+                raise ValueError("each list item must be one of ('EMAIL', 'PUSH', 'SMS', 'WHATSAPP')")
         return value
 
     model_config = ConfigDict(

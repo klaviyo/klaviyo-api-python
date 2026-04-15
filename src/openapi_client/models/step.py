@@ -17,9 +17,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.column import Column
+from openapi_client.models.column_v0 import ColumnV0
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,8 +27,8 @@ class Step(BaseModel):
     """
     Step
     """ # noqa: E501
-    id: Optional[StrictStr] = None
-    columns: List[Column]
+    id: Optional[StrictStr] = Field(default=None, description="Not allowed on create.")
+    columns: List[ColumnV0]
     name: Optional[StrictStr] = None
     steps: Optional[List[Step]] = None
     __properties: ClassVar[List[str]] = ["id", "columns", "name", "steps"]
@@ -114,7 +114,7 @@ class Step(BaseModel):
 
         _obj = cls.model_validate({
             "id": obj.get("id"),
-            "columns": [Column.from_dict(_item) for _item in obj["columns"]] if obj.get("columns") is not None else None,
+            "columns": [ColumnV0.from_dict(_item) for _item in obj["columns"]] if obj.get("columns") is not None else None,
             "name": obj.get("name"),
             "steps": [Step.from_dict(_item) for _item in obj["steps"]] if obj.get("steps") is not None else None
         })

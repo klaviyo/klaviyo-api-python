@@ -17,8 +17,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictFloat, StrictInt, field_validator
-from typing import Any, ClassVar, Dict, List, Optional, Union
+from pydantic import BaseModel, ConfigDict, StrictInt, field_validator
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -26,9 +26,9 @@ class RichTextMargin(BaseModel):
     """
     RichTextMargin
     """ # noqa: E501
-    left: Optional[Union[StrictFloat, StrictInt]] = 0
-    right: Optional[Union[StrictFloat, StrictInt]] = 0
-    top: Optional[Union[StrictFloat, StrictInt]] = 0
+    left: Optional[StrictInt] = 0
+    right: Optional[StrictInt] = 0
+    top: Optional[StrictInt] = 0
     bottom: Optional[StrictInt] = 0
     __properties: ClassVar[List[str]] = ["left", "right", "top", "bottom"]
 

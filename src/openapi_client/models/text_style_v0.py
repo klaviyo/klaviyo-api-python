@@ -22,16 +22,18 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
-class TextStyle(BaseModel):
+class TextStyleV0(BaseModel):
     """
-    TextStyle
+    TextStyleV0
     """ # noqa: E501
     font_family: Optional[Any] = None
     font_size: Optional[StrictInt] = 16
     font_weight: Optional[StrictInt] = Field(default=400, description="Font weight enumeration.")
     text_color: Optional[StrictStr] = '#000000'
     character_spacing: Optional[StrictInt] = 0
-    __properties: ClassVar[List[str]] = ["font_family", "font_size", "font_weight", "text_color", "character_spacing"]
+    font_style: Optional[StrictStr] = None
+    text_decoration: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["font_family", "font_size", "font_weight", "text_color", "character_spacing", "font_style", "text_decoration"]
 
     @field_validator('font_weight')
     def font_weight_validate_enum(cls, value):
@@ -61,7 +63,7 @@ class TextStyle(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of TextStyle from a JSON string"""
+        """Create an instance of TextStyleV0 from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -97,11 +99,21 @@ class TextStyle(BaseModel):
         if self.character_spacing is None and "character_spacing" in self.model_fields_set:
             _dict['character_spacing'] = None
 
+        # set to None if font_style (nullable) is None
+        # and model_fields_set contains the field
+        if self.font_style is None and "font_style" in self.model_fields_set:
+            _dict['font_style'] = None
+
+        # set to None if text_decoration (nullable) is None
+        # and model_fields_set contains the field
+        if self.text_decoration is None and "text_decoration" in self.model_fields_set:
+            _dict['text_decoration'] = None
+
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of TextStyle from a dict"""
+        """Create an instance of TextStyleV0 from a dict"""
         if obj is None:
             return None
 
@@ -113,7 +125,9 @@ class TextStyle(BaseModel):
             "font_size": obj.get("font_size") if obj.get("font_size") is not None else 16,
             "font_weight": obj.get("font_weight") if obj.get("font_weight") is not None else 400,
             "text_color": obj.get("text_color") if obj.get("text_color") is not None else '#000000',
-            "character_spacing": obj.get("character_spacing") if obj.get("character_spacing") is not None else 0
+            "character_spacing": obj.get("character_spacing") if obj.get("character_spacing") is not None else 0,
+            "font_style": obj.get("font_style"),
+            "text_decoration": obj.get("text_decoration")
         })
         return _obj
 

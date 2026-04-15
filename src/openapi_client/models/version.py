@@ -31,7 +31,7 @@ class Version(BaseModel):
     """
     Version
     """ # noqa: E501
-    id: Optional[StrictInt] = None
+    id: Optional[StrictInt] = Field(default=None, description="Not allowed on create.")
     steps: List[Step]
     triggers: Optional[List[Dict[str, Any]]] = None
     teasers: Optional[List[Teaser]] = None

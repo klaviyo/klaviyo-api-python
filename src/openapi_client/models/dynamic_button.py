@@ -27,7 +27,7 @@ class DynamicButton(BaseModel):
     """
     DynamicButton
     """ # noqa: E501
-    id: Optional[StrictStr] = None
+    id: Optional[StrictStr] = Field(default=None, description="Not allowed on create.")
     type: StrictStr = Field(description="Dynamic Button type enumeration.")
     data: BackInStockDynamicButtonData
     __properties: ClassVar[List[str]] = ["id", "type", "data"]

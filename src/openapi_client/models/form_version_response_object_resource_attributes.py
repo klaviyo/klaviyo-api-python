@@ -29,11 +29,12 @@ class FormVersionResponseObjectResourceAttributes(BaseModel):
     FormVersionResponseObjectResourceAttributes
     """ # noqa: E501
     form_type: StrictStr = Field(description="The type of form.")
+    variation_name: StrictStr = Field(description="The name of the form version.")
     ab_test: Optional[FormVersionABTest] = None
     status: StrictStr = Field(description="Status of the form version. \"live\" means it's live on site.")
     created_at: datetime = Field(description="ISO8601 timestamp when the form version was created.")
     updated_at: datetime = Field(description="ISO8601 timestamp when the form version was last updated.")
-    __properties: ClassVar[List[str]] = ["form_type", "ab_test", "status", "created_at", "updated_at"]
+    __properties: ClassVar[List[str]] = ["form_type", "variation_name", "ab_test", "status", "created_at", "updated_at"]
 
     @field_validator('form_type')
     def form_type_validate_enum(cls, value):
@@ -104,6 +105,7 @@ class FormVersionResponseObjectResourceAttributes(BaseModel):
 
         _obj = cls.model_validate({
             "form_type": obj.get("form_type"),
+            "variation_name": obj.get("variation_name"),
             "ab_test": FormVersionABTest.from_dict(obj["ab_test"]) if obj.get("ab_test") is not None else None,
             "status": obj.get("status"),
             "created_at": obj.get("created_at"),

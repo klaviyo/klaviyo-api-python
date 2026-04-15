@@ -46,8 +46,8 @@ class PredictiveAnalytics(BaseModel):
             return value
 
         for i in value:
-            if i not in set(['email', 'push', 'sms']):
-                raise ValueError("each list item must be one of ('email', 'push', 'sms')")
+            if i not in set(['email', 'push', 'sms', 'whatsapp']):
+                raise ValueError("each list item must be one of ('email', 'push', 'sms', 'whatsapp')")
         return value
 
     model_config = ConfigDict(

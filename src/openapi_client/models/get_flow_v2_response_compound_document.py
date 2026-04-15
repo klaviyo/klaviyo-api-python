@@ -20,6 +20,7 @@ import json
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.get_flow_v2_response_compound_document_data import GetFlowV2ResponseCompoundDocumentData
+from openapi_client.models.object_links import ObjectLinks
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,7 +30,8 @@ class GetFlowV2ResponseCompoundDocument(BaseModel):
     """ # noqa: E501
     data: GetFlowV2ResponseCompoundDocumentData
     included: Optional[List[Dict[str, Any]]] = None
-    __properties: ClassVar[List[str]] = ["data", "included"]
+    links: Optional[ObjectLinks] = None
+    __properties: ClassVar[List[str]] = ["data", "included", "links"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -73,6 +75,9 @@ class GetFlowV2ResponseCompoundDocument(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of data
         if self.data:
             _dict['data'] = self.data.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of links
+        if self.links:
+            _dict['links'] = self.links.to_dict()
         return _dict
 
     @classmethod
@@ -86,7 +91,8 @@ class GetFlowV2ResponseCompoundDocument(BaseModel):
 
         _obj = cls.model_validate({
             "data": GetFlowV2ResponseCompoundDocumentData.from_dict(obj["data"]) if obj.get("data") is not None else None,
-            "included": obj.get("included")
+            "included": obj.get("included"),
+            "links": ObjectLinks.from_dict(obj["links"]) if obj.get("links") is not None else None
         })
         return _obj
 

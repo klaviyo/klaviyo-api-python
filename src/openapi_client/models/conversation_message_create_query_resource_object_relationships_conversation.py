@@ -18,16 +18,16 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List
-from openapi_client.models.template_update_query_resource_object import TemplateUpdateQueryResourceObject
+from typing import Any, ClassVar, Dict, List, Optional
+from openapi_client.models.conversation_message_create_query_resource_object_relationships_conversation_data import ConversationMessageCreateQueryResourceObjectRelationshipsConversationData
 from typing import Optional, Set
 from typing_extensions import Self
 
-class TemplateUpdateQuery(BaseModel):
+class ConversationMessageCreateQueryResourceObjectRelationshipsConversation(BaseModel):
     """
-    TemplateUpdateQuery
+    ConversationMessageCreateQueryResourceObjectRelationshipsConversation
     """ # noqa: E501
-    data: TemplateUpdateQueryResourceObject
+    data: Optional[ConversationMessageCreateQueryResourceObjectRelationshipsConversationData] = None
     __properties: ClassVar[List[str]] = ["data"]
 
     model_config = ConfigDict(
@@ -48,7 +48,7 @@ class TemplateUpdateQuery(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of TemplateUpdateQuery from a JSON string"""
+        """Create an instance of ConversationMessageCreateQueryResourceObjectRelationshipsConversation from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -76,7 +76,7 @@ class TemplateUpdateQuery(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of TemplateUpdateQuery from a dict"""
+        """Create an instance of ConversationMessageCreateQueryResourceObjectRelationshipsConversation from a dict"""
         if obj is None:
             return None
 
@@ -84,7 +84,7 @@ class TemplateUpdateQuery(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "data": TemplateUpdateQueryResourceObject.from_dict(obj["data"]) if obj.get("data") is not None else None
+            "data": ConversationMessageCreateQueryResourceObjectRelationshipsConversationData.from_dict(obj["data"]) if obj.get("data") is not None else None
         })
         return _obj
 

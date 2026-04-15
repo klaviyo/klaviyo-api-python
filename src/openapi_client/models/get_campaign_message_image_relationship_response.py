@@ -18,8 +18,9 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.get_campaign_message_image_relationship_response_data import GetCampaignMessageImageRelationshipResponseData
+from openapi_client.models.object_links import ObjectLinks
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,7 +29,8 @@ class GetCampaignMessageImageRelationshipResponse(BaseModel):
     GetCampaignMessageImageRelationshipResponse
     """ # noqa: E501
     data: GetCampaignMessageImageRelationshipResponseData
-    __properties: ClassVar[List[str]] = ["data"]
+    links: Optional[ObjectLinks] = None
+    __properties: ClassVar[List[str]] = ["data", "links"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -72,6 +74,9 @@ class GetCampaignMessageImageRelationshipResponse(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of data
         if self.data:
             _dict['data'] = self.data.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of links
+        if self.links:
+            _dict['links'] = self.links.to_dict()
         return _dict
 
     @classmethod
@@ -84,7 +89,8 @@ class GetCampaignMessageImageRelationshipResponse(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "data": GetCampaignMessageImageRelationshipResponseData.from_dict(obj["data"]) if obj.get("data") is not None else None
+            "data": GetCampaignMessageImageRelationshipResponseData.from_dict(obj["data"]) if obj.get("data") is not None else None,
+            "links": ObjectLinks.from_dict(obj["links"]) if obj.get("links") is not None else None
         })
         return _obj
 

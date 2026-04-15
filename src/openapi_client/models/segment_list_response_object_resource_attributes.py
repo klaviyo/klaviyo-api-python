@@ -32,7 +32,7 @@ class SegmentListResponseObjectResourceAttributes(BaseModel):
     definition: Optional[SegmentDefinition] = None
     created: Optional[datetime] = Field(default=None, description="Date and time when the segment was created, in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm)")
     updated: Optional[datetime] = Field(default=None, description="Date and time when the segment was last updated, in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm)")
-    is_active: StrictBool
+    is_active: StrictBool = Field(description="Whether the segment is active. Inactive segments are not processed and their membership does not update.")
     is_processing: StrictBool
     is_starred: StrictBool
     __properties: ClassVar[List[str]] = ["name", "definition", "created", "updated", "is_active", "is_processing", "is_starred"]

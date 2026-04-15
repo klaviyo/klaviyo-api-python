@@ -23,18 +23,19 @@ from enum import EnumMeta
 from pydantic import Field, StrictStr, field_validator
 from typing import List, Optional
 from typing_extensions import Annotated
-from openapi_client.models.get_template_response import GetTemplateResponse
-from openapi_client.models.get_template_response_collection import GetTemplateResponseCollection
+from openapi_client.models.get_template_dnd_response import GetTemplateDndResponse
+from openapi_client.models.get_template_dnd_response_collection import GetTemplateDndResponseCollection
 from openapi_client.models.get_universal_content_response import GetUniversalContentResponse
 from openapi_client.models.get_universal_content_response_collection import GetUniversalContentResponseCollection
-from openapi_client.models.patch_template_response import PatchTemplateResponse
+from openapi_client.models.patch_template_dnd_response import PatchTemplateDndResponse
 from openapi_client.models.patch_universal_content_response import PatchUniversalContentResponse
+from openapi_client.models.post_template_dnd_response import PostTemplateDndResponse
 from openapi_client.models.post_template_response import PostTemplateResponse
 from openapi_client.models.post_universal_content_response import PostUniversalContentResponse
 from openapi_client.models.template_clone_query import TemplateCloneQuery
-from openapi_client.models.template_create_query import TemplateCreateQuery
+from openapi_client.models.template_create_html_or_dnd_query import TemplateCreateHtmlOrDndQuery
 from openapi_client.models.template_render_query import TemplateRenderQuery
-from openapi_client.models.template_update_query import TemplateUpdateQuery
+from openapi_client.models.template_update_html_or_dnd_query import TemplateUpdateHtmlOrDndQuery
 from openapi_client.models.universal_content_create_query import UniversalContentCreateQuery
 from openapi_client.models.universal_content_partial_update_query import UniversalContentPartialUpdateQuery
 
@@ -77,7 +78,7 @@ class TemplatesApi(object):
 ) ->  Union[PostTemplateResponse, Dict[str, object]]:
         """Clone Template
 
-        Create a clone of a template with the given template ID.  If there are 1,000 or more templates in an account, cloning will fail as there is a limit of 1,000 templates that can be created via the API.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `templates:write`
+        Create a clone of a template with the given template ID.  If there are 1,000 or more templates in an account, cloning will fail as there is a limit of 1,000 templates that can be created via the API.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `templates:write`
 
         :param template_clone_query: (required)
         :type template_clone_query: TemplateCloneQuery
@@ -162,7 +163,7 @@ class TemplatesApi(object):
 ) -> ApiResponse[PostTemplateResponse]:
         """Clone Template
 
-        Create a clone of a template with the given template ID.  If there are 1,000 or more templates in an account, cloning will fail as there is a limit of 1,000 templates that can be created via the API.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `templates:write`
+        Create a clone of a template with the given template ID.  If there are 1,000 or more templates in an account, cloning will fail as there is a limit of 1,000 templates that can be created via the API.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `templates:write`
 
         :param template_clone_query: (required)
         :type template_clone_query: TemplateCloneQuery
@@ -243,7 +244,7 @@ class TemplatesApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Clone Template
 
-        Create a clone of a template with the given template ID.  If there are 1,000 or more templates in an account, cloning will fail as there is a limit of 1,000 templates that can be created via the API.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `templates:write`
+        Create a clone of a template with the given template ID.  If there are 1,000 or more templates in an account, cloning will fail as there is a limit of 1,000 templates that can be created via the API.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `templates:write`
 
         :param template_clone_query: (required)
         :type template_clone_query: TemplateCloneQuery
@@ -392,7 +393,8 @@ class TemplatesApi(object):
     @validate_call
     def create_template(        
         self,
-        template_create_query: TemplateCreateQuery,
+        template_create_html_or_dnd_query: TemplateCreateHtmlOrDndQuery,
+        additional_fields_template: Annotated[Optional[List[StrictStr]], Field(description="Request additional fields not included by default in the response. Supported values: 'definition'")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -406,13 +408,15 @@ class TemplatesApi(object):
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
         options: Dict[str, Any] = {},
-) ->  Union[PostTemplateResponse, Dict[str, object]]:
+) ->  Union[PostTemplateDndResponse, Dict[str, object]]:
         """Create Template
 
-        Create a new custom HTML template.  If there are 1,000 or more templates in an account, creation will fail as there is a limit of 1,000 templates that can be created via the API.  Request specific fields using [sparse fieldsets](https://developers.klaviyo.com/en/reference/api_overview#sparse-fieldsets).<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `templates:write`
+        Create a new HTML or drag-and-drop template.  If there are 1,000 or more templates in an account, creation will fail as there is a limit of 1,000 templates that can be created via the API.  Request specific fields using [sparse fieldsets](https://developers.klaviyo.com/en/reference/api_overview#sparse-fieldsets).<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `templates:write`
 
-        :param template_create_query: (required)
-        :type template_create_query: TemplateCreateQuery
+        :param template_create_html_or_dnd_query: (required)
+        :type template_create_html_or_dnd_query: TemplateCreateHtmlOrDndQuery
+        :param additional_fields_template: Request additional fields not included by default in the response. Supported values: 'definition'
+        :type additional_fields_template: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -436,7 +440,8 @@ class TemplatesApi(object):
         """ # noqa: E501
 
         _param = self._create_template_serialize(
-            template_create_query=template_create_query,
+            template_create_html_or_dnd_query=template_create_html_or_dnd_query,
+            additional_fields_template=additional_fields_template,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -444,7 +449,7 @@ class TemplatesApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "PostTemplateResponse",
+            '201': "PostTemplateDndResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -474,7 +479,8 @@ class TemplatesApi(object):
     @validate_call
     def create_template_with_http_info(        
         self,
-        template_create_query: TemplateCreateQuery,
+        template_create_html_or_dnd_query: TemplateCreateHtmlOrDndQuery,
+        additional_fields_template: Annotated[Optional[List[StrictStr]], Field(description="Request additional fields not included by default in the response. Supported values: 'definition'")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -488,13 +494,15 @@ class TemplatesApi(object):
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
         options: Dict[str, Any] = {},
-) -> ApiResponse[PostTemplateResponse]:
+) -> ApiResponse[PostTemplateDndResponse]:
         """Create Template
 
-        Create a new custom HTML template.  If there are 1,000 or more templates in an account, creation will fail as there is a limit of 1,000 templates that can be created via the API.  Request specific fields using [sparse fieldsets](https://developers.klaviyo.com/en/reference/api_overview#sparse-fieldsets).<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `templates:write`
+        Create a new HTML or drag-and-drop template.  If there are 1,000 or more templates in an account, creation will fail as there is a limit of 1,000 templates that can be created via the API.  Request specific fields using [sparse fieldsets](https://developers.klaviyo.com/en/reference/api_overview#sparse-fieldsets).<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `templates:write`
 
-        :param template_create_query: (required)
-        :type template_create_query: TemplateCreateQuery
+        :param template_create_html_or_dnd_query: (required)
+        :type template_create_html_or_dnd_query: TemplateCreateHtmlOrDndQuery
+        :param additional_fields_template: Request additional fields not included by default in the response. Supported values: 'definition'
+        :type additional_fields_template: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -518,7 +526,8 @@ class TemplatesApi(object):
         """ # noqa: E501
 
         _param = self._create_template_serialize(
-            template_create_query=template_create_query,
+            template_create_html_or_dnd_query=template_create_html_or_dnd_query,
+            additional_fields_template=additional_fields_template,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -526,7 +535,7 @@ class TemplatesApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "PostTemplateResponse",
+            '201': "PostTemplateDndResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -554,7 +563,8 @@ class TemplatesApi(object):
     @validate_call
     def create_template_without_preload_content(
         self,
-        template_create_query: TemplateCreateQuery,
+        template_create_html_or_dnd_query: TemplateCreateHtmlOrDndQuery,
+        additional_fields_template: Annotated[Optional[List[StrictStr]], Field(description="Request additional fields not included by default in the response. Supported values: 'definition'")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -569,10 +579,12 @@ class TemplatesApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Create Template
 
-        Create a new custom HTML template.  If there are 1,000 or more templates in an account, creation will fail as there is a limit of 1,000 templates that can be created via the API.  Request specific fields using [sparse fieldsets](https://developers.klaviyo.com/en/reference/api_overview#sparse-fieldsets).<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `templates:write`
+        Create a new HTML or drag-and-drop template.  If there are 1,000 or more templates in an account, creation will fail as there is a limit of 1,000 templates that can be created via the API.  Request specific fields using [sparse fieldsets](https://developers.klaviyo.com/en/reference/api_overview#sparse-fieldsets).<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `templates:write`
 
-        :param template_create_query: (required)
-        :type template_create_query: TemplateCreateQuery
+        :param template_create_html_or_dnd_query: (required)
+        :type template_create_html_or_dnd_query: TemplateCreateHtmlOrDndQuery
+        :param additional_fields_template: Request additional fields not included by default in the response. Supported values: 'definition'
+        :type additional_fields_template: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -596,7 +608,8 @@ class TemplatesApi(object):
         """ # noqa: E501
 
         _param = self._create_template_serialize(
-            template_create_query=template_create_query,
+            template_create_html_or_dnd_query=template_create_html_or_dnd_query,
+            additional_fields_template=additional_fields_template,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -604,7 +617,7 @@ class TemplatesApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "PostTemplateResponse",
+            '201': "PostTemplateDndResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -636,7 +649,8 @@ class TemplatesApi(object):
 
     def _create_template_serialize(
         self,
-        template_create_query,
+        template_create_html_or_dnd_query,
+        additional_fields_template,
         _request_auth,
         _content_type,
         _headers,
@@ -646,6 +660,7 @@ class TemplatesApi(object):
         _host = None
 
         _collection_formats: Dict[str, str] = {
+            'additional-fields[template]': 'csv',
         }
 
         _path_params: Dict[str, str] = {}
@@ -657,11 +672,18 @@ class TemplatesApi(object):
 
         # process the path parameters
         # process the query parameters
+        if additional_fields_template is not None:
+            
+            if isinstance(additional_fields_template, EnumMeta):
+                _query_params.append(('additional-fields[template]', additional_fields_template))
+            else:
+                _query_params.append(('additional-fields[template]', additional_fields_template))
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if template_create_query is not None:
-            _body_params = template_create_query
+        if template_create_html_or_dnd_query is not None:
+            _body_params = template_create_html_or_dnd_query
 
 
         # set the HTTP header `Accept`
@@ -729,7 +751,7 @@ class TemplatesApi(object):
 ) ->  Union[PostUniversalContentResponse, Dict[str, object]]:
         """Create Universal Content
 
-        Create universal content. Currently supported block types are: `button`, `drop_shadow`, `horizontal_rule`, `html`, `image`, `spacer`, and `text`.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `templates:write`
+        Create universal content. Currently supported block types are: `button`, `drop_shadow`, `horizontal_rule`, `html`, `image`, `spacer`, and `text`.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `templates:write`
 
         :param universal_content_create_query: Create a template universal content (required)
         :type universal_content_create_query: UniversalContentCreateQuery
@@ -814,7 +836,7 @@ class TemplatesApi(object):
 ) -> ApiResponse[PostUniversalContentResponse]:
         """Create Universal Content
 
-        Create universal content. Currently supported block types are: `button`, `drop_shadow`, `horizontal_rule`, `html`, `image`, `spacer`, and `text`.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `templates:write`
+        Create universal content. Currently supported block types are: `button`, `drop_shadow`, `horizontal_rule`, `html`, `image`, `spacer`, and `text`.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `templates:write`
 
         :param universal_content_create_query: Create a template universal content (required)
         :type universal_content_create_query: UniversalContentCreateQuery
@@ -895,7 +917,7 @@ class TemplatesApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Create Universal Content
 
-        Create universal content. Currently supported block types are: `button`, `drop_shadow`, `horizontal_rule`, `html`, `image`, `spacer`, and `text`.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `templates:write`
+        Create universal content. Currently supported block types are: `button`, `drop_shadow`, `horizontal_rule`, `html`, `image`, `spacer`, and `text`.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `templates:write`
 
         :param universal_content_create_query: Create a template universal content (required)
         :type universal_content_create_query: UniversalContentCreateQuery
@@ -1061,7 +1083,7 @@ class TemplatesApi(object):
 ) -> None:
         """Delete Template
 
-        Delete a template with the given template ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `templates:write`
+        Delete a template with the given template ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `templates:write`
 
         :param id: The ID of template (required)
         :type id: str
@@ -1143,7 +1165,7 @@ class TemplatesApi(object):
 ) -> ApiResponse[None]:
         """Delete Template
 
-        Delete a template with the given template ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `templates:write`
+        Delete a template with the given template ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `templates:write`
 
         :param id: The ID of template (required)
         :type id: str
@@ -1221,7 +1243,7 @@ class TemplatesApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Delete Template
 
-        Delete a template with the given template ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `templates:write`
+        Delete a template with the given template ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `templates:write`
 
         :param id: The ID of template (required)
         :type id: str
@@ -1368,7 +1390,7 @@ class TemplatesApi(object):
 ) -> None:
         """Delete Universal Content
 
-        Delete the universal content with the given ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `templates:write`
+        Delete the universal content with the given ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `templates:write`
 
         :param id: The ID of the template universal content (required)
         :type id: str
@@ -1453,7 +1475,7 @@ class TemplatesApi(object):
 ) -> ApiResponse[None]:
         """Delete Universal Content
 
-        Delete the universal content with the given ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `templates:write`
+        Delete the universal content with the given ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `templates:write`
 
         :param id: The ID of the template universal content (required)
         :type id: str
@@ -1534,7 +1556,7 @@ class TemplatesApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Delete Universal Content
 
-        Delete the universal content with the given ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `templates:write`
+        Delete the universal content with the given ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `templates:write`
 
         :param id: The ID of the template universal content (required)
         :type id: str
@@ -1670,11 +1692,11 @@ class TemplatesApi(object):
     @validate_call
     def get_all_universal_content(        
         self,
-        fields_template_universal_content: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`, `equals`<br>`name`: `any`, `equals`<br>`created`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`updated`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`definition.content_type`: `equals`<br>`definition.type`: `equals`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination")] = None,
+        fields_template_universal_content: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`, `equals`<br>`name`: `any`, `equals`<br>`created`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`updated`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`definition.content_type`: `equals`<br>`definition.type`: `equals`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
         page_size: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Default: 20. Min: 1. Max: 100.")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1691,17 +1713,17 @@ class TemplatesApi(object):
 ) ->  Union[GetUniversalContentResponseCollection, Dict[str, object]]:
         """Get All Universal Content
 
-        Get all universal content in an account.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `templates:read`
+        Get all universal content in an account.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `templates:read`
 
-        :param fields_template_universal_content: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_template_universal_content: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_template_universal_content: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`, `equals`<br>`name`: `any`, `equals`<br>`created`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`updated`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`definition.content_type`: `equals`<br>`definition.type`: `equals`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`, `equals`<br>`name`: `any`, `equals`<br>`created`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`updated`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`definition.content_type`: `equals`<br>`definition.type`: `equals`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
         :type page_cursor: str
         :param page_size: Default: 20. Min: 1. Max: 100.
         :type page_size: int
-        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting
         :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1771,11 +1793,11 @@ class TemplatesApi(object):
     @validate_call
     def get_all_universal_content_with_http_info(        
         self,
-        fields_template_universal_content: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`, `equals`<br>`name`: `any`, `equals`<br>`created`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`updated`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`definition.content_type`: `equals`<br>`definition.type`: `equals`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination")] = None,
+        fields_template_universal_content: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`, `equals`<br>`name`: `any`, `equals`<br>`created`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`updated`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`definition.content_type`: `equals`<br>`definition.type`: `equals`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
         page_size: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Default: 20. Min: 1. Max: 100.")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1792,17 +1814,17 @@ class TemplatesApi(object):
 ) -> ApiResponse[GetUniversalContentResponseCollection]:
         """Get All Universal Content
 
-        Get all universal content in an account.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `templates:read`
+        Get all universal content in an account.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `templates:read`
 
-        :param fields_template_universal_content: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_template_universal_content: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_template_universal_content: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`, `equals`<br>`name`: `any`, `equals`<br>`created`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`updated`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`definition.content_type`: `equals`<br>`definition.type`: `equals`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`, `equals`<br>`name`: `any`, `equals`<br>`created`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`updated`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`definition.content_type`: `equals`<br>`definition.type`: `equals`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
         :type page_cursor: str
         :param page_size: Default: 20. Min: 1. Max: 100.
         :type page_size: int
-        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting
         :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1870,11 +1892,11 @@ class TemplatesApi(object):
     @validate_call
     def get_all_universal_content_without_preload_content(
         self,
-        fields_template_universal_content: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`, `equals`<br>`name`: `any`, `equals`<br>`created`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`updated`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`definition.content_type`: `equals`<br>`definition.type`: `equals`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination")] = None,
+        fields_template_universal_content: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`, `equals`<br>`name`: `any`, `equals`<br>`created`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`updated`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`definition.content_type`: `equals`<br>`definition.type`: `equals`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
         page_size: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Default: 20. Min: 1. Max: 100.")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1889,17 +1911,17 @@ class TemplatesApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get All Universal Content
 
-        Get all universal content in an account.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `templates:read`
+        Get all universal content in an account.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `templates:read`
 
-        :param fields_template_universal_content: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_template_universal_content: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_template_universal_content: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`, `equals`<br>`name`: `any`, `equals`<br>`created`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`updated`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`definition.content_type`: `equals`<br>`definition.type`: `equals`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`, `equals`<br>`name`: `any`, `equals`<br>`created`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`updated`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`definition.content_type`: `equals`<br>`definition.type`: `equals`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
         :type page_cursor: str
         :param page_size: Default: 20. Min: 1. Max: 100.
         :type page_size: int
-        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting
         :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2076,7 +2098,8 @@ class TemplatesApi(object):
     def get_template(        
         self,
         id: Annotated[StrictStr, Field(description="The ID of template")],
-        fields_template: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
+        additional_fields_template: Annotated[Optional[List[StrictStr]], Field(description="Request additional fields not included by default in the response. Supported values: 'definition'")] = None,
+        fields_template: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2090,14 +2113,16 @@ class TemplatesApi(object):
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
         options: Dict[str, Any] = {},
-) ->  Union[GetTemplateResponse, Dict[str, object]]:
+) ->  Union[GetTemplateDndResponse, Dict[str, object]]:
         """Get Template
 
-        Get a template with the given template ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `templates:read`
+        Get a template with the given template ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `templates:read`
 
         :param id: The ID of template (required)
         :type id: str
-        :param fields_template: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param additional_fields_template: Request additional fields not included by default in the response. Supported values: 'definition'
+        :type additional_fields_template: List[str]
+        :param fields_template: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_template: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2123,6 +2148,7 @@ class TemplatesApi(object):
 
         _param = self._get_template_serialize(
             id=id,
+            additional_fields_template=additional_fields_template,
             fields_template=fields_template,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -2131,7 +2157,7 @@ class TemplatesApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetTemplateResponse",
+            '200': "GetTemplateDndResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -2162,7 +2188,8 @@ class TemplatesApi(object):
     def get_template_with_http_info(        
         self,
         id: Annotated[StrictStr, Field(description="The ID of template")],
-        fields_template: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
+        additional_fields_template: Annotated[Optional[List[StrictStr]], Field(description="Request additional fields not included by default in the response. Supported values: 'definition'")] = None,
+        fields_template: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2176,14 +2203,16 @@ class TemplatesApi(object):
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
         options: Dict[str, Any] = {},
-) -> ApiResponse[GetTemplateResponse]:
+) -> ApiResponse[GetTemplateDndResponse]:
         """Get Template
 
-        Get a template with the given template ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `templates:read`
+        Get a template with the given template ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `templates:read`
 
         :param id: The ID of template (required)
         :type id: str
-        :param fields_template: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param additional_fields_template: Request additional fields not included by default in the response. Supported values: 'definition'
+        :type additional_fields_template: List[str]
+        :param fields_template: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_template: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2209,6 +2238,7 @@ class TemplatesApi(object):
 
         _param = self._get_template_serialize(
             id=id,
+            additional_fields_template=additional_fields_template,
             fields_template=fields_template,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -2217,7 +2247,7 @@ class TemplatesApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetTemplateResponse",
+            '200': "GetTemplateDndResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -2246,7 +2276,8 @@ class TemplatesApi(object):
     def get_template_without_preload_content(
         self,
         id: Annotated[StrictStr, Field(description="The ID of template")],
-        fields_template: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
+        additional_fields_template: Annotated[Optional[List[StrictStr]], Field(description="Request additional fields not included by default in the response. Supported values: 'definition'")] = None,
+        fields_template: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2261,11 +2292,13 @@ class TemplatesApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Template
 
-        Get a template with the given template ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `templates:read`
+        Get a template with the given template ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `templates:read`
 
         :param id: The ID of template (required)
         :type id: str
-        :param fields_template: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param additional_fields_template: Request additional fields not included by default in the response. Supported values: 'definition'
+        :type additional_fields_template: List[str]
+        :param fields_template: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_template: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2291,6 +2324,7 @@ class TemplatesApi(object):
 
         _param = self._get_template_serialize(
             id=id,
+            additional_fields_template=additional_fields_template,
             fields_template=fields_template,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -2299,7 +2333,7 @@ class TemplatesApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetTemplateResponse",
+            '200': "GetTemplateDndResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -2332,6 +2366,7 @@ class TemplatesApi(object):
     def _get_template_serialize(
         self,
         id,
+        additional_fields_template,
         fields_template,
         _request_auth,
         _content_type,
@@ -2342,6 +2377,7 @@ class TemplatesApi(object):
         _host = None
 
         _collection_formats: Dict[str, str] = {
+            'additional-fields[template]': 'csv',
             'fields[template]': 'csv',
         }
 
@@ -2356,6 +2392,13 @@ class TemplatesApi(object):
         if id is not None:
             _path_params['id'] = id
         # process the query parameters
+        if additional_fields_template is not None:
+            
+            if isinstance(additional_fields_template, EnumMeta):
+                _query_params.append(('additional-fields[template]', additional_fields_template))
+            else:
+                _query_params.append(('additional-fields[template]', additional_fields_template))
+            
         if fields_template is not None:
             
             if isinstance(fields_template, EnumMeta):
@@ -2403,10 +2446,11 @@ class TemplatesApi(object):
     @validate_call
     def get_templates(        
         self,
-        fields_template: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`, `equals`<br>`name`: `any`, `contains`, `equals`<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting")] = None,
+        additional_fields_template: Annotated[Optional[List[StrictStr]], Field(description="Request additional fields not included by default in the response. Supported values: 'definition'")] = None,
+        fields_template: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`, `equals`<br>`name`: `any`, `contains`, `equals`<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2420,18 +2464,20 @@ class TemplatesApi(object):
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
         options: Dict[str, Any] = {},
-) ->  Union[GetTemplateResponseCollection, Dict[str, object]]:
+) ->  Union[GetTemplateDndResponseCollection, Dict[str, object]]:
         """Get Templates
 
-        Get all templates in an account.  Filter to request a subset of all templates. Templates can be sorted by the following fields, in ascending and descending order: `id`, `name`, `created`, `updated`  Returns a maximum of 10 results per page.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `templates:read`
+        Get all templates in an account.  Use `additional-fields[template]=definition` to include the full template definition for SYSTEM_DRAGGABLE templates.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `templates:read`
 
-        :param fields_template: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param additional_fields_template: Request additional fields not included by default in the response. Supported values: 'definition'
+        :type additional_fields_template: List[str]
+        :param fields_template: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_template: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`, `equals`<br>`name`: `any`, `contains`, `equals`<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`, `equals`<br>`name`: `any`, `contains`, `equals`<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
         :type page_cursor: str
-        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting
         :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2456,6 +2502,7 @@ class TemplatesApi(object):
         """ # noqa: E501
 
         _param = self._get_templates_serialize(
+            additional_fields_template=additional_fields_template,
             fields_template=fields_template,
             filter=filter,
             page_cursor=page_cursor,
@@ -2467,7 +2514,7 @@ class TemplatesApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetTemplateResponseCollection",
+            '200': "GetTemplateDndResponseCollection",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -2497,10 +2544,11 @@ class TemplatesApi(object):
     @validate_call
     def get_templates_with_http_info(        
         self,
-        fields_template: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`, `equals`<br>`name`: `any`, `contains`, `equals`<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting")] = None,
+        additional_fields_template: Annotated[Optional[List[StrictStr]], Field(description="Request additional fields not included by default in the response. Supported values: 'definition'")] = None,
+        fields_template: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`, `equals`<br>`name`: `any`, `contains`, `equals`<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2514,18 +2562,20 @@ class TemplatesApi(object):
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
         options: Dict[str, Any] = {},
-) -> ApiResponse[GetTemplateResponseCollection]:
+) -> ApiResponse[GetTemplateDndResponseCollection]:
         """Get Templates
 
-        Get all templates in an account.  Filter to request a subset of all templates. Templates can be sorted by the following fields, in ascending and descending order: `id`, `name`, `created`, `updated`  Returns a maximum of 10 results per page.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `templates:read`
+        Get all templates in an account.  Use `additional-fields[template]=definition` to include the full template definition for SYSTEM_DRAGGABLE templates.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `templates:read`
 
-        :param fields_template: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param additional_fields_template: Request additional fields not included by default in the response. Supported values: 'definition'
+        :type additional_fields_template: List[str]
+        :param fields_template: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_template: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`, `equals`<br>`name`: `any`, `contains`, `equals`<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`, `equals`<br>`name`: `any`, `contains`, `equals`<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
         :type page_cursor: str
-        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting
         :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2550,6 +2600,7 @@ class TemplatesApi(object):
         """ # noqa: E501
 
         _param = self._get_templates_serialize(
+            additional_fields_template=additional_fields_template,
             fields_template=fields_template,
             filter=filter,
             page_cursor=page_cursor,
@@ -2561,7 +2612,7 @@ class TemplatesApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetTemplateResponseCollection",
+            '200': "GetTemplateDndResponseCollection",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -2589,10 +2640,11 @@ class TemplatesApi(object):
     @validate_call
     def get_templates_without_preload_content(
         self,
-        fields_template: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`, `equals`<br>`name`: `any`, `contains`, `equals`<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting")] = None,
+        additional_fields_template: Annotated[Optional[List[StrictStr]], Field(description="Request additional fields not included by default in the response. Supported values: 'definition'")] = None,
+        fields_template: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`, `equals`<br>`name`: `any`, `contains`, `equals`<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2607,15 +2659,17 @@ class TemplatesApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Templates
 
-        Get all templates in an account.  Filter to request a subset of all templates. Templates can be sorted by the following fields, in ascending and descending order: `id`, `name`, `created`, `updated`  Returns a maximum of 10 results per page.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `templates:read`
+        Get all templates in an account.  Use `additional-fields[template]=definition` to include the full template definition for SYSTEM_DRAGGABLE templates.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `templates:read`
 
-        :param fields_template: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param additional_fields_template: Request additional fields not included by default in the response. Supported values: 'definition'
+        :type additional_fields_template: List[str]
+        :param fields_template: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_template: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`, `equals`<br>`name`: `any`, `contains`, `equals`<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`, `equals`<br>`name`: `any`, `contains`, `equals`<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
         :type page_cursor: str
-        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting
         :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2640,6 +2694,7 @@ class TemplatesApi(object):
         """ # noqa: E501
 
         _param = self._get_templates_serialize(
+            additional_fields_template=additional_fields_template,
             fields_template=fields_template,
             filter=filter,
             page_cursor=page_cursor,
@@ -2651,7 +2706,7 @@ class TemplatesApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetTemplateResponseCollection",
+            '200': "GetTemplateDndResponseCollection",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -2683,6 +2738,7 @@ class TemplatesApi(object):
 
     def _get_templates_serialize(
         self,
+        additional_fields_template,
         fields_template,
         filter,
         page_cursor,
@@ -2696,6 +2752,7 @@ class TemplatesApi(object):
         _host = None
 
         _collection_formats: Dict[str, str] = {
+            'additional-fields[template]': 'csv',
             'fields[template]': 'csv',
         }
 
@@ -2708,6 +2765,13 @@ class TemplatesApi(object):
 
         # process the path parameters
         # process the query parameters
+        if additional_fields_template is not None:
+            
+            if isinstance(additional_fields_template, EnumMeta):
+                _query_params.append(('additional-fields[template]', additional_fields_template))
+            else:
+                _query_params.append(('additional-fields[template]', additional_fields_template))
+            
         if fields_template is not None:
             
             if isinstance(fields_template, EnumMeta):
@@ -2777,7 +2841,7 @@ class TemplatesApi(object):
     def get_universal_content(        
         self,
         id: Annotated[StrictStr, Field(description="The ID of the universal content")],
-        fields_template_universal_content: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_template_universal_content: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2794,11 +2858,11 @@ class TemplatesApi(object):
 ) ->  Union[GetUniversalContentResponse, Dict[str, object]]:
         """Get Universal Content
 
-        Get the universal content with the given ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `templates:read`
+        Get the universal content with the given ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `templates:read`
 
         :param id: The ID of the universal content (required)
         :type id: str
-        :param fields_template_universal_content: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_template_universal_content: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_template_universal_content: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2863,7 +2927,7 @@ class TemplatesApi(object):
     def get_universal_content_with_http_info(        
         self,
         id: Annotated[StrictStr, Field(description="The ID of the universal content")],
-        fields_template_universal_content: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_template_universal_content: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2880,11 +2944,11 @@ class TemplatesApi(object):
 ) -> ApiResponse[GetUniversalContentResponse]:
         """Get Universal Content
 
-        Get the universal content with the given ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `templates:read`
+        Get the universal content with the given ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `templates:read`
 
         :param id: The ID of the universal content (required)
         :type id: str
-        :param fields_template_universal_content: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_template_universal_content: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_template_universal_content: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2947,7 +3011,7 @@ class TemplatesApi(object):
     def get_universal_content_without_preload_content(
         self,
         id: Annotated[StrictStr, Field(description="The ID of the universal content")],
-        fields_template_universal_content: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_template_universal_content: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2962,11 +3026,11 @@ class TemplatesApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Universal Content
 
-        Get the universal content with the given ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `templates:read`
+        Get the universal content with the given ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `templates:read`
 
         :param id: The ID of the universal content (required)
         :type id: str
-        :param fields_template_universal_content: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_template_universal_content: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_template_universal_content: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3437,7 +3501,8 @@ class TemplatesApi(object):
     def update_template(        
         self,
         id: Annotated[StrictStr, Field(description="The ID of template")],
-        template_update_query: TemplateUpdateQuery,
+        template_update_html_or_dnd_query: TemplateUpdateHtmlOrDndQuery,
+        additional_fields_template: Annotated[Optional[List[StrictStr]], Field(description="Request additional fields not included by default in the response. Supported values: 'definition'")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3451,15 +3516,17 @@ class TemplatesApi(object):
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
         options: Dict[str, Any] = {},
-) ->  Union[PatchTemplateResponse, Dict[str, object]]:
+) ->  Union[PatchTemplateDndResponse, Dict[str, object]]:
         """Update Template
 
-        Update a template with the given template ID. Does not currently update drag & drop templates.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `templates:write`
+        Update a template with the given template ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `templates:write`
 
         :param id: The ID of template (required)
         :type id: str
-        :param template_update_query: (required)
-        :type template_update_query: TemplateUpdateQuery
+        :param template_update_html_or_dnd_query: (required)
+        :type template_update_html_or_dnd_query: TemplateUpdateHtmlOrDndQuery
+        :param additional_fields_template: Request additional fields not included by default in the response. Supported values: 'definition'
+        :type additional_fields_template: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3484,7 +3551,8 @@ class TemplatesApi(object):
 
         _param = self._update_template_serialize(
             id=id,
-            template_update_query=template_update_query,
+            template_update_html_or_dnd_query=template_update_html_or_dnd_query,
+            additional_fields_template=additional_fields_template,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3492,7 +3560,7 @@ class TemplatesApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PatchTemplateResponse",
+            '200': "PatchTemplateDndResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -3523,7 +3591,8 @@ class TemplatesApi(object):
     def update_template_with_http_info(        
         self,
         id: Annotated[StrictStr, Field(description="The ID of template")],
-        template_update_query: TemplateUpdateQuery,
+        template_update_html_or_dnd_query: TemplateUpdateHtmlOrDndQuery,
+        additional_fields_template: Annotated[Optional[List[StrictStr]], Field(description="Request additional fields not included by default in the response. Supported values: 'definition'")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3537,15 +3606,17 @@ class TemplatesApi(object):
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
         options: Dict[str, Any] = {},
-) -> ApiResponse[PatchTemplateResponse]:
+) -> ApiResponse[PatchTemplateDndResponse]:
         """Update Template
 
-        Update a template with the given template ID. Does not currently update drag & drop templates.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `templates:write`
+        Update a template with the given template ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `templates:write`
 
         :param id: The ID of template (required)
         :type id: str
-        :param template_update_query: (required)
-        :type template_update_query: TemplateUpdateQuery
+        :param template_update_html_or_dnd_query: (required)
+        :type template_update_html_or_dnd_query: TemplateUpdateHtmlOrDndQuery
+        :param additional_fields_template: Request additional fields not included by default in the response. Supported values: 'definition'
+        :type additional_fields_template: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3570,7 +3641,8 @@ class TemplatesApi(object):
 
         _param = self._update_template_serialize(
             id=id,
-            template_update_query=template_update_query,
+            template_update_html_or_dnd_query=template_update_html_or_dnd_query,
+            additional_fields_template=additional_fields_template,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3578,7 +3650,7 @@ class TemplatesApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PatchTemplateResponse",
+            '200': "PatchTemplateDndResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -3607,7 +3679,8 @@ class TemplatesApi(object):
     def update_template_without_preload_content(
         self,
         id: Annotated[StrictStr, Field(description="The ID of template")],
-        template_update_query: TemplateUpdateQuery,
+        template_update_html_or_dnd_query: TemplateUpdateHtmlOrDndQuery,
+        additional_fields_template: Annotated[Optional[List[StrictStr]], Field(description="Request additional fields not included by default in the response. Supported values: 'definition'")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3622,12 +3695,14 @@ class TemplatesApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Update Template
 
-        Update a template with the given template ID. Does not currently update drag & drop templates.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `templates:write`
+        Update a template with the given template ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `templates:write`
 
         :param id: The ID of template (required)
         :type id: str
-        :param template_update_query: (required)
-        :type template_update_query: TemplateUpdateQuery
+        :param template_update_html_or_dnd_query: (required)
+        :type template_update_html_or_dnd_query: TemplateUpdateHtmlOrDndQuery
+        :param additional_fields_template: Request additional fields not included by default in the response. Supported values: 'definition'
+        :type additional_fields_template: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3652,7 +3727,8 @@ class TemplatesApi(object):
 
         _param = self._update_template_serialize(
             id=id,
-            template_update_query=template_update_query,
+            template_update_html_or_dnd_query=template_update_html_or_dnd_query,
+            additional_fields_template=additional_fields_template,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3660,7 +3736,7 @@ class TemplatesApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PatchTemplateResponse",
+            '200': "PatchTemplateDndResponse",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -3693,7 +3769,8 @@ class TemplatesApi(object):
     def _update_template_serialize(
         self,
         id,
-        template_update_query,
+        template_update_html_or_dnd_query,
+        additional_fields_template,
         _request_auth,
         _content_type,
         _headers,
@@ -3703,6 +3780,7 @@ class TemplatesApi(object):
         _host = None
 
         _collection_formats: Dict[str, str] = {
+            'additional-fields[template]': 'csv',
         }
 
         _path_params: Dict[str, str] = {}
@@ -3716,11 +3794,18 @@ class TemplatesApi(object):
         if id is not None:
             _path_params['id'] = id
         # process the query parameters
+        if additional_fields_template is not None:
+            
+            if isinstance(additional_fields_template, EnumMeta):
+                _query_params.append(('additional-fields[template]', additional_fields_template))
+            else:
+                _query_params.append(('additional-fields[template]', additional_fields_template))
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if template_update_query is not None:
-            _body_params = template_update_query
+        if template_update_html_or_dnd_query is not None:
+            _body_params = template_update_html_or_dnd_query
 
 
         # set the HTTP header `Accept`
@@ -3789,7 +3874,7 @@ class TemplatesApi(object):
 ) ->  Union[PatchUniversalContentResponse, Dict[str, object]]:
         """Update Universal Content
 
-        Update universal content. The `definition` field can only be updated on the following block types at this time: `button`, `drop_shadow`, `horizontal_rule`, `html`, `image`, `spacer`, and `text`.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `templates:write`
+        Update universal content. The `definition` field can only be updated on the following block types at this time: `button`, `drop_shadow`, `horizontal_rule`, `html`, `image`, `spacer`, and `text`.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `templates:write`
 
         :param id: The ID of the template universal content (required)
         :type id: str
@@ -3878,7 +3963,7 @@ class TemplatesApi(object):
 ) -> ApiResponse[PatchUniversalContentResponse]:
         """Update Universal Content
 
-        Update universal content. The `definition` field can only be updated on the following block types at this time: `button`, `drop_shadow`, `horizontal_rule`, `html`, `image`, `spacer`, and `text`.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `templates:write`
+        Update universal content. The `definition` field can only be updated on the following block types at this time: `button`, `drop_shadow`, `horizontal_rule`, `html`, `image`, `spacer`, and `text`.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `templates:write`
 
         :param id: The ID of the template universal content (required)
         :type id: str
@@ -3963,7 +4048,7 @@ class TemplatesApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Update Universal Content
 
-        Update universal content. The `definition` field can only be updated on the following block types at this time: `button`, `drop_shadow`, `horizontal_rule`, `html`, `image`, `spacer`, and `text`.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `templates:write`
+        Update universal content. The `definition` field can only be updated on the following block types at this time: `button`, `drop_shadow`, `horizontal_rule`, `html`, `image`, `spacer`, and `text`.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `templates:write`
 
         :param id: The ID of the template universal content (required)
         :type id: str
