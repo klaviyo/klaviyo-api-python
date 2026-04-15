@@ -44,8 +44,8 @@ class CampaignResponseObjectResourceAttributes(BaseModel):
     @field_validator('status')
     def status_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['Adding Recipients', 'Cancelled', 'Cancelled: Account Disabled', 'Cancelled: Internal Error', 'Cancelled: No Recipients', 'Cancelled: Smart Sending', 'Draft', 'Preparing to schedule', 'Preparing to send', 'Queued without Recipients', 'Scheduled', 'Sending', 'Sending Segments', 'Sent', 'Unknown', 'Variations Sent']):
-            raise ValueError("must be one of enum values ('Adding Recipients', 'Cancelled', 'Cancelled: Account Disabled', 'Cancelled: Internal Error', 'Cancelled: No Recipients', 'Cancelled: Smart Sending', 'Draft', 'Preparing to schedule', 'Preparing to send', 'Queued without Recipients', 'Scheduled', 'Sending', 'Sending Segments', 'Sent', 'Unknown', 'Variations Sent')")
+        if value not in set(['Adding Recipients', 'Cancelled', 'Cancelled: Account Disabled', 'Cancelled: Billing Limit', 'Cancelled: Internal Error', 'Cancelled: Misconfigured', 'Cancelled: No Recipients', 'Cancelled: Smart Sending', 'Draft', 'Preparing to schedule', 'Preparing to send', 'Queued without Recipients', 'Scheduled', 'Sending', 'Sending Segments', 'Sent', 'Unknown', 'Variations Sent']):
+            raise ValueError("must be one of enum values ('Adding Recipients', 'Cancelled', 'Cancelled: Account Disabled', 'Cancelled: Billing Limit', 'Cancelled: Internal Error', 'Cancelled: Misconfigured', 'Cancelled: No Recipients', 'Cancelled: Smart Sending', 'Draft', 'Preparing to schedule', 'Preparing to send', 'Queued without Recipients', 'Scheduled', 'Sending', 'Sending Segments', 'Sent', 'Unknown', 'Variations Sent')")
         return value
 
     model_config = ConfigDict(

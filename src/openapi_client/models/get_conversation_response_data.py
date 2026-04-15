@@ -17,18 +17,23 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List
-from openapi_client.models.encoded_form_response_object_resource import EncodedFormResponseObjectResource
+from pydantic import BaseModel, ConfigDict, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional
+from openapi_client.models.conversation_enum import ConversationEnum
+from openapi_client.models.get_push_token_response_collection_data_inner_all_of_relationships import GetPushTokenResponseCollectionDataInnerAllOfRelationships
+from openapi_client.models.object_links import ObjectLinks
 from typing import Optional, Set
 from typing_extensions import Self
 
-class GetEncodedFormResponseCompoundDocument(BaseModel):
+class GetConversationResponseData(BaseModel):
     """
-    GetEncodedFormResponseCompoundDocument
+    GetConversationResponseData
     """ # noqa: E501
-    data: EncodedFormResponseObjectResource
-    __properties: ClassVar[List[str]] = ["data"]
+    type: ConversationEnum
+    id: StrictStr
+    links: ObjectLinks
+    relationships: Optional[GetPushTokenResponseCollectionDataInnerAllOfRelationships] = None
+    __properties: ClassVar[List[str]] = ["type", "id", "links", "relationships"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -48,7 +53,7 @@ class GetEncodedFormResponseCompoundDocument(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of GetEncodedFormResponseCompoundDocument from a JSON string"""
+        """Create an instance of GetConversationResponseData from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -69,14 +74,17 @@ class GetEncodedFormResponseCompoundDocument(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of data
-        if self.data:
-            _dict['data'] = self.data.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of links
+        if self.links:
+            _dict['links'] = self.links.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of relationships
+        if self.relationships:
+            _dict['relationships'] = self.relationships.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of GetEncodedFormResponseCompoundDocument from a dict"""
+        """Create an instance of GetConversationResponseData from a dict"""
         if obj is None:
             return None
 
@@ -84,7 +92,10 @@ class GetEncodedFormResponseCompoundDocument(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "data": EncodedFormResponseObjectResource.from_dict(obj["data"]) if obj.get("data") is not None else None
+            "type": obj.get("type"),
+            "id": obj.get("id"),
+            "links": ObjectLinks.from_dict(obj["links"]) if obj.get("links") is not None else None,
+            "relationships": GetPushTokenResponseCollectionDataInnerAllOfRelationships.from_dict(obj["relationships"]) if obj.get("relationships") is not None else None
         })
         return _obj
 

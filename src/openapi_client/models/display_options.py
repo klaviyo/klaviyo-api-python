@@ -17,20 +17,31 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.collection_links import CollectionLinks
-from openapi_client.models.get_form_response_collection_compound_document_data_inner import GetFormResponseCollectionCompoundDocumentDataInner
+from openapi_client.models.content_repeat_v1 import ContentRepeatV1
+from openapi_client.models.visibility import Visibility
 from typing import Optional, Set
 from typing_extensions import Self
 
-class GetFormResponseCollectionCompoundDocument(BaseModel):
+class DisplayOptions(BaseModel):
     """
-    GetFormResponseCollectionCompoundDocument
+    DisplayOptions
     """ # noqa: E501
-    data: List[GetFormResponseCollectionCompoundDocumentDataInner]
-    links: Optional[CollectionLinks] = None
-    __properties: ClassVar[List[str]] = ["data", "links"]
+    show_on: Optional[StrictStr] = Field(default=None, description="Show on.")
+    content_repeat: Optional[ContentRepeatV1] = None
+    visibility: Optional[Visibility] = None
+    __properties: ClassVar[List[str]] = ["show_on", "content_repeat", "visibility"]
+
+    @field_validator('show_on')
+    def show_on_validate_enum(cls, value):
+        """Validates the enum"""
+        if value is None:
+            return value
+
+        if value not in set(['all', 'desktop', 'mobile']):
+            raise ValueError("must be one of enum values ('all', 'desktop', 'mobile')")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -50,7 +61,7 @@ class GetFormResponseCollectionCompoundDocument(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of GetFormResponseCollectionCompoundDocument from a JSON string"""
+        """Create an instance of DisplayOptions from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -71,21 +82,22 @@ class GetFormResponseCollectionCompoundDocument(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of each item in data (list)
-        _items = []
-        if self.data:
-            for _item in self.data:
-                if _item:
-                    _items.append(_item.to_dict())
-            _dict['data'] = _items
-        # override the default output from pydantic by calling `to_dict()` of links
-        if self.links:
-            _dict['links'] = self.links.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of content_repeat
+        if self.content_repeat:
+            _dict['content_repeat'] = self.content_repeat.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of visibility
+        if self.visibility:
+            _dict['visibility'] = self.visibility.to_dict()
+        # set to None if show_on (nullable) is None
+        # and model_fields_set contains the field
+        if self.show_on is None and "show_on" in self.model_fields_set:
+            _dict['show_on'] = None
+
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of GetFormResponseCollectionCompoundDocument from a dict"""
+        """Create an instance of DisplayOptions from a dict"""
         if obj is None:
             return None
 
@@ -93,8 +105,9 @@ class GetFormResponseCollectionCompoundDocument(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "data": [GetFormResponseCollectionCompoundDocumentDataInner.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None,
-            "links": CollectionLinks.from_dict(obj["links"]) if obj.get("links") is not None else None
+            "show_on": obj.get("show_on"),
+            "content_repeat": ContentRepeatV1.from_dict(obj["content_repeat"]) if obj.get("content_repeat") is not None else None,
+            "visibility": Visibility.from_dict(obj["visibility"]) if obj.get("visibility") is not None else None
         })
         return _obj
 

@@ -17,18 +17,21 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.get_coupon_code_response_collection_compound_document_data_inner_all_of_relationships_profile import GetCouponCodeResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsProfile
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from typing import Any, ClassVar, Dict, List
+from openapi_client.models.template_enum import TemplateEnum
+from openapi_client.models.template_update_html_or_dnd_query_resource_object_attributes import TemplateUpdateHtmlOrDndQueryResourceObjectAttributes
 from typing import Optional, Set
 from typing_extensions import Self
 
-class GetFormResponseCollectionCompoundDocumentDataInnerAllOfRelationships(BaseModel):
+class TemplateUpdateHtmlOrDndQueryResourceObject(BaseModel):
     """
-    GetFormResponseCollectionCompoundDocumentDataInnerAllOfRelationships
+    TemplateUpdateHtmlOrDndQueryResourceObject
     """ # noqa: E501
-    form_versions: Optional[GetCouponCodeResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsProfile] = Field(default=None, alias="form-versions")
-    __properties: ClassVar[List[str]] = ["form-versions"]
+    type: TemplateEnum
+    id: StrictStr = Field(description="The ID of template")
+    attributes: TemplateUpdateHtmlOrDndQueryResourceObjectAttributes
+    __properties: ClassVar[List[str]] = ["type", "id", "attributes"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -48,7 +51,7 @@ class GetFormResponseCollectionCompoundDocumentDataInnerAllOfRelationships(BaseM
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of GetFormResponseCollectionCompoundDocumentDataInnerAllOfRelationships from a JSON string"""
+        """Create an instance of TemplateUpdateHtmlOrDndQueryResourceObject from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -69,14 +72,14 @@ class GetFormResponseCollectionCompoundDocumentDataInnerAllOfRelationships(BaseM
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of form_versions
-        if self.form_versions:
-            _dict['form-versions'] = self.form_versions.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of attributes
+        if self.attributes:
+            _dict['attributes'] = self.attributes.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of GetFormResponseCollectionCompoundDocumentDataInnerAllOfRelationships from a dict"""
+        """Create an instance of TemplateUpdateHtmlOrDndQueryResourceObject from a dict"""
         if obj is None:
             return None
 
@@ -84,7 +87,9 @@ class GetFormResponseCollectionCompoundDocumentDataInnerAllOfRelationships(BaseM
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "form-versions": GetCouponCodeResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsProfile.from_dict(obj["form-versions"]) if obj.get("form-versions") is not None else None
+            "type": obj.get("type"),
+            "id": obj.get("id"),
+            "attributes": TemplateUpdateHtmlOrDndQueryResourceObjectAttributes.from_dict(obj["attributes"]) if obj.get("attributes") is not None else None
         })
         return _obj
 

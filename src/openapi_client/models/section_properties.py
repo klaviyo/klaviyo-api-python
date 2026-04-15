@@ -17,20 +17,18 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List
-from openapi_client.models.template_create_query_resource_object_attributes import TemplateCreateQueryResourceObjectAttributes
-from openapi_client.models.template_enum import TemplateEnum
+from pydantic import BaseModel, ConfigDict, StrictBool
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
-class TemplateCreateQueryResourceObject(BaseModel):
+class SectionProperties(BaseModel):
     """
-    TemplateCreateQueryResourceObject
+    SectionProperties
     """ # noqa: E501
-    type: TemplateEnum
-    attributes: TemplateCreateQueryResourceObjectAttributes
-    __properties: ClassVar[List[str]] = ["type", "attributes"]
+    is_ai_generated: Optional[StrictBool] = None
+    is_prebuilt_content: Optional[StrictBool] = None
+    __properties: ClassVar[List[str]] = ["is_ai_generated", "is_prebuilt_content"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -50,7 +48,7 @@ class TemplateCreateQueryResourceObject(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of TemplateCreateQueryResourceObject from a JSON string"""
+        """Create an instance of SectionProperties from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -71,14 +69,21 @@ class TemplateCreateQueryResourceObject(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of attributes
-        if self.attributes:
-            _dict['attributes'] = self.attributes.to_dict()
+        # set to None if is_ai_generated (nullable) is None
+        # and model_fields_set contains the field
+        if self.is_ai_generated is None and "is_ai_generated" in self.model_fields_set:
+            _dict['is_ai_generated'] = None
+
+        # set to None if is_prebuilt_content (nullable) is None
+        # and model_fields_set contains the field
+        if self.is_prebuilt_content is None and "is_prebuilt_content" in self.model_fields_set:
+            _dict['is_prebuilt_content'] = None
+
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of TemplateCreateQueryResourceObject from a dict"""
+        """Create an instance of SectionProperties from a dict"""
         if obj is None:
             return None
 
@@ -86,8 +91,8 @@ class TemplateCreateQueryResourceObject(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "type": obj.get("type"),
-            "attributes": TemplateCreateQueryResourceObjectAttributes.from_dict(obj["attributes"]) if obj.get("attributes") is not None else None
+            "is_ai_generated": obj.get("is_ai_generated"),
+            "is_prebuilt_content": obj.get("is_prebuilt_content")
         })
         return _obj
 

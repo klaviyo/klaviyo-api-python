@@ -21,6 +21,7 @@ from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.catalog_variant_response_object_resource import CatalogVariantResponseObjectResource
 from openapi_client.models.get_catalog_variant_create_job_response_collection_compound_document_data_inner import GetCatalogVariantCreateJobResponseCollectionCompoundDocumentDataInner
+from openapi_client.models.object_links import ObjectLinks
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -30,7 +31,8 @@ class GetCatalogVariantCreateJobResponseCompoundDocument(BaseModel):
     """ # noqa: E501
     data: GetCatalogVariantCreateJobResponseCollectionCompoundDocumentDataInner
     included: Optional[List[CatalogVariantResponseObjectResource]] = None
-    __properties: ClassVar[List[str]] = ["data", "included"]
+    links: Optional[ObjectLinks] = None
+    __properties: ClassVar[List[str]] = ["data", "included", "links"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -81,6 +83,9 @@ class GetCatalogVariantCreateJobResponseCompoundDocument(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['included'] = _items
+        # override the default output from pydantic by calling `to_dict()` of links
+        if self.links:
+            _dict['links'] = self.links.to_dict()
         return _dict
 
     @classmethod
@@ -94,7 +99,8 @@ class GetCatalogVariantCreateJobResponseCompoundDocument(BaseModel):
 
         _obj = cls.model_validate({
             "data": GetCatalogVariantCreateJobResponseCollectionCompoundDocumentDataInner.from_dict(obj["data"]) if obj.get("data") is not None else None,
-            "included": [CatalogVariantResponseObjectResource.from_dict(_item) for _item in obj["included"]] if obj.get("included") is not None else None
+            "included": [CatalogVariantResponseObjectResource.from_dict(_item) for _item in obj["included"]] if obj.get("included") is not None else None,
+            "links": ObjectLinks.from_dict(obj["links"]) if obj.get("links") is not None else None
         })
         return _obj
 

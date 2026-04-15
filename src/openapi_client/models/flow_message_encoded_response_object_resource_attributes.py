@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -27,10 +27,11 @@ class FlowMessageEncodedResponseObjectResourceAttributes(BaseModel):
     """
     FlowMessageEncodedResponseObjectResourceAttributes
     """ # noqa: E501
+    channel: Optional[StrictStr] = None
     created: Optional[datetime] = None
     updated: Optional[datetime] = None
     definition: Optional[Dict[str, Any]] = Field(default=None, description="The encoded flow message definition.")
-    __properties: ClassVar[List[str]] = ["created", "updated", "definition"]
+    __properties: ClassVar[List[str]] = ["channel", "created", "updated", "definition"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -71,6 +72,11 @@ class FlowMessageEncodedResponseObjectResourceAttributes(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # set to None if channel (nullable) is None
+        # and model_fields_set contains the field
+        if self.channel is None and "channel" in self.model_fields_set:
+            _dict['channel'] = None
+
         # set to None if created (nullable) is None
         # and model_fields_set contains the field
         if self.created is None and "created" in self.model_fields_set:
@@ -98,6 +104,7 @@ class FlowMessageEncodedResponseObjectResourceAttributes(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "channel": obj.get("channel"),
             "created": obj.get("created"),
             "updated": obj.get("updated"),
             "definition": obj.get("definition")

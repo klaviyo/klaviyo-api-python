@@ -17,20 +17,26 @@ import pprint
 import re  # noqa: F401
 import json
 
+from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from openapi_client.models.template_definition import TemplateDefinition
 from typing import Optional, Set
 from typing_extensions import Self
 
-class TemplateUpdateQueryResourceObjectAttributes(BaseModel):
+class PostTemplateDndResponseDataAttributes(BaseModel):
     """
-    TemplateUpdateQueryResourceObjectAttributes
+    PostTemplateDndResponseDataAttributes
     """ # noqa: E501
-    name: Optional[StrictStr] = Field(default=None, description="The name of the template")
-    html: Optional[StrictStr] = Field(default=None, description="The HTML of the template")
-    text: Optional[StrictStr] = Field(default=None, description="The plaintext of the template")
+    name: StrictStr = Field(description="The name of the template")
+    editor_type: StrictStr = Field(description="`editor_type` has a fixed set of values: * SYSTEM_DRAGGABLE: indicates a drag-and-drop editor template * SIMPLE: A rich text editor template * CODE: A custom HTML template * USER_DRAGGABLE: A hybrid template, using custom HTML in the drag-and-drop editor")
+    html: StrictStr = Field(description="The rendered HTML of the template")
+    text: Optional[StrictStr] = Field(default=None, description="The template plain_text")
     amp: Optional[StrictStr] = Field(default=None, description="The AMP version of the template. Requires AMP Email to be enabled to access in-app. Refer to the AMP Email setup guide at https://developers.klaviyo.com/en/docs/send_amp_emails_in_klaviyo")
-    __properties: ClassVar[List[str]] = ["name", "html", "text", "amp"]
+    created: Optional[datetime] = Field(default=None, description="The date the template was created in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm)")
+    updated: Optional[datetime] = Field(default=None, description="The date the template was updated in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm)")
+    definition: Optional[TemplateDefinition] = None
+    __properties: ClassVar[List[str]] = ["name", "editor_type", "html", "text", "amp", "created", "updated", "definition"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -50,7 +56,7 @@ class TemplateUpdateQueryResourceObjectAttributes(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of TemplateUpdateQueryResourceObjectAttributes from a JSON string"""
+        """Create an instance of PostTemplateDndResponseDataAttributes from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -71,16 +77,9 @@ class TemplateUpdateQueryResourceObjectAttributes(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if name (nullable) is None
-        # and model_fields_set contains the field
-        if self.name is None and "name" in self.model_fields_set:
-            _dict['name'] = None
-
-        # set to None if html (nullable) is None
-        # and model_fields_set contains the field
-        if self.html is None and "html" in self.model_fields_set:
-            _dict['html'] = None
-
+        # override the default output from pydantic by calling `to_dict()` of definition
+        if self.definition:
+            _dict['definition'] = self.definition.to_dict()
         # set to None if text (nullable) is None
         # and model_fields_set contains the field
         if self.text is None and "text" in self.model_fields_set:
@@ -91,11 +90,21 @@ class TemplateUpdateQueryResourceObjectAttributes(BaseModel):
         if self.amp is None and "amp" in self.model_fields_set:
             _dict['amp'] = None
 
+        # set to None if created (nullable) is None
+        # and model_fields_set contains the field
+        if self.created is None and "created" in self.model_fields_set:
+            _dict['created'] = None
+
+        # set to None if updated (nullable) is None
+        # and model_fields_set contains the field
+        if self.updated is None and "updated" in self.model_fields_set:
+            _dict['updated'] = None
+
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of TemplateUpdateQueryResourceObjectAttributes from a dict"""
+        """Create an instance of PostTemplateDndResponseDataAttributes from a dict"""
         if obj is None:
             return None
 
@@ -104,9 +113,13 @@ class TemplateUpdateQueryResourceObjectAttributes(BaseModel):
 
         _obj = cls.model_validate({
             "name": obj.get("name"),
+            "editor_type": obj.get("editor_type"),
             "html": obj.get("html"),
             "text": obj.get("text"),
-            "amp": obj.get("amp")
+            "amp": obj.get("amp"),
+            "created": obj.get("created"),
+            "updated": obj.get("updated"),
+            "definition": TemplateDefinition.from_dict(obj["definition"]) if obj.get("definition") is not None else None
         })
         return _obj
 

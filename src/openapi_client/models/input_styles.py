@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.text_style import TextStyle
+from openapi_client.models.text_style_v0 import TextStyleV0
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,7 +27,7 @@ class InputStyles(BaseModel):
     """
     InputStyles
     """ # noqa: E501
-    text_styles: Optional[TextStyle] = None
+    text_styles: Optional[TextStyleV0] = None
     label_color: Optional[StrictStr] = '#303B43'
     text_color: Optional[StrictStr] = '#000000'
     placeholder_color: Optional[StrictStr] = '#949596'
@@ -93,7 +93,7 @@ class InputStyles(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "text_styles": TextStyle.from_dict(obj["text_styles"]) if obj.get("text_styles") is not None else None,
+            "text_styles": TextStyleV0.from_dict(obj["text_styles"]) if obj.get("text_styles") is not None else None,
             "label_color": obj.get("label_color") if obj.get("label_color") is not None else '#303B43',
             "text_color": obj.get("text_color") if obj.get("text_color") is not None else '#000000',
             "placeholder_color": obj.get("placeholder_color") if obj.get("placeholder_color") is not None else '#949596',

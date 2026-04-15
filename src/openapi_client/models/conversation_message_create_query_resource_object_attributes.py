@@ -17,18 +17,17 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List
-from openapi_client.models.post_template_response_data import PostTemplateResponseData
 from typing import Optional, Set
 from typing_extensions import Self
 
-class PatchTemplateResponse(BaseModel):
+class ConversationMessageCreateQueryResourceObjectAttributes(BaseModel):
     """
-    PatchTemplateResponse
+    ConversationMessageCreateQueryResourceObjectAttributes
     """ # noqa: E501
-    data: PostTemplateResponseData
-    __properties: ClassVar[List[str]] = ["data"]
+    body: StrictStr
+    __properties: ClassVar[List[str]] = ["body"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -48,7 +47,7 @@ class PatchTemplateResponse(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of PatchTemplateResponse from a JSON string"""
+        """Create an instance of ConversationMessageCreateQueryResourceObjectAttributes from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -69,14 +68,11 @@ class PatchTemplateResponse(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of data
-        if self.data:
-            _dict['data'] = self.data.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of PatchTemplateResponse from a dict"""
+        """Create an instance of ConversationMessageCreateQueryResourceObjectAttributes from a dict"""
         if obj is None:
             return None
 
@@ -84,7 +80,7 @@ class PatchTemplateResponse(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "data": PostTemplateResponseData.from_dict(obj["data"]) if obj.get("data") is not None else None
+            "body": obj.get("body")
         })
         return _obj
 

@@ -20,6 +20,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.flow_definition_profile_filter import FlowDefinitionProfileFilter
+from openapi_client.models.reentry_criteria import ReentryCriteria
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -31,7 +32,8 @@ class FlowDefinition(BaseModel):
     profile_filter: Optional[FlowDefinitionProfileFilter] = None
     actions: List[Dict[str, Any]] = Field(description="A list of actions that make up the flow. Actions are linked to each other by their ids.")
     entry_action_id: Optional[StrictStr] = Field(description="The ID of the action that is the entry point of the flow.")
-    __properties: ClassVar[List[str]] = ["triggers", "profile_filter", "actions", "entry_action_id"]
+    reentry_criteria: Optional[ReentryCriteria] = None
+    __properties: ClassVar[List[str]] = ["triggers", "profile_filter", "actions", "entry_action_id", "reentry_criteria"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -75,6 +77,9 @@ class FlowDefinition(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of profile_filter
         if self.profile_filter:
             _dict['profile_filter'] = self.profile_filter.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of reentry_criteria
+        if self.reentry_criteria:
+            _dict['reentry_criteria'] = self.reentry_criteria.to_dict()
         # set to None if profile_filter (nullable) is None
         # and model_fields_set contains the field
         if self.profile_filter is None and "profile_filter" in self.model_fields_set:
@@ -100,7 +105,8 @@ class FlowDefinition(BaseModel):
             "triggers": obj.get("triggers"),
             "profile_filter": FlowDefinitionProfileFilter.from_dict(obj["profile_filter"]) if obj.get("profile_filter") is not None else None,
             "actions": obj.get("actions"),
-            "entry_action_id": obj.get("entry_action_id")
+            "entry_action_id": obj.get("entry_action_id"),
+            "reentry_criteria": ReentryCriteria.from_dict(obj["reentry_criteria"]) if obj.get("reentry_criteria") is not None else None
         })
         return _obj
 

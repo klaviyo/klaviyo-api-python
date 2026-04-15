@@ -29,7 +29,7 @@ class MetricPropertyResponseObjectResourceExtendedAttributes(BaseModel):
     label: StrictStr = Field(description="The label for this metric property")
     var_property: StrictStr = Field(description="The property for this metric property", alias="property")
     inferred_type: StrictStr = Field(description="Inferred type for this metric property")
-    sample_values: Optional[List[StrictStr]] = None
+    sample_values: Optional[List[Any]] = None
     __properties: ClassVar[List[str]] = ["label", "property", "inferred_type", "sample_values"]
 
     model_config = ConfigDict(

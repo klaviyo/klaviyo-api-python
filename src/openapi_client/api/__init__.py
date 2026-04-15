@@ -8,6 +8,7 @@ if TYPE_CHECKING:
     from openapi_client.api.accounts_api import AccountsApi
     from openapi_client.api.campaigns_api import CampaignsApi
     from openapi_client.api.catalogs_api import CatalogsApi
+    from openapi_client.api.conversations_api import ConversationsApi
     from openapi_client.api.coupons_api import CouponsApi
     from openapi_client.api.custom_objects_api import CustomObjectsApi
     from openapi_client.api.data_privacy_api import DataPrivacyApi
@@ -36,6 +37,7 @@ object_origins = {
     "AccountsApi": "openapi_client.api.accounts_api",
     "CampaignsApi": "openapi_client.api.campaigns_api",
     "CatalogsApi": "openapi_client.api.catalogs_api",
+    "ConversationsApi": "openapi_client.api.conversations_api",
     "CouponsApi": "openapi_client.api.coupons_api",
     "CustomObjectsApi": "openapi_client.api.custom_objects_api",
     "DataPrivacyApi": "openapi_client.api.data_privacy_api",

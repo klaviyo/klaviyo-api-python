@@ -26,14 +26,18 @@ class DataSourceCreateQueryResourceObjectAttributes(BaseModel):
     """
     DataSourceCreateQueryResourceObjectAttributes
     """ # noqa: E501
-    title: StrictStr
-    visibility: StrictStr = Field(description="Visibility of data source.")
+    title: StrictStr = Field(description="The title of the data source. Must be between 1 and 255 characters and unique within the namespace.")
+    visibility: Optional[StrictStr] = Field(default='private', description="Visibility of data source.")
     description: Optional[StrictStr] = ''
-    __properties: ClassVar[List[str]] = ["title", "visibility", "description"]
+    namespace: Optional[StrictStr] = Field(default='custom-objects', description="The namespace of the data source.")
+    __properties: ClassVar[List[str]] = ["title", "visibility", "description", "namespace"]
 
     @field_validator('visibility')
     def visibility_validate_enum(cls, value):
         """Validates the enum"""
+        if value is None:
+            return value
+
         if value not in set(['private', 'shared']):
             raise ValueError("must be one of enum values ('private', 'shared')")
         return value
@@ -77,10 +81,20 @@ class DataSourceCreateQueryResourceObjectAttributes(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # set to None if visibility (nullable) is None
+        # and model_fields_set contains the field
+        if self.visibility is None and "visibility" in self.model_fields_set:
+            _dict['visibility'] = None
+
         # set to None if description (nullable) is None
         # and model_fields_set contains the field
         if self.description is None and "description" in self.model_fields_set:
             _dict['description'] = None
+
+        # set to None if namespace (nullable) is None
+        # and model_fields_set contains the field
+        if self.namespace is None and "namespace" in self.model_fields_set:
+            _dict['namespace'] = None
 
         return _dict
 
@@ -95,8 +109,9 @@ class DataSourceCreateQueryResourceObjectAttributes(BaseModel):
 
         _obj = cls.model_validate({
             "title": obj.get("title"),
-            "visibility": obj.get("visibility"),
-            "description": obj.get("description") if obj.get("description") is not None else ''
+            "visibility": obj.get("visibility") if obj.get("visibility") is not None else 'private',
+            "description": obj.get("description") if obj.get("description") is not None else '',
+            "namespace": obj.get("namespace") if obj.get("namespace") is not None else 'custom-objects'
         })
         return _obj
 

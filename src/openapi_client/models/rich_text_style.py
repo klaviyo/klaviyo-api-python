@@ -31,11 +31,13 @@ class RichTextStyle(BaseModel):
     font_size: Optional[StrictInt] = 16
     font_weight: Optional[StrictInt] = Field(default=400, description="Font weight enumeration.")
     text_color: Optional[StrictStr] = '#000000'
+    font_style: Optional[StrictStr] = None
+    text_decoration: Optional[StrictStr] = None
     line_spacing: Optional[Union[StrictFloat, StrictInt]] = 1
     character_spacing: Optional[StrictInt] = 0
     alignment: Optional[StrictStr] = Field(default='left', description="Horizontal alignment enumeration.")
     margin: Optional[RichTextMargin] = None
-    __properties: ClassVar[List[str]] = ["font_family", "font_size", "font_weight", "text_color", "line_spacing", "character_spacing", "alignment", "margin"]
+    __properties: ClassVar[List[str]] = ["font_family", "font_size", "font_weight", "text_color", "font_style", "text_decoration", "line_spacing", "character_spacing", "alignment", "margin"]
 
     @field_validator('font_weight')
     def font_weight_validate_enum(cls, value):
@@ -109,6 +111,16 @@ class RichTextStyle(BaseModel):
         if self.font_weight is None and "font_weight" in self.model_fields_set:
             _dict['font_weight'] = None
 
+        # set to None if font_style (nullable) is None
+        # and model_fields_set contains the field
+        if self.font_style is None and "font_style" in self.model_fields_set:
+            _dict['font_style'] = None
+
+        # set to None if text_decoration (nullable) is None
+        # and model_fields_set contains the field
+        if self.text_decoration is None and "text_decoration" in self.model_fields_set:
+            _dict['text_decoration'] = None
+
         # set to None if character_spacing (nullable) is None
         # and model_fields_set contains the field
         if self.character_spacing is None and "character_spacing" in self.model_fields_set:
@@ -130,6 +142,8 @@ class RichTextStyle(BaseModel):
             "font_size": obj.get("font_size") if obj.get("font_size") is not None else 16,
             "font_weight": obj.get("font_weight") if obj.get("font_weight") is not None else 400,
             "text_color": obj.get("text_color") if obj.get("text_color") is not None else '#000000',
+            "font_style": obj.get("font_style"),
+            "text_decoration": obj.get("text_decoration"),
             "line_spacing": obj.get("line_spacing") if obj.get("line_spacing") is not None else 1,
             "character_spacing": obj.get("character_spacing") if obj.get("character_spacing") is not None else 0,
             "alignment": obj.get("alignment") if obj.get("alignment") is not None else 'left',

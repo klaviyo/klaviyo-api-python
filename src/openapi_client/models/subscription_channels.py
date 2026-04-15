@@ -20,6 +20,7 @@ import json
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.email_subscription_parameters import EmailSubscriptionParameters
+from openapi_client.models.push_subscription_parameters import PushSubscriptionParameters
 from openapi_client.models.sms_subscription_parameters import SMSSubscriptionParameters
 from openapi_client.models.whats_app_subscription_parameters import WhatsAppSubscriptionParameters
 from typing import Optional, Set
@@ -32,7 +33,8 @@ class SubscriptionChannels(BaseModel):
     email: Optional[EmailSubscriptionParameters] = None
     sms: Optional[SMSSubscriptionParameters] = None
     whatsapp: Optional[WhatsAppSubscriptionParameters] = None
-    __properties: ClassVar[List[str]] = ["email", "sms", "whatsapp"]
+    push: Optional[PushSubscriptionParameters] = None
+    __properties: ClassVar[List[str]] = ["email", "sms", "whatsapp", "push"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -82,6 +84,9 @@ class SubscriptionChannels(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of whatsapp
         if self.whatsapp:
             _dict['whatsapp'] = self.whatsapp.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of push
+        if self.push:
+            _dict['push'] = self.push.to_dict()
         return _dict
 
     @classmethod
@@ -96,7 +101,8 @@ class SubscriptionChannels(BaseModel):
         _obj = cls.model_validate({
             "email": EmailSubscriptionParameters.from_dict(obj["email"]) if obj.get("email") is not None else None,
             "sms": SMSSubscriptionParameters.from_dict(obj["sms"]) if obj.get("sms") is not None else None,
-            "whatsapp": WhatsAppSubscriptionParameters.from_dict(obj["whatsapp"]) if obj.get("whatsapp") is not None else None
+            "whatsapp": WhatsAppSubscriptionParameters.from_dict(obj["whatsapp"]) if obj.get("whatsapp") is not None else None,
+            "push": PushSubscriptionParameters.from_dict(obj["push"]) if obj.get("push") is not None else None
         })
         return _obj
 

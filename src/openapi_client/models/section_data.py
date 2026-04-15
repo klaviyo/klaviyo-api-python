@@ -17,21 +17,22 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List
-from openapi_client.models.template_enum import TemplateEnum
-from openapi_client.models.template_update_query_resource_object_attributes import TemplateUpdateQueryResourceObjectAttributes
+from openapi_client.models.display_options import DisplayOptions
+from openapi_client.models.section_properties import SectionProperties
+from openapi_client.models.section_styles import SectionStyles
 from typing import Optional, Set
 from typing_extensions import Self
 
-class TemplateUpdateQueryResourceObject(BaseModel):
+class SectionData(BaseModel):
     """
-    TemplateUpdateQueryResourceObject
+    SectionData
     """ # noqa: E501
-    type: TemplateEnum
-    id: StrictStr = Field(description="The ID of template")
-    attributes: TemplateUpdateQueryResourceObjectAttributes
-    __properties: ClassVar[List[str]] = ["type", "id", "attributes"]
+    properties: SectionProperties
+    display_options: DisplayOptions
+    styles: SectionStyles
+    __properties: ClassVar[List[str]] = ["properties", "display_options", "styles"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -51,7 +52,7 @@ class TemplateUpdateQueryResourceObject(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of TemplateUpdateQueryResourceObject from a JSON string"""
+        """Create an instance of SectionData from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -72,14 +73,20 @@ class TemplateUpdateQueryResourceObject(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of attributes
-        if self.attributes:
-            _dict['attributes'] = self.attributes.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of properties
+        if self.properties:
+            _dict['properties'] = self.properties.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of display_options
+        if self.display_options:
+            _dict['display_options'] = self.display_options.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of styles
+        if self.styles:
+            _dict['styles'] = self.styles.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of TemplateUpdateQueryResourceObject from a dict"""
+        """Create an instance of SectionData from a dict"""
         if obj is None:
             return None
 
@@ -87,9 +94,9 @@ class TemplateUpdateQueryResourceObject(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "type": obj.get("type"),
-            "id": obj.get("id"),
-            "attributes": TemplateUpdateQueryResourceObjectAttributes.from_dict(obj["attributes"]) if obj.get("attributes") is not None else None
+            "properties": SectionProperties.from_dict(obj["properties"]) if obj.get("properties") is not None else None,
+            "display_options": DisplayOptions.from_dict(obj["display_options"]) if obj.get("display_options") is not None else None,
+            "styles": SectionStyles.from_dict(obj["styles"]) if obj.get("styles") is not None else None
         })
         return _obj
 

@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictBool, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,7 +28,10 @@ class BackInStockDynamicButtonDropShadowStyles(BaseModel):
     """ # noqa: E501
     enabled: Optional[StrictBool] = False
     color: Optional[StrictStr] = '#000000'
-    __properties: ClassVar[List[str]] = ["enabled", "color"]
+    blur: Optional[StrictInt] = 15
+    x_offset: Optional[StrictInt] = 0
+    y_offset: Optional[StrictInt] = 0
+    __properties: ClassVar[List[str]] = ["enabled", "color", "blur", "x_offset", "y_offset"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -82,7 +85,10 @@ class BackInStockDynamicButtonDropShadowStyles(BaseModel):
 
         _obj = cls.model_validate({
             "enabled": obj.get("enabled") if obj.get("enabled") is not None else False,
-            "color": obj.get("color") if obj.get("color") is not None else '#000000'
+            "color": obj.get("color") if obj.get("color") is not None else '#000000',
+            "blur": obj.get("blur") if obj.get("blur") is not None else 15,
+            "x_offset": obj.get("x_offset") if obj.get("x_offset") is not None else 0,
+            "y_offset": obj.get("y_offset") if obj.get("y_offset") is not None else 0
         })
         return _obj
 

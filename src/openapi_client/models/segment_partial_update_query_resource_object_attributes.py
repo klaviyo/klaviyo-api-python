@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictBool, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.segment_definition import SegmentDefinition
 from typing import Optional, Set
@@ -30,7 +30,8 @@ class SegmentPartialUpdateQueryResourceObjectAttributes(BaseModel):
     definition: Optional[SegmentDefinition] = None
     name: Optional[StrictStr] = None
     is_starred: Optional[StrictBool] = None
-    __properties: ClassVar[List[str]] = ["definition", "name", "is_starred"]
+    is_active: Optional[StrictBool] = Field(default=None, description="Set to false to deactivate the segment. When deactivating, this must be the only attribute in the request body. Deactivation cannot be combined with other updates. Marking a segment inactive will impact campaigns, flows, ad syncs, forms, helpdesk routing, and other features that reference this segment. Set to true to reactivate a deactivated segment.")
+    __properties: ClassVar[List[str]] = ["definition", "name", "is_starred", "is_active"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -84,6 +85,11 @@ class SegmentPartialUpdateQueryResourceObjectAttributes(BaseModel):
         if self.is_starred is None and "is_starred" in self.model_fields_set:
             _dict['is_starred'] = None
 
+        # set to None if is_active (nullable) is None
+        # and model_fields_set contains the field
+        if self.is_active is None and "is_active" in self.model_fields_set:
+            _dict['is_active'] = None
+
         return _dict
 
     @classmethod
@@ -98,7 +104,8 @@ class SegmentPartialUpdateQueryResourceObjectAttributes(BaseModel):
         _obj = cls.model_validate({
             "definition": SegmentDefinition.from_dict(obj["definition"]) if obj.get("definition") is not None else None,
             "name": obj.get("name"),
-            "is_starred": obj.get("is_starred")
+            "is_starred": obj.get("is_starred"),
+            "is_active": obj.get("is_active")
         })
         return _obj
 

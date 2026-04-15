@@ -27,7 +27,7 @@ class Teaser(BaseModel):
     """
     Teaser
     """ # noqa: E501
-    id: Optional[StrictStr] = None
+    id: Optional[StrictStr] = Field(default=None, description="Not allowed on create.")
     content: StrictStr
     display_order: Optional[StrictStr] = Field(default='after', description="Teaser display order enumeration.")
     teaser_type: Optional[StrictStr] = Field(default='rectangle', description="Teaser display order enumeration.")

@@ -17,9 +17,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.underline_enum import UnderlineEnum
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,8 +27,18 @@ class LinkStyles(BaseModel):
     LinkStyles
     """ # noqa: E501
     color: Optional[StrictStr] = '#0066cc'
-    decoration: Optional[UnderlineEnum] = None
+    decoration: Optional[StrictStr] = 'underline'
     __properties: ClassVar[List[str]] = ["color", "decoration"]
+
+    @field_validator('decoration')
+    def decoration_validate_enum(cls, value):
+        """Validates the enum"""
+        if value is None:
+            return value
+
+        if value not in set(['underline']):
+            raise ValueError("must be one of enum values ('underline')")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -83,7 +92,7 @@ class LinkStyles(BaseModel):
 
         _obj = cls.model_validate({
             "color": obj.get("color") if obj.get("color") is not None else '#0066cc',
-            "decoration": obj.get("decoration")
+            "decoration": obj.get("decoration") if obj.get("decoration") is not None else 'underline'
         })
         return _obj
 

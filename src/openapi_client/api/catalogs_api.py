@@ -124,7 +124,7 @@ class CatalogsApi(object):
 ) -> None:
         """Add Categories to Catalog Item
 
-        Create a new catalog category relationship for the given item ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
+        Create a new catalog category relationship for the given item ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `catalogs:write`
 
         :param id: The catalog item ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`. (required)
         :type id: str
@@ -219,7 +219,7 @@ class CatalogsApi(object):
 ) -> ApiResponse[None]:
         """Add Categories to Catalog Item
 
-        Create a new catalog category relationship for the given item ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
+        Create a new catalog category relationship for the given item ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `catalogs:write`
 
         :param id: The catalog item ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`. (required)
         :type id: str
@@ -310,7 +310,7 @@ class CatalogsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Add Categories to Catalog Item
 
-        Create a new catalog category relationship for the given item ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
+        Create a new catalog category relationship for the given item ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `catalogs:write`
 
         :param id: The catalog item ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`. (required)
         :type id: str
@@ -495,7 +495,7 @@ class CatalogsApi(object):
 ) -> None:
         """Add Items to Catalog Category
 
-        Create a new item relationship for the given category ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
+        Create a new item relationship for the given category ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `catalogs:write`
 
         :param id: The catalog category ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`. (required)
         :type id: str
@@ -587,7 +587,7 @@ class CatalogsApi(object):
 ) -> ApiResponse[None]:
         """Add Items to Catalog Category
 
-        Create a new item relationship for the given category ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
+        Create a new item relationship for the given category ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `catalogs:write`
 
         :param id: The catalog category ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`. (required)
         :type id: str
@@ -675,7 +675,7 @@ class CatalogsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Add Items to Catalog Category
 
-        Create a new item relationship for the given category ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
+        Create a new item relationship for the given category ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `catalogs:write`
 
         :param id: The catalog category ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`. (required)
         :type id: str
@@ -853,7 +853,7 @@ class CatalogsApi(object):
 ) ->  Union[PostCatalogCategoryCreateJobResponse, Dict[str, object]]:
         """Bulk Create Catalog Categories
 
-        Create a catalog category bulk create job to create a batch of catalog categories.  Accepts up to 100 catalog categories per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
+        Create a catalog category bulk create job to create a batch of catalog categories.  Accepts up to 100 catalog categories per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `catalogs:write`
 
         :param catalog_category_create_job_create_query: (required)
         :type catalog_category_create_job_create_query: CatalogCategoryCreateJobCreateQuery
@@ -941,7 +941,7 @@ class CatalogsApi(object):
 ) -> ApiResponse[PostCatalogCategoryCreateJobResponse]:
         """Bulk Create Catalog Categories
 
-        Create a catalog category bulk create job to create a batch of catalog categories.  Accepts up to 100 catalog categories per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
+        Create a catalog category bulk create job to create a batch of catalog categories.  Accepts up to 100 catalog categories per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `catalogs:write`
 
         :param catalog_category_create_job_create_query: (required)
         :type catalog_category_create_job_create_query: CatalogCategoryCreateJobCreateQuery
@@ -1025,7 +1025,7 @@ class CatalogsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Bulk Create Catalog Categories
 
-        Create a catalog category bulk create job to create a batch of catalog categories.  Accepts up to 100 catalog categories per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
+        Create a catalog category bulk create job to create a batch of catalog categories.  Accepts up to 100 catalog categories per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `catalogs:write`
 
         :param catalog_category_create_job_create_query: (required)
         :type catalog_category_create_job_create_query: CatalogCategoryCreateJobCreateQuery
@@ -1197,7 +1197,7 @@ class CatalogsApi(object):
 ) ->  Union[PostCatalogItemCreateJobResponse, Dict[str, object]]:
         """Bulk Create Catalog Items
 
-        Create a catalog item bulk create job to create a batch of catalog items.  Accepts up to 100 catalog items per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
+        Create a catalog item bulk create job to create a batch of catalog items.  Accepts up to 100 catalog items per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `catalogs:write`
 
         :param catalog_item_create_job_create_query: (required)
         :type catalog_item_create_job_create_query: CatalogItemCreateJobCreateQuery
@@ -1285,7 +1285,7 @@ class CatalogsApi(object):
 ) -> ApiResponse[PostCatalogItemCreateJobResponse]:
         """Bulk Create Catalog Items
 
-        Create a catalog item bulk create job to create a batch of catalog items.  Accepts up to 100 catalog items per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
+        Create a catalog item bulk create job to create a batch of catalog items.  Accepts up to 100 catalog items per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `catalogs:write`
 
         :param catalog_item_create_job_create_query: (required)
         :type catalog_item_create_job_create_query: CatalogItemCreateJobCreateQuery
@@ -1369,7 +1369,7 @@ class CatalogsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Bulk Create Catalog Items
 
-        Create a catalog item bulk create job to create a batch of catalog items.  Accepts up to 100 catalog items per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
+        Create a catalog item bulk create job to create a batch of catalog items.  Accepts up to 100 catalog items per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `catalogs:write`
 
         :param catalog_item_create_job_create_query: (required)
         :type catalog_item_create_job_create_query: CatalogItemCreateJobCreateQuery
@@ -1541,7 +1541,7 @@ class CatalogsApi(object):
 ) ->  Union[PostCatalogVariantCreateJobResponse, Dict[str, object]]:
         """Bulk Create Catalog Variants
 
-        Create a catalog variant bulk create job to create a batch of catalog variants.  Accepts up to 100 catalog variants per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
+        Create a catalog variant bulk create job to create a batch of catalog variants.  Accepts up to 100 catalog variants per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `catalogs:write`
 
         :param catalog_variant_create_job_create_query: (required)
         :type catalog_variant_create_job_create_query: CatalogVariantCreateJobCreateQuery
@@ -1629,7 +1629,7 @@ class CatalogsApi(object):
 ) -> ApiResponse[PostCatalogVariantCreateJobResponse]:
         """Bulk Create Catalog Variants
 
-        Create a catalog variant bulk create job to create a batch of catalog variants.  Accepts up to 100 catalog variants per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
+        Create a catalog variant bulk create job to create a batch of catalog variants.  Accepts up to 100 catalog variants per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `catalogs:write`
 
         :param catalog_variant_create_job_create_query: (required)
         :type catalog_variant_create_job_create_query: CatalogVariantCreateJobCreateQuery
@@ -1713,7 +1713,7 @@ class CatalogsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Bulk Create Catalog Variants
 
-        Create a catalog variant bulk create job to create a batch of catalog variants.  Accepts up to 100 catalog variants per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
+        Create a catalog variant bulk create job to create a batch of catalog variants.  Accepts up to 100 catalog variants per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `catalogs:write`
 
         :param catalog_variant_create_job_create_query: (required)
         :type catalog_variant_create_job_create_query: CatalogVariantCreateJobCreateQuery
@@ -1885,7 +1885,7 @@ class CatalogsApi(object):
 ) ->  Union[PostCatalogCategoryDeleteJobResponse, Dict[str, object]]:
         """Bulk Delete Catalog Categories
 
-        Create a catalog category bulk delete job to delete a batch of catalog categories.  Accepts up to 100 catalog categories per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
+        Create a catalog category bulk delete job to delete a batch of catalog categories.  Accepts up to 100 catalog categories per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `catalogs:write`
 
         :param catalog_category_delete_job_create_query: (required)
         :type catalog_category_delete_job_create_query: CatalogCategoryDeleteJobCreateQuery
@@ -1973,7 +1973,7 @@ class CatalogsApi(object):
 ) -> ApiResponse[PostCatalogCategoryDeleteJobResponse]:
         """Bulk Delete Catalog Categories
 
-        Create a catalog category bulk delete job to delete a batch of catalog categories.  Accepts up to 100 catalog categories per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
+        Create a catalog category bulk delete job to delete a batch of catalog categories.  Accepts up to 100 catalog categories per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `catalogs:write`
 
         :param catalog_category_delete_job_create_query: (required)
         :type catalog_category_delete_job_create_query: CatalogCategoryDeleteJobCreateQuery
@@ -2057,7 +2057,7 @@ class CatalogsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Bulk Delete Catalog Categories
 
-        Create a catalog category bulk delete job to delete a batch of catalog categories.  Accepts up to 100 catalog categories per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
+        Create a catalog category bulk delete job to delete a batch of catalog categories.  Accepts up to 100 catalog categories per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `catalogs:write`
 
         :param catalog_category_delete_job_create_query: (required)
         :type catalog_category_delete_job_create_query: CatalogCategoryDeleteJobCreateQuery
@@ -2229,7 +2229,7 @@ class CatalogsApi(object):
 ) ->  Union[PostCatalogItemDeleteJobResponse, Dict[str, object]]:
         """Bulk Delete Catalog Items
 
-        Create a catalog item bulk delete job to delete a batch of catalog items.  Accepts up to 100 catalog items per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
+        Create a catalog item bulk delete job to delete a batch of catalog items.  Accepts up to 100 catalog items per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `catalogs:write`
 
         :param catalog_item_delete_job_create_query: (required)
         :type catalog_item_delete_job_create_query: CatalogItemDeleteJobCreateQuery
@@ -2317,7 +2317,7 @@ class CatalogsApi(object):
 ) -> ApiResponse[PostCatalogItemDeleteJobResponse]:
         """Bulk Delete Catalog Items
 
-        Create a catalog item bulk delete job to delete a batch of catalog items.  Accepts up to 100 catalog items per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
+        Create a catalog item bulk delete job to delete a batch of catalog items.  Accepts up to 100 catalog items per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `catalogs:write`
 
         :param catalog_item_delete_job_create_query: (required)
         :type catalog_item_delete_job_create_query: CatalogItemDeleteJobCreateQuery
@@ -2401,7 +2401,7 @@ class CatalogsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Bulk Delete Catalog Items
 
-        Create a catalog item bulk delete job to delete a batch of catalog items.  Accepts up to 100 catalog items per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
+        Create a catalog item bulk delete job to delete a batch of catalog items.  Accepts up to 100 catalog items per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `catalogs:write`
 
         :param catalog_item_delete_job_create_query: (required)
         :type catalog_item_delete_job_create_query: CatalogItemDeleteJobCreateQuery
@@ -2573,7 +2573,7 @@ class CatalogsApi(object):
 ) ->  Union[PostCatalogVariantDeleteJobResponse, Dict[str, object]]:
         """Bulk Delete Catalog Variants
 
-        Create a catalog variant bulk delete job to delete a batch of catalog variants.  Accepts up to 100 catalog variants per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
+        Create a catalog variant bulk delete job to delete a batch of catalog variants.  Accepts up to 100 catalog variants per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `catalogs:write`
 
         :param catalog_variant_delete_job_create_query: (required)
         :type catalog_variant_delete_job_create_query: CatalogVariantDeleteJobCreateQuery
@@ -2661,7 +2661,7 @@ class CatalogsApi(object):
 ) -> ApiResponse[PostCatalogVariantDeleteJobResponse]:
         """Bulk Delete Catalog Variants
 
-        Create a catalog variant bulk delete job to delete a batch of catalog variants.  Accepts up to 100 catalog variants per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
+        Create a catalog variant bulk delete job to delete a batch of catalog variants.  Accepts up to 100 catalog variants per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `catalogs:write`
 
         :param catalog_variant_delete_job_create_query: (required)
         :type catalog_variant_delete_job_create_query: CatalogVariantDeleteJobCreateQuery
@@ -2745,7 +2745,7 @@ class CatalogsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Bulk Delete Catalog Variants
 
-        Create a catalog variant bulk delete job to delete a batch of catalog variants.  Accepts up to 100 catalog variants per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
+        Create a catalog variant bulk delete job to delete a batch of catalog variants.  Accepts up to 100 catalog variants per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `catalogs:write`
 
         :param catalog_variant_delete_job_create_query: (required)
         :type catalog_variant_delete_job_create_query: CatalogVariantDeleteJobCreateQuery
@@ -2917,7 +2917,7 @@ class CatalogsApi(object):
 ) ->  Union[PostCatalogCategoryUpdateJobResponse, Dict[str, object]]:
         """Bulk Update Catalog Categories
 
-        Create a catalog category bulk update job to update a batch of catalog categories.  Accepts up to 100 catalog categories per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
+        Create a catalog category bulk update job to update a batch of catalog categories.  Accepts up to 100 catalog categories per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `catalogs:write`
 
         :param catalog_category_update_job_create_query: (required)
         :type catalog_category_update_job_create_query: CatalogCategoryUpdateJobCreateQuery
@@ -3005,7 +3005,7 @@ class CatalogsApi(object):
 ) -> ApiResponse[PostCatalogCategoryUpdateJobResponse]:
         """Bulk Update Catalog Categories
 
-        Create a catalog category bulk update job to update a batch of catalog categories.  Accepts up to 100 catalog categories per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
+        Create a catalog category bulk update job to update a batch of catalog categories.  Accepts up to 100 catalog categories per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `catalogs:write`
 
         :param catalog_category_update_job_create_query: (required)
         :type catalog_category_update_job_create_query: CatalogCategoryUpdateJobCreateQuery
@@ -3089,7 +3089,7 @@ class CatalogsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Bulk Update Catalog Categories
 
-        Create a catalog category bulk update job to update a batch of catalog categories.  Accepts up to 100 catalog categories per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
+        Create a catalog category bulk update job to update a batch of catalog categories.  Accepts up to 100 catalog categories per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `catalogs:write`
 
         :param catalog_category_update_job_create_query: (required)
         :type catalog_category_update_job_create_query: CatalogCategoryUpdateJobCreateQuery
@@ -3261,7 +3261,7 @@ class CatalogsApi(object):
 ) ->  Union[PostCatalogItemUpdateJobResponse, Dict[str, object]]:
         """Bulk Update Catalog Items
 
-        Create a catalog item bulk update job to update a batch of catalog items.  Accepts up to 100 catalog items per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
+        Create a catalog item bulk update job to update a batch of catalog items.  Accepts up to 100 catalog items per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `catalogs:write`
 
         :param catalog_item_update_job_create_query: (required)
         :type catalog_item_update_job_create_query: CatalogItemUpdateJobCreateQuery
@@ -3349,7 +3349,7 @@ class CatalogsApi(object):
 ) -> ApiResponse[PostCatalogItemUpdateJobResponse]:
         """Bulk Update Catalog Items
 
-        Create a catalog item bulk update job to update a batch of catalog items.  Accepts up to 100 catalog items per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
+        Create a catalog item bulk update job to update a batch of catalog items.  Accepts up to 100 catalog items per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `catalogs:write`
 
         :param catalog_item_update_job_create_query: (required)
         :type catalog_item_update_job_create_query: CatalogItemUpdateJobCreateQuery
@@ -3433,7 +3433,7 @@ class CatalogsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Bulk Update Catalog Items
 
-        Create a catalog item bulk update job to update a batch of catalog items.  Accepts up to 100 catalog items per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
+        Create a catalog item bulk update job to update a batch of catalog items.  Accepts up to 100 catalog items per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `catalogs:write`
 
         :param catalog_item_update_job_create_query: (required)
         :type catalog_item_update_job_create_query: CatalogItemUpdateJobCreateQuery
@@ -3605,7 +3605,7 @@ class CatalogsApi(object):
 ) ->  Union[PostCatalogVariantUpdateJobResponse, Dict[str, object]]:
         """Bulk Update Catalog Variants
 
-        Create a catalog variant bulk update job to update a batch of catalog variants.  Accepts up to 100 catalog variants per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
+        Create a catalog variant bulk update job to update a batch of catalog variants.  Accepts up to 100 catalog variants per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `catalogs:write`
 
         :param catalog_variant_update_job_create_query: (required)
         :type catalog_variant_update_job_create_query: CatalogVariantUpdateJobCreateQuery
@@ -3693,7 +3693,7 @@ class CatalogsApi(object):
 ) -> ApiResponse[PostCatalogVariantUpdateJobResponse]:
         """Bulk Update Catalog Variants
 
-        Create a catalog variant bulk update job to update a batch of catalog variants.  Accepts up to 100 catalog variants per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
+        Create a catalog variant bulk update job to update a batch of catalog variants.  Accepts up to 100 catalog variants per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `catalogs:write`
 
         :param catalog_variant_update_job_create_query: (required)
         :type catalog_variant_update_job_create_query: CatalogVariantUpdateJobCreateQuery
@@ -3777,7 +3777,7 @@ class CatalogsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Bulk Update Catalog Variants
 
-        Create a catalog variant bulk update job to update a batch of catalog variants.  Accepts up to 100 catalog variants per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
+        Create a catalog variant bulk update job to update a batch of catalog variants.  Accepts up to 100 catalog variants per request. The maximum allowed payload size is 5MB. The maximum number of jobs in progress at one time is 500.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `catalogs:write`
 
         :param catalog_variant_update_job_create_query: (required)
         :type catalog_variant_update_job_create_query: CatalogVariantUpdateJobCreateQuery
@@ -4269,7 +4269,7 @@ class CatalogsApi(object):
 ) ->  Union[PostCatalogCategoryResponse, Dict[str, object]]:
         """Create Catalog Category
 
-        Create a new catalog category.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
+        Create a new catalog category.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `catalogs:write`
 
         :param catalog_category_create_query: (required)
         :type catalog_category_create_query: CatalogCategoryCreateQuery
@@ -4351,7 +4351,7 @@ class CatalogsApi(object):
 ) -> ApiResponse[PostCatalogCategoryResponse]:
         """Create Catalog Category
 
-        Create a new catalog category.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
+        Create a new catalog category.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `catalogs:write`
 
         :param catalog_category_create_query: (required)
         :type catalog_category_create_query: CatalogCategoryCreateQuery
@@ -4429,7 +4429,7 @@ class CatalogsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Create Catalog Category
 
-        Create a new catalog category.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
+        Create a new catalog category.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `catalogs:write`
 
         :param catalog_category_create_query: (required)
         :type catalog_category_create_query: CatalogCategoryCreateQuery
@@ -4589,7 +4589,7 @@ class CatalogsApi(object):
 ) ->  Union[PostCatalogItemResponse, Dict[str, object]]:
         """Create Catalog Item
 
-        Create a new catalog item.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
+        Create a new catalog item.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `catalogs:write`
 
         :param catalog_item_create_query: (required)
         :type catalog_item_create_query: CatalogItemCreateQuery
@@ -4671,7 +4671,7 @@ class CatalogsApi(object):
 ) -> ApiResponse[PostCatalogItemResponse]:
         """Create Catalog Item
 
-        Create a new catalog item.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
+        Create a new catalog item.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `catalogs:write`
 
         :param catalog_item_create_query: (required)
         :type catalog_item_create_query: CatalogItemCreateQuery
@@ -4749,7 +4749,7 @@ class CatalogsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Create Catalog Item
 
-        Create a new catalog item.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
+        Create a new catalog item.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `catalogs:write`
 
         :param catalog_item_create_query: (required)
         :type catalog_item_create_query: CatalogItemCreateQuery
@@ -4909,7 +4909,7 @@ class CatalogsApi(object):
 ) ->  Union[PostCatalogVariantResponse, Dict[str, object]]:
         """Create Catalog Variant
 
-        Create a new variant for a related catalog item.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
+        Create a new variant for a related catalog item.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `catalogs:write`
 
         :param catalog_variant_create_query: (required)
         :type catalog_variant_create_query: CatalogVariantCreateQuery
@@ -4991,7 +4991,7 @@ class CatalogsApi(object):
 ) -> ApiResponse[PostCatalogVariantResponse]:
         """Create Catalog Variant
 
-        Create a new variant for a related catalog item.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
+        Create a new variant for a related catalog item.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `catalogs:write`
 
         :param catalog_variant_create_query: (required)
         :type catalog_variant_create_query: CatalogVariantCreateQuery
@@ -5069,7 +5069,7 @@ class CatalogsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Create Catalog Variant
 
-        Create a new variant for a related catalog item.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
+        Create a new variant for a related catalog item.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `catalogs:write`
 
         :param catalog_variant_create_query: (required)
         :type catalog_variant_create_query: CatalogVariantCreateQuery
@@ -5229,7 +5229,7 @@ class CatalogsApi(object):
 ) -> None:
         """Delete Catalog Category
 
-        Delete a catalog category using the given category ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
+        Delete a catalog category using the given category ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `catalogs:write`
 
         :param id: The catalog category ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`. (required)
         :type id: str
@@ -5311,7 +5311,7 @@ class CatalogsApi(object):
 ) -> ApiResponse[None]:
         """Delete Catalog Category
 
-        Delete a catalog category using the given category ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
+        Delete a catalog category using the given category ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `catalogs:write`
 
         :param id: The catalog category ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`. (required)
         :type id: str
@@ -5389,7 +5389,7 @@ class CatalogsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Delete Catalog Category
 
-        Delete a catalog category using the given category ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
+        Delete a catalog category using the given category ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `catalogs:write`
 
         :param id: The catalog category ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`. (required)
         :type id: str
@@ -5536,7 +5536,7 @@ class CatalogsApi(object):
 ) -> None:
         """Delete Catalog Item
 
-        Delete a catalog item with the given item ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
+        Delete a catalog item with the given item ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `catalogs:write`
 
         :param id: The catalog item ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`. (required)
         :type id: str
@@ -5618,7 +5618,7 @@ class CatalogsApi(object):
 ) -> ApiResponse[None]:
         """Delete Catalog Item
 
-        Delete a catalog item with the given item ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
+        Delete a catalog item with the given item ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `catalogs:write`
 
         :param id: The catalog item ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`. (required)
         :type id: str
@@ -5696,7 +5696,7 @@ class CatalogsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Delete Catalog Item
 
-        Delete a catalog item with the given item ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
+        Delete a catalog item with the given item ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `catalogs:write`
 
         :param id: The catalog item ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`. (required)
         :type id: str
@@ -5843,7 +5843,7 @@ class CatalogsApi(object):
 ) -> None:
         """Delete Catalog Variant
 
-        Delete a catalog item variant with the given variant ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
+        Delete a catalog item variant with the given variant ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `catalogs:write`
 
         :param id: The catalog variant ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`. (required)
         :type id: str
@@ -5925,7 +5925,7 @@ class CatalogsApi(object):
 ) -> ApiResponse[None]:
         """Delete Catalog Variant
 
-        Delete a catalog item variant with the given variant ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
+        Delete a catalog item variant with the given variant ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `catalogs:write`
 
         :param id: The catalog variant ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`. (required)
         :type id: str
@@ -6003,7 +6003,7 @@ class CatalogsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Delete Catalog Variant
 
-        Delete a catalog item variant with the given variant ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
+        Delete a catalog item variant with the given variant ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `catalogs:write`
 
         :param id: The catalog variant ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`. (required)
         :type id: str
@@ -6134,9 +6134,9 @@ class CatalogsApi(object):
     def get_bulk_create_catalog_items_job(        
         self,
         job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
-        fields_catalog_item_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_catalog_item: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#relationships")] = None,
+        fields_catalog_item_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_catalog_item: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6157,11 +6157,11 @@ class CatalogsApi(object):
 
         :param job_id: ID of the job to retrieve. (required)
         :type job_id: str
-        :param fields_catalog_item_bulk_create_job: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_item_bulk_create_job: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_item_bulk_create_job: List[str]
-        :param fields_catalog_item: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_item: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_item: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -6234,9 +6234,9 @@ class CatalogsApi(object):
     def get_bulk_create_catalog_items_job_with_http_info(        
         self,
         job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
-        fields_catalog_item_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_catalog_item: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#relationships")] = None,
+        fields_catalog_item_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_catalog_item: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6257,11 +6257,11 @@ class CatalogsApi(object):
 
         :param job_id: ID of the job to retrieve. (required)
         :type job_id: str
-        :param fields_catalog_item_bulk_create_job: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_item_bulk_create_job: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_item_bulk_create_job: List[str]
-        :param fields_catalog_item: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_item: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_item: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -6332,9 +6332,9 @@ class CatalogsApi(object):
     def get_bulk_create_catalog_items_job_without_preload_content(
         self,
         job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
-        fields_catalog_item_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_catalog_item: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#relationships")] = None,
+        fields_catalog_item_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_catalog_item: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6353,11 +6353,11 @@ class CatalogsApi(object):
 
         :param job_id: ID of the job to retrieve. (required)
         :type job_id: str
-        :param fields_catalog_item_bulk_create_job: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_item_bulk_create_job: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_item_bulk_create_job: List[str]
-        :param fields_catalog_item: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_item: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_item: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -6527,9 +6527,9 @@ class CatalogsApi(object):
     @validate_call
     def get_bulk_create_catalog_items_jobs(        
         self,
-        fields_catalog_item_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination")] = None,
+        fields_catalog_item_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6548,11 +6548,11 @@ class CatalogsApi(object):
 
         Get all catalog item bulk create jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
 
-        :param fields_catalog_item_bulk_create_job: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_item_bulk_create_job: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_item_bulk_create_job: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
         :type page_cursor: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -6623,9 +6623,9 @@ class CatalogsApi(object):
     @validate_call
     def get_bulk_create_catalog_items_jobs_with_http_info(        
         self,
-        fields_catalog_item_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination")] = None,
+        fields_catalog_item_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6644,11 +6644,11 @@ class CatalogsApi(object):
 
         Get all catalog item bulk create jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
 
-        :param fields_catalog_item_bulk_create_job: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_item_bulk_create_job: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_item_bulk_create_job: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
         :type page_cursor: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -6717,9 +6717,9 @@ class CatalogsApi(object):
     @validate_call
     def get_bulk_create_catalog_items_jobs_without_preload_content(
         self,
-        fields_catalog_item_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination")] = None,
+        fields_catalog_item_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6736,11 +6736,11 @@ class CatalogsApi(object):
 
         Get all catalog item bulk create jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
 
-        :param fields_catalog_item_bulk_create_job: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_item_bulk_create_job: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_item_bulk_create_job: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
         :type page_cursor: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -6905,9 +6905,9 @@ class CatalogsApi(object):
     def get_bulk_create_categories_job(        
         self,
         job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
-        fields_catalog_category_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_catalog_category: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#relationships")] = None,
+        fields_catalog_category_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_catalog_category: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6928,11 +6928,11 @@ class CatalogsApi(object):
 
         :param job_id: ID of the job to retrieve. (required)
         :type job_id: str
-        :param fields_catalog_category_bulk_create_job: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_category_bulk_create_job: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_category_bulk_create_job: List[str]
-        :param fields_catalog_category: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_category: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_category: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -7005,9 +7005,9 @@ class CatalogsApi(object):
     def get_bulk_create_categories_job_with_http_info(        
         self,
         job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
-        fields_catalog_category_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_catalog_category: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#relationships")] = None,
+        fields_catalog_category_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_catalog_category: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7028,11 +7028,11 @@ class CatalogsApi(object):
 
         :param job_id: ID of the job to retrieve. (required)
         :type job_id: str
-        :param fields_catalog_category_bulk_create_job: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_category_bulk_create_job: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_category_bulk_create_job: List[str]
-        :param fields_catalog_category: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_category: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_category: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -7103,9 +7103,9 @@ class CatalogsApi(object):
     def get_bulk_create_categories_job_without_preload_content(
         self,
         job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
-        fields_catalog_category_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_catalog_category: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#relationships")] = None,
+        fields_catalog_category_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_catalog_category: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7124,11 +7124,11 @@ class CatalogsApi(object):
 
         :param job_id: ID of the job to retrieve. (required)
         :type job_id: str
-        :param fields_catalog_category_bulk_create_job: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_category_bulk_create_job: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_category_bulk_create_job: List[str]
-        :param fields_catalog_category: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_category: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_category: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -7298,9 +7298,9 @@ class CatalogsApi(object):
     @validate_call
     def get_bulk_create_categories_jobs(        
         self,
-        fields_catalog_category_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination")] = None,
+        fields_catalog_category_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7319,11 +7319,11 @@ class CatalogsApi(object):
 
         Get all catalog category bulk create jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
 
-        :param fields_catalog_category_bulk_create_job: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_category_bulk_create_job: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_category_bulk_create_job: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
         :type page_cursor: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -7394,9 +7394,9 @@ class CatalogsApi(object):
     @validate_call
     def get_bulk_create_categories_jobs_with_http_info(        
         self,
-        fields_catalog_category_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination")] = None,
+        fields_catalog_category_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7415,11 +7415,11 @@ class CatalogsApi(object):
 
         Get all catalog category bulk create jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
 
-        :param fields_catalog_category_bulk_create_job: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_category_bulk_create_job: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_category_bulk_create_job: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
         :type page_cursor: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -7488,9 +7488,9 @@ class CatalogsApi(object):
     @validate_call
     def get_bulk_create_categories_jobs_without_preload_content(
         self,
-        fields_catalog_category_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination")] = None,
+        fields_catalog_category_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7507,11 +7507,11 @@ class CatalogsApi(object):
 
         Get all catalog category bulk create jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
 
-        :param fields_catalog_category_bulk_create_job: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_category_bulk_create_job: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_category_bulk_create_job: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
         :type page_cursor: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -7676,9 +7676,9 @@ class CatalogsApi(object):
     def get_bulk_create_variants_job(        
         self,
         job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
-        fields_catalog_variant_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_catalog_variant: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#relationships")] = None,
+        fields_catalog_variant_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_catalog_variant: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7699,11 +7699,11 @@ class CatalogsApi(object):
 
         :param job_id: ID of the job to retrieve. (required)
         :type job_id: str
-        :param fields_catalog_variant_bulk_create_job: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_variant_bulk_create_job: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_variant_bulk_create_job: List[str]
-        :param fields_catalog_variant: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_variant: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_variant: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -7776,9 +7776,9 @@ class CatalogsApi(object):
     def get_bulk_create_variants_job_with_http_info(        
         self,
         job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
-        fields_catalog_variant_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_catalog_variant: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#relationships")] = None,
+        fields_catalog_variant_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_catalog_variant: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7799,11 +7799,11 @@ class CatalogsApi(object):
 
         :param job_id: ID of the job to retrieve. (required)
         :type job_id: str
-        :param fields_catalog_variant_bulk_create_job: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_variant_bulk_create_job: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_variant_bulk_create_job: List[str]
-        :param fields_catalog_variant: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_variant: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_variant: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -7874,9 +7874,9 @@ class CatalogsApi(object):
     def get_bulk_create_variants_job_without_preload_content(
         self,
         job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
-        fields_catalog_variant_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_catalog_variant: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#relationships")] = None,
+        fields_catalog_variant_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_catalog_variant: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7895,11 +7895,11 @@ class CatalogsApi(object):
 
         :param job_id: ID of the job to retrieve. (required)
         :type job_id: str
-        :param fields_catalog_variant_bulk_create_job: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_variant_bulk_create_job: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_variant_bulk_create_job: List[str]
-        :param fields_catalog_variant: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_variant: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_variant: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -8069,9 +8069,9 @@ class CatalogsApi(object):
     @validate_call
     def get_bulk_create_variants_jobs(        
         self,
-        fields_catalog_variant_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination")] = None,
+        fields_catalog_variant_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8090,11 +8090,11 @@ class CatalogsApi(object):
 
         Get all catalog variant bulk create jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
 
-        :param fields_catalog_variant_bulk_create_job: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_variant_bulk_create_job: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_variant_bulk_create_job: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
         :type page_cursor: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -8165,9 +8165,9 @@ class CatalogsApi(object):
     @validate_call
     def get_bulk_create_variants_jobs_with_http_info(        
         self,
-        fields_catalog_variant_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination")] = None,
+        fields_catalog_variant_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8186,11 +8186,11 @@ class CatalogsApi(object):
 
         Get all catalog variant bulk create jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
 
-        :param fields_catalog_variant_bulk_create_job: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_variant_bulk_create_job: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_variant_bulk_create_job: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
         :type page_cursor: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -8259,9 +8259,9 @@ class CatalogsApi(object):
     @validate_call
     def get_bulk_create_variants_jobs_without_preload_content(
         self,
-        fields_catalog_variant_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination")] = None,
+        fields_catalog_variant_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8278,11 +8278,11 @@ class CatalogsApi(object):
 
         Get all catalog variant bulk create jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
 
-        :param fields_catalog_variant_bulk_create_job: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_variant_bulk_create_job: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_variant_bulk_create_job: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
         :type page_cursor: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -8447,7 +8447,7 @@ class CatalogsApi(object):
     def get_bulk_delete_catalog_items_job(        
         self,
         job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
-        fields_catalog_item_bulk_delete_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_catalog_item_bulk_delete_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8468,7 +8468,7 @@ class CatalogsApi(object):
 
         :param job_id: ID of the job to retrieve. (required)
         :type job_id: str
-        :param fields_catalog_item_bulk_delete_job: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_item_bulk_delete_job: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_item_bulk_delete_job: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -8539,7 +8539,7 @@ class CatalogsApi(object):
     def get_bulk_delete_catalog_items_job_with_http_info(        
         self,
         job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
-        fields_catalog_item_bulk_delete_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_catalog_item_bulk_delete_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8560,7 +8560,7 @@ class CatalogsApi(object):
 
         :param job_id: ID of the job to retrieve. (required)
         :type job_id: str
-        :param fields_catalog_item_bulk_delete_job: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_item_bulk_delete_job: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_item_bulk_delete_job: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -8629,7 +8629,7 @@ class CatalogsApi(object):
     def get_bulk_delete_catalog_items_job_without_preload_content(
         self,
         job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
-        fields_catalog_item_bulk_delete_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_catalog_item_bulk_delete_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8648,7 +8648,7 @@ class CatalogsApi(object):
 
         :param job_id: ID of the job to retrieve. (required)
         :type job_id: str
-        :param fields_catalog_item_bulk_delete_job: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_item_bulk_delete_job: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_item_bulk_delete_job: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -8798,9 +8798,9 @@ class CatalogsApi(object):
     @validate_call
     def get_bulk_delete_catalog_items_jobs(        
         self,
-        fields_catalog_item_bulk_delete_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination")] = None,
+        fields_catalog_item_bulk_delete_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8819,11 +8819,11 @@ class CatalogsApi(object):
 
         Get all catalog item bulk delete jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
 
-        :param fields_catalog_item_bulk_delete_job: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_item_bulk_delete_job: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_item_bulk_delete_job: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
         :type page_cursor: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -8894,9 +8894,9 @@ class CatalogsApi(object):
     @validate_call
     def get_bulk_delete_catalog_items_jobs_with_http_info(        
         self,
-        fields_catalog_item_bulk_delete_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination")] = None,
+        fields_catalog_item_bulk_delete_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8915,11 +8915,11 @@ class CatalogsApi(object):
 
         Get all catalog item bulk delete jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
 
-        :param fields_catalog_item_bulk_delete_job: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_item_bulk_delete_job: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_item_bulk_delete_job: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
         :type page_cursor: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -8988,9 +8988,9 @@ class CatalogsApi(object):
     @validate_call
     def get_bulk_delete_catalog_items_jobs_without_preload_content(
         self,
-        fields_catalog_item_bulk_delete_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination")] = None,
+        fields_catalog_item_bulk_delete_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -9007,11 +9007,11 @@ class CatalogsApi(object):
 
         Get all catalog item bulk delete jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
 
-        :param fields_catalog_item_bulk_delete_job: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_item_bulk_delete_job: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_item_bulk_delete_job: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
         :type page_cursor: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -9176,7 +9176,7 @@ class CatalogsApi(object):
     def get_bulk_delete_categories_job(        
         self,
         job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
-        fields_catalog_category_bulk_delete_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_catalog_category_bulk_delete_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -9197,7 +9197,7 @@ class CatalogsApi(object):
 
         :param job_id: ID of the job to retrieve. (required)
         :type job_id: str
-        :param fields_catalog_category_bulk_delete_job: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_category_bulk_delete_job: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_category_bulk_delete_job: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -9268,7 +9268,7 @@ class CatalogsApi(object):
     def get_bulk_delete_categories_job_with_http_info(        
         self,
         job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
-        fields_catalog_category_bulk_delete_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_catalog_category_bulk_delete_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -9289,7 +9289,7 @@ class CatalogsApi(object):
 
         :param job_id: ID of the job to retrieve. (required)
         :type job_id: str
-        :param fields_catalog_category_bulk_delete_job: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_category_bulk_delete_job: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_category_bulk_delete_job: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -9358,7 +9358,7 @@ class CatalogsApi(object):
     def get_bulk_delete_categories_job_without_preload_content(
         self,
         job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
-        fields_catalog_category_bulk_delete_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_catalog_category_bulk_delete_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -9377,7 +9377,7 @@ class CatalogsApi(object):
 
         :param job_id: ID of the job to retrieve. (required)
         :type job_id: str
-        :param fields_catalog_category_bulk_delete_job: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_category_bulk_delete_job: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_category_bulk_delete_job: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -9527,9 +9527,9 @@ class CatalogsApi(object):
     @validate_call
     def get_bulk_delete_categories_jobs(        
         self,
-        fields_catalog_category_bulk_delete_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination")] = None,
+        fields_catalog_category_bulk_delete_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -9548,11 +9548,11 @@ class CatalogsApi(object):
 
         Get all catalog category bulk delete jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
 
-        :param fields_catalog_category_bulk_delete_job: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_category_bulk_delete_job: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_category_bulk_delete_job: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
         :type page_cursor: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -9623,9 +9623,9 @@ class CatalogsApi(object):
     @validate_call
     def get_bulk_delete_categories_jobs_with_http_info(        
         self,
-        fields_catalog_category_bulk_delete_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination")] = None,
+        fields_catalog_category_bulk_delete_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -9644,11 +9644,11 @@ class CatalogsApi(object):
 
         Get all catalog category bulk delete jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
 
-        :param fields_catalog_category_bulk_delete_job: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_category_bulk_delete_job: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_category_bulk_delete_job: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
         :type page_cursor: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -9717,9 +9717,9 @@ class CatalogsApi(object):
     @validate_call
     def get_bulk_delete_categories_jobs_without_preload_content(
         self,
-        fields_catalog_category_bulk_delete_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination")] = None,
+        fields_catalog_category_bulk_delete_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -9736,11 +9736,11 @@ class CatalogsApi(object):
 
         Get all catalog category bulk delete jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
 
-        :param fields_catalog_category_bulk_delete_job: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_category_bulk_delete_job: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_category_bulk_delete_job: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
         :type page_cursor: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -9905,7 +9905,7 @@ class CatalogsApi(object):
     def get_bulk_delete_variants_job(        
         self,
         job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
-        fields_catalog_variant_bulk_delete_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_catalog_variant_bulk_delete_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -9926,7 +9926,7 @@ class CatalogsApi(object):
 
         :param job_id: ID of the job to retrieve. (required)
         :type job_id: str
-        :param fields_catalog_variant_bulk_delete_job: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_variant_bulk_delete_job: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_variant_bulk_delete_job: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -9997,7 +9997,7 @@ class CatalogsApi(object):
     def get_bulk_delete_variants_job_with_http_info(        
         self,
         job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
-        fields_catalog_variant_bulk_delete_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_catalog_variant_bulk_delete_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -10018,7 +10018,7 @@ class CatalogsApi(object):
 
         :param job_id: ID of the job to retrieve. (required)
         :type job_id: str
-        :param fields_catalog_variant_bulk_delete_job: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_variant_bulk_delete_job: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_variant_bulk_delete_job: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -10087,7 +10087,7 @@ class CatalogsApi(object):
     def get_bulk_delete_variants_job_without_preload_content(
         self,
         job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
-        fields_catalog_variant_bulk_delete_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_catalog_variant_bulk_delete_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -10106,7 +10106,7 @@ class CatalogsApi(object):
 
         :param job_id: ID of the job to retrieve. (required)
         :type job_id: str
-        :param fields_catalog_variant_bulk_delete_job: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_variant_bulk_delete_job: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_variant_bulk_delete_job: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -10256,9 +10256,9 @@ class CatalogsApi(object):
     @validate_call
     def get_bulk_delete_variants_jobs(        
         self,
-        fields_catalog_variant_bulk_delete_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination")] = None,
+        fields_catalog_variant_bulk_delete_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -10277,11 +10277,11 @@ class CatalogsApi(object):
 
         Get all catalog variant bulk delete jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
 
-        :param fields_catalog_variant_bulk_delete_job: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_variant_bulk_delete_job: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_variant_bulk_delete_job: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
         :type page_cursor: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -10352,9 +10352,9 @@ class CatalogsApi(object):
     @validate_call
     def get_bulk_delete_variants_jobs_with_http_info(        
         self,
-        fields_catalog_variant_bulk_delete_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination")] = None,
+        fields_catalog_variant_bulk_delete_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -10373,11 +10373,11 @@ class CatalogsApi(object):
 
         Get all catalog variant bulk delete jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
 
-        :param fields_catalog_variant_bulk_delete_job: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_variant_bulk_delete_job: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_variant_bulk_delete_job: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
         :type page_cursor: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -10446,9 +10446,9 @@ class CatalogsApi(object):
     @validate_call
     def get_bulk_delete_variants_jobs_without_preload_content(
         self,
-        fields_catalog_variant_bulk_delete_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination")] = None,
+        fields_catalog_variant_bulk_delete_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -10465,11 +10465,11 @@ class CatalogsApi(object):
 
         Get all catalog variant bulk delete jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
 
-        :param fields_catalog_variant_bulk_delete_job: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_variant_bulk_delete_job: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_variant_bulk_delete_job: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
         :type page_cursor: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -10634,9 +10634,9 @@ class CatalogsApi(object):
     def get_bulk_update_catalog_items_job(        
         self,
         job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
-        fields_catalog_item_bulk_update_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_catalog_item: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#relationships")] = None,
+        fields_catalog_item_bulk_update_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_catalog_item: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -10657,11 +10657,11 @@ class CatalogsApi(object):
 
         :param job_id: ID of the job to retrieve. (required)
         :type job_id: str
-        :param fields_catalog_item_bulk_update_job: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_item_bulk_update_job: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_item_bulk_update_job: List[str]
-        :param fields_catalog_item: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_item: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_item: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -10734,9 +10734,9 @@ class CatalogsApi(object):
     def get_bulk_update_catalog_items_job_with_http_info(        
         self,
         job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
-        fields_catalog_item_bulk_update_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_catalog_item: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#relationships")] = None,
+        fields_catalog_item_bulk_update_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_catalog_item: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -10757,11 +10757,11 @@ class CatalogsApi(object):
 
         :param job_id: ID of the job to retrieve. (required)
         :type job_id: str
-        :param fields_catalog_item_bulk_update_job: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_item_bulk_update_job: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_item_bulk_update_job: List[str]
-        :param fields_catalog_item: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_item: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_item: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -10832,9 +10832,9 @@ class CatalogsApi(object):
     def get_bulk_update_catalog_items_job_without_preload_content(
         self,
         job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
-        fields_catalog_item_bulk_update_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_catalog_item: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#relationships")] = None,
+        fields_catalog_item_bulk_update_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_catalog_item: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -10853,11 +10853,11 @@ class CatalogsApi(object):
 
         :param job_id: ID of the job to retrieve. (required)
         :type job_id: str
-        :param fields_catalog_item_bulk_update_job: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_item_bulk_update_job: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_item_bulk_update_job: List[str]
-        :param fields_catalog_item: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_item: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_item: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -11027,9 +11027,9 @@ class CatalogsApi(object):
     @validate_call
     def get_bulk_update_catalog_items_jobs(        
         self,
-        fields_catalog_item_bulk_update_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination")] = None,
+        fields_catalog_item_bulk_update_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11048,11 +11048,11 @@ class CatalogsApi(object):
 
         Get all catalog item bulk update jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
 
-        :param fields_catalog_item_bulk_update_job: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_item_bulk_update_job: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_item_bulk_update_job: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
         :type page_cursor: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -11123,9 +11123,9 @@ class CatalogsApi(object):
     @validate_call
     def get_bulk_update_catalog_items_jobs_with_http_info(        
         self,
-        fields_catalog_item_bulk_update_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination")] = None,
+        fields_catalog_item_bulk_update_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11144,11 +11144,11 @@ class CatalogsApi(object):
 
         Get all catalog item bulk update jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
 
-        :param fields_catalog_item_bulk_update_job: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_item_bulk_update_job: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_item_bulk_update_job: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
         :type page_cursor: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -11217,9 +11217,9 @@ class CatalogsApi(object):
     @validate_call
     def get_bulk_update_catalog_items_jobs_without_preload_content(
         self,
-        fields_catalog_item_bulk_update_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination")] = None,
+        fields_catalog_item_bulk_update_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11236,11 +11236,11 @@ class CatalogsApi(object):
 
         Get all catalog item bulk update jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
 
-        :param fields_catalog_item_bulk_update_job: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_item_bulk_update_job: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_item_bulk_update_job: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
         :type page_cursor: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -11405,9 +11405,9 @@ class CatalogsApi(object):
     def get_bulk_update_categories_job(        
         self,
         job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
-        fields_catalog_category_bulk_update_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_catalog_category: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#relationships")] = None,
+        fields_catalog_category_bulk_update_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_catalog_category: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11428,11 +11428,11 @@ class CatalogsApi(object):
 
         :param job_id: ID of the job to retrieve. (required)
         :type job_id: str
-        :param fields_catalog_category_bulk_update_job: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_category_bulk_update_job: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_category_bulk_update_job: List[str]
-        :param fields_catalog_category: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_category: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_category: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -11505,9 +11505,9 @@ class CatalogsApi(object):
     def get_bulk_update_categories_job_with_http_info(        
         self,
         job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
-        fields_catalog_category_bulk_update_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_catalog_category: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#relationships")] = None,
+        fields_catalog_category_bulk_update_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_catalog_category: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11528,11 +11528,11 @@ class CatalogsApi(object):
 
         :param job_id: ID of the job to retrieve. (required)
         :type job_id: str
-        :param fields_catalog_category_bulk_update_job: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_category_bulk_update_job: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_category_bulk_update_job: List[str]
-        :param fields_catalog_category: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_category: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_category: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -11603,9 +11603,9 @@ class CatalogsApi(object):
     def get_bulk_update_categories_job_without_preload_content(
         self,
         job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
-        fields_catalog_category_bulk_update_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_catalog_category: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#relationships")] = None,
+        fields_catalog_category_bulk_update_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_catalog_category: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11624,11 +11624,11 @@ class CatalogsApi(object):
 
         :param job_id: ID of the job to retrieve. (required)
         :type job_id: str
-        :param fields_catalog_category_bulk_update_job: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_category_bulk_update_job: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_category_bulk_update_job: List[str]
-        :param fields_catalog_category: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_category: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_category: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -11798,9 +11798,9 @@ class CatalogsApi(object):
     @validate_call
     def get_bulk_update_categories_jobs(        
         self,
-        fields_catalog_category_bulk_update_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination")] = None,
+        fields_catalog_category_bulk_update_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11819,11 +11819,11 @@ class CatalogsApi(object):
 
         Get all catalog category bulk update jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
 
-        :param fields_catalog_category_bulk_update_job: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_category_bulk_update_job: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_category_bulk_update_job: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
         :type page_cursor: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -11894,9 +11894,9 @@ class CatalogsApi(object):
     @validate_call
     def get_bulk_update_categories_jobs_with_http_info(        
         self,
-        fields_catalog_category_bulk_update_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination")] = None,
+        fields_catalog_category_bulk_update_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11915,11 +11915,11 @@ class CatalogsApi(object):
 
         Get all catalog category bulk update jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
 
-        :param fields_catalog_category_bulk_update_job: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_category_bulk_update_job: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_category_bulk_update_job: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
         :type page_cursor: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -11988,9 +11988,9 @@ class CatalogsApi(object):
     @validate_call
     def get_bulk_update_categories_jobs_without_preload_content(
         self,
-        fields_catalog_category_bulk_update_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination")] = None,
+        fields_catalog_category_bulk_update_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12007,11 +12007,11 @@ class CatalogsApi(object):
 
         Get all catalog category bulk update jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
 
-        :param fields_catalog_category_bulk_update_job: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_category_bulk_update_job: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_category_bulk_update_job: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
         :type page_cursor: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -12176,9 +12176,9 @@ class CatalogsApi(object):
     def get_bulk_update_variants_job(        
         self,
         job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
-        fields_catalog_variant_bulk_update_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_catalog_variant: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#relationships")] = None,
+        fields_catalog_variant_bulk_update_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_catalog_variant: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12199,11 +12199,11 @@ class CatalogsApi(object):
 
         :param job_id: ID of the job to retrieve. (required)
         :type job_id: str
-        :param fields_catalog_variant_bulk_update_job: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_variant_bulk_update_job: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_variant_bulk_update_job: List[str]
-        :param fields_catalog_variant: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_variant: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_variant: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -12276,9 +12276,9 @@ class CatalogsApi(object):
     def get_bulk_update_variants_job_with_http_info(        
         self,
         job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
-        fields_catalog_variant_bulk_update_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_catalog_variant: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#relationships")] = None,
+        fields_catalog_variant_bulk_update_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_catalog_variant: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12299,11 +12299,11 @@ class CatalogsApi(object):
 
         :param job_id: ID of the job to retrieve. (required)
         :type job_id: str
-        :param fields_catalog_variant_bulk_update_job: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_variant_bulk_update_job: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_variant_bulk_update_job: List[str]
-        :param fields_catalog_variant: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_variant: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_variant: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -12374,9 +12374,9 @@ class CatalogsApi(object):
     def get_bulk_update_variants_job_without_preload_content(
         self,
         job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
-        fields_catalog_variant_bulk_update_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_catalog_variant: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#relationships")] = None,
+        fields_catalog_variant_bulk_update_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_catalog_variant: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12395,11 +12395,11 @@ class CatalogsApi(object):
 
         :param job_id: ID of the job to retrieve. (required)
         :type job_id: str
-        :param fields_catalog_variant_bulk_update_job: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_variant_bulk_update_job: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_variant_bulk_update_job: List[str]
-        :param fields_catalog_variant: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_variant: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_variant: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -12569,9 +12569,9 @@ class CatalogsApi(object):
     @validate_call
     def get_bulk_update_variants_jobs(        
         self,
-        fields_catalog_variant_bulk_update_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination")] = None,
+        fields_catalog_variant_bulk_update_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12590,11 +12590,11 @@ class CatalogsApi(object):
 
         Get all catalog variant bulk update jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
 
-        :param fields_catalog_variant_bulk_update_job: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_variant_bulk_update_job: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_variant_bulk_update_job: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
         :type page_cursor: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -12665,9 +12665,9 @@ class CatalogsApi(object):
     @validate_call
     def get_bulk_update_variants_jobs_with_http_info(        
         self,
-        fields_catalog_variant_bulk_update_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination")] = None,
+        fields_catalog_variant_bulk_update_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12686,11 +12686,11 @@ class CatalogsApi(object):
 
         Get all catalog variant bulk update jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
 
-        :param fields_catalog_variant_bulk_update_job: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_variant_bulk_update_job: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_variant_bulk_update_job: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
         :type page_cursor: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -12759,9 +12759,9 @@ class CatalogsApi(object):
     @validate_call
     def get_bulk_update_variants_jobs_without_preload_content(
         self,
-        fields_catalog_variant_bulk_update_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination")] = None,
+        fields_catalog_variant_bulk_update_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12778,11 +12778,11 @@ class CatalogsApi(object):
 
         Get all catalog variant bulk update jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
 
-        :param fields_catalog_variant_bulk_update_job: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_variant_bulk_update_job: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_variant_bulk_update_job: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
         :type page_cursor: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -12946,10 +12946,10 @@ class CatalogsApi(object):
     @validate_call
     def get_catalog_categories(        
         self,
-        fields_catalog_category: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item.id`: `equals`<br>`name`: `contains`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting")] = None,
+        fields_catalog_category: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item.id`: `equals`<br>`name`: `contains`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12968,13 +12968,13 @@ class CatalogsApi(object):
 
         Get all catalog categories in an account.  Catalog categories can be sorted by the following fields, in ascending and descending order: `created`  Currently, the only supported integration type is `$custom`, and the only supported catalog type is `$default`.  Returns a maximum of 100 categories per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
 
-        :param fields_catalog_category: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_category: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_category: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item.id`: `equals`<br>`name`: `contains`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item.id`: `equals`<br>`name`: `contains`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
         :type page_cursor: str
-        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting
         :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -13040,10 +13040,10 @@ class CatalogsApi(object):
     @validate_call
     def get_catalog_categories_with_http_info(        
         self,
-        fields_catalog_category: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item.id`: `equals`<br>`name`: `contains`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting")] = None,
+        fields_catalog_category: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item.id`: `equals`<br>`name`: `contains`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -13062,13 +13062,13 @@ class CatalogsApi(object):
 
         Get all catalog categories in an account.  Catalog categories can be sorted by the following fields, in ascending and descending order: `created`  Currently, the only supported integration type is `$custom`, and the only supported catalog type is `$default`.  Returns a maximum of 100 categories per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
 
-        :param fields_catalog_category: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_category: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_category: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item.id`: `equals`<br>`name`: `contains`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item.id`: `equals`<br>`name`: `contains`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
         :type page_cursor: str
-        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting
         :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -13132,10 +13132,10 @@ class CatalogsApi(object):
     @validate_call
     def get_catalog_categories_without_preload_content(
         self,
-        fields_catalog_category: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item.id`: `equals`<br>`name`: `contains`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting")] = None,
+        fields_catalog_category: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item.id`: `equals`<br>`name`: `contains`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -13152,13 +13152,13 @@ class CatalogsApi(object):
 
         Get all catalog categories in an account.  Catalog categories can be sorted by the following fields, in ascending and descending order: `created`  Currently, the only supported integration type is `$custom`, and the only supported catalog type is `$default`.  Returns a maximum of 100 categories per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
 
-        :param fields_catalog_category: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_category: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_category: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item.id`: `equals`<br>`name`: `contains`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item.id`: `equals`<br>`name`: `contains`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
         :type page_cursor: str
-        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting
         :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -13320,7 +13320,7 @@ class CatalogsApi(object):
     def get_catalog_category(        
         self,
         id: Annotated[StrictStr, Field(description="The catalog category ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.")],
-        fields_catalog_category: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_catalog_category: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -13341,7 +13341,7 @@ class CatalogsApi(object):
 
         :param id: The catalog category ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`. (required)
         :type id: str
-        :param fields_catalog_category: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_category: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_category: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -13406,7 +13406,7 @@ class CatalogsApi(object):
     def get_catalog_category_with_http_info(        
         self,
         id: Annotated[StrictStr, Field(description="The catalog category ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.")],
-        fields_catalog_category: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_catalog_category: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -13427,7 +13427,7 @@ class CatalogsApi(object):
 
         :param id: The catalog category ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`. (required)
         :type id: str
-        :param fields_catalog_category: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_category: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_category: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -13490,7 +13490,7 @@ class CatalogsApi(object):
     def get_catalog_category_without_preload_content(
         self,
         id: Annotated[StrictStr, Field(description="The catalog category ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.")],
-        fields_catalog_category: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_catalog_category: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -13509,7 +13509,7 @@ class CatalogsApi(object):
 
         :param id: The catalog category ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`. (required)
         :type id: str
-        :param fields_catalog_category: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_category: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_category: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -13648,9 +13648,9 @@ class CatalogsApi(object):
     def get_catalog_item(        
         self,
         id: Annotated[StrictStr, Field(description="The catalog item ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.")],
-        fields_catalog_item: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_catalog_variant: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#relationships")] = None,
+        fields_catalog_item: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_catalog_variant: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -13671,11 +13671,11 @@ class CatalogsApi(object):
 
         :param id: The catalog item ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`. (required)
         :type id: str
-        :param fields_catalog_item: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_item: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_item: List[str]
-        :param fields_catalog_variant: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_variant: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_variant: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -13742,9 +13742,9 @@ class CatalogsApi(object):
     def get_catalog_item_with_http_info(        
         self,
         id: Annotated[StrictStr, Field(description="The catalog item ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.")],
-        fields_catalog_item: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_catalog_variant: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#relationships")] = None,
+        fields_catalog_item: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_catalog_variant: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -13765,11 +13765,11 @@ class CatalogsApi(object):
 
         :param id: The catalog item ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`. (required)
         :type id: str
-        :param fields_catalog_item: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_item: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_item: List[str]
-        :param fields_catalog_variant: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_variant: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_variant: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -13834,9 +13834,9 @@ class CatalogsApi(object):
     def get_catalog_item_without_preload_content(
         self,
         id: Annotated[StrictStr, Field(description="The catalog item ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.")],
-        fields_catalog_item: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_catalog_variant: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#relationships")] = None,
+        fields_catalog_item: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_catalog_variant: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -13855,11 +13855,11 @@ class CatalogsApi(object):
 
         :param id: The catalog item ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`. (required)
         :type id: str
-        :param fields_catalog_item: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_item: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_item: List[str]
-        :param fields_catalog_variant: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_variant: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_variant: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -14017,12 +14017,12 @@ class CatalogsApi(object):
     @validate_call
     def get_catalog_items(        
         self,
-        fields_catalog_item: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_catalog_variant: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`category.id`: `equals`<br>`title`: `contains`<br>`published`: `equals`")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#relationships")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting")] = None,
+        fields_catalog_item: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_catalog_variant: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`category.id`: `equals`<br>`title`: `contains`<br>`published`: `equals`")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -14041,17 +14041,17 @@ class CatalogsApi(object):
 
         Get all catalog items in an account.  Catalog items can be sorted by the following fields, in ascending and descending order: `created`  Currently, the only supported integration type is `$custom`, and the only supported catalog type is `$default`.  Returns a maximum of 100 items per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
 
-        :param fields_catalog_item: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_item: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_item: List[str]
-        :param fields_catalog_variant: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_variant: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_variant: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`category.id`: `equals`<br>`title`: `contains`<br>`published`: `equals`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`category.id`: `equals`<br>`title`: `contains`<br>`published`: `equals`
         :type filter: str
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
         :type include: List[str]
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
         :type page_cursor: str
-        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting
         :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -14119,12 +14119,12 @@ class CatalogsApi(object):
     @validate_call
     def get_catalog_items_with_http_info(        
         self,
-        fields_catalog_item: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_catalog_variant: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`category.id`: `equals`<br>`title`: `contains`<br>`published`: `equals`")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#relationships")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting")] = None,
+        fields_catalog_item: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_catalog_variant: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`category.id`: `equals`<br>`title`: `contains`<br>`published`: `equals`")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -14143,17 +14143,17 @@ class CatalogsApi(object):
 
         Get all catalog items in an account.  Catalog items can be sorted by the following fields, in ascending and descending order: `created`  Currently, the only supported integration type is `$custom`, and the only supported catalog type is `$default`.  Returns a maximum of 100 items per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
 
-        :param fields_catalog_item: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_item: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_item: List[str]
-        :param fields_catalog_variant: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_variant: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_variant: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`category.id`: `equals`<br>`title`: `contains`<br>`published`: `equals`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`category.id`: `equals`<br>`title`: `contains`<br>`published`: `equals`
         :type filter: str
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
         :type include: List[str]
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
         :type page_cursor: str
-        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting
         :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -14219,12 +14219,12 @@ class CatalogsApi(object):
     @validate_call
     def get_catalog_items_without_preload_content(
         self,
-        fields_catalog_item: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_catalog_variant: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`category.id`: `equals`<br>`title`: `contains`<br>`published`: `equals`")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#relationships")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting")] = None,
+        fields_catalog_item: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_catalog_variant: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`category.id`: `equals`<br>`title`: `contains`<br>`published`: `equals`")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -14241,17 +14241,17 @@ class CatalogsApi(object):
 
         Get all catalog items in an account.  Catalog items can be sorted by the following fields, in ascending and descending order: `created`  Currently, the only supported integration type is `$custom`, and the only supported catalog type is `$default`.  Returns a maximum of 100 items per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
 
-        :param fields_catalog_item: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_item: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_item: List[str]
-        :param fields_catalog_variant: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_variant: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_variant: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`category.id`: `equals`<br>`title`: `contains`<br>`published`: `equals`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`category.id`: `equals`<br>`title`: `contains`<br>`published`: `equals`
         :type filter: str
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
         :type include: List[str]
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
         :type page_cursor: str
-        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting
         :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -14433,7 +14433,7 @@ class CatalogsApi(object):
     def get_catalog_variant(        
         self,
         id: Annotated[StrictStr, Field(description="The catalog variant ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.")],
-        fields_catalog_variant: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_catalog_variant: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -14454,7 +14454,7 @@ class CatalogsApi(object):
 
         :param id: The catalog variant ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`. (required)
         :type id: str
-        :param fields_catalog_variant: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_variant: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_variant: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -14519,7 +14519,7 @@ class CatalogsApi(object):
     def get_catalog_variant_with_http_info(        
         self,
         id: Annotated[StrictStr, Field(description="The catalog variant ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.")],
-        fields_catalog_variant: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_catalog_variant: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -14540,7 +14540,7 @@ class CatalogsApi(object):
 
         :param id: The catalog variant ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`. (required)
         :type id: str
-        :param fields_catalog_variant: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_variant: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_variant: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -14603,7 +14603,7 @@ class CatalogsApi(object):
     def get_catalog_variant_without_preload_content(
         self,
         id: Annotated[StrictStr, Field(description="The catalog variant ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.")],
-        fields_catalog_variant: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_catalog_variant: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -14622,7 +14622,7 @@ class CatalogsApi(object):
 
         :param id: The catalog variant ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`. (required)
         :type id: str
-        :param fields_catalog_variant: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_variant: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_variant: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -14760,10 +14760,10 @@ class CatalogsApi(object):
     @validate_call
     def get_catalog_variants(        
         self,
-        fields_catalog_variant: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item.id`: `equals`<br>`sku`: `equals`<br>`title`: `contains`<br>`published`: `equals`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting")] = None,
+        fields_catalog_variant: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item.id`: `equals`<br>`sku`: `equals`<br>`title`: `contains`<br>`published`: `equals`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -14782,13 +14782,13 @@ class CatalogsApi(object):
 
         Get all variants in an account.  Variants can be sorted by the following fields, in ascending and descending order: `created`  Currently, the only supported integration type is `$custom`, and the only supported catalog type is `$default`.  Returns a maximum of 100 variants per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
 
-        :param fields_catalog_variant: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_variant: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_variant: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item.id`: `equals`<br>`sku`: `equals`<br>`title`: `contains`<br>`published`: `equals`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item.id`: `equals`<br>`sku`: `equals`<br>`title`: `contains`<br>`published`: `equals`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
         :type page_cursor: str
-        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting
         :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -14854,10 +14854,10 @@ class CatalogsApi(object):
     @validate_call
     def get_catalog_variants_with_http_info(        
         self,
-        fields_catalog_variant: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item.id`: `equals`<br>`sku`: `equals`<br>`title`: `contains`<br>`published`: `equals`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting")] = None,
+        fields_catalog_variant: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item.id`: `equals`<br>`sku`: `equals`<br>`title`: `contains`<br>`published`: `equals`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -14876,13 +14876,13 @@ class CatalogsApi(object):
 
         Get all variants in an account.  Variants can be sorted by the following fields, in ascending and descending order: `created`  Currently, the only supported integration type is `$custom`, and the only supported catalog type is `$default`.  Returns a maximum of 100 variants per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
 
-        :param fields_catalog_variant: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_variant: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_variant: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item.id`: `equals`<br>`sku`: `equals`<br>`title`: `contains`<br>`published`: `equals`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item.id`: `equals`<br>`sku`: `equals`<br>`title`: `contains`<br>`published`: `equals`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
         :type page_cursor: str
-        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting
         :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -14946,10 +14946,10 @@ class CatalogsApi(object):
     @validate_call
     def get_catalog_variants_without_preload_content(
         self,
-        fields_catalog_variant: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item.id`: `equals`<br>`sku`: `equals`<br>`title`: `contains`<br>`published`: `equals`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting")] = None,
+        fields_catalog_variant: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item.id`: `equals`<br>`sku`: `equals`<br>`title`: `contains`<br>`published`: `equals`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -14966,13 +14966,13 @@ class CatalogsApi(object):
 
         Get all variants in an account.  Variants can be sorted by the following fields, in ascending and descending order: `created`  Currently, the only supported integration type is `$custom`, and the only supported catalog type is `$default`.  Returns a maximum of 100 variants per request.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `catalogs:read`
 
-        :param fields_catalog_variant: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_variant: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_variant: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item.id`: `equals`<br>`sku`: `equals`<br>`title`: `contains`<br>`published`: `equals`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item.id`: `equals`<br>`sku`: `equals`<br>`title`: `contains`<br>`published`: `equals`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
         :type page_cursor: str
-        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting
         :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -15134,10 +15134,10 @@ class CatalogsApi(object):
     def get_categories_for_catalog_item(        
         self,
         id: Annotated[Optional[StrictStr], Field(description="The catalog item ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.")],
-        fields_catalog_category: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item.id`: `equals`<br>`name`: `contains`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting")] = None,
+        fields_catalog_category: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item.id`: `equals`<br>`name`: `contains`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -15158,13 +15158,13 @@ class CatalogsApi(object):
 
         :param id: The catalog item ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`. (required)
         :type id: str
-        :param fields_catalog_category: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_category: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_category: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item.id`: `equals`<br>`name`: `contains`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item.id`: `equals`<br>`name`: `contains`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
         :type page_cursor: str
-        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting
         :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -15235,10 +15235,10 @@ class CatalogsApi(object):
     def get_categories_for_catalog_item_with_http_info(        
         self,
         id: Annotated[Optional[StrictStr], Field(description="The catalog item ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.")],
-        fields_catalog_category: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item.id`: `equals`<br>`name`: `contains`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting")] = None,
+        fields_catalog_category: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item.id`: `equals`<br>`name`: `contains`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -15259,13 +15259,13 @@ class CatalogsApi(object):
 
         :param id: The catalog item ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`. (required)
         :type id: str
-        :param fields_catalog_category: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_category: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_category: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item.id`: `equals`<br>`name`: `contains`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item.id`: `equals`<br>`name`: `contains`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
         :type page_cursor: str
-        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting
         :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -15334,10 +15334,10 @@ class CatalogsApi(object):
     def get_categories_for_catalog_item_without_preload_content(
         self,
         id: Annotated[Optional[StrictStr], Field(description="The catalog item ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.")],
-        fields_catalog_category: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item.id`: `equals`<br>`name`: `contains`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting")] = None,
+        fields_catalog_category: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item.id`: `equals`<br>`name`: `contains`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -15356,13 +15356,13 @@ class CatalogsApi(object):
 
         :param id: The catalog item ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`. (required)
         :type id: str
-        :param fields_catalog_category: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_category: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_category: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item.id`: `equals`<br>`name`: `contains`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item.id`: `equals`<br>`name`: `contains`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
         :type page_cursor: str
-        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting
         :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -15534,9 +15534,9 @@ class CatalogsApi(object):
     def get_category_ids_for_catalog_item(        
         self,
         id: Annotated[Optional[StrictStr], Field(description="The catalog item ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.")],
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item.id`: `equals`<br>`name`: `contains`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item.id`: `equals`<br>`name`: `contains`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -15557,11 +15557,11 @@ class CatalogsApi(object):
 
         :param id: The catalog item ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`. (required)
         :type id: str
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item.id`: `equals`<br>`name`: `contains`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item.id`: `equals`<br>`name`: `contains`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
         :type page_cursor: str
-        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting
         :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -15631,9 +15631,9 @@ class CatalogsApi(object):
     def get_category_ids_for_catalog_item_with_http_info(        
         self,
         id: Annotated[Optional[StrictStr], Field(description="The catalog item ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.")],
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item.id`: `equals`<br>`name`: `contains`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item.id`: `equals`<br>`name`: `contains`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -15654,11 +15654,11 @@ class CatalogsApi(object):
 
         :param id: The catalog item ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`. (required)
         :type id: str
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item.id`: `equals`<br>`name`: `contains`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item.id`: `equals`<br>`name`: `contains`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
         :type page_cursor: str
-        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting
         :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -15726,9 +15726,9 @@ class CatalogsApi(object):
     def get_category_ids_for_catalog_item_without_preload_content(
         self,
         id: Annotated[Optional[StrictStr], Field(description="The catalog item ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.")],
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item.id`: `equals`<br>`name`: `contains`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item.id`: `equals`<br>`name`: `contains`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -15747,11 +15747,11 @@ class CatalogsApi(object):
 
         :param id: The catalog item ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`. (required)
         :type id: str
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item.id`: `equals`<br>`name`: `contains`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item.id`: `equals`<br>`name`: `contains`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
         :type page_cursor: str
-        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting
         :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -15913,9 +15913,9 @@ class CatalogsApi(object):
     def get_item_ids_for_catalog_category(        
         self,
         id: Annotated[Optional[StrictStr], Field(description="The catalog category ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.")],
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`category.id`: `equals`<br>`title`: `contains`<br>`published`: `equals`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`category.id`: `equals`<br>`title`: `contains`<br>`published`: `equals`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -15936,11 +15936,11 @@ class CatalogsApi(object):
 
         :param id: The catalog category ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`. (required)
         :type id: str
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`category.id`: `equals`<br>`title`: `contains`<br>`published`: `equals`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`category.id`: `equals`<br>`title`: `contains`<br>`published`: `equals`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
         :type page_cursor: str
-        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting
         :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -16010,9 +16010,9 @@ class CatalogsApi(object):
     def get_item_ids_for_catalog_category_with_http_info(        
         self,
         id: Annotated[Optional[StrictStr], Field(description="The catalog category ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.")],
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`category.id`: `equals`<br>`title`: `contains`<br>`published`: `equals`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`category.id`: `equals`<br>`title`: `contains`<br>`published`: `equals`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -16033,11 +16033,11 @@ class CatalogsApi(object):
 
         :param id: The catalog category ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`. (required)
         :type id: str
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`category.id`: `equals`<br>`title`: `contains`<br>`published`: `equals`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`category.id`: `equals`<br>`title`: `contains`<br>`published`: `equals`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
         :type page_cursor: str
-        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting
         :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -16105,9 +16105,9 @@ class CatalogsApi(object):
     def get_item_ids_for_catalog_category_without_preload_content(
         self,
         id: Annotated[Optional[StrictStr], Field(description="The catalog category ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.")],
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`category.id`: `equals`<br>`title`: `contains`<br>`published`: `equals`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`category.id`: `equals`<br>`title`: `contains`<br>`published`: `equals`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -16126,11 +16126,11 @@ class CatalogsApi(object):
 
         :param id: The catalog category ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`. (required)
         :type id: str
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`category.id`: `equals`<br>`title`: `contains`<br>`published`: `equals`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`category.id`: `equals`<br>`title`: `contains`<br>`published`: `equals`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
         :type page_cursor: str
-        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting
         :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -16292,12 +16292,12 @@ class CatalogsApi(object):
     def get_items_for_catalog_category(        
         self,
         id: Annotated[Optional[StrictStr], Field(description="The catalog category ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.")],
-        fields_catalog_item: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_catalog_variant: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`category.id`: `equals`<br>`title`: `contains`<br>`published`: `equals`")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#relationships")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting")] = None,
+        fields_catalog_item: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_catalog_variant: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`category.id`: `equals`<br>`title`: `contains`<br>`published`: `equals`")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -16318,17 +16318,17 @@ class CatalogsApi(object):
 
         :param id: The catalog category ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`. (required)
         :type id: str
-        :param fields_catalog_item: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_item: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_item: List[str]
-        :param fields_catalog_variant: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_variant: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_variant: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`category.id`: `equals`<br>`title`: `contains`<br>`published`: `equals`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`category.id`: `equals`<br>`title`: `contains`<br>`published`: `equals`
         :type filter: str
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
         :type include: List[str]
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
         :type page_cursor: str
-        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting
         :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -16401,12 +16401,12 @@ class CatalogsApi(object):
     def get_items_for_catalog_category_with_http_info(        
         self,
         id: Annotated[Optional[StrictStr], Field(description="The catalog category ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.")],
-        fields_catalog_item: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_catalog_variant: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`category.id`: `equals`<br>`title`: `contains`<br>`published`: `equals`")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#relationships")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting")] = None,
+        fields_catalog_item: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_catalog_variant: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`category.id`: `equals`<br>`title`: `contains`<br>`published`: `equals`")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -16427,17 +16427,17 @@ class CatalogsApi(object):
 
         :param id: The catalog category ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`. (required)
         :type id: str
-        :param fields_catalog_item: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_item: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_item: List[str]
-        :param fields_catalog_variant: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_variant: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_variant: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`category.id`: `equals`<br>`title`: `contains`<br>`published`: `equals`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`category.id`: `equals`<br>`title`: `contains`<br>`published`: `equals`
         :type filter: str
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
         :type include: List[str]
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
         :type page_cursor: str
-        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting
         :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -16508,12 +16508,12 @@ class CatalogsApi(object):
     def get_items_for_catalog_category_without_preload_content(
         self,
         id: Annotated[Optional[StrictStr], Field(description="The catalog category ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.")],
-        fields_catalog_item: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_catalog_variant: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`category.id`: `equals`<br>`title`: `contains`<br>`published`: `equals`")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#relationships")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting")] = None,
+        fields_catalog_item: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_catalog_variant: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`category.id`: `equals`<br>`title`: `contains`<br>`published`: `equals`")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -16532,17 +16532,17 @@ class CatalogsApi(object):
 
         :param id: The catalog category ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`. (required)
         :type id: str
-        :param fields_catalog_item: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_item: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_item: List[str]
-        :param fields_catalog_variant: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_variant: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_variant: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`category.id`: `equals`<br>`title`: `contains`<br>`published`: `equals`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`category.id`: `equals`<br>`title`: `contains`<br>`published`: `equals`
         :type filter: str
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
         :type include: List[str]
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
         :type page_cursor: str
-        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting
         :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -16734,9 +16734,9 @@ class CatalogsApi(object):
     def get_variant_ids_for_catalog_item(        
         self,
         id: Annotated[Optional[StrictStr], Field(description="The catalog item ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.")],
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item.id`: `equals`<br>`sku`: `equals`<br>`title`: `contains`<br>`published`: `equals`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item.id`: `equals`<br>`sku`: `equals`<br>`title`: `contains`<br>`published`: `equals`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -16757,11 +16757,11 @@ class CatalogsApi(object):
 
         :param id: The catalog item ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`. (required)
         :type id: str
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item.id`: `equals`<br>`sku`: `equals`<br>`title`: `contains`<br>`published`: `equals`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item.id`: `equals`<br>`sku`: `equals`<br>`title`: `contains`<br>`published`: `equals`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
         :type page_cursor: str
-        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting
         :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -16831,9 +16831,9 @@ class CatalogsApi(object):
     def get_variant_ids_for_catalog_item_with_http_info(        
         self,
         id: Annotated[Optional[StrictStr], Field(description="The catalog item ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.")],
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item.id`: `equals`<br>`sku`: `equals`<br>`title`: `contains`<br>`published`: `equals`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item.id`: `equals`<br>`sku`: `equals`<br>`title`: `contains`<br>`published`: `equals`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -16854,11 +16854,11 @@ class CatalogsApi(object):
 
         :param id: The catalog item ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`. (required)
         :type id: str
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item.id`: `equals`<br>`sku`: `equals`<br>`title`: `contains`<br>`published`: `equals`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item.id`: `equals`<br>`sku`: `equals`<br>`title`: `contains`<br>`published`: `equals`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
         :type page_cursor: str
-        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting
         :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -16926,9 +16926,9 @@ class CatalogsApi(object):
     def get_variant_ids_for_catalog_item_without_preload_content(
         self,
         id: Annotated[Optional[StrictStr], Field(description="The catalog item ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.")],
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item.id`: `equals`<br>`sku`: `equals`<br>`title`: `contains`<br>`published`: `equals`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item.id`: `equals`<br>`sku`: `equals`<br>`title`: `contains`<br>`published`: `equals`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -16947,11 +16947,11 @@ class CatalogsApi(object):
 
         :param id: The catalog item ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`. (required)
         :type id: str
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item.id`: `equals`<br>`sku`: `equals`<br>`title`: `contains`<br>`published`: `equals`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item.id`: `equals`<br>`sku`: `equals`<br>`title`: `contains`<br>`published`: `equals`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
         :type page_cursor: str
-        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting
         :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -17113,10 +17113,10 @@ class CatalogsApi(object):
     def get_variants_for_catalog_item(        
         self,
         id: Annotated[Optional[StrictStr], Field(description="The catalog item ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.")],
-        fields_catalog_variant: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item.id`: `equals`<br>`sku`: `equals`<br>`title`: `contains`<br>`published`: `equals`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting")] = None,
+        fields_catalog_variant: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item.id`: `equals`<br>`sku`: `equals`<br>`title`: `contains`<br>`published`: `equals`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -17137,13 +17137,13 @@ class CatalogsApi(object):
 
         :param id: The catalog item ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`. (required)
         :type id: str
-        :param fields_catalog_variant: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_variant: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_variant: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item.id`: `equals`<br>`sku`: `equals`<br>`title`: `contains`<br>`published`: `equals`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item.id`: `equals`<br>`sku`: `equals`<br>`title`: `contains`<br>`published`: `equals`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
         :type page_cursor: str
-        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting
         :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -17214,10 +17214,10 @@ class CatalogsApi(object):
     def get_variants_for_catalog_item_with_http_info(        
         self,
         id: Annotated[Optional[StrictStr], Field(description="The catalog item ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.")],
-        fields_catalog_variant: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item.id`: `equals`<br>`sku`: `equals`<br>`title`: `contains`<br>`published`: `equals`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting")] = None,
+        fields_catalog_variant: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item.id`: `equals`<br>`sku`: `equals`<br>`title`: `contains`<br>`published`: `equals`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -17238,13 +17238,13 @@ class CatalogsApi(object):
 
         :param id: The catalog item ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`. (required)
         :type id: str
-        :param fields_catalog_variant: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_variant: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_variant: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item.id`: `equals`<br>`sku`: `equals`<br>`title`: `contains`<br>`published`: `equals`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item.id`: `equals`<br>`sku`: `equals`<br>`title`: `contains`<br>`published`: `equals`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
         :type page_cursor: str
-        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting
         :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -17313,10 +17313,10 @@ class CatalogsApi(object):
     def get_variants_for_catalog_item_without_preload_content(
         self,
         id: Annotated[Optional[StrictStr], Field(description="The catalog item ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.")],
-        fields_catalog_variant: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item.id`: `equals`<br>`sku`: `equals`<br>`title`: `contains`<br>`published`: `equals`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting")] = None,
+        fields_catalog_variant: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item.id`: `equals`<br>`sku`: `equals`<br>`title`: `contains`<br>`published`: `equals`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -17335,13 +17335,13 @@ class CatalogsApi(object):
 
         :param id: The catalog item ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`. (required)
         :type id: str
-        :param fields_catalog_variant: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sparse-fieldsets
+        :param fields_catalog_variant: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
         :type fields_catalog_variant: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item.id`: `equals`<br>`sku`: `equals`<br>`title`: `contains`<br>`published`: `equals`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`ids`: `any`<br>`item.id`: `equals`<br>`sku`: `equals`<br>`title`: `contains`<br>`published`: `equals`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
         :type page_cursor: str
-        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-01-15/reference/api-overview#sorting
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting
         :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -17530,7 +17530,7 @@ class CatalogsApi(object):
 ) -> None:
         """Remove Categories from Catalog Item
 
-        Delete catalog category relationships for the given item ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
+        Delete catalog category relationships for the given item ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `catalogs:write`
 
         :param id: The catalog item ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`. (required)
         :type id: str
@@ -17619,7 +17619,7 @@ class CatalogsApi(object):
 ) -> ApiResponse[None]:
         """Remove Categories from Catalog Item
 
-        Delete catalog category relationships for the given item ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
+        Delete catalog category relationships for the given item ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `catalogs:write`
 
         :param id: The catalog item ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`. (required)
         :type id: str
@@ -17704,7 +17704,7 @@ class CatalogsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Remove Categories from Catalog Item
 
-        Delete catalog category relationships for the given item ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
+        Delete catalog category relationships for the given item ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `catalogs:write`
 
         :param id: The catalog item ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`. (required)
         :type id: str
@@ -17877,7 +17877,7 @@ class CatalogsApi(object):
 ) -> None:
         """Remove Items from Catalog Category
 
-        Delete item relationships for the given category ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
+        Delete item relationships for the given category ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `catalogs:write`
 
         :param id: The catalog category ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`. (required)
         :type id: str
@@ -17966,7 +17966,7 @@ class CatalogsApi(object):
 ) -> ApiResponse[None]:
         """Remove Items from Catalog Category
 
-        Delete item relationships for the given category ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
+        Delete item relationships for the given category ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `catalogs:write`
 
         :param id: The catalog category ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`. (required)
         :type id: str
@@ -18051,7 +18051,7 @@ class CatalogsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Remove Items from Catalog Category
 
-        Delete item relationships for the given category ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
+        Delete item relationships for the given category ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `catalogs:write`
 
         :param id: The catalog category ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`. (required)
         :type id: str
@@ -18224,7 +18224,7 @@ class CatalogsApi(object):
 ) ->  Union[PatchCatalogCategoryResponse, Dict[str, object]]:
         """Update Catalog Category
 
-        Update a catalog category with the given category ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
+        Update a catalog category with the given category ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `catalogs:write`
 
         :param id: The catalog category ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`. (required)
         :type id: str
@@ -18310,7 +18310,7 @@ class CatalogsApi(object):
 ) -> ApiResponse[PatchCatalogCategoryResponse]:
         """Update Catalog Category
 
-        Update a catalog category with the given category ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
+        Update a catalog category with the given category ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `catalogs:write`
 
         :param id: The catalog category ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`. (required)
         :type id: str
@@ -18392,7 +18392,7 @@ class CatalogsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Update Catalog Category
 
-        Update a catalog category with the given category ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
+        Update a catalog category with the given category ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `catalogs:write`
 
         :param id: The catalog category ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`. (required)
         :type id: str
@@ -18559,7 +18559,7 @@ class CatalogsApi(object):
 ) ->  Union[PatchCatalogItemResponse, Dict[str, object]]:
         """Update Catalog Item
 
-        Update a catalog item with the given item ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
+        Update a catalog item with the given item ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `catalogs:write`
 
         :param id: The catalog item ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`. (required)
         :type id: str
@@ -18645,7 +18645,7 @@ class CatalogsApi(object):
 ) -> ApiResponse[PatchCatalogItemResponse]:
         """Update Catalog Item
 
-        Update a catalog item with the given item ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
+        Update a catalog item with the given item ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `catalogs:write`
 
         :param id: The catalog item ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`. (required)
         :type id: str
@@ -18727,7 +18727,7 @@ class CatalogsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Update Catalog Item
 
-        Update a catalog item with the given item ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
+        Update a catalog item with the given item ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `catalogs:write`
 
         :param id: The catalog item ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`. (required)
         :type id: str
@@ -18894,7 +18894,7 @@ class CatalogsApi(object):
 ) ->  Union[PatchCatalogVariantResponse, Dict[str, object]]:
         """Update Catalog Variant
 
-        Update a catalog item variant with the given variant ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
+        Update a catalog item variant with the given variant ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `catalogs:write`
 
         :param id: The catalog variant ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`. (required)
         :type id: str
@@ -18980,7 +18980,7 @@ class CatalogsApi(object):
 ) -> ApiResponse[PatchCatalogVariantResponse]:
         """Update Catalog Variant
 
-        Update a catalog item variant with the given variant ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
+        Update a catalog item variant with the given variant ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `catalogs:write`
 
         :param id: The catalog variant ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`. (required)
         :type id: str
@@ -19062,7 +19062,7 @@ class CatalogsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Update Catalog Variant
 
-        Update a catalog item variant with the given variant ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
+        Update a catalog item variant with the given variant ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `catalogs:write`
 
         :param id: The catalog variant ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`. (required)
         :type id: str
@@ -19229,7 +19229,7 @@ class CatalogsApi(object):
 ) -> None:
         """Update Categories for Catalog Item
 
-        Update catalog category relationships for the given item ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
+        Update catalog category relationships for the given item ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `catalogs:write`
 
         :param id: The catalog item ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`. (required)
         :type id: str
@@ -19318,7 +19318,7 @@ class CatalogsApi(object):
 ) -> ApiResponse[None]:
         """Update Categories for Catalog Item
 
-        Update catalog category relationships for the given item ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
+        Update catalog category relationships for the given item ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `catalogs:write`
 
         :param id: The catalog item ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`. (required)
         :type id: str
@@ -19403,7 +19403,7 @@ class CatalogsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Update Categories for Catalog Item
 
-        Update catalog category relationships for the given item ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
+        Update catalog category relationships for the given item ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `catalogs:write`
 
         :param id: The catalog item ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`. (required)
         :type id: str
@@ -19576,7 +19576,7 @@ class CatalogsApi(object):
 ) -> None:
         """Update Items for Catalog Category
 
-        Update item relationships for the given category ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
+        Update item relationships for the given category ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `catalogs:write`
 
         :param id: The catalog category ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`. (required)
         :type id: str
@@ -19665,7 +19665,7 @@ class CatalogsApi(object):
 ) -> ApiResponse[None]:
         """Update Items for Catalog Category
 
-        Update item relationships for the given category ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
+        Update item relationships for the given category ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `catalogs:write`
 
         :param id: The catalog category ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`. (required)
         :type id: str
@@ -19750,7 +19750,7 @@ class CatalogsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Update Items for Catalog Category
 
-        Update item relationships for the given category ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `700/m`  **Scopes:** `catalogs:write`
+        Update item relationships for the given category ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `catalogs:write`
 
         :param id: The catalog category ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`. (required)
         :type id: str
