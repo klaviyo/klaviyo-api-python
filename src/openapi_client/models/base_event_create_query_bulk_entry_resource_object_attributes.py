@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from openapi_client.models.event_create_query_v2_resource_object_attributes_metric import EventCreateQueryV2ResourceObjectAttributesMetric
 from typing import Optional, Set
@@ -29,12 +29,13 @@ class BaseEventCreateQueryBulkEntryResourceObjectAttributes(BaseModel):
     BaseEventCreateQueryBulkEntryResourceObjectAttributes
     """ # noqa: E501
     properties: Dict[str, Any] = Field(description="Properties of this event (must not exceed 400 properties). The size of the event payload must not exceed 5 MB, and each string cannot be larger than 100 KB. For a full list of data limits on event payloads, see [Limitations](https://developers.klaviyo.com/en/reference/events_api_overview#limitations).  Note any top-level property that is not an object can be used to create segments. The `$extra` property records any non-segmentable values that can be referenced later, e.g., HTML templates are useful on a segment but are not used to create a segment.")
-    time: Optional[datetime] = Field(default=None, description="When this event occurred. By default, the time the request was received will be used. The time is truncated to the second. The time must be after the year 2000 and can only be up to 1 year in the future.")
+    time: Optional[datetime] = Field(default=None, description="When this event occurred. By default, the time the request was received will be used. The time is truncated to the second. The time must be after the year 1990 and can only be up to 1 year in the future.")
     value: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="A numeric, monetary value to associate with this event. For example, the dollar amount of a purchase.")
     value_currency: Optional[StrictStr] = Field(default=None, description="The ISO 4217 currency code of the value associated with the event.")
+    backfill: Optional[StrictBool] = Field(default=False, description="When true, the event is recorded but does NOT trigger flows. Use this when backfilling historical events so existing flow definitions do not re-fire on events that already fired in the past.")
     metric: EventCreateQueryV2ResourceObjectAttributesMetric
     unique_id: Optional[StrictStr] = Field(default=None, description="A unique identifier for an event. If a unique_id is repeated for the same profile and metric, the request will fail and no events will be processed. If this field is not present, this field will use the time to the second. Using the default, this limits only one event per profile per second.")
-    __properties: ClassVar[List[str]] = ["properties", "time", "value", "value_currency", "metric", "unique_id"]
+    __properties: ClassVar[List[str]] = ["properties", "time", "value", "value_currency", "backfill", "metric", "unique_id"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -93,6 +94,11 @@ class BaseEventCreateQueryBulkEntryResourceObjectAttributes(BaseModel):
         if self.value_currency is None and "value_currency" in self.model_fields_set:
             _dict['value_currency'] = None
 
+        # set to None if backfill (nullable) is None
+        # and model_fields_set contains the field
+        if self.backfill is None and "backfill" in self.model_fields_set:
+            _dict['backfill'] = None
+
         # set to None if unique_id (nullable) is None
         # and model_fields_set contains the field
         if self.unique_id is None and "unique_id" in self.model_fields_set:
@@ -114,6 +120,7 @@ class BaseEventCreateQueryBulkEntryResourceObjectAttributes(BaseModel):
             "time": obj.get("time"),
             "value": obj.get("value"),
             "value_currency": obj.get("value_currency"),
+            "backfill": obj.get("backfill") if obj.get("backfill") is not None else False,
             "metric": EventCreateQueryV2ResourceObjectAttributesMetric.from_dict(obj["metric"]) if obj.get("metric") is not None else None,
             "unique_id": obj.get("unique_id")
         })

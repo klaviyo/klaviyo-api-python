@@ -19,6 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
+from openapi_client.models.patch_identifiers import PatchIdentifiers
 from openapi_client.models.profile_meta_patch_properties import ProfileMetaPatchProperties
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,7 +29,8 @@ class ProfileMeta(BaseModel):
     ProfileMeta
     """ # noqa: E501
     patch_properties: Optional[ProfileMetaPatchProperties] = None
-    __properties: ClassVar[List[str]] = ["patch_properties"]
+    patch_identifiers: Optional[PatchIdentifiers] = None
+    __properties: ClassVar[List[str]] = ["patch_properties", "patch_identifiers"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -72,6 +74,9 @@ class ProfileMeta(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of patch_properties
         if self.patch_properties:
             _dict['patch_properties'] = self.patch_properties.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of patch_identifiers
+        if self.patch_identifiers:
+            _dict['patch_identifiers'] = self.patch_identifiers.to_dict()
         return _dict
 
     @classmethod
@@ -84,7 +89,8 @@ class ProfileMeta(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "patch_properties": ProfileMetaPatchProperties.from_dict(obj["patch_properties"]) if obj.get("patch_properties") is not None else None
+            "patch_properties": ProfileMetaPatchProperties.from_dict(obj["patch_properties"]) if obj.get("patch_properties") is not None else None,
+            "patch_identifiers": PatchIdentifiers.from_dict(obj["patch_identifiers"]) if obj.get("patch_identifiers") is not None else None
         })
         return _obj
 

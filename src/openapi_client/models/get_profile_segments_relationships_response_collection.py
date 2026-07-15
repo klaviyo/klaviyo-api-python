@@ -20,7 +20,7 @@ import json
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.collection_links import CollectionLinks
-from openapi_client.models.get_profile_response_compound_document_data_all_of_relationships_segments_data_inner import GetProfileResponseCompoundDocumentDataAllOfRelationshipsSegmentsDataInner
+from openapi_client.models.profile_response_object_resource_relationships_segments_data_inner import ProfileResponseObjectResourceRelationshipsSegmentsDataInner
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,7 +28,7 @@ class GetProfileSegmentsRelationshipsResponseCollection(BaseModel):
     """
     GetProfileSegmentsRelationshipsResponseCollection
     """ # noqa: E501
-    data: List[GetProfileResponseCompoundDocumentDataAllOfRelationshipsSegmentsDataInner]
+    data: List[ProfileResponseObjectResourceRelationshipsSegmentsDataInner]
     links: Optional[CollectionLinks] = None
     __properties: ClassVar[List[str]] = ["data", "links"]
 
@@ -93,7 +93,7 @@ class GetProfileSegmentsRelationshipsResponseCollection(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "data": [GetProfileResponseCompoundDocumentDataAllOfRelationshipsSegmentsDataInner.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None,
+            "data": [ProfileResponseObjectResourceRelationshipsSegmentsDataInner.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None,
             "links": CollectionLinks.from_dict(obj["links"]) if obj.get("links") is not None else None
         })
         return _obj

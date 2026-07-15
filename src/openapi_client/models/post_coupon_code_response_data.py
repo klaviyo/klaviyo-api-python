@@ -21,8 +21,8 @@ from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.coupon_code_enum import CouponCodeEnum
 from openapi_client.models.coupon_code_response_object_resource_attributes import CouponCodeResponseObjectResourceAttributes
+from openapi_client.models.coupon_code_response_object_resource_relationships import CouponCodeResponseObjectResourceRelationships
 from openapi_client.models.object_links import ObjectLinks
-from openapi_client.models.post_coupon_code_response_data_relationships import PostCouponCodeResponseDataRelationships
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -33,7 +33,7 @@ class PostCouponCodeResponseData(BaseModel):
     type: CouponCodeEnum
     id: StrictStr = Field(description="The id of a coupon code is a combination of its unique code and the id of the coupon it is associated with.")
     attributes: CouponCodeResponseObjectResourceAttributes
-    relationships: Optional[PostCouponCodeResponseDataRelationships] = None
+    relationships: Optional[CouponCodeResponseObjectResourceRelationships] = None
     links: ObjectLinks
     __properties: ClassVar[List[str]] = ["type", "id", "attributes", "relationships", "links"]
 
@@ -100,7 +100,7 @@ class PostCouponCodeResponseData(BaseModel):
             "type": obj.get("type"),
             "id": obj.get("id"),
             "attributes": CouponCodeResponseObjectResourceAttributes.from_dict(obj["attributes"]) if obj.get("attributes") is not None else None,
-            "relationships": PostCouponCodeResponseDataRelationships.from_dict(obj["relationships"]) if obj.get("relationships") is not None else None,
+            "relationships": CouponCodeResponseObjectResourceRelationships.from_dict(obj["relationships"]) if obj.get("relationships") is not None else None,
             "links": ObjectLinks.from_dict(obj["links"]) if obj.get("links") is not None else None
         })
         return _obj

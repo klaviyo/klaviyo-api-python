@@ -51,9 +51,9 @@ class ReviewsApi(object):
     def get_review(        
         self,
         id: Annotated[StrictStr, Field(description="The ID of the review")],
-        fields_event: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_review: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
+        fields_event: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_review: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -70,15 +70,15 @@ class ReviewsApi(object):
 ) ->  Union[GetReviewResponseDTOCompoundDocument, Dict[str, object]]:
         """Get Review
 
-        Get the review with the given ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `reviews:read`
+        Get the review with the given ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `reviews:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_review.json)
 
         :param id: The ID of the review (required)
         :type id: str
-        :param fields_event: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_event: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_event: List[str]
-        :param fields_review: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_review: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_review: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -145,9 +145,9 @@ class ReviewsApi(object):
     def get_review_with_http_info(        
         self,
         id: Annotated[StrictStr, Field(description="The ID of the review")],
-        fields_event: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_review: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
+        fields_event: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_review: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -164,15 +164,15 @@ class ReviewsApi(object):
 ) -> ApiResponse[GetReviewResponseDTOCompoundDocument]:
         """Get Review
 
-        Get the review with the given ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `reviews:read`
+        Get the review with the given ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `reviews:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_review.json)
 
         :param id: The ID of the review (required)
         :type id: str
-        :param fields_event: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_event: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_event: List[str]
-        :param fields_review: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_review: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_review: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -237,9 +237,9 @@ class ReviewsApi(object):
     def get_review_without_preload_content(
         self,
         id: Annotated[StrictStr, Field(description="The ID of the review")],
-        fields_event: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_review: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
+        fields_event: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_review: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -254,15 +254,15 @@ class ReviewsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Review
 
-        Get the review with the given ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `reviews:read`
+        Get the review with the given ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `reviews:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_review.json)
 
         :param id: The ID of the review (required)
         :type id: str
-        :param fields_event: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_event: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_event: List[str]
-        :param fields_review: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_review: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_review: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -420,13 +420,13 @@ class ReviewsApi(object):
     @validate_call
     def get_reviews(        
         self,
-        fields_event: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_review: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`created`: `greater-or-equal`, `less-or-equal`<br>`rating`: `any`, `equals`, `greater-or-equal`, `less-or-equal`<br>`id`: `any`, `equals`<br>`item.id`: `any`, `equals`<br>`content`: `contains`<br>`status`: `equals`<br>`review_type`: `equals`<br>`verified`: `equals`")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
+        fields_event: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_review: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`created`: `greater-or-equal`, `less-or-equal`<br>`rating`: `any`, `equals`, `greater-or-equal`, `less-or-equal`<br>`id`: `any`, `equals`<br>`item.id`: `any`, `equals`<br>`content`: `contains`<br>`status`: `equals`<br>`review_type`: `equals`<br>`verified`: `equals`")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
         page_size: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Default: 20. Min: 1. Max: 100.")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -443,21 +443,21 @@ class ReviewsApi(object):
 ) ->  Union[GetReviewResponseDTOCollectionCompoundDocument, Dict[str, object]]:
         """Get Reviews
 
-        Get all reviews.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `reviews:read`
+        Get all reviews.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `reviews:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_reviews.json)
 
-        :param fields_event: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_event: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_event: List[str]
-        :param fields_review: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_review: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_review: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`created`: `greater-or-equal`, `less-or-equal`<br>`rating`: `any`, `equals`, `greater-or-equal`, `less-or-equal`<br>`id`: `any`, `equals`<br>`item.id`: `any`, `equals`<br>`content`: `contains`<br>`status`: `equals`<br>`review_type`: `equals`<br>`verified`: `equals`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`created`: `greater-or-equal`, `less-or-equal`<br>`rating`: `any`, `equals`, `greater-or-equal`, `less-or-equal`<br>`id`: `any`, `equals`<br>`item.id`: `any`, `equals`<br>`content`: `contains`<br>`status`: `equals`<br>`review_type`: `equals`<br>`verified`: `equals`
         :type filter: str
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships
         :type include: List[str]
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
         :type page_cursor: str
         :param page_size: Default: 20. Min: 1. Max: 100.
         :type page_size: int
-        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting
         :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -526,13 +526,13 @@ class ReviewsApi(object):
     @validate_call
     def get_reviews_with_http_info(        
         self,
-        fields_event: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_review: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`created`: `greater-or-equal`, `less-or-equal`<br>`rating`: `any`, `equals`, `greater-or-equal`, `less-or-equal`<br>`id`: `any`, `equals`<br>`item.id`: `any`, `equals`<br>`content`: `contains`<br>`status`: `equals`<br>`review_type`: `equals`<br>`verified`: `equals`")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
+        fields_event: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_review: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`created`: `greater-or-equal`, `less-or-equal`<br>`rating`: `any`, `equals`, `greater-or-equal`, `less-or-equal`<br>`id`: `any`, `equals`<br>`item.id`: `any`, `equals`<br>`content`: `contains`<br>`status`: `equals`<br>`review_type`: `equals`<br>`verified`: `equals`")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
         page_size: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Default: 20. Min: 1. Max: 100.")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -549,21 +549,21 @@ class ReviewsApi(object):
 ) -> ApiResponse[GetReviewResponseDTOCollectionCompoundDocument]:
         """Get Reviews
 
-        Get all reviews.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `reviews:read`
+        Get all reviews.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `reviews:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_reviews.json)
 
-        :param fields_event: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_event: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_event: List[str]
-        :param fields_review: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_review: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_review: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`created`: `greater-or-equal`, `less-or-equal`<br>`rating`: `any`, `equals`, `greater-or-equal`, `less-or-equal`<br>`id`: `any`, `equals`<br>`item.id`: `any`, `equals`<br>`content`: `contains`<br>`status`: `equals`<br>`review_type`: `equals`<br>`verified`: `equals`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`created`: `greater-or-equal`, `less-or-equal`<br>`rating`: `any`, `equals`, `greater-or-equal`, `less-or-equal`<br>`id`: `any`, `equals`<br>`item.id`: `any`, `equals`<br>`content`: `contains`<br>`status`: `equals`<br>`review_type`: `equals`<br>`verified`: `equals`
         :type filter: str
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships
         :type include: List[str]
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
         :type page_cursor: str
         :param page_size: Default: 20. Min: 1. Max: 100.
         :type page_size: int
-        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting
         :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -630,13 +630,13 @@ class ReviewsApi(object):
     @validate_call
     def get_reviews_without_preload_content(
         self,
-        fields_event: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_review: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`created`: `greater-or-equal`, `less-or-equal`<br>`rating`: `any`, `equals`, `greater-or-equal`, `less-or-equal`<br>`id`: `any`, `equals`<br>`item.id`: `any`, `equals`<br>`content`: `contains`<br>`status`: `equals`<br>`review_type`: `equals`<br>`verified`: `equals`")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
+        fields_event: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_review: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`created`: `greater-or-equal`, `less-or-equal`<br>`rating`: `any`, `equals`, `greater-or-equal`, `less-or-equal`<br>`id`: `any`, `equals`<br>`item.id`: `any`, `equals`<br>`content`: `contains`<br>`status`: `equals`<br>`review_type`: `equals`<br>`verified`: `equals`")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
         page_size: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Default: 20. Min: 1. Max: 100.")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -651,21 +651,21 @@ class ReviewsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Reviews
 
-        Get all reviews.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `reviews:read`
+        Get all reviews.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `reviews:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_reviews.json)
 
-        :param fields_event: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_event: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_event: List[str]
-        :param fields_review: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_review: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_review: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`created`: `greater-or-equal`, `less-or-equal`<br>`rating`: `any`, `equals`, `greater-or-equal`, `less-or-equal`<br>`id`: `any`, `equals`<br>`item.id`: `any`, `equals`<br>`content`: `contains`<br>`status`: `equals`<br>`review_type`: `equals`<br>`verified`: `equals`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`created`: `greater-or-equal`, `less-or-equal`<br>`rating`: `any`, `equals`, `greater-or-equal`, `less-or-equal`<br>`id`: `any`, `equals`<br>`item.id`: `any`, `equals`<br>`content`: `contains`<br>`status`: `equals`<br>`review_type`: `equals`<br>`verified`: `equals`
         :type filter: str
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships
         :type include: List[str]
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
         :type page_cursor: str
         :param page_size: Default: 20. Min: 1. Max: 100.
         :type page_size: int
-        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting
         :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -857,6 +857,7 @@ class ReviewsApi(object):
         self,
         id: Annotated[StrictStr, Field(description="The id of the review (review ID).")],
         review_patch_query: Annotated[ReviewPatchQuery, Field(description="DTO for updating reviews")],
+        fields_review: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -873,12 +874,14 @@ class ReviewsApi(object):
 ) ->  Union[PatchReviewResponseDTO, Dict[str, object]]:
         """Update Review
 
-        Update a review.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `reviews:write`
+        Update a review.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `reviews:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/update_review.json)
 
         :param id: The id of the review (review ID). (required)
         :type id: str
         :param review_patch_query: DTO for updating reviews (required)
         :type review_patch_query: ReviewPatchQuery
+        :param fields_review: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_review: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -904,6 +907,7 @@ class ReviewsApi(object):
         _param = self._update_review_serialize(
             id=id,
             review_patch_query=review_patch_query,
+            fields_review=fields_review,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -943,6 +947,7 @@ class ReviewsApi(object):
         self,
         id: Annotated[StrictStr, Field(description="The id of the review (review ID).")],
         review_patch_query: Annotated[ReviewPatchQuery, Field(description="DTO for updating reviews")],
+        fields_review: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -959,12 +964,14 @@ class ReviewsApi(object):
 ) -> ApiResponse[PatchReviewResponseDTO]:
         """Update Review
 
-        Update a review.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `reviews:write`
+        Update a review.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `reviews:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/update_review.json)
 
         :param id: The id of the review (review ID). (required)
         :type id: str
         :param review_patch_query: DTO for updating reviews (required)
         :type review_patch_query: ReviewPatchQuery
+        :param fields_review: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_review: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -990,6 +997,7 @@ class ReviewsApi(object):
         _param = self._update_review_serialize(
             id=id,
             review_patch_query=review_patch_query,
+            fields_review=fields_review,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1027,6 +1035,7 @@ class ReviewsApi(object):
         self,
         id: Annotated[StrictStr, Field(description="The id of the review (review ID).")],
         review_patch_query: Annotated[ReviewPatchQuery, Field(description="DTO for updating reviews")],
+        fields_review: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1041,12 +1050,14 @@ class ReviewsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Update Review
 
-        Update a review.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `reviews:write`
+        Update a review.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `reviews:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/update_review.json)
 
         :param id: The id of the review (review ID). (required)
         :type id: str
         :param review_patch_query: DTO for updating reviews (required)
         :type review_patch_query: ReviewPatchQuery
+        :param fields_review: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_review: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1072,6 +1083,7 @@ class ReviewsApi(object):
         _param = self._update_review_serialize(
             id=id,
             review_patch_query=review_patch_query,
+            fields_review=fields_review,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1113,6 +1125,7 @@ class ReviewsApi(object):
         self,
         id,
         review_patch_query,
+        fields_review,
         _request_auth,
         _content_type,
         _headers,
@@ -1122,6 +1135,7 @@ class ReviewsApi(object):
         _host = None
 
         _collection_formats: Dict[str, str] = {
+            'fields[review]': 'csv',
         }
 
         _path_params: Dict[str, str] = {}
@@ -1135,6 +1149,13 @@ class ReviewsApi(object):
         if id is not None:
             _path_params['id'] = id
         # process the query parameters
+        if fields_review is not None:
+            
+            if isinstance(fields_review, EnumMeta):
+                _query_params.append(('fields[review]', fields_review))
+            else:
+                _query_params.append(('fields[review]', fields_review))
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter

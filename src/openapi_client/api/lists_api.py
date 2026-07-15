@@ -78,7 +78,7 @@ class ListsApi(object):
 ) -> None:
         """Add Profiles to List
 
-        Add a profile to a list with the given list ID.  It is recommended that you use the [Subscribe Profiles endpoint](https://developers.klaviyo.com/en/reference/subscribe_profiles) if you're trying to give a profile [consent](https://developers.klaviyo.com/en/docs/collect_email_and_sms_consent_via_api) to receive email marketing, SMS marketing, or both.  This endpoint accepts a maximum of 1000 profiles per call.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `lists:write` `profiles:write`
+        Add a profile to a list with the given list ID.  It is recommended that you use the [Subscribe Profiles endpoint](https://developers.klaviyo.com/en/reference/subscribe_profiles) if you're trying to give a profile [consent](https://developers.klaviyo.com/en/docs/collect_email_and_sms_consent_via_api) to receive email marketing, SMS marketing, or both.  This endpoint accepts a maximum of 1000 profiles per call.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `lists:write` `profiles:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/add_profiles_to_list.json)
 
         :param id:  (required)
         :type id: str
@@ -173,7 +173,7 @@ class ListsApi(object):
 ) -> ApiResponse[None]:
         """Add Profiles to List
 
-        Add a profile to a list with the given list ID.  It is recommended that you use the [Subscribe Profiles endpoint](https://developers.klaviyo.com/en/reference/subscribe_profiles) if you're trying to give a profile [consent](https://developers.klaviyo.com/en/docs/collect_email_and_sms_consent_via_api) to receive email marketing, SMS marketing, or both.  This endpoint accepts a maximum of 1000 profiles per call.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `lists:write` `profiles:write`
+        Add a profile to a list with the given list ID.  It is recommended that you use the [Subscribe Profiles endpoint](https://developers.klaviyo.com/en/reference/subscribe_profiles) if you're trying to give a profile [consent](https://developers.klaviyo.com/en/docs/collect_email_and_sms_consent_via_api) to receive email marketing, SMS marketing, or both.  This endpoint accepts a maximum of 1000 profiles per call.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `lists:write` `profiles:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/add_profiles_to_list.json)
 
         :param id:  (required)
         :type id: str
@@ -264,7 +264,7 @@ class ListsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Add Profiles to List
 
-        Add a profile to a list with the given list ID.  It is recommended that you use the [Subscribe Profiles endpoint](https://developers.klaviyo.com/en/reference/subscribe_profiles) if you're trying to give a profile [consent](https://developers.klaviyo.com/en/docs/collect_email_and_sms_consent_via_api) to receive email marketing, SMS marketing, or both.  This endpoint accepts a maximum of 1000 profiles per call.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `lists:write` `profiles:write`
+        Add a profile to a list with the given list ID.  It is recommended that you use the [Subscribe Profiles endpoint](https://developers.klaviyo.com/en/reference/subscribe_profiles) if you're trying to give a profile [consent](https://developers.klaviyo.com/en/docs/collect_email_and_sms_consent_via_api) to receive email marketing, SMS marketing, or both.  This endpoint accepts a maximum of 1000 profiles per call.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `lists:write` `profiles:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/add_profiles_to_list.json)
 
         :param id:  (required)
         :type id: str
@@ -432,6 +432,7 @@ class ListsApi(object):
     def create_list(        
         self,
         list_create_query: ListCreateQuery,
+        fields_list: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -448,10 +449,12 @@ class ListsApi(object):
 ) ->  Union[PostListCreateResponse, Dict[str, object]]:
         """Create List
 
-        Create a new list.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`<br>Daily: `150/d`  **Scopes:** `lists:write`
+        Create a new list.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`<br>Daily: `150/d`  **Scopes:** `lists:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/create_list.json)
 
         :param list_create_query: (required)
         :type list_create_query: ListCreateQuery
+        :param fields_list: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_list: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -476,6 +479,7 @@ class ListsApi(object):
 
         _param = self._create_list_serialize(
             list_create_query=list_create_query,
+            fields_list=fields_list,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -514,6 +518,7 @@ class ListsApi(object):
     def create_list_with_http_info(        
         self,
         list_create_query: ListCreateQuery,
+        fields_list: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -530,10 +535,12 @@ class ListsApi(object):
 ) -> ApiResponse[PostListCreateResponse]:
         """Create List
 
-        Create a new list.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`<br>Daily: `150/d`  **Scopes:** `lists:write`
+        Create a new list.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`<br>Daily: `150/d`  **Scopes:** `lists:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/create_list.json)
 
         :param list_create_query: (required)
         :type list_create_query: ListCreateQuery
+        :param fields_list: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_list: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -558,6 +565,7 @@ class ListsApi(object):
 
         _param = self._create_list_serialize(
             list_create_query=list_create_query,
+            fields_list=fields_list,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -594,6 +602,7 @@ class ListsApi(object):
     def create_list_without_preload_content(
         self,
         list_create_query: ListCreateQuery,
+        fields_list: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -608,10 +617,12 @@ class ListsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Create List
 
-        Create a new list.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`<br>Daily: `150/d`  **Scopes:** `lists:write`
+        Create a new list.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`<br>Daily: `150/d`  **Scopes:** `lists:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/create_list.json)
 
         :param list_create_query: (required)
         :type list_create_query: ListCreateQuery
+        :param fields_list: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_list: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -636,6 +647,7 @@ class ListsApi(object):
 
         _param = self._create_list_serialize(
             list_create_query=list_create_query,
+            fields_list=fields_list,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -676,6 +688,7 @@ class ListsApi(object):
     def _create_list_serialize(
         self,
         list_create_query,
+        fields_list,
         _request_auth,
         _content_type,
         _headers,
@@ -685,6 +698,7 @@ class ListsApi(object):
         _host = None
 
         _collection_formats: Dict[str, str] = {
+            'fields[list]': 'csv',
         }
 
         _path_params: Dict[str, str] = {}
@@ -696,6 +710,13 @@ class ListsApi(object):
 
         # process the path parameters
         # process the query parameters
+        if fields_list is not None:
+            
+            if isinstance(fields_list, EnumMeta):
+                _query_params.append(('fields[list]', fields_list))
+            else:
+                _query_params.append(('fields[list]', fields_list))
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -768,7 +789,7 @@ class ListsApi(object):
 ) -> None:
         """Delete List
 
-        Delete a list with the given list ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `lists:write`
+        Delete a list with the given list ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `lists:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/delete_list.json)
 
         :param id: Primary key that uniquely identifies this list. Generated by Klaviyo. (required)
         :type id: str
@@ -850,7 +871,7 @@ class ListsApi(object):
 ) -> ApiResponse[None]:
         """Delete List
 
-        Delete a list with the given list ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `lists:write`
+        Delete a list with the given list ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `lists:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/delete_list.json)
 
         :param id: Primary key that uniquely identifies this list. Generated by Klaviyo. (required)
         :type id: str
@@ -928,7 +949,7 @@ class ListsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Delete List
 
-        Delete a list with the given list ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `lists:write`
+        Delete a list with the given list ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `lists:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/delete_list.json)
 
         :param id: Primary key that uniquely identifies this list. Generated by Klaviyo. (required)
         :type id: str
@@ -1059,7 +1080,7 @@ class ListsApi(object):
     def get_flows_triggered_by_list(        
         self,
         id: Annotated[StrictStr, Field(description="Primary key that uniquely identifies this list. Generated by Klaviyo.")],
-        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1076,11 +1097,11 @@ class ListsApi(object):
 ) ->  Union[GetFlowResponseCollection, Dict[str, object]]:
         """Get Flows Triggered by List
 
-        Get all flows where the given list ID is being used as the trigger.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `flows:read` `lists:read`
+        Get all flows where the given list ID is being used as the trigger.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `flows:read` `lists:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_flows_triggered_by_list.json)
 
         :param id: Primary key that uniquely identifies this list. Generated by Klaviyo. (required)
         :type id: str
-        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_flow: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1151,7 +1172,7 @@ class ListsApi(object):
     def get_flows_triggered_by_list_with_http_info(        
         self,
         id: Annotated[StrictStr, Field(description="Primary key that uniquely identifies this list. Generated by Klaviyo.")],
-        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1168,11 +1189,11 @@ class ListsApi(object):
 ) -> ApiResponse[GetFlowResponseCollection]:
         """Get Flows Triggered by List
 
-        Get all flows where the given list ID is being used as the trigger.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `flows:read` `lists:read`
+        Get all flows where the given list ID is being used as the trigger.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `flows:read` `lists:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_flows_triggered_by_list.json)
 
         :param id: Primary key that uniquely identifies this list. Generated by Klaviyo. (required)
         :type id: str
-        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_flow: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1241,7 +1262,7 @@ class ListsApi(object):
     def get_flows_triggered_by_list_without_preload_content(
         self,
         id: Annotated[StrictStr, Field(description="Primary key that uniquely identifies this list. Generated by Klaviyo.")],
-        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1256,11 +1277,11 @@ class ListsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Flows Triggered by List
 
-        Get all flows where the given list ID is being used as the trigger.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `flows:read` `lists:read`
+        Get all flows where the given list ID is being used as the trigger.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `flows:read` `lists:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_flows_triggered_by_list.json)
 
         :param id: Primary key that uniquely identifies this list. Generated by Klaviyo. (required)
         :type id: str
-        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_flow: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1427,7 +1448,7 @@ class ListsApi(object):
 ) ->  Union[GetListFlowTriggersRelationshipsResponseCollection, Dict[str, object]]:
         """Get IDs for Flows Triggered by List
 
-        Get the IDs of all flows where the given list is being used as the trigger.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `flows:read` `lists:read`
+        Get the IDs of all flows where the given list is being used as the trigger.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `flows:read` `lists:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_ids_for_flows_triggered_by_list.json)
 
         :param id: Primary key that uniquely identifies this list. Generated by Klaviyo. (required)
         :type id: str
@@ -1515,7 +1536,7 @@ class ListsApi(object):
 ) -> ApiResponse[GetListFlowTriggersRelationshipsResponseCollection]:
         """Get IDs for Flows Triggered by List
 
-        Get the IDs of all flows where the given list is being used as the trigger.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `flows:read` `lists:read`
+        Get the IDs of all flows where the given list is being used as the trigger.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `flows:read` `lists:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_ids_for_flows_triggered_by_list.json)
 
         :param id: Primary key that uniquely identifies this list. Generated by Klaviyo. (required)
         :type id: str
@@ -1599,7 +1620,7 @@ class ListsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get IDs for Flows Triggered by List
 
-        Get the IDs of all flows where the given list is being used as the trigger.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `flows:read` `lists:read`
+        Get the IDs of all flows where the given list is being used as the trigger.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `flows:read` `lists:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_ids_for_flows_triggered_by_list.json)
 
         :param id: Primary key that uniquely identifies this list. Generated by Klaviyo. (required)
         :type id: str
@@ -1743,10 +1764,10 @@ class ListsApi(object):
         self,
         id: Annotated[StrictStr, Field(description="Primary key that uniquely identifies this list. Generated by Klaviyo.")],
         additional_fields_list: Annotated[Optional[List[StrictStr]], Field(description="Request additional fields not included by default in the response. Supported values: 'profile_count'")] = None,
-        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_list: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_tag: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
+        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_list: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_tag: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1763,19 +1784,19 @@ class ListsApi(object):
 ) ->  Union[GetListRetrieveResponseCompoundDocument, Dict[str, object]]:
         """Get List
 
-        Get a list with the given list ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`<br><br>Rate limits when using the `additional-fields[list]=profile_count` parameter in your API request:<br>Burst: `1/s`<br>Steady: `15/m`<br><br>To learn more about how the `additional-fields` parameter impacts rate limits, check out our [Rate limits, status codes, and errors](https://developers.klaviyo.com/en/v2026-04-15/docs/rate_limits_and_error_handling) guide.  **Scopes:** `lists:read`
+        Get a list with the given list ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`<br><br>Rate limits when using the `additional-fields[list]=profile_count` parameter in your API request:<br>Burst: `1/s`<br>Steady: `15/m`<br><br>To learn more about how the `additional-fields` parameter impacts rate limits, check out our [Rate limits, status codes, and errors](https://developers.klaviyo.com/en/v2026-07-15/docs/rate_limits_and_error_handling) guide.  **Scopes:** `lists:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_list.json)
 
         :param id: Primary key that uniquely identifies this list. Generated by Klaviyo. (required)
         :type id: str
         :param additional_fields_list: Request additional fields not included by default in the response. Supported values: 'profile_count'
         :type additional_fields_list: List[str]
-        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_flow: List[str]
-        :param fields_list: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_list: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_list: List[str]
-        :param fields_tag: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_tag: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_tag: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1845,10 +1866,10 @@ class ListsApi(object):
         self,
         id: Annotated[StrictStr, Field(description="Primary key that uniquely identifies this list. Generated by Klaviyo.")],
         additional_fields_list: Annotated[Optional[List[StrictStr]], Field(description="Request additional fields not included by default in the response. Supported values: 'profile_count'")] = None,
-        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_list: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_tag: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
+        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_list: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_tag: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1865,19 +1886,19 @@ class ListsApi(object):
 ) -> ApiResponse[GetListRetrieveResponseCompoundDocument]:
         """Get List
 
-        Get a list with the given list ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`<br><br>Rate limits when using the `additional-fields[list]=profile_count` parameter in your API request:<br>Burst: `1/s`<br>Steady: `15/m`<br><br>To learn more about how the `additional-fields` parameter impacts rate limits, check out our [Rate limits, status codes, and errors](https://developers.klaviyo.com/en/v2026-04-15/docs/rate_limits_and_error_handling) guide.  **Scopes:** `lists:read`
+        Get a list with the given list ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`<br><br>Rate limits when using the `additional-fields[list]=profile_count` parameter in your API request:<br>Burst: `1/s`<br>Steady: `15/m`<br><br>To learn more about how the `additional-fields` parameter impacts rate limits, check out our [Rate limits, status codes, and errors](https://developers.klaviyo.com/en/v2026-07-15/docs/rate_limits_and_error_handling) guide.  **Scopes:** `lists:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_list.json)
 
         :param id: Primary key that uniquely identifies this list. Generated by Klaviyo. (required)
         :type id: str
         :param additional_fields_list: Request additional fields not included by default in the response. Supported values: 'profile_count'
         :type additional_fields_list: List[str]
-        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_flow: List[str]
-        :param fields_list: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_list: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_list: List[str]
-        :param fields_tag: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_tag: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_tag: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1945,10 +1966,10 @@ class ListsApi(object):
         self,
         id: Annotated[StrictStr, Field(description="Primary key that uniquely identifies this list. Generated by Klaviyo.")],
         additional_fields_list: Annotated[Optional[List[StrictStr]], Field(description="Request additional fields not included by default in the response. Supported values: 'profile_count'")] = None,
-        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_list: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_tag: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
+        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_list: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_tag: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1963,19 +1984,19 @@ class ListsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get List
 
-        Get a list with the given list ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`<br><br>Rate limits when using the `additional-fields[list]=profile_count` parameter in your API request:<br>Burst: `1/s`<br>Steady: `15/m`<br><br>To learn more about how the `additional-fields` parameter impacts rate limits, check out our [Rate limits, status codes, and errors](https://developers.klaviyo.com/en/v2026-04-15/docs/rate_limits_and_error_handling) guide.  **Scopes:** `lists:read`
+        Get a list with the given list ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`<br><br>Rate limits when using the `additional-fields[list]=profile_count` parameter in your API request:<br>Burst: `1/s`<br>Steady: `15/m`<br><br>To learn more about how the `additional-fields` parameter impacts rate limits, check out our [Rate limits, status codes, and errors](https://developers.klaviyo.com/en/v2026-07-15/docs/rate_limits_and_error_handling) guide.  **Scopes:** `lists:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_list.json)
 
         :param id: Primary key that uniquely identifies this list. Generated by Klaviyo. (required)
         :type id: str
         :param additional_fields_list: Request additional fields not included by default in the response. Supported values: 'profile_count'
         :type additional_fields_list: List[str]
-        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_flow: List[str]
-        :param fields_list: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_list: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_list: List[str]
-        :param fields_tag: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_tag: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_tag: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2153,13 +2174,14 @@ class ListsApi(object):
     @validate_call
     def get_lists(        
         self,
-        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_list: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_tag: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`name`: `any`, `equals`<br>`id`: `any`, `equals`<br>`created`: `greater-than`<br>`updated`: `greater-than`")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting")] = None,
+        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_list: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_tag: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`name`: `any`, `equals`<br>`id`: `any`, `equals`<br>`created`: `greater-than`<br>`updated`: `greater-than`")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
+        page_size: Annotated[Optional[Annotated[int, Field(le=10, strict=True, ge=1)]], Field(description="Default: 10. Min: 1. Max: 10.")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2176,21 +2198,23 @@ class ListsApi(object):
 ) ->  Union[GetListListResponseCollectionCompoundDocument, Dict[str, object]]:
         """Get Lists
 
-        Get all lists in an account.  Filter to request a subset of all lists. Lists can be filtered by `id`, `name`, `created`, and `updated` fields.  Returns a maximum of 10 results per page.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `lists:read`
+        Get all lists in an account.  Filter to request a subset of all lists. Lists can be filtered by `id`, `name`, `created`, and `updated` fields.  Returns a maximum of 10 results per page.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `lists:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_lists.json)
 
-        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_flow: List[str]
-        :param fields_list: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_list: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_list: List[str]
-        :param fields_tag: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_tag: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_tag: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`name`: `any`, `equals`<br>`id`: `any`, `equals`<br>`created`: `greater-than`<br>`updated`: `greater-than`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`name`: `any`, `equals`<br>`id`: `any`, `equals`<br>`created`: `greater-than`<br>`updated`: `greater-than`
         :type filter: str
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships
         :type include: List[str]
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
         :type page_cursor: str
-        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting
+        :param page_size: Default: 10. Min: 1. Max: 10.
+        :type page_size: int
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting
         :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2221,6 +2245,7 @@ class ListsApi(object):
             filter=filter,
             include=include,
             page_cursor=page_cursor,
+            page_size=page_size,
             sort=sort,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -2259,13 +2284,14 @@ class ListsApi(object):
     @validate_call
     def get_lists_with_http_info(        
         self,
-        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_list: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_tag: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`name`: `any`, `equals`<br>`id`: `any`, `equals`<br>`created`: `greater-than`<br>`updated`: `greater-than`")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting")] = None,
+        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_list: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_tag: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`name`: `any`, `equals`<br>`id`: `any`, `equals`<br>`created`: `greater-than`<br>`updated`: `greater-than`")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
+        page_size: Annotated[Optional[Annotated[int, Field(le=10, strict=True, ge=1)]], Field(description="Default: 10. Min: 1. Max: 10.")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2282,21 +2308,23 @@ class ListsApi(object):
 ) -> ApiResponse[GetListListResponseCollectionCompoundDocument]:
         """Get Lists
 
-        Get all lists in an account.  Filter to request a subset of all lists. Lists can be filtered by `id`, `name`, `created`, and `updated` fields.  Returns a maximum of 10 results per page.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `lists:read`
+        Get all lists in an account.  Filter to request a subset of all lists. Lists can be filtered by `id`, `name`, `created`, and `updated` fields.  Returns a maximum of 10 results per page.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `lists:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_lists.json)
 
-        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_flow: List[str]
-        :param fields_list: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_list: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_list: List[str]
-        :param fields_tag: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_tag: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_tag: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`name`: `any`, `equals`<br>`id`: `any`, `equals`<br>`created`: `greater-than`<br>`updated`: `greater-than`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`name`: `any`, `equals`<br>`id`: `any`, `equals`<br>`created`: `greater-than`<br>`updated`: `greater-than`
         :type filter: str
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships
         :type include: List[str]
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
         :type page_cursor: str
-        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting
+        :param page_size: Default: 10. Min: 1. Max: 10.
+        :type page_size: int
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting
         :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2327,6 +2355,7 @@ class ListsApi(object):
             filter=filter,
             include=include,
             page_cursor=page_cursor,
+            page_size=page_size,
             sort=sort,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -2363,13 +2392,14 @@ class ListsApi(object):
     @validate_call
     def get_lists_without_preload_content(
         self,
-        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_list: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_tag: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`name`: `any`, `equals`<br>`id`: `any`, `equals`<br>`created`: `greater-than`<br>`updated`: `greater-than`")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting")] = None,
+        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_list: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_tag: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`name`: `any`, `equals`<br>`id`: `any`, `equals`<br>`created`: `greater-than`<br>`updated`: `greater-than`")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
+        page_size: Annotated[Optional[Annotated[int, Field(le=10, strict=True, ge=1)]], Field(description="Default: 10. Min: 1. Max: 10.")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2384,21 +2414,23 @@ class ListsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Lists
 
-        Get all lists in an account.  Filter to request a subset of all lists. Lists can be filtered by `id`, `name`, `created`, and `updated` fields.  Returns a maximum of 10 results per page.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `lists:read`
+        Get all lists in an account.  Filter to request a subset of all lists. Lists can be filtered by `id`, `name`, `created`, and `updated` fields.  Returns a maximum of 10 results per page.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `lists:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_lists.json)
 
-        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_flow: List[str]
-        :param fields_list: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_list: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_list: List[str]
-        :param fields_tag: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_tag: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_tag: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`name`: `any`, `equals`<br>`id`: `any`, `equals`<br>`created`: `greater-than`<br>`updated`: `greater-than`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`name`: `any`, `equals`<br>`id`: `any`, `equals`<br>`created`: `greater-than`<br>`updated`: `greater-than`
         :type filter: str
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships
         :type include: List[str]
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
         :type page_cursor: str
-        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting
+        :param page_size: Default: 10. Min: 1. Max: 10.
+        :type page_size: int
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting
         :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2429,6 +2461,7 @@ class ListsApi(object):
             filter=filter,
             include=include,
             page_cursor=page_cursor,
+            page_size=page_size,
             sort=sort,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -2475,6 +2508,7 @@ class ListsApi(object):
         filter,
         include,
         page_cursor,
+        page_size,
         sort,
         _request_auth,
         _content_type,
@@ -2542,6 +2576,13 @@ class ListsApi(object):
             else:
                 _query_params.append(('page[cursor]', page_cursor))
             
+        if page_size is not None:
+            
+            if isinstance(page_size, EnumMeta):
+                _query_params.append(('page[size]', page_size))
+            else:
+                _query_params.append(('page[size]', page_size))
+            
         if sort is not None:
             
             if isinstance(sort, EnumMeta):
@@ -2590,10 +2631,10 @@ class ListsApi(object):
     def get_profile_ids_for_list(        
         self,
         id: Annotated[StrictStr, Field(description="Primary key that uniquely identifies this list. Generated by Klaviyo.")],
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`email`: `any`, `equals`<br>`phone_number`: `any`, `equals`<br>`push_token`: `any`, `equals`<br>`_kx`: `equals`<br>`joined_group_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`email`: `any`, `equals`<br>`phone_number`: `any`, `equals`<br>`push_token`: `any`, `equals`<br>`_kx`: `equals`<br>`joined_group_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
         page_size: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Default: 20. Min: 1. Max: 100.")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2610,17 +2651,17 @@ class ListsApi(object):
 ) ->  Union[GetListProfilesRelationshipsResponseCollection, Dict[str, object]]:
         """Get Profile IDs for List
 
-        Get profile membership [relationships](https://developers.klaviyo.com/en/reference/api_overview#relationships) for a list with the given list ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`<br><br>Rate limits when using the `additional-fields[profile]=predictive_analytics` parameter in your API request:<br>Burst: `10/s`<br>Steady: `150/m`<br><br>To learn more about how the `additional-fields` parameter impacts rate limits, check out our [Rate limits, status codes, and errors](https://developers.klaviyo.com/en/v2026-04-15/docs/rate_limits_and_error_handling) guide.  **Scopes:** `lists:read` `profiles:read`
+        Get profile membership [relationships](https://developers.klaviyo.com/en/reference/api_overview#relationships) for a list with the given list ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`<br><br>Rate limits when using the `additional-fields[profile]=predictive_analytics` parameter in your API request:<br>Burst: `10/s`<br>Steady: `150/m`<br><br>To learn more about how the `additional-fields` parameter impacts rate limits, check out our [Rate limits, status codes, and errors](https://developers.klaviyo.com/en/v2026-07-15/docs/rate_limits_and_error_handling) guide.  **Scopes:** `lists:read` `profiles:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_profile_ids_for_list.json)
 
         :param id: Primary key that uniquely identifies this list. Generated by Klaviyo. (required)
         :type id: str
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`email`: `any`, `equals`<br>`phone_number`: `any`, `equals`<br>`push_token`: `any`, `equals`<br>`_kx`: `equals`<br>`joined_group_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`email`: `any`, `equals`<br>`phone_number`: `any`, `equals`<br>`push_token`: `any`, `equals`<br>`_kx`: `equals`<br>`joined_group_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
         :type page_cursor: str
         :param page_size: Default: 20. Min: 1. Max: 100.
         :type page_size: int
-        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting
         :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2691,10 +2732,10 @@ class ListsApi(object):
     def get_profile_ids_for_list_with_http_info(        
         self,
         id: Annotated[StrictStr, Field(description="Primary key that uniquely identifies this list. Generated by Klaviyo.")],
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`email`: `any`, `equals`<br>`phone_number`: `any`, `equals`<br>`push_token`: `any`, `equals`<br>`_kx`: `equals`<br>`joined_group_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`email`: `any`, `equals`<br>`phone_number`: `any`, `equals`<br>`push_token`: `any`, `equals`<br>`_kx`: `equals`<br>`joined_group_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
         page_size: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Default: 20. Min: 1. Max: 100.")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2711,17 +2752,17 @@ class ListsApi(object):
 ) -> ApiResponse[GetListProfilesRelationshipsResponseCollection]:
         """Get Profile IDs for List
 
-        Get profile membership [relationships](https://developers.klaviyo.com/en/reference/api_overview#relationships) for a list with the given list ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`<br><br>Rate limits when using the `additional-fields[profile]=predictive_analytics` parameter in your API request:<br>Burst: `10/s`<br>Steady: `150/m`<br><br>To learn more about how the `additional-fields` parameter impacts rate limits, check out our [Rate limits, status codes, and errors](https://developers.klaviyo.com/en/v2026-04-15/docs/rate_limits_and_error_handling) guide.  **Scopes:** `lists:read` `profiles:read`
+        Get profile membership [relationships](https://developers.klaviyo.com/en/reference/api_overview#relationships) for a list with the given list ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`<br><br>Rate limits when using the `additional-fields[profile]=predictive_analytics` parameter in your API request:<br>Burst: `10/s`<br>Steady: `150/m`<br><br>To learn more about how the `additional-fields` parameter impacts rate limits, check out our [Rate limits, status codes, and errors](https://developers.klaviyo.com/en/v2026-07-15/docs/rate_limits_and_error_handling) guide.  **Scopes:** `lists:read` `profiles:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_profile_ids_for_list.json)
 
         :param id: Primary key that uniquely identifies this list. Generated by Klaviyo. (required)
         :type id: str
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`email`: `any`, `equals`<br>`phone_number`: `any`, `equals`<br>`push_token`: `any`, `equals`<br>`_kx`: `equals`<br>`joined_group_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`email`: `any`, `equals`<br>`phone_number`: `any`, `equals`<br>`push_token`: `any`, `equals`<br>`_kx`: `equals`<br>`joined_group_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
         :type page_cursor: str
         :param page_size: Default: 20. Min: 1. Max: 100.
         :type page_size: int
-        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting
         :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2790,10 +2831,10 @@ class ListsApi(object):
     def get_profile_ids_for_list_without_preload_content(
         self,
         id: Annotated[StrictStr, Field(description="Primary key that uniquely identifies this list. Generated by Klaviyo.")],
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`email`: `any`, `equals`<br>`phone_number`: `any`, `equals`<br>`push_token`: `any`, `equals`<br>`_kx`: `equals`<br>`joined_group_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`email`: `any`, `equals`<br>`phone_number`: `any`, `equals`<br>`push_token`: `any`, `equals`<br>`_kx`: `equals`<br>`joined_group_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
         page_size: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Default: 20. Min: 1. Max: 100.")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2808,17 +2849,17 @@ class ListsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Profile IDs for List
 
-        Get profile membership [relationships](https://developers.klaviyo.com/en/reference/api_overview#relationships) for a list with the given list ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`<br><br>Rate limits when using the `additional-fields[profile]=predictive_analytics` parameter in your API request:<br>Burst: `10/s`<br>Steady: `150/m`<br><br>To learn more about how the `additional-fields` parameter impacts rate limits, check out our [Rate limits, status codes, and errors](https://developers.klaviyo.com/en/v2026-04-15/docs/rate_limits_and_error_handling) guide.  **Scopes:** `lists:read` `profiles:read`
+        Get profile membership [relationships](https://developers.klaviyo.com/en/reference/api_overview#relationships) for a list with the given list ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`<br><br>Rate limits when using the `additional-fields[profile]=predictive_analytics` parameter in your API request:<br>Burst: `10/s`<br>Steady: `150/m`<br><br>To learn more about how the `additional-fields` parameter impacts rate limits, check out our [Rate limits, status codes, and errors](https://developers.klaviyo.com/en/v2026-07-15/docs/rate_limits_and_error_handling) guide.  **Scopes:** `lists:read` `profiles:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_profile_ids_for_list.json)
 
         :param id: Primary key that uniquely identifies this list. Generated by Klaviyo. (required)
         :type id: str
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`email`: `any`, `equals`<br>`phone_number`: `any`, `equals`<br>`push_token`: `any`, `equals`<br>`_kx`: `equals`<br>`joined_group_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`email`: `any`, `equals`<br>`phone_number`: `any`, `equals`<br>`push_token`: `any`, `equals`<br>`_kx`: `equals`<br>`joined_group_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
         :type page_cursor: str
         :param page_size: Default: 20. Min: 1. Max: 100.
         :type page_size: int
-        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting
         :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2990,11 +3031,11 @@ class ListsApi(object):
         self,
         id: Annotated[StrictStr, Field(description="Primary key that uniquely identifies this list. Generated by Klaviyo.")],
         additional_fields_profile: Annotated[Optional[List[StrictStr]], Field(description="Request additional fields not included by default in the response. Supported values: 'subscriptions', 'predictive_analytics'")] = None,
-        fields_profile: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`email`: `any`, `equals`<br>`phone_number`: `any`, `equals`<br>`push_token`: `any`, `equals`<br>`_kx`: `equals`<br>`joined_group_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
+        fields_profile: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`email`: `any`, `equals`<br>`phone_number`: `any`, `equals`<br>`push_token`: `any`, `equals`<br>`_kx`: `equals`<br>`joined_group_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
         page_size: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Default: 20. Min: 1. Max: 100.")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3011,21 +3052,21 @@ class ListsApi(object):
 ) ->  Union[GetListMemberResponseCollection, Dict[str, object]]:
         """Get Profiles for List
 
-        Get all profiles within a list with the given list ID.  Filter to request a subset of all profiles. Profiles can be filtered by `email`, `phone_number`, `push_token`, and `joined_group_at` fields. Profiles can be sorted by the following fields, in ascending and descending order: `joined_group_at`<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`<br><br>Rate limits when using the `additional-fields[profile]=predictive_analytics` parameter in your API request:<br>Burst: `10/s`<br>Steady: `150/m`<br><br>To learn more about how the `additional-fields` parameter impacts rate limits, check out our [Rate limits, status codes, and errors](https://developers.klaviyo.com/en/v2026-04-15/docs/rate_limits_and_error_handling) guide.  **Scopes:** `lists:read` `profiles:read`
+        Get all profiles within a list with the given list ID.  Filter to request a subset of all profiles. Profiles can be filtered by `email`, `phone_number`, `push_token`, and `joined_group_at` fields. Profiles can be sorted by the following fields, in ascending and descending order: `joined_group_at`<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`<br><br>Rate limits when using the `additional-fields[profile]=predictive_analytics` parameter in your API request:<br>Burst: `10/s`<br>Steady: `150/m`<br><br>To learn more about how the `additional-fields` parameter impacts rate limits, check out our [Rate limits, status codes, and errors](https://developers.klaviyo.com/en/v2026-07-15/docs/rate_limits_and_error_handling) guide.  **Scopes:** `lists:read` `profiles:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_profiles_for_list.json)
 
         :param id: Primary key that uniquely identifies this list. Generated by Klaviyo. (required)
         :type id: str
         :param additional_fields_profile: Request additional fields not included by default in the response. Supported values: 'subscriptions', 'predictive_analytics'
         :type additional_fields_profile: List[str]
-        :param fields_profile: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_profile: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_profile: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`email`: `any`, `equals`<br>`phone_number`: `any`, `equals`<br>`push_token`: `any`, `equals`<br>`_kx`: `equals`<br>`joined_group_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`email`: `any`, `equals`<br>`phone_number`: `any`, `equals`<br>`push_token`: `any`, `equals`<br>`_kx`: `equals`<br>`joined_group_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
         :type page_cursor: str
         :param page_size: Default: 20. Min: 1. Max: 100.
         :type page_size: int
-        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting
         :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3099,11 +3140,11 @@ class ListsApi(object):
         self,
         id: Annotated[StrictStr, Field(description="Primary key that uniquely identifies this list. Generated by Klaviyo.")],
         additional_fields_profile: Annotated[Optional[List[StrictStr]], Field(description="Request additional fields not included by default in the response. Supported values: 'subscriptions', 'predictive_analytics'")] = None,
-        fields_profile: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`email`: `any`, `equals`<br>`phone_number`: `any`, `equals`<br>`push_token`: `any`, `equals`<br>`_kx`: `equals`<br>`joined_group_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
+        fields_profile: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`email`: `any`, `equals`<br>`phone_number`: `any`, `equals`<br>`push_token`: `any`, `equals`<br>`_kx`: `equals`<br>`joined_group_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
         page_size: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Default: 20. Min: 1. Max: 100.")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3120,21 +3161,21 @@ class ListsApi(object):
 ) -> ApiResponse[GetListMemberResponseCollection]:
         """Get Profiles for List
 
-        Get all profiles within a list with the given list ID.  Filter to request a subset of all profiles. Profiles can be filtered by `email`, `phone_number`, `push_token`, and `joined_group_at` fields. Profiles can be sorted by the following fields, in ascending and descending order: `joined_group_at`<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`<br><br>Rate limits when using the `additional-fields[profile]=predictive_analytics` parameter in your API request:<br>Burst: `10/s`<br>Steady: `150/m`<br><br>To learn more about how the `additional-fields` parameter impacts rate limits, check out our [Rate limits, status codes, and errors](https://developers.klaviyo.com/en/v2026-04-15/docs/rate_limits_and_error_handling) guide.  **Scopes:** `lists:read` `profiles:read`
+        Get all profiles within a list with the given list ID.  Filter to request a subset of all profiles. Profiles can be filtered by `email`, `phone_number`, `push_token`, and `joined_group_at` fields. Profiles can be sorted by the following fields, in ascending and descending order: `joined_group_at`<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`<br><br>Rate limits when using the `additional-fields[profile]=predictive_analytics` parameter in your API request:<br>Burst: `10/s`<br>Steady: `150/m`<br><br>To learn more about how the `additional-fields` parameter impacts rate limits, check out our [Rate limits, status codes, and errors](https://developers.klaviyo.com/en/v2026-07-15/docs/rate_limits_and_error_handling) guide.  **Scopes:** `lists:read` `profiles:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_profiles_for_list.json)
 
         :param id: Primary key that uniquely identifies this list. Generated by Klaviyo. (required)
         :type id: str
         :param additional_fields_profile: Request additional fields not included by default in the response. Supported values: 'subscriptions', 'predictive_analytics'
         :type additional_fields_profile: List[str]
-        :param fields_profile: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_profile: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_profile: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`email`: `any`, `equals`<br>`phone_number`: `any`, `equals`<br>`push_token`: `any`, `equals`<br>`_kx`: `equals`<br>`joined_group_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`email`: `any`, `equals`<br>`phone_number`: `any`, `equals`<br>`push_token`: `any`, `equals`<br>`_kx`: `equals`<br>`joined_group_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
         :type page_cursor: str
         :param page_size: Default: 20. Min: 1. Max: 100.
         :type page_size: int
-        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting
         :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3206,11 +3247,11 @@ class ListsApi(object):
         self,
         id: Annotated[StrictStr, Field(description="Primary key that uniquely identifies this list. Generated by Klaviyo.")],
         additional_fields_profile: Annotated[Optional[List[StrictStr]], Field(description="Request additional fields not included by default in the response. Supported values: 'subscriptions', 'predictive_analytics'")] = None,
-        fields_profile: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`email`: `any`, `equals`<br>`phone_number`: `any`, `equals`<br>`push_token`: `any`, `equals`<br>`_kx`: `equals`<br>`joined_group_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
+        fields_profile: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`email`: `any`, `equals`<br>`phone_number`: `any`, `equals`<br>`push_token`: `any`, `equals`<br>`_kx`: `equals`<br>`joined_group_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
         page_size: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Default: 20. Min: 1. Max: 100.")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3225,21 +3266,21 @@ class ListsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Profiles for List
 
-        Get all profiles within a list with the given list ID.  Filter to request a subset of all profiles. Profiles can be filtered by `email`, `phone_number`, `push_token`, and `joined_group_at` fields. Profiles can be sorted by the following fields, in ascending and descending order: `joined_group_at`<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`<br><br>Rate limits when using the `additional-fields[profile]=predictive_analytics` parameter in your API request:<br>Burst: `10/s`<br>Steady: `150/m`<br><br>To learn more about how the `additional-fields` parameter impacts rate limits, check out our [Rate limits, status codes, and errors](https://developers.klaviyo.com/en/v2026-04-15/docs/rate_limits_and_error_handling) guide.  **Scopes:** `lists:read` `profiles:read`
+        Get all profiles within a list with the given list ID.  Filter to request a subset of all profiles. Profiles can be filtered by `email`, `phone_number`, `push_token`, and `joined_group_at` fields. Profiles can be sorted by the following fields, in ascending and descending order: `joined_group_at`<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`<br><br>Rate limits when using the `additional-fields[profile]=predictive_analytics` parameter in your API request:<br>Burst: `10/s`<br>Steady: `150/m`<br><br>To learn more about how the `additional-fields` parameter impacts rate limits, check out our [Rate limits, status codes, and errors](https://developers.klaviyo.com/en/v2026-07-15/docs/rate_limits_and_error_handling) guide.  **Scopes:** `lists:read` `profiles:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_profiles_for_list.json)
 
         :param id: Primary key that uniquely identifies this list. Generated by Klaviyo. (required)
         :type id: str
         :param additional_fields_profile: Request additional fields not included by default in the response. Supported values: 'subscriptions', 'predictive_analytics'
         :type additional_fields_profile: List[str]
-        :param fields_profile: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_profile: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_profile: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`email`: `any`, `equals`<br>`phone_number`: `any`, `equals`<br>`push_token`: `any`, `equals`<br>`_kx`: `equals`<br>`joined_group_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`email`: `any`, `equals`<br>`phone_number`: `any`, `equals`<br>`push_token`: `any`, `equals`<br>`_kx`: `equals`<br>`joined_group_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
         :type page_cursor: str
         :param page_size: Default: 20. Min: 1. Max: 100.
         :type page_size: int
-        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting
         :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3446,7 +3487,7 @@ class ListsApi(object):
 ) ->  Union[GetListTagsRelationshipsResponseCollection, Dict[str, object]]:
         """Get Tag IDs for List
 
-        Return all tags associated with the given list ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `lists:read` `tags:read`
+        Return all tags associated with the given list ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `lists:read` `tags:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_tag_ids_for_list.json)
 
         :param id: Primary key that uniquely identifies this list. Generated by Klaviyo. (required)
         :type id: str
@@ -3531,7 +3572,7 @@ class ListsApi(object):
 ) -> ApiResponse[GetListTagsRelationshipsResponseCollection]:
         """Get Tag IDs for List
 
-        Return all tags associated with the given list ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `lists:read` `tags:read`
+        Return all tags associated with the given list ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `lists:read` `tags:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_tag_ids_for_list.json)
 
         :param id: Primary key that uniquely identifies this list. Generated by Klaviyo. (required)
         :type id: str
@@ -3612,7 +3653,7 @@ class ListsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Tag IDs for List
 
-        Return all tags associated with the given list ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `lists:read` `tags:read`
+        Return all tags associated with the given list ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `lists:read` `tags:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_tag_ids_for_list.json)
 
         :param id: Primary key that uniquely identifies this list. Generated by Klaviyo. (required)
         :type id: str
@@ -3749,7 +3790,7 @@ class ListsApi(object):
     def get_tags_for_list(        
         self,
         id: Annotated[StrictStr, Field(description="Primary key that uniquely identifies this list. Generated by Klaviyo.")],
-        fields_tag: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_tag: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3766,11 +3807,11 @@ class ListsApi(object):
 ) ->  Union[GetTagResponseCollection, Dict[str, object]]:
         """Get Tags for List
 
-        Return all tags associated with the given list ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `lists:read` `tags:read`
+        Return all tags associated with the given list ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `lists:read` `tags:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_tags_for_list.json)
 
         :param id: Primary key that uniquely identifies this list. Generated by Klaviyo. (required)
         :type id: str
-        :param fields_tag: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_tag: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_tag: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3838,7 +3879,7 @@ class ListsApi(object):
     def get_tags_for_list_with_http_info(        
         self,
         id: Annotated[StrictStr, Field(description="Primary key that uniquely identifies this list. Generated by Klaviyo.")],
-        fields_tag: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_tag: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3855,11 +3896,11 @@ class ListsApi(object):
 ) -> ApiResponse[GetTagResponseCollection]:
         """Get Tags for List
 
-        Return all tags associated with the given list ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `lists:read` `tags:read`
+        Return all tags associated with the given list ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `lists:read` `tags:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_tags_for_list.json)
 
         :param id: Primary key that uniquely identifies this list. Generated by Klaviyo. (required)
         :type id: str
-        :param fields_tag: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_tag: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_tag: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3925,7 +3966,7 @@ class ListsApi(object):
     def get_tags_for_list_without_preload_content(
         self,
         id: Annotated[StrictStr, Field(description="Primary key that uniquely identifies this list. Generated by Klaviyo.")],
-        fields_tag: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_tag: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3940,11 +3981,11 @@ class ListsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Tags for List
 
-        Return all tags associated with the given list ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `lists:read` `tags:read`
+        Return all tags associated with the given list ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `lists:read` `tags:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_tags_for_list.json)
 
         :param id: Primary key that uniquely identifies this list. Generated by Klaviyo. (required)
         :type id: str
-        :param fields_tag: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_tag: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_tag: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -4106,7 +4147,7 @@ class ListsApi(object):
 ) -> None:
         """Remove Profiles from List
 
-        Remove a profile from a list with the given list ID.  The provided profile will no longer receive marketing from this particular list once removed.  Removing a profile from a list will not impact the profile's [consent](https://developers.klaviyo.com/en/docs/collect_email_and_sms_consent_via_api) status or subscription status in general. To update a profile's subscription status, please use the [Unsubscribe Profiles endpoint](https://developers.klaviyo.com/en/reference/unsubscribe_profiles).  This endpoint accepts a maximum of 1000 profiles per call.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `lists:write` `profiles:write`
+        Remove a profile from a list with the given list ID.  The provided profile will no longer receive marketing from this particular list once removed.  Removing a profile from a list will not impact the profile's [consent](https://developers.klaviyo.com/en/docs/collect_email_and_sms_consent_via_api) status or subscription status in general. To update a profile's subscription status, please use the [Unsubscribe Profiles endpoint](https://developers.klaviyo.com/en/reference/unsubscribe_profiles).  This endpoint accepts a maximum of 1000 profiles per call.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `lists:write` `profiles:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/remove_profiles_from_list.json)
 
         :param id:  (required)
         :type id: str
@@ -4198,7 +4239,7 @@ class ListsApi(object):
 ) -> ApiResponse[None]:
         """Remove Profiles from List
 
-        Remove a profile from a list with the given list ID.  The provided profile will no longer receive marketing from this particular list once removed.  Removing a profile from a list will not impact the profile's [consent](https://developers.klaviyo.com/en/docs/collect_email_and_sms_consent_via_api) status or subscription status in general. To update a profile's subscription status, please use the [Unsubscribe Profiles endpoint](https://developers.klaviyo.com/en/reference/unsubscribe_profiles).  This endpoint accepts a maximum of 1000 profiles per call.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `lists:write` `profiles:write`
+        Remove a profile from a list with the given list ID.  The provided profile will no longer receive marketing from this particular list once removed.  Removing a profile from a list will not impact the profile's [consent](https://developers.klaviyo.com/en/docs/collect_email_and_sms_consent_via_api) status or subscription status in general. To update a profile's subscription status, please use the [Unsubscribe Profiles endpoint](https://developers.klaviyo.com/en/reference/unsubscribe_profiles).  This endpoint accepts a maximum of 1000 profiles per call.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `lists:write` `profiles:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/remove_profiles_from_list.json)
 
         :param id:  (required)
         :type id: str
@@ -4286,7 +4327,7 @@ class ListsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Remove Profiles from List
 
-        Remove a profile from a list with the given list ID.  The provided profile will no longer receive marketing from this particular list once removed.  Removing a profile from a list will not impact the profile's [consent](https://developers.klaviyo.com/en/docs/collect_email_and_sms_consent_via_api) status or subscription status in general. To update a profile's subscription status, please use the [Unsubscribe Profiles endpoint](https://developers.klaviyo.com/en/reference/unsubscribe_profiles).  This endpoint accepts a maximum of 1000 profiles per call.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `lists:write` `profiles:write`
+        Remove a profile from a list with the given list ID.  The provided profile will no longer receive marketing from this particular list once removed.  Removing a profile from a list will not impact the profile's [consent](https://developers.klaviyo.com/en/docs/collect_email_and_sms_consent_via_api) status or subscription status in general. To update a profile's subscription status, please use the [Unsubscribe Profiles endpoint](https://developers.klaviyo.com/en/reference/unsubscribe_profiles).  This endpoint accepts a maximum of 1000 profiles per call.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `lists:write` `profiles:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/remove_profiles_from_list.json)
 
         :param id:  (required)
         :type id: str
@@ -4449,6 +4490,7 @@ class ListsApi(object):
         self,
         id: Annotated[StrictStr, Field(description="Primary key that uniquely identifies this list. Generated by Klaviyo.")],
         list_partial_update_query: ListPartialUpdateQuery,
+        fields_list: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4465,12 +4507,14 @@ class ListsApi(object):
 ) ->  Union[PatchListPartialUpdateResponse, Dict[str, object]]:
         """Update List
 
-        Update the name of a list with the given list ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `lists:write`
+        Update the name of a list with the given list ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `lists:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/update_list.json)
 
         :param id: Primary key that uniquely identifies this list. Generated by Klaviyo. (required)
         :type id: str
         :param list_partial_update_query: (required)
         :type list_partial_update_query: ListPartialUpdateQuery
+        :param fields_list: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_list: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4496,6 +4540,7 @@ class ListsApi(object):
         _param = self._update_list_serialize(
             id=id,
             list_partial_update_query=list_partial_update_query,
+            fields_list=fields_list,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4535,6 +4580,7 @@ class ListsApi(object):
         self,
         id: Annotated[StrictStr, Field(description="Primary key that uniquely identifies this list. Generated by Klaviyo.")],
         list_partial_update_query: ListPartialUpdateQuery,
+        fields_list: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4551,12 +4597,14 @@ class ListsApi(object):
 ) -> ApiResponse[PatchListPartialUpdateResponse]:
         """Update List
 
-        Update the name of a list with the given list ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `lists:write`
+        Update the name of a list with the given list ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `lists:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/update_list.json)
 
         :param id: Primary key that uniquely identifies this list. Generated by Klaviyo. (required)
         :type id: str
         :param list_partial_update_query: (required)
         :type list_partial_update_query: ListPartialUpdateQuery
+        :param fields_list: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_list: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4582,6 +4630,7 @@ class ListsApi(object):
         _param = self._update_list_serialize(
             id=id,
             list_partial_update_query=list_partial_update_query,
+            fields_list=fields_list,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4619,6 +4668,7 @@ class ListsApi(object):
         self,
         id: Annotated[StrictStr, Field(description="Primary key that uniquely identifies this list. Generated by Klaviyo.")],
         list_partial_update_query: ListPartialUpdateQuery,
+        fields_list: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4633,12 +4683,14 @@ class ListsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Update List
 
-        Update the name of a list with the given list ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `lists:write`
+        Update the name of a list with the given list ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `lists:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/update_list.json)
 
         :param id: Primary key that uniquely identifies this list. Generated by Klaviyo. (required)
         :type id: str
         :param list_partial_update_query: (required)
         :type list_partial_update_query: ListPartialUpdateQuery
+        :param fields_list: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_list: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4664,6 +4716,7 @@ class ListsApi(object):
         _param = self._update_list_serialize(
             id=id,
             list_partial_update_query=list_partial_update_query,
+            fields_list=fields_list,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4705,6 +4758,7 @@ class ListsApi(object):
         self,
         id,
         list_partial_update_query,
+        fields_list,
         _request_auth,
         _content_type,
         _headers,
@@ -4714,6 +4768,7 @@ class ListsApi(object):
         _host = None
 
         _collection_formats: Dict[str, str] = {
+            'fields[list]': 'csv',
         }
 
         _path_params: Dict[str, str] = {}
@@ -4727,6 +4782,13 @@ class ListsApi(object):
         if id is not None:
             _path_params['id'] = id
         # process the query parameters
+        if fields_list is not None:
+            
+            if isinstance(fields_list, EnumMeta):
+                _query_params.append(('fields[list]', fields_list))
+            else:
+                _query_params.append(('fields[list]', fields_list))
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter

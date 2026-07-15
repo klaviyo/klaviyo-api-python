@@ -66,6 +66,7 @@ class CouponsApi(object):
     def bulk_create_coupon_codes(        
         self,
         coupon_code_create_job_create_query: CouponCodeCreateJobCreateQuery,
+        fields_coupon_code_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -82,10 +83,12 @@ class CouponsApi(object):
 ) ->  Union[PostCouponCodeCreateJobResponse, Dict[str, object]]:
         """Bulk Create Coupon Codes
 
-        Create a coupon-code-bulk-create-job to bulk create a list of coupon codes.  Max number of coupon codes per job we allow for is 1000. Max number of jobs queued at once we allow for is 100.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `coupon-codes:write`
+        Create a coupon-code-bulk-create-job to bulk create a list of coupon codes.  Max number of coupon codes per job we allow for is 1000. Max number of jobs queued at once we allow for is 100.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `coupon-codes:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/bulk_create_coupon_codes.json)
 
         :param coupon_code_create_job_create_query: (required)
         :type coupon_code_create_job_create_query: CouponCodeCreateJobCreateQuery
+        :param fields_coupon_code_bulk_create_job: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_coupon_code_bulk_create_job: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -110,6 +113,7 @@ class CouponsApi(object):
 
         _param = self._bulk_create_coupon_codes_serialize(
             coupon_code_create_job_create_query=coupon_code_create_job_create_query,
+            fields_coupon_code_bulk_create_job=fields_coupon_code_bulk_create_job,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -154,6 +158,7 @@ class CouponsApi(object):
     def bulk_create_coupon_codes_with_http_info(        
         self,
         coupon_code_create_job_create_query: CouponCodeCreateJobCreateQuery,
+        fields_coupon_code_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -170,10 +175,12 @@ class CouponsApi(object):
 ) -> ApiResponse[PostCouponCodeCreateJobResponse]:
         """Bulk Create Coupon Codes
 
-        Create a coupon-code-bulk-create-job to bulk create a list of coupon codes.  Max number of coupon codes per job we allow for is 1000. Max number of jobs queued at once we allow for is 100.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `coupon-codes:write`
+        Create a coupon-code-bulk-create-job to bulk create a list of coupon codes.  Max number of coupon codes per job we allow for is 1000. Max number of jobs queued at once we allow for is 100.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `coupon-codes:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/bulk_create_coupon_codes.json)
 
         :param coupon_code_create_job_create_query: (required)
         :type coupon_code_create_job_create_query: CouponCodeCreateJobCreateQuery
+        :param fields_coupon_code_bulk_create_job: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_coupon_code_bulk_create_job: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -198,6 +205,7 @@ class CouponsApi(object):
 
         _param = self._bulk_create_coupon_codes_serialize(
             coupon_code_create_job_create_query=coupon_code_create_job_create_query,
+            fields_coupon_code_bulk_create_job=fields_coupon_code_bulk_create_job,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -240,6 +248,7 @@ class CouponsApi(object):
     def bulk_create_coupon_codes_without_preload_content(
         self,
         coupon_code_create_job_create_query: CouponCodeCreateJobCreateQuery,
+        fields_coupon_code_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -254,10 +263,12 @@ class CouponsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Bulk Create Coupon Codes
 
-        Create a coupon-code-bulk-create-job to bulk create a list of coupon codes.  Max number of coupon codes per job we allow for is 1000. Max number of jobs queued at once we allow for is 100.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `coupon-codes:write`
+        Create a coupon-code-bulk-create-job to bulk create a list of coupon codes.  Max number of coupon codes per job we allow for is 1000. Max number of jobs queued at once we allow for is 100.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `coupon-codes:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/bulk_create_coupon_codes.json)
 
         :param coupon_code_create_job_create_query: (required)
         :type coupon_code_create_job_create_query: CouponCodeCreateJobCreateQuery
+        :param fields_coupon_code_bulk_create_job: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_coupon_code_bulk_create_job: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -282,6 +293,7 @@ class CouponsApi(object):
 
         _param = self._bulk_create_coupon_codes_serialize(
             coupon_code_create_job_create_query=coupon_code_create_job_create_query,
+            fields_coupon_code_bulk_create_job=fields_coupon_code_bulk_create_job,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -328,6 +340,7 @@ class CouponsApi(object):
     def _bulk_create_coupon_codes_serialize(
         self,
         coupon_code_create_job_create_query,
+        fields_coupon_code_bulk_create_job,
         _request_auth,
         _content_type,
         _headers,
@@ -337,6 +350,7 @@ class CouponsApi(object):
         _host = None
 
         _collection_formats: Dict[str, str] = {
+            'fields[coupon-code-bulk-create-job]': 'csv',
         }
 
         _path_params: Dict[str, str] = {}
@@ -348,6 +362,13 @@ class CouponsApi(object):
 
         # process the path parameters
         # process the query parameters
+        if fields_coupon_code_bulk_create_job is not None:
+            
+            if isinstance(fields_coupon_code_bulk_create_job, EnumMeta):
+                _query_params.append(('fields[coupon-code-bulk-create-job]', fields_coupon_code_bulk_create_job))
+            else:
+                _query_params.append(('fields[coupon-code-bulk-create-job]', fields_coupon_code_bulk_create_job))
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -410,6 +431,7 @@ class CouponsApi(object):
     def create_coupon(        
         self,
         coupon_create_query: CouponCreateQuery,
+        fields_coupon: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -426,10 +448,12 @@ class CouponsApi(object):
 ) ->  Union[PostCouponResponse, Dict[str, object]]:
         """Create Coupon
 
-        Creates a new coupon.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `coupons:write`
+        Creates a new coupon.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `coupons:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/create_coupon.json)
 
         :param coupon_create_query: (required)
         :type coupon_create_query: CouponCreateQuery
+        :param fields_coupon: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_coupon: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -454,6 +478,7 @@ class CouponsApi(object):
 
         _param = self._create_coupon_serialize(
             coupon_create_query=coupon_create_query,
+            fields_coupon=fields_coupon,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -492,6 +517,7 @@ class CouponsApi(object):
     def create_coupon_with_http_info(        
         self,
         coupon_create_query: CouponCreateQuery,
+        fields_coupon: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -508,10 +534,12 @@ class CouponsApi(object):
 ) -> ApiResponse[PostCouponResponse]:
         """Create Coupon
 
-        Creates a new coupon.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `coupons:write`
+        Creates a new coupon.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `coupons:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/create_coupon.json)
 
         :param coupon_create_query: (required)
         :type coupon_create_query: CouponCreateQuery
+        :param fields_coupon: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_coupon: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -536,6 +564,7 @@ class CouponsApi(object):
 
         _param = self._create_coupon_serialize(
             coupon_create_query=coupon_create_query,
+            fields_coupon=fields_coupon,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -572,6 +601,7 @@ class CouponsApi(object):
     def create_coupon_without_preload_content(
         self,
         coupon_create_query: CouponCreateQuery,
+        fields_coupon: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -586,10 +616,12 @@ class CouponsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Create Coupon
 
-        Creates a new coupon.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `coupons:write`
+        Creates a new coupon.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `coupons:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/create_coupon.json)
 
         :param coupon_create_query: (required)
         :type coupon_create_query: CouponCreateQuery
+        :param fields_coupon: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_coupon: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -614,6 +646,7 @@ class CouponsApi(object):
 
         _param = self._create_coupon_serialize(
             coupon_create_query=coupon_create_query,
+            fields_coupon=fields_coupon,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -654,6 +687,7 @@ class CouponsApi(object):
     def _create_coupon_serialize(
         self,
         coupon_create_query,
+        fields_coupon,
         _request_auth,
         _content_type,
         _headers,
@@ -663,6 +697,7 @@ class CouponsApi(object):
         _host = None
 
         _collection_formats: Dict[str, str] = {
+            'fields[coupon]': 'csv',
         }
 
         _path_params: Dict[str, str] = {}
@@ -674,6 +709,13 @@ class CouponsApi(object):
 
         # process the path parameters
         # process the query parameters
+        if fields_coupon is not None:
+            
+            if isinstance(fields_coupon, EnumMeta):
+                _query_params.append(('fields[coupon]', fields_coupon))
+            else:
+                _query_params.append(('fields[coupon]', fields_coupon))
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -730,6 +772,7 @@ class CouponsApi(object):
     def create_coupon_code(        
         self,
         coupon_code_create_query: CouponCodeCreateQuery,
+        fields_coupon_code: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -746,10 +789,12 @@ class CouponsApi(object):
 ) ->  Union[PostCouponCodeResponse, Dict[str, object]]:
         """Create Coupon Code
 
-        Synchronously creates a coupon code for the given coupon.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `coupon-codes:write`
+        Synchronously creates a coupon code for the given coupon.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `coupon-codes:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/create_coupon_code.json)
 
         :param coupon_code_create_query: (required)
         :type coupon_code_create_query: CouponCodeCreateQuery
+        :param fields_coupon_code: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_coupon_code: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -774,6 +819,7 @@ class CouponsApi(object):
 
         _param = self._create_coupon_code_serialize(
             coupon_code_create_query=coupon_code_create_query,
+            fields_coupon_code=fields_coupon_code,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -812,6 +858,7 @@ class CouponsApi(object):
     def create_coupon_code_with_http_info(        
         self,
         coupon_code_create_query: CouponCodeCreateQuery,
+        fields_coupon_code: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -828,10 +875,12 @@ class CouponsApi(object):
 ) -> ApiResponse[PostCouponCodeResponse]:
         """Create Coupon Code
 
-        Synchronously creates a coupon code for the given coupon.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `coupon-codes:write`
+        Synchronously creates a coupon code for the given coupon.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `coupon-codes:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/create_coupon_code.json)
 
         :param coupon_code_create_query: (required)
         :type coupon_code_create_query: CouponCodeCreateQuery
+        :param fields_coupon_code: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_coupon_code: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -856,6 +905,7 @@ class CouponsApi(object):
 
         _param = self._create_coupon_code_serialize(
             coupon_code_create_query=coupon_code_create_query,
+            fields_coupon_code=fields_coupon_code,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -892,6 +942,7 @@ class CouponsApi(object):
     def create_coupon_code_without_preload_content(
         self,
         coupon_code_create_query: CouponCodeCreateQuery,
+        fields_coupon_code: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -906,10 +957,12 @@ class CouponsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Create Coupon Code
 
-        Synchronously creates a coupon code for the given coupon.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `coupon-codes:write`
+        Synchronously creates a coupon code for the given coupon.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `coupon-codes:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/create_coupon_code.json)
 
         :param coupon_code_create_query: (required)
         :type coupon_code_create_query: CouponCodeCreateQuery
+        :param fields_coupon_code: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_coupon_code: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -934,6 +987,7 @@ class CouponsApi(object):
 
         _param = self._create_coupon_code_serialize(
             coupon_code_create_query=coupon_code_create_query,
+            fields_coupon_code=fields_coupon_code,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -974,6 +1028,7 @@ class CouponsApi(object):
     def _create_coupon_code_serialize(
         self,
         coupon_code_create_query,
+        fields_coupon_code,
         _request_auth,
         _content_type,
         _headers,
@@ -983,6 +1038,7 @@ class CouponsApi(object):
         _host = None
 
         _collection_formats: Dict[str, str] = {
+            'fields[coupon-code]': 'csv',
         }
 
         _path_params: Dict[str, str] = {}
@@ -994,6 +1050,13 @@ class CouponsApi(object):
 
         # process the path parameters
         # process the query parameters
+        if fields_coupon_code is not None:
+            
+            if isinstance(fields_coupon_code, EnumMeta):
+                _query_params.append(('fields[coupon-code]', fields_coupon_code))
+            else:
+                _query_params.append(('fields[coupon-code]', fields_coupon_code))
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -1066,7 +1129,7 @@ class CouponsApi(object):
 ) -> None:
         """Delete Coupon
 
-        Delete the coupon with the given coupon ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `coupons:write`
+        Delete the coupon with the given coupon ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `coupons:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/delete_coupon.json)
 
         :param id: The internal id of a Coupon is equivalent to its external id stored within an integration. (required)
         :type id: str
@@ -1148,7 +1211,7 @@ class CouponsApi(object):
 ) -> ApiResponse[None]:
         """Delete Coupon
 
-        Delete the coupon with the given coupon ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `coupons:write`
+        Delete the coupon with the given coupon ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `coupons:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/delete_coupon.json)
 
         :param id: The internal id of a Coupon is equivalent to its external id stored within an integration. (required)
         :type id: str
@@ -1226,7 +1289,7 @@ class CouponsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Delete Coupon
 
-        Delete the coupon with the given coupon ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `coupons:write`
+        Delete the coupon with the given coupon ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `coupons:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/delete_coupon.json)
 
         :param id: The internal id of a Coupon is equivalent to its external id stored within an integration. (required)
         :type id: str
@@ -1373,7 +1436,7 @@ class CouponsApi(object):
 ) -> None:
         """Delete Coupon Code
 
-        Deletes a coupon code specified by the given identifier synchronously. If a profile has been assigned to the coupon code, an exception will be raised<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `coupon-codes:write`
+        Deletes a coupon code specified by the given identifier synchronously. If a profile has been assigned to the coupon code, an exception will be raised<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `coupon-codes:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/delete_coupon_code.json)
 
         :param id: The id of a coupon code is a combination of its unique code and the id of the coupon it is associated with. (required)
         :type id: str
@@ -1455,7 +1518,7 @@ class CouponsApi(object):
 ) -> ApiResponse[None]:
         """Delete Coupon Code
 
-        Deletes a coupon code specified by the given identifier synchronously. If a profile has been assigned to the coupon code, an exception will be raised<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `coupon-codes:write`
+        Deletes a coupon code specified by the given identifier synchronously. If a profile has been assigned to the coupon code, an exception will be raised<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `coupon-codes:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/delete_coupon_code.json)
 
         :param id: The id of a coupon code is a combination of its unique code and the id of the coupon it is associated with. (required)
         :type id: str
@@ -1533,7 +1596,7 @@ class CouponsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Delete Coupon Code
 
-        Deletes a coupon code specified by the given identifier synchronously. If a profile has been assigned to the coupon code, an exception will be raised<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `coupon-codes:write`
+        Deletes a coupon code specified by the given identifier synchronously. If a profile has been assigned to the coupon code, an exception will be raised<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `coupon-codes:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/delete_coupon_code.json)
 
         :param id: The id of a coupon code is a combination of its unique code and the id of the coupon it is associated with. (required)
         :type id: str
@@ -1663,9 +1726,9 @@ class CouponsApi(object):
     @validate_call
     def get_bulk_create_coupon_code_jobs(        
         self,
-        fields_coupon_code_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
+        fields_coupon_code_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1682,13 +1745,13 @@ class CouponsApi(object):
 ) ->  Union[GetCouponCodeCreateJobResponseCollectionCompoundDocument, Dict[str, object]]:
         """Get Bulk Create Coupon Code Jobs
 
-        Get all coupon code bulk create jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `coupon-codes:read`
+        Get all coupon code bulk create jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `coupon-codes:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_bulk_create_coupon_code_jobs.json)
 
-        :param fields_coupon_code_bulk_create_job: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_coupon_code_bulk_create_job: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_coupon_code_bulk_create_job: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
         :type page_cursor: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1756,9 +1819,9 @@ class CouponsApi(object):
     @validate_call
     def get_bulk_create_coupon_code_jobs_with_http_info(        
         self,
-        fields_coupon_code_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
+        fields_coupon_code_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1775,13 +1838,13 @@ class CouponsApi(object):
 ) -> ApiResponse[GetCouponCodeCreateJobResponseCollectionCompoundDocument]:
         """Get Bulk Create Coupon Code Jobs
 
-        Get all coupon code bulk create jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `coupon-codes:read`
+        Get all coupon code bulk create jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `coupon-codes:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_bulk_create_coupon_code_jobs.json)
 
-        :param fields_coupon_code_bulk_create_job: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_coupon_code_bulk_create_job: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_coupon_code_bulk_create_job: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
         :type page_cursor: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1847,9 +1910,9 @@ class CouponsApi(object):
     @validate_call
     def get_bulk_create_coupon_code_jobs_without_preload_content(
         self,
-        fields_coupon_code_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
+        fields_coupon_code_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1864,13 +1927,13 @@ class CouponsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Bulk Create Coupon Code Jobs
 
-        Get all coupon code bulk create jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `coupon-codes:read`
+        Get all coupon code bulk create jobs.  Returns a maximum of 100 jobs per request.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `coupon-codes:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_bulk_create_coupon_code_jobs.json)
 
-        :param fields_coupon_code_bulk_create_job: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_coupon_code_bulk_create_job: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_coupon_code_bulk_create_job: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`status`: `equals`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
         :type page_cursor: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2029,9 +2092,9 @@ class CouponsApi(object):
     def get_bulk_create_coupon_codes_job(        
         self,
         job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
-        fields_coupon_code_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_coupon_code: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
+        fields_coupon_code_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_coupon_code: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2048,15 +2111,15 @@ class CouponsApi(object):
 ) ->  Union[GetCouponCodeCreateJobResponseCompoundDocument, Dict[str, object]]:
         """Get Bulk Create Coupon Codes Job
 
-        Get a coupon code bulk create job with the given job ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `coupon-codes:read`
+        Get a coupon code bulk create job with the given job ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `coupon-codes:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_bulk_create_coupon_codes_job.json)
 
         :param job_id: ID of the job to retrieve. (required)
         :type job_id: str
-        :param fields_coupon_code_bulk_create_job: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_coupon_code_bulk_create_job: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_coupon_code_bulk_create_job: List[str]
-        :param fields_coupon_code: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_coupon_code: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_coupon_code: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2126,9 +2189,9 @@ class CouponsApi(object):
     def get_bulk_create_coupon_codes_job_with_http_info(        
         self,
         job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
-        fields_coupon_code_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_coupon_code: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
+        fields_coupon_code_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_coupon_code: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2145,15 +2208,15 @@ class CouponsApi(object):
 ) -> ApiResponse[GetCouponCodeCreateJobResponseCompoundDocument]:
         """Get Bulk Create Coupon Codes Job
 
-        Get a coupon code bulk create job with the given job ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `coupon-codes:read`
+        Get a coupon code bulk create job with the given job ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `coupon-codes:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_bulk_create_coupon_codes_job.json)
 
         :param job_id: ID of the job to retrieve. (required)
         :type job_id: str
-        :param fields_coupon_code_bulk_create_job: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_coupon_code_bulk_create_job: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_coupon_code_bulk_create_job: List[str]
-        :param fields_coupon_code: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_coupon_code: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_coupon_code: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2221,9 +2284,9 @@ class CouponsApi(object):
     def get_bulk_create_coupon_codes_job_without_preload_content(
         self,
         job_id: Annotated[StrictStr, Field(description="ID of the job to retrieve.")],
-        fields_coupon_code_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_coupon_code: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
+        fields_coupon_code_bulk_create_job: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_coupon_code: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2238,15 +2301,15 @@ class CouponsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Bulk Create Coupon Codes Job
 
-        Get a coupon code bulk create job with the given job ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `coupon-codes:read`
+        Get a coupon code bulk create job with the given job ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `coupon-codes:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_bulk_create_coupon_codes_job.json)
 
         :param job_id: ID of the job to retrieve. (required)
         :type job_id: str
-        :param fields_coupon_code_bulk_create_job: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_coupon_code_bulk_create_job: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_coupon_code_bulk_create_job: List[str]
-        :param fields_coupon_code: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_coupon_code: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_coupon_code: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2411,7 +2474,7 @@ class CouponsApi(object):
     def get_coupon(        
         self,
         id: Annotated[StrictStr, Field(description="The internal id of a Coupon is equivalent to its external id stored within an integration.")],
-        fields_coupon: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_coupon: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2428,11 +2491,11 @@ class CouponsApi(object):
 ) ->  Union[GetCouponResponse, Dict[str, object]]:
         """Get Coupon
 
-        Get a specific coupon with the given coupon ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `coupons:read`
+        Get a specific coupon with the given coupon ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `coupons:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_coupon.json)
 
         :param id: The internal id of a Coupon is equivalent to its external id stored within an integration. (required)
         :type id: str
-        :param fields_coupon: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_coupon: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_coupon: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2497,7 +2560,7 @@ class CouponsApi(object):
     def get_coupon_with_http_info(        
         self,
         id: Annotated[StrictStr, Field(description="The internal id of a Coupon is equivalent to its external id stored within an integration.")],
-        fields_coupon: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_coupon: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2514,11 +2577,11 @@ class CouponsApi(object):
 ) -> ApiResponse[GetCouponResponse]:
         """Get Coupon
 
-        Get a specific coupon with the given coupon ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `coupons:read`
+        Get a specific coupon with the given coupon ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `coupons:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_coupon.json)
 
         :param id: The internal id of a Coupon is equivalent to its external id stored within an integration. (required)
         :type id: str
-        :param fields_coupon: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_coupon: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_coupon: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2581,7 +2644,7 @@ class CouponsApi(object):
     def get_coupon_without_preload_content(
         self,
         id: Annotated[StrictStr, Field(description="The internal id of a Coupon is equivalent to its external id stored within an integration.")],
-        fields_coupon: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_coupon: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2596,11 +2659,11 @@ class CouponsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Coupon
 
-        Get a specific coupon with the given coupon ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `coupons:read`
+        Get a specific coupon with the given coupon ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `coupons:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_coupon.json)
 
         :param id: The internal id of a Coupon is equivalent to its external id stored within an integration. (required)
         :type id: str
-        :param fields_coupon: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_coupon: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_coupon: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2739,9 +2802,9 @@ class CouponsApi(object):
     def get_coupon_code(        
         self,
         id: Annotated[StrictStr, Field(description="The id of a coupon code is a combination of its unique code and the id of the coupon it is associated with.")],
-        fields_coupon_code: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_coupon: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
+        fields_coupon_code: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_coupon: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2758,15 +2821,15 @@ class CouponsApi(object):
 ) ->  Union[GetCouponCodeResponseCompoundDocument, Dict[str, object]]:
         """Get Coupon Code
 
-        Returns a Coupon Code specified by the given identifier.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `coupon-codes:read`
+        Returns a Coupon Code specified by the given identifier.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `coupon-codes:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_coupon_code.json)
 
         :param id: The id of a coupon code is a combination of its unique code and the id of the coupon it is associated with. (required)
         :type id: str
-        :param fields_coupon_code: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_coupon_code: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_coupon_code: List[str]
-        :param fields_coupon: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_coupon: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_coupon: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2833,9 +2896,9 @@ class CouponsApi(object):
     def get_coupon_code_with_http_info(        
         self,
         id: Annotated[StrictStr, Field(description="The id of a coupon code is a combination of its unique code and the id of the coupon it is associated with.")],
-        fields_coupon_code: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_coupon: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
+        fields_coupon_code: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_coupon: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2852,15 +2915,15 @@ class CouponsApi(object):
 ) -> ApiResponse[GetCouponCodeResponseCompoundDocument]:
         """Get Coupon Code
 
-        Returns a Coupon Code specified by the given identifier.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `coupon-codes:read`
+        Returns a Coupon Code specified by the given identifier.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `coupon-codes:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_coupon_code.json)
 
         :param id: The id of a coupon code is a combination of its unique code and the id of the coupon it is associated with. (required)
         :type id: str
-        :param fields_coupon_code: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_coupon_code: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_coupon_code: List[str]
-        :param fields_coupon: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_coupon: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_coupon: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2925,9 +2988,9 @@ class CouponsApi(object):
     def get_coupon_code_without_preload_content(
         self,
         id: Annotated[StrictStr, Field(description="The id of a coupon code is a combination of its unique code and the id of the coupon it is associated with.")],
-        fields_coupon_code: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_coupon: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
+        fields_coupon_code: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_coupon: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2942,15 +3005,15 @@ class CouponsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Coupon Code
 
-        Returns a Coupon Code specified by the given identifier.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `coupon-codes:read`
+        Returns a Coupon Code specified by the given identifier.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `coupon-codes:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_coupon_code.json)
 
         :param id: The id of a coupon code is a combination of its unique code and the id of the coupon it is associated with. (required)
         :type id: str
-        :param fields_coupon_code: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_coupon_code: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_coupon_code: List[str]
-        :param fields_coupon: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_coupon: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_coupon: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3109,8 +3172,9 @@ class CouponsApi(object):
     def get_coupon_code_ids_for_coupon(        
         self,
         id: Annotated[StrictStr, Field(description="The ID of the coupon to look up the relationship of.")],
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`expires_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`status`: `equals`<br>`coupon.id`: `any`, `equals`<br>`profile.id`: `any`, `equals`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`expires_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`status`: `equals`<br>`coupon.id`: `any`, `equals`<br>`profile.id`: `any`, `equals`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
+        page_size: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Default: 100. Min: 1. Max: 100.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3127,14 +3191,16 @@ class CouponsApi(object):
 ) ->  Union[GetCouponCodesRelationshipsResponseCollection, Dict[str, object]]:
         """Get Coupon Code IDs for Coupon
 
-        Gets a list of coupon code relationships associated with the given coupon id<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `coupon-codes:read`
+        Gets a list of coupon code relationships associated with the given coupon id<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `coupon-codes:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_coupon_code_ids_for_coupon.json)
 
         :param id: The ID of the coupon to look up the relationship of. (required)
         :type id: str
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`expires_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`status`: `equals`<br>`coupon.id`: `any`, `equals`<br>`profile.id`: `any`, `equals`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`expires_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`status`: `equals`<br>`coupon.id`: `any`, `equals`<br>`profile.id`: `any`, `equals`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
         :type page_cursor: str
+        :param page_size: Default: 100. Min: 1. Max: 100.
+        :type page_size: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3161,6 +3227,7 @@ class CouponsApi(object):
             id=id,
             filter=filter,
             page_cursor=page_cursor,
+            page_size=page_size,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3208,8 +3275,9 @@ class CouponsApi(object):
     def get_coupon_code_ids_for_coupon_with_http_info(        
         self,
         id: Annotated[StrictStr, Field(description="The ID of the coupon to look up the relationship of.")],
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`expires_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`status`: `equals`<br>`coupon.id`: `any`, `equals`<br>`profile.id`: `any`, `equals`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`expires_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`status`: `equals`<br>`coupon.id`: `any`, `equals`<br>`profile.id`: `any`, `equals`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
+        page_size: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Default: 100. Min: 1. Max: 100.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3226,14 +3294,16 @@ class CouponsApi(object):
 ) -> ApiResponse[GetCouponCodesRelationshipsResponseCollection]:
         """Get Coupon Code IDs for Coupon
 
-        Gets a list of coupon code relationships associated with the given coupon id<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `coupon-codes:read`
+        Gets a list of coupon code relationships associated with the given coupon id<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `coupon-codes:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_coupon_code_ids_for_coupon.json)
 
         :param id: The ID of the coupon to look up the relationship of. (required)
         :type id: str
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`expires_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`status`: `equals`<br>`coupon.id`: `any`, `equals`<br>`profile.id`: `any`, `equals`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`expires_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`status`: `equals`<br>`coupon.id`: `any`, `equals`<br>`profile.id`: `any`, `equals`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
         :type page_cursor: str
+        :param page_size: Default: 100. Min: 1. Max: 100.
+        :type page_size: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3260,6 +3330,7 @@ class CouponsApi(object):
             id=id,
             filter=filter,
             page_cursor=page_cursor,
+            page_size=page_size,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3305,8 +3376,9 @@ class CouponsApi(object):
     def get_coupon_code_ids_for_coupon_without_preload_content(
         self,
         id: Annotated[StrictStr, Field(description="The ID of the coupon to look up the relationship of.")],
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`expires_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`status`: `equals`<br>`coupon.id`: `any`, `equals`<br>`profile.id`: `any`, `equals`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`expires_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`status`: `equals`<br>`coupon.id`: `any`, `equals`<br>`profile.id`: `any`, `equals`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
+        page_size: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Default: 100. Min: 1. Max: 100.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3321,14 +3393,16 @@ class CouponsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Coupon Code IDs for Coupon
 
-        Gets a list of coupon code relationships associated with the given coupon id<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `coupon-codes:read`
+        Gets a list of coupon code relationships associated with the given coupon id<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `coupon-codes:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_coupon_code_ids_for_coupon.json)
 
         :param id: The ID of the coupon to look up the relationship of. (required)
         :type id: str
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`expires_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`status`: `equals`<br>`coupon.id`: `any`, `equals`<br>`profile.id`: `any`, `equals`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`expires_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`status`: `equals`<br>`coupon.id`: `any`, `equals`<br>`profile.id`: `any`, `equals`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
         :type page_cursor: str
+        :param page_size: Default: 100. Min: 1. Max: 100.
+        :type page_size: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3355,6 +3429,7 @@ class CouponsApi(object):
             id=id,
             filter=filter,
             page_cursor=page_cursor,
+            page_size=page_size,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3406,6 +3481,7 @@ class CouponsApi(object):
         id,
         filter,
         page_cursor,
+        page_size,
         _request_auth,
         _content_type,
         _headers,
@@ -3441,6 +3517,13 @@ class CouponsApi(object):
                 _query_params.append(('page[cursor]', page_cursor))
             else:
                 _query_params.append(('page[cursor]', page_cursor))
+            
+        if page_size is not None:
+            
+            if isinstance(page_size, EnumMeta):
+                _query_params.append(('page[size]', page_size))
+            else:
+                _query_params.append(('page[size]', page_size))
             
         # process the header parameters
         # process the form parameters
@@ -3491,11 +3574,12 @@ class CouponsApi(object):
     @validate_call
     def get_coupon_codes(        
         self,
-        filter: Annotated[StrictStr, Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`expires_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`status`: `equals`<br>`coupon.id`: `any`, `equals`<br>`profile.id`: `any`, `equals`")],
-        fields_coupon_code: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_coupon: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
+        filter: Annotated[StrictStr, Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`expires_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`status`: `equals`<br>`coupon.id`: `any`, `equals`<br>`profile.id`: `any`, `equals`")],
+        fields_coupon_code: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_coupon: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
+        page_size: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Default: 100. Min: 1. Max: 100.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3512,18 +3596,20 @@ class CouponsApi(object):
 ) ->  Union[GetCouponCodeResponseCollectionCompoundDocument, Dict[str, object]]:
         """Get Coupon Codes
 
-        Gets a list of coupon codes associated with a coupon/coupons or a profile/profiles.  A coupon/coupons or a profile/profiles must be provided as required filter params.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `coupon-codes:read`
+        Gets a list of coupon codes associated with a coupon/coupons or a profile/profiles.  A coupon/coupons or a profile/profiles must be provided as required filter params.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `coupon-codes:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_coupon_codes.json)
 
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`expires_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`status`: `equals`<br>`coupon.id`: `any`, `equals`<br>`profile.id`: `any`, `equals` (required)
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`expires_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`status`: `equals`<br>`coupon.id`: `any`, `equals`<br>`profile.id`: `any`, `equals` (required)
         :type filter: str
-        :param fields_coupon_code: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_coupon_code: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_coupon_code: List[str]
-        :param fields_coupon: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_coupon: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_coupon: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships
         :type include: List[str]
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
         :type page_cursor: str
+        :param page_size: Default: 100. Min: 1. Max: 100.
+        :type page_size: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3552,6 +3638,7 @@ class CouponsApi(object):
             fields_coupon=fields_coupon,
             include=include,
             page_cursor=page_cursor,
+            page_size=page_size,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3589,11 +3676,12 @@ class CouponsApi(object):
     @validate_call
     def get_coupon_codes_with_http_info(        
         self,
-        filter: Annotated[StrictStr, Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`expires_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`status`: `equals`<br>`coupon.id`: `any`, `equals`<br>`profile.id`: `any`, `equals`")],
-        fields_coupon_code: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_coupon: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
+        filter: Annotated[StrictStr, Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`expires_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`status`: `equals`<br>`coupon.id`: `any`, `equals`<br>`profile.id`: `any`, `equals`")],
+        fields_coupon_code: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_coupon: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
+        page_size: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Default: 100. Min: 1. Max: 100.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3610,18 +3698,20 @@ class CouponsApi(object):
 ) -> ApiResponse[GetCouponCodeResponseCollectionCompoundDocument]:
         """Get Coupon Codes
 
-        Gets a list of coupon codes associated with a coupon/coupons or a profile/profiles.  A coupon/coupons or a profile/profiles must be provided as required filter params.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `coupon-codes:read`
+        Gets a list of coupon codes associated with a coupon/coupons or a profile/profiles.  A coupon/coupons or a profile/profiles must be provided as required filter params.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `coupon-codes:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_coupon_codes.json)
 
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`expires_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`status`: `equals`<br>`coupon.id`: `any`, `equals`<br>`profile.id`: `any`, `equals` (required)
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`expires_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`status`: `equals`<br>`coupon.id`: `any`, `equals`<br>`profile.id`: `any`, `equals` (required)
         :type filter: str
-        :param fields_coupon_code: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_coupon_code: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_coupon_code: List[str]
-        :param fields_coupon: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_coupon: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_coupon: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships
         :type include: List[str]
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
         :type page_cursor: str
+        :param page_size: Default: 100. Min: 1. Max: 100.
+        :type page_size: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3650,6 +3740,7 @@ class CouponsApi(object):
             fields_coupon=fields_coupon,
             include=include,
             page_cursor=page_cursor,
+            page_size=page_size,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3685,11 +3776,12 @@ class CouponsApi(object):
     @validate_call
     def get_coupon_codes_without_preload_content(
         self,
-        filter: Annotated[StrictStr, Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`expires_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`status`: `equals`<br>`coupon.id`: `any`, `equals`<br>`profile.id`: `any`, `equals`")],
-        fields_coupon_code: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_coupon: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
+        filter: Annotated[StrictStr, Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`expires_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`status`: `equals`<br>`coupon.id`: `any`, `equals`<br>`profile.id`: `any`, `equals`")],
+        fields_coupon_code: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_coupon: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
+        page_size: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Default: 100. Min: 1. Max: 100.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3704,18 +3796,20 @@ class CouponsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Coupon Codes
 
-        Gets a list of coupon codes associated with a coupon/coupons or a profile/profiles.  A coupon/coupons or a profile/profiles must be provided as required filter params.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `coupon-codes:read`
+        Gets a list of coupon codes associated with a coupon/coupons or a profile/profiles.  A coupon/coupons or a profile/profiles must be provided as required filter params.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `coupon-codes:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_coupon_codes.json)
 
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`expires_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`status`: `equals`<br>`coupon.id`: `any`, `equals`<br>`profile.id`: `any`, `equals` (required)
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`expires_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`status`: `equals`<br>`coupon.id`: `any`, `equals`<br>`profile.id`: `any`, `equals` (required)
         :type filter: str
-        :param fields_coupon_code: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_coupon_code: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_coupon_code: List[str]
-        :param fields_coupon: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_coupon: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_coupon: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships
         :type include: List[str]
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
         :type page_cursor: str
+        :param page_size: Default: 100. Min: 1. Max: 100.
+        :type page_size: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3744,6 +3838,7 @@ class CouponsApi(object):
             fields_coupon=fields_coupon,
             include=include,
             page_cursor=page_cursor,
+            page_size=page_size,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3788,6 +3883,7 @@ class CouponsApi(object):
         fields_coupon,
         include,
         page_cursor,
+        page_size,
         _request_auth,
         _content_type,
         _headers,
@@ -3846,6 +3942,13 @@ class CouponsApi(object):
             else:
                 _query_params.append(('page[cursor]', page_cursor))
             
+        if page_size is not None:
+            
+            if isinstance(page_size, EnumMeta):
+                _query_params.append(('page[size]', page_size))
+            else:
+                _query_params.append(('page[size]', page_size))
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -3887,9 +3990,10 @@ class CouponsApi(object):
     def get_coupon_codes_for_coupon(        
         self,
         id: Annotated[StrictStr, Field(description="The ID of the coupon to look up the relationship of.")],
-        fields_coupon_code: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`expires_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`status`: `equals`<br>`coupon.id`: `any`, `equals`<br>`profile.id`: `any`, `equals`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
+        fields_coupon_code: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`expires_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`status`: `equals`<br>`coupon.id`: `any`, `equals`<br>`profile.id`: `any`, `equals`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
+        page_size: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Default: 100. Min: 1. Max: 100.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3906,16 +4010,18 @@ class CouponsApi(object):
 ) ->  Union[GetCouponCodeResponseCollection, Dict[str, object]]:
         """Get Coupon Codes for Coupon
 
-        Gets a list of coupon codes associated with the given coupon id<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `coupon-codes:read`
+        Gets a list of coupon codes associated with the given coupon id<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `coupon-codes:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_coupon_codes_for_coupon.json)
 
         :param id: The ID of the coupon to look up the relationship of. (required)
         :type id: str
-        :param fields_coupon_code: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_coupon_code: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_coupon_code: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`expires_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`status`: `equals`<br>`coupon.id`: `any`, `equals`<br>`profile.id`: `any`, `equals`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`expires_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`status`: `equals`<br>`coupon.id`: `any`, `equals`<br>`profile.id`: `any`, `equals`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
         :type page_cursor: str
+        :param page_size: Default: 100. Min: 1. Max: 100.
+        :type page_size: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3943,6 +4049,7 @@ class CouponsApi(object):
             fields_coupon_code=fields_coupon_code,
             filter=filter,
             page_cursor=page_cursor,
+            page_size=page_size,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3987,9 +4094,10 @@ class CouponsApi(object):
     def get_coupon_codes_for_coupon_with_http_info(        
         self,
         id: Annotated[StrictStr, Field(description="The ID of the coupon to look up the relationship of.")],
-        fields_coupon_code: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`expires_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`status`: `equals`<br>`coupon.id`: `any`, `equals`<br>`profile.id`: `any`, `equals`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
+        fields_coupon_code: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`expires_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`status`: `equals`<br>`coupon.id`: `any`, `equals`<br>`profile.id`: `any`, `equals`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
+        page_size: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Default: 100. Min: 1. Max: 100.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4006,16 +4114,18 @@ class CouponsApi(object):
 ) -> ApiResponse[GetCouponCodeResponseCollection]:
         """Get Coupon Codes for Coupon
 
-        Gets a list of coupon codes associated with the given coupon id<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `coupon-codes:read`
+        Gets a list of coupon codes associated with the given coupon id<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `coupon-codes:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_coupon_codes_for_coupon.json)
 
         :param id: The ID of the coupon to look up the relationship of. (required)
         :type id: str
-        :param fields_coupon_code: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_coupon_code: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_coupon_code: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`expires_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`status`: `equals`<br>`coupon.id`: `any`, `equals`<br>`profile.id`: `any`, `equals`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`expires_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`status`: `equals`<br>`coupon.id`: `any`, `equals`<br>`profile.id`: `any`, `equals`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
         :type page_cursor: str
+        :param page_size: Default: 100. Min: 1. Max: 100.
+        :type page_size: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4043,6 +4153,7 @@ class CouponsApi(object):
             fields_coupon_code=fields_coupon_code,
             filter=filter,
             page_cursor=page_cursor,
+            page_size=page_size,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4085,9 +4196,10 @@ class CouponsApi(object):
     def get_coupon_codes_for_coupon_without_preload_content(
         self,
         id: Annotated[StrictStr, Field(description="The ID of the coupon to look up the relationship of.")],
-        fields_coupon_code: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`expires_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`status`: `equals`<br>`coupon.id`: `any`, `equals`<br>`profile.id`: `any`, `equals`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
+        fields_coupon_code: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`expires_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`status`: `equals`<br>`coupon.id`: `any`, `equals`<br>`profile.id`: `any`, `equals`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
+        page_size: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Default: 100. Min: 1. Max: 100.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4102,16 +4214,18 @@ class CouponsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Coupon Codes for Coupon
 
-        Gets a list of coupon codes associated with the given coupon id<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `coupon-codes:read`
+        Gets a list of coupon codes associated with the given coupon id<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `coupon-codes:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_coupon_codes_for_coupon.json)
 
         :param id: The ID of the coupon to look up the relationship of. (required)
         :type id: str
-        :param fields_coupon_code: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_coupon_code: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_coupon_code: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`expires_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`status`: `equals`<br>`coupon.id`: `any`, `equals`<br>`profile.id`: `any`, `equals`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`expires_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`status`: `equals`<br>`coupon.id`: `any`, `equals`<br>`profile.id`: `any`, `equals`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
         :type page_cursor: str
+        :param page_size: Default: 100. Min: 1. Max: 100.
+        :type page_size: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4139,6 +4253,7 @@ class CouponsApi(object):
             fields_coupon_code=fields_coupon_code,
             filter=filter,
             page_cursor=page_cursor,
+            page_size=page_size,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4188,6 +4303,7 @@ class CouponsApi(object):
         fields_coupon_code,
         filter,
         page_cursor,
+        page_size,
         _request_auth,
         _content_type,
         _headers,
@@ -4231,6 +4347,13 @@ class CouponsApi(object):
                 _query_params.append(('page[cursor]', page_cursor))
             else:
                 _query_params.append(('page[cursor]', page_cursor))
+            
+        if page_size is not None:
+            
+            if isinstance(page_size, EnumMeta):
+                _query_params.append(('page[size]', page_size))
+            else:
+                _query_params.append(('page[size]', page_size))
             
         # process the header parameters
         # process the form parameters
@@ -4279,7 +4402,7 @@ class CouponsApi(object):
     def get_coupon_for_coupon_code(        
         self,
         id: Annotated[StrictStr, Field(description="The ID of the coupon to look up the relationship of.")],
-        fields_coupon: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_coupon: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4296,11 +4419,11 @@ class CouponsApi(object):
 ) ->  Union[GetCouponResponse, Dict[str, object]]:
         """Get Coupon For Coupon Code
 
-        Get the coupon associated with a given coupon code ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `coupons:read`
+        Get the coupon associated with a given coupon code ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `coupons:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_coupon_for_coupon_code.json)
 
         :param id: The ID of the coupon to look up the relationship of. (required)
         :type id: str
-        :param fields_coupon: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_coupon: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_coupon: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -4368,7 +4491,7 @@ class CouponsApi(object):
     def get_coupon_for_coupon_code_with_http_info(        
         self,
         id: Annotated[StrictStr, Field(description="The ID of the coupon to look up the relationship of.")],
-        fields_coupon: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_coupon: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4385,11 +4508,11 @@ class CouponsApi(object):
 ) -> ApiResponse[GetCouponResponse]:
         """Get Coupon For Coupon Code
 
-        Get the coupon associated with a given coupon code ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `coupons:read`
+        Get the coupon associated with a given coupon code ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `coupons:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_coupon_for_coupon_code.json)
 
         :param id: The ID of the coupon to look up the relationship of. (required)
         :type id: str
-        :param fields_coupon: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_coupon: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_coupon: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -4455,7 +4578,7 @@ class CouponsApi(object):
     def get_coupon_for_coupon_code_without_preload_content(
         self,
         id: Annotated[StrictStr, Field(description="The ID of the coupon to look up the relationship of.")],
-        fields_coupon: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_coupon: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4470,11 +4593,11 @@ class CouponsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Coupon For Coupon Code
 
-        Get the coupon associated with a given coupon code ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `coupons:read`
+        Get the coupon associated with a given coupon code ID.<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `coupons:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_coupon_for_coupon_code.json)
 
         :param id: The ID of the coupon to look up the relationship of. (required)
         :type id: str
-        :param fields_coupon: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_coupon: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_coupon: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -4635,7 +4758,7 @@ class CouponsApi(object):
 ) ->  Union[GetCouponCodeCouponRelationshipResponse, Dict[str, object]]:
         """Get Coupon ID for Coupon Code
 
-        Gets the coupon relationship associated with the given coupon code id<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `coupons:read`
+        Gets the coupon relationship associated with the given coupon code id<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `coupons:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_coupon_id_for_coupon_code.json)
 
         :param id: The ID of the coupon to look up the relationship of. (required)
         :type id: str
@@ -4720,7 +4843,7 @@ class CouponsApi(object):
 ) -> ApiResponse[GetCouponCodeCouponRelationshipResponse]:
         """Get Coupon ID for Coupon Code
 
-        Gets the coupon relationship associated with the given coupon code id<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `coupons:read`
+        Gets the coupon relationship associated with the given coupon code id<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `coupons:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_coupon_id_for_coupon_code.json)
 
         :param id: The ID of the coupon to look up the relationship of. (required)
         :type id: str
@@ -4801,7 +4924,7 @@ class CouponsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Coupon ID for Coupon Code
 
-        Gets the coupon relationship associated with the given coupon code id<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `coupons:read`
+        Gets the coupon relationship associated with the given coupon code id<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `coupons:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_coupon_id_for_coupon_code.json)
 
         :param id: The ID of the coupon to look up the relationship of. (required)
         :type id: str
@@ -4937,8 +5060,9 @@ class CouponsApi(object):
     @validate_call
     def get_coupons(        
         self,
-        fields_coupon: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
+        fields_coupon: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
+        page_size: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Default: 100. Min: 1. Max: 100.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4955,12 +5079,14 @@ class CouponsApi(object):
 ) ->  Union[GetCouponResponseCollection, Dict[str, object]]:
         """Get Coupons
 
-        Get all coupons in an account.  To learn more, see our [Coupons API guide](https://developers.klaviyo.com/en/docs/use_klaviyos_coupons_api).<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `coupons:read`
+        Get all coupons in an account.  To learn more, see our [Coupons API guide](https://developers.klaviyo.com/en/docs/use_klaviyos_coupons_api).<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `coupons:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_coupons.json)
 
-        :param fields_coupon: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_coupon: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_coupon: List[str]
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
         :type page_cursor: str
+        :param page_size: Default: 100. Min: 1. Max: 100.
+        :type page_size: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4986,6 +5112,7 @@ class CouponsApi(object):
         _param = self._get_coupons_serialize(
             fields_coupon=fields_coupon,
             page_cursor=page_cursor,
+            page_size=page_size,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -5023,8 +5150,9 @@ class CouponsApi(object):
     @validate_call
     def get_coupons_with_http_info(        
         self,
-        fields_coupon: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
+        fields_coupon: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
+        page_size: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Default: 100. Min: 1. Max: 100.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5041,12 +5169,14 @@ class CouponsApi(object):
 ) -> ApiResponse[GetCouponResponseCollection]:
         """Get Coupons
 
-        Get all coupons in an account.  To learn more, see our [Coupons API guide](https://developers.klaviyo.com/en/docs/use_klaviyos_coupons_api).<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `coupons:read`
+        Get all coupons in an account.  To learn more, see our [Coupons API guide](https://developers.klaviyo.com/en/docs/use_klaviyos_coupons_api).<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `coupons:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_coupons.json)
 
-        :param fields_coupon: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_coupon: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_coupon: List[str]
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
         :type page_cursor: str
+        :param page_size: Default: 100. Min: 1. Max: 100.
+        :type page_size: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5072,6 +5202,7 @@ class CouponsApi(object):
         _param = self._get_coupons_serialize(
             fields_coupon=fields_coupon,
             page_cursor=page_cursor,
+            page_size=page_size,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -5107,8 +5238,9 @@ class CouponsApi(object):
     @validate_call
     def get_coupons_without_preload_content(
         self,
-        fields_coupon: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
+        fields_coupon: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
+        page_size: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Default: 100. Min: 1. Max: 100.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5123,12 +5255,14 @@ class CouponsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Coupons
 
-        Get all coupons in an account.  To learn more, see our [Coupons API guide](https://developers.klaviyo.com/en/docs/use_klaviyos_coupons_api).<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `coupons:read`
+        Get all coupons in an account.  To learn more, see our [Coupons API guide](https://developers.klaviyo.com/en/docs/use_klaviyos_coupons_api).<br><br>*Rate limits*:<br>Burst: `75/s`<br>Steady: `750/m`  **Scopes:** `coupons:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_coupons.json)
 
-        :param fields_coupon: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_coupon: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_coupon: List[str]
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
         :type page_cursor: str
+        :param page_size: Default: 100. Min: 1. Max: 100.
+        :type page_size: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5154,6 +5288,7 @@ class CouponsApi(object):
         _param = self._get_coupons_serialize(
             fields_coupon=fields_coupon,
             page_cursor=page_cursor,
+            page_size=page_size,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -5195,6 +5330,7 @@ class CouponsApi(object):
         self,
         fields_coupon,
         page_cursor,
+        page_size,
         _request_auth,
         _content_type,
         _headers,
@@ -5229,6 +5365,13 @@ class CouponsApi(object):
                 _query_params.append(('page[cursor]', page_cursor))
             else:
                 _query_params.append(('page[cursor]', page_cursor))
+            
+        if page_size is not None:
+            
+            if isinstance(page_size, EnumMeta):
+                _query_params.append(('page[size]', page_size))
+            else:
+                _query_params.append(('page[size]', page_size))
             
         # process the header parameters
         # process the form parameters
@@ -5272,6 +5415,7 @@ class CouponsApi(object):
         self,
         id: Annotated[StrictStr, Field(description="The internal id of a Coupon is equivalent to its external id stored within an integration.")],
         coupon_update_query: CouponUpdateQuery,
+        fields_coupon: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5288,12 +5432,14 @@ class CouponsApi(object):
 ) ->  Union[PatchCouponResponse, Dict[str, object]]:
         """Update Coupon
 
-        *Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `coupons:write`
+        *Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `coupons:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/update_coupon.json)
 
         :param id: The internal id of a Coupon is equivalent to its external id stored within an integration. (required)
         :type id: str
         :param coupon_update_query: (required)
         :type coupon_update_query: CouponUpdateQuery
+        :param fields_coupon: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_coupon: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5319,6 +5465,7 @@ class CouponsApi(object):
         _param = self._update_coupon_serialize(
             id=id,
             coupon_update_query=coupon_update_query,
+            fields_coupon=fields_coupon,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -5358,6 +5505,7 @@ class CouponsApi(object):
         self,
         id: Annotated[StrictStr, Field(description="The internal id of a Coupon is equivalent to its external id stored within an integration.")],
         coupon_update_query: CouponUpdateQuery,
+        fields_coupon: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5374,12 +5522,14 @@ class CouponsApi(object):
 ) -> ApiResponse[PatchCouponResponse]:
         """Update Coupon
 
-        *Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `coupons:write`
+        *Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `coupons:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/update_coupon.json)
 
         :param id: The internal id of a Coupon is equivalent to its external id stored within an integration. (required)
         :type id: str
         :param coupon_update_query: (required)
         :type coupon_update_query: CouponUpdateQuery
+        :param fields_coupon: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_coupon: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5405,6 +5555,7 @@ class CouponsApi(object):
         _param = self._update_coupon_serialize(
             id=id,
             coupon_update_query=coupon_update_query,
+            fields_coupon=fields_coupon,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -5442,6 +5593,7 @@ class CouponsApi(object):
         self,
         id: Annotated[StrictStr, Field(description="The internal id of a Coupon is equivalent to its external id stored within an integration.")],
         coupon_update_query: CouponUpdateQuery,
+        fields_coupon: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5456,12 +5608,14 @@ class CouponsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Update Coupon
 
-        *Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `coupons:write`
+        *Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `coupons:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/update_coupon.json)
 
         :param id: The internal id of a Coupon is equivalent to its external id stored within an integration. (required)
         :type id: str
         :param coupon_update_query: (required)
         :type coupon_update_query: CouponUpdateQuery
+        :param fields_coupon: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_coupon: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5487,6 +5641,7 @@ class CouponsApi(object):
         _param = self._update_coupon_serialize(
             id=id,
             coupon_update_query=coupon_update_query,
+            fields_coupon=fields_coupon,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -5528,6 +5683,7 @@ class CouponsApi(object):
         self,
         id,
         coupon_update_query,
+        fields_coupon,
         _request_auth,
         _content_type,
         _headers,
@@ -5537,6 +5693,7 @@ class CouponsApi(object):
         _host = None
 
         _collection_formats: Dict[str, str] = {
+            'fields[coupon]': 'csv',
         }
 
         _path_params: Dict[str, str] = {}
@@ -5550,6 +5707,13 @@ class CouponsApi(object):
         if id is not None:
             _path_params['id'] = id
         # process the query parameters
+        if fields_coupon is not None:
+            
+            if isinstance(fields_coupon, EnumMeta):
+                _query_params.append(('fields[coupon]', fields_coupon))
+            else:
+                _query_params.append(('fields[coupon]', fields_coupon))
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -5607,6 +5771,7 @@ class CouponsApi(object):
         self,
         id: Annotated[StrictStr, Field(description="The id of a coupon code is a combination of its unique code and the id of the coupon it is associated with.")],
         coupon_code_update_query: CouponCodeUpdateQuery,
+        fields_coupon_code: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5623,12 +5788,14 @@ class CouponsApi(object):
 ) ->  Union[PatchCouponCodeResponse, Dict[str, object]]:
         """Update Coupon Code
 
-        Updates a coupon code specified by the given identifier synchronously. We allow updating the 'status' and 'expires_at' of coupon codes.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `coupon-codes:write`
+        Updates a coupon code specified by the given identifier synchronously. We allow updating the 'status' and 'expires_at' of coupon codes.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `coupon-codes:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/update_coupon_code.json)
 
         :param id: The id of a coupon code is a combination of its unique code and the id of the coupon it is associated with. (required)
         :type id: str
         :param coupon_code_update_query: (required)
         :type coupon_code_update_query: CouponCodeUpdateQuery
+        :param fields_coupon_code: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_coupon_code: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5654,6 +5821,7 @@ class CouponsApi(object):
         _param = self._update_coupon_code_serialize(
             id=id,
             coupon_code_update_query=coupon_code_update_query,
+            fields_coupon_code=fields_coupon_code,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -5693,6 +5861,7 @@ class CouponsApi(object):
         self,
         id: Annotated[StrictStr, Field(description="The id of a coupon code is a combination of its unique code and the id of the coupon it is associated with.")],
         coupon_code_update_query: CouponCodeUpdateQuery,
+        fields_coupon_code: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5709,12 +5878,14 @@ class CouponsApi(object):
 ) -> ApiResponse[PatchCouponCodeResponse]:
         """Update Coupon Code
 
-        Updates a coupon code specified by the given identifier synchronously. We allow updating the 'status' and 'expires_at' of coupon codes.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `coupon-codes:write`
+        Updates a coupon code specified by the given identifier synchronously. We allow updating the 'status' and 'expires_at' of coupon codes.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `coupon-codes:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/update_coupon_code.json)
 
         :param id: The id of a coupon code is a combination of its unique code and the id of the coupon it is associated with. (required)
         :type id: str
         :param coupon_code_update_query: (required)
         :type coupon_code_update_query: CouponCodeUpdateQuery
+        :param fields_coupon_code: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_coupon_code: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5740,6 +5911,7 @@ class CouponsApi(object):
         _param = self._update_coupon_code_serialize(
             id=id,
             coupon_code_update_query=coupon_code_update_query,
+            fields_coupon_code=fields_coupon_code,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -5777,6 +5949,7 @@ class CouponsApi(object):
         self,
         id: Annotated[StrictStr, Field(description="The id of a coupon code is a combination of its unique code and the id of the coupon it is associated with.")],
         coupon_code_update_query: CouponCodeUpdateQuery,
+        fields_coupon_code: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5791,12 +5964,14 @@ class CouponsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Update Coupon Code
 
-        Updates a coupon code specified by the given identifier synchronously. We allow updating the 'status' and 'expires_at' of coupon codes.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `coupon-codes:write`
+        Updates a coupon code specified by the given identifier synchronously. We allow updating the 'status' and 'expires_at' of coupon codes.<br><br>*Rate limits*:<br>Burst: `350/s`<br>Steady: `3500/m`  **Scopes:** `coupon-codes:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/update_coupon_code.json)
 
         :param id: The id of a coupon code is a combination of its unique code and the id of the coupon it is associated with. (required)
         :type id: str
         :param coupon_code_update_query: (required)
         :type coupon_code_update_query: CouponCodeUpdateQuery
+        :param fields_coupon_code: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_coupon_code: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5822,6 +5997,7 @@ class CouponsApi(object):
         _param = self._update_coupon_code_serialize(
             id=id,
             coupon_code_update_query=coupon_code_update_query,
+            fields_coupon_code=fields_coupon_code,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -5863,6 +6039,7 @@ class CouponsApi(object):
         self,
         id,
         coupon_code_update_query,
+        fields_coupon_code,
         _request_auth,
         _content_type,
         _headers,
@@ -5872,6 +6049,7 @@ class CouponsApi(object):
         _host = None
 
         _collection_formats: Dict[str, str] = {
+            'fields[coupon-code]': 'csv',
         }
 
         _path_params: Dict[str, str] = {}
@@ -5885,6 +6063,13 @@ class CouponsApi(object):
         if id is not None:
             _path_params['id'] = id
         # process the query parameters
+        if fields_coupon_code is not None:
+            
+            if isinstance(fields_coupon_code, EnumMeta):
+                _query_params.append(('fields[coupon-code]', fields_coupon_code))
+            else:
+                _query_params.append(('fields[coupon-code]', fields_coupon_code))
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter

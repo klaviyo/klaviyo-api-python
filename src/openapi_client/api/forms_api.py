@@ -28,8 +28,8 @@ from openapi_client.models.get_encoded_form_response import GetEncodedFormRespon
 from openapi_client.models.get_form_response import GetFormResponse
 from openapi_client.models.get_form_response_collection import GetFormResponseCollection
 from openapi_client.models.get_form_version_form_relationship_response import GetFormVersionFormRelationshipResponse
-from openapi_client.models.get_form_version_response import GetFormVersionResponse
 from openapi_client.models.get_form_version_response_collection import GetFormVersionResponseCollection
+from openapi_client.models.get_form_version_response_compound_document import GetFormVersionResponseCompoundDocument
 from openapi_client.models.get_form_versions_relationships_response_collection import GetFormVersionsRelationshipsResponseCollection
 from openapi_client.models.post_encoded_form_response import PostEncodedFormResponse
 
@@ -56,6 +56,7 @@ class FormsApi(object):
     def create_form(        
         self,
         form_create_query: Annotated[FormCreateQuery, Field(description="Creates a Form from parameters")],
+        fields_form: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -72,10 +73,12 @@ class FormsApi(object):
 ) ->  Union[PostEncodedFormResponse, Dict[str, object]]:
         """Create Form
 
-        Create a new form.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `forms:write`
+        Create a new form.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `forms:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/create_form.json)
 
         :param form_create_query: Creates a Form from parameters (required)
         :type form_create_query: FormCreateQuery
+        :param fields_form: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_form: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -100,6 +103,7 @@ class FormsApi(object):
 
         _param = self._create_form_serialize(
             form_create_query=form_create_query,
+            fields_form=fields_form,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -138,6 +142,7 @@ class FormsApi(object):
     def create_form_with_http_info(        
         self,
         form_create_query: Annotated[FormCreateQuery, Field(description="Creates a Form from parameters")],
+        fields_form: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -154,10 +159,12 @@ class FormsApi(object):
 ) -> ApiResponse[PostEncodedFormResponse]:
         """Create Form
 
-        Create a new form.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `forms:write`
+        Create a new form.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `forms:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/create_form.json)
 
         :param form_create_query: Creates a Form from parameters (required)
         :type form_create_query: FormCreateQuery
+        :param fields_form: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_form: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -182,6 +189,7 @@ class FormsApi(object):
 
         _param = self._create_form_serialize(
             form_create_query=form_create_query,
+            fields_form=fields_form,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -218,6 +226,7 @@ class FormsApi(object):
     def create_form_without_preload_content(
         self,
         form_create_query: Annotated[FormCreateQuery, Field(description="Creates a Form from parameters")],
+        fields_form: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -232,10 +241,12 @@ class FormsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Create Form
 
-        Create a new form.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `forms:write`
+        Create a new form.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `forms:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/create_form.json)
 
         :param form_create_query: Creates a Form from parameters (required)
         :type form_create_query: FormCreateQuery
+        :param fields_form: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_form: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -260,6 +271,7 @@ class FormsApi(object):
 
         _param = self._create_form_serialize(
             form_create_query=form_create_query,
+            fields_form=fields_form,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -300,6 +312,7 @@ class FormsApi(object):
     def _create_form_serialize(
         self,
         form_create_query,
+        fields_form,
         _request_auth,
         _content_type,
         _headers,
@@ -309,6 +322,7 @@ class FormsApi(object):
         _host = None
 
         _collection_formats: Dict[str, str] = {
+            'fields[form]': 'csv',
         }
 
         _path_params: Dict[str, str] = {}
@@ -320,6 +334,13 @@ class FormsApi(object):
 
         # process the path parameters
         # process the query parameters
+        if fields_form is not None:
+            
+            if isinstance(fields_form, EnumMeta):
+                _query_params.append(('fields[form]', fields_form))
+            else:
+                _query_params.append(('fields[form]', fields_form))
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -392,7 +413,7 @@ class FormsApi(object):
 ) -> None:
         """Delete Form
 
-        Delete a given form.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `forms:write`
+        Delete a given form.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `forms:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/delete_form.json)
 
         :param id: The ID of the form (required)
         :type id: str
@@ -474,7 +495,7 @@ class FormsApi(object):
 ) -> ApiResponse[None]:
         """Delete Form
 
-        Delete a given form.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `forms:write`
+        Delete a given form.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `forms:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/delete_form.json)
 
         :param id: The ID of the form (required)
         :type id: str
@@ -552,7 +573,7 @@ class FormsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Delete Form
 
-        Delete a given form.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `forms:write`
+        Delete a given form.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `forms:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/delete_form.json)
 
         :param id: The ID of the form (required)
         :type id: str
@@ -683,7 +704,7 @@ class FormsApi(object):
     def get_form(        
         self,
         id: Annotated[StrictStr, Field(description="The ID of the form")],
-        fields_form: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_form: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -700,11 +721,11 @@ class FormsApi(object):
 ) ->  Union[GetEncodedFormResponse, Dict[str, object]]:
         """Get Form
 
-        Get the form with the given ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `forms:read`
+        Get the form with the given ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `forms:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_form.json)
 
         :param id: The ID of the form (required)
         :type id: str
-        :param fields_form: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_form: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_form: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -769,7 +790,7 @@ class FormsApi(object):
     def get_form_with_http_info(        
         self,
         id: Annotated[StrictStr, Field(description="The ID of the form")],
-        fields_form: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_form: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -786,11 +807,11 @@ class FormsApi(object):
 ) -> ApiResponse[GetEncodedFormResponse]:
         """Get Form
 
-        Get the form with the given ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `forms:read`
+        Get the form with the given ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `forms:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_form.json)
 
         :param id: The ID of the form (required)
         :type id: str
-        :param fields_form: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_form: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_form: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -853,7 +874,7 @@ class FormsApi(object):
     def get_form_without_preload_content(
         self,
         id: Annotated[StrictStr, Field(description="The ID of the form")],
-        fields_form: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_form: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -868,11 +889,11 @@ class FormsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Form
 
-        Get the form with the given ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `forms:read`
+        Get the form with the given ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `forms:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_form.json)
 
         :param id: The ID of the form (required)
         :type id: str
-        :param fields_form: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_form: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_form: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1011,7 +1032,7 @@ class FormsApi(object):
     def get_form_for_form_version(        
         self,
         id: Annotated[StrictStr, Field(description="The ID of the form version")],
-        fields_form: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_form: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1028,11 +1049,11 @@ class FormsApi(object):
 ) ->  Union[GetFormResponse, Dict[str, object]]:
         """Get Form for Form Version
 
-        Get the form associated with the given form version.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `forms:read`
+        Get the form associated with the given form version.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `forms:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_form_for_form_version.json)
 
         :param id: The ID of the form version (required)
         :type id: str
-        :param fields_form: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_form: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_form: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1100,7 +1121,7 @@ class FormsApi(object):
     def get_form_for_form_version_with_http_info(        
         self,
         id: Annotated[StrictStr, Field(description="The ID of the form version")],
-        fields_form: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_form: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1117,11 +1138,11 @@ class FormsApi(object):
 ) -> ApiResponse[GetFormResponse]:
         """Get Form for Form Version
 
-        Get the form associated with the given form version.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `forms:read`
+        Get the form associated with the given form version.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `forms:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_form_for_form_version.json)
 
         :param id: The ID of the form version (required)
         :type id: str
-        :param fields_form: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_form: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_form: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1187,7 +1208,7 @@ class FormsApi(object):
     def get_form_for_form_version_without_preload_content(
         self,
         id: Annotated[StrictStr, Field(description="The ID of the form version")],
-        fields_form: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_form: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1202,11 +1223,11 @@ class FormsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Form for Form Version
 
-        Get the form associated with the given form version.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `forms:read`
+        Get the form associated with the given form version.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `forms:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_form_for_form_version.json)
 
         :param id: The ID of the form version (required)
         :type id: str
-        :param fields_form: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_form: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_form: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1367,7 +1388,7 @@ class FormsApi(object):
 ) ->  Union[GetFormVersionFormRelationshipResponse, Dict[str, object]]:
         """Get Form ID for Form Version
 
-        Get the ID of the form associated with the given form version.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `forms:read`
+        Get the ID of the form associated with the given form version.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `forms:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_form_id_for_form_version.json)
 
         :param id: The ID of the form version (required)
         :type id: str
@@ -1452,7 +1473,7 @@ class FormsApi(object):
 ) -> ApiResponse[GetFormVersionFormRelationshipResponse]:
         """Get Form ID for Form Version
 
-        Get the ID of the form associated with the given form version.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `forms:read`
+        Get the ID of the form associated with the given form version.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `forms:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_form_id_for_form_version.json)
 
         :param id: The ID of the form version (required)
         :type id: str
@@ -1533,7 +1554,7 @@ class FormsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Form ID for Form Version
 
-        Get the ID of the form associated with the given form version.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `forms:read`
+        Get the ID of the form associated with the given form version.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `forms:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_form_id_for_form_version.json)
 
         :param id: The ID of the form version (required)
         :type id: str
@@ -1670,7 +1691,9 @@ class FormsApi(object):
     def get_form_version(        
         self,
         id: Annotated[StrictStr, Field(description="The ID of the form version")],
-        fields_form_version: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_form_version: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_form: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1684,15 +1707,19 @@ class FormsApi(object):
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
         options: Dict[str, Any] = {},
-) ->  Union[GetFormVersionResponse, Dict[str, object]]:
+) ->  Union[GetFormVersionResponseCompoundDocument, Dict[str, object]]:
         """Get Form Version
 
-        Get the form version with the given ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `forms:read`
+        Get the form version with the given ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `forms:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_form_version.json)
 
         :param id: The ID of the form version (required)
         :type id: str
-        :param fields_form_version: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_form_version: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_form_version: List[str]
+        :param fields_form: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_form: List[str]
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships
+        :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1718,6 +1745,8 @@ class FormsApi(object):
         _param = self._get_form_version_serialize(
             id=id,
             fields_form_version=fields_form_version,
+            fields_form=fields_form,
+            include=include,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1725,7 +1754,7 @@ class FormsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFormVersionResponse",
+            '200': "GetFormVersionResponseCompoundDocument",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -1756,7 +1785,9 @@ class FormsApi(object):
     def get_form_version_with_http_info(        
         self,
         id: Annotated[StrictStr, Field(description="The ID of the form version")],
-        fields_form_version: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_form_version: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_form: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1770,15 +1801,19 @@ class FormsApi(object):
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
         options: Dict[str, Any] = {},
-) -> ApiResponse[GetFormVersionResponse]:
+) -> ApiResponse[GetFormVersionResponseCompoundDocument]:
         """Get Form Version
 
-        Get the form version with the given ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `forms:read`
+        Get the form version with the given ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `forms:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_form_version.json)
 
         :param id: The ID of the form version (required)
         :type id: str
-        :param fields_form_version: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_form_version: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_form_version: List[str]
+        :param fields_form: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_form: List[str]
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships
+        :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1804,6 +1839,8 @@ class FormsApi(object):
         _param = self._get_form_version_serialize(
             id=id,
             fields_form_version=fields_form_version,
+            fields_form=fields_form,
+            include=include,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1811,7 +1848,7 @@ class FormsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFormVersionResponse",
+            '200': "GetFormVersionResponseCompoundDocument",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -1840,7 +1877,9 @@ class FormsApi(object):
     def get_form_version_without_preload_content(
         self,
         id: Annotated[StrictStr, Field(description="The ID of the form version")],
-        fields_form_version: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_form_version: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_form: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1855,12 +1894,16 @@ class FormsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Form Version
 
-        Get the form version with the given ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `forms:read`
+        Get the form version with the given ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `forms:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_form_version.json)
 
         :param id: The ID of the form version (required)
         :type id: str
-        :param fields_form_version: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_form_version: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_form_version: List[str]
+        :param fields_form: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_form: List[str]
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships
+        :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1886,6 +1929,8 @@ class FormsApi(object):
         _param = self._get_form_version_serialize(
             id=id,
             fields_form_version=fields_form_version,
+            fields_form=fields_form,
+            include=include,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1893,7 +1938,7 @@ class FormsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFormVersionResponse",
+            '200': "GetFormVersionResponseCompoundDocument",
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -1927,6 +1972,8 @@ class FormsApi(object):
         self,
         id,
         fields_form_version,
+        fields_form,
+        include,
         _request_auth,
         _content_type,
         _headers,
@@ -1937,6 +1984,8 @@ class FormsApi(object):
 
         _collection_formats: Dict[str, str] = {
             'fields[form-version]': 'csv',
+            'fields[form]': 'csv',
+            'include': 'csv',
         }
 
         _path_params: Dict[str, str] = {}
@@ -1956,6 +2005,20 @@ class FormsApi(object):
                 _query_params.append(('fields[form-version]', fields_form_version))
             else:
                 _query_params.append(('fields[form-version]', fields_form_version))
+            
+        if fields_form is not None:
+            
+            if isinstance(fields_form, EnumMeta):
+                _query_params.append(('fields[form]', fields_form))
+            else:
+                _query_params.append(('fields[form]', fields_form))
+            
+        if include is not None:
+            
+            if isinstance(include, EnumMeta):
+                _query_params.append(('include', include))
+            else:
+                _query_params.append(('include', include))
             
         # process the header parameters
         # process the form parameters
@@ -1997,11 +2060,11 @@ class FormsApi(object):
     @validate_call
     def get_forms(        
         self,
-        fields_form: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`, `equals`<br>`name`: `any`, `contains`, `equals`<br>`ab_test`: `equals`<br>`updated_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`created_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`status`: `equals`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
+        fields_form: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`, `equals`<br>`name`: `any`, `contains`, `equals`<br>`ab_test`: `equals`<br>`updated_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`created_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`status`: `equals`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
         page_size: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Default: 20. Min: 1. Max: 100.")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2018,17 +2081,17 @@ class FormsApi(object):
 ) ->  Union[GetFormResponseCollection, Dict[str, object]]:
         """Get Forms
 
-        Get all forms in an account.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `forms:read`
+        Get all forms in an account.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `forms:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_forms.json)
 
-        :param fields_form: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_form: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_form: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`, `equals`<br>`name`: `any`, `contains`, `equals`<br>`ab_test`: `equals`<br>`updated_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`created_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`status`: `equals`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`, `equals`<br>`name`: `any`, `contains`, `equals`<br>`ab_test`: `equals`<br>`updated_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`created_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`status`: `equals`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
         :type page_cursor: str
         :param page_size: Default: 20. Min: 1. Max: 100.
         :type page_size: int
-        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting
         :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2095,11 +2158,11 @@ class FormsApi(object):
     @validate_call
     def get_forms_with_http_info(        
         self,
-        fields_form: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`, `equals`<br>`name`: `any`, `contains`, `equals`<br>`ab_test`: `equals`<br>`updated_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`created_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`status`: `equals`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
+        fields_form: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`, `equals`<br>`name`: `any`, `contains`, `equals`<br>`ab_test`: `equals`<br>`updated_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`created_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`status`: `equals`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
         page_size: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Default: 20. Min: 1. Max: 100.")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2116,17 +2179,17 @@ class FormsApi(object):
 ) -> ApiResponse[GetFormResponseCollection]:
         """Get Forms
 
-        Get all forms in an account.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `forms:read`
+        Get all forms in an account.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `forms:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_forms.json)
 
-        :param fields_form: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_form: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_form: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`, `equals`<br>`name`: `any`, `contains`, `equals`<br>`ab_test`: `equals`<br>`updated_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`created_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`status`: `equals`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`, `equals`<br>`name`: `any`, `contains`, `equals`<br>`ab_test`: `equals`<br>`updated_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`created_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`status`: `equals`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
         :type page_cursor: str
         :param page_size: Default: 20. Min: 1. Max: 100.
         :type page_size: int
-        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting
         :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2191,11 +2254,11 @@ class FormsApi(object):
     @validate_call
     def get_forms_without_preload_content(
         self,
-        fields_form: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`, `equals`<br>`name`: `any`, `contains`, `equals`<br>`ab_test`: `equals`<br>`updated_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`created_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`status`: `equals`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
+        fields_form: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`, `equals`<br>`name`: `any`, `contains`, `equals`<br>`ab_test`: `equals`<br>`updated_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`created_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`status`: `equals`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
         page_size: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Default: 20. Min: 1. Max: 100.")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2210,17 +2273,17 @@ class FormsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Forms
 
-        Get all forms in an account.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `forms:read`
+        Get all forms in an account.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `forms:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_forms.json)
 
-        :param fields_form: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_form: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_form: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`, `equals`<br>`name`: `any`, `contains`, `equals`<br>`ab_test`: `equals`<br>`updated_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`created_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`status`: `equals`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`, `equals`<br>`name`: `any`, `contains`, `equals`<br>`ab_test`: `equals`<br>`updated_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`created_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`status`: `equals`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
         :type page_cursor: str
         :param page_size: Default: 20. Min: 1. Max: 100.
         :type page_size: int
-        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting
         :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2391,10 +2454,10 @@ class FormsApi(object):
     def get_version_ids_for_form(        
         self,
         id: Annotated[Optional[StrictStr], Field(description="The ID of the form")],
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`form_type`: `any`, `equals`<br>`status`: `equals`<br>`updated_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`created_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`form_type`: `any`, `equals`<br>`status`: `equals`<br>`updated_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`created_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
         page_size: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Default: 20. Min: 1. Max: 100.")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2411,17 +2474,17 @@ class FormsApi(object):
 ) ->  Union[GetFormVersionsRelationshipsResponseCollection, Dict[str, object]]:
         """Get Version IDs for Form
 
-        Get the IDs of the form versions for the given form.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `forms:read`
+        Get the IDs of the form versions for the given form.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `forms:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_version_ids_for_form.json)
 
         :param id: The ID of the form (required)
         :type id: str
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`form_type`: `any`, `equals`<br>`status`: `equals`<br>`updated_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`created_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`form_type`: `any`, `equals`<br>`status`: `equals`<br>`updated_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`created_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
         :type page_cursor: str
         :param page_size: Default: 20. Min: 1. Max: 100.
         :type page_size: int
-        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting
         :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2495,10 +2558,10 @@ class FormsApi(object):
     def get_version_ids_for_form_with_http_info(        
         self,
         id: Annotated[Optional[StrictStr], Field(description="The ID of the form")],
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`form_type`: `any`, `equals`<br>`status`: `equals`<br>`updated_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`created_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`form_type`: `any`, `equals`<br>`status`: `equals`<br>`updated_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`created_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
         page_size: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Default: 20. Min: 1. Max: 100.")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2515,17 +2578,17 @@ class FormsApi(object):
 ) -> ApiResponse[GetFormVersionsRelationshipsResponseCollection]:
         """Get Version IDs for Form
 
-        Get the IDs of the form versions for the given form.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `forms:read`
+        Get the IDs of the form versions for the given form.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `forms:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_version_ids_for_form.json)
 
         :param id: The ID of the form (required)
         :type id: str
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`form_type`: `any`, `equals`<br>`status`: `equals`<br>`updated_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`created_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`form_type`: `any`, `equals`<br>`status`: `equals`<br>`updated_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`created_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
         :type page_cursor: str
         :param page_size: Default: 20. Min: 1. Max: 100.
         :type page_size: int
-        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting
         :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2597,10 +2660,10 @@ class FormsApi(object):
     def get_version_ids_for_form_without_preload_content(
         self,
         id: Annotated[Optional[StrictStr], Field(description="The ID of the form")],
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`form_type`: `any`, `equals`<br>`status`: `equals`<br>`updated_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`created_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`form_type`: `any`, `equals`<br>`status`: `equals`<br>`updated_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`created_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
         page_size: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Default: 20. Min: 1. Max: 100.")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2615,17 +2678,17 @@ class FormsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Version IDs for Form
 
-        Get the IDs of the form versions for the given form.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `forms:read`
+        Get the IDs of the form versions for the given form.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `forms:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_version_ids_for_form.json)
 
         :param id: The ID of the form (required)
         :type id: str
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`form_type`: `any`, `equals`<br>`status`: `equals`<br>`updated_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`created_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`form_type`: `any`, `equals`<br>`status`: `equals`<br>`updated_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`created_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
         :type page_cursor: str
         :param page_size: Default: 20. Min: 1. Max: 100.
         :type page_size: int
-        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting
         :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2802,11 +2865,11 @@ class FormsApi(object):
     def get_versions_for_form(        
         self,
         id: Annotated[Optional[StrictStr], Field(description="The ID of the form")],
-        fields_form_version: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`form_type`: `any`, `equals`<br>`status`: `equals`<br>`updated_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`created_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
+        fields_form_version: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`form_type`: `any`, `equals`<br>`status`: `equals`<br>`updated_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`created_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
         page_size: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Default: 20. Min: 1. Max: 100.")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2823,19 +2886,19 @@ class FormsApi(object):
 ) ->  Union[GetFormVersionResponseCollection, Dict[str, object]]:
         """Get Versions for Form
 
-        Get the form versions for the given form.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `forms:read`
+        Get the form versions for the given form.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `forms:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_versions_for_form.json)
 
         :param id: The ID of the form (required)
         :type id: str
-        :param fields_form_version: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_form_version: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_form_version: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`form_type`: `any`, `equals`<br>`status`: `equals`<br>`updated_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`created_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`form_type`: `any`, `equals`<br>`status`: `equals`<br>`updated_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`created_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
         :type page_cursor: str
         :param page_size: Default: 20. Min: 1. Max: 100.
         :type page_size: int
-        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting
         :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2910,11 +2973,11 @@ class FormsApi(object):
     def get_versions_for_form_with_http_info(        
         self,
         id: Annotated[Optional[StrictStr], Field(description="The ID of the form")],
-        fields_form_version: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`form_type`: `any`, `equals`<br>`status`: `equals`<br>`updated_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`created_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
+        fields_form_version: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`form_type`: `any`, `equals`<br>`status`: `equals`<br>`updated_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`created_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
         page_size: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Default: 20. Min: 1. Max: 100.")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2931,19 +2994,19 @@ class FormsApi(object):
 ) -> ApiResponse[GetFormVersionResponseCollection]:
         """Get Versions for Form
 
-        Get the form versions for the given form.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `forms:read`
+        Get the form versions for the given form.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `forms:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_versions_for_form.json)
 
         :param id: The ID of the form (required)
         :type id: str
-        :param fields_form_version: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_form_version: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_form_version: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`form_type`: `any`, `equals`<br>`status`: `equals`<br>`updated_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`created_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`form_type`: `any`, `equals`<br>`status`: `equals`<br>`updated_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`created_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
         :type page_cursor: str
         :param page_size: Default: 20. Min: 1. Max: 100.
         :type page_size: int
-        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting
         :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3016,11 +3079,11 @@ class FormsApi(object):
     def get_versions_for_form_without_preload_content(
         self,
         id: Annotated[Optional[StrictStr], Field(description="The ID of the form")],
-        fields_form_version: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`form_type`: `any`, `equals`<br>`status`: `equals`<br>`updated_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`created_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
+        fields_form_version: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`form_type`: `any`, `equals`<br>`status`: `equals`<br>`updated_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`created_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
         page_size: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Default: 20. Min: 1. Max: 100.")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3035,19 +3098,19 @@ class FormsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Versions for Form
 
-        Get the form versions for the given form.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `forms:read`
+        Get the form versions for the given form.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `forms:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_versions_for_form.json)
 
         :param id: The ID of the form (required)
         :type id: str
-        :param fields_form_version: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_form_version: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_form_version: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`form_type`: `any`, `equals`<br>`status`: `equals`<br>`updated_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`created_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`form_type`: `any`, `equals`<br>`status`: `equals`<br>`updated_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`created_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
         :type page_cursor: str
         :param page_size: Default: 20. Min: 1. Max: 100.
         :type page_size: int
-        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting
         :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request

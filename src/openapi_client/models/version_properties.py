@@ -32,7 +32,8 @@ class VersionProperties(BaseModel):
     rule_based_trigger_evaluation: Optional[StrictStr] = Field(default='any', description="Side image alignment enumeration.")
     record_utm_params_on_submit: Optional[StrictBool] = False
     show_close_button: Optional[StrictBool] = True
-    __properties: ClassVar[List[str]] = ["side_image_settings", "click_outside_to_close", "rule_based_trigger_evaluation", "record_utm_params_on_submit", "show_close_button"]
+    accessible_name: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["side_image_settings", "click_outside_to_close", "rule_based_trigger_evaluation", "record_utm_params_on_submit", "show_close_button", "accessible_name"]
 
     @field_validator('click_outside_to_close')
     def click_outside_to_close_validate_enum(cls, value):
@@ -107,6 +108,11 @@ class VersionProperties(BaseModel):
         if self.rule_based_trigger_evaluation is None and "rule_based_trigger_evaluation" in self.model_fields_set:
             _dict['rule_based_trigger_evaluation'] = None
 
+        # set to None if accessible_name (nullable) is None
+        # and model_fields_set contains the field
+        if self.accessible_name is None and "accessible_name" in self.model_fields_set:
+            _dict['accessible_name'] = None
+
         return _dict
 
     @classmethod
@@ -123,7 +129,8 @@ class VersionProperties(BaseModel):
             "click_outside_to_close": obj.get("click_outside_to_close"),
             "rule_based_trigger_evaluation": obj.get("rule_based_trigger_evaluation") if obj.get("rule_based_trigger_evaluation") is not None else 'any',
             "record_utm_params_on_submit": obj.get("record_utm_params_on_submit") if obj.get("record_utm_params_on_submit") is not None else False,
-            "show_close_button": obj.get("show_close_button") if obj.get("show_close_button") is not None else True
+            "show_close_button": obj.get("show_close_button") if obj.get("show_close_button") is not None else True,
+            "accessible_name": obj.get("accessible_name")
         })
         return _obj
 

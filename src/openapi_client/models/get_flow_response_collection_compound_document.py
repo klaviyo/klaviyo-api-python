@@ -20,7 +20,7 @@ import json
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.collection_links import CollectionLinks
-from openapi_client.models.get_flow_response_collection_compound_document_data_inner import GetFlowResponseCollectionCompoundDocumentDataInner
+from openapi_client.models.flow_response_object_resource import FlowResponseObjectResource
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,7 +28,7 @@ class GetFlowResponseCollectionCompoundDocument(BaseModel):
     """
     GetFlowResponseCollectionCompoundDocument
     """ # noqa: E501
-    data: List[GetFlowResponseCollectionCompoundDocumentDataInner]
+    data: List[FlowResponseObjectResource]
     links: Optional[CollectionLinks] = None
     included: Optional[List[Dict[str, Any]]] = None
     __properties: ClassVar[List[str]] = ["data", "links", "included"]
@@ -94,7 +94,7 @@ class GetFlowResponseCollectionCompoundDocument(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "data": [GetFlowResponseCollectionCompoundDocumentDataInner.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None,
+            "data": [FlowResponseObjectResource.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None,
             "links": CollectionLinks.from_dict(obj["links"]) if obj.get("links") is not None else None,
             "included": obj.get("included")
         })

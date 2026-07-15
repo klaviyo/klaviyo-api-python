@@ -23,6 +23,7 @@ from openapi_client.models.background_image import BackgroundImage
 from openapi_client.models.banner_styles import BannerStyles
 from openapi_client.models.border_style import BorderStyle
 from openapi_client.models.close_button_style import CloseButtonStyle
+from openapi_client.models.custom_css import CustomCss
 from openapi_client.models.drop_shadow import DropShadow
 from openapi_client.models.input_styles import InputStyles
 from openapi_client.models.margin import Margin
@@ -52,7 +53,8 @@ class VersionStyles(BaseModel):
     rich_text_styles: Optional[RichTextStyles] = None
     mobile_overlay: Optional[MobileOverlay] = None
     banner_styles: Optional[BannerStyles] = None
-    __properties: ClassVar[List[str]] = ["wrap_content", "border_styles", "close_button", "margin", "padding", "minimum_height", "width", "custom_width", "background_image", "background_color", "input_styles", "drop_shadow", "overlay_color", "rich_text_styles", "mobile_overlay", "banner_styles"]
+    custom_css: Optional[CustomCss] = None
+    __properties: ClassVar[List[str]] = ["wrap_content", "border_styles", "close_button", "margin", "padding", "minimum_height", "width", "custom_width", "background_image", "background_color", "input_styles", "drop_shadow", "overlay_color", "rich_text_styles", "mobile_overlay", "banner_styles", "custom_css"]
 
     @field_validator('width')
     def width_validate_enum(cls, value):
@@ -60,8 +62,8 @@ class VersionStyles(BaseModel):
         if value is None:
             return value
 
-        if value not in set(['custom', 'large', 'medium', 'small']):
-            raise ValueError("must be one of enum values ('custom', 'large', 'medium', 'small')")
+        if value not in set(['custom', 'full', 'large', 'medium', 'small']):
+            raise ValueError("must be one of enum values ('custom', 'full', 'large', 'medium', 'small')")
         return value
 
     model_config = ConfigDict(
@@ -133,6 +135,9 @@ class VersionStyles(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of banner_styles
         if self.banner_styles:
             _dict['banner_styles'] = self.banner_styles.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of custom_css
+        if self.custom_css:
+            _dict['custom_css'] = self.custom_css.to_dict()
         # set to None if custom_width (nullable) is None
         # and model_fields_set contains the field
         if self.custom_width is None and "custom_width" in self.model_fields_set:
@@ -170,7 +175,8 @@ class VersionStyles(BaseModel):
             "overlay_color": obj.get("overlay_color") if obj.get("overlay_color") is not None else 'rgba(20,20,20,0.6)',
             "rich_text_styles": RichTextStyles.from_dict(obj["rich_text_styles"]) if obj.get("rich_text_styles") is not None else None,
             "mobile_overlay": MobileOverlay.from_dict(obj["mobile_overlay"]) if obj.get("mobile_overlay") is not None else None,
-            "banner_styles": BannerStyles.from_dict(obj["banner_styles"]) if obj.get("banner_styles") is not None else None
+            "banner_styles": BannerStyles.from_dict(obj["banner_styles"]) if obj.get("banner_styles") is not None else None,
+            "custom_css": CustomCss.from_dict(obj["custom_css"]) if obj.get("custom_css") is not None else None
         })
         return _obj
 

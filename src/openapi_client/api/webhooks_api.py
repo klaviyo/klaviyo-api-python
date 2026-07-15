@@ -55,6 +55,7 @@ class WebhooksApi(object):
     def create_webhook(        
         self,
         webhook_create_query: WebhookCreateQuery,
+        fields_webhook: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -71,10 +72,12 @@ class WebhooksApi(object):
 ) ->  Union[PostWebhookResponse, Dict[str, object]]:
         """Create Webhook
 
-        Create a new Webhook<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `webhooks:write`
+        Create a new Webhook<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `webhooks:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/create_webhook.json)
 
         :param webhook_create_query: (required)
         :type webhook_create_query: WebhookCreateQuery
+        :param fields_webhook: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_webhook: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -99,6 +102,7 @@ class WebhooksApi(object):
 
         _param = self._create_webhook_serialize(
             webhook_create_query=webhook_create_query,
+            fields_webhook=fields_webhook,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -137,6 +141,7 @@ class WebhooksApi(object):
     def create_webhook_with_http_info(        
         self,
         webhook_create_query: WebhookCreateQuery,
+        fields_webhook: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -153,10 +158,12 @@ class WebhooksApi(object):
 ) -> ApiResponse[PostWebhookResponse]:
         """Create Webhook
 
-        Create a new Webhook<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `webhooks:write`
+        Create a new Webhook<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `webhooks:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/create_webhook.json)
 
         :param webhook_create_query: (required)
         :type webhook_create_query: WebhookCreateQuery
+        :param fields_webhook: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_webhook: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -181,6 +188,7 @@ class WebhooksApi(object):
 
         _param = self._create_webhook_serialize(
             webhook_create_query=webhook_create_query,
+            fields_webhook=fields_webhook,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -217,6 +225,7 @@ class WebhooksApi(object):
     def create_webhook_without_preload_content(
         self,
         webhook_create_query: WebhookCreateQuery,
+        fields_webhook: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -231,10 +240,12 @@ class WebhooksApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Create Webhook
 
-        Create a new Webhook<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `webhooks:write`
+        Create a new Webhook<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `webhooks:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/create_webhook.json)
 
         :param webhook_create_query: (required)
         :type webhook_create_query: WebhookCreateQuery
+        :param fields_webhook: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_webhook: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -259,6 +270,7 @@ class WebhooksApi(object):
 
         _param = self._create_webhook_serialize(
             webhook_create_query=webhook_create_query,
+            fields_webhook=fields_webhook,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -299,6 +311,7 @@ class WebhooksApi(object):
     def _create_webhook_serialize(
         self,
         webhook_create_query,
+        fields_webhook,
         _request_auth,
         _content_type,
         _headers,
@@ -308,6 +321,7 @@ class WebhooksApi(object):
         _host = None
 
         _collection_formats: Dict[str, str] = {
+            'fields[webhook]': 'csv',
         }
 
         _path_params: Dict[str, str] = {}
@@ -319,6 +333,13 @@ class WebhooksApi(object):
 
         # process the path parameters
         # process the query parameters
+        if fields_webhook is not None:
+            
+            if isinstance(fields_webhook, EnumMeta):
+                _query_params.append(('fields[webhook]', fields_webhook))
+            else:
+                _query_params.append(('fields[webhook]', fields_webhook))
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -391,7 +412,7 @@ class WebhooksApi(object):
 ) -> None:
         """Delete Webhook
 
-        Delete a webhook with the given ID.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `webhooks:write`
+        Delete a webhook with the given ID.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `webhooks:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/delete_webhook.json)
 
         :param id: The ID of the webhook. (required)
         :type id: str
@@ -473,7 +494,7 @@ class WebhooksApi(object):
 ) -> ApiResponse[None]:
         """Delete Webhook
 
-        Delete a webhook with the given ID.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `webhooks:write`
+        Delete a webhook with the given ID.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `webhooks:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/delete_webhook.json)
 
         :param id: The ID of the webhook. (required)
         :type id: str
@@ -551,7 +572,7 @@ class WebhooksApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Delete Webhook
 
-        Delete a webhook with the given ID.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `webhooks:write`
+        Delete a webhook with the given ID.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `webhooks:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/delete_webhook.json)
 
         :param id: The ID of the webhook. (required)
         :type id: str
@@ -682,8 +703,9 @@ class WebhooksApi(object):
     def get_webhook(        
         self,
         id: Annotated[StrictStr, Field(description="The ID of the webhook.")],
-        fields_webhook: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
+        fields_webhook_topic: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_webhook: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -700,13 +722,15 @@ class WebhooksApi(object):
 ) ->  Union[GetWebhookResponseCompoundDocument, Dict[str, object]]:
         """Get Webhook
 
-        Get the webhook with the given ID.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `webhooks:read`
+        Get the webhook with the given ID.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `webhooks:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_webhook.json)
 
         :param id: The ID of the webhook. (required)
         :type id: str
-        :param fields_webhook: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_webhook_topic: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_webhook_topic: List[str]
+        :param fields_webhook: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_webhook: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -732,6 +756,7 @@ class WebhooksApi(object):
 
         _param = self._get_webhook_serialize(
             id=id,
+            fields_webhook_topic=fields_webhook_topic,
             fields_webhook=fields_webhook,
             include=include,
             _request_auth=_request_auth,
@@ -772,8 +797,9 @@ class WebhooksApi(object):
     def get_webhook_with_http_info(        
         self,
         id: Annotated[StrictStr, Field(description="The ID of the webhook.")],
-        fields_webhook: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
+        fields_webhook_topic: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_webhook: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -790,13 +816,15 @@ class WebhooksApi(object):
 ) -> ApiResponse[GetWebhookResponseCompoundDocument]:
         """Get Webhook
 
-        Get the webhook with the given ID.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `webhooks:read`
+        Get the webhook with the given ID.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `webhooks:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_webhook.json)
 
         :param id: The ID of the webhook. (required)
         :type id: str
-        :param fields_webhook: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_webhook_topic: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_webhook_topic: List[str]
+        :param fields_webhook: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_webhook: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -822,6 +850,7 @@ class WebhooksApi(object):
 
         _param = self._get_webhook_serialize(
             id=id,
+            fields_webhook_topic=fields_webhook_topic,
             fields_webhook=fields_webhook,
             include=include,
             _request_auth=_request_auth,
@@ -860,8 +889,9 @@ class WebhooksApi(object):
     def get_webhook_without_preload_content(
         self,
         id: Annotated[StrictStr, Field(description="The ID of the webhook.")],
-        fields_webhook: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
+        fields_webhook_topic: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_webhook: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -876,13 +906,15 @@ class WebhooksApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Webhook
 
-        Get the webhook with the given ID.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `webhooks:read`
+        Get the webhook with the given ID.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `webhooks:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_webhook.json)
 
         :param id: The ID of the webhook. (required)
         :type id: str
-        :param fields_webhook: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_webhook_topic: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_webhook_topic: List[str]
+        :param fields_webhook: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_webhook: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -908,6 +940,7 @@ class WebhooksApi(object):
 
         _param = self._get_webhook_serialize(
             id=id,
+            fields_webhook_topic=fields_webhook_topic,
             fields_webhook=fields_webhook,
             include=include,
             _request_auth=_request_auth,
@@ -950,6 +983,7 @@ class WebhooksApi(object):
     def _get_webhook_serialize(
         self,
         id,
+        fields_webhook_topic,
         fields_webhook,
         include,
         _request_auth,
@@ -961,6 +995,7 @@ class WebhooksApi(object):
         _host = None
 
         _collection_formats: Dict[str, str] = {
+            'fields[webhook-topic]': 'csv',
             'fields[webhook]': 'csv',
             'include': 'csv',
         }
@@ -976,6 +1011,13 @@ class WebhooksApi(object):
         if id is not None:
             _path_params['id'] = id
         # process the query parameters
+        if fields_webhook_topic is not None:
+            
+            if isinstance(fields_webhook_topic, EnumMeta):
+                _query_params.append(('fields[webhook-topic]', fields_webhook_topic))
+            else:
+                _query_params.append(('fields[webhook-topic]', fields_webhook_topic))
+            
         if fields_webhook is not None:
             
             if isinstance(fields_webhook, EnumMeta):
@@ -1031,6 +1073,7 @@ class WebhooksApi(object):
     def get_webhook_topic(        
         self,
         id: Annotated[StrictStr, Field(description="The ID of the webhook topic.")],
+        fields_webhook_topic: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1047,10 +1090,12 @@ class WebhooksApi(object):
 ) ->  Union[GetWebhookTopicResponse, Dict[str, object]]:
         """Get Webhook Topic
 
-        Get the webhook topic with the given ID.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `webhooks:read`
+        Get the webhook topic with the given ID.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `webhooks:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_webhook_topic.json)
 
         :param id: The ID of the webhook topic. (required)
         :type id: str
+        :param fields_webhook_topic: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_webhook_topic: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1075,6 +1120,7 @@ class WebhooksApi(object):
 
         _param = self._get_webhook_topic_serialize(
             id=id,
+            fields_webhook_topic=fields_webhook_topic,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1113,6 +1159,7 @@ class WebhooksApi(object):
     def get_webhook_topic_with_http_info(        
         self,
         id: Annotated[StrictStr, Field(description="The ID of the webhook topic.")],
+        fields_webhook_topic: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1129,10 +1176,12 @@ class WebhooksApi(object):
 ) -> ApiResponse[GetWebhookTopicResponse]:
         """Get Webhook Topic
 
-        Get the webhook topic with the given ID.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `webhooks:read`
+        Get the webhook topic with the given ID.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `webhooks:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_webhook_topic.json)
 
         :param id: The ID of the webhook topic. (required)
         :type id: str
+        :param fields_webhook_topic: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_webhook_topic: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1157,6 +1206,7 @@ class WebhooksApi(object):
 
         _param = self._get_webhook_topic_serialize(
             id=id,
+            fields_webhook_topic=fields_webhook_topic,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1193,6 +1243,7 @@ class WebhooksApi(object):
     def get_webhook_topic_without_preload_content(
         self,
         id: Annotated[StrictStr, Field(description="The ID of the webhook topic.")],
+        fields_webhook_topic: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1207,10 +1258,12 @@ class WebhooksApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Webhook Topic
 
-        Get the webhook topic with the given ID.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `webhooks:read`
+        Get the webhook topic with the given ID.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `webhooks:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_webhook_topic.json)
 
         :param id: The ID of the webhook topic. (required)
         :type id: str
+        :param fields_webhook_topic: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_webhook_topic: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1235,6 +1288,7 @@ class WebhooksApi(object):
 
         _param = self._get_webhook_topic_serialize(
             id=id,
+            fields_webhook_topic=fields_webhook_topic,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1275,6 +1329,7 @@ class WebhooksApi(object):
     def _get_webhook_topic_serialize(
         self,
         id,
+        fields_webhook_topic,
         _request_auth,
         _content_type,
         _headers,
@@ -1284,6 +1339,7 @@ class WebhooksApi(object):
         _host = None
 
         _collection_formats: Dict[str, str] = {
+            'fields[webhook-topic]': 'csv',
         }
 
         _path_params: Dict[str, str] = {}
@@ -1297,6 +1353,13 @@ class WebhooksApi(object):
         if id is not None:
             _path_params['id'] = id
         # process the query parameters
+        if fields_webhook_topic is not None:
+            
+            if isinstance(fields_webhook_topic, EnumMeta):
+                _query_params.append(('fields[webhook-topic]', fields_webhook_topic))
+            else:
+                _query_params.append(('fields[webhook-topic]', fields_webhook_topic))
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -1337,6 +1400,7 @@ class WebhooksApi(object):
     @validate_call
     def get_webhook_topics(        
         self,
+        fields_webhook_topic: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1353,8 +1417,10 @@ class WebhooksApi(object):
 ) ->  Union[GetWebhookTopicResponseCollection, Dict[str, object]]:
         """Get Webhook Topics
 
-        Get all webhook topics in a Klaviyo account.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `webhooks:read`
+        Get all webhook topics in a Klaviyo account.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `webhooks:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_webhook_topics.json)
 
+        :param fields_webhook_topic: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_webhook_topic: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1378,6 +1444,7 @@ class WebhooksApi(object):
         """ # noqa: E501
 
         _param = self._get_webhook_topics_serialize(
+            fields_webhook_topic=fields_webhook_topic,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1415,6 +1482,7 @@ class WebhooksApi(object):
     @validate_call
     def get_webhook_topics_with_http_info(        
         self,
+        fields_webhook_topic: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1431,8 +1499,10 @@ class WebhooksApi(object):
 ) -> ApiResponse[GetWebhookTopicResponseCollection]:
         """Get Webhook Topics
 
-        Get all webhook topics in a Klaviyo account.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `webhooks:read`
+        Get all webhook topics in a Klaviyo account.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `webhooks:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_webhook_topics.json)
 
+        :param fields_webhook_topic: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_webhook_topic: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1456,6 +1526,7 @@ class WebhooksApi(object):
         """ # noqa: E501
 
         _param = self._get_webhook_topics_serialize(
+            fields_webhook_topic=fields_webhook_topic,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1491,6 +1562,7 @@ class WebhooksApi(object):
     @validate_call
     def get_webhook_topics_without_preload_content(
         self,
+        fields_webhook_topic: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1505,8 +1577,10 @@ class WebhooksApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Webhook Topics
 
-        Get all webhook topics in a Klaviyo account.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `webhooks:read`
+        Get all webhook topics in a Klaviyo account.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `webhooks:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_webhook_topics.json)
 
+        :param fields_webhook_topic: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_webhook_topic: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1530,6 +1604,7 @@ class WebhooksApi(object):
         """ # noqa: E501
 
         _param = self._get_webhook_topics_serialize(
+            fields_webhook_topic=fields_webhook_topic,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1569,6 +1644,7 @@ class WebhooksApi(object):
 
     def _get_webhook_topics_serialize(
         self,
+        fields_webhook_topic,
         _request_auth,
         _content_type,
         _headers,
@@ -1578,6 +1654,7 @@ class WebhooksApi(object):
         _host = None
 
         _collection_formats: Dict[str, str] = {
+            'fields[webhook-topic]': 'csv',
         }
 
         _path_params: Dict[str, str] = {}
@@ -1589,6 +1666,13 @@ class WebhooksApi(object):
 
         # process the path parameters
         # process the query parameters
+        if fields_webhook_topic is not None:
+            
+            if isinstance(fields_webhook_topic, EnumMeta):
+                _query_params.append(('fields[webhook-topic]', fields_webhook_topic))
+            else:
+                _query_params.append(('fields[webhook-topic]', fields_webhook_topic))
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -1629,8 +1713,9 @@ class WebhooksApi(object):
     @validate_call
     def get_webhooks(        
         self,
-        fields_webhook: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
+        fields_webhook_topic: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_webhook: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1647,11 +1732,13 @@ class WebhooksApi(object):
 ) ->  Union[GetWebhookResponseCollectionCompoundDocument, Dict[str, object]]:
         """Get Webhooks
 
-        Get all webhooks in an account.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `webhooks:read`
+        Get all webhooks in an account.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `webhooks:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_webhooks.json)
 
-        :param fields_webhook: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_webhook_topic: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_webhook_topic: List[str]
+        :param fields_webhook: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_webhook: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1676,6 +1763,7 @@ class WebhooksApi(object):
         """ # noqa: E501
 
         _param = self._get_webhooks_serialize(
+            fields_webhook_topic=fields_webhook_topic,
             fields_webhook=fields_webhook,
             include=include,
             _request_auth=_request_auth,
@@ -1715,8 +1803,9 @@ class WebhooksApi(object):
     @validate_call
     def get_webhooks_with_http_info(        
         self,
-        fields_webhook: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
+        fields_webhook_topic: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_webhook: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1733,11 +1822,13 @@ class WebhooksApi(object):
 ) -> ApiResponse[GetWebhookResponseCollectionCompoundDocument]:
         """Get Webhooks
 
-        Get all webhooks in an account.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `webhooks:read`
+        Get all webhooks in an account.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `webhooks:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_webhooks.json)
 
-        :param fields_webhook: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_webhook_topic: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_webhook_topic: List[str]
+        :param fields_webhook: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_webhook: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1762,6 +1853,7 @@ class WebhooksApi(object):
         """ # noqa: E501
 
         _param = self._get_webhooks_serialize(
+            fields_webhook_topic=fields_webhook_topic,
             fields_webhook=fields_webhook,
             include=include,
             _request_auth=_request_auth,
@@ -1799,8 +1891,9 @@ class WebhooksApi(object):
     @validate_call
     def get_webhooks_without_preload_content(
         self,
-        fields_webhook: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
+        fields_webhook_topic: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_webhook: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1815,11 +1908,13 @@ class WebhooksApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Webhooks
 
-        Get all webhooks in an account.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `webhooks:read`
+        Get all webhooks in an account.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `webhooks:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_webhooks.json)
 
-        :param fields_webhook: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_webhook_topic: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_webhook_topic: List[str]
+        :param fields_webhook: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_webhook: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1844,6 +1939,7 @@ class WebhooksApi(object):
         """ # noqa: E501
 
         _param = self._get_webhooks_serialize(
+            fields_webhook_topic=fields_webhook_topic,
             fields_webhook=fields_webhook,
             include=include,
             _request_auth=_request_auth,
@@ -1885,6 +1981,7 @@ class WebhooksApi(object):
 
     def _get_webhooks_serialize(
         self,
+        fields_webhook_topic,
         fields_webhook,
         include,
         _request_auth,
@@ -1896,6 +1993,7 @@ class WebhooksApi(object):
         _host = None
 
         _collection_formats: Dict[str, str] = {
+            'fields[webhook-topic]': 'csv',
             'fields[webhook]': 'csv',
             'include': 'csv',
         }
@@ -1909,6 +2007,13 @@ class WebhooksApi(object):
 
         # process the path parameters
         # process the query parameters
+        if fields_webhook_topic is not None:
+            
+            if isinstance(fields_webhook_topic, EnumMeta):
+                _query_params.append(('fields[webhook-topic]', fields_webhook_topic))
+            else:
+                _query_params.append(('fields[webhook-topic]', fields_webhook_topic))
+            
         if fields_webhook is not None:
             
             if isinstance(fields_webhook, EnumMeta):
@@ -1965,6 +2070,7 @@ class WebhooksApi(object):
         self,
         id: Annotated[StrictStr, Field(description="The ID of the webhook.")],
         webhook_partial_update_query: WebhookPartialUpdateQuery,
+        fields_webhook: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1981,12 +2087,14 @@ class WebhooksApi(object):
 ) ->  Union[PatchWebhookResponse, Dict[str, object]]:
         """Update Webhook
 
-        Update the webhook with the given ID.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `webhooks:write`
+        Update the webhook with the given ID.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `webhooks:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/update_webhook.json)
 
         :param id: The ID of the webhook. (required)
         :type id: str
         :param webhook_partial_update_query: (required)
         :type webhook_partial_update_query: WebhookPartialUpdateQuery
+        :param fields_webhook: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_webhook: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2012,6 +2120,7 @@ class WebhooksApi(object):
         _param = self._update_webhook_serialize(
             id=id,
             webhook_partial_update_query=webhook_partial_update_query,
+            fields_webhook=fields_webhook,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2051,6 +2160,7 @@ class WebhooksApi(object):
         self,
         id: Annotated[StrictStr, Field(description="The ID of the webhook.")],
         webhook_partial_update_query: WebhookPartialUpdateQuery,
+        fields_webhook: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2067,12 +2177,14 @@ class WebhooksApi(object):
 ) -> ApiResponse[PatchWebhookResponse]:
         """Update Webhook
 
-        Update the webhook with the given ID.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `webhooks:write`
+        Update the webhook with the given ID.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `webhooks:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/update_webhook.json)
 
         :param id: The ID of the webhook. (required)
         :type id: str
         :param webhook_partial_update_query: (required)
         :type webhook_partial_update_query: WebhookPartialUpdateQuery
+        :param fields_webhook: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_webhook: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2098,6 +2210,7 @@ class WebhooksApi(object):
         _param = self._update_webhook_serialize(
             id=id,
             webhook_partial_update_query=webhook_partial_update_query,
+            fields_webhook=fields_webhook,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2135,6 +2248,7 @@ class WebhooksApi(object):
         self,
         id: Annotated[StrictStr, Field(description="The ID of the webhook.")],
         webhook_partial_update_query: WebhookPartialUpdateQuery,
+        fields_webhook: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2149,12 +2263,14 @@ class WebhooksApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Update Webhook
 
-        Update the webhook with the given ID.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `webhooks:write`
+        Update the webhook with the given ID.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `webhooks:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/update_webhook.json)
 
         :param id: The ID of the webhook. (required)
         :type id: str
         :param webhook_partial_update_query: (required)
         :type webhook_partial_update_query: WebhookPartialUpdateQuery
+        :param fields_webhook: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_webhook: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2180,6 +2296,7 @@ class WebhooksApi(object):
         _param = self._update_webhook_serialize(
             id=id,
             webhook_partial_update_query=webhook_partial_update_query,
+            fields_webhook=fields_webhook,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2221,6 +2338,7 @@ class WebhooksApi(object):
         self,
         id,
         webhook_partial_update_query,
+        fields_webhook,
         _request_auth,
         _content_type,
         _headers,
@@ -2230,6 +2348,7 @@ class WebhooksApi(object):
         _host = None
 
         _collection_formats: Dict[str, str] = {
+            'fields[webhook]': 'csv',
         }
 
         _path_params: Dict[str, str] = {}
@@ -2243,6 +2362,13 @@ class WebhooksApi(object):
         if id is not None:
             _path_params['id'] = id
         # process the query parameters
+        if fields_webhook is not None:
+            
+            if isinstance(fields_webhook, EnumMeta):
+                _query_params.append(('fields[webhook]', fields_webhook))
+            else:
+                _query_params.append(('fields[webhook]', fields_webhook))
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter

@@ -19,8 +19,8 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.get_webhook_response_collection_compound_document_data_inner import GetWebhookResponseCollectionCompoundDocumentDataInner
 from openapi_client.models.object_links import ObjectLinks
+from openapi_client.models.webhook_response_object_resource import WebhookResponseObjectResource
 from openapi_client.models.webhook_topic_response_object_resource import WebhookTopicResponseObjectResource
 from typing import Optional, Set
 from typing_extensions import Self
@@ -29,7 +29,7 @@ class GetWebhookResponseCompoundDocument(BaseModel):
     """
     GetWebhookResponseCompoundDocument
     """ # noqa: E501
-    data: GetWebhookResponseCollectionCompoundDocumentDataInner
+    data: WebhookResponseObjectResource
     included: Optional[List[WebhookTopicResponseObjectResource]] = None
     links: Optional[ObjectLinks] = None
     __properties: ClassVar[List[str]] = ["data", "included", "links"]
@@ -98,7 +98,7 @@ class GetWebhookResponseCompoundDocument(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "data": GetWebhookResponseCollectionCompoundDocumentDataInner.from_dict(obj["data"]) if obj.get("data") is not None else None,
+            "data": WebhookResponseObjectResource.from_dict(obj["data"]) if obj.get("data") is not None else None,
             "included": [WebhookTopicResponseObjectResource.from_dict(_item) for _item in obj["included"]] if obj.get("included") is not None else None,
             "links": ObjectLinks.from_dict(obj["links"]) if obj.get("links") is not None else None
         })

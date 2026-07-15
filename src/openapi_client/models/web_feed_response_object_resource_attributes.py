@@ -56,8 +56,8 @@ class WebFeedResponseObjectResourceAttributes(BaseModel):
         if value is None:
             return value
 
-        if value not in set(['critical_nightly_refresh_timeout', 'disabled', 'ok', 'warning_nightly_refresh_timeout', 'warning_periodic_refresh_timeout']):
-            raise ValueError("must be one of enum values ('critical_nightly_refresh_timeout', 'disabled', 'ok', 'warning_nightly_refresh_timeout', 'warning_periodic_refresh_timeout')")
+        if value not in set(['critical_nightly_refresh_timeout', 'disabled', 'ok', 'refreshing', 'warning_nightly_refresh_timeout', 'warning_periodic_refresh_timeout']):
+            raise ValueError("must be one of enum values ('critical_nightly_refresh_timeout', 'disabled', 'ok', 'refreshing', 'warning_nightly_refresh_timeout', 'warning_periodic_refresh_timeout')")
         return value
 
     model_config = ConfigDict(

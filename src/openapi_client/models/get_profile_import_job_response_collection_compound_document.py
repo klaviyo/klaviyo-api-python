@@ -20,7 +20,7 @@ import json
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.collection_links import CollectionLinks
-from openapi_client.models.get_profile_import_job_response_collection_compound_document_data_inner import GetProfileImportJobResponseCollectionCompoundDocumentDataInner
+from openapi_client.models.profile_import_job_response_object_resource import ProfileImportJobResponseObjectResource
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,7 +28,7 @@ class GetProfileImportJobResponseCollectionCompoundDocument(BaseModel):
     """
     GetProfileImportJobResponseCollectionCompoundDocument
     """ # noqa: E501
-    data: List[GetProfileImportJobResponseCollectionCompoundDocumentDataInner]
+    data: List[ProfileImportJobResponseObjectResource]
     links: Optional[CollectionLinks] = None
     __properties: ClassVar[List[str]] = ["data", "links"]
 
@@ -93,7 +93,7 @@ class GetProfileImportJobResponseCollectionCompoundDocument(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "data": [GetProfileImportJobResponseCollectionCompoundDocumentDataInner.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None,
+            "data": [ProfileImportJobResponseObjectResource.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None,
             "links": CollectionLinks.from_dict(obj["links"]) if obj.get("links") is not None else None
         })
         return _obj

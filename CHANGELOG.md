@@ -7,6 +7,29 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 NOTE: For more granular API-specific changes, please see our [API Changelog](https://developers.klaviyo.com/en/docs/changelog_)
 
+## [24.0.0] - revision 2026-07-15
+### Added
+  - Custom Objects API
+    - Full CRUD support across four groups of endpoints:
+      - Object Types: `create_object_type`, `get_object_type`, `get_object_types`, `delete_object_type`.
+      - Object Schemas: `create_object_schema`, `get_object_schema`, `update_object_schema`, plus schema versions via `get_current_schema_for_object_type`, `get_draft_schema_for_object_type`, and `get_schema_versions_for_object_type`.
+      - Source Mappings: `get_source_mapping`, `update_source_mapping`, `get_source_mapping_for_object_schema`, and `get_source_mapping_id_for_object_schema`.
+      - Object Records: `get_object_record`, `get_records_for_object_type`, `get_record_ids_for_object_type`, and `bulk_delete_object_records`.
+  - Conversations API
+    - Added support for creating conversation messages with `create_conversation_message`.
+  - Client API
+    - Added `get_client_ip_allowlist` to retrieve your account's client-side IP allowlist.
+  - Flows API
+    - Added `delete_flow_action` to remove an action from a flow.
+### Changed
+  - **Breaking:** Conversations API
+    - Conversation endpoints are now plural — e.g. `get_conversation_for_profile` is now `get_conversations_for_profile` (and `get_conversation_id_for_profile` is now `get_conversation_ids_for_profile`), as well as the relevant relationship
+  methods and parameters.
+    - Response shapes are now lists, instead of single objects.
+  - Events API
+    - Added a new `backfill` flag on `create_event` & `bulk_create_events`, which records historical events without triggering flows.
+    - `get_events` now returns events with unresolvable metrics by default, matching `get_event`. Use the new `has(metric)` filter to exclude them.
+
 ## [23.0.0] - revision 2026-04-15
 ### Added
 - Conversations API

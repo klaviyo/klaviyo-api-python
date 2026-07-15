@@ -20,8 +20,8 @@ import inspect
 
 from enum import EnumMeta
 
-from pydantic import Field, StrictStr
-from typing import Optional
+from pydantic import Field, StrictStr, field_validator
+from typing import List, Optional
 from typing_extensions import Annotated
 from openapi_client.models.campaign_values_request_dto import CampaignValuesRequestDTO
 from openapi_client.models.flow_series_request_dto import FlowSeriesRequestDTO
@@ -61,7 +61,8 @@ class ReportingApi(object):
     def query_campaign_values(        
         self,
         campaign_values_request_dto: CampaignValuesRequestDTO,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
+        fields_campaign_values_report: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -78,11 +79,13 @@ class ReportingApi(object):
 ) ->  Union[PostCampaignValuesResponseDTO, Dict[str, object]]:
         """Query Campaign Values
 
-        Returns the requested campaign analytics values data<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `2/m`<br>Daily: `225/d`  **Scopes:** `campaigns:read`
+        Returns the requested campaign analytics values data<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `2/m`<br>Daily: `225/d`  **Scopes:** `campaigns:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/query_campaign_values.json)
 
         :param campaign_values_request_dto: (required)
         :type campaign_values_request_dto: CampaignValuesRequestDTO
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
+        :param fields_campaign_values_report: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_campaign_values_report: List[str]
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
         :type page_cursor: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -108,6 +111,7 @@ class ReportingApi(object):
 
         _param = self._query_campaign_values_serialize(
             campaign_values_request_dto=campaign_values_request_dto,
+            fields_campaign_values_report=fields_campaign_values_report,
             page_cursor=page_cursor,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -153,7 +157,8 @@ class ReportingApi(object):
     def query_campaign_values_with_http_info(        
         self,
         campaign_values_request_dto: CampaignValuesRequestDTO,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
+        fields_campaign_values_report: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -170,11 +175,13 @@ class ReportingApi(object):
 ) -> ApiResponse[PostCampaignValuesResponseDTO]:
         """Query Campaign Values
 
-        Returns the requested campaign analytics values data<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `2/m`<br>Daily: `225/d`  **Scopes:** `campaigns:read`
+        Returns the requested campaign analytics values data<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `2/m`<br>Daily: `225/d`  **Scopes:** `campaigns:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/query_campaign_values.json)
 
         :param campaign_values_request_dto: (required)
         :type campaign_values_request_dto: CampaignValuesRequestDTO
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
+        :param fields_campaign_values_report: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_campaign_values_report: List[str]
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
         :type page_cursor: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -200,6 +207,7 @@ class ReportingApi(object):
 
         _param = self._query_campaign_values_serialize(
             campaign_values_request_dto=campaign_values_request_dto,
+            fields_campaign_values_report=fields_campaign_values_report,
             page_cursor=page_cursor,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -243,7 +251,8 @@ class ReportingApi(object):
     def query_campaign_values_without_preload_content(
         self,
         campaign_values_request_dto: CampaignValuesRequestDTO,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
+        fields_campaign_values_report: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -258,11 +267,13 @@ class ReportingApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Query Campaign Values
 
-        Returns the requested campaign analytics values data<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `2/m`<br>Daily: `225/d`  **Scopes:** `campaigns:read`
+        Returns the requested campaign analytics values data<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `2/m`<br>Daily: `225/d`  **Scopes:** `campaigns:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/query_campaign_values.json)
 
         :param campaign_values_request_dto: (required)
         :type campaign_values_request_dto: CampaignValuesRequestDTO
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
+        :param fields_campaign_values_report: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_campaign_values_report: List[str]
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
         :type page_cursor: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -288,6 +299,7 @@ class ReportingApi(object):
 
         _param = self._query_campaign_values_serialize(
             campaign_values_request_dto=campaign_values_request_dto,
+            fields_campaign_values_report=fields_campaign_values_report,
             page_cursor=page_cursor,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -335,6 +347,7 @@ class ReportingApi(object):
     def _query_campaign_values_serialize(
         self,
         campaign_values_request_dto,
+        fields_campaign_values_report,
         page_cursor,
         _request_auth,
         _content_type,
@@ -345,6 +358,7 @@ class ReportingApi(object):
         _host = None
 
         _collection_formats: Dict[str, str] = {
+            'fields[campaign-values-report]': 'csv',
         }
 
         _path_params: Dict[str, str] = {}
@@ -356,6 +370,13 @@ class ReportingApi(object):
 
         # process the path parameters
         # process the query parameters
+        if fields_campaign_values_report is not None:
+            
+            if isinstance(fields_campaign_values_report, EnumMeta):
+                _query_params.append(('fields[campaign-values-report]', fields_campaign_values_report))
+            else:
+                _query_params.append(('fields[campaign-values-report]', fields_campaign_values_report))
+            
         if page_cursor is not None:
             
             if isinstance(page_cursor, EnumMeta):
@@ -425,7 +446,8 @@ class ReportingApi(object):
     def query_flow_series(        
         self,
         flow_series_request_dto: FlowSeriesRequestDTO,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
+        fields_flow_series_report: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -442,11 +464,13 @@ class ReportingApi(object):
 ) ->  Union[PostFlowSeriesResponseDTO, Dict[str, object]]:
         """Query Flow Series
 
-        Returns the requested flow analytics series data<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `2/m`<br>Daily: `225/d`  **Scopes:** `flows:read`
+        Returns the requested flow analytics series data<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `2/m`<br>Daily: `225/d`  **Scopes:** `flows:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/query_flow_series.json)
 
         :param flow_series_request_dto: (required)
         :type flow_series_request_dto: FlowSeriesRequestDTO
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
+        :param fields_flow_series_report: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_flow_series_report: List[str]
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
         :type page_cursor: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -472,6 +496,7 @@ class ReportingApi(object):
 
         _param = self._query_flow_series_serialize(
             flow_series_request_dto=flow_series_request_dto,
+            fields_flow_series_report=fields_flow_series_report,
             page_cursor=page_cursor,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -517,7 +542,8 @@ class ReportingApi(object):
     def query_flow_series_with_http_info(        
         self,
         flow_series_request_dto: FlowSeriesRequestDTO,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
+        fields_flow_series_report: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -534,11 +560,13 @@ class ReportingApi(object):
 ) -> ApiResponse[PostFlowSeriesResponseDTO]:
         """Query Flow Series
 
-        Returns the requested flow analytics series data<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `2/m`<br>Daily: `225/d`  **Scopes:** `flows:read`
+        Returns the requested flow analytics series data<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `2/m`<br>Daily: `225/d`  **Scopes:** `flows:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/query_flow_series.json)
 
         :param flow_series_request_dto: (required)
         :type flow_series_request_dto: FlowSeriesRequestDTO
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
+        :param fields_flow_series_report: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_flow_series_report: List[str]
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
         :type page_cursor: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -564,6 +592,7 @@ class ReportingApi(object):
 
         _param = self._query_flow_series_serialize(
             flow_series_request_dto=flow_series_request_dto,
+            fields_flow_series_report=fields_flow_series_report,
             page_cursor=page_cursor,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -607,7 +636,8 @@ class ReportingApi(object):
     def query_flow_series_without_preload_content(
         self,
         flow_series_request_dto: FlowSeriesRequestDTO,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
+        fields_flow_series_report: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -622,11 +652,13 @@ class ReportingApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Query Flow Series
 
-        Returns the requested flow analytics series data<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `2/m`<br>Daily: `225/d`  **Scopes:** `flows:read`
+        Returns the requested flow analytics series data<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `2/m`<br>Daily: `225/d`  **Scopes:** `flows:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/query_flow_series.json)
 
         :param flow_series_request_dto: (required)
         :type flow_series_request_dto: FlowSeriesRequestDTO
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
+        :param fields_flow_series_report: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_flow_series_report: List[str]
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
         :type page_cursor: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -652,6 +684,7 @@ class ReportingApi(object):
 
         _param = self._query_flow_series_serialize(
             flow_series_request_dto=flow_series_request_dto,
+            fields_flow_series_report=fields_flow_series_report,
             page_cursor=page_cursor,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -699,6 +732,7 @@ class ReportingApi(object):
     def _query_flow_series_serialize(
         self,
         flow_series_request_dto,
+        fields_flow_series_report,
         page_cursor,
         _request_auth,
         _content_type,
@@ -709,6 +743,7 @@ class ReportingApi(object):
         _host = None
 
         _collection_formats: Dict[str, str] = {
+            'fields[flow-series-report]': 'csv',
         }
 
         _path_params: Dict[str, str] = {}
@@ -720,6 +755,13 @@ class ReportingApi(object):
 
         # process the path parameters
         # process the query parameters
+        if fields_flow_series_report is not None:
+            
+            if isinstance(fields_flow_series_report, EnumMeta):
+                _query_params.append(('fields[flow-series-report]', fields_flow_series_report))
+            else:
+                _query_params.append(('fields[flow-series-report]', fields_flow_series_report))
+            
         if page_cursor is not None:
             
             if isinstance(page_cursor, EnumMeta):
@@ -789,7 +831,8 @@ class ReportingApi(object):
     def query_flow_values(        
         self,
         flow_values_request_dto: FlowValuesRequestDTO,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
+        fields_flow_values_report: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -806,11 +849,13 @@ class ReportingApi(object):
 ) ->  Union[PostFlowValuesResponseDTO, Dict[str, object]]:
         """Query Flow Values
 
-        Returns the requested flow analytics values data<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `2/m`<br>Daily: `225/d`  **Scopes:** `flows:read`
+        Returns the requested flow analytics values data<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `2/m`<br>Daily: `225/d`  **Scopes:** `flows:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/query_flow_values.json)
 
         :param flow_values_request_dto: (required)
         :type flow_values_request_dto: FlowValuesRequestDTO
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
+        :param fields_flow_values_report: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_flow_values_report: List[str]
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
         :type page_cursor: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -836,6 +881,7 @@ class ReportingApi(object):
 
         _param = self._query_flow_values_serialize(
             flow_values_request_dto=flow_values_request_dto,
+            fields_flow_values_report=fields_flow_values_report,
             page_cursor=page_cursor,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -881,7 +927,8 @@ class ReportingApi(object):
     def query_flow_values_with_http_info(        
         self,
         flow_values_request_dto: FlowValuesRequestDTO,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
+        fields_flow_values_report: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -898,11 +945,13 @@ class ReportingApi(object):
 ) -> ApiResponse[PostFlowValuesResponseDTO]:
         """Query Flow Values
 
-        Returns the requested flow analytics values data<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `2/m`<br>Daily: `225/d`  **Scopes:** `flows:read`
+        Returns the requested flow analytics values data<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `2/m`<br>Daily: `225/d`  **Scopes:** `flows:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/query_flow_values.json)
 
         :param flow_values_request_dto: (required)
         :type flow_values_request_dto: FlowValuesRequestDTO
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
+        :param fields_flow_values_report: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_flow_values_report: List[str]
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
         :type page_cursor: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -928,6 +977,7 @@ class ReportingApi(object):
 
         _param = self._query_flow_values_serialize(
             flow_values_request_dto=flow_values_request_dto,
+            fields_flow_values_report=fields_flow_values_report,
             page_cursor=page_cursor,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -971,7 +1021,8 @@ class ReportingApi(object):
     def query_flow_values_without_preload_content(
         self,
         flow_values_request_dto: FlowValuesRequestDTO,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
+        fields_flow_values_report: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -986,11 +1037,13 @@ class ReportingApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Query Flow Values
 
-        Returns the requested flow analytics values data<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `2/m`<br>Daily: `225/d`  **Scopes:** `flows:read`
+        Returns the requested flow analytics values data<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `2/m`<br>Daily: `225/d`  **Scopes:** `flows:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/query_flow_values.json)
 
         :param flow_values_request_dto: (required)
         :type flow_values_request_dto: FlowValuesRequestDTO
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
+        :param fields_flow_values_report: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_flow_values_report: List[str]
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
         :type page_cursor: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1016,6 +1069,7 @@ class ReportingApi(object):
 
         _param = self._query_flow_values_serialize(
             flow_values_request_dto=flow_values_request_dto,
+            fields_flow_values_report=fields_flow_values_report,
             page_cursor=page_cursor,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1063,6 +1117,7 @@ class ReportingApi(object):
     def _query_flow_values_serialize(
         self,
         flow_values_request_dto,
+        fields_flow_values_report,
         page_cursor,
         _request_auth,
         _content_type,
@@ -1073,6 +1128,7 @@ class ReportingApi(object):
         _host = None
 
         _collection_formats: Dict[str, str] = {
+            'fields[flow-values-report]': 'csv',
         }
 
         _path_params: Dict[str, str] = {}
@@ -1084,6 +1140,13 @@ class ReportingApi(object):
 
         # process the path parameters
         # process the query parameters
+        if fields_flow_values_report is not None:
+            
+            if isinstance(fields_flow_values_report, EnumMeta):
+                _query_params.append(('fields[flow-values-report]', fields_flow_values_report))
+            else:
+                _query_params.append(('fields[flow-values-report]', fields_flow_values_report))
+            
         if page_cursor is not None:
             
             if isinstance(page_cursor, EnumMeta):
@@ -1153,6 +1216,7 @@ class ReportingApi(object):
     def query_form_series(        
         self,
         form_series_request_dto: FormSeriesRequestDTO,
+        fields_form_series_report: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1169,10 +1233,12 @@ class ReportingApi(object):
 ) ->  Union[PostFormSeriesResponseDTO, Dict[str, object]]:
         """Query Form Series
 
-        Returns the requested form analytics series data.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `2/m`<br>Daily: `225/d`  **Scopes:** `forms:read`
+        Returns the requested form analytics series data.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `2/m`<br>Daily: `225/d`  **Scopes:** `forms:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/query_form_series.json)
 
         :param form_series_request_dto: (required)
         :type form_series_request_dto: FormSeriesRequestDTO
+        :param fields_form_series_report: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_form_series_report: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1197,6 +1263,7 @@ class ReportingApi(object):
 
         _param = self._query_form_series_serialize(
             form_series_request_dto=form_series_request_dto,
+            fields_form_series_report=fields_form_series_report,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1241,6 +1308,7 @@ class ReportingApi(object):
     def query_form_series_with_http_info(        
         self,
         form_series_request_dto: FormSeriesRequestDTO,
+        fields_form_series_report: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1257,10 +1325,12 @@ class ReportingApi(object):
 ) -> ApiResponse[PostFormSeriesResponseDTO]:
         """Query Form Series
 
-        Returns the requested form analytics series data.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `2/m`<br>Daily: `225/d`  **Scopes:** `forms:read`
+        Returns the requested form analytics series data.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `2/m`<br>Daily: `225/d`  **Scopes:** `forms:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/query_form_series.json)
 
         :param form_series_request_dto: (required)
         :type form_series_request_dto: FormSeriesRequestDTO
+        :param fields_form_series_report: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_form_series_report: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1285,6 +1355,7 @@ class ReportingApi(object):
 
         _param = self._query_form_series_serialize(
             form_series_request_dto=form_series_request_dto,
+            fields_form_series_report=fields_form_series_report,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1327,6 +1398,7 @@ class ReportingApi(object):
     def query_form_series_without_preload_content(
         self,
         form_series_request_dto: FormSeriesRequestDTO,
+        fields_form_series_report: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1341,10 +1413,12 @@ class ReportingApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Query Form Series
 
-        Returns the requested form analytics series data.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `2/m`<br>Daily: `225/d`  **Scopes:** `forms:read`
+        Returns the requested form analytics series data.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `2/m`<br>Daily: `225/d`  **Scopes:** `forms:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/query_form_series.json)
 
         :param form_series_request_dto: (required)
         :type form_series_request_dto: FormSeriesRequestDTO
+        :param fields_form_series_report: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_form_series_report: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1369,6 +1443,7 @@ class ReportingApi(object):
 
         _param = self._query_form_series_serialize(
             form_series_request_dto=form_series_request_dto,
+            fields_form_series_report=fields_form_series_report,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1415,6 +1490,7 @@ class ReportingApi(object):
     def _query_form_series_serialize(
         self,
         form_series_request_dto,
+        fields_form_series_report,
         _request_auth,
         _content_type,
         _headers,
@@ -1424,6 +1500,7 @@ class ReportingApi(object):
         _host = None
 
         _collection_formats: Dict[str, str] = {
+            'fields[form-series-report]': 'csv',
         }
 
         _path_params: Dict[str, str] = {}
@@ -1435,6 +1512,13 @@ class ReportingApi(object):
 
         # process the path parameters
         # process the query parameters
+        if fields_form_series_report is not None:
+            
+            if isinstance(fields_form_series_report, EnumMeta):
+                _query_params.append(('fields[form-series-report]', fields_form_series_report))
+            else:
+                _query_params.append(('fields[form-series-report]', fields_form_series_report))
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -1497,6 +1581,7 @@ class ReportingApi(object):
     def query_form_values(        
         self,
         form_values_request_dto: FormValuesRequestDTO,
+        fields_form_values_report: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1513,10 +1598,12 @@ class ReportingApi(object):
 ) ->  Union[PostFormValuesResponseDTO, Dict[str, object]]:
         """Query Form Values
 
-        Returns the requested form analytics values data.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `2/m`<br>Daily: `225/d`  **Scopes:** `forms:read`
+        Returns the requested form analytics values data.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `2/m`<br>Daily: `225/d`  **Scopes:** `forms:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/query_form_values.json)
 
         :param form_values_request_dto: (required)
         :type form_values_request_dto: FormValuesRequestDTO
+        :param fields_form_values_report: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_form_values_report: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1541,6 +1628,7 @@ class ReportingApi(object):
 
         _param = self._query_form_values_serialize(
             form_values_request_dto=form_values_request_dto,
+            fields_form_values_report=fields_form_values_report,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1585,6 +1673,7 @@ class ReportingApi(object):
     def query_form_values_with_http_info(        
         self,
         form_values_request_dto: FormValuesRequestDTO,
+        fields_form_values_report: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1601,10 +1690,12 @@ class ReportingApi(object):
 ) -> ApiResponse[PostFormValuesResponseDTO]:
         """Query Form Values
 
-        Returns the requested form analytics values data.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `2/m`<br>Daily: `225/d`  **Scopes:** `forms:read`
+        Returns the requested form analytics values data.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `2/m`<br>Daily: `225/d`  **Scopes:** `forms:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/query_form_values.json)
 
         :param form_values_request_dto: (required)
         :type form_values_request_dto: FormValuesRequestDTO
+        :param fields_form_values_report: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_form_values_report: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1629,6 +1720,7 @@ class ReportingApi(object):
 
         _param = self._query_form_values_serialize(
             form_values_request_dto=form_values_request_dto,
+            fields_form_values_report=fields_form_values_report,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1671,6 +1763,7 @@ class ReportingApi(object):
     def query_form_values_without_preload_content(
         self,
         form_values_request_dto: FormValuesRequestDTO,
+        fields_form_values_report: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1685,10 +1778,12 @@ class ReportingApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Query Form Values
 
-        Returns the requested form analytics values data.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `2/m`<br>Daily: `225/d`  **Scopes:** `forms:read`
+        Returns the requested form analytics values data.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `2/m`<br>Daily: `225/d`  **Scopes:** `forms:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/query_form_values.json)
 
         :param form_values_request_dto: (required)
         :type form_values_request_dto: FormValuesRequestDTO
+        :param fields_form_values_report: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_form_values_report: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1713,6 +1808,7 @@ class ReportingApi(object):
 
         _param = self._query_form_values_serialize(
             form_values_request_dto=form_values_request_dto,
+            fields_form_values_report=fields_form_values_report,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1759,6 +1855,7 @@ class ReportingApi(object):
     def _query_form_values_serialize(
         self,
         form_values_request_dto,
+        fields_form_values_report,
         _request_auth,
         _content_type,
         _headers,
@@ -1768,6 +1865,7 @@ class ReportingApi(object):
         _host = None
 
         _collection_formats: Dict[str, str] = {
+            'fields[form-values-report]': 'csv',
         }
 
         _path_params: Dict[str, str] = {}
@@ -1779,6 +1877,13 @@ class ReportingApi(object):
 
         # process the path parameters
         # process the query parameters
+        if fields_form_values_report is not None:
+            
+            if isinstance(fields_form_values_report, EnumMeta):
+                _query_params.append(('fields[form-values-report]', fields_form_values_report))
+            else:
+                _query_params.append(('fields[form-values-report]', fields_form_values_report))
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -1841,6 +1946,7 @@ class ReportingApi(object):
     def query_segment_series(        
         self,
         segment_series_request_dto: SegmentSeriesRequestDTO,
+        fields_segment_series_report: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1857,10 +1963,12 @@ class ReportingApi(object):
 ) ->  Union[PostSegmentSeriesResponseDTO, Dict[str, object]]:
         """Query Segment Series
 
-        Returns the requested segment analytics series data.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `2/m`<br>Daily: `225/d`  **Scopes:** `segments:read`
+        Returns the requested segment analytics series data.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `2/m`<br>Daily: `225/d`  **Scopes:** `segments:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/query_segment_series.json)
 
         :param segment_series_request_dto: (required)
         :type segment_series_request_dto: SegmentSeriesRequestDTO
+        :param fields_segment_series_report: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_segment_series_report: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1885,6 +1993,7 @@ class ReportingApi(object):
 
         _param = self._query_segment_series_serialize(
             segment_series_request_dto=segment_series_request_dto,
+            fields_segment_series_report=fields_segment_series_report,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1929,6 +2038,7 @@ class ReportingApi(object):
     def query_segment_series_with_http_info(        
         self,
         segment_series_request_dto: SegmentSeriesRequestDTO,
+        fields_segment_series_report: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1945,10 +2055,12 @@ class ReportingApi(object):
 ) -> ApiResponse[PostSegmentSeriesResponseDTO]:
         """Query Segment Series
 
-        Returns the requested segment analytics series data.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `2/m`<br>Daily: `225/d`  **Scopes:** `segments:read`
+        Returns the requested segment analytics series data.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `2/m`<br>Daily: `225/d`  **Scopes:** `segments:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/query_segment_series.json)
 
         :param segment_series_request_dto: (required)
         :type segment_series_request_dto: SegmentSeriesRequestDTO
+        :param fields_segment_series_report: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_segment_series_report: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1973,6 +2085,7 @@ class ReportingApi(object):
 
         _param = self._query_segment_series_serialize(
             segment_series_request_dto=segment_series_request_dto,
+            fields_segment_series_report=fields_segment_series_report,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2015,6 +2128,7 @@ class ReportingApi(object):
     def query_segment_series_without_preload_content(
         self,
         segment_series_request_dto: SegmentSeriesRequestDTO,
+        fields_segment_series_report: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2029,10 +2143,12 @@ class ReportingApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Query Segment Series
 
-        Returns the requested segment analytics series data.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `2/m`<br>Daily: `225/d`  **Scopes:** `segments:read`
+        Returns the requested segment analytics series data.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `2/m`<br>Daily: `225/d`  **Scopes:** `segments:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/query_segment_series.json)
 
         :param segment_series_request_dto: (required)
         :type segment_series_request_dto: SegmentSeriesRequestDTO
+        :param fields_segment_series_report: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_segment_series_report: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2057,6 +2173,7 @@ class ReportingApi(object):
 
         _param = self._query_segment_series_serialize(
             segment_series_request_dto=segment_series_request_dto,
+            fields_segment_series_report=fields_segment_series_report,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2103,6 +2220,7 @@ class ReportingApi(object):
     def _query_segment_series_serialize(
         self,
         segment_series_request_dto,
+        fields_segment_series_report,
         _request_auth,
         _content_type,
         _headers,
@@ -2112,6 +2230,7 @@ class ReportingApi(object):
         _host = None
 
         _collection_formats: Dict[str, str] = {
+            'fields[segment-series-report]': 'csv',
         }
 
         _path_params: Dict[str, str] = {}
@@ -2123,6 +2242,13 @@ class ReportingApi(object):
 
         # process the path parameters
         # process the query parameters
+        if fields_segment_series_report is not None:
+            
+            if isinstance(fields_segment_series_report, EnumMeta):
+                _query_params.append(('fields[segment-series-report]', fields_segment_series_report))
+            else:
+                _query_params.append(('fields[segment-series-report]', fields_segment_series_report))
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -2185,6 +2311,7 @@ class ReportingApi(object):
     def query_segment_values(        
         self,
         segment_values_request_dto: SegmentValuesRequestDTO,
+        fields_segment_values_report: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2201,10 +2328,12 @@ class ReportingApi(object):
 ) ->  Union[PostSegmentValuesResponseDTO, Dict[str, object]]:
         """Query Segment Values
 
-        Returns the requested segment analytics values data.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `2/m`<br>Daily: `225/d`  **Scopes:** `segments:read`
+        Returns the requested segment analytics values data.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `2/m`<br>Daily: `225/d`  **Scopes:** `segments:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/query_segment_values.json)
 
         :param segment_values_request_dto: (required)
         :type segment_values_request_dto: SegmentValuesRequestDTO
+        :param fields_segment_values_report: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_segment_values_report: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2229,6 +2358,7 @@ class ReportingApi(object):
 
         _param = self._query_segment_values_serialize(
             segment_values_request_dto=segment_values_request_dto,
+            fields_segment_values_report=fields_segment_values_report,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2273,6 +2403,7 @@ class ReportingApi(object):
     def query_segment_values_with_http_info(        
         self,
         segment_values_request_dto: SegmentValuesRequestDTO,
+        fields_segment_values_report: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2289,10 +2420,12 @@ class ReportingApi(object):
 ) -> ApiResponse[PostSegmentValuesResponseDTO]:
         """Query Segment Values
 
-        Returns the requested segment analytics values data.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `2/m`<br>Daily: `225/d`  **Scopes:** `segments:read`
+        Returns the requested segment analytics values data.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `2/m`<br>Daily: `225/d`  **Scopes:** `segments:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/query_segment_values.json)
 
         :param segment_values_request_dto: (required)
         :type segment_values_request_dto: SegmentValuesRequestDTO
+        :param fields_segment_values_report: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_segment_values_report: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2317,6 +2450,7 @@ class ReportingApi(object):
 
         _param = self._query_segment_values_serialize(
             segment_values_request_dto=segment_values_request_dto,
+            fields_segment_values_report=fields_segment_values_report,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2359,6 +2493,7 @@ class ReportingApi(object):
     def query_segment_values_without_preload_content(
         self,
         segment_values_request_dto: SegmentValuesRequestDTO,
+        fields_segment_values_report: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2373,10 +2508,12 @@ class ReportingApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Query Segment Values
 
-        Returns the requested segment analytics values data.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `2/m`<br>Daily: `225/d`  **Scopes:** `segments:read`
+        Returns the requested segment analytics values data.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `2/m`<br>Daily: `225/d`  **Scopes:** `segments:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/query_segment_values.json)
 
         :param segment_values_request_dto: (required)
         :type segment_values_request_dto: SegmentValuesRequestDTO
+        :param fields_segment_values_report: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_segment_values_report: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2401,6 +2538,7 @@ class ReportingApi(object):
 
         _param = self._query_segment_values_serialize(
             segment_values_request_dto=segment_values_request_dto,
+            fields_segment_values_report=fields_segment_values_report,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2447,6 +2585,7 @@ class ReportingApi(object):
     def _query_segment_values_serialize(
         self,
         segment_values_request_dto,
+        fields_segment_values_report,
         _request_auth,
         _content_type,
         _headers,
@@ -2456,6 +2595,7 @@ class ReportingApi(object):
         _host = None
 
         _collection_formats: Dict[str, str] = {
+            'fields[segment-values-report]': 'csv',
         }
 
         _path_params: Dict[str, str] = {}
@@ -2467,6 +2607,13 @@ class ReportingApi(object):
 
         # process the path parameters
         # process the query parameters
+        if fields_segment_values_report is not None:
+            
+            if isinstance(fields_segment_values_report, EnumMeta):
+                _query_params.append(('fields[segment-values-report]', fields_segment_values_report))
+            else:
+                _query_params.append(('fields[segment-values-report]', fields_segment_values_report))
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter

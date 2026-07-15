@@ -27,11 +27,9 @@ class CollectionLinks(BaseModel):
     CollectionLinks
     """ # noqa: E501
     var_self: StrictStr = Field(alias="self")
-    first: Optional[StrictStr] = None
-    last: Optional[StrictStr] = None
     prev: Optional[StrictStr] = None
     next: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["self", "first", "last", "prev", "next"]
+    __properties: ClassVar[List[str]] = ["self", "prev", "next"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -85,8 +83,6 @@ class CollectionLinks(BaseModel):
 
         _obj = cls.model_validate({
             "self": obj.get("self"),
-            "first": obj.get("first"),
-            "last": obj.get("last"),
             "prev": obj.get("prev"),
             "next": obj.get("next")
         })

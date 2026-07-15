@@ -20,8 +20,8 @@ import json
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.event_response_object_resource import EventResponseObjectResource
-from openapi_client.models.get_review_response_dto_collection_compound_document_data_inner import GetReviewResponseDTOCollectionCompoundDocumentDataInner
 from openapi_client.models.object_links import ObjectLinks
+from openapi_client.models.review_response_dto_object_resource import ReviewResponseDTOObjectResource
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,7 +29,7 @@ class GetReviewResponseDTOCompoundDocument(BaseModel):
     """
     GetReviewResponseDTOCompoundDocument
     """ # noqa: E501
-    data: GetReviewResponseDTOCollectionCompoundDocumentDataInner
+    data: ReviewResponseDTOObjectResource
     included: Optional[List[EventResponseObjectResource]] = None
     links: Optional[ObjectLinks] = None
     __properties: ClassVar[List[str]] = ["data", "included", "links"]
@@ -98,7 +98,7 @@ class GetReviewResponseDTOCompoundDocument(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "data": GetReviewResponseDTOCollectionCompoundDocumentDataInner.from_dict(obj["data"]) if obj.get("data") is not None else None,
+            "data": ReviewResponseDTOObjectResource.from_dict(obj["data"]) if obj.get("data") is not None else None,
             "included": [EventResponseObjectResource.from_dict(_item) for _item in obj["included"]] if obj.get("included") is not None else None,
             "links": ObjectLinks.from_dict(obj["links"]) if obj.get("links") is not None else None
         })

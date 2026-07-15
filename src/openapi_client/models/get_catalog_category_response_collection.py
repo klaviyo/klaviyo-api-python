@@ -19,8 +19,8 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
+from openapi_client.models.catalog_category_response_object_resource import CatalogCategoryResponseObjectResource
 from openapi_client.models.collection_links import CollectionLinks
-from openapi_client.models.get_catalog_category_response_collection_data_inner import GetCatalogCategoryResponseCollectionDataInner
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,7 +28,7 @@ class GetCatalogCategoryResponseCollection(BaseModel):
     """
     GetCatalogCategoryResponseCollection
     """ # noqa: E501
-    data: List[GetCatalogCategoryResponseCollectionDataInner]
+    data: List[CatalogCategoryResponseObjectResource]
     links: Optional[CollectionLinks] = None
     __properties: ClassVar[List[str]] = ["data", "links"]
 
@@ -93,7 +93,7 @@ class GetCatalogCategoryResponseCollection(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "data": [GetCatalogCategoryResponseCollectionDataInner.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None,
+            "data": [CatalogCategoryResponseObjectResource.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None,
             "links": CollectionLinks.from_dict(obj["links"]) if obj.get("links") is not None else None
         })
         return _obj

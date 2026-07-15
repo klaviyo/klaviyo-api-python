@@ -20,8 +20,8 @@ import json
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.collection_links import CollectionLinks
+from openapi_client.models.coupon_code_response_object_resource import CouponCodeResponseObjectResource
 from openapi_client.models.coupon_response_object_resource import CouponResponseObjectResource
-from openapi_client.models.get_coupon_code_response_collection_compound_document_data_inner import GetCouponCodeResponseCollectionCompoundDocumentDataInner
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,7 +29,7 @@ class GetCouponCodeResponseCollectionCompoundDocument(BaseModel):
     """
     GetCouponCodeResponseCollectionCompoundDocument
     """ # noqa: E501
-    data: List[GetCouponCodeResponseCollectionCompoundDocumentDataInner]
+    data: List[CouponCodeResponseObjectResource]
     links: Optional[CollectionLinks] = None
     included: Optional[List[CouponResponseObjectResource]] = None
     __properties: ClassVar[List[str]] = ["data", "links", "included"]
@@ -102,7 +102,7 @@ class GetCouponCodeResponseCollectionCompoundDocument(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "data": [GetCouponCodeResponseCollectionCompoundDocumentDataInner.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None,
+            "data": [CouponCodeResponseObjectResource.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None,
             "links": CollectionLinks.from_dict(obj["links"]) if obj.get("links") is not None else None,
             "included": [CouponResponseObjectResource.from_dict(_item) for _item in obj["included"]] if obj.get("included") is not None else None
         })

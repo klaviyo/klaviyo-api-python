@@ -23,7 +23,6 @@ from enum import EnumMeta
 from pydantic import Field, StrictStr, field_validator
 from typing import List, Optional
 from typing_extensions import Annotated
-from openapi_client.models.delete_tag_group_response import DeleteTagGroupResponse
 from openapi_client.models.get_tag_campaign_relationships_response_collection import GetTagCampaignRelationshipsResponseCollection
 from openapi_client.models.get_tag_flow_relationships_response_collection import GetTagFlowRelationshipsResponseCollection
 from openapi_client.models.get_tag_group_relationship_response import GetTagGroupRelationshipResponse
@@ -35,7 +34,6 @@ from openapi_client.models.get_tag_response_collection import GetTagResponseColl
 from openapi_client.models.get_tag_response_collection_compound_document import GetTagResponseCollectionCompoundDocument
 from openapi_client.models.get_tag_response_compound_document import GetTagResponseCompoundDocument
 from openapi_client.models.get_tag_segment_relationships_response_collection import GetTagSegmentRelationshipsResponseCollection
-from openapi_client.models.patch_tag_group_response import PatchTagGroupResponse
 from openapi_client.models.post_tag_group_response import PostTagGroupResponse
 from openapi_client.models.post_tag_response import PostTagResponse
 from openapi_client.models.tag_campaign_op import TagCampaignOp
@@ -70,6 +68,7 @@ class TagsApi(object):
     def create_tag(        
         self,
         tag_create_query: TagCreateQuery,
+        fields_tag: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -86,10 +85,12 @@ class TagsApi(object):
 ) ->  Union[PostTagResponse, Dict[str, object]]:
         """Create Tag
 
-        Create a tag. An account cannot have more than **500** unique tags.  A tag belongs to a single tag group. If `relationships.tag-group.data.id` is not specified, the tag is added to the account's default tag group.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read` `tags:write`
+        Create a tag. An account cannot have more than **500** unique tags.  A tag belongs to a single tag group. If `relationships.tag-group.data.id` is not specified, the tag is added to the account's default tag group.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read` `tags:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/create_tag.json)
 
         :param tag_create_query: (required)
         :type tag_create_query: TagCreateQuery
+        :param fields_tag: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_tag: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -114,6 +115,7 @@ class TagsApi(object):
 
         _param = self._create_tag_serialize(
             tag_create_query=tag_create_query,
+            fields_tag=fields_tag,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -152,6 +154,7 @@ class TagsApi(object):
     def create_tag_with_http_info(        
         self,
         tag_create_query: TagCreateQuery,
+        fields_tag: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -168,10 +171,12 @@ class TagsApi(object):
 ) -> ApiResponse[PostTagResponse]:
         """Create Tag
 
-        Create a tag. An account cannot have more than **500** unique tags.  A tag belongs to a single tag group. If `relationships.tag-group.data.id` is not specified, the tag is added to the account's default tag group.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read` `tags:write`
+        Create a tag. An account cannot have more than **500** unique tags.  A tag belongs to a single tag group. If `relationships.tag-group.data.id` is not specified, the tag is added to the account's default tag group.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read` `tags:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/create_tag.json)
 
         :param tag_create_query: (required)
         :type tag_create_query: TagCreateQuery
+        :param fields_tag: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_tag: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -196,6 +201,7 @@ class TagsApi(object):
 
         _param = self._create_tag_serialize(
             tag_create_query=tag_create_query,
+            fields_tag=fields_tag,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -232,6 +238,7 @@ class TagsApi(object):
     def create_tag_without_preload_content(
         self,
         tag_create_query: TagCreateQuery,
+        fields_tag: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -246,10 +253,12 @@ class TagsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Create Tag
 
-        Create a tag. An account cannot have more than **500** unique tags.  A tag belongs to a single tag group. If `relationships.tag-group.data.id` is not specified, the tag is added to the account's default tag group.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read` `tags:write`
+        Create a tag. An account cannot have more than **500** unique tags.  A tag belongs to a single tag group. If `relationships.tag-group.data.id` is not specified, the tag is added to the account's default tag group.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read` `tags:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/create_tag.json)
 
         :param tag_create_query: (required)
         :type tag_create_query: TagCreateQuery
+        :param fields_tag: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_tag: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -274,6 +283,7 @@ class TagsApi(object):
 
         _param = self._create_tag_serialize(
             tag_create_query=tag_create_query,
+            fields_tag=fields_tag,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -314,6 +324,7 @@ class TagsApi(object):
     def _create_tag_serialize(
         self,
         tag_create_query,
+        fields_tag,
         _request_auth,
         _content_type,
         _headers,
@@ -323,6 +334,7 @@ class TagsApi(object):
         _host = None
 
         _collection_formats: Dict[str, str] = {
+            'fields[tag]': 'csv',
         }
 
         _path_params: Dict[str, str] = {}
@@ -334,6 +346,13 @@ class TagsApi(object):
 
         # process the path parameters
         # process the query parameters
+        if fields_tag is not None:
+            
+            if isinstance(fields_tag, EnumMeta):
+                _query_params.append(('fields[tag]', fields_tag))
+            else:
+                _query_params.append(('fields[tag]', fields_tag))
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -390,6 +409,7 @@ class TagsApi(object):
     def create_tag_group(        
         self,
         tag_group_create_query: TagGroupCreateQuery,
+        fields_tag_group: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -406,10 +426,12 @@ class TagsApi(object):
 ) ->  Union[PostTagGroupResponse, Dict[str, object]]:
         """Create Tag Group
 
-        Create a tag group. An account cannot have more than **50** unique tag groups.  If `exclusive` is not specified `true` or `false`, the tag group defaults to non-exclusive.  If a tag group is non-exclusive, any given related resource (campaign, flow, etc.) can be linked to multiple tags from that tag group. If a tag group is exclusive, any given related resource can only be linked to one tag from that tag group.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read` `tags:write`
+        Create a tag group. An account cannot have more than **50** unique tag groups.  If `exclusive` is not specified `true` or `false`, the tag group defaults to non-exclusive.  If a tag group is non-exclusive, any given related resource (campaign, flow, etc.) can be linked to multiple tags from that tag group. If a tag group is exclusive, any given related resource can only be linked to one tag from that tag group.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read` `tags:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/create_tag_group.json)
 
         :param tag_group_create_query: (required)
         :type tag_group_create_query: TagGroupCreateQuery
+        :param fields_tag_group: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_tag_group: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -434,6 +456,7 @@ class TagsApi(object):
 
         _param = self._create_tag_group_serialize(
             tag_group_create_query=tag_group_create_query,
+            fields_tag_group=fields_tag_group,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -472,6 +495,7 @@ class TagsApi(object):
     def create_tag_group_with_http_info(        
         self,
         tag_group_create_query: TagGroupCreateQuery,
+        fields_tag_group: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -488,10 +512,12 @@ class TagsApi(object):
 ) -> ApiResponse[PostTagGroupResponse]:
         """Create Tag Group
 
-        Create a tag group. An account cannot have more than **50** unique tag groups.  If `exclusive` is not specified `true` or `false`, the tag group defaults to non-exclusive.  If a tag group is non-exclusive, any given related resource (campaign, flow, etc.) can be linked to multiple tags from that tag group. If a tag group is exclusive, any given related resource can only be linked to one tag from that tag group.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read` `tags:write`
+        Create a tag group. An account cannot have more than **50** unique tag groups.  If `exclusive` is not specified `true` or `false`, the tag group defaults to non-exclusive.  If a tag group is non-exclusive, any given related resource (campaign, flow, etc.) can be linked to multiple tags from that tag group. If a tag group is exclusive, any given related resource can only be linked to one tag from that tag group.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read` `tags:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/create_tag_group.json)
 
         :param tag_group_create_query: (required)
         :type tag_group_create_query: TagGroupCreateQuery
+        :param fields_tag_group: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_tag_group: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -516,6 +542,7 @@ class TagsApi(object):
 
         _param = self._create_tag_group_serialize(
             tag_group_create_query=tag_group_create_query,
+            fields_tag_group=fields_tag_group,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -552,6 +579,7 @@ class TagsApi(object):
     def create_tag_group_without_preload_content(
         self,
         tag_group_create_query: TagGroupCreateQuery,
+        fields_tag_group: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -566,10 +594,12 @@ class TagsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Create Tag Group
 
-        Create a tag group. An account cannot have more than **50** unique tag groups.  If `exclusive` is not specified `true` or `false`, the tag group defaults to non-exclusive.  If a tag group is non-exclusive, any given related resource (campaign, flow, etc.) can be linked to multiple tags from that tag group. If a tag group is exclusive, any given related resource can only be linked to one tag from that tag group.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read` `tags:write`
+        Create a tag group. An account cannot have more than **50** unique tag groups.  If `exclusive` is not specified `true` or `false`, the tag group defaults to non-exclusive.  If a tag group is non-exclusive, any given related resource (campaign, flow, etc.) can be linked to multiple tags from that tag group. If a tag group is exclusive, any given related resource can only be linked to one tag from that tag group.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read` `tags:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/create_tag_group.json)
 
         :param tag_group_create_query: (required)
         :type tag_group_create_query: TagGroupCreateQuery
+        :param fields_tag_group: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_tag_group: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -594,6 +624,7 @@ class TagsApi(object):
 
         _param = self._create_tag_group_serialize(
             tag_group_create_query=tag_group_create_query,
+            fields_tag_group=fields_tag_group,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -634,6 +665,7 @@ class TagsApi(object):
     def _create_tag_group_serialize(
         self,
         tag_group_create_query,
+        fields_tag_group,
         _request_auth,
         _content_type,
         _headers,
@@ -643,6 +675,7 @@ class TagsApi(object):
         _host = None
 
         _collection_formats: Dict[str, str] = {
+            'fields[tag-group]': 'csv',
         }
 
         _path_params: Dict[str, str] = {}
@@ -654,6 +687,13 @@ class TagsApi(object):
 
         # process the path parameters
         # process the query parameters
+        if fields_tag_group is not None:
+            
+            if isinstance(fields_tag_group, EnumMeta):
+                _query_params.append(('fields[tag-group]', fields_tag_group))
+            else:
+                _query_params.append(('fields[tag-group]', fields_tag_group))
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -726,7 +766,7 @@ class TagsApi(object):
 ) -> None:
         """Delete Tag
 
-        Delete the tag with the given tag ID. Any associations between the tag and other resources will also be removed.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read` `tags:write`
+        Delete the tag with the given tag ID. Any associations between the tag and other resources will also be removed.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read` `tags:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/delete_tag.json)
 
         :param id: The Tag ID (required)
         :type id: str
@@ -808,7 +848,7 @@ class TagsApi(object):
 ) -> ApiResponse[None]:
         """Delete Tag
 
-        Delete the tag with the given tag ID. Any associations between the tag and other resources will also be removed.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read` `tags:write`
+        Delete the tag with the given tag ID. Any associations between the tag and other resources will also be removed.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read` `tags:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/delete_tag.json)
 
         :param id: The Tag ID (required)
         :type id: str
@@ -886,7 +926,7 @@ class TagsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Delete Tag
 
-        Delete the tag with the given tag ID. Any associations between the tag and other resources will also be removed.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read` `tags:write`
+        Delete the tag with the given tag ID. Any associations between the tag and other resources will also be removed.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read` `tags:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/delete_tag.json)
 
         :param id: The Tag ID (required)
         :type id: str
@@ -1030,10 +1070,10 @@ class TagsApi(object):
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
         options: Dict[str, Any] = {},
-) ->  Union[DeleteTagGroupResponse, Dict[str, object]]:
+) -> None:
         """Delete Tag Group
 
-        Delete the tag group with the given tag group ID.  Any tags inside that tag group, and any associations between those tags and other resources, will also be removed. The default tag group cannot be deleted.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read` `tags:write`
+        Delete the tag group with the given tag group ID.  Any tags inside that tag group, and any associations between those tags and other resources, will also be removed. The default tag group cannot be deleted.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read` `tags:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/delete_tag_group.json)
 
         :param id: The Tag Group ID (required)
         :type id: str
@@ -1068,7 +1108,7 @@ class TagsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeleteTagGroupResponse",
+            '204': None,
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -1112,10 +1152,10 @@ class TagsApi(object):
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
         options: Dict[str, Any] = {},
-) -> ApiResponse[DeleteTagGroupResponse]:
+) -> ApiResponse[None]:
         """Delete Tag Group
 
-        Delete the tag group with the given tag group ID.  Any tags inside that tag group, and any associations between those tags and other resources, will also be removed. The default tag group cannot be deleted.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read` `tags:write`
+        Delete the tag group with the given tag group ID.  Any tags inside that tag group, and any associations between those tags and other resources, will also be removed. The default tag group cannot be deleted.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read` `tags:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/delete_tag_group.json)
 
         :param id: The Tag Group ID (required)
         :type id: str
@@ -1150,7 +1190,7 @@ class TagsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeleteTagGroupResponse",
+            '204': None,
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -1193,7 +1233,7 @@ class TagsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Delete Tag Group
 
-        Delete the tag group with the given tag group ID.  Any tags inside that tag group, and any associations between those tags and other resources, will also be removed. The default tag group cannot be deleted.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read` `tags:write`
+        Delete the tag group with the given tag group ID.  Any tags inside that tag group, and any associations between those tags and other resources, will also be removed. The default tag group cannot be deleted.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read` `tags:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/delete_tag_group.json)
 
         :param id: The Tag Group ID (required)
         :type id: str
@@ -1228,7 +1268,7 @@ class TagsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeleteTagGroupResponse",
+            '204': None,
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -1340,7 +1380,7 @@ class TagsApi(object):
 ) ->  Union[GetTagCampaignRelationshipsResponseCollection, Dict[str, object]]:
         """Get Campaign IDs for Tag
 
-        Returns the IDs of all campaigns associated with the given tag.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `campaigns:read` `tags:read`
+        Returns the IDs of all campaigns associated with the given tag.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `campaigns:read` `tags:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_campaign_ids_for_tag.json)
 
         :param id: The Tag ID (required)
         :type id: str
@@ -1425,7 +1465,7 @@ class TagsApi(object):
 ) -> ApiResponse[GetTagCampaignRelationshipsResponseCollection]:
         """Get Campaign IDs for Tag
 
-        Returns the IDs of all campaigns associated with the given tag.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `campaigns:read` `tags:read`
+        Returns the IDs of all campaigns associated with the given tag.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `campaigns:read` `tags:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_campaign_ids_for_tag.json)
 
         :param id: The Tag ID (required)
         :type id: str
@@ -1506,7 +1546,7 @@ class TagsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Campaign IDs for Tag
 
-        Returns the IDs of all campaigns associated with the given tag.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `campaigns:read` `tags:read`
+        Returns the IDs of all campaigns associated with the given tag.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `campaigns:read` `tags:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_campaign_ids_for_tag.json)
 
         :param id: The Tag ID (required)
         :type id: str
@@ -1659,7 +1699,7 @@ class TagsApi(object):
 ) ->  Union[GetTagFlowRelationshipsResponseCollection, Dict[str, object]]:
         """Get Flow IDs for Tag
 
-        Returns the IDs of all flows associated with the given tag.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `flows:read` `tags:read`
+        Returns the IDs of all flows associated with the given tag.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `flows:read` `tags:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_flow_ids_for_tag.json)
 
         :param id: The Tag ID (required)
         :type id: str
@@ -1744,7 +1784,7 @@ class TagsApi(object):
 ) -> ApiResponse[GetTagFlowRelationshipsResponseCollection]:
         """Get Flow IDs for Tag
 
-        Returns the IDs of all flows associated with the given tag.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `flows:read` `tags:read`
+        Returns the IDs of all flows associated with the given tag.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `flows:read` `tags:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_flow_ids_for_tag.json)
 
         :param id: The Tag ID (required)
         :type id: str
@@ -1825,7 +1865,7 @@ class TagsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Flow IDs for Tag
 
-        Returns the IDs of all flows associated with the given tag.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `flows:read` `tags:read`
+        Returns the IDs of all flows associated with the given tag.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `flows:read` `tags:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_flow_ids_for_tag.json)
 
         :param id: The Tag ID (required)
         :type id: str
@@ -1978,7 +2018,7 @@ class TagsApi(object):
 ) ->  Union[GetTagListRelationshipsResponseCollection, Dict[str, object]]:
         """Get List IDs for Tag
 
-        Returns the IDs of all lists associated with the given tag.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `lists:read` `tags:read`
+        Returns the IDs of all lists associated with the given tag.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `lists:read` `tags:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_list_ids_for_tag.json)
 
         :param id: The Tag ID (required)
         :type id: str
@@ -2063,7 +2103,7 @@ class TagsApi(object):
 ) -> ApiResponse[GetTagListRelationshipsResponseCollection]:
         """Get List IDs for Tag
 
-        Returns the IDs of all lists associated with the given tag.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `lists:read` `tags:read`
+        Returns the IDs of all lists associated with the given tag.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `lists:read` `tags:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_list_ids_for_tag.json)
 
         :param id: The Tag ID (required)
         :type id: str
@@ -2144,7 +2184,7 @@ class TagsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get List IDs for Tag
 
-        Returns the IDs of all lists associated with the given tag.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `lists:read` `tags:read`
+        Returns the IDs of all lists associated with the given tag.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `lists:read` `tags:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_list_ids_for_tag.json)
 
         :param id: The Tag ID (required)
         :type id: str
@@ -2297,7 +2337,7 @@ class TagsApi(object):
 ) ->  Union[GetTagSegmentRelationshipsResponseCollection, Dict[str, object]]:
         """Get Segment IDs for Tag
 
-        Returns the IDs of all segments associated with the given tag.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `segments:read` `tags:read`
+        Returns the IDs of all segments associated with the given tag.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `segments:read` `tags:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_segment_ids_for_tag.json)
 
         :param id: The Tag ID (required)
         :type id: str
@@ -2382,7 +2422,7 @@ class TagsApi(object):
 ) -> ApiResponse[GetTagSegmentRelationshipsResponseCollection]:
         """Get Segment IDs for Tag
 
-        Returns the IDs of all segments associated with the given tag.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `segments:read` `tags:read`
+        Returns the IDs of all segments associated with the given tag.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `segments:read` `tags:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_segment_ids_for_tag.json)
 
         :param id: The Tag ID (required)
         :type id: str
@@ -2463,7 +2503,7 @@ class TagsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Segment IDs for Tag
 
-        Returns the IDs of all segments associated with the given tag.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `segments:read` `tags:read`
+        Returns the IDs of all segments associated with the given tag.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `segments:read` `tags:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_segment_ids_for_tag.json)
 
         :param id: The Tag ID (required)
         :type id: str
@@ -2600,9 +2640,9 @@ class TagsApi(object):
     def get_tag(        
         self,
         id: Annotated[StrictStr, Field(description="The Tag ID")],
-        fields_tag_group: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_tag: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
+        fields_tag_group: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_tag: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2619,15 +2659,15 @@ class TagsApi(object):
 ) ->  Union[GetTagResponseCompoundDocument, Dict[str, object]]:
         """Get Tag
 
-        Retrieve the tag with the given tag ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read`
+        Retrieve the tag with the given tag ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_tag.json)
 
         :param id: The Tag ID (required)
         :type id: str
-        :param fields_tag_group: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_tag_group: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_tag_group: List[str]
-        :param fields_tag: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_tag: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_tag: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2694,9 +2734,9 @@ class TagsApi(object):
     def get_tag_with_http_info(        
         self,
         id: Annotated[StrictStr, Field(description="The Tag ID")],
-        fields_tag_group: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_tag: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
+        fields_tag_group: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_tag: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2713,15 +2753,15 @@ class TagsApi(object):
 ) -> ApiResponse[GetTagResponseCompoundDocument]:
         """Get Tag
 
-        Retrieve the tag with the given tag ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read`
+        Retrieve the tag with the given tag ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_tag.json)
 
         :param id: The Tag ID (required)
         :type id: str
-        :param fields_tag_group: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_tag_group: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_tag_group: List[str]
-        :param fields_tag: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_tag: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_tag: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2786,9 +2826,9 @@ class TagsApi(object):
     def get_tag_without_preload_content(
         self,
         id: Annotated[StrictStr, Field(description="The Tag ID")],
-        fields_tag_group: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_tag: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
+        fields_tag_group: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_tag: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2803,15 +2843,15 @@ class TagsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Tag
 
-        Retrieve the tag with the given tag ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read`
+        Retrieve the tag with the given tag ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_tag.json)
 
         :param id: The Tag ID (required)
         :type id: str
-        :param fields_tag_group: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_tag_group: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_tag_group: List[str]
-        :param fields_tag: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_tag: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_tag: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2970,7 +3010,7 @@ class TagsApi(object):
     def get_tag_group(        
         self,
         id: Annotated[StrictStr, Field(description="The Tag Group ID")],
-        fields_tag_group: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_tag_group: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2987,11 +3027,11 @@ class TagsApi(object):
 ) ->  Union[GetTagGroupResponse, Dict[str, object]]:
         """Get Tag Group
 
-        Retrieve the tag group with the given tag group ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read`
+        Retrieve the tag group with the given tag group ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_tag_group.json)
 
         :param id: The Tag Group ID (required)
         :type id: str
-        :param fields_tag_group: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_tag_group: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_tag_group: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3056,7 +3096,7 @@ class TagsApi(object):
     def get_tag_group_with_http_info(        
         self,
         id: Annotated[StrictStr, Field(description="The Tag Group ID")],
-        fields_tag_group: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_tag_group: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3073,11 +3113,11 @@ class TagsApi(object):
 ) -> ApiResponse[GetTagGroupResponse]:
         """Get Tag Group
 
-        Retrieve the tag group with the given tag group ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read`
+        Retrieve the tag group with the given tag group ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_tag_group.json)
 
         :param id: The Tag Group ID (required)
         :type id: str
-        :param fields_tag_group: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_tag_group: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_tag_group: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3140,7 +3180,7 @@ class TagsApi(object):
     def get_tag_group_without_preload_content(
         self,
         id: Annotated[StrictStr, Field(description="The Tag Group ID")],
-        fields_tag_group: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_tag_group: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3155,11 +3195,11 @@ class TagsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Tag Group
 
-        Retrieve the tag group with the given tag group ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read`
+        Retrieve the tag group with the given tag group ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_tag_group.json)
 
         :param id: The Tag Group ID (required)
         :type id: str
-        :param fields_tag_group: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_tag_group: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_tag_group: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3298,7 +3338,7 @@ class TagsApi(object):
     def get_tag_group_for_tag(        
         self,
         id: Annotated[StrictStr, Field(description="The Tag ID")],
-        fields_tag_group: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_tag_group: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3315,11 +3355,11 @@ class TagsApi(object):
 ) ->  Union[GetTagGroupResponse, Dict[str, object]]:
         """Get Tag Group for Tag
 
-        Returns the tag group resource for a given tag ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read`
+        Returns the tag group resource for a given tag ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_tag_group_for_tag.json)
 
         :param id: The Tag ID (required)
         :type id: str
-        :param fields_tag_group: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_tag_group: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_tag_group: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3390,7 +3430,7 @@ class TagsApi(object):
     def get_tag_group_for_tag_with_http_info(        
         self,
         id: Annotated[StrictStr, Field(description="The Tag ID")],
-        fields_tag_group: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_tag_group: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3407,11 +3447,11 @@ class TagsApi(object):
 ) -> ApiResponse[GetTagGroupResponse]:
         """Get Tag Group for Tag
 
-        Returns the tag group resource for a given tag ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read`
+        Returns the tag group resource for a given tag ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_tag_group_for_tag.json)
 
         :param id: The Tag ID (required)
         :type id: str
-        :param fields_tag_group: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_tag_group: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_tag_group: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3480,7 +3520,7 @@ class TagsApi(object):
     def get_tag_group_for_tag_without_preload_content(
         self,
         id: Annotated[StrictStr, Field(description="The Tag ID")],
-        fields_tag_group: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_tag_group: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3495,11 +3535,11 @@ class TagsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Tag Group for Tag
 
-        Returns the tag group resource for a given tag ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read`
+        Returns the tag group resource for a given tag ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_tag_group_for_tag.json)
 
         :param id: The Tag ID (required)
         :type id: str
-        :param fields_tag_group: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_tag_group: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_tag_group: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3666,7 +3706,7 @@ class TagsApi(object):
 ) ->  Union[GetTagGroupRelationshipResponse, Dict[str, object]]:
         """Get Tag Group ID for Tag
 
-        Returns the id of the tag group related to the given tag.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read`
+        Returns the id of the tag group related to the given tag.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_tag_group_id_for_tag.json)
 
         :param id: The Tag ID (required)
         :type id: str
@@ -3757,7 +3797,7 @@ class TagsApi(object):
 ) -> ApiResponse[GetTagGroupRelationshipResponse]:
         """Get Tag Group ID for Tag
 
-        Returns the id of the tag group related to the given tag.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read`
+        Returns the id of the tag group related to the given tag.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_tag_group_id_for_tag.json)
 
         :param id: The Tag ID (required)
         :type id: str
@@ -3844,7 +3884,7 @@ class TagsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Tag Group ID for Tag
 
-        Returns the id of the tag group related to the given tag.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read`
+        Returns the id of the tag group related to the given tag.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_tag_group_id_for_tag.json)
 
         :param id: The Tag ID (required)
         :type id: str
@@ -3992,10 +4032,11 @@ class TagsApi(object):
     @validate_call
     def get_tag_groups(        
         self,
-        fields_tag_group: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`name`: `contains`, `ends-with`, `equals`, `starts-with`<br>`exclusive`: `equals`<br>`default`: `equals`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting")] = None,
+        fields_tag_group: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`name`: `contains`, `ends-with`, `equals`, `starts-with`<br>`exclusive`: `equals`<br>`default`: `equals`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
+        page_size: Annotated[Optional[Annotated[int, Field(le=25, strict=True, ge=1)]], Field(description="Default: 25. Min: 1. Max: 25.")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4012,15 +4053,17 @@ class TagsApi(object):
 ) ->  Union[GetTagGroupResponseCollection, Dict[str, object]]:
         """Get Tag Groups
 
-        List all tag groups in an account. Every account has one default tag group.  Tag groups can be filtered by `name`, `exclusive`, and `default`, and sorted by `name` or `id` in ascending or descending order.  Returns a maximum of 25 tag groups per request, which can be paginated with [cursor-based pagination](https://developers.klaviyo.com/en/v2022-10-17/reference/api_overview#pagination).<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read`
+        List all tag groups in an account. Every account has one default tag group.  Tag groups can be filtered by `name`, `exclusive`, and `default`, and sorted by `name` or `id` in ascending or descending order.  Returns a maximum of 25 tag groups per request, which can be paginated with [cursor-based pagination](https://developers.klaviyo.com/en/v2022-10-17/reference/api_overview#pagination).<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_tag_groups.json)
 
-        :param fields_tag_group: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_tag_group: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_tag_group: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`name`: `contains`, `ends-with`, `equals`, `starts-with`<br>`exclusive`: `equals`<br>`default`: `equals`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`name`: `contains`, `ends-with`, `equals`, `starts-with`<br>`exclusive`: `equals`<br>`default`: `equals`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
         :type page_cursor: str
-        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting
+        :param page_size: Default: 25. Min: 1. Max: 25.
+        :type page_size: int
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting
         :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -4048,6 +4091,7 @@ class TagsApi(object):
             fields_tag_group=fields_tag_group,
             filter=filter,
             page_cursor=page_cursor,
+            page_size=page_size,
             sort=sort,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -4086,10 +4130,11 @@ class TagsApi(object):
     @validate_call
     def get_tag_groups_with_http_info(        
         self,
-        fields_tag_group: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`name`: `contains`, `ends-with`, `equals`, `starts-with`<br>`exclusive`: `equals`<br>`default`: `equals`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting")] = None,
+        fields_tag_group: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`name`: `contains`, `ends-with`, `equals`, `starts-with`<br>`exclusive`: `equals`<br>`default`: `equals`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
+        page_size: Annotated[Optional[Annotated[int, Field(le=25, strict=True, ge=1)]], Field(description="Default: 25. Min: 1. Max: 25.")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4106,15 +4151,17 @@ class TagsApi(object):
 ) -> ApiResponse[GetTagGroupResponseCollection]:
         """Get Tag Groups
 
-        List all tag groups in an account. Every account has one default tag group.  Tag groups can be filtered by `name`, `exclusive`, and `default`, and sorted by `name` or `id` in ascending or descending order.  Returns a maximum of 25 tag groups per request, which can be paginated with [cursor-based pagination](https://developers.klaviyo.com/en/v2022-10-17/reference/api_overview#pagination).<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read`
+        List all tag groups in an account. Every account has one default tag group.  Tag groups can be filtered by `name`, `exclusive`, and `default`, and sorted by `name` or `id` in ascending or descending order.  Returns a maximum of 25 tag groups per request, which can be paginated with [cursor-based pagination](https://developers.klaviyo.com/en/v2022-10-17/reference/api_overview#pagination).<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_tag_groups.json)
 
-        :param fields_tag_group: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_tag_group: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_tag_group: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`name`: `contains`, `ends-with`, `equals`, `starts-with`<br>`exclusive`: `equals`<br>`default`: `equals`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`name`: `contains`, `ends-with`, `equals`, `starts-with`<br>`exclusive`: `equals`<br>`default`: `equals`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
         :type page_cursor: str
-        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting
+        :param page_size: Default: 25. Min: 1. Max: 25.
+        :type page_size: int
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting
         :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -4142,6 +4189,7 @@ class TagsApi(object):
             fields_tag_group=fields_tag_group,
             filter=filter,
             page_cursor=page_cursor,
+            page_size=page_size,
             sort=sort,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -4178,10 +4226,11 @@ class TagsApi(object):
     @validate_call
     def get_tag_groups_without_preload_content(
         self,
-        fields_tag_group: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`name`: `contains`, `ends-with`, `equals`, `starts-with`<br>`exclusive`: `equals`<br>`default`: `equals`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting")] = None,
+        fields_tag_group: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`name`: `contains`, `ends-with`, `equals`, `starts-with`<br>`exclusive`: `equals`<br>`default`: `equals`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
+        page_size: Annotated[Optional[Annotated[int, Field(le=25, strict=True, ge=1)]], Field(description="Default: 25. Min: 1. Max: 25.")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4196,15 +4245,17 @@ class TagsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Tag Groups
 
-        List all tag groups in an account. Every account has one default tag group.  Tag groups can be filtered by `name`, `exclusive`, and `default`, and sorted by `name` or `id` in ascending or descending order.  Returns a maximum of 25 tag groups per request, which can be paginated with [cursor-based pagination](https://developers.klaviyo.com/en/v2022-10-17/reference/api_overview#pagination).<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read`
+        List all tag groups in an account. Every account has one default tag group.  Tag groups can be filtered by `name`, `exclusive`, and `default`, and sorted by `name` or `id` in ascending or descending order.  Returns a maximum of 25 tag groups per request, which can be paginated with [cursor-based pagination](https://developers.klaviyo.com/en/v2022-10-17/reference/api_overview#pagination).<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_tag_groups.json)
 
-        :param fields_tag_group: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_tag_group: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_tag_group: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`name`: `contains`, `ends-with`, `equals`, `starts-with`<br>`exclusive`: `equals`<br>`default`: `equals`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`name`: `contains`, `ends-with`, `equals`, `starts-with`<br>`exclusive`: `equals`<br>`default`: `equals`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
         :type page_cursor: str
-        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting
+        :param page_size: Default: 25. Min: 1. Max: 25.
+        :type page_size: int
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting
         :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -4232,6 +4283,7 @@ class TagsApi(object):
             fields_tag_group=fields_tag_group,
             filter=filter,
             page_cursor=page_cursor,
+            page_size=page_size,
             sort=sort,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -4275,6 +4327,7 @@ class TagsApi(object):
         fields_tag_group,
         filter,
         page_cursor,
+        page_size,
         sort,
         _request_auth,
         _content_type,
@@ -4317,6 +4370,13 @@ class TagsApi(object):
                 _query_params.append(('page[cursor]', page_cursor))
             else:
                 _query_params.append(('page[cursor]', page_cursor))
+            
+        if page_size is not None:
+            
+            if isinstance(page_size, EnumMeta):
+                _query_params.append(('page[size]', page_size))
+            else:
+                _query_params.append(('page[size]', page_size))
             
         if sort is not None:
             
@@ -4382,7 +4442,7 @@ class TagsApi(object):
 ) ->  Union[GetTagGroupTagsRelationshipsResponseCollection, Dict[str, object]]:
         """Get Tag IDs for Tag Group
 
-        Returns the tag IDs of all tags inside the given tag group.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read`
+        Returns the tag IDs of all tags inside the given tag group.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_tag_ids_for_tag_group.json)
 
         :param id: The Tag Group ID (required)
         :type id: str
@@ -4467,7 +4527,7 @@ class TagsApi(object):
 ) -> ApiResponse[GetTagGroupTagsRelationshipsResponseCollection]:
         """Get Tag IDs for Tag Group
 
-        Returns the tag IDs of all tags inside the given tag group.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read`
+        Returns the tag IDs of all tags inside the given tag group.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_tag_ids_for_tag_group.json)
 
         :param id: The Tag Group ID (required)
         :type id: str
@@ -4548,7 +4608,7 @@ class TagsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Tag IDs for Tag Group
 
-        Returns the tag IDs of all tags inside the given tag group.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read`
+        Returns the tag IDs of all tags inside the given tag group.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_tag_ids_for_tag_group.json)
 
         :param id: The Tag Group ID (required)
         :type id: str
@@ -4684,12 +4744,13 @@ class TagsApi(object):
     @validate_call
     def get_tags(        
         self,
-        fields_tag_group: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_tag: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`name`: `contains`, `ends-with`, `equals`, `starts-with`")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting")] = None,
+        fields_tag_group: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_tag: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`name`: `contains`, `ends-with`, `equals`, `starts-with`")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
+        page_size: Annotated[Optional[Annotated[int, Field(le=50, strict=True, ge=1)]], Field(description="Default: 50. Min: 1. Max: 50.")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4706,19 +4767,21 @@ class TagsApi(object):
 ) ->  Union[GetTagResponseCollectionCompoundDocument, Dict[str, object]]:
         """Get Tags
 
-        List all tags in an account.  Tags can be filtered by `name`, and sorted by `name` or `id` in ascending or descending order.  Returns a maximum of 50 tags per request, which can be paginated with [cursor-based pagination](https://developers.klaviyo.com/en/v2022-10-17/reference/api_overview#pagination).<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read`
+        List all tags in an account.  Tags can be filtered by `name`, and sorted by `name` or `id` in ascending or descending order.  Returns a maximum of 50 tags per request, which can be paginated with [cursor-based pagination](https://developers.klaviyo.com/en/v2022-10-17/reference/api_overview#pagination).<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_tags.json)
 
-        :param fields_tag_group: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_tag_group: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_tag_group: List[str]
-        :param fields_tag: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_tag: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_tag: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`name`: `contains`, `ends-with`, `equals`, `starts-with`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`name`: `contains`, `ends-with`, `equals`, `starts-with`
         :type filter: str
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships
         :type include: List[str]
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
         :type page_cursor: str
-        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting
+        :param page_size: Default: 50. Min: 1. Max: 50.
+        :type page_size: int
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting
         :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -4748,6 +4811,7 @@ class TagsApi(object):
             filter=filter,
             include=include,
             page_cursor=page_cursor,
+            page_size=page_size,
             sort=sort,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -4786,12 +4850,13 @@ class TagsApi(object):
     @validate_call
     def get_tags_with_http_info(        
         self,
-        fields_tag_group: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_tag: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`name`: `contains`, `ends-with`, `equals`, `starts-with`")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting")] = None,
+        fields_tag_group: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_tag: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`name`: `contains`, `ends-with`, `equals`, `starts-with`")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
+        page_size: Annotated[Optional[Annotated[int, Field(le=50, strict=True, ge=1)]], Field(description="Default: 50. Min: 1. Max: 50.")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4808,19 +4873,21 @@ class TagsApi(object):
 ) -> ApiResponse[GetTagResponseCollectionCompoundDocument]:
         """Get Tags
 
-        List all tags in an account.  Tags can be filtered by `name`, and sorted by `name` or `id` in ascending or descending order.  Returns a maximum of 50 tags per request, which can be paginated with [cursor-based pagination](https://developers.klaviyo.com/en/v2022-10-17/reference/api_overview#pagination).<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read`
+        List all tags in an account.  Tags can be filtered by `name`, and sorted by `name` or `id` in ascending or descending order.  Returns a maximum of 50 tags per request, which can be paginated with [cursor-based pagination](https://developers.klaviyo.com/en/v2022-10-17/reference/api_overview#pagination).<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_tags.json)
 
-        :param fields_tag_group: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_tag_group: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_tag_group: List[str]
-        :param fields_tag: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_tag: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_tag: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`name`: `contains`, `ends-with`, `equals`, `starts-with`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`name`: `contains`, `ends-with`, `equals`, `starts-with`
         :type filter: str
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships
         :type include: List[str]
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
         :type page_cursor: str
-        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting
+        :param page_size: Default: 50. Min: 1. Max: 50.
+        :type page_size: int
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting
         :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -4850,6 +4917,7 @@ class TagsApi(object):
             filter=filter,
             include=include,
             page_cursor=page_cursor,
+            page_size=page_size,
             sort=sort,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -4886,12 +4954,13 @@ class TagsApi(object):
     @validate_call
     def get_tags_without_preload_content(
         self,
-        fields_tag_group: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_tag: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`name`: `contains`, `ends-with`, `equals`, `starts-with`")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting")] = None,
+        fields_tag_group: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_tag: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`name`: `contains`, `ends-with`, `equals`, `starts-with`")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
+        page_size: Annotated[Optional[Annotated[int, Field(le=50, strict=True, ge=1)]], Field(description="Default: 50. Min: 1. Max: 50.")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4906,19 +4975,21 @@ class TagsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Tags
 
-        List all tags in an account.  Tags can be filtered by `name`, and sorted by `name` or `id` in ascending or descending order.  Returns a maximum of 50 tags per request, which can be paginated with [cursor-based pagination](https://developers.klaviyo.com/en/v2022-10-17/reference/api_overview#pagination).<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read`
+        List all tags in an account.  Tags can be filtered by `name`, and sorted by `name` or `id` in ascending or descending order.  Returns a maximum of 50 tags per request, which can be paginated with [cursor-based pagination](https://developers.klaviyo.com/en/v2022-10-17/reference/api_overview#pagination).<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_tags.json)
 
-        :param fields_tag_group: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_tag_group: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_tag_group: List[str]
-        :param fields_tag: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_tag: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_tag: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`name`: `contains`, `ends-with`, `equals`, `starts-with`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`name`: `contains`, `ends-with`, `equals`, `starts-with`
         :type filter: str
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships
         :type include: List[str]
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
         :type page_cursor: str
-        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting
+        :param page_size: Default: 50. Min: 1. Max: 50.
+        :type page_size: int
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting
         :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -4948,6 +5019,7 @@ class TagsApi(object):
             filter=filter,
             include=include,
             page_cursor=page_cursor,
+            page_size=page_size,
             sort=sort,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -4993,6 +5065,7 @@ class TagsApi(object):
         filter,
         include,
         page_cursor,
+        page_size,
         sort,
         _request_auth,
         _content_type,
@@ -5052,6 +5125,13 @@ class TagsApi(object):
             else:
                 _query_params.append(('page[cursor]', page_cursor))
             
+        if page_size is not None:
+            
+            if isinstance(page_size, EnumMeta):
+                _query_params.append(('page[size]', page_size))
+            else:
+                _query_params.append(('page[size]', page_size))
+            
         if sort is not None:
             
             if isinstance(sort, EnumMeta):
@@ -5100,7 +5180,7 @@ class TagsApi(object):
     def get_tags_for_tag_group(        
         self,
         id: Annotated[StrictStr, Field(description="The Tag Group ID")],
-        fields_tag: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_tag: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5117,11 +5197,11 @@ class TagsApi(object):
 ) ->  Union[GetTagResponseCollection, Dict[str, object]]:
         """Get Tags for Tag Group
 
-        Return the tags for a given tag group ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read`
+        Return the tags for a given tag group ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_tags_for_tag_group.json)
 
         :param id: The Tag Group ID (required)
         :type id: str
-        :param fields_tag: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_tag: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_tag: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -5189,7 +5269,7 @@ class TagsApi(object):
     def get_tags_for_tag_group_with_http_info(        
         self,
         id: Annotated[StrictStr, Field(description="The Tag Group ID")],
-        fields_tag: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_tag: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5206,11 +5286,11 @@ class TagsApi(object):
 ) -> ApiResponse[GetTagResponseCollection]:
         """Get Tags for Tag Group
 
-        Return the tags for a given tag group ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read`
+        Return the tags for a given tag group ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_tags_for_tag_group.json)
 
         :param id: The Tag Group ID (required)
         :type id: str
-        :param fields_tag: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_tag: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_tag: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -5276,7 +5356,7 @@ class TagsApi(object):
     def get_tags_for_tag_group_without_preload_content(
         self,
         id: Annotated[StrictStr, Field(description="The Tag Group ID")],
-        fields_tag: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_tag: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5291,11 +5371,11 @@ class TagsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Tags for Tag Group
 
-        Return the tags for a given tag group ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read`
+        Return the tags for a given tag group ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_tags_for_tag_group.json)
 
         :param id: The Tag Group ID (required)
         :type id: str
-        :param fields_tag: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_tag: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_tag: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -5457,7 +5537,7 @@ class TagsApi(object):
 ) -> None:
         """Remove Tag from Campaigns
 
-        Remove a tag's association with one or more campaigns.   Use the request body to pass in the ID(s) of the campaign(s) whose association with the tag will be removed.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `campaigns:write` `tags:write`
+        Remove a tag's association with one or more campaigns.   Use the request body to pass in the ID(s) of the campaign(s) whose association with the tag will be removed.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `campaigns:write` `tags:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/remove_tag_from_campaigns.json)
 
         :param id: The Tag ID (required)
         :type id: str
@@ -5549,7 +5629,7 @@ class TagsApi(object):
 ) -> ApiResponse[None]:
         """Remove Tag from Campaigns
 
-        Remove a tag's association with one or more campaigns.   Use the request body to pass in the ID(s) of the campaign(s) whose association with the tag will be removed.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `campaigns:write` `tags:write`
+        Remove a tag's association with one or more campaigns.   Use the request body to pass in the ID(s) of the campaign(s) whose association with the tag will be removed.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `campaigns:write` `tags:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/remove_tag_from_campaigns.json)
 
         :param id: The Tag ID (required)
         :type id: str
@@ -5637,7 +5717,7 @@ class TagsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Remove Tag from Campaigns
 
-        Remove a tag's association with one or more campaigns.   Use the request body to pass in the ID(s) of the campaign(s) whose association with the tag will be removed.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `campaigns:write` `tags:write`
+        Remove a tag's association with one or more campaigns.   Use the request body to pass in the ID(s) of the campaign(s) whose association with the tag will be removed.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `campaigns:write` `tags:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/remove_tag_from_campaigns.json)
 
         :param id: The Tag ID (required)
         :type id: str
@@ -5816,7 +5896,7 @@ class TagsApi(object):
 ) -> None:
         """Remove Tag from Flows
 
-        Remove a tag's association with one or more flows.   Use the request body to pass in the ID(s) of the flows(s) whose association with the tag will be removed.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `flows:write` `tags:write`
+        Remove a tag's association with one or more flows.   Use the request body to pass in the ID(s) of the flows(s) whose association with the tag will be removed.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `flows:write` `tags:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/remove_tag_from_flows.json)
 
         :param id: The Tag ID (required)
         :type id: str
@@ -5908,7 +5988,7 @@ class TagsApi(object):
 ) -> ApiResponse[None]:
         """Remove Tag from Flows
 
-        Remove a tag's association with one or more flows.   Use the request body to pass in the ID(s) of the flows(s) whose association with the tag will be removed.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `flows:write` `tags:write`
+        Remove a tag's association with one or more flows.   Use the request body to pass in the ID(s) of the flows(s) whose association with the tag will be removed.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `flows:write` `tags:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/remove_tag_from_flows.json)
 
         :param id: The Tag ID (required)
         :type id: str
@@ -5996,7 +6076,7 @@ class TagsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Remove Tag from Flows
 
-        Remove a tag's association with one or more flows.   Use the request body to pass in the ID(s) of the flows(s) whose association with the tag will be removed.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `flows:write` `tags:write`
+        Remove a tag's association with one or more flows.   Use the request body to pass in the ID(s) of the flows(s) whose association with the tag will be removed.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `flows:write` `tags:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/remove_tag_from_flows.json)
 
         :param id: The Tag ID (required)
         :type id: str
@@ -6175,7 +6255,7 @@ class TagsApi(object):
 ) -> None:
         """Remove Tag from Lists
 
-        Remove a tag's association with one or more lists.   Use the request body to pass in the ID(s) of the list(s) whose association with the tag will be removed.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `lists:write` `tags:write`
+        Remove a tag's association with one or more lists.   Use the request body to pass in the ID(s) of the list(s) whose association with the tag will be removed.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `lists:write` `tags:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/remove_tag_from_lists.json)
 
         :param id: The Tag ID (required)
         :type id: str
@@ -6267,7 +6347,7 @@ class TagsApi(object):
 ) -> ApiResponse[None]:
         """Remove Tag from Lists
 
-        Remove a tag's association with one or more lists.   Use the request body to pass in the ID(s) of the list(s) whose association with the tag will be removed.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `lists:write` `tags:write`
+        Remove a tag's association with one or more lists.   Use the request body to pass in the ID(s) of the list(s) whose association with the tag will be removed.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `lists:write` `tags:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/remove_tag_from_lists.json)
 
         :param id: The Tag ID (required)
         :type id: str
@@ -6355,7 +6435,7 @@ class TagsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Remove Tag from Lists
 
-        Remove a tag's association with one or more lists.   Use the request body to pass in the ID(s) of the list(s) whose association with the tag will be removed.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `lists:write` `tags:write`
+        Remove a tag's association with one or more lists.   Use the request body to pass in the ID(s) of the list(s) whose association with the tag will be removed.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `lists:write` `tags:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/remove_tag_from_lists.json)
 
         :param id: The Tag ID (required)
         :type id: str
@@ -6534,7 +6614,7 @@ class TagsApi(object):
 ) -> None:
         """Remove Tag from Segments
 
-        Remove a tag's association with one or more segments.   Use the request body to pass in the ID(s) of the segments(s) whose association with the tag will be removed.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `segments:write` `tags:write`
+        Remove a tag's association with one or more segments.   Use the request body to pass in the ID(s) of the segments(s) whose association with the tag will be removed.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `segments:write` `tags:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/remove_tag_from_segments.json)
 
         :param id: The Tag ID (required)
         :type id: str
@@ -6626,7 +6706,7 @@ class TagsApi(object):
 ) -> ApiResponse[None]:
         """Remove Tag from Segments
 
-        Remove a tag's association with one or more segments.   Use the request body to pass in the ID(s) of the segments(s) whose association with the tag will be removed.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `segments:write` `tags:write`
+        Remove a tag's association with one or more segments.   Use the request body to pass in the ID(s) of the segments(s) whose association with the tag will be removed.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `segments:write` `tags:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/remove_tag_from_segments.json)
 
         :param id: The Tag ID (required)
         :type id: str
@@ -6714,7 +6794,7 @@ class TagsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Remove Tag from Segments
 
-        Remove a tag's association with one or more segments.   Use the request body to pass in the ID(s) of the segments(s) whose association with the tag will be removed.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `segments:write` `tags:write`
+        Remove a tag's association with one or more segments.   Use the request body to pass in the ID(s) of the segments(s) whose association with the tag will be removed.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `segments:write` `tags:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/remove_tag_from_segments.json)
 
         :param id: The Tag ID (required)
         :type id: str
@@ -6893,7 +6973,7 @@ class TagsApi(object):
 ) -> None:
         """Tag Campaigns
 
-        Associate a tag with one or more campaigns. Any campaign cannot be associated with more than **100** tags.   Use the request body to pass in the ID(s) of the campaign(s) that will be associated with the tag.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `campaigns:write` `tags:write`
+        Associate a tag with one or more campaigns. Any campaign cannot be associated with more than **100** tags.   Use the request body to pass in the ID(s) of the campaign(s) that will be associated with the tag.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `campaigns:write` `tags:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/tag_campaigns.json)
 
         :param id: The Tag ID (required)
         :type id: str
@@ -6988,7 +7068,7 @@ class TagsApi(object):
 ) -> ApiResponse[None]:
         """Tag Campaigns
 
-        Associate a tag with one or more campaigns. Any campaign cannot be associated with more than **100** tags.   Use the request body to pass in the ID(s) of the campaign(s) that will be associated with the tag.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `campaigns:write` `tags:write`
+        Associate a tag with one or more campaigns. Any campaign cannot be associated with more than **100** tags.   Use the request body to pass in the ID(s) of the campaign(s) that will be associated with the tag.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `campaigns:write` `tags:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/tag_campaigns.json)
 
         :param id: The Tag ID (required)
         :type id: str
@@ -7079,7 +7159,7 @@ class TagsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Tag Campaigns
 
-        Associate a tag with one or more campaigns. Any campaign cannot be associated with more than **100** tags.   Use the request body to pass in the ID(s) of the campaign(s) that will be associated with the tag.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `campaigns:write` `tags:write`
+        Associate a tag with one or more campaigns. Any campaign cannot be associated with more than **100** tags.   Use the request body to pass in the ID(s) of the campaign(s) that will be associated with the tag.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `campaigns:write` `tags:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/tag_campaigns.json)
 
         :param id: The Tag ID (required)
         :type id: str
@@ -7264,7 +7344,7 @@ class TagsApi(object):
 ) -> None:
         """Tag Flows
 
-        Associate a tag with one or more flows. Any flow cannot be associated with more than **100** tags.   Use the request body to pass in the ID(s) of the flow(s) that will be associated with the tag.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `flows:write` `tags:write`
+        Associate a tag with one or more flows. Any flow cannot be associated with more than **100** tags.   Use the request body to pass in the ID(s) of the flow(s) that will be associated with the tag.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `flows:write` `tags:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/tag_flows.json)
 
         :param id: The Tag ID (required)
         :type id: str
@@ -7359,7 +7439,7 @@ class TagsApi(object):
 ) -> ApiResponse[None]:
         """Tag Flows
 
-        Associate a tag with one or more flows. Any flow cannot be associated with more than **100** tags.   Use the request body to pass in the ID(s) of the flow(s) that will be associated with the tag.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `flows:write` `tags:write`
+        Associate a tag with one or more flows. Any flow cannot be associated with more than **100** tags.   Use the request body to pass in the ID(s) of the flow(s) that will be associated with the tag.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `flows:write` `tags:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/tag_flows.json)
 
         :param id: The Tag ID (required)
         :type id: str
@@ -7450,7 +7530,7 @@ class TagsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Tag Flows
 
-        Associate a tag with one or more flows. Any flow cannot be associated with more than **100** tags.   Use the request body to pass in the ID(s) of the flow(s) that will be associated with the tag.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `flows:write` `tags:write`
+        Associate a tag with one or more flows. Any flow cannot be associated with more than **100** tags.   Use the request body to pass in the ID(s) of the flow(s) that will be associated with the tag.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `flows:write` `tags:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/tag_flows.json)
 
         :param id: The Tag ID (required)
         :type id: str
@@ -7635,7 +7715,7 @@ class TagsApi(object):
 ) -> None:
         """Tag Lists
 
-        Associate a tag with one or more lists. Any list cannot be associated with more than **100** tags.   Use the request body to pass in the ID(s) of the lists(s) that will be associated with the tag.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `lists:write` `tags:write`
+        Associate a tag with one or more lists. Any list cannot be associated with more than **100** tags.   Use the request body to pass in the ID(s) of the lists(s) that will be associated with the tag.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `lists:write` `tags:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/tag_lists.json)
 
         :param id: The Tag ID (required)
         :type id: str
@@ -7730,7 +7810,7 @@ class TagsApi(object):
 ) -> ApiResponse[None]:
         """Tag Lists
 
-        Associate a tag with one or more lists. Any list cannot be associated with more than **100** tags.   Use the request body to pass in the ID(s) of the lists(s) that will be associated with the tag.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `lists:write` `tags:write`
+        Associate a tag with one or more lists. Any list cannot be associated with more than **100** tags.   Use the request body to pass in the ID(s) of the lists(s) that will be associated with the tag.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `lists:write` `tags:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/tag_lists.json)
 
         :param id: The Tag ID (required)
         :type id: str
@@ -7821,7 +7901,7 @@ class TagsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Tag Lists
 
-        Associate a tag with one or more lists. Any list cannot be associated with more than **100** tags.   Use the request body to pass in the ID(s) of the lists(s) that will be associated with the tag.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `lists:write` `tags:write`
+        Associate a tag with one or more lists. Any list cannot be associated with more than **100** tags.   Use the request body to pass in the ID(s) of the lists(s) that will be associated with the tag.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `lists:write` `tags:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/tag_lists.json)
 
         :param id: The Tag ID (required)
         :type id: str
@@ -8006,7 +8086,7 @@ class TagsApi(object):
 ) -> None:
         """Tag Segments
 
-        Associate a tag with one or more segments. Any segment cannot be associated with more than **100** tags.   Use the request body to pass in the ID(s) of the segments(s) that will be associated with the tag.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `segments:write` `tags:write`
+        Associate a tag with one or more segments. Any segment cannot be associated with more than **100** tags.   Use the request body to pass in the ID(s) of the segments(s) that will be associated with the tag.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `segments:write` `tags:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/tag_segments.json)
 
         :param id: The Tag ID (required)
         :type id: str
@@ -8101,7 +8181,7 @@ class TagsApi(object):
 ) -> ApiResponse[None]:
         """Tag Segments
 
-        Associate a tag with one or more segments. Any segment cannot be associated with more than **100** tags.   Use the request body to pass in the ID(s) of the segments(s) that will be associated with the tag.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `segments:write` `tags:write`
+        Associate a tag with one or more segments. Any segment cannot be associated with more than **100** tags.   Use the request body to pass in the ID(s) of the segments(s) that will be associated with the tag.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `segments:write` `tags:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/tag_segments.json)
 
         :param id: The Tag ID (required)
         :type id: str
@@ -8192,7 +8272,7 @@ class TagsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Tag Segments
 
-        Associate a tag with one or more segments. Any segment cannot be associated with more than **100** tags.   Use the request body to pass in the ID(s) of the segments(s) that will be associated with the tag.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `segments:write` `tags:write`
+        Associate a tag with one or more segments. Any segment cannot be associated with more than **100** tags.   Use the request body to pass in the ID(s) of the segments(s) that will be associated with the tag.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `segments:write` `tags:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/tag_segments.json)
 
         :param id: The Tag ID (required)
         :type id: str
@@ -8377,7 +8457,7 @@ class TagsApi(object):
 ) -> None:
         """Update Tag
 
-        Update the tag with the given tag ID.  Only a tag's `name` can be changed. A tag cannot be moved from one tag group to another.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read` `tags:write`
+        Update the tag with the given tag ID.  Only a tag's `name` can be changed. A tag cannot be moved from one tag group to another.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read` `tags:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/update_tag.json)
 
         :param id: The Tag ID (required)
         :type id: str
@@ -8463,7 +8543,7 @@ class TagsApi(object):
 ) -> ApiResponse[None]:
         """Update Tag
 
-        Update the tag with the given tag ID.  Only a tag's `name` can be changed. A tag cannot be moved from one tag group to another.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read` `tags:write`
+        Update the tag with the given tag ID.  Only a tag's `name` can be changed. A tag cannot be moved from one tag group to another.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read` `tags:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/update_tag.json)
 
         :param id: The Tag ID (required)
         :type id: str
@@ -8545,7 +8625,7 @@ class TagsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Update Tag
 
-        Update the tag with the given tag ID.  Only a tag's `name` can be changed. A tag cannot be moved from one tag group to another.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read` `tags:write`
+        Update the tag with the given tag ID.  Only a tag's `name` can be changed. A tag cannot be moved from one tag group to another.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read` `tags:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/update_tag.json)
 
         :param id: The Tag ID (required)
         :type id: str
@@ -8709,10 +8789,10 @@ class TagsApi(object):
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
         options: Dict[str, Any] = {},
-) ->  Union[PatchTagGroupResponse, Dict[str, object]]:
+) -> None:
         """Update Tag Group
 
-        Update the tag group with the given tag group ID.  Only a tag group's `name` can be changed. A tag group's `exclusive` or `default` value cannot be changed.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read` `tags:write`
+        Update the tag group with the given tag group ID.  Only a tag group's `name` can be changed. A tag group's `exclusive` or `default` value cannot be changed.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read` `tags:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/update_tag_group.json)
 
         :param id: The Tag Group ID (required)
         :type id: str
@@ -8750,7 +8830,7 @@ class TagsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PatchTagGroupResponse",
+            '204': None,
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -8795,10 +8875,10 @@ class TagsApi(object):
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
         options: Dict[str, Any] = {},
-) -> ApiResponse[PatchTagGroupResponse]:
+) -> ApiResponse[None]:
         """Update Tag Group
 
-        Update the tag group with the given tag group ID.  Only a tag group's `name` can be changed. A tag group's `exclusive` or `default` value cannot be changed.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read` `tags:write`
+        Update the tag group with the given tag group ID.  Only a tag group's `name` can be changed. A tag group's `exclusive` or `default` value cannot be changed.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read` `tags:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/update_tag_group.json)
 
         :param id: The Tag Group ID (required)
         :type id: str
@@ -8836,7 +8916,7 @@ class TagsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PatchTagGroupResponse",
+            '204': None,
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }
@@ -8880,7 +8960,7 @@ class TagsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Update Tag Group
 
-        Update the tag group with the given tag group ID.  Only a tag group's `name` can be changed. A tag group's `exclusive` or `default` value cannot be changed.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read` `tags:write`
+        Update the tag group with the given tag group ID.  Only a tag group's `name` can be changed. A tag group's `exclusive` or `default` value cannot be changed.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `tags:read` `tags:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/update_tag_group.json)
 
         :param id: The Tag Group ID (required)
         :type id: str
@@ -8918,7 +8998,7 @@ class TagsApi(object):
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PatchTagGroupResponse",
+            '204': None,
             '4XX': "GetAccounts4XXResponse",
             '5XX': "GetAccounts4XXResponse",
         }

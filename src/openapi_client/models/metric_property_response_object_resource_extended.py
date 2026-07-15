@@ -18,9 +18,10 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.metric_property_enum import MetricPropertyEnum
 from openapi_client.models.metric_property_response_object_resource_extended_attributes import MetricPropertyResponseObjectResourceExtendedAttributes
+from openapi_client.models.metric_property_response_object_resource_extended_relationships import MetricPropertyResponseObjectResourceExtendedRelationships
 from openapi_client.models.object_links import ObjectLinks
 from typing import Optional, Set
 from typing_extensions import Self
@@ -32,8 +33,9 @@ class MetricPropertyResponseObjectResourceExtended(BaseModel):
     type: MetricPropertyEnum
     id: StrictStr = Field(description="The ID of the metric property")
     attributes: MetricPropertyResponseObjectResourceExtendedAttributes
+    relationships: Optional[MetricPropertyResponseObjectResourceExtendedRelationships] = None
     links: ObjectLinks
-    __properties: ClassVar[List[str]] = ["type", "id", "attributes", "links"]
+    __properties: ClassVar[List[str]] = ["type", "id", "attributes", "relationships", "links"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -77,6 +79,9 @@ class MetricPropertyResponseObjectResourceExtended(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of attributes
         if self.attributes:
             _dict['attributes'] = self.attributes.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of relationships
+        if self.relationships:
+            _dict['relationships'] = self.relationships.to_dict()
         # override the default output from pydantic by calling `to_dict()` of links
         if self.links:
             _dict['links'] = self.links.to_dict()
@@ -95,6 +100,7 @@ class MetricPropertyResponseObjectResourceExtended(BaseModel):
             "type": obj.get("type"),
             "id": obj.get("id"),
             "attributes": MetricPropertyResponseObjectResourceExtendedAttributes.from_dict(obj["attributes"]) if obj.get("attributes") is not None else None,
+            "relationships": MetricPropertyResponseObjectResourceExtendedRelationships.from_dict(obj["relationships"]) if obj.get("relationships") is not None else None,
             "links": ObjectLinks.from_dict(obj["links"]) if obj.get("links") is not None else None
         })
         return _obj

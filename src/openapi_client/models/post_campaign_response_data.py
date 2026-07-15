@@ -21,7 +21,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.campaign_enum import CampaignEnum
 from openapi_client.models.campaign_response_object_resource_attributes import CampaignResponseObjectResourceAttributes
-from openapi_client.models.get_campaign_response_collection_compound_document_data_inner_all_of_relationships import GetCampaignResponseCollectionCompoundDocumentDataInnerAllOfRelationships
+from openapi_client.models.campaign_response_object_resource_relationships import CampaignResponseObjectResourceRelationships
 from openapi_client.models.object_links import ObjectLinks
 from typing import Optional, Set
 from typing_extensions import Self
@@ -33,7 +33,7 @@ class PostCampaignResponseData(BaseModel):
     type: CampaignEnum
     id: StrictStr = Field(description="The campaign ID")
     attributes: CampaignResponseObjectResourceAttributes
-    relationships: Optional[GetCampaignResponseCollectionCompoundDocumentDataInnerAllOfRelationships] = None
+    relationships: Optional[CampaignResponseObjectResourceRelationships] = None
     links: ObjectLinks
     __properties: ClassVar[List[str]] = ["type", "id", "attributes", "relationships", "links"]
 
@@ -100,7 +100,7 @@ class PostCampaignResponseData(BaseModel):
             "type": obj.get("type"),
             "id": obj.get("id"),
             "attributes": CampaignResponseObjectResourceAttributes.from_dict(obj["attributes"]) if obj.get("attributes") is not None else None,
-            "relationships": GetCampaignResponseCollectionCompoundDocumentDataInnerAllOfRelationships.from_dict(obj["relationships"]) if obj.get("relationships") is not None else None,
+            "relationships": CampaignResponseObjectResourceRelationships.from_dict(obj["relationships"]) if obj.get("relationships") is not None else None,
             "links": ObjectLinks.from_dict(obj["links"]) if obj.get("links") is not None else None
         })
         return _obj

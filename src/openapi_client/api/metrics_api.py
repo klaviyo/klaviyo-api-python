@@ -73,6 +73,7 @@ class MetricsApi(object):
     def create_custom_metric(        
         self,
         custom_metric_create_query: Annotated[CustomMetricCreateQuery, Field(description="Create a custom metric.")],
+        fields_custom_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -89,10 +90,12 @@ class MetricsApi(object):
 ) ->  Union[PostCustomMetricResponse, Dict[str, object]]:
         """Create Custom Metric
 
-        Create a new custom metric.  Custom metric objects must include a `name` and `definition`.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`<br>Daily: `15/d`  **Scopes:** `metrics:write`
+        Create a new custom metric.  Custom metric objects must include a `name` and `definition`.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`<br>Daily: `15/d`  **Scopes:** `metrics:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/create_custom_metric.json)
 
         :param custom_metric_create_query: Create a custom metric. (required)
         :type custom_metric_create_query: CustomMetricCreateQuery
+        :param fields_custom_metric: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_custom_metric: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -117,6 +120,7 @@ class MetricsApi(object):
 
         _param = self._create_custom_metric_serialize(
             custom_metric_create_query=custom_metric_create_query,
+            fields_custom_metric=fields_custom_metric,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -155,6 +159,7 @@ class MetricsApi(object):
     def create_custom_metric_with_http_info(        
         self,
         custom_metric_create_query: Annotated[CustomMetricCreateQuery, Field(description="Create a custom metric.")],
+        fields_custom_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -171,10 +176,12 @@ class MetricsApi(object):
 ) -> ApiResponse[PostCustomMetricResponse]:
         """Create Custom Metric
 
-        Create a new custom metric.  Custom metric objects must include a `name` and `definition`.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`<br>Daily: `15/d`  **Scopes:** `metrics:write`
+        Create a new custom metric.  Custom metric objects must include a `name` and `definition`.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`<br>Daily: `15/d`  **Scopes:** `metrics:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/create_custom_metric.json)
 
         :param custom_metric_create_query: Create a custom metric. (required)
         :type custom_metric_create_query: CustomMetricCreateQuery
+        :param fields_custom_metric: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_custom_metric: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -199,6 +206,7 @@ class MetricsApi(object):
 
         _param = self._create_custom_metric_serialize(
             custom_metric_create_query=custom_metric_create_query,
+            fields_custom_metric=fields_custom_metric,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -235,6 +243,7 @@ class MetricsApi(object):
     def create_custom_metric_without_preload_content(
         self,
         custom_metric_create_query: Annotated[CustomMetricCreateQuery, Field(description="Create a custom metric.")],
+        fields_custom_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -249,10 +258,12 @@ class MetricsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Create Custom Metric
 
-        Create a new custom metric.  Custom metric objects must include a `name` and `definition`.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`<br>Daily: `15/d`  **Scopes:** `metrics:write`
+        Create a new custom metric.  Custom metric objects must include a `name` and `definition`.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`<br>Daily: `15/d`  **Scopes:** `metrics:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/create_custom_metric.json)
 
         :param custom_metric_create_query: Create a custom metric. (required)
         :type custom_metric_create_query: CustomMetricCreateQuery
+        :param fields_custom_metric: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_custom_metric: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -277,6 +288,7 @@ class MetricsApi(object):
 
         _param = self._create_custom_metric_serialize(
             custom_metric_create_query=custom_metric_create_query,
+            fields_custom_metric=fields_custom_metric,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -317,6 +329,7 @@ class MetricsApi(object):
     def _create_custom_metric_serialize(
         self,
         custom_metric_create_query,
+        fields_custom_metric,
         _request_auth,
         _content_type,
         _headers,
@@ -326,6 +339,7 @@ class MetricsApi(object):
         _host = None
 
         _collection_formats: Dict[str, str] = {
+            'fields[custom-metric]': 'csv',
         }
 
         _path_params: Dict[str, str] = {}
@@ -337,6 +351,13 @@ class MetricsApi(object):
 
         # process the path parameters
         # process the query parameters
+        if fields_custom_metric is not None:
+            
+            if isinstance(fields_custom_metric, EnumMeta):
+                _query_params.append(('fields[custom-metric]', fields_custom_metric))
+            else:
+                _query_params.append(('fields[custom-metric]', fields_custom_metric))
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -409,7 +430,7 @@ class MetricsApi(object):
 ) -> None:
         """Delete Custom Metric
 
-        Delete a custom metric with the given custom metric ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:write`
+        Delete a custom metric with the given custom metric ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/delete_custom_metric.json)
 
         :param id: The ID of the custom metric (required)
         :type id: str
@@ -491,7 +512,7 @@ class MetricsApi(object):
 ) -> ApiResponse[None]:
         """Delete Custom Metric
 
-        Delete a custom metric with the given custom metric ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:write`
+        Delete a custom metric with the given custom metric ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/delete_custom_metric.json)
 
         :param id: The ID of the custom metric (required)
         :type id: str
@@ -569,7 +590,7 @@ class MetricsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Delete Custom Metric
 
-        Delete a custom metric with the given custom metric ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:write`
+        Delete a custom metric with the given custom metric ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/delete_custom_metric.json)
 
         :param id: The ID of the custom metric (required)
         :type id: str
@@ -700,9 +721,9 @@ class MetricsApi(object):
     def get_custom_metric(        
         self,
         id: Annotated[StrictStr, Field(description="The ID of the custom metric")],
-        fields_custom_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
+        fields_custom_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -719,15 +740,15 @@ class MetricsApi(object):
 ) ->  Union[GetCustomMetricResponseCompoundDocument, Dict[str, object]]:
         """Get Custom Metric
 
-        Get a custom metric with the given custom metric ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`
+        Get a custom metric with the given custom metric ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_custom_metric.json)
 
         :param id: The ID of the custom metric (required)
         :type id: str
-        :param fields_custom_metric: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_custom_metric: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_custom_metric: List[str]
-        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_metric: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -794,9 +815,9 @@ class MetricsApi(object):
     def get_custom_metric_with_http_info(        
         self,
         id: Annotated[StrictStr, Field(description="The ID of the custom metric")],
-        fields_custom_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
+        fields_custom_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -813,15 +834,15 @@ class MetricsApi(object):
 ) -> ApiResponse[GetCustomMetricResponseCompoundDocument]:
         """Get Custom Metric
 
-        Get a custom metric with the given custom metric ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`
+        Get a custom metric with the given custom metric ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_custom_metric.json)
 
         :param id: The ID of the custom metric (required)
         :type id: str
-        :param fields_custom_metric: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_custom_metric: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_custom_metric: List[str]
-        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_metric: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -886,9 +907,9 @@ class MetricsApi(object):
     def get_custom_metric_without_preload_content(
         self,
         id: Annotated[StrictStr, Field(description="The ID of the custom metric")],
-        fields_custom_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
+        fields_custom_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -903,15 +924,15 @@ class MetricsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Custom Metric
 
-        Get a custom metric with the given custom metric ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`
+        Get a custom metric with the given custom metric ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_custom_metric.json)
 
         :param id: The ID of the custom metric (required)
         :type id: str
-        :param fields_custom_metric: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_custom_metric: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_custom_metric: List[str]
-        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_metric: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1070,7 +1091,7 @@ class MetricsApi(object):
     def get_custom_metric_for_mapped_metric(        
         self,
         id: Annotated[StrictStr, Field(description="The type of mapping.")],
-        fields_custom_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_custom_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1087,11 +1108,11 @@ class MetricsApi(object):
 ) ->  Union[GetCustomMetricResponse, Dict[str, object]]:
         """Get Custom Metric for Mapped Metric
 
-        Get the custom metric for the given mapped metric ID (if applicable).<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`
+        Get the custom metric for the given mapped metric ID (if applicable).<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_custom_metric_for_mapped_metric.json)
 
         :param id: The type of mapping. (required)
         :type id: str
-        :param fields_custom_metric: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_custom_metric: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_custom_metric: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1159,7 +1180,7 @@ class MetricsApi(object):
     def get_custom_metric_for_mapped_metric_with_http_info(        
         self,
         id: Annotated[StrictStr, Field(description="The type of mapping.")],
-        fields_custom_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_custom_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1176,11 +1197,11 @@ class MetricsApi(object):
 ) -> ApiResponse[GetCustomMetricResponse]:
         """Get Custom Metric for Mapped Metric
 
-        Get the custom metric for the given mapped metric ID (if applicable).<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`
+        Get the custom metric for the given mapped metric ID (if applicable).<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_custom_metric_for_mapped_metric.json)
 
         :param id: The type of mapping. (required)
         :type id: str
-        :param fields_custom_metric: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_custom_metric: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_custom_metric: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1246,7 +1267,7 @@ class MetricsApi(object):
     def get_custom_metric_for_mapped_metric_without_preload_content(
         self,
         id: Annotated[StrictStr, Field(description="The type of mapping.")],
-        fields_custom_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_custom_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1261,11 +1282,11 @@ class MetricsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Custom Metric for Mapped Metric
 
-        Get the custom metric for the given mapped metric ID (if applicable).<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`
+        Get the custom metric for the given mapped metric ID (if applicable).<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_custom_metric_for_mapped_metric.json)
 
         :param id: The type of mapping. (required)
         :type id: str
-        :param fields_custom_metric: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_custom_metric: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_custom_metric: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1426,7 +1447,7 @@ class MetricsApi(object):
 ) ->  Union[GetMappedMetricCustomMetricRelationshipResponse, Dict[str, object]]:
         """Get Custom Metric ID for Mapped Metric
 
-        Get the ID of the custom metric for the given mapped metric.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`
+        Get the ID of the custom metric for the given mapped metric.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_custom_metric_id_for_mapped_metric.json)
 
         :param id: The type of mapping. (required)
         :type id: str
@@ -1511,7 +1532,7 @@ class MetricsApi(object):
 ) -> ApiResponse[GetMappedMetricCustomMetricRelationshipResponse]:
         """Get Custom Metric ID for Mapped Metric
 
-        Get the ID of the custom metric for the given mapped metric.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`
+        Get the ID of the custom metric for the given mapped metric.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_custom_metric_id_for_mapped_metric.json)
 
         :param id: The type of mapping. (required)
         :type id: str
@@ -1592,7 +1613,7 @@ class MetricsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Custom Metric ID for Mapped Metric
 
-        Get the ID of the custom metric for the given mapped metric.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`
+        Get the ID of the custom metric for the given mapped metric.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_custom_metric_id_for_mapped_metric.json)
 
         :param id: The type of mapping. (required)
         :type id: str
@@ -1728,9 +1749,9 @@ class MetricsApi(object):
     @validate_call
     def get_custom_metrics(        
         self,
-        fields_custom_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
+        fields_custom_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1747,13 +1768,13 @@ class MetricsApi(object):
 ) ->  Union[GetCustomMetricResponseCollectionCompoundDocument, Dict[str, object]]:
         """Get Custom Metrics
 
-        Get all custom metrics in an account.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`
+        Get all custom metrics in an account.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_custom_metrics.json)
 
-        :param fields_custom_metric: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_custom_metric: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_custom_metric: List[str]
-        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_metric: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1818,9 +1839,9 @@ class MetricsApi(object):
     @validate_call
     def get_custom_metrics_with_http_info(        
         self,
-        fields_custom_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
+        fields_custom_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1837,13 +1858,13 @@ class MetricsApi(object):
 ) -> ApiResponse[GetCustomMetricResponseCollectionCompoundDocument]:
         """Get Custom Metrics
 
-        Get all custom metrics in an account.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`
+        Get all custom metrics in an account.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_custom_metrics.json)
 
-        :param fields_custom_metric: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_custom_metric: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_custom_metric: List[str]
-        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_metric: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1906,9 +1927,9 @@ class MetricsApi(object):
     @validate_call
     def get_custom_metrics_without_preload_content(
         self,
-        fields_custom_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
+        fields_custom_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1923,13 +1944,13 @@ class MetricsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Custom Metrics
 
-        Get all custom metrics in an account.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`
+        Get all custom metrics in an account.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_custom_metrics.json)
 
-        :param fields_custom_metric: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_custom_metric: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_custom_metric: List[str]
-        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_metric: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2084,7 +2105,7 @@ class MetricsApi(object):
     def get_flows_triggered_by_metric(        
         self,
         id: StrictStr,
-        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2101,11 +2122,11 @@ class MetricsApi(object):
 ) ->  Union[GetFlowResponseCollection, Dict[str, object]]:
         """Get Flows Triggered by Metric
 
-        Get all flows where the given metric is being used as the trigger.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `flows:read` `metrics:read`
+        Get all flows where the given metric is being used as the trigger.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `flows:read` `metrics:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_flows_triggered_by_metric.json)
 
         :param id:  (required)
         :type id: str
-        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_flow: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2176,7 +2197,7 @@ class MetricsApi(object):
     def get_flows_triggered_by_metric_with_http_info(        
         self,
         id: StrictStr,
-        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2193,11 +2214,11 @@ class MetricsApi(object):
 ) -> ApiResponse[GetFlowResponseCollection]:
         """Get Flows Triggered by Metric
 
-        Get all flows where the given metric is being used as the trigger.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `flows:read` `metrics:read`
+        Get all flows where the given metric is being used as the trigger.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `flows:read` `metrics:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_flows_triggered_by_metric.json)
 
         :param id:  (required)
         :type id: str
-        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_flow: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2266,7 +2287,7 @@ class MetricsApi(object):
     def get_flows_triggered_by_metric_without_preload_content(
         self,
         id: StrictStr,
-        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2281,11 +2302,11 @@ class MetricsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Flows Triggered by Metric
 
-        Get all flows where the given metric is being used as the trigger.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `flows:read` `metrics:read`
+        Get all flows where the given metric is being used as the trigger.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `flows:read` `metrics:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_flows_triggered_by_metric.json)
 
         :param id:  (required)
         :type id: str
-        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_flow: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2452,7 +2473,7 @@ class MetricsApi(object):
 ) ->  Union[GetMetricFlowTriggersRelationshipsResponseCollection, Dict[str, object]]:
         """Get IDs for Flows Triggered by Metric
 
-        Get the IDs of all flows where the given metric is being used as the trigger.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `flows:read` `metrics:read`
+        Get the IDs of all flows where the given metric is being used as the trigger.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `flows:read` `metrics:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_ids_for_flows_triggered_by_metric.json)
 
         :param id:  (required)
         :type id: str
@@ -2540,7 +2561,7 @@ class MetricsApi(object):
 ) -> ApiResponse[GetMetricFlowTriggersRelationshipsResponseCollection]:
         """Get IDs for Flows Triggered by Metric
 
-        Get the IDs of all flows where the given metric is being used as the trigger.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `flows:read` `metrics:read`
+        Get the IDs of all flows where the given metric is being used as the trigger.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `flows:read` `metrics:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_ids_for_flows_triggered_by_metric.json)
 
         :param id:  (required)
         :type id: str
@@ -2624,7 +2645,7 @@ class MetricsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get IDs for Flows Triggered by Metric
 
-        Get the IDs of all flows where the given metric is being used as the trigger.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `flows:read` `metrics:read`
+        Get the IDs of all flows where the given metric is being used as the trigger.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `flows:read` `metrics:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_ids_for_flows_triggered_by_metric.json)
 
         :param id:  (required)
         :type id: str
@@ -2767,10 +2788,10 @@ class MetricsApi(object):
     def get_mapped_metric(        
         self,
         id: Annotated[StrictStr, Field(description="The type of mapping.")],
-        fields_custom_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_mapped_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
+        fields_custom_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_mapped_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2787,17 +2808,17 @@ class MetricsApi(object):
 ) ->  Union[GetMappedMetricResponseCompoundDocument, Dict[str, object]]:
         """Get Mapped Metric
 
-        Get the mapped metric with the given ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`
+        Get the mapped metric with the given ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_mapped_metric.json)
 
         :param id: The type of mapping. (required)
         :type id: str
-        :param fields_custom_metric: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_custom_metric: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_custom_metric: List[str]
-        :param fields_mapped_metric: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_mapped_metric: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_mapped_metric: List[str]
-        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_metric: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2865,10 +2886,10 @@ class MetricsApi(object):
     def get_mapped_metric_with_http_info(        
         self,
         id: Annotated[StrictStr, Field(description="The type of mapping.")],
-        fields_custom_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_mapped_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
+        fields_custom_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_mapped_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2885,17 +2906,17 @@ class MetricsApi(object):
 ) -> ApiResponse[GetMappedMetricResponseCompoundDocument]:
         """Get Mapped Metric
 
-        Get the mapped metric with the given ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`
+        Get the mapped metric with the given ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_mapped_metric.json)
 
         :param id: The type of mapping. (required)
         :type id: str
-        :param fields_custom_metric: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_custom_metric: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_custom_metric: List[str]
-        :param fields_mapped_metric: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_mapped_metric: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_mapped_metric: List[str]
-        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_metric: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2961,10 +2982,10 @@ class MetricsApi(object):
     def get_mapped_metric_without_preload_content(
         self,
         id: Annotated[StrictStr, Field(description="The type of mapping.")],
-        fields_custom_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_mapped_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
+        fields_custom_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_mapped_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2979,17 +3000,17 @@ class MetricsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Mapped Metric
 
-        Get the mapped metric with the given ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`
+        Get the mapped metric with the given ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_mapped_metric.json)
 
         :param id: The type of mapping. (required)
         :type id: str
-        :param fields_custom_metric: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_custom_metric: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_custom_metric: List[str]
-        :param fields_mapped_metric: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_mapped_metric: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_mapped_metric: List[str]
-        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_metric: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3157,10 +3178,10 @@ class MetricsApi(object):
     @validate_call
     def get_mapped_metrics(        
         self,
-        fields_custom_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_mapped_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
+        fields_custom_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_mapped_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3177,15 +3198,15 @@ class MetricsApi(object):
 ) ->  Union[GetMappedMetricResponseCollectionCompoundDocument, Dict[str, object]]:
         """Get Mapped Metrics
 
-        Get all mapped metrics in an account.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`
+        Get all mapped metrics in an account.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_mapped_metrics.json)
 
-        :param fields_custom_metric: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_custom_metric: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_custom_metric: List[str]
-        :param fields_mapped_metric: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_mapped_metric: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_mapped_metric: List[str]
-        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_metric: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3251,10 +3272,10 @@ class MetricsApi(object):
     @validate_call
     def get_mapped_metrics_with_http_info(        
         self,
-        fields_custom_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_mapped_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
+        fields_custom_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_mapped_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3271,15 +3292,15 @@ class MetricsApi(object):
 ) -> ApiResponse[GetMappedMetricResponseCollectionCompoundDocument]:
         """Get Mapped Metrics
 
-        Get all mapped metrics in an account.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`
+        Get all mapped metrics in an account.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_mapped_metrics.json)
 
-        :param fields_custom_metric: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_custom_metric: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_custom_metric: List[str]
-        :param fields_mapped_metric: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_mapped_metric: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_mapped_metric: List[str]
-        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_metric: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3343,10 +3364,10 @@ class MetricsApi(object):
     @validate_call
     def get_mapped_metrics_without_preload_content(
         self,
-        fields_custom_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_mapped_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
+        fields_custom_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_mapped_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3361,15 +3382,15 @@ class MetricsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Mapped Metrics
 
-        Get all mapped metrics in an account.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`
+        Get all mapped metrics in an account.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_mapped_metrics.json)
 
-        :param fields_custom_metric: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_custom_metric: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_custom_metric: List[str]
-        :param fields_mapped_metric: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_mapped_metric: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_mapped_metric: List[str]
-        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_metric: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3534,9 +3555,9 @@ class MetricsApi(object):
     def get_metric(        
         self,
         id: Annotated[StrictStr, Field(description="Metric ID")],
-        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
+        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3553,15 +3574,15 @@ class MetricsApi(object):
 ) ->  Union[GetMetricResponseCompoundDocument, Dict[str, object]]:
         """Get Metric
 
-        Get a metric with the given metric ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `metrics:read`
+        Get a metric with the given metric ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `metrics:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_metric.json)
 
         :param id: Metric ID (required)
         :type id: str
-        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_flow: List[str]
-        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_metric: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3628,9 +3649,9 @@ class MetricsApi(object):
     def get_metric_with_http_info(        
         self,
         id: Annotated[StrictStr, Field(description="Metric ID")],
-        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
+        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3647,15 +3668,15 @@ class MetricsApi(object):
 ) -> ApiResponse[GetMetricResponseCompoundDocument]:
         """Get Metric
 
-        Get a metric with the given metric ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `metrics:read`
+        Get a metric with the given metric ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `metrics:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_metric.json)
 
         :param id: Metric ID (required)
         :type id: str
-        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_flow: List[str]
-        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_metric: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3720,9 +3741,9 @@ class MetricsApi(object):
     def get_metric_without_preload_content(
         self,
         id: Annotated[StrictStr, Field(description="Metric ID")],
-        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
+        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3737,15 +3758,15 @@ class MetricsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Metric
 
-        Get a metric with the given metric ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `metrics:read`
+        Get a metric with the given metric ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `metrics:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_metric.json)
 
         :param id: Metric ID (required)
         :type id: str
-        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_flow: List[str]
-        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_metric: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3904,7 +3925,7 @@ class MetricsApi(object):
     def get_metric_for_mapped_metric(        
         self,
         id: Annotated[StrictStr, Field(description="The type of mapping.")],
-        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3921,11 +3942,11 @@ class MetricsApi(object):
 ) ->  Union[GetMetricResponse, Dict[str, object]]:
         """Get Metric for Mapped Metric
 
-        Get the metric for the given mapped metric ID (if applicable).<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`
+        Get the metric for the given mapped metric ID (if applicable).<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_metric_for_mapped_metric.json)
 
         :param id: The type of mapping. (required)
         :type id: str
-        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_metric: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3993,7 +4014,7 @@ class MetricsApi(object):
     def get_metric_for_mapped_metric_with_http_info(        
         self,
         id: Annotated[StrictStr, Field(description="The type of mapping.")],
-        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4010,11 +4031,11 @@ class MetricsApi(object):
 ) -> ApiResponse[GetMetricResponse]:
         """Get Metric for Mapped Metric
 
-        Get the metric for the given mapped metric ID (if applicable).<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`
+        Get the metric for the given mapped metric ID (if applicable).<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_metric_for_mapped_metric.json)
 
         :param id: The type of mapping. (required)
         :type id: str
-        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_metric: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -4080,7 +4101,7 @@ class MetricsApi(object):
     def get_metric_for_mapped_metric_without_preload_content(
         self,
         id: Annotated[StrictStr, Field(description="The type of mapping.")],
-        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4095,11 +4116,11 @@ class MetricsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Metric for Mapped Metric
 
-        Get the metric for the given mapped metric ID (if applicable).<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`
+        Get the metric for the given mapped metric ID (if applicable).<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_metric_for_mapped_metric.json)
 
         :param id: The type of mapping. (required)
         :type id: str
-        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_metric: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -4244,7 +4265,7 @@ class MetricsApi(object):
     def get_metric_for_metric_property(        
         self,
         id: Annotated[StrictStr, Field(description="The ID of the metric property")],
-        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4261,11 +4282,11 @@ class MetricsApi(object):
 ) ->  Union[GetMetricResponse, Dict[str, object]]:
         """Get Metric for Metric Property
 
-        Get the metric for the given metric property ID.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `metrics:read`
+        Get the metric for the given metric property ID.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `metrics:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_metric_for_metric_property.json)
 
         :param id: The ID of the metric property (required)
         :type id: str
-        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_metric: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -4333,7 +4354,7 @@ class MetricsApi(object):
     def get_metric_for_metric_property_with_http_info(        
         self,
         id: Annotated[StrictStr, Field(description="The ID of the metric property")],
-        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4350,11 +4371,11 @@ class MetricsApi(object):
 ) -> ApiResponse[GetMetricResponse]:
         """Get Metric for Metric Property
 
-        Get the metric for the given metric property ID.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `metrics:read`
+        Get the metric for the given metric property ID.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `metrics:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_metric_for_metric_property.json)
 
         :param id: The ID of the metric property (required)
         :type id: str
-        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_metric: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -4420,7 +4441,7 @@ class MetricsApi(object):
     def get_metric_for_metric_property_without_preload_content(
         self,
         id: Annotated[StrictStr, Field(description="The ID of the metric property")],
-        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4435,11 +4456,11 @@ class MetricsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Metric for Metric Property
 
-        Get the metric for the given metric property ID.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `metrics:read`
+        Get the metric for the given metric property ID.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `metrics:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_metric_for_metric_property.json)
 
         :param id: The ID of the metric property (required)
         :type id: str
-        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_metric: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -4600,7 +4621,7 @@ class MetricsApi(object):
 ) ->  Union[GetMappedMetricMetricRelationshipResponse, Dict[str, object]]:
         """Get Metric ID for Mapped Metric
 
-        Get the ID of the metric for the given mapped metric.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`
+        Get the ID of the metric for the given mapped metric.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_metric_id_for_mapped_metric.json)
 
         :param id: The type of mapping. (required)
         :type id: str
@@ -4685,7 +4706,7 @@ class MetricsApi(object):
 ) -> ApiResponse[GetMappedMetricMetricRelationshipResponse]:
         """Get Metric ID for Mapped Metric
 
-        Get the ID of the metric for the given mapped metric.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`
+        Get the ID of the metric for the given mapped metric.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_metric_id_for_mapped_metric.json)
 
         :param id: The type of mapping. (required)
         :type id: str
@@ -4766,7 +4787,7 @@ class MetricsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Metric ID for Mapped Metric
 
-        Get the ID of the metric for the given mapped metric.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`
+        Get the ID of the metric for the given mapped metric.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_metric_id_for_mapped_metric.json)
 
         :param id: The type of mapping. (required)
         :type id: str
@@ -4919,7 +4940,7 @@ class MetricsApi(object):
 ) ->  Union[GetMetricPropertyMetricRelationshipResponse, Dict[str, object]]:
         """Get Metric ID for Metric Property
 
-        Get the ID of the metric for the given metric property.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `metrics:read`
+        Get the ID of the metric for the given metric property.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `metrics:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_metric_id_for_metric_property.json)
 
         :param id: The ID of the metric property (required)
         :type id: str
@@ -5004,7 +5025,7 @@ class MetricsApi(object):
 ) -> ApiResponse[GetMetricPropertyMetricRelationshipResponse]:
         """Get Metric ID for Metric Property
 
-        Get the ID of the metric for the given metric property.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `metrics:read`
+        Get the ID of the metric for the given metric property.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `metrics:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_metric_id_for_metric_property.json)
 
         :param id: The ID of the metric property (required)
         :type id: str
@@ -5085,7 +5106,7 @@ class MetricsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Metric ID for Metric Property
 
-        Get the ID of the metric for the given metric property.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `metrics:read`
+        Get the ID of the metric for the given metric property.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `metrics:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_metric_id_for_metric_property.json)
 
         :param id: The ID of the metric property (required)
         :type id: str
@@ -5238,7 +5259,7 @@ class MetricsApi(object):
 ) ->  Union[GetCustomMetricMetricsRelationshipsResponseCollection, Dict[str, object]]:
         """Get Metric IDs for Custom Metric
 
-        Get all metrics for the given custom metric ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`
+        Get all metrics for the given custom metric ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_metric_ids_for_custom_metric.json)
 
         :param id: The ID of the custom metric (required)
         :type id: str
@@ -5323,7 +5344,7 @@ class MetricsApi(object):
 ) -> ApiResponse[GetCustomMetricMetricsRelationshipsResponseCollection]:
         """Get Metric IDs for Custom Metric
 
-        Get all metrics for the given custom metric ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`
+        Get all metrics for the given custom metric ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_metric_ids_for_custom_metric.json)
 
         :param id: The ID of the custom metric (required)
         :type id: str
@@ -5404,7 +5425,7 @@ class MetricsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Metric IDs for Custom Metric
 
-        Get all metrics for the given custom metric ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`
+        Get all metrics for the given custom metric ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_metric_ids_for_custom_metric.json)
 
         :param id: The ID of the custom metric (required)
         :type id: str
@@ -5542,9 +5563,9 @@ class MetricsApi(object):
         self,
         id: Annotated[StrictStr, Field(description="The ID of the metric property")],
         additional_fields_metric_property: Annotated[Optional[List[StrictStr]], Field(description="Request additional fields not included by default in the response. Supported values: 'sample_values'")] = None,
-        fields_metric_property: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
+        fields_metric_property: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5561,17 +5582,17 @@ class MetricsApi(object):
 ) ->  Union[GetMetricPropertyResponseCompoundDocument, Dict[str, object]]:
         """Get Metric Property
 
-        Get a metric property with the given metric property ID.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `metrics:read`
+        Get a metric property with the given metric property ID.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `metrics:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_metric_property.json)
 
         :param id: The ID of the metric property (required)
         :type id: str
         :param additional_fields_metric_property: Request additional fields not included by default in the response. Supported values: 'sample_values'
         :type additional_fields_metric_property: List[str]
-        :param fields_metric_property: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_metric_property: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_metric_property: List[str]
-        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_metric: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -5640,9 +5661,9 @@ class MetricsApi(object):
         self,
         id: Annotated[StrictStr, Field(description="The ID of the metric property")],
         additional_fields_metric_property: Annotated[Optional[List[StrictStr]], Field(description="Request additional fields not included by default in the response. Supported values: 'sample_values'")] = None,
-        fields_metric_property: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
+        fields_metric_property: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5659,17 +5680,17 @@ class MetricsApi(object):
 ) -> ApiResponse[GetMetricPropertyResponseCompoundDocument]:
         """Get Metric Property
 
-        Get a metric property with the given metric property ID.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `metrics:read`
+        Get a metric property with the given metric property ID.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `metrics:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_metric_property.json)
 
         :param id: The ID of the metric property (required)
         :type id: str
         :param additional_fields_metric_property: Request additional fields not included by default in the response. Supported values: 'sample_values'
         :type additional_fields_metric_property: List[str]
-        :param fields_metric_property: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_metric_property: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_metric_property: List[str]
-        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_metric: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -5736,9 +5757,9 @@ class MetricsApi(object):
         self,
         id: Annotated[StrictStr, Field(description="The ID of the metric property")],
         additional_fields_metric_property: Annotated[Optional[List[StrictStr]], Field(description="Request additional fields not included by default in the response. Supported values: 'sample_values'")] = None,
-        fields_metric_property: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
+        fields_metric_property: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5753,17 +5774,17 @@ class MetricsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Metric Property
 
-        Get a metric property with the given metric property ID.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `metrics:read`
+        Get a metric property with the given metric property ID.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `metrics:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_metric_property.json)
 
         :param id: The ID of the metric property (required)
         :type id: str
         :param additional_fields_metric_property: Request additional fields not included by default in the response. Supported values: 'sample_values'
         :type additional_fields_metric_property: List[str]
-        :param fields_metric_property: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_metric_property: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_metric_property: List[str]
-        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_metric: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -5931,11 +5952,11 @@ class MetricsApi(object):
     @validate_call
     def get_metrics(        
         self,
-        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`integration.name`: `equals`<br>`integration.category`: `equals`")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
+        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`integration.name`: `equals`<br>`integration.category`: `equals`")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5952,17 +5973,17 @@ class MetricsApi(object):
 ) ->  Union[GetMetricResponseCollectionCompoundDocument, Dict[str, object]]:
         """Get Metrics
 
-        Get all metrics in an account.  Requests can be filtered by the following fields: integration `name`, integration `category`  Returns a maximum of 200 results per page.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `metrics:read`
+        Get all metrics in an account.  Requests can be filtered by the following fields: integration `name`, integration `category`  Returns a maximum of 200 results per page.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `metrics:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_metrics.json)
 
-        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_flow: List[str]
-        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_metric: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`integration.name`: `equals`<br>`integration.category`: `equals`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`integration.name`: `equals`<br>`integration.category`: `equals`
         :type filter: str
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships
         :type include: List[str]
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
         :type page_cursor: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -6029,11 +6050,11 @@ class MetricsApi(object):
     @validate_call
     def get_metrics_with_http_info(        
         self,
-        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`integration.name`: `equals`<br>`integration.category`: `equals`")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
+        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`integration.name`: `equals`<br>`integration.category`: `equals`")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6050,17 +6071,17 @@ class MetricsApi(object):
 ) -> ApiResponse[GetMetricResponseCollectionCompoundDocument]:
         """Get Metrics
 
-        Get all metrics in an account.  Requests can be filtered by the following fields: integration `name`, integration `category`  Returns a maximum of 200 results per page.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `metrics:read`
+        Get all metrics in an account.  Requests can be filtered by the following fields: integration `name`, integration `category`  Returns a maximum of 200 results per page.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `metrics:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_metrics.json)
 
-        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_flow: List[str]
-        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_metric: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`integration.name`: `equals`<br>`integration.category`: `equals`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`integration.name`: `equals`<br>`integration.category`: `equals`
         :type filter: str
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships
         :type include: List[str]
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
         :type page_cursor: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -6125,11 +6146,11 @@ class MetricsApi(object):
     @validate_call
     def get_metrics_without_preload_content(
         self,
-        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`integration.name`: `equals`<br>`integration.category`: `equals`")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
+        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`integration.name`: `equals`<br>`integration.category`: `equals`")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6144,17 +6165,17 @@ class MetricsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Metrics
 
-        Get all metrics in an account.  Requests can be filtered by the following fields: integration `name`, integration `category`  Returns a maximum of 200 results per page.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `metrics:read`
+        Get all metrics in an account.  Requests can be filtered by the following fields: integration `name`, integration `category`  Returns a maximum of 200 results per page.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `metrics:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_metrics.json)
 
-        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_flow: List[str]
-        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_metric: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`integration.name`: `equals`<br>`integration.category`: `equals`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`integration.name`: `equals`<br>`integration.category`: `equals`
         :type filter: str
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships
         :type include: List[str]
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
         :type page_cursor: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -6327,7 +6348,7 @@ class MetricsApi(object):
     def get_metrics_for_custom_metric(        
         self,
         id: Annotated[StrictStr, Field(description="The ID of the custom metric")],
-        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6344,11 +6365,11 @@ class MetricsApi(object):
 ) ->  Union[GetMetricResponseCollection, Dict[str, object]]:
         """Get Metrics for Custom Metric
 
-        Get all metrics for the given custom metric ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`
+        Get all metrics for the given custom metric ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_metrics_for_custom_metric.json)
 
         :param id: The ID of the custom metric (required)
         :type id: str
-        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_metric: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -6416,7 +6437,7 @@ class MetricsApi(object):
     def get_metrics_for_custom_metric_with_http_info(        
         self,
         id: Annotated[StrictStr, Field(description="The ID of the custom metric")],
-        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6433,11 +6454,11 @@ class MetricsApi(object):
 ) -> ApiResponse[GetMetricResponseCollection]:
         """Get Metrics for Custom Metric
 
-        Get all metrics for the given custom metric ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`
+        Get all metrics for the given custom metric ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_metrics_for_custom_metric.json)
 
         :param id: The ID of the custom metric (required)
         :type id: str
-        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_metric: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -6503,7 +6524,7 @@ class MetricsApi(object):
     def get_metrics_for_custom_metric_without_preload_content(
         self,
         id: Annotated[StrictStr, Field(description="The ID of the custom metric")],
-        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6518,11 +6539,11 @@ class MetricsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Metrics for Custom Metric
 
-        Get all metrics for the given custom metric ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`
+        Get all metrics for the given custom metric ID.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_metrics_for_custom_metric.json)
 
         :param id: The ID of the custom metric (required)
         :type id: str
-        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_metric: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_metric: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -6668,7 +6689,7 @@ class MetricsApi(object):
         self,
         id: Annotated[StrictStr, Field(description="The ID of the metric")],
         additional_fields_metric_property: Annotated[Optional[List[StrictStr]], Field(description="Request additional fields not included by default in the response. Supported values: 'sample_values'")] = None,
-        fields_metric_property: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_metric_property: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6685,13 +6706,13 @@ class MetricsApi(object):
 ) ->  Union[GetMetricPropertyResponseCollection, Dict[str, object]]:
         """Get Properties for Metric
 
-        Get the metric properties for the given metric ID.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `metrics:read`
+        Get the metric properties for the given metric ID.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `metrics:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_properties_for_metric.json)
 
         :param id: The ID of the metric (required)
         :type id: str
         :param additional_fields_metric_property: Request additional fields not included by default in the response. Supported values: 'sample_values'
         :type additional_fields_metric_property: List[str]
-        :param fields_metric_property: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_metric_property: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_metric_property: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -6764,7 +6785,7 @@ class MetricsApi(object):
         self,
         id: Annotated[StrictStr, Field(description="The ID of the metric")],
         additional_fields_metric_property: Annotated[Optional[List[StrictStr]], Field(description="Request additional fields not included by default in the response. Supported values: 'sample_values'")] = None,
-        fields_metric_property: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_metric_property: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6781,13 +6802,13 @@ class MetricsApi(object):
 ) -> ApiResponse[GetMetricPropertyResponseCollection]:
         """Get Properties for Metric
 
-        Get the metric properties for the given metric ID.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `metrics:read`
+        Get the metric properties for the given metric ID.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `metrics:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_properties_for_metric.json)
 
         :param id: The ID of the metric (required)
         :type id: str
         :param additional_fields_metric_property: Request additional fields not included by default in the response. Supported values: 'sample_values'
         :type additional_fields_metric_property: List[str]
-        :param fields_metric_property: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_metric_property: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_metric_property: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -6858,7 +6879,7 @@ class MetricsApi(object):
         self,
         id: Annotated[StrictStr, Field(description="The ID of the metric")],
         additional_fields_metric_property: Annotated[Optional[List[StrictStr]], Field(description="Request additional fields not included by default in the response. Supported values: 'sample_values'")] = None,
-        fields_metric_property: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_metric_property: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6873,13 +6894,13 @@ class MetricsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Properties for Metric
 
-        Get the metric properties for the given metric ID.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `metrics:read`
+        Get the metric properties for the given metric ID.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `metrics:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_properties_for_metric.json)
 
         :param id: The ID of the metric (required)
         :type id: str
         :param additional_fields_metric_property: Request additional fields not included by default in the response. Supported values: 'sample_values'
         :type additional_fields_metric_property: List[str]
-        :param fields_metric_property: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_metric_property: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_metric_property: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -7056,7 +7077,7 @@ class MetricsApi(object):
 ) ->  Union[GetMetricPropertiesRelationshipsResponseCollection, Dict[str, object]]:
         """Get Property IDs for Metric
 
-        Get the IDs of metric properties for the given metric.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `metrics:read`
+        Get the IDs of metric properties for the given metric.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `metrics:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_property_ids_for_metric.json)
 
         :param id: The ID of the metric (required)
         :type id: str
@@ -7144,7 +7165,7 @@ class MetricsApi(object):
 ) -> ApiResponse[GetMetricPropertiesRelationshipsResponseCollection]:
         """Get Property IDs for Metric
 
-        Get the IDs of metric properties for the given metric.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `metrics:read`
+        Get the IDs of metric properties for the given metric.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `metrics:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_property_ids_for_metric.json)
 
         :param id: The ID of the metric (required)
         :type id: str
@@ -7228,7 +7249,7 @@ class MetricsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Property IDs for Metric
 
-        Get the IDs of metric properties for the given metric.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `metrics:read`
+        Get the IDs of metric properties for the given metric.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`  **Scopes:** `metrics:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_property_ids_for_metric.json)
 
         :param id: The ID of the metric (required)
         :type id: str
@@ -7371,6 +7392,7 @@ class MetricsApi(object):
     def query_metric_aggregates(        
         self,
         metric_aggregate_query: Annotated[MetricAggregateQuery, Field(description="Retrieve Metric Aggregations")],
+        fields_metric_aggregate: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7387,10 +7409,12 @@ class MetricsApi(object):
 ) ->  Union[PostMetricAggregateResponse, Dict[str, object]]:
         """Query Metric Aggregates
 
-        Query and aggregate event data associated with a metric, including native Klaviyo metrics, integration-specific metrics, and custom events (not to be confused with [custom metrics](https://developers.klaviyo.com/en/reference/custom_metrics_api_overview), which are not supported at this time). Queries must be passed in the JSON body of your `POST` request.  To request campaign and flow performance data that matches the data shown in Klaviyo's UI, we recommend the [Reporting API](https://developers.klaviyo.com/en/reference/reporting_api_overview).  Results can be filtered and grouped by time, event, or profile dimensions.  To learn more about how to use this endpoint, check out our new [Using the Query Metric Aggregates Endpoint guide](https://developers.klaviyo.com/en/docs/using-the-query-metric-aggregates-endpoint).  For a comprehensive list of request body parameters, native Klaviyo metrics, and their associated attributes for grouping and filtering, please refer to the [metrics attributes guide](https://developers.klaviyo.com/en/docs/supported_metrics_and_attributes).<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`
+        Query and aggregate event data associated with a metric, including native Klaviyo metrics, integration-specific metrics, and custom events (not to be confused with [custom metrics](https://developers.klaviyo.com/en/reference/custom_metrics_api_overview), which are not supported at this time). Queries must be passed in the JSON body of your `POST` request.  To request campaign and flow performance data that matches the data shown in Klaviyo's UI, we recommend the [Reporting API](https://developers.klaviyo.com/en/reference/reporting_api_overview).  Results can be filtered and grouped by time, event, or profile dimensions.  To learn more about how to use this endpoint, check out our new [Using the Query Metric Aggregates Endpoint guide](https://developers.klaviyo.com/en/docs/using-the-query-metric-aggregates-endpoint).  For a comprehensive list of request body parameters, native Klaviyo metrics, and their associated attributes for grouping and filtering, please refer to the [metrics attributes guide](https://developers.klaviyo.com/en/docs/supported_metrics_and_attributes).<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/query_metric_aggregates.json)
 
         :param metric_aggregate_query: Retrieve Metric Aggregations (required)
         :type metric_aggregate_query: MetricAggregateQuery
+        :param fields_metric_aggregate: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_metric_aggregate: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -7415,6 +7439,7 @@ class MetricsApi(object):
 
         _param = self._query_metric_aggregates_serialize(
             metric_aggregate_query=metric_aggregate_query,
+            fields_metric_aggregate=fields_metric_aggregate,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -7456,6 +7481,7 @@ class MetricsApi(object):
     def query_metric_aggregates_with_http_info(        
         self,
         metric_aggregate_query: Annotated[MetricAggregateQuery, Field(description="Retrieve Metric Aggregations")],
+        fields_metric_aggregate: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7472,10 +7498,12 @@ class MetricsApi(object):
 ) -> ApiResponse[PostMetricAggregateResponse]:
         """Query Metric Aggregates
 
-        Query and aggregate event data associated with a metric, including native Klaviyo metrics, integration-specific metrics, and custom events (not to be confused with [custom metrics](https://developers.klaviyo.com/en/reference/custom_metrics_api_overview), which are not supported at this time). Queries must be passed in the JSON body of your `POST` request.  To request campaign and flow performance data that matches the data shown in Klaviyo's UI, we recommend the [Reporting API](https://developers.klaviyo.com/en/reference/reporting_api_overview).  Results can be filtered and grouped by time, event, or profile dimensions.  To learn more about how to use this endpoint, check out our new [Using the Query Metric Aggregates Endpoint guide](https://developers.klaviyo.com/en/docs/using-the-query-metric-aggregates-endpoint).  For a comprehensive list of request body parameters, native Klaviyo metrics, and their associated attributes for grouping and filtering, please refer to the [metrics attributes guide](https://developers.klaviyo.com/en/docs/supported_metrics_and_attributes).<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`
+        Query and aggregate event data associated with a metric, including native Klaviyo metrics, integration-specific metrics, and custom events (not to be confused with [custom metrics](https://developers.klaviyo.com/en/reference/custom_metrics_api_overview), which are not supported at this time). Queries must be passed in the JSON body of your `POST` request.  To request campaign and flow performance data that matches the data shown in Klaviyo's UI, we recommend the [Reporting API](https://developers.klaviyo.com/en/reference/reporting_api_overview).  Results can be filtered and grouped by time, event, or profile dimensions.  To learn more about how to use this endpoint, check out our new [Using the Query Metric Aggregates Endpoint guide](https://developers.klaviyo.com/en/docs/using-the-query-metric-aggregates-endpoint).  For a comprehensive list of request body parameters, native Klaviyo metrics, and their associated attributes for grouping and filtering, please refer to the [metrics attributes guide](https://developers.klaviyo.com/en/docs/supported_metrics_and_attributes).<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/query_metric_aggregates.json)
 
         :param metric_aggregate_query: Retrieve Metric Aggregations (required)
         :type metric_aggregate_query: MetricAggregateQuery
+        :param fields_metric_aggregate: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_metric_aggregate: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -7500,6 +7528,7 @@ class MetricsApi(object):
 
         _param = self._query_metric_aggregates_serialize(
             metric_aggregate_query=metric_aggregate_query,
+            fields_metric_aggregate=fields_metric_aggregate,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -7539,6 +7568,7 @@ class MetricsApi(object):
     def query_metric_aggregates_without_preload_content(
         self,
         metric_aggregate_query: Annotated[MetricAggregateQuery, Field(description="Retrieve Metric Aggregations")],
+        fields_metric_aggregate: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7553,10 +7583,12 @@ class MetricsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Query Metric Aggregates
 
-        Query and aggregate event data associated with a metric, including native Klaviyo metrics, integration-specific metrics, and custom events (not to be confused with [custom metrics](https://developers.klaviyo.com/en/reference/custom_metrics_api_overview), which are not supported at this time). Queries must be passed in the JSON body of your `POST` request.  To request campaign and flow performance data that matches the data shown in Klaviyo's UI, we recommend the [Reporting API](https://developers.klaviyo.com/en/reference/reporting_api_overview).  Results can be filtered and grouped by time, event, or profile dimensions.  To learn more about how to use this endpoint, check out our new [Using the Query Metric Aggregates Endpoint guide](https://developers.klaviyo.com/en/docs/using-the-query-metric-aggregates-endpoint).  For a comprehensive list of request body parameters, native Klaviyo metrics, and their associated attributes for grouping and filtering, please refer to the [metrics attributes guide](https://developers.klaviyo.com/en/docs/supported_metrics_and_attributes).<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`
+        Query and aggregate event data associated with a metric, including native Klaviyo metrics, integration-specific metrics, and custom events (not to be confused with [custom metrics](https://developers.klaviyo.com/en/reference/custom_metrics_api_overview), which are not supported at this time). Queries must be passed in the JSON body of your `POST` request.  To request campaign and flow performance data that matches the data shown in Klaviyo's UI, we recommend the [Reporting API](https://developers.klaviyo.com/en/reference/reporting_api_overview).  Results can be filtered and grouped by time, event, or profile dimensions.  To learn more about how to use this endpoint, check out our new [Using the Query Metric Aggregates Endpoint guide](https://developers.klaviyo.com/en/docs/using-the-query-metric-aggregates-endpoint).  For a comprehensive list of request body parameters, native Klaviyo metrics, and their associated attributes for grouping and filtering, please refer to the [metrics attributes guide](https://developers.klaviyo.com/en/docs/supported_metrics_and_attributes).<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `metrics:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/query_metric_aggregates.json)
 
         :param metric_aggregate_query: Retrieve Metric Aggregations (required)
         :type metric_aggregate_query: MetricAggregateQuery
+        :param fields_metric_aggregate: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_metric_aggregate: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -7581,6 +7613,7 @@ class MetricsApi(object):
 
         _param = self._query_metric_aggregates_serialize(
             metric_aggregate_query=metric_aggregate_query,
+            fields_metric_aggregate=fields_metric_aggregate,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -7624,6 +7657,7 @@ class MetricsApi(object):
     def _query_metric_aggregates_serialize(
         self,
         metric_aggregate_query,
+        fields_metric_aggregate,
         _request_auth,
         _content_type,
         _headers,
@@ -7633,6 +7667,7 @@ class MetricsApi(object):
         _host = None
 
         _collection_formats: Dict[str, str] = {
+            'fields[metric-aggregate]': 'csv',
         }
 
         _path_params: Dict[str, str] = {}
@@ -7644,6 +7679,13 @@ class MetricsApi(object):
 
         # process the path parameters
         # process the query parameters
+        if fields_metric_aggregate is not None:
+            
+            if isinstance(fields_metric_aggregate, EnumMeta):
+                _query_params.append(('fields[metric-aggregate]', fields_metric_aggregate))
+            else:
+                _query_params.append(('fields[metric-aggregate]', fields_metric_aggregate))
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -7704,6 +7746,7 @@ class MetricsApi(object):
         self,
         id: Annotated[StrictStr, Field(description="The ID of the custom metric")],
         custom_metric_partial_update_query: Annotated[CustomMetricPartialUpdateQuery, Field(description="Update a custom metric by ID.")],
+        fields_custom_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7720,12 +7763,14 @@ class MetricsApi(object):
 ) ->  Union[PatchCustomMetricResponse, Dict[str, object]]:
         """Update Custom Metric
 
-        Update a custom metric with the given custom metric ID.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`<br>Daily: `15/d`  **Scopes:** `metrics:write`
+        Update a custom metric with the given custom metric ID.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`<br>Daily: `15/d`  **Scopes:** `metrics:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/update_custom_metric.json)
 
         :param id: The ID of the custom metric (required)
         :type id: str
         :param custom_metric_partial_update_query: Update a custom metric by ID. (required)
         :type custom_metric_partial_update_query: CustomMetricPartialUpdateQuery
+        :param fields_custom_metric: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_custom_metric: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -7751,6 +7796,7 @@ class MetricsApi(object):
         _param = self._update_custom_metric_serialize(
             id=id,
             custom_metric_partial_update_query=custom_metric_partial_update_query,
+            fields_custom_metric=fields_custom_metric,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -7790,6 +7836,7 @@ class MetricsApi(object):
         self,
         id: Annotated[StrictStr, Field(description="The ID of the custom metric")],
         custom_metric_partial_update_query: Annotated[CustomMetricPartialUpdateQuery, Field(description="Update a custom metric by ID.")],
+        fields_custom_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7806,12 +7853,14 @@ class MetricsApi(object):
 ) -> ApiResponse[PatchCustomMetricResponse]:
         """Update Custom Metric
 
-        Update a custom metric with the given custom metric ID.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`<br>Daily: `15/d`  **Scopes:** `metrics:write`
+        Update a custom metric with the given custom metric ID.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`<br>Daily: `15/d`  **Scopes:** `metrics:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/update_custom_metric.json)
 
         :param id: The ID of the custom metric (required)
         :type id: str
         :param custom_metric_partial_update_query: Update a custom metric by ID. (required)
         :type custom_metric_partial_update_query: CustomMetricPartialUpdateQuery
+        :param fields_custom_metric: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_custom_metric: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -7837,6 +7886,7 @@ class MetricsApi(object):
         _param = self._update_custom_metric_serialize(
             id=id,
             custom_metric_partial_update_query=custom_metric_partial_update_query,
+            fields_custom_metric=fields_custom_metric,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -7874,6 +7924,7 @@ class MetricsApi(object):
         self,
         id: Annotated[StrictStr, Field(description="The ID of the custom metric")],
         custom_metric_partial_update_query: Annotated[CustomMetricPartialUpdateQuery, Field(description="Update a custom metric by ID.")],
+        fields_custom_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7888,12 +7939,14 @@ class MetricsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Update Custom Metric
 
-        Update a custom metric with the given custom metric ID.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`<br>Daily: `15/d`  **Scopes:** `metrics:write`
+        Update a custom metric with the given custom metric ID.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`<br>Daily: `15/d`  **Scopes:** `metrics:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/update_custom_metric.json)
 
         :param id: The ID of the custom metric (required)
         :type id: str
         :param custom_metric_partial_update_query: Update a custom metric by ID. (required)
         :type custom_metric_partial_update_query: CustomMetricPartialUpdateQuery
+        :param fields_custom_metric: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_custom_metric: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -7919,6 +7972,7 @@ class MetricsApi(object):
         _param = self._update_custom_metric_serialize(
             id=id,
             custom_metric_partial_update_query=custom_metric_partial_update_query,
+            fields_custom_metric=fields_custom_metric,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -7960,6 +8014,7 @@ class MetricsApi(object):
         self,
         id,
         custom_metric_partial_update_query,
+        fields_custom_metric,
         _request_auth,
         _content_type,
         _headers,
@@ -7969,6 +8024,7 @@ class MetricsApi(object):
         _host = None
 
         _collection_formats: Dict[str, str] = {
+            'fields[custom-metric]': 'csv',
         }
 
         _path_params: Dict[str, str] = {}
@@ -7982,6 +8038,13 @@ class MetricsApi(object):
         if id is not None:
             _path_params['id'] = id
         # process the query parameters
+        if fields_custom_metric is not None:
+            
+            if isinstance(fields_custom_metric, EnumMeta):
+                _query_params.append(('fields[custom-metric]', fields_custom_metric))
+            else:
+                _query_params.append(('fields[custom-metric]', fields_custom_metric))
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -8039,6 +8102,7 @@ class MetricsApi(object):
         self,
         id: Annotated[StrictStr, Field(description="The type of mapping.")],
         mapped_metric_partial_update_query: Annotated[MappedMetricPartialUpdateQuery, Field(description="Update a mapped metric by ID")],
+        fields_mapped_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8055,12 +8119,14 @@ class MetricsApi(object):
 ) ->  Union[PatchMappedMetricResponse, Dict[str, object]]:
         """Update Mapped Metric
 
-        Update the mapped metric with the given ID.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`<br>Daily: `30/d`  **Scopes:** `metrics:write`
+        Update the mapped metric with the given ID.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`<br>Daily: `30/d`  **Scopes:** `metrics:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/update_mapped_metric.json)
 
         :param id: The type of mapping. (required)
         :type id: str
         :param mapped_metric_partial_update_query: Update a mapped metric by ID (required)
         :type mapped_metric_partial_update_query: MappedMetricPartialUpdateQuery
+        :param fields_mapped_metric: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_mapped_metric: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -8086,6 +8152,7 @@ class MetricsApi(object):
         _param = self._update_mapped_metric_serialize(
             id=id,
             mapped_metric_partial_update_query=mapped_metric_partial_update_query,
+            fields_mapped_metric=fields_mapped_metric,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -8125,6 +8192,7 @@ class MetricsApi(object):
         self,
         id: Annotated[StrictStr, Field(description="The type of mapping.")],
         mapped_metric_partial_update_query: Annotated[MappedMetricPartialUpdateQuery, Field(description="Update a mapped metric by ID")],
+        fields_mapped_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8141,12 +8209,14 @@ class MetricsApi(object):
 ) -> ApiResponse[PatchMappedMetricResponse]:
         """Update Mapped Metric
 
-        Update the mapped metric with the given ID.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`<br>Daily: `30/d`  **Scopes:** `metrics:write`
+        Update the mapped metric with the given ID.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`<br>Daily: `30/d`  **Scopes:** `metrics:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/update_mapped_metric.json)
 
         :param id: The type of mapping. (required)
         :type id: str
         :param mapped_metric_partial_update_query: Update a mapped metric by ID (required)
         :type mapped_metric_partial_update_query: MappedMetricPartialUpdateQuery
+        :param fields_mapped_metric: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_mapped_metric: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -8172,6 +8242,7 @@ class MetricsApi(object):
         _param = self._update_mapped_metric_serialize(
             id=id,
             mapped_metric_partial_update_query=mapped_metric_partial_update_query,
+            fields_mapped_metric=fields_mapped_metric,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -8209,6 +8280,7 @@ class MetricsApi(object):
         self,
         id: Annotated[StrictStr, Field(description="The type of mapping.")],
         mapped_metric_partial_update_query: Annotated[MappedMetricPartialUpdateQuery, Field(description="Update a mapped metric by ID")],
+        fields_mapped_metric: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8223,12 +8295,14 @@ class MetricsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Update Mapped Metric
 
-        Update the mapped metric with the given ID.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`<br>Daily: `30/d`  **Scopes:** `metrics:write`
+        Update the mapped metric with the given ID.<br><br>*Rate limits*:<br>Burst: `1/s`<br>Steady: `15/m`<br>Daily: `30/d`  **Scopes:** `metrics:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/update_mapped_metric.json)
 
         :param id: The type of mapping. (required)
         :type id: str
         :param mapped_metric_partial_update_query: Update a mapped metric by ID (required)
         :type mapped_metric_partial_update_query: MappedMetricPartialUpdateQuery
+        :param fields_mapped_metric: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_mapped_metric: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -8254,6 +8328,7 @@ class MetricsApi(object):
         _param = self._update_mapped_metric_serialize(
             id=id,
             mapped_metric_partial_update_query=mapped_metric_partial_update_query,
+            fields_mapped_metric=fields_mapped_metric,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -8295,6 +8370,7 @@ class MetricsApi(object):
         self,
         id,
         mapped_metric_partial_update_query,
+        fields_mapped_metric,
         _request_auth,
         _content_type,
         _headers,
@@ -8304,6 +8380,7 @@ class MetricsApi(object):
         _host = None
 
         _collection_formats: Dict[str, str] = {
+            'fields[mapped-metric]': 'csv',
         }
 
         _path_params: Dict[str, str] = {}
@@ -8317,6 +8394,13 @@ class MetricsApi(object):
         if id is not None:
             _path_params['id'] = id
         # process the query parameters
+        if fields_mapped_metric is not None:
+            
+            if isinstance(fields_mapped_metric, EnumMeta):
+                _query_params.append(('fields[mapped-metric]', fields_mapped_metric))
+            else:
+                _query_params.append(('fields[mapped-metric]', fields_mapped_metric))
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter

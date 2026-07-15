@@ -20,8 +20,8 @@ import json
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.collection_links import CollectionLinks
-from openapi_client.models.get_tag_response_collection_compound_document_data_inner import GetTagResponseCollectionCompoundDocumentDataInner
 from openapi_client.models.tag_group_response_object_resource import TagGroupResponseObjectResource
+from openapi_client.models.tag_response_object_resource import TagResponseObjectResource
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,7 +29,7 @@ class GetTagResponseCollectionCompoundDocument(BaseModel):
     """
     GetTagResponseCollectionCompoundDocument
     """ # noqa: E501
-    data: List[GetTagResponseCollectionCompoundDocumentDataInner]
+    data: List[TagResponseObjectResource]
     links: Optional[CollectionLinks] = None
     included: Optional[List[TagGroupResponseObjectResource]] = None
     __properties: ClassVar[List[str]] = ["data", "links", "included"]
@@ -102,7 +102,7 @@ class GetTagResponseCollectionCompoundDocument(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "data": [GetTagResponseCollectionCompoundDocumentDataInner.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None,
+            "data": [TagResponseObjectResource.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None,
             "links": CollectionLinks.from_dict(obj["links"]) if obj.get("links") is not None else None,
             "included": [TagGroupResponseObjectResource.from_dict(_item) for _item in obj["included"]] if obj.get("included") is not None else None
         })

@@ -20,8 +20,8 @@ import json
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.collection_links import CollectionLinks
-from openapi_client.models.get_push_token_response_collection_compound_document_data_inner import GetPushTokenResponseCollectionCompoundDocumentDataInner
 from openapi_client.models.profile_response_object_resource import ProfileResponseObjectResource
+from openapi_client.models.push_token_response_object_resource import PushTokenResponseObjectResource
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,7 +29,7 @@ class GetPushTokenResponseCollectionCompoundDocument(BaseModel):
     """
     GetPushTokenResponseCollectionCompoundDocument
     """ # noqa: E501
-    data: List[GetPushTokenResponseCollectionCompoundDocumentDataInner]
+    data: List[PushTokenResponseObjectResource]
     links: Optional[CollectionLinks] = None
     included: Optional[List[ProfileResponseObjectResource]] = None
     __properties: ClassVar[List[str]] = ["data", "links", "included"]
@@ -102,7 +102,7 @@ class GetPushTokenResponseCollectionCompoundDocument(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "data": [GetPushTokenResponseCollectionCompoundDocumentDataInner.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None,
+            "data": [PushTokenResponseObjectResource.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None,
             "links": CollectionLinks.from_dict(obj["links"]) if obj.get("links") is not None else None,
             "included": [ProfileResponseObjectResource.from_dict(_item) for _item in obj["included"]] if obj.get("included") is not None else None
         })

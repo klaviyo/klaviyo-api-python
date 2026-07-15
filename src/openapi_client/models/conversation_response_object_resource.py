@@ -18,8 +18,10 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.conversation_enum import ConversationEnum
+from openapi_client.models.conversation_response_object_resource_attributes import ConversationResponseObjectResourceAttributes
+from openapi_client.models.conversation_response_object_resource_relationships import ConversationResponseObjectResourceRelationships
 from openapi_client.models.object_links import ObjectLinks
 from typing import Optional, Set
 from typing_extensions import Self
@@ -30,8 +32,10 @@ class ConversationResponseObjectResource(BaseModel):
     """ # noqa: E501
     type: ConversationEnum
     id: StrictStr
+    attributes: ConversationResponseObjectResourceAttributes
+    relationships: Optional[ConversationResponseObjectResourceRelationships] = None
     links: ObjectLinks
-    __properties: ClassVar[List[str]] = ["type", "id", "links"]
+    __properties: ClassVar[List[str]] = ["type", "id", "attributes", "relationships", "links"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -72,6 +76,12 @@ class ConversationResponseObjectResource(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of attributes
+        if self.attributes:
+            _dict['attributes'] = self.attributes.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of relationships
+        if self.relationships:
+            _dict['relationships'] = self.relationships.to_dict()
         # override the default output from pydantic by calling `to_dict()` of links
         if self.links:
             _dict['links'] = self.links.to_dict()
@@ -89,6 +99,8 @@ class ConversationResponseObjectResource(BaseModel):
         _obj = cls.model_validate({
             "type": obj.get("type"),
             "id": obj.get("id"),
+            "attributes": ConversationResponseObjectResourceAttributes.from_dict(obj["attributes"]) if obj.get("attributes") is not None else None,
+            "relationships": ConversationResponseObjectResourceRelationships.from_dict(obj["relationships"]) if obj.get("relationships") is not None else None,
             "links": ObjectLinks.from_dict(obj["links"]) if obj.get("links") is not None else None
         })
         return _obj
