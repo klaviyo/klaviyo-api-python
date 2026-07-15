@@ -36,8 +36,8 @@ class FormCreateQueryResourceObjectAttributes(BaseModel):
     @field_validator('status')
     def status_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['draft', 'live']):
-            raise ValueError("must be one of enum values ('draft', 'live')")
+        if value not in set(['draft']):
+            raise ValueError("must be one of enum values ('draft')")
         return value
 
     model_config = ConfigDict(

@@ -20,7 +20,7 @@ import json
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.collection_links import CollectionLinks
-from openapi_client.models.get_flow_action_encoded_response_collection_data_inner import GetFlowActionEncodedResponseCollectionDataInner
+from openapi_client.models.flow_action_encoded_response_object_resource import FlowActionEncodedResponseObjectResource
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,7 +28,7 @@ class GetFlowActionEncodedResponseCollection(BaseModel):
     """
     GetFlowActionEncodedResponseCollection
     """ # noqa: E501
-    data: List[GetFlowActionEncodedResponseCollectionDataInner]
+    data: List[FlowActionEncodedResponseObjectResource]
     links: Optional[CollectionLinks] = None
     __properties: ClassVar[List[str]] = ["data", "links"]
 
@@ -93,7 +93,7 @@ class GetFlowActionEncodedResponseCollection(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "data": [GetFlowActionEncodedResponseCollectionDataInner.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None,
+            "data": [FlowActionEncodedResponseObjectResource.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None,
             "links": CollectionLinks.from_dict(obj["links"]) if obj.get("links") is not None else None
         })
         return _obj

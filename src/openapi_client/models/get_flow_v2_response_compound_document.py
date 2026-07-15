@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.get_flow_v2_response_compound_document_data import GetFlowV2ResponseCompoundDocumentData
+from openapi_client.models.flow_v2_response_object_resource_extended import FlowV2ResponseObjectResourceExtended
 from openapi_client.models.object_links import ObjectLinks
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,7 +28,7 @@ class GetFlowV2ResponseCompoundDocument(BaseModel):
     """
     GetFlowV2ResponseCompoundDocument
     """ # noqa: E501
-    data: GetFlowV2ResponseCompoundDocumentData
+    data: FlowV2ResponseObjectResourceExtended
     included: Optional[List[Dict[str, Any]]] = None
     links: Optional[ObjectLinks] = None
     __properties: ClassVar[List[str]] = ["data", "included", "links"]
@@ -90,7 +90,7 @@ class GetFlowV2ResponseCompoundDocument(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "data": GetFlowV2ResponseCompoundDocumentData.from_dict(obj["data"]) if obj.get("data") is not None else None,
+            "data": FlowV2ResponseObjectResourceExtended.from_dict(obj["data"]) if obj.get("data") is not None else None,
             "included": obj.get("included"),
             "links": ObjectLinks.from_dict(obj["links"]) if obj.get("links") is not None else None
         })

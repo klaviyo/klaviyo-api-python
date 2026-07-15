@@ -19,8 +19,8 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
+from openapi_client.models.catalog_item_create_job_response_object_resource import CatalogItemCreateJobResponseObjectResource
 from openapi_client.models.collection_links import CollectionLinks
-from openapi_client.models.get_catalog_item_create_job_response_collection_compound_document_data_inner import GetCatalogItemCreateJobResponseCollectionCompoundDocumentDataInner
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,7 +28,7 @@ class GetCatalogItemCreateJobResponseCollectionCompoundDocument(BaseModel):
     """
     GetCatalogItemCreateJobResponseCollectionCompoundDocument
     """ # noqa: E501
-    data: List[GetCatalogItemCreateJobResponseCollectionCompoundDocumentDataInner]
+    data: List[CatalogItemCreateJobResponseObjectResource]
     links: Optional[CollectionLinks] = None
     __properties: ClassVar[List[str]] = ["data", "links"]
 
@@ -93,7 +93,7 @@ class GetCatalogItemCreateJobResponseCollectionCompoundDocument(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "data": [GetCatalogItemCreateJobResponseCollectionCompoundDocumentDataInner.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None,
+            "data": [CatalogItemCreateJobResponseObjectResource.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None,
             "links": CollectionLinks.from_dict(obj["links"]) if obj.get("links") is not None else None
         })
         return _obj

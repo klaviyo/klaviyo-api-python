@@ -19,7 +19,7 @@ class KlaviyoAPI:
     options: Dict[str, Any] = field(default_factory=dict)
 
 
-    _REVISION = "2026-04-15"
+    _REVISION = "2026-07-15"
 
     _STATUS_CODE_CONNECTION_RESET_BY_PEER = 104
     _STATUS_CODE_TOO_MANY_REQUESTS = 429
@@ -272,6 +272,18 @@ class KlaviyoAPI:
         return Catalogs
     
     @property
+    def Client(self):
+        from openapi_client.api import client_api
+
+        ## Adding Client to Client
+        Client=client_api.ClientApi(self.api_client)
+
+        ## Applying retry decorator to each endpoint in Client
+        Client.get_client_ip_allowlist=self._page_cursor_update(self.retry_logic(Client.get_client_ip_allowlist))
+        
+        return Client
+    
+    @property
     def Conversations(self):
         from openapi_client.api import conversations_api
 
@@ -332,12 +344,78 @@ class KlaviyoAPI:
         ## Applying retry decorator to each endpoint in Custom_Objects
         Custom_Objects.bulk_create_data_source_records=self._page_cursor_update(self.retry_logic(Custom_Objects.bulk_create_data_source_records))
         Custom_Objects.create_data_source_record_bulk_create_job=self._page_cursor_update(self.retry_logic(Custom_Objects.create_data_source_record_bulk_create_job))
+        Custom_Objects.bulk_delete_object_records=self._page_cursor_update(self.retry_logic(Custom_Objects.bulk_delete_object_records))
+        Custom_Objects.create_object_record_bulk_delete_job=self._page_cursor_update(self.retry_logic(Custom_Objects.create_object_record_bulk_delete_job))
         Custom_Objects.create_data_source=self._page_cursor_update(self.retry_logic(Custom_Objects.create_data_source))
         Custom_Objects.create_data_source_record=self._page_cursor_update(self.retry_logic(Custom_Objects.create_data_source_record))
         Custom_Objects.create_data_source_record_create_job=self._page_cursor_update(self.retry_logic(Custom_Objects.create_data_source_record_create_job))
+        Custom_Objects.create_object_schema=self._page_cursor_update(self.retry_logic(Custom_Objects.create_object_schema))
+        Custom_Objects.create_object_schema_relationship=self._page_cursor_update(self.retry_logic(Custom_Objects.create_object_schema_relationship))
+        Custom_Objects.add_schemas_to_object_schema=self._page_cursor_update(self.retry_logic(Custom_Objects.add_schemas_to_object_schema))
+        Custom_Objects.create_object_schema_relationships_schemas=self._page_cursor_update(self.retry_logic(Custom_Objects.create_object_schema_relationships_schemas))
+        Custom_Objects.create_object_type=self._page_cursor_update(self.retry_logic(Custom_Objects.create_object_type))
+        Custom_Objects.create_profile_schema_relationship=self._page_cursor_update(self.retry_logic(Custom_Objects.create_profile_schema_relationship))
+        Custom_Objects.add_profile_object_schemas_to_object_schema=self._page_cursor_update(self.retry_logic(Custom_Objects.add_profile_object_schemas_to_object_schema))
+        Custom_Objects.create_object_schema_relationships_profile_object_schemas=self._page_cursor_update(self.retry_logic(Custom_Objects.create_object_schema_relationships_profile_object_schemas))
         Custom_Objects.delete_data_source=self._page_cursor_update(self.retry_logic(Custom_Objects.delete_data_source))
+        Custom_Objects.delete_object_schema_relationship=self._page_cursor_update(self.retry_logic(Custom_Objects.delete_object_schema_relationship))
+        Custom_Objects.delete_object_schema_relationships_schemas=self._page_cursor_update(self.retry_logic(Custom_Objects.delete_object_schema_relationships_schemas))
+        Custom_Objects.remove_schemas_from_object_schema=self._page_cursor_update(self.retry_logic(Custom_Objects.remove_schemas_from_object_schema))
+        Custom_Objects.delete_object_type=self._page_cursor_update(self.retry_logic(Custom_Objects.delete_object_type))
+        Custom_Objects.delete_profile_schema_relationship=self._page_cursor_update(self.retry_logic(Custom_Objects.delete_profile_schema_relationship))
+        Custom_Objects.delete_object_schema_relationships_profile_object_schemas=self._page_cursor_update(self.retry_logic(Custom_Objects.delete_object_schema_relationships_profile_object_schemas))
+        Custom_Objects.remove_profile_object_schemas_from_object_schema=self._page_cursor_update(self.retry_logic(Custom_Objects.remove_profile_object_schemas_from_object_schema))
+        Custom_Objects.get_current_schema_for_object_type=self._page_cursor_update(self.retry_logic(Custom_Objects.get_current_schema_for_object_type))
+        Custom_Objects.get_object_type_current_schema=self._page_cursor_update(self.retry_logic(Custom_Objects.get_object_type_current_schema))
+        Custom_Objects.get_current_schema_id_for_object_type=self._page_cursor_update(self.retry_logic(Custom_Objects.get_current_schema_id_for_object_type))
+        Custom_Objects.get_object_type_relationships_current_schema=self._page_cursor_update(self.retry_logic(Custom_Objects.get_object_type_relationships_current_schema))
         Custom_Objects.get_data_source=self._page_cursor_update(self.retry_logic(Custom_Objects.get_data_source))
         Custom_Objects.get_data_sources=self._page_cursor_update(self.retry_logic(Custom_Objects.get_data_sources))
+        Custom_Objects.get_draft_schema_for_object_type=self._page_cursor_update(self.retry_logic(Custom_Objects.get_draft_schema_for_object_type))
+        Custom_Objects.get_object_type_draft_schema=self._page_cursor_update(self.retry_logic(Custom_Objects.get_object_type_draft_schema))
+        Custom_Objects.get_draft_schema_id_for_object_type=self._page_cursor_update(self.retry_logic(Custom_Objects.get_draft_schema_id_for_object_type))
+        Custom_Objects.get_object_type_relationships_draft_schema=self._page_cursor_update(self.retry_logic(Custom_Objects.get_object_type_relationships_draft_schema))
+        Custom_Objects.get_ingestion_log_ids_for_object_type=self._page_cursor_update(self.retry_logic(Custom_Objects.get_ingestion_log_ids_for_object_type))
+        Custom_Objects.get_object_type_relationships_ingestion_logs=self._page_cursor_update(self.retry_logic(Custom_Objects.get_object_type_relationships_ingestion_logs))
+        Custom_Objects.get_ingestion_logs_for_object_type=self._page_cursor_update(self.retry_logic(Custom_Objects.get_ingestion_logs_for_object_type))
+        Custom_Objects.get_object_type_ingestion_logs=self._page_cursor_update(self.retry_logic(Custom_Objects.get_object_type_ingestion_logs))
+        Custom_Objects.get_object_record=self._page_cursor_update(self.retry_logic(Custom_Objects.get_object_record))
+        Custom_Objects.get_object_schema=self._page_cursor_update(self.retry_logic(Custom_Objects.get_object_schema))
+        Custom_Objects.get_object_schema_relationships=self._page_cursor_update(self.retry_logic(Custom_Objects.get_object_schema_relationships))
+        Custom_Objects.get_object_schema_relationships_schemas=self._page_cursor_update(self.retry_logic(Custom_Objects.get_object_schema_relationships_schemas))
+        Custom_Objects.get_schema_ids_for_object_schema=self._page_cursor_update(self.retry_logic(Custom_Objects.get_schema_ids_for_object_schema))
+        Custom_Objects.get_object_type=self._page_cursor_update(self.retry_logic(Custom_Objects.get_object_type))
+        Custom_Objects.get_object_type_relationships=self._page_cursor_update(self.retry_logic(Custom_Objects.get_object_type_relationships))
+        Custom_Objects.get_object_type_relationships_types=self._page_cursor_update(self.retry_logic(Custom_Objects.get_object_type_relationships_types))
+        Custom_Objects.get_type_ids_for_object_type=self._page_cursor_update(self.retry_logic(Custom_Objects.get_type_ids_for_object_type))
+        Custom_Objects.get_object_types=self._page_cursor_update(self.retry_logic(Custom_Objects.get_object_types))
+        Custom_Objects.get_profile_schema_relationships=self._page_cursor_update(self.retry_logic(Custom_Objects.get_profile_schema_relationships))
+        Custom_Objects.get_object_schema_relationships_profile_object_schemas=self._page_cursor_update(self.retry_logic(Custom_Objects.get_object_schema_relationships_profile_object_schemas))
+        Custom_Objects.get_profile_object_schema_ids_for_object_schema=self._page_cursor_update(self.retry_logic(Custom_Objects.get_profile_object_schema_ids_for_object_schema))
+        Custom_Objects.get_profile_type_relationships=self._page_cursor_update(self.retry_logic(Custom_Objects.get_profile_type_relationships))
+        Custom_Objects.get_object_type_relationships_profile_object_types=self._page_cursor_update(self.retry_logic(Custom_Objects.get_object_type_relationships_profile_object_types))
+        Custom_Objects.get_profile_object_type_ids_for_object_type=self._page_cursor_update(self.retry_logic(Custom_Objects.get_profile_object_type_ids_for_object_type))
+        Custom_Objects.get_record_ids_for_object_type=self._page_cursor_update(self.retry_logic(Custom_Objects.get_record_ids_for_object_type))
+        Custom_Objects.get_object_type_relationships_records=self._page_cursor_update(self.retry_logic(Custom_Objects.get_object_type_relationships_records))
+        Custom_Objects.get_records_for_object_type=self._page_cursor_update(self.retry_logic(Custom_Objects.get_records_for_object_type))
+        Custom_Objects.get_object_type_records=self._page_cursor_update(self.retry_logic(Custom_Objects.get_object_type_records))
+        Custom_Objects.get_schema_version_ids_for_object_type=self._page_cursor_update(self.retry_logic(Custom_Objects.get_schema_version_ids_for_object_type))
+        Custom_Objects.get_object_type_relationships_schema_versions=self._page_cursor_update(self.retry_logic(Custom_Objects.get_object_type_relationships_schema_versions))
+        Custom_Objects.get_schema_versions_for_object_type=self._page_cursor_update(self.retry_logic(Custom_Objects.get_schema_versions_for_object_type))
+        Custom_Objects.get_object_type_schema_versions=self._page_cursor_update(self.retry_logic(Custom_Objects.get_object_type_schema_versions))
+        Custom_Objects.get_source_mapping=self._page_cursor_update(self.retry_logic(Custom_Objects.get_source_mapping))
+        Custom_Objects.get_source_mapping_for_object_schema=self._page_cursor_update(self.retry_logic(Custom_Objects.get_source_mapping_for_object_schema))
+        Custom_Objects.get_object_schema_source_mapping=self._page_cursor_update(self.retry_logic(Custom_Objects.get_object_schema_source_mapping))
+        Custom_Objects.get_source_mapping_id_for_object_schema=self._page_cursor_update(self.retry_logic(Custom_Objects.get_source_mapping_id_for_object_schema))
+        Custom_Objects.get_object_schema_relationships_source_mapping=self._page_cursor_update(self.retry_logic(Custom_Objects.get_object_schema_relationships_source_mapping))
+        Custom_Objects.update_object_schema=self._page_cursor_update(self.retry_logic(Custom_Objects.update_object_schema))
+        Custom_Objects.update_object_schema_relationship=self._page_cursor_update(self.retry_logic(Custom_Objects.update_object_schema_relationship))
+        Custom_Objects.update_object_schema_relationships_schemas=self._page_cursor_update(self.retry_logic(Custom_Objects.update_object_schema_relationships_schemas))
+        Custom_Objects.update_schemas_for_object_schema=self._page_cursor_update(self.retry_logic(Custom_Objects.update_schemas_for_object_schema))
+        Custom_Objects.update_profile_schema_relationship=self._page_cursor_update(self.retry_logic(Custom_Objects.update_profile_schema_relationship))
+        Custom_Objects.update_object_schema_relationships_profile_object_schemas=self._page_cursor_update(self.retry_logic(Custom_Objects.update_object_schema_relationships_profile_object_schemas))
+        Custom_Objects.update_profile_object_schemas_for_object_schema=self._page_cursor_update(self.retry_logic(Custom_Objects.update_profile_object_schemas_for_object_schema))
+        Custom_Objects.update_source_mapping=self._page_cursor_update(self.retry_logic(Custom_Objects.update_source_mapping))
         
         return Custom_Objects
     
@@ -388,6 +466,7 @@ class KlaviyoAPI:
         ## Applying retry decorator to each endpoint in Flows
         Flows.create_flow=self._page_cursor_update(self.retry_logic(Flows.create_flow))
         Flows.delete_flow=self._page_cursor_update(self.retry_logic(Flows.delete_flow))
+        Flows.delete_flow_action=self._page_cursor_update(self.retry_logic(Flows.delete_flow_action))
         Flows.get_action_for_flow_message=self._page_cursor_update(self.retry_logic(Flows.get_action_for_flow_message))
         Flows.get_flow_message_action=self._page_cursor_update(self.retry_logic(Flows.get_flow_message_action))
         Flows.get_action_id_for_flow_message=self._page_cursor_update(self.retry_logic(Flows.get_action_id_for_flow_message))
@@ -602,6 +681,10 @@ class KlaviyoAPI:
         Profiles.get_profile_conversation=self._page_cursor_update(self.retry_logic(Profiles.get_profile_conversation))
         Profiles.get_conversation_id_for_profile=self._page_cursor_update(self.retry_logic(Profiles.get_conversation_id_for_profile))
         Profiles.get_profile_relationships_conversation=self._page_cursor_update(self.retry_logic(Profiles.get_profile_relationships_conversation))
+        Profiles.get_conversation_ids_for_profile=self._page_cursor_update(self.retry_logic(Profiles.get_conversation_ids_for_profile))
+        Profiles.get_profile_relationships_conversations=self._page_cursor_update(self.retry_logic(Profiles.get_profile_relationships_conversations))
+        Profiles.get_conversations_for_profile=self._page_cursor_update(self.retry_logic(Profiles.get_conversations_for_profile))
+        Profiles.get_profile_conversations=self._page_cursor_update(self.retry_logic(Profiles.get_profile_conversations))
         Profiles.get_errors_for_bulk_import_profiles_job=self._page_cursor_update(self.retry_logic(Profiles.get_errors_for_bulk_import_profiles_job))
         Profiles.get_bulk_profile_import_job_import_errors=self._page_cursor_update(self.retry_logic(Profiles.get_bulk_profile_import_job_import_errors))
         Profiles.get_import_errors_for_profile_bulk_import_job=self._page_cursor_update(self.retry_logic(Profiles.get_import_errors_for_profile_bulk_import_job))

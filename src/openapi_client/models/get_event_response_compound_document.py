@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.get_event_response_collection_compound_document_data_inner import GetEventResponseCollectionCompoundDocumentDataInner
+from openapi_client.models.event_response_object_resource import EventResponseObjectResource
 from openapi_client.models.object_links import ObjectLinks
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,7 +28,7 @@ class GetEventResponseCompoundDocument(BaseModel):
     """
     GetEventResponseCompoundDocument
     """ # noqa: E501
-    data: GetEventResponseCollectionCompoundDocumentDataInner
+    data: EventResponseObjectResource
     included: Optional[List[Dict[str, Any]]] = None
     links: Optional[ObjectLinks] = None
     __properties: ClassVar[List[str]] = ["data", "included", "links"]
@@ -90,7 +90,7 @@ class GetEventResponseCompoundDocument(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "data": GetEventResponseCollectionCompoundDocumentDataInner.from_dict(obj["data"]) if obj.get("data") is not None else None,
+            "data": EventResponseObjectResource.from_dict(obj["data"]) if obj.get("data") is not None else None,
             "included": obj.get("included"),
             "links": ObjectLinks.from_dict(obj["links"]) if obj.get("links") is not None else None
         })

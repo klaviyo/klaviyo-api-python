@@ -34,7 +34,7 @@ class WhatsappMarketingChannel(BaseModel):
     metadata: Optional[Dict[str, Any]] = Field(default=None, description="Channel-specific metadata containing additional information about the permission.")
     can_receive: StrictBool = Field(description="Whether the profile can receive messages on this channel.")
     valid_until: Optional[datetime] = Field(default=None, description="Optional expiration date for the permission, in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm).")
-    phone_number: StrictStr = Field(description="Phone number to which the consent was granted for.")
+    phone_number: Optional[StrictStr] = Field(default=None, description="Phone number to which the consent was granted for.")
     __properties: ClassVar[List[str]] = ["consent", "consent_timestamp", "last_updated", "created_timestamp", "metadata", "can_receive", "valid_until", "phone_number"]
 
     model_config = ConfigDict(
@@ -100,6 +100,11 @@ class WhatsappMarketingChannel(BaseModel):
         # and model_fields_set contains the field
         if self.valid_until is None and "valid_until" in self.model_fields_set:
             _dict['valid_until'] = None
+
+        # set to None if phone_number (nullable) is None
+        # and model_fields_set contains the field
+        if self.phone_number is None and "phone_number" in self.model_fields_set:
+            _dict['phone_number'] = None
 
         return _dict
 

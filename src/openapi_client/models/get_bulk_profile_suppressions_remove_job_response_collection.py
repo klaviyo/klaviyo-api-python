@@ -19,8 +19,8 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
+from openapi_client.models.bulk_profile_suppressions_remove_job_response_object_resource import BulkProfileSuppressionsRemoveJobResponseObjectResource
 from openapi_client.models.collection_links import CollectionLinks
-from openapi_client.models.get_bulk_profile_suppressions_remove_job_response_collection_data_inner import GetBulkProfileSuppressionsRemoveJobResponseCollectionDataInner
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,7 +28,7 @@ class GetBulkProfileSuppressionsRemoveJobResponseCollection(BaseModel):
     """
     GetBulkProfileSuppressionsRemoveJobResponseCollection
     """ # noqa: E501
-    data: List[GetBulkProfileSuppressionsRemoveJobResponseCollectionDataInner]
+    data: List[BulkProfileSuppressionsRemoveJobResponseObjectResource]
     links: Optional[CollectionLinks] = None
     __properties: ClassVar[List[str]] = ["data", "links"]
 
@@ -93,7 +93,7 @@ class GetBulkProfileSuppressionsRemoveJobResponseCollection(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "data": [GetBulkProfileSuppressionsRemoveJobResponseCollectionDataInner.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None,
+            "data": [BulkProfileSuppressionsRemoveJobResponseObjectResource.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None,
             "links": CollectionLinks.from_dict(obj["links"]) if obj.get("links") is not None else None
         })
         return _obj

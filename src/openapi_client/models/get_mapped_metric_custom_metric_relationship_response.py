@@ -28,7 +28,7 @@ class GetMappedMetricCustomMetricRelationshipResponse(BaseModel):
     """
     GetMappedMetricCustomMetricRelationshipResponse
     """ # noqa: E501
-    data: GetMappedMetricCustomMetricRelationshipResponseData
+    data: Optional[GetMappedMetricCustomMetricRelationshipResponseData]
     links: Optional[ObjectLinks] = None
     __properties: ClassVar[List[str]] = ["data", "links"]
 
@@ -77,6 +77,11 @@ class GetMappedMetricCustomMetricRelationshipResponse(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of links
         if self.links:
             _dict['links'] = self.links.to_dict()
+        # set to None if data (nullable) is None
+        # and model_fields_set contains the field
+        if self.data is None and "data" in self.model_fields_set:
+            _dict['data'] = None
+
         return _dict
 
     @classmethod

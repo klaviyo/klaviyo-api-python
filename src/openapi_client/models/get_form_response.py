@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.get_form_response_collection_data_inner import GetFormResponseCollectionDataInner
+from openapi_client.models.form_response_object_resource import FormResponseObjectResource
 from openapi_client.models.object_links import ObjectLinks
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,7 +28,7 @@ class GetFormResponse(BaseModel):
     """
     GetFormResponse
     """ # noqa: E501
-    data: GetFormResponseCollectionDataInner
+    data: Optional[FormResponseObjectResource]
     links: Optional[ObjectLinks] = None
     __properties: ClassVar[List[str]] = ["data", "links"]
 
@@ -77,6 +77,11 @@ class GetFormResponse(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of links
         if self.links:
             _dict['links'] = self.links.to_dict()
+        # set to None if data (nullable) is None
+        # and model_fields_set contains the field
+        if self.data is None and "data" in self.model_fields_set:
+            _dict['data'] = None
+
         return _dict
 
     @classmethod
@@ -89,7 +94,7 @@ class GetFormResponse(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "data": GetFormResponseCollectionDataInner.from_dict(obj["data"]) if obj.get("data") is not None else None,
+            "data": FormResponseObjectResource.from_dict(obj["data"]) if obj.get("data") is not None else None,
             "links": ObjectLinks.from_dict(obj["links"]) if obj.get("links") is not None else None
         })
         return _obj

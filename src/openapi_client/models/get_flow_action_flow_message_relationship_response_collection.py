@@ -20,7 +20,7 @@ import json
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.collection_links import CollectionLinks
-from openapi_client.models.get_flow_action_encoded_response_compound_document_data_all_of_relationships_flow_messages_data_inner import GetFlowActionEncodedResponseCompoundDocumentDataAllOfRelationshipsFlowMessagesDataInner
+from openapi_client.models.flow_action_encoded_response_object_resource_relationships_flow_messages_data_inner import FlowActionEncodedResponseObjectResourceRelationshipsFlowMessagesDataInner
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,7 +28,7 @@ class GetFlowActionFlowMessageRelationshipResponseCollection(BaseModel):
     """
     GetFlowActionFlowMessageRelationshipResponseCollection
     """ # noqa: E501
-    data: List[GetFlowActionEncodedResponseCompoundDocumentDataAllOfRelationshipsFlowMessagesDataInner]
+    data: List[FlowActionEncodedResponseObjectResourceRelationshipsFlowMessagesDataInner]
     links: Optional[CollectionLinks] = None
     __properties: ClassVar[List[str]] = ["data", "links"]
 
@@ -93,7 +93,7 @@ class GetFlowActionFlowMessageRelationshipResponseCollection(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "data": [GetFlowActionEncodedResponseCompoundDocumentDataAllOfRelationshipsFlowMessagesDataInner.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None,
+            "data": [FlowActionEncodedResponseObjectResourceRelationshipsFlowMessagesDataInner.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None,
             "links": CollectionLinks.from_dict(obj["links"]) if obj.get("links") is not None else None
         })
         return _obj

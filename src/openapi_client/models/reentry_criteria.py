@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, StrictInt
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,7 +27,7 @@ class ReentryCriteria(BaseModel):
     ReentryCriteria
     """ # noqa: E501
     duration: StrictInt
-    unit: Optional[Any]
+    unit: Dict[str, Any]
     __properties: ClassVar[List[str]] = ["duration", "unit"]
 
     model_config = ConfigDict(
@@ -69,11 +69,6 @@ class ReentryCriteria(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if unit (nullable) is None
-        # and model_fields_set contains the field
-        if self.unit is None and "unit" in self.model_fields_set:
-            _dict['unit'] = None
-
         return _dict
 
     @classmethod

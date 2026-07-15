@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.post_tag_response_data_relationships_campaigns import PostTagResponseDataRelationshipsCampaigns
+from openapi_client.models.tag_response_object_resource_relationships_campaigns import TagResponseObjectResourceRelationshipsCampaigns
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,7 +27,7 @@ class PostCampaignValuesResponseDTODataRelationships(BaseModel):
     """
     PostCampaignValuesResponseDTODataRelationships
     """ # noqa: E501
-    campaigns: Optional[PostTagResponseDataRelationshipsCampaigns] = None
+    campaigns: Optional[TagResponseObjectResourceRelationshipsCampaigns] = None
     __properties: ClassVar[List[str]] = ["campaigns"]
 
     model_config = ConfigDict(
@@ -84,7 +84,7 @@ class PostCampaignValuesResponseDTODataRelationships(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "campaigns": PostTagResponseDataRelationshipsCampaigns.from_dict(obj["campaigns"]) if obj.get("campaigns") is not None else None
+            "campaigns": TagResponseObjectResourceRelationshipsCampaigns.from_dict(obj["campaigns"]) if obj.get("campaigns") is not None else None
         })
         return _obj
 

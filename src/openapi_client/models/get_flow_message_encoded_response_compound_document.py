@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.get_flow_message_encoded_response_compound_document_data import GetFlowMessageEncodedResponseCompoundDocumentData
+from openapi_client.models.flow_message_encoded_response_object_resource import FlowMessageEncodedResponseObjectResource
 from openapi_client.models.object_links import ObjectLinks
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,7 +28,7 @@ class GetFlowMessageEncodedResponseCompoundDocument(BaseModel):
     """
     GetFlowMessageEncodedResponseCompoundDocument
     """ # noqa: E501
-    data: GetFlowMessageEncodedResponseCompoundDocumentData
+    data: FlowMessageEncodedResponseObjectResource
     included: Optional[List[Dict[str, Any]]] = None
     links: Optional[ObjectLinks] = None
     __properties: ClassVar[List[str]] = ["data", "included", "links"]
@@ -90,7 +90,7 @@ class GetFlowMessageEncodedResponseCompoundDocument(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "data": GetFlowMessageEncodedResponseCompoundDocumentData.from_dict(obj["data"]) if obj.get("data") is not None else None,
+            "data": FlowMessageEncodedResponseObjectResource.from_dict(obj["data"]) if obj.get("data") is not None else None,
             "included": obj.get("included"),
             "links": ObjectLinks.from_dict(obj["links"]) if obj.get("links") is not None else None
         })

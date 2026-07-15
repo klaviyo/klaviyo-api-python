@@ -20,7 +20,7 @@ import json
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.collection_links import CollectionLinks
-from openapi_client.models.get_event_response_collection_compound_document_data_inner_all_of_relationships_metric_data import GetEventResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsMetricData
+from openapi_client.models.event_response_object_resource_relationships_metric_data import EventResponseObjectResourceRelationshipsMetricData
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,7 +28,7 @@ class GetCustomMetricMetricsRelationshipsResponseCollection(BaseModel):
     """
     GetCustomMetricMetricsRelationshipsResponseCollection
     """ # noqa: E501
-    data: List[GetEventResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsMetricData]
+    data: List[EventResponseObjectResourceRelationshipsMetricData]
     links: Optional[CollectionLinks] = None
     __properties: ClassVar[List[str]] = ["data", "links"]
 
@@ -93,7 +93,7 @@ class GetCustomMetricMetricsRelationshipsResponseCollection(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "data": [GetEventResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsMetricData.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None,
+            "data": [EventResponseObjectResourceRelationshipsMetricData.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None,
             "links": CollectionLinks.from_dict(obj["links"]) if obj.get("links") is not None else None
         })
         return _obj

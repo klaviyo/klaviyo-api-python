@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List
-from openapi_client.models.post_list_create_response_data_relationships_profiles_data_inner import PostListCreateResponseDataRelationshipsProfilesDataInner
+from openapi_client.models.list_list_response_object_resource_relationships_profiles_data_inner import ListListResponseObjectResourceRelationshipsProfilesDataInner
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,7 +27,7 @@ class ListMembersAddQuery(BaseModel):
     """
     ListMembersAddQuery
     """ # noqa: E501
-    data: List[PostListCreateResponseDataRelationshipsProfilesDataInner]
+    data: List[ListListResponseObjectResourceRelationshipsProfilesDataInner]
     __properties: ClassVar[List[str]] = ["data"]
 
     model_config = ConfigDict(
@@ -88,7 +88,7 @@ class ListMembersAddQuery(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "data": [PostListCreateResponseDataRelationshipsProfilesDataInner.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None
+            "data": [ListListResponseObjectResourceRelationshipsProfilesDataInner.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None
         })
         return _obj
 

@@ -53,7 +53,7 @@ class ImagesApi(object):
     def get_image(        
         self,
         id: Annotated[StrictStr, Field(description="The ID of the image")],
-        fields_image: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_image: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -70,11 +70,11 @@ class ImagesApi(object):
 ) ->  Union[GetImageResponse, Dict[str, object]]:
         """Get Image
 
-        Get the image with the given image ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `images:read`
+        Get the image with the given image ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `images:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_image.json)
 
         :param id: The ID of the image (required)
         :type id: str
-        :param fields_image: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_image: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_image: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -139,7 +139,7 @@ class ImagesApi(object):
     def get_image_with_http_info(        
         self,
         id: Annotated[StrictStr, Field(description="The ID of the image")],
-        fields_image: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_image: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -156,11 +156,11 @@ class ImagesApi(object):
 ) -> ApiResponse[GetImageResponse]:
         """Get Image
 
-        Get the image with the given image ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `images:read`
+        Get the image with the given image ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `images:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_image.json)
 
         :param id: The ID of the image (required)
         :type id: str
-        :param fields_image: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_image: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_image: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -223,7 +223,7 @@ class ImagesApi(object):
     def get_image_without_preload_content(
         self,
         id: Annotated[StrictStr, Field(description="The ID of the image")],
-        fields_image: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_image: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -238,11 +238,11 @@ class ImagesApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Image
 
-        Get the image with the given image ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `images:read`
+        Get the image with the given image ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `images:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_image.json)
 
         :param id: The ID of the image (required)
         :type id: str
-        :param fields_image: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_image: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_image: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -380,11 +380,11 @@ class ImagesApi(object):
     @validate_call
     def get_images(        
         self,
-        fields_image: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`, `equals`<br>`updated_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`format`: `any`, `equals`<br>`name`: `any`, `contains`, `ends-with`, `equals`, `starts-with`<br>`size`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`hidden`: `any`, `equals`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
+        fields_image: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`, `equals`<br>`updated_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`format`: `any`, `equals`<br>`name`: `any`, `contains`, `ends-with`, `equals`, `starts-with`<br>`size`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`hidden`: `any`, `equals`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
         page_size: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Default: 20. Min: 1. Max: 100.")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -401,17 +401,17 @@ class ImagesApi(object):
 ) ->  Union[GetImageResponseCollection, Dict[str, object]]:
         """Get Images
 
-        Get all images in an account.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `images:read`
+        Get all images in an account.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `images:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_images.json)
 
-        :param fields_image: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_image: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_image: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`, `equals`<br>`updated_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`format`: `any`, `equals`<br>`name`: `any`, `contains`, `ends-with`, `equals`, `starts-with`<br>`size`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`hidden`: `any`, `equals`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`, `equals`<br>`updated_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`format`: `any`, `equals`<br>`name`: `any`, `contains`, `ends-with`, `equals`, `starts-with`<br>`size`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`hidden`: `any`, `equals`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
         :type page_cursor: str
         :param page_size: Default: 20. Min: 1. Max: 100.
         :type page_size: int
-        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting
         :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -478,11 +478,11 @@ class ImagesApi(object):
     @validate_call
     def get_images_with_http_info(        
         self,
-        fields_image: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`, `equals`<br>`updated_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`format`: `any`, `equals`<br>`name`: `any`, `contains`, `ends-with`, `equals`, `starts-with`<br>`size`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`hidden`: `any`, `equals`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
+        fields_image: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`, `equals`<br>`updated_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`format`: `any`, `equals`<br>`name`: `any`, `contains`, `ends-with`, `equals`, `starts-with`<br>`size`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`hidden`: `any`, `equals`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
         page_size: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Default: 20. Min: 1. Max: 100.")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -499,17 +499,17 @@ class ImagesApi(object):
 ) -> ApiResponse[GetImageResponseCollection]:
         """Get Images
 
-        Get all images in an account.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `images:read`
+        Get all images in an account.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `images:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_images.json)
 
-        :param fields_image: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_image: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_image: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`, `equals`<br>`updated_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`format`: `any`, `equals`<br>`name`: `any`, `contains`, `ends-with`, `equals`, `starts-with`<br>`size`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`hidden`: `any`, `equals`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`, `equals`<br>`updated_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`format`: `any`, `equals`<br>`name`: `any`, `contains`, `ends-with`, `equals`, `starts-with`<br>`size`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`hidden`: `any`, `equals`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
         :type page_cursor: str
         :param page_size: Default: 20. Min: 1. Max: 100.
         :type page_size: int
-        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting
         :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -574,11 +574,11 @@ class ImagesApi(object):
     @validate_call
     def get_images_without_preload_content(
         self,
-        fields_image: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`, `equals`<br>`updated_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`format`: `any`, `equals`<br>`name`: `any`, `contains`, `ends-with`, `equals`, `starts-with`<br>`size`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`hidden`: `any`, `equals`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination")] = None,
+        fields_image: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`, `equals`<br>`updated_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`format`: `any`, `equals`<br>`name`: `any`, `contains`, `ends-with`, `equals`, `starts-with`<br>`size`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`hidden`: `any`, `equals`")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
         page_size: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Default: 20. Min: 1. Max: 100.")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -593,17 +593,17 @@ class ImagesApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Get Images
 
-        Get all images in an account.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `images:read`
+        Get all images in an account.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `images:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_images.json)
 
-        :param fields_image: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sparse-fieldsets
+        :param fields_image: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
         :type fields_image: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`, `equals`<br>`updated_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`format`: `any`, `equals`<br>`name`: `any`, `contains`, `ends-with`, `equals`, `starts-with`<br>`size`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`hidden`: `any`, `equals`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`, `equals`<br>`updated_at`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`format`: `any`, `equals`<br>`name`: `any`, `contains`, `ends-with`, `equals`, `starts-with`<br>`size`: `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`hidden`: `any`, `equals`
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
         :type page_cursor: str
         :param page_size: Default: 20. Min: 1. Max: 100.
         :type page_size: int
-        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-04-15/reference/api-overview#sorting
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting
         :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -775,6 +775,7 @@ class ImagesApi(object):
         self,
         id: Annotated[StrictStr, Field(description="The ID of the image")],
         image_partial_update_query: ImagePartialUpdateQuery,
+        fields_image: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -791,12 +792,14 @@ class ImagesApi(object):
 ) ->  Union[PatchImageResponse, Dict[str, object]]:
         """Update Image
 
-        Update the image with the given image ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `images:write`
+        Update the image with the given image ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `images:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/update_image.json)
 
         :param id: The ID of the image (required)
         :type id: str
         :param image_partial_update_query: (required)
         :type image_partial_update_query: ImagePartialUpdateQuery
+        :param fields_image: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_image: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -822,6 +825,7 @@ class ImagesApi(object):
         _param = self._update_image_serialize(
             id=id,
             image_partial_update_query=image_partial_update_query,
+            fields_image=fields_image,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -861,6 +865,7 @@ class ImagesApi(object):
         self,
         id: Annotated[StrictStr, Field(description="The ID of the image")],
         image_partial_update_query: ImagePartialUpdateQuery,
+        fields_image: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -877,12 +882,14 @@ class ImagesApi(object):
 ) -> ApiResponse[PatchImageResponse]:
         """Update Image
 
-        Update the image with the given image ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `images:write`
+        Update the image with the given image ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `images:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/update_image.json)
 
         :param id: The ID of the image (required)
         :type id: str
         :param image_partial_update_query: (required)
         :type image_partial_update_query: ImagePartialUpdateQuery
+        :param fields_image: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_image: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -908,6 +915,7 @@ class ImagesApi(object):
         _param = self._update_image_serialize(
             id=id,
             image_partial_update_query=image_partial_update_query,
+            fields_image=fields_image,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -945,6 +953,7 @@ class ImagesApi(object):
         self,
         id: Annotated[StrictStr, Field(description="The ID of the image")],
         image_partial_update_query: ImagePartialUpdateQuery,
+        fields_image: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -959,12 +968,14 @@ class ImagesApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Update Image
 
-        Update the image with the given image ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `images:write`
+        Update the image with the given image ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `images:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/update_image.json)
 
         :param id: The ID of the image (required)
         :type id: str
         :param image_partial_update_query: (required)
         :type image_partial_update_query: ImagePartialUpdateQuery
+        :param fields_image: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_image: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -990,6 +1001,7 @@ class ImagesApi(object):
         _param = self._update_image_serialize(
             id=id,
             image_partial_update_query=image_partial_update_query,
+            fields_image=fields_image,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1031,6 +1043,7 @@ class ImagesApi(object):
         self,
         id,
         image_partial_update_query,
+        fields_image,
         _request_auth,
         _content_type,
         _headers,
@@ -1040,6 +1053,7 @@ class ImagesApi(object):
         _host = None
 
         _collection_formats: Dict[str, str] = {
+            'fields[image]': 'csv',
         }
 
         _path_params: Dict[str, str] = {}
@@ -1053,6 +1067,13 @@ class ImagesApi(object):
         if id is not None:
             _path_params['id'] = id
         # process the query parameters
+        if fields_image is not None:
+            
+            if isinstance(fields_image, EnumMeta):
+                _query_params.append(('fields[image]', fields_image))
+            else:
+                _query_params.append(('fields[image]', fields_image))
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -1109,6 +1130,7 @@ class ImagesApi(object):
     def upload_image_from_file(        
         self,
         file: Annotated[Union[StrictBytes, StrictStr], Field(description="The image file to upload. Supported image formats: jpeg,png,gif. Maximum image size: 5MB.")],
+        fields_image: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         name: Annotated[Optional[StrictStr], Field(description="A name for the image.  Defaults to the filename if not provided.  If the name matches an existing image, a suffix will be added.")] = None,
         hidden: Annotated[Optional[StrictBool], Field(description="If true, this image is not shown in the asset library.")] = None,
         _request_timeout: Union[
@@ -1127,10 +1149,12 @@ class ImagesApi(object):
 ) ->  Union[PostImageResponse, Dict[str, object]]:
         """Upload Image From File
 
-        Upload an image from a file.  If you want to import an image from an existing url or a data uri, use the Upload Image From URL endpoint instead.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `100/m`<br>Daily: `100/d`  **Scopes:** `images:write`
+        Upload an image from a file.  If you want to import an image from an existing url or a data uri, use the Upload Image From URL endpoint instead.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `100/m`<br>Daily: `100/d`  **Scopes:** `images:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/upload_image_from_url.json)
 
         :param file: The image file to upload. Supported image formats: jpeg,png,gif. Maximum image size: 5MB. (required)
         :type file: bytearray
+        :param fields_image: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_image: List[str]
         :param name: A name for the image.  Defaults to the filename if not provided.  If the name matches an existing image, a suffix will be added.
         :type name: str
         :param hidden: If true, this image is not shown in the asset library.
@@ -1159,6 +1183,7 @@ class ImagesApi(object):
 
         _param = self._upload_image_from_file_serialize(
             file=file,
+            fields_image=fields_image,
             name=name,
             hidden=hidden,
             _request_auth=_request_auth,
@@ -1202,6 +1227,7 @@ class ImagesApi(object):
     def upload_image_from_file_with_http_info(        
         self,
         file: Annotated[Union[StrictBytes, StrictStr], Field(description="The image file to upload. Supported image formats: jpeg,png,gif. Maximum image size: 5MB.")],
+        fields_image: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         name: Annotated[Optional[StrictStr], Field(description="A name for the image.  Defaults to the filename if not provided.  If the name matches an existing image, a suffix will be added.")] = None,
         hidden: Annotated[Optional[StrictBool], Field(description="If true, this image is not shown in the asset library.")] = None,
         _request_timeout: Union[
@@ -1220,10 +1246,12 @@ class ImagesApi(object):
 ) -> ApiResponse[PostImageResponse]:
         """Upload Image From File
 
-        Upload an image from a file.  If you want to import an image from an existing url or a data uri, use the Upload Image From URL endpoint instead.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `100/m`<br>Daily: `100/d`  **Scopes:** `images:write`
+        Upload an image from a file.  If you want to import an image from an existing url or a data uri, use the Upload Image From URL endpoint instead.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `100/m`<br>Daily: `100/d`  **Scopes:** `images:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/upload_image_from_url.json)
 
         :param file: The image file to upload. Supported image formats: jpeg,png,gif. Maximum image size: 5MB. (required)
         :type file: bytearray
+        :param fields_image: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_image: List[str]
         :param name: A name for the image.  Defaults to the filename if not provided.  If the name matches an existing image, a suffix will be added.
         :type name: str
         :param hidden: If true, this image is not shown in the asset library.
@@ -1252,6 +1280,7 @@ class ImagesApi(object):
 
         _param = self._upload_image_from_file_serialize(
             file=file,
+            fields_image=fields_image,
             name=name,
             hidden=hidden,
             _request_auth=_request_auth,
@@ -1293,6 +1322,7 @@ class ImagesApi(object):
     def upload_image_from_file_without_preload_content(
         self,
         file: Annotated[Union[StrictBytes, StrictStr], Field(description="The image file to upload. Supported image formats: jpeg,png,gif. Maximum image size: 5MB.")],
+        fields_image: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         name: Annotated[Optional[StrictStr], Field(description="A name for the image.  Defaults to the filename if not provided.  If the name matches an existing image, a suffix will be added.")] = None,
         hidden: Annotated[Optional[StrictBool], Field(description="If true, this image is not shown in the asset library.")] = None,
         _request_timeout: Union[
@@ -1309,10 +1339,12 @@ class ImagesApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Upload Image From File
 
-        Upload an image from a file.  If you want to import an image from an existing url or a data uri, use the Upload Image From URL endpoint instead.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `100/m`<br>Daily: `100/d`  **Scopes:** `images:write`
+        Upload an image from a file.  If you want to import an image from an existing url or a data uri, use the Upload Image From URL endpoint instead.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `100/m`<br>Daily: `100/d`  **Scopes:** `images:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/upload_image_from_url.json)
 
         :param file: The image file to upload. Supported image formats: jpeg,png,gif. Maximum image size: 5MB. (required)
         :type file: bytearray
+        :param fields_image: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_image: List[str]
         :param name: A name for the image.  Defaults to the filename if not provided.  If the name matches an existing image, a suffix will be added.
         :type name: str
         :param hidden: If true, this image is not shown in the asset library.
@@ -1341,6 +1373,7 @@ class ImagesApi(object):
 
         _param = self._upload_image_from_file_serialize(
             file=file,
+            fields_image=fields_image,
             name=name,
             hidden=hidden,
             _request_auth=_request_auth,
@@ -1386,6 +1419,7 @@ class ImagesApi(object):
     def _upload_image_from_file_serialize(
         self,
         file,
+        fields_image,
         name,
         hidden,
         _request_auth,
@@ -1397,6 +1431,7 @@ class ImagesApi(object):
         _host = None
 
         _collection_formats: Dict[str, str] = {
+            'fields[image]': 'csv',
         }
 
         _path_params: Dict[str, str] = {}
@@ -1408,6 +1443,13 @@ class ImagesApi(object):
 
         # process the path parameters
         # process the query parameters
+        if fields_image is not None:
+            
+            if isinstance(fields_image, EnumMeta):
+                _query_params.append(('fields[image]', fields_image))
+            else:
+                _query_params.append(('fields[image]', fields_image))
+            
         # process the header parameters
         # process the form parameters
         if file is not None:
@@ -1471,6 +1513,7 @@ class ImagesApi(object):
     def upload_image_from_url(        
         self,
         image_create_query: ImageCreateQuery,
+        fields_image: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1487,10 +1530,12 @@ class ImagesApi(object):
 ) ->  Union[PostImageResponse, Dict[str, object]]:
         """Upload Image From URL
 
-        Import an image from a url or data uri.  If you want to upload an image from a file, use the Upload Image From File endpoint instead.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `100/m`<br>Daily: `100/d`  **Scopes:** `images:write`
+        Import an image from a url or data uri.  If you want to upload an image from a file, use the Upload Image From File endpoint instead.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `100/m`<br>Daily: `100/d`  **Scopes:** `images:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/upload_image_from_url.json)
 
         :param image_create_query: (required)
         :type image_create_query: ImageCreateQuery
+        :param fields_image: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_image: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1515,6 +1560,7 @@ class ImagesApi(object):
 
         _param = self._upload_image_from_url_serialize(
             image_create_query=image_create_query,
+            fields_image=fields_image,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1556,6 +1602,7 @@ class ImagesApi(object):
     def upload_image_from_url_with_http_info(        
         self,
         image_create_query: ImageCreateQuery,
+        fields_image: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1572,10 +1619,12 @@ class ImagesApi(object):
 ) -> ApiResponse[PostImageResponse]:
         """Upload Image From URL
 
-        Import an image from a url or data uri.  If you want to upload an image from a file, use the Upload Image From File endpoint instead.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `100/m`<br>Daily: `100/d`  **Scopes:** `images:write`
+        Import an image from a url or data uri.  If you want to upload an image from a file, use the Upload Image From File endpoint instead.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `100/m`<br>Daily: `100/d`  **Scopes:** `images:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/upload_image_from_url.json)
 
         :param image_create_query: (required)
         :type image_create_query: ImageCreateQuery
+        :param fields_image: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_image: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1600,6 +1649,7 @@ class ImagesApi(object):
 
         _param = self._upload_image_from_url_serialize(
             image_create_query=image_create_query,
+            fields_image=fields_image,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1639,6 +1689,7 @@ class ImagesApi(object):
     def upload_image_from_url_without_preload_content(
         self,
         image_create_query: ImageCreateQuery,
+        fields_image: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1653,10 +1704,12 @@ class ImagesApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Upload Image From URL
 
-        Import an image from a url or data uri.  If you want to upload an image from a file, use the Upload Image From File endpoint instead.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `100/m`<br>Daily: `100/d`  **Scopes:** `images:write`
+        Import an image from a url or data uri.  If you want to upload an image from a file, use the Upload Image From File endpoint instead.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `100/m`<br>Daily: `100/d`  **Scopes:** `images:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/upload_image_from_url.json)
 
         :param image_create_query: (required)
         :type image_create_query: ImageCreateQuery
+        :param fields_image: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :type fields_image: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1681,6 +1734,7 @@ class ImagesApi(object):
 
         _param = self._upload_image_from_url_serialize(
             image_create_query=image_create_query,
+            fields_image=fields_image,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1724,6 +1778,7 @@ class ImagesApi(object):
     def _upload_image_from_url_serialize(
         self,
         image_create_query,
+        fields_image,
         _request_auth,
         _content_type,
         _headers,
@@ -1733,6 +1788,7 @@ class ImagesApi(object):
         _host = None
 
         _collection_formats: Dict[str, str] = {
+            'fields[image]': 'csv',
         }
 
         _path_params: Dict[str, str] = {}
@@ -1744,6 +1800,13 @@ class ImagesApi(object):
 
         # process the path parameters
         # process the query parameters
+        if fields_image is not None:
+            
+            if isinstance(fields_image, EnumMeta):
+                _query_params.append(('fields[image]', fields_image))
+            else:
+                _query_params.append(('fields[image]', fields_image))
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter

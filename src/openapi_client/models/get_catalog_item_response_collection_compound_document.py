@@ -19,9 +19,9 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
+from openapi_client.models.catalog_item_response_object_resource import CatalogItemResponseObjectResource
 from openapi_client.models.catalog_variant_response_object_resource import CatalogVariantResponseObjectResource
 from openapi_client.models.collection_links import CollectionLinks
-from openapi_client.models.get_catalog_item_response_collection_compound_document_data_inner import GetCatalogItemResponseCollectionCompoundDocumentDataInner
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,7 +29,7 @@ class GetCatalogItemResponseCollectionCompoundDocument(BaseModel):
     """
     GetCatalogItemResponseCollectionCompoundDocument
     """ # noqa: E501
-    data: List[GetCatalogItemResponseCollectionCompoundDocumentDataInner]
+    data: List[CatalogItemResponseObjectResource]
     links: Optional[CollectionLinks] = None
     included: Optional[List[CatalogVariantResponseObjectResource]] = None
     __properties: ClassVar[List[str]] = ["data", "links", "included"]
@@ -102,7 +102,7 @@ class GetCatalogItemResponseCollectionCompoundDocument(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "data": [GetCatalogItemResponseCollectionCompoundDocumentDataInner.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None,
+            "data": [CatalogItemResponseObjectResource.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None,
             "links": CollectionLinks.from_dict(obj["links"]) if obj.get("links") is not None else None,
             "included": [CatalogVariantResponseObjectResource.from_dict(_item) for _item in obj["included"]] if obj.get("included") is not None else None
         })

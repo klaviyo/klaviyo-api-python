@@ -19,8 +19,8 @@ import json
 
 from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from openapi_client.models.list_list_response_object_resource_relationships import ListListResponseObjectResourceRelationships
 from openapi_client.models.object_links import ObjectLinks
-from openapi_client.models.post_list_create_response_data_relationships import PostListCreateResponseDataRelationships
 from openapi_client.models.segment_enum import SegmentEnum
 from openapi_client.models.segment_list_response_object_resource_attributes import SegmentListResponseObjectResourceAttributes
 from typing import Optional, Set
@@ -33,7 +33,7 @@ class PostSegmentCreateResponseData(BaseModel):
     type: SegmentEnum
     id: StrictStr
     attributes: SegmentListResponseObjectResourceAttributes
-    relationships: Optional[PostListCreateResponseDataRelationships] = None
+    relationships: Optional[ListListResponseObjectResourceRelationships] = None
     links: ObjectLinks
     __properties: ClassVar[List[str]] = ["type", "id", "attributes", "relationships", "links"]
 
@@ -100,7 +100,7 @@ class PostSegmentCreateResponseData(BaseModel):
             "type": obj.get("type"),
             "id": obj.get("id"),
             "attributes": SegmentListResponseObjectResourceAttributes.from_dict(obj["attributes"]) if obj.get("attributes") is not None else None,
-            "relationships": PostListCreateResponseDataRelationships.from_dict(obj["relationships"]) if obj.get("relationships") is not None else None,
+            "relationships": ListListResponseObjectResourceRelationships.from_dict(obj["relationships"]) if obj.get("relationships") is not None else None,
             "links": ObjectLinks.from_dict(obj["links"]) if obj.get("links") is not None else None
         })
         return _obj

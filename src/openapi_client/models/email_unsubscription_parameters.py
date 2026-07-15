@@ -18,7 +18,8 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
+from openapi_client.models.open_tracking_unsubscription_parameters import OpenTrackingUnsubscriptionParameters
 from openapi_client.models.unsubscription_parameters import UnsubscriptionParameters
 from typing import Optional, Set
 from typing_extensions import Self
@@ -27,8 +28,9 @@ class EmailUnsubscriptionParameters(BaseModel):
     """
     EmailUnsubscriptionParameters
     """ # noqa: E501
-    marketing: UnsubscriptionParameters
-    __properties: ClassVar[List[str]] = ["marketing"]
+    marketing: Optional[UnsubscriptionParameters] = None
+    open_tracking: Optional[OpenTrackingUnsubscriptionParameters] = None
+    __properties: ClassVar[List[str]] = ["marketing", "open_tracking"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -72,6 +74,9 @@ class EmailUnsubscriptionParameters(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of marketing
         if self.marketing:
             _dict['marketing'] = self.marketing.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of open_tracking
+        if self.open_tracking:
+            _dict['open_tracking'] = self.open_tracking.to_dict()
         return _dict
 
     @classmethod
@@ -84,7 +89,8 @@ class EmailUnsubscriptionParameters(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "marketing": UnsubscriptionParameters.from_dict(obj["marketing"]) if obj.get("marketing") is not None else None
+            "marketing": UnsubscriptionParameters.from_dict(obj["marketing"]) if obj.get("marketing") is not None else None,
+            "open_tracking": OpenTrackingUnsubscriptionParameters.from_dict(obj["open_tracking"]) if obj.get("open_tracking") is not None else None
         })
         return _obj
 

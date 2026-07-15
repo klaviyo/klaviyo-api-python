@@ -20,7 +20,7 @@ import json
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.flow_response_object_resource import FlowResponseObjectResource
-from openapi_client.models.get_metric_response_collection_compound_document_data_inner import GetMetricResponseCollectionCompoundDocumentDataInner
+from openapi_client.models.metric_response_object_resource import MetricResponseObjectResource
 from openapi_client.models.object_links import ObjectLinks
 from typing import Optional, Set
 from typing_extensions import Self
@@ -29,7 +29,7 @@ class GetMetricResponseCompoundDocument(BaseModel):
     """
     GetMetricResponseCompoundDocument
     """ # noqa: E501
-    data: GetMetricResponseCollectionCompoundDocumentDataInner
+    data: MetricResponseObjectResource
     included: Optional[List[FlowResponseObjectResource]] = None
     links: Optional[ObjectLinks] = None
     __properties: ClassVar[List[str]] = ["data", "included", "links"]
@@ -98,7 +98,7 @@ class GetMetricResponseCompoundDocument(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "data": GetMetricResponseCollectionCompoundDocumentDataInner.from_dict(obj["data"]) if obj.get("data") is not None else None,
+            "data": MetricResponseObjectResource.from_dict(obj["data"]) if obj.get("data") is not None else None,
             "included": [FlowResponseObjectResource.from_dict(_item) for _item in obj["included"]] if obj.get("included") is not None else None,
             "links": ObjectLinks.from_dict(obj["links"]) if obj.get("links") is not None else None
         })

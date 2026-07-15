@@ -44,7 +44,9 @@ class Version(BaseModel):
     status: Optional[StrictStr] = Field(default='draft', description="Form status enumeration.")
     ab_test: Optional[StrictBool] = False
     specialties: Optional[List[StrictStr]] = None
-    __properties: ClassVar[List[str]] = ["id", "steps", "triggers", "teasers", "dynamic_button", "name", "styles", "properties", "type", "location", "status", "ab_test", "specialties"]
+    channel: Optional[StrictStr] = Field(default='WEB', description="Form channel type enumeration.")
+    message_priority: Optional[StrictInt] = 50
+    __properties: ClassVar[List[str]] = ["id", "steps", "triggers", "teasers", "dynamic_button", "name", "styles", "properties", "type", "location", "status", "ab_test", "specialties", "channel", "message_priority"]
 
     @field_validator('type')
     def type_validate_enum(cls, value):
@@ -85,6 +87,16 @@ class Version(BaseModel):
         for i in value:
             if i not in set(['BACK_IN_STOCK']):
                 raise ValueError("each list item must be one of ('BACK_IN_STOCK')")
+        return value
+
+    @field_validator('channel')
+    def channel_validate_enum(cls, value):
+        """Validates the enum"""
+        if value is None:
+            return value
+
+        if value not in set(['IN_APP', 'WEB']):
+            raise ValueError("must be one of enum values ('IN_APP', 'WEB')")
         return value
 
     model_config = ConfigDict(
@@ -188,7 +200,9 @@ class Version(BaseModel):
             "location": obj.get("location"),
             "status": obj.get("status") if obj.get("status") is not None else 'draft',
             "ab_test": obj.get("ab_test") if obj.get("ab_test") is not None else False,
-            "specialties": obj.get("specialties")
+            "specialties": obj.get("specialties"),
+            "channel": obj.get("channel") if obj.get("channel") is not None else 'WEB',
+            "message_priority": obj.get("message_priority") if obj.get("message_priority") is not None else 50
         })
         return _obj
 

@@ -19,8 +19,8 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.get_campaign_message_response_compound_document_data_all_of_relationships_campaign import GetCampaignMessageResponseCompoundDocumentDataAllOfRelationshipsCampaign
-from openapi_client.models.get_campaign_message_response_compound_document_data_all_of_relationships_template import GetCampaignMessageResponseCompoundDocumentDataAllOfRelationshipsTemplate
+from openapi_client.models.campaign_message_response_object_resource_relationships_campaign import CampaignMessageResponseObjectResourceRelationshipsCampaign
+from openapi_client.models.campaign_message_response_object_resource_relationships_template import CampaignMessageResponseObjectResourceRelationshipsTemplate
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,8 +28,8 @@ class PostCampaignMessageResponseDataRelationships(BaseModel):
     """
     PostCampaignMessageResponseDataRelationships
     """ # noqa: E501
-    campaign: Optional[GetCampaignMessageResponseCompoundDocumentDataAllOfRelationshipsCampaign] = None
-    template: Optional[GetCampaignMessageResponseCompoundDocumentDataAllOfRelationshipsTemplate] = None
+    campaign: Optional[CampaignMessageResponseObjectResourceRelationshipsCampaign] = None
+    template: Optional[CampaignMessageResponseObjectResourceRelationshipsTemplate] = None
     __properties: ClassVar[List[str]] = ["campaign", "template"]
 
     model_config = ConfigDict(
@@ -89,8 +89,8 @@ class PostCampaignMessageResponseDataRelationships(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "campaign": GetCampaignMessageResponseCompoundDocumentDataAllOfRelationshipsCampaign.from_dict(obj["campaign"]) if obj.get("campaign") is not None else None,
-            "template": GetCampaignMessageResponseCompoundDocumentDataAllOfRelationshipsTemplate.from_dict(obj["template"]) if obj.get("template") is not None else None
+            "campaign": CampaignMessageResponseObjectResourceRelationshipsCampaign.from_dict(obj["campaign"]) if obj.get("campaign") is not None else None,
+            "template": CampaignMessageResponseObjectResourceRelationshipsTemplate.from_dict(obj["template"]) if obj.get("template") is not None else None
         })
         return _obj
 

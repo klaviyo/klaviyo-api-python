@@ -19,8 +19,8 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.get_profile_response_data import GetProfileResponseData
 from openapi_client.models.object_links import ObjectLinks
+from openapi_client.models.profile_response_object_resource_extended import ProfileResponseObjectResourceExtended
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,7 +28,7 @@ class GetProfileResponse(BaseModel):
     """
     GetProfileResponse
     """ # noqa: E501
-    data: GetProfileResponseData
+    data: ProfileResponseObjectResourceExtended
     links: Optional[ObjectLinks] = None
     __properties: ClassVar[List[str]] = ["data", "links"]
 
@@ -89,7 +89,7 @@ class GetProfileResponse(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "data": GetProfileResponseData.from_dict(obj["data"]) if obj.get("data") is not None else None,
+            "data": ProfileResponseObjectResourceExtended.from_dict(obj["data"]) if obj.get("data") is not None else None,
             "links": ObjectLinks.from_dict(obj["links"]) if obj.get("links") is not None else None
         })
         return _obj

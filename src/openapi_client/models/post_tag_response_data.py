@@ -20,9 +20,9 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.object_links import ObjectLinks
-from openapi_client.models.post_tag_response_data_relationships import PostTagResponseDataRelationships
 from openapi_client.models.tag_enum import TagEnum
 from openapi_client.models.tag_response_object_resource_attributes import TagResponseObjectResourceAttributes
+from openapi_client.models.tag_response_object_resource_relationships import TagResponseObjectResourceRelationships
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -33,7 +33,7 @@ class PostTagResponseData(BaseModel):
     type: TagEnum
     id: StrictStr = Field(description="The Tag ID")
     attributes: TagResponseObjectResourceAttributes
-    relationships: Optional[PostTagResponseDataRelationships] = None
+    relationships: Optional[TagResponseObjectResourceRelationships] = None
     links: ObjectLinks
     __properties: ClassVar[List[str]] = ["type", "id", "attributes", "relationships", "links"]
 
@@ -100,7 +100,7 @@ class PostTagResponseData(BaseModel):
             "type": obj.get("type"),
             "id": obj.get("id"),
             "attributes": TagResponseObjectResourceAttributes.from_dict(obj["attributes"]) if obj.get("attributes") is not None else None,
-            "relationships": PostTagResponseDataRelationships.from_dict(obj["relationships"]) if obj.get("relationships") is not None else None,
+            "relationships": TagResponseObjectResourceRelationships.from_dict(obj["relationships"]) if obj.get("relationships") is not None else None,
             "links": ObjectLinks.from_dict(obj["links"]) if obj.get("links") is not None else None
         })
         return _obj

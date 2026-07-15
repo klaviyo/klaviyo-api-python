@@ -19,8 +19,8 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.get_flow_action_encoded_response_compound_document_data_all_of_relationships_flow_messages import GetFlowActionEncodedResponseCompoundDocumentDataAllOfRelationshipsFlowMessages
-from openapi_client.models.get_metric_response_collection_compound_document_data_inner_all_of_relationships_flow_triggers import GetMetricResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsFlowTriggers
+from openapi_client.models.flow_action_encoded_response_object_resource_relationships_flow_messages import FlowActionEncodedResponseObjectResourceRelationshipsFlowMessages
+from openapi_client.models.metric_response_object_resource_relationships_flow_triggers import MetricResponseObjectResourceRelationshipsFlowTriggers
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,8 +28,8 @@ class PostFlowValuesResponseDTODataRelationships(BaseModel):
     """
     PostFlowValuesResponseDTODataRelationships
     """ # noqa: E501
-    flows: Optional[GetMetricResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsFlowTriggers] = None
-    flow_messages: Optional[GetFlowActionEncodedResponseCompoundDocumentDataAllOfRelationshipsFlowMessages] = Field(default=None, alias="flow-messages")
+    flows: Optional[MetricResponseObjectResourceRelationshipsFlowTriggers] = None
+    flow_messages: Optional[FlowActionEncodedResponseObjectResourceRelationshipsFlowMessages] = Field(default=None, alias="flow-messages")
     __properties: ClassVar[List[str]] = ["flows", "flow-messages"]
 
     model_config = ConfigDict(
@@ -89,8 +89,8 @@ class PostFlowValuesResponseDTODataRelationships(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "flows": GetMetricResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsFlowTriggers.from_dict(obj["flows"]) if obj.get("flows") is not None else None,
-            "flow-messages": GetFlowActionEncodedResponseCompoundDocumentDataAllOfRelationshipsFlowMessages.from_dict(obj["flow-messages"]) if obj.get("flow-messages") is not None else None
+            "flows": MetricResponseObjectResourceRelationshipsFlowTriggers.from_dict(obj["flows"]) if obj.get("flows") is not None else None,
+            "flow-messages": FlowActionEncodedResponseObjectResourceRelationshipsFlowMessages.from_dict(obj["flow-messages"]) if obj.get("flow-messages") is not None else None
         })
         return _obj
 

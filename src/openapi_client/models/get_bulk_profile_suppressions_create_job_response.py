@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.get_bulk_profile_suppressions_create_job_response_collection_data_inner import GetBulkProfileSuppressionsCreateJobResponseCollectionDataInner
+from openapi_client.models.bulk_profile_suppressions_create_job_response_object_resource import BulkProfileSuppressionsCreateJobResponseObjectResource
 from openapi_client.models.object_links import ObjectLinks
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,7 +28,7 @@ class GetBulkProfileSuppressionsCreateJobResponse(BaseModel):
     """
     GetBulkProfileSuppressionsCreateJobResponse
     """ # noqa: E501
-    data: GetBulkProfileSuppressionsCreateJobResponseCollectionDataInner
+    data: BulkProfileSuppressionsCreateJobResponseObjectResource
     links: Optional[ObjectLinks] = None
     __properties: ClassVar[List[str]] = ["data", "links"]
 
@@ -89,7 +89,7 @@ class GetBulkProfileSuppressionsCreateJobResponse(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "data": GetBulkProfileSuppressionsCreateJobResponseCollectionDataInner.from_dict(obj["data"]) if obj.get("data") is not None else None,
+            "data": BulkProfileSuppressionsCreateJobResponseObjectResource.from_dict(obj["data"]) if obj.get("data") is not None else None,
             "links": ObjectLinks.from_dict(obj["links"]) if obj.get("links") is not None else None
         })
         return _obj

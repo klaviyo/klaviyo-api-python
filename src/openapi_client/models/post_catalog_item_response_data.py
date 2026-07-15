@@ -21,7 +21,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.catalog_item_enum import CatalogItemEnum
 from openapi_client.models.catalog_item_response_object_resource_attributes import CatalogItemResponseObjectResourceAttributes
-from openapi_client.models.get_catalog_item_response_collection_compound_document_data_inner_all_of_relationships import GetCatalogItemResponseCollectionCompoundDocumentDataInnerAllOfRelationships
+from openapi_client.models.catalog_item_response_object_resource_relationships import CatalogItemResponseObjectResourceRelationships
 from openapi_client.models.object_links import ObjectLinks
 from typing import Optional, Set
 from typing_extensions import Self
@@ -33,7 +33,7 @@ class PostCatalogItemResponseData(BaseModel):
     type: CatalogItemEnum
     id: StrictStr = Field(description="The catalog item ID is a compound ID (string), with format: `{integration}:::{catalog}:::{external_id}`. Currently, the only supported integration type is `$custom`, and the only supported catalog is `$default`.")
     attributes: CatalogItemResponseObjectResourceAttributes
-    relationships: Optional[GetCatalogItemResponseCollectionCompoundDocumentDataInnerAllOfRelationships] = None
+    relationships: Optional[CatalogItemResponseObjectResourceRelationships] = None
     links: ObjectLinks
     __properties: ClassVar[List[str]] = ["type", "id", "attributes", "relationships", "links"]
 
@@ -100,7 +100,7 @@ class PostCatalogItemResponseData(BaseModel):
             "type": obj.get("type"),
             "id": obj.get("id"),
             "attributes": CatalogItemResponseObjectResourceAttributes.from_dict(obj["attributes"]) if obj.get("attributes") is not None else None,
-            "relationships": GetCatalogItemResponseCollectionCompoundDocumentDataInnerAllOfRelationships.from_dict(obj["relationships"]) if obj.get("relationships") is not None else None,
+            "relationships": CatalogItemResponseObjectResourceRelationships.from_dict(obj["relationships"]) if obj.get("relationships") is not None else None,
             "links": ObjectLinks.from_dict(obj["links"]) if obj.get("links") is not None else None
         })
         return _obj

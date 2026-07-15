@@ -20,7 +20,7 @@ import json
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.object_links import ObjectLinks
-from openapi_client.models.template_dnd_response_object_resource import TemplateDndResponseObjectResource
+from openapi_client.models.template_dnd_response_object_resource_extended import TemplateDndResponseObjectResourceExtended
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,7 +28,7 @@ class GetTemplateDndResponse(BaseModel):
     """
     GetTemplateDndResponse
     """ # noqa: E501
-    data: TemplateDndResponseObjectResource
+    data: TemplateDndResponseObjectResourceExtended
     links: Optional[ObjectLinks] = None
     __properties: ClassVar[List[str]] = ["data", "links"]
 
@@ -89,7 +89,7 @@ class GetTemplateDndResponse(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "data": TemplateDndResponseObjectResource.from_dict(obj["data"]) if obj.get("data") is not None else None,
+            "data": TemplateDndResponseObjectResourceExtended.from_dict(obj["data"]) if obj.get("data") is not None else None,
             "links": ObjectLinks.from_dict(obj["links"]) if obj.get("links") is not None else None
         })
         return _obj

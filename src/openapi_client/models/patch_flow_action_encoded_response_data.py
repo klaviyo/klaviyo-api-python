@@ -20,8 +20,8 @@ import json
 from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.flow_action_encoded_response_object_resource_attributes import FlowActionEncodedResponseObjectResourceAttributes
+from openapi_client.models.flow_action_encoded_response_object_resource_relationships import FlowActionEncodedResponseObjectResourceRelationships
 from openapi_client.models.flow_action_enum import FlowActionEnum
-from openapi_client.models.get_flow_action_encoded_response_compound_document_data_all_of_relationships import GetFlowActionEncodedResponseCompoundDocumentDataAllOfRelationships
 from openapi_client.models.object_links import ObjectLinks
 from typing import Optional, Set
 from typing_extensions import Self
@@ -33,7 +33,7 @@ class PatchFlowActionEncodedResponseData(BaseModel):
     type: FlowActionEnum
     id: StrictStr
     attributes: FlowActionEncodedResponseObjectResourceAttributes
-    relationships: Optional[GetFlowActionEncodedResponseCompoundDocumentDataAllOfRelationships] = None
+    relationships: Optional[FlowActionEncodedResponseObjectResourceRelationships] = None
     links: ObjectLinks
     __properties: ClassVar[List[str]] = ["type", "id", "attributes", "relationships", "links"]
 
@@ -100,7 +100,7 @@ class PatchFlowActionEncodedResponseData(BaseModel):
             "type": obj.get("type"),
             "id": obj.get("id"),
             "attributes": FlowActionEncodedResponseObjectResourceAttributes.from_dict(obj["attributes"]) if obj.get("attributes") is not None else None,
-            "relationships": GetFlowActionEncodedResponseCompoundDocumentDataAllOfRelationships.from_dict(obj["relationships"]) if obj.get("relationships") is not None else None,
+            "relationships": FlowActionEncodedResponseObjectResourceRelationships.from_dict(obj["relationships"]) if obj.get("relationships") is not None else None,
             "links": ObjectLinks.from_dict(obj["links"]) if obj.get("links") is not None else None
         })
         return _obj

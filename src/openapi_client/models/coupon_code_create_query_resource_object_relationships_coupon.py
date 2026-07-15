@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.get_coupon_code_response_collection_compound_document_data_inner_all_of_relationships_coupon_data import GetCouponCodeResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsCouponData
+from openapi_client.models.coupon_code_response_object_resource_relationships_coupon_data import CouponCodeResponseObjectResourceRelationshipsCouponData
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,7 +27,7 @@ class CouponCodeCreateQueryResourceObjectRelationshipsCoupon(BaseModel):
     """
     CouponCodeCreateQueryResourceObjectRelationshipsCoupon
     """ # noqa: E501
-    data: Optional[GetCouponCodeResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsCouponData] = None
+    data: Optional[CouponCodeResponseObjectResourceRelationshipsCouponData] = None
     __properties: ClassVar[List[str]] = ["data"]
 
     model_config = ConfigDict(
@@ -84,7 +84,7 @@ class CouponCodeCreateQueryResourceObjectRelationshipsCoupon(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "data": GetCouponCodeResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsCouponData.from_dict(obj["data"]) if obj.get("data") is not None else None
+            "data": CouponCodeResponseObjectResourceRelationshipsCouponData.from_dict(obj["data"]) if obj.get("data") is not None else None
         })
         return _obj
 

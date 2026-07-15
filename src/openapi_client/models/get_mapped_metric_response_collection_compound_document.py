@@ -20,7 +20,7 @@ import json
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.collection_links import CollectionLinks
-from openapi_client.models.get_mapped_metric_response_collection_compound_document_data_inner import GetMappedMetricResponseCollectionCompoundDocumentDataInner
+from openapi_client.models.mapped_metric_response_object_resource import MappedMetricResponseObjectResource
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,7 +28,7 @@ class GetMappedMetricResponseCollectionCompoundDocument(BaseModel):
     """
     GetMappedMetricResponseCollectionCompoundDocument
     """ # noqa: E501
-    data: List[GetMappedMetricResponseCollectionCompoundDocumentDataInner]
+    data: List[MappedMetricResponseObjectResource]
     links: Optional[CollectionLinks] = None
     included: Optional[List[Dict[str, Any]]] = None
     __properties: ClassVar[List[str]] = ["data", "links", "included"]
@@ -94,7 +94,7 @@ class GetMappedMetricResponseCollectionCompoundDocument(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "data": [GetMappedMetricResponseCollectionCompoundDocumentDataInner.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None,
+            "data": [MappedMetricResponseObjectResource.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None,
             "links": CollectionLinks.from_dict(obj["links"]) if obj.get("links") is not None else None,
             "included": obj.get("included")
         })

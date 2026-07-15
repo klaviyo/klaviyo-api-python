@@ -31,7 +31,9 @@ class DisplayOptions(BaseModel):
     show_on: Optional[StrictStr] = Field(default=None, description="Show on.")
     content_repeat: Optional[ContentRepeatV1] = None
     visibility: Optional[Visibility] = None
-    __properties: ClassVar[List[str]] = ["show_on", "content_repeat", "visibility"]
+    layout_type: Optional[StrictStr] = None
+    layout_config: Optional[Dict[str, Any]] = None
+    __properties: ClassVar[List[str]] = ["show_on", "content_repeat", "visibility", "layout_type", "layout_config"]
 
     @field_validator('show_on')
     def show_on_validate_enum(cls, value):
@@ -93,6 +95,16 @@ class DisplayOptions(BaseModel):
         if self.show_on is None and "show_on" in self.model_fields_set:
             _dict['show_on'] = None
 
+        # set to None if layout_type (nullable) is None
+        # and model_fields_set contains the field
+        if self.layout_type is None and "layout_type" in self.model_fields_set:
+            _dict['layout_type'] = None
+
+        # set to None if layout_config (nullable) is None
+        # and model_fields_set contains the field
+        if self.layout_config is None and "layout_config" in self.model_fields_set:
+            _dict['layout_config'] = None
+
         return _dict
 
     @classmethod
@@ -107,7 +119,9 @@ class DisplayOptions(BaseModel):
         _obj = cls.model_validate({
             "show_on": obj.get("show_on"),
             "content_repeat": ContentRepeatV1.from_dict(obj["content_repeat"]) if obj.get("content_repeat") is not None else None,
-            "visibility": Visibility.from_dict(obj["visibility"]) if obj.get("visibility") is not None else None
+            "visibility": Visibility.from_dict(obj["visibility"]) if obj.get("visibility") is not None else None,
+            "layout_type": obj.get("layout_type"),
+            "layout_config": obj.get("layout_config")
         })
         return _obj
 

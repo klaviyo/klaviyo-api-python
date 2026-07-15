@@ -17,8 +17,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, ConfigDict, Field, StrictBool
+from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.events_bulk_create_query_resource_object_attributes_events import EventsBulkCreateQueryResourceObjectAttributesEvents
 from openapi_client.models.events_bulk_create_query_resource_object_attributes_profile import EventsBulkCreateQueryResourceObjectAttributesProfile
 from typing import Optional, Set
@@ -28,9 +28,10 @@ class EventsBulkCreateQueryResourceObjectAttributes(BaseModel):
     """
     EventsBulkCreateQueryResourceObjectAttributes
     """ # noqa: E501
+    backfill: Optional[StrictBool] = Field(default=False, description="When true, the event is recorded but does NOT trigger flows. Use this when backfilling historical events so existing flow definitions do not re-fire on events that already fired in the past.")
     profile: EventsBulkCreateQueryResourceObjectAttributesProfile
     events: EventsBulkCreateQueryResourceObjectAttributesEvents
-    __properties: ClassVar[List[str]] = ["profile", "events"]
+    __properties: ClassVar[List[str]] = ["backfill", "profile", "events"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -77,6 +78,11 @@ class EventsBulkCreateQueryResourceObjectAttributes(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of events
         if self.events:
             _dict['events'] = self.events.to_dict()
+        # set to None if backfill (nullable) is None
+        # and model_fields_set contains the field
+        if self.backfill is None and "backfill" in self.model_fields_set:
+            _dict['backfill'] = None
+
         return _dict
 
     @classmethod
@@ -89,6 +95,7 @@ class EventsBulkCreateQueryResourceObjectAttributes(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "backfill": obj.get("backfill") if obj.get("backfill") is not None else False,
             "profile": EventsBulkCreateQueryResourceObjectAttributesProfile.from_dict(obj["profile"]) if obj.get("profile") is not None else None,
             "events": EventsBulkCreateQueryResourceObjectAttributesEvents.from_dict(obj["events"]) if obj.get("events") is not None else None
         })

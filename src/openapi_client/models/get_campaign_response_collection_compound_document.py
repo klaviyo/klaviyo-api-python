@@ -19,8 +19,8 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
+from openapi_client.models.campaign_response_object_resource import CampaignResponseObjectResource
 from openapi_client.models.collection_links import CollectionLinks
-from openapi_client.models.get_campaign_response_collection_compound_document_data_inner import GetCampaignResponseCollectionCompoundDocumentDataInner
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,7 +28,7 @@ class GetCampaignResponseCollectionCompoundDocument(BaseModel):
     """
     GetCampaignResponseCollectionCompoundDocument
     """ # noqa: E501
-    data: List[GetCampaignResponseCollectionCompoundDocumentDataInner]
+    data: List[CampaignResponseObjectResource]
     links: Optional[CollectionLinks] = None
     included: Optional[List[Dict[str, Any]]] = None
     __properties: ClassVar[List[str]] = ["data", "links", "included"]
@@ -94,7 +94,7 @@ class GetCampaignResponseCollectionCompoundDocument(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "data": [GetCampaignResponseCollectionCompoundDocumentDataInner.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None,
+            "data": [CampaignResponseObjectResource.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None,
             "links": CollectionLinks.from_dict(obj["links"]) if obj.get("links") is not None else None,
             "included": obj.get("included")
         })

@@ -19,8 +19,8 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.get_segment_retrieve_response_compound_document_data import GetSegmentRetrieveResponseCompoundDocumentData
 from openapi_client.models.object_links import ObjectLinks
+from openapi_client.models.segment_retrieve_response_object_resource_extended import SegmentRetrieveResponseObjectResourceExtended
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,7 +28,7 @@ class GetSegmentRetrieveResponseCompoundDocument(BaseModel):
     """
     GetSegmentRetrieveResponseCompoundDocument
     """ # noqa: E501
-    data: GetSegmentRetrieveResponseCompoundDocumentData
+    data: SegmentRetrieveResponseObjectResourceExtended
     included: Optional[List[Dict[str, Any]]] = None
     links: Optional[ObjectLinks] = None
     __properties: ClassVar[List[str]] = ["data", "included", "links"]
@@ -90,7 +90,7 @@ class GetSegmentRetrieveResponseCompoundDocument(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "data": GetSegmentRetrieveResponseCompoundDocumentData.from_dict(obj["data"]) if obj.get("data") is not None else None,
+            "data": SegmentRetrieveResponseObjectResourceExtended.from_dict(obj["data"]) if obj.get("data") is not None else None,
             "included": obj.get("included"),
             "links": ObjectLinks.from_dict(obj["links"]) if obj.get("links") is not None else None
         })

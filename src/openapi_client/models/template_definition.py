@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.body import Body
 from typing import Optional, Set
@@ -30,7 +30,7 @@ class TemplateDefinition(BaseModel):
     id: Optional[StrictStr] = None
     template_id: Optional[StrictStr] = None
     body: Body
-    styles: List[Dict[str, Any]]
+    styles: List[Dict[str, Any]] = Field(description="When present, must contain exactly one of each style type.")
     __properties: ClassVar[List[str]] = ["id", "template_id", "body", "styles"]
 
     model_config = ConfigDict(

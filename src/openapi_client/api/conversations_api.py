@@ -63,7 +63,7 @@ class ConversationsApi(object):
 ) -> None:
         """Create Conversation Message
 
-        Send an outbound message to a conversation.  Requires OAuth authentication and account-level enablement. To request access, reach out in the [developer community](https://community.klaviyo.com/groups/developer-group-64).<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `conversations:write`
+        Send an outbound message to a conversation.  Requires account-level enablement. To request access, reach out in the [developer community](https://community.klaviyo.com/groups/developer-group-64).<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `conversations:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/create_conversation_message.json)
 
         :param conversation_message_create_query: Create a conversation message (required)
         :type conversation_message_create_query: ConversationMessageCreateQuery
@@ -145,7 +145,7 @@ class ConversationsApi(object):
 ) -> ApiResponse[None]:
         """Create Conversation Message
 
-        Send an outbound message to a conversation.  Requires OAuth authentication and account-level enablement. To request access, reach out in the [developer community](https://community.klaviyo.com/groups/developer-group-64).<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `conversations:write`
+        Send an outbound message to a conversation.  Requires account-level enablement. To request access, reach out in the [developer community](https://community.klaviyo.com/groups/developer-group-64).<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `conversations:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/create_conversation_message.json)
 
         :param conversation_message_create_query: Create a conversation message (required)
         :type conversation_message_create_query: ConversationMessageCreateQuery
@@ -223,7 +223,7 @@ class ConversationsApi(object):
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
         """Create Conversation Message
 
-        Send an outbound message to a conversation.  Requires OAuth authentication and account-level enablement. To request access, reach out in the [developer community](https://community.klaviyo.com/groups/developer-group-64).<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `conversations:write`
+        Send an outbound message to a conversation.  Requires account-level enablement. To request access, reach out in the [developer community](https://community.klaviyo.com/groups/developer-group-64).<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `conversations:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/create_conversation_message.json)
 
         :param conversation_message_create_query: Create a conversation message (required)
         :type conversation_message_create_query: ConversationMessageCreateQuery

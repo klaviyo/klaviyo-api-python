@@ -20,9 +20,9 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.object_links import ObjectLinks
-from openapi_client.models.patch_review_response_dto_data_relationships import PatchReviewResponseDTODataRelationships
 from openapi_client.models.review_enum import ReviewEnum
 from openapi_client.models.review_response_dto_object_resource_attributes import ReviewResponseDTOObjectResourceAttributes
+from openapi_client.models.review_response_dto_object_resource_relationships import ReviewResponseDTOObjectResourceRelationships
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -33,7 +33,7 @@ class PatchReviewResponseDTOData(BaseModel):
     type: ReviewEnum
     id: StrictStr = Field(description="The ID of the review")
     attributes: ReviewResponseDTOObjectResourceAttributes
-    relationships: Optional[PatchReviewResponseDTODataRelationships] = None
+    relationships: Optional[ReviewResponseDTOObjectResourceRelationships] = None
     links: ObjectLinks
     __properties: ClassVar[List[str]] = ["type", "id", "attributes", "relationships", "links"]
 
@@ -100,7 +100,7 @@ class PatchReviewResponseDTOData(BaseModel):
             "type": obj.get("type"),
             "id": obj.get("id"),
             "attributes": ReviewResponseDTOObjectResourceAttributes.from_dict(obj["attributes"]) if obj.get("attributes") is not None else None,
-            "relationships": PatchReviewResponseDTODataRelationships.from_dict(obj["relationships"]) if obj.get("relationships") is not None else None,
+            "relationships": ReviewResponseDTOObjectResourceRelationships.from_dict(obj["relationships"]) if obj.get("relationships") is not None else None,
             "links": ObjectLinks.from_dict(obj["links"]) if obj.get("links") is not None else None
         })
         return _obj
