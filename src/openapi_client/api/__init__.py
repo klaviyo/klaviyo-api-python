@@ -6,6 +6,8 @@ from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
     from openapi_client.api.accounts_api import AccountsApi
+    from openapi_client.api.billing_api import BillingApi
+    from openapi_client.api.brands_api import BrandsApi
     from openapi_client.api.campaigns_api import CampaignsApi
     from openapi_client.api.catalogs_api import CatalogsApi
     from openapi_client.api.client_api import ClientApi
@@ -25,7 +27,9 @@ if TYPE_CHECKING:
     from openapi_client.api.segments_api import SegmentsApi
     from openapi_client.api.tags_api import TagsApi
     from openapi_client.api.templates_api import TemplatesApi
+    from openapi_client.api.text_messaging_api import TextMessagingApi
     from openapi_client.api.tracking_settings_api import TrackingSettingsApi
+    from openapi_client.api.translations_api import TranslationsApi
     from openapi_client.api.web_feeds_api import WebFeedsApi
     from openapi_client.api.webhooks_api import WebhooksApi
     
@@ -36,6 +40,8 @@ if TYPE_CHECKING:
 object_origins = {
     # import apis into sdk package
     "AccountsApi": "openapi_client.api.accounts_api",
+    "BillingApi": "openapi_client.api.billing_api",
+    "BrandsApi": "openapi_client.api.brands_api",
     "CampaignsApi": "openapi_client.api.campaigns_api",
     "CatalogsApi": "openapi_client.api.catalogs_api",
     "ClientApi": "openapi_client.api.client_api",
@@ -55,7 +61,9 @@ object_origins = {
     "SegmentsApi": "openapi_client.api.segments_api",
     "TagsApi": "openapi_client.api.tags_api",
     "TemplatesApi": "openapi_client.api.templates_api",
+    "TextMessagingApi": "openapi_client.api.text_messaging_api",
     "TrackingSettingsApi": "openapi_client.api.tracking_settings_api",
+    "TranslationsApi": "openapi_client.api.translations_api",
     "WebFeedsApi": "openapi_client.api.web_feeds_api",
     "WebhooksApi": "openapi_client.api.webhooks_api",
     

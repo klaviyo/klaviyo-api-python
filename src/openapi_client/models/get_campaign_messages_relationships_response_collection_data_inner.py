@@ -28,7 +28,7 @@ class GetCampaignMessagesRelationshipsResponseCollectionDataInner(BaseModel):
     GetCampaignMessagesRelationshipsResponseCollectionDataInner
     """ # noqa: E501
     type: CampaignMessageEnum
-    id: StrictStr = Field(description="The message ID")
+    id: StrictStr = Field(description="The ID of the message")
     __properties: ClassVar[List[str]] = ["type", "id"]
 
     model_config = ConfigDict(

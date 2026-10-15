@@ -35,8 +35,8 @@ class APISchemaProperty(BaseModel):
     @field_validator('type')
     def type_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['boolean', 'float', 'int', 'string', 'timestamp']):
-            raise ValueError("must be one of enum values ('boolean', 'float', 'int', 'string', 'timestamp')")
+        if value not in set(['boolean', 'float', 'int', 'list_str', 'string', 'timestamp']):
+            raise ValueError("must be one of enum values ('boolean', 'float', 'int', 'list_str', 'string', 'timestamp')")
         return value
 
     model_config = ConfigDict(

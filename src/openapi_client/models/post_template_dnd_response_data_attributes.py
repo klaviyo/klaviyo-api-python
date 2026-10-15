@@ -35,8 +35,9 @@ class PostTemplateDndResponseDataAttributes(BaseModel):
     amp: Optional[StrictStr] = Field(default=None, description="The AMP version of the template. Requires AMP Email to be enabled to access in-app. Refer to the AMP Email setup guide at https://developers.klaviyo.com/en/docs/send_amp_emails_in_klaviyo")
     created: Optional[datetime] = Field(default=None, description="The date the template was created in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm)")
     updated: Optional[datetime] = Field(default=None, description="The date the template was updated in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm)")
+    screenshot_url: Optional[StrictStr] = Field(default=None, description="A presigned URL to an image of the rendered template, valid for 24 hours. `null` when no screenshot is currently available for the template.")
     definition: Optional[TemplateDefinition] = None
-    __properties: ClassVar[List[str]] = ["name", "editor_type", "html", "text", "amp", "created", "updated", "definition"]
+    __properties: ClassVar[List[str]] = ["name", "editor_type", "html", "text", "amp", "created", "updated", "screenshot_url", "definition"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -100,6 +101,11 @@ class PostTemplateDndResponseDataAttributes(BaseModel):
         if self.updated is None and "updated" in self.model_fields_set:
             _dict['updated'] = None
 
+        # set to None if screenshot_url (nullable) is None
+        # and model_fields_set contains the field
+        if self.screenshot_url is None and "screenshot_url" in self.model_fields_set:
+            _dict['screenshot_url'] = None
+
         return _dict
 
     @classmethod
@@ -119,6 +125,7 @@ class PostTemplateDndResponseDataAttributes(BaseModel):
             "amp": obj.get("amp"),
             "created": obj.get("created"),
             "updated": obj.get("updated"),
+            "screenshot_url": obj.get("screenshot_url"),
             "definition": TemplateDefinition.from_dict(obj["definition"]) if obj.get("definition") is not None else None
         })
         return _obj

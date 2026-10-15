@@ -23,6 +23,7 @@ from enum import EnumMeta
 from pydantic import Field, StrictStr, field_validator
 from typing import List, Optional
 from typing_extensions import Annotated
+from openapi_client.models.flow_action_insert_query import FlowActionInsertQuery
 from openapi_client.models.flow_action_update_query import FlowActionUpdateQuery
 from openapi_client.models.flow_create_query import FlowCreateQuery
 from openapi_client.models.flow_update_query import FlowUpdateQuery
@@ -44,6 +45,7 @@ from openapi_client.models.get_tag_response_collection import GetTagResponseColl
 from openapi_client.models.get_template_response import GetTemplateResponse
 from openapi_client.models.patch_flow_action_encoded_response import PatchFlowActionEncodedResponse
 from openapi_client.models.patch_flow_response import PatchFlowResponse
+from openapi_client.models.post_flow_action_encoded_response import PostFlowActionEncodedResponse
 from openapi_client.models.post_flow_v2_response import PostFlowV2Response
 
 from openapi_client.api_client import ApiClient, RequestSerialized
@@ -70,7 +72,7 @@ class FlowsApi(object):
         self,
         flow_create_query: Annotated[FlowCreateQuery, Field(description="Creates a Flow from parameters")],
         additional_fields_flow: Annotated[Optional[List[StrictStr]], Field(description="Request additional fields not included by default in the response. Supported values: 'definition'")] = None,
-        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -93,7 +95,7 @@ class FlowsApi(object):
         :type flow_create_query: FlowCreateQuery
         :param additional_fields_flow: Request additional fields not included by default in the response. Supported values: 'definition'
         :type additional_fields_flow: List[str]
-        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_flow: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -160,7 +162,7 @@ class FlowsApi(object):
         self,
         flow_create_query: Annotated[FlowCreateQuery, Field(description="Creates a Flow from parameters")],
         additional_fields_flow: Annotated[Optional[List[StrictStr]], Field(description="Request additional fields not included by default in the response. Supported values: 'definition'")] = None,
-        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -183,7 +185,7 @@ class FlowsApi(object):
         :type flow_create_query: FlowCreateQuery
         :param additional_fields_flow: Request additional fields not included by default in the response. Supported values: 'definition'
         :type additional_fields_flow: List[str]
-        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_flow: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -248,7 +250,7 @@ class FlowsApi(object):
         self,
         flow_create_query: Annotated[FlowCreateQuery, Field(description="Creates a Flow from parameters")],
         additional_fields_flow: Annotated[Optional[List[StrictStr]], Field(description="Request additional fields not included by default in the response. Supported values: 'definition'")] = None,
-        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -269,7 +271,7 @@ class FlowsApi(object):
         :type flow_create_query: FlowCreateQuery
         :param additional_fields_flow: Request additional fields not included by default in the response. Supported values: 'definition'
         :type additional_fields_flow: List[str]
-        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_flow: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -412,6 +414,347 @@ class FlowsApi(object):
         return self.api_client.param_serialize(
             method='POST',
             resource_path='/api/flows',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def create_flow_action(        
+        self,
+        flow_action_insert_query: Annotated[FlowActionInsertQuery, Field(description="Insert a new action using either an anchor action or a flow relationship.  An anchor action identifies one outgoing link on an existing action. The new action is inserted on that link. Links on the new action insert it before the referenced downstream action. A flow relationship is only used to insert the first action into a trigger-only flow with an initialized, empty start path. These three placement mechanisms are mutually exclusive.")],
+        fields_flow_action: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: StrictStr = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+        options: Dict[str, Any] = {},
+) ->  Union[PostFlowActionEncodedResponse, Dict[str, object]]:
+        """Create Flow Action
+
+        Insert a new action into an existing flow.  Choose exactly one placement mechanism:  - Use `anchor-action` to insert after an existing action on one of its outgoing   links. The selected anchor link must equal the new action's `temporary_id`,   and the new action definition must not include links. Use an anchor to append   to a path or insert into an empty conditional or multi-branch path. - Use `definition.links.next` to insert before an existing downstream action.   The server reconnects that action after the new one. - Use `relationships.flow` only to insert the first action into a trigger-only   flow whose initialized start path has no actions.  `anchor-action`, links on the new definition, and `relationships.flow` are mutually exclusive.  Standard linear actions, standard WhatsApp actions, and multi-branch splits are supported. Conditional splits, trigger splits, action-output splits, A/B tests, content experiments, and Automated Conversations actions cannot be inserted.  Communication actions are created in Draft and may need content or template configuration before activation. Always-live timing and logic actions require `allow_live_action: true` when inserted into a live flow and can immediately affect profiles already progressing through that flow.  A `201` response confirms that the action was created. The action may take a short time to become available to flow execution. This endpoint is not idempotent: retrying after an unknown result can create a duplicate action, and `temporary_id` is not an idempotency key.  Responses use persisted values. These can include server-generated multi-branch branch IDs, omission of the request-only `joined` marker, generated message or webhook defaults, and a cloned email template ID that differs from the supplied template ID. Invalid placement, unavailable anchors, and missing live-action opt-in return standard JSON:API errors with field pointers.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `flows:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/create_flow_action.json)
+
+        :param flow_action_insert_query: Insert a new action using either an anchor action or a flow relationship.  An anchor action identifies one outgoing link on an existing action. The new action is inserted on that link. Links on the new action insert it before the referenced downstream action. A flow relationship is only used to insert the first action into a trigger-only flow with an initialized, empty start path. These three placement mechanisms are mutually exclusive. (required)
+        :type flow_action_insert_query: FlowActionInsertQuery
+        :param fields_flow_action: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
+        :type fields_flow_action: List[str]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._create_flow_action_serialize(
+            flow_action_insert_query=flow_action_insert_query,
+            fields_flow_action=fields_flow_action,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '201': "PostFlowActionEncodedResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
+        }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
+        if _request_auth is not None:
+            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+            exclude_none=uses_sparse_fields
+        ).data
+
+
+    @validate_call
+    def create_flow_action_with_http_info(        
+        self,
+        flow_action_insert_query: Annotated[FlowActionInsertQuery, Field(description="Insert a new action using either an anchor action or a flow relationship.  An anchor action identifies one outgoing link on an existing action. The new action is inserted on that link. Links on the new action insert it before the referenced downstream action. A flow relationship is only used to insert the first action into a trigger-only flow with an initialized, empty start path. These three placement mechanisms are mutually exclusive.")],
+        fields_flow_action: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: StrictStr = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+        options: Dict[str, Any] = {},
+) -> ApiResponse[PostFlowActionEncodedResponse]:
+        """Create Flow Action
+
+        Insert a new action into an existing flow.  Choose exactly one placement mechanism:  - Use `anchor-action` to insert after an existing action on one of its outgoing   links. The selected anchor link must equal the new action's `temporary_id`,   and the new action definition must not include links. Use an anchor to append   to a path or insert into an empty conditional or multi-branch path. - Use `definition.links.next` to insert before an existing downstream action.   The server reconnects that action after the new one. - Use `relationships.flow` only to insert the first action into a trigger-only   flow whose initialized start path has no actions.  `anchor-action`, links on the new definition, and `relationships.flow` are mutually exclusive.  Standard linear actions, standard WhatsApp actions, and multi-branch splits are supported. Conditional splits, trigger splits, action-output splits, A/B tests, content experiments, and Automated Conversations actions cannot be inserted.  Communication actions are created in Draft and may need content or template configuration before activation. Always-live timing and logic actions require `allow_live_action: true` when inserted into a live flow and can immediately affect profiles already progressing through that flow.  A `201` response confirms that the action was created. The action may take a short time to become available to flow execution. This endpoint is not idempotent: retrying after an unknown result can create a duplicate action, and `temporary_id` is not an idempotency key.  Responses use persisted values. These can include server-generated multi-branch branch IDs, omission of the request-only `joined` marker, generated message or webhook defaults, and a cloned email template ID that differs from the supplied template ID. Invalid placement, unavailable anchors, and missing live-action opt-in return standard JSON:API errors with field pointers.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `flows:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/create_flow_action.json)
+
+        :param flow_action_insert_query: Insert a new action using either an anchor action or a flow relationship.  An anchor action identifies one outgoing link on an existing action. The new action is inserted on that link. Links on the new action insert it before the referenced downstream action. A flow relationship is only used to insert the first action into a trigger-only flow with an initialized, empty start path. These three placement mechanisms are mutually exclusive. (required)
+        :type flow_action_insert_query: FlowActionInsertQuery
+        :param fields_flow_action: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
+        :type fields_flow_action: List[str]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._create_flow_action_serialize(
+            flow_action_insert_query=flow_action_insert_query,
+            fields_flow_action=fields_flow_action,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '201': "PostFlowActionEncodedResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
+        }
+        frame = inspect.currentframe()
+        args, _, _, values = inspect.getargvalues(frame)
+        uses_sparse_fields = self._uses_sparse_fields(args, values)
+
+        if _request_auth is not None:
+            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        if uses_sparse_fields or options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False) or self.api_client.options.get(USE_DICTIONARY_FOR_RESPONSE_DATA, False):
+            _response_types_map = self._replace_type_with_dict_in_response_types_map(_response_types_map)
+
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def create_flow_action_without_preload_content(
+        self,
+        flow_action_insert_query: Annotated[FlowActionInsertQuery, Field(description="Insert a new action using either an anchor action or a flow relationship.  An anchor action identifies one outgoing link on an existing action. The new action is inserted on that link. Links on the new action insert it before the referenced downstream action. A flow relationship is only used to insert the first action into a trigger-only flow with an initialized, empty start path. These three placement mechanisms are mutually exclusive.")],
+        fields_flow_action: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: StrictStr = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,) -> RESTResponseType:
+        """Create Flow Action
+
+        Insert a new action into an existing flow.  Choose exactly one placement mechanism:  - Use `anchor-action` to insert after an existing action on one of its outgoing   links. The selected anchor link must equal the new action's `temporary_id`,   and the new action definition must not include links. Use an anchor to append   to a path or insert into an empty conditional or multi-branch path. - Use `definition.links.next` to insert before an existing downstream action.   The server reconnects that action after the new one. - Use `relationships.flow` only to insert the first action into a trigger-only   flow whose initialized start path has no actions.  `anchor-action`, links on the new definition, and `relationships.flow` are mutually exclusive.  Standard linear actions, standard WhatsApp actions, and multi-branch splits are supported. Conditional splits, trigger splits, action-output splits, A/B tests, content experiments, and Automated Conversations actions cannot be inserted.  Communication actions are created in Draft and may need content or template configuration before activation. Always-live timing and logic actions require `allow_live_action: true` when inserted into a live flow and can immediately affect profiles already progressing through that flow.  A `201` response confirms that the action was created. The action may take a short time to become available to flow execution. This endpoint is not idempotent: retrying after an unknown result can create a duplicate action, and `temporary_id` is not an idempotency key.  Responses use persisted values. These can include server-generated multi-branch branch IDs, omission of the request-only `joined` marker, generated message or webhook defaults, and a cloned email template ID that differs from the supplied template ID. Invalid placement, unavailable anchors, and missing live-action opt-in return standard JSON:API errors with field pointers.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `flows:write`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/create_flow_action.json)
+
+        :param flow_action_insert_query: Insert a new action using either an anchor action or a flow relationship.  An anchor action identifies one outgoing link on an existing action. The new action is inserted on that link. Links on the new action insert it before the referenced downstream action. A flow relationship is only used to insert the first action into a trigger-only flow with an initialized, empty start path. These three placement mechanisms are mutually exclusive. (required)
+        :type flow_action_insert_query: FlowActionInsertQuery
+        :param fields_flow_action: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
+        :type fields_flow_action: List[str]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._create_flow_action_serialize(
+            flow_action_insert_query=flow_action_insert_query,
+            fields_flow_action=fields_flow_action,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '201': "PostFlowActionEncodedResponse",
+            '4XX': "GetAccounts4XXResponse",
+            '5XX': "GetAccounts4XXResponse",
+        }
+        if _request_auth is not None:
+            _request_auth = {'in': 'header', 'key': 'Authorization', 'type': 'api_key', 'value': f'Klaviyo-API-Key {_request_auth}'}
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _uses_sparse_fields(self, args, values) -> Set[str]:
+        for arg in args:
+             if arg.startswith('fields'):
+                 if values[arg] is not None:
+                      return True
+        return False
+
+
+    def _replace_type_with_dict_in_response_types_map(self, response_types_map: Dict[str, Optional[str]]) -> Dict[str, Optional[str]]:
+        for key, value in response_types_map.items():
+            if key.startswith('2'):
+                if value is not None:
+                    # Replace the Type for this key with a Dict type
+                    response_types_map[key] = 'Dict[str, object]'
+
+        return response_types_map
+
+    def _create_flow_action_serialize(
+        self,
+        flow_action_insert_query,
+        fields_flow_action,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+            'fields[flow-action]': 'csv',
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        if fields_flow_action is not None:
+            
+            if isinstance(fields_flow_action, EnumMeta):
+                _query_params.append(('fields[flow-action]', fields_flow_action))
+            else:
+                _query_params.append(('fields[flow-action]', fields_flow_action))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if flow_action_insert_query is not None:
+            _body_params = flow_action_insert_query
+
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/vnd.api+json'
+            ]
+        )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/vnd.api+json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'Klaviyo-API-Key', 
+            'OAuth'
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/api/flow-actions',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1045,7 +1388,7 @@ class FlowsApi(object):
     def get_action_for_flow_message(        
         self,
         id: StrictStr,
-        fields_flow_action: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_flow_action: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1066,7 +1409,7 @@ class FlowsApi(object):
 
         :param id:  (required)
         :type id: str
-        :param fields_flow_action: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow_action: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_flow_action: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1134,7 +1477,7 @@ class FlowsApi(object):
     def get_action_for_flow_message_with_http_info(        
         self,
         id: StrictStr,
-        fields_flow_action: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_flow_action: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1155,7 +1498,7 @@ class FlowsApi(object):
 
         :param id:  (required)
         :type id: str
-        :param fields_flow_action: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow_action: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_flow_action: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1221,7 +1564,7 @@ class FlowsApi(object):
     def get_action_for_flow_message_without_preload_content(
         self,
         id: StrictStr,
-        fields_flow_action: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_flow_action: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1240,7 +1583,7 @@ class FlowsApi(object):
 
         :param id:  (required)
         :type id: str
-        :param fields_flow_action: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow_action: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_flow_action: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1704,10 +2047,10 @@ class FlowsApi(object):
     def get_action_ids_for_flow(        
         self,
         id: StrictStr,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`<br>`action_type`: `any`, `equals`<br>`status`: `equals`<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any` (string)<br>`action_type`: `any`, `equals` (string)<br>`status`: `equals` (string)<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than` (date-time)<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than` (date-time)")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination")] = None,
         page_size: Annotated[Optional[Annotated[int, Field(le=50, strict=True, ge=1)]], Field(description="Default: 50. Min: 1. Max: 50.")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1728,13 +2071,13 @@ class FlowsApi(object):
 
         :param id:  (required)
         :type id: str
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`<br>`action_type`: `any`, `equals`<br>`status`: `equals`<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any` (string)<br>`action_type`: `any`, `equals` (string)<br>`status`: `equals` (string)<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than` (date-time)<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than` (date-time)
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination
         :type page_cursor: str
         :param page_size: Default: 50. Min: 1. Max: 50.
         :type page_size: int
-        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sorting
         :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1808,10 +2151,10 @@ class FlowsApi(object):
     def get_action_ids_for_flow_with_http_info(        
         self,
         id: StrictStr,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`<br>`action_type`: `any`, `equals`<br>`status`: `equals`<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any` (string)<br>`action_type`: `any`, `equals` (string)<br>`status`: `equals` (string)<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than` (date-time)<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than` (date-time)")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination")] = None,
         page_size: Annotated[Optional[Annotated[int, Field(le=50, strict=True, ge=1)]], Field(description="Default: 50. Min: 1. Max: 50.")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1832,13 +2175,13 @@ class FlowsApi(object):
 
         :param id:  (required)
         :type id: str
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`<br>`action_type`: `any`, `equals`<br>`status`: `equals`<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any` (string)<br>`action_type`: `any`, `equals` (string)<br>`status`: `equals` (string)<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than` (date-time)<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than` (date-time)
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination
         :type page_cursor: str
         :param page_size: Default: 50. Min: 1. Max: 50.
         :type page_size: int
-        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sorting
         :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1910,10 +2253,10 @@ class FlowsApi(object):
     def get_action_ids_for_flow_without_preload_content(
         self,
         id: StrictStr,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`<br>`action_type`: `any`, `equals`<br>`status`: `equals`<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any` (string)<br>`action_type`: `any`, `equals` (string)<br>`status`: `equals` (string)<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than` (date-time)<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than` (date-time)")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination")] = None,
         page_size: Annotated[Optional[Annotated[int, Field(le=50, strict=True, ge=1)]], Field(description="Default: 50. Min: 1. Max: 50.")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1932,13 +2275,13 @@ class FlowsApi(object):
 
         :param id:  (required)
         :type id: str
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`<br>`action_type`: `any`, `equals`<br>`status`: `equals`<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any` (string)<br>`action_type`: `any`, `equals` (string)<br>`status`: `equals` (string)<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than` (date-time)<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than` (date-time)
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination
         :type page_cursor: str
         :param page_size: Default: 50. Min: 1. Max: 50.
         :type page_size: int
-        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sorting
         :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2115,11 +2458,11 @@ class FlowsApi(object):
     def get_actions_for_flow(        
         self,
         id: StrictStr,
-        fields_flow_action: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`<br>`action_type`: `any`, `equals`<br>`status`: `equals`<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
+        fields_flow_action: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any` (string)<br>`action_type`: `any`, `equals` (string)<br>`status`: `equals` (string)<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than` (date-time)<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than` (date-time)")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination")] = None,
         page_size: Annotated[Optional[Annotated[int, Field(le=50, strict=True, ge=1)]], Field(description="Default: 50. Min: 1. Max: 50.")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2140,15 +2483,15 @@ class FlowsApi(object):
 
         :param id:  (required)
         :type id: str
-        :param fields_flow_action: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow_action: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_flow_action: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`<br>`action_type`: `any`, `equals`<br>`status`: `equals`<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any` (string)<br>`action_type`: `any`, `equals` (string)<br>`status`: `equals` (string)<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than` (date-time)<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than` (date-time)
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination
         :type page_cursor: str
         :param page_size: Default: 50. Min: 1. Max: 50.
         :type page_size: int
-        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sorting
         :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2223,11 +2566,11 @@ class FlowsApi(object):
     def get_actions_for_flow_with_http_info(        
         self,
         id: StrictStr,
-        fields_flow_action: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`<br>`action_type`: `any`, `equals`<br>`status`: `equals`<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
+        fields_flow_action: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any` (string)<br>`action_type`: `any`, `equals` (string)<br>`status`: `equals` (string)<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than` (date-time)<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than` (date-time)")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination")] = None,
         page_size: Annotated[Optional[Annotated[int, Field(le=50, strict=True, ge=1)]], Field(description="Default: 50. Min: 1. Max: 50.")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2248,15 +2591,15 @@ class FlowsApi(object):
 
         :param id:  (required)
         :type id: str
-        :param fields_flow_action: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow_action: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_flow_action: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`<br>`action_type`: `any`, `equals`<br>`status`: `equals`<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any` (string)<br>`action_type`: `any`, `equals` (string)<br>`status`: `equals` (string)<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than` (date-time)<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than` (date-time)
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination
         :type page_cursor: str
         :param page_size: Default: 50. Min: 1. Max: 50.
         :type page_size: int
-        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sorting
         :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2329,11 +2672,11 @@ class FlowsApi(object):
     def get_actions_for_flow_without_preload_content(
         self,
         id: StrictStr,
-        fields_flow_action: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`<br>`action_type`: `any`, `equals`<br>`status`: `equals`<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
+        fields_flow_action: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any` (string)<br>`action_type`: `any`, `equals` (string)<br>`status`: `equals` (string)<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than` (date-time)<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than` (date-time)")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination")] = None,
         page_size: Annotated[Optional[Annotated[int, Field(le=50, strict=True, ge=1)]], Field(description="Default: 50. Min: 1. Max: 50.")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2352,15 +2695,15 @@ class FlowsApi(object):
 
         :param id:  (required)
         :type id: str
-        :param fields_flow_action: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow_action: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_flow_action: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`<br>`action_type`: `any`, `equals`<br>`status`: `equals`<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any` (string)<br>`action_type`: `any`, `equals` (string)<br>`status`: `equals` (string)<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than` (date-time)<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than` (date-time)
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination
         :type page_cursor: str
         :param page_size: Default: 50. Min: 1. Max: 50.
         :type page_size: int
-        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sorting
         :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2548,10 +2891,10 @@ class FlowsApi(object):
         self,
         id: StrictStr,
         additional_fields_flow: Annotated[Optional[List[StrictStr]], Field(description="Request additional fields not included by default in the response. Supported values: 'definition'")] = None,
-        fields_flow_action: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_tag: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships")] = None,
+        fields_flow_action: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_tag: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2574,13 +2917,13 @@ class FlowsApi(object):
         :type id: str
         :param additional_fields_flow: Request additional fields not included by default in the response. Supported values: 'definition'
         :type additional_fields_flow: List[str]
-        :param fields_flow_action: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow_action: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_flow_action: List[str]
-        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_flow: List[str]
-        :param fields_tag: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_tag: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_tag: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2650,10 +2993,10 @@ class FlowsApi(object):
         self,
         id: StrictStr,
         additional_fields_flow: Annotated[Optional[List[StrictStr]], Field(description="Request additional fields not included by default in the response. Supported values: 'definition'")] = None,
-        fields_flow_action: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_tag: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships")] = None,
+        fields_flow_action: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_tag: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2676,13 +3019,13 @@ class FlowsApi(object):
         :type id: str
         :param additional_fields_flow: Request additional fields not included by default in the response. Supported values: 'definition'
         :type additional_fields_flow: List[str]
-        :param fields_flow_action: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow_action: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_flow_action: List[str]
-        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_flow: List[str]
-        :param fields_tag: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_tag: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_tag: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2750,10 +3093,10 @@ class FlowsApi(object):
         self,
         id: StrictStr,
         additional_fields_flow: Annotated[Optional[List[StrictStr]], Field(description="Request additional fields not included by default in the response. Supported values: 'definition'")] = None,
-        fields_flow_action: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_tag: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships")] = None,
+        fields_flow_action: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_tag: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2774,13 +3117,13 @@ class FlowsApi(object):
         :type id: str
         :param additional_fields_flow: Request additional fields not included by default in the response. Supported values: 'definition'
         :type additional_fields_flow: List[str]
-        :param fields_flow_action: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow_action: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_flow_action: List[str]
-        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_flow: List[str]
-        :param fields_tag: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_tag: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_tag: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2959,10 +3302,10 @@ class FlowsApi(object):
     def get_flow_action(        
         self,
         id: StrictStr,
-        fields_flow_action: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_flow_message: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships")] = None,
+        fields_flow_action: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_flow_message: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2983,13 +3326,13 @@ class FlowsApi(object):
 
         :param id:  (required)
         :type id: str
-        :param fields_flow_action: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow_action: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_flow_action: List[str]
-        :param fields_flow_message: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow_message: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_flow_message: List[str]
-        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_flow: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3057,10 +3400,10 @@ class FlowsApi(object):
     def get_flow_action_with_http_info(        
         self,
         id: StrictStr,
-        fields_flow_action: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_flow_message: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships")] = None,
+        fields_flow_action: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_flow_message: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3081,13 +3424,13 @@ class FlowsApi(object):
 
         :param id:  (required)
         :type id: str
-        :param fields_flow_action: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow_action: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_flow_action: List[str]
-        :param fields_flow_message: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow_message: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_flow_message: List[str]
-        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_flow: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3153,10 +3496,10 @@ class FlowsApi(object):
     def get_flow_action_without_preload_content(
         self,
         id: StrictStr,
-        fields_flow_action: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_flow_message: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships")] = None,
+        fields_flow_action: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_flow_message: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3175,13 +3518,13 @@ class FlowsApi(object):
 
         :param id:  (required)
         :type id: str
-        :param fields_flow_action: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow_action: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_flow_action: List[str]
-        :param fields_flow_message: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow_message: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_flow_message: List[str]
-        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_flow: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3350,11 +3693,11 @@ class FlowsApi(object):
     def get_flow_action_messages(        
         self,
         id: StrictStr,
-        fields_flow_message: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`<br>`name`: `contains`, `ends-with`, `equals`, `starts-with`<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
+        fields_flow_message: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any` (string)<br>`name`: `contains`, `ends-with`, `equals`, `starts-with` (string)<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than` (date-time)<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than` (date-time)")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination")] = None,
         page_size: Annotated[Optional[Annotated[int, Field(le=50, strict=True, ge=1)]], Field(description="Default: 50. Min: 1. Max: 50.")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3375,15 +3718,15 @@ class FlowsApi(object):
 
         :param id:  (required)
         :type id: str
-        :param fields_flow_message: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow_message: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_flow_message: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`<br>`name`: `contains`, `ends-with`, `equals`, `starts-with`<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any` (string)<br>`name`: `contains`, `ends-with`, `equals`, `starts-with` (string)<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than` (date-time)<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than` (date-time)
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination
         :type page_cursor: str
         :param page_size: Default: 50. Min: 1. Max: 50.
         :type page_size: int
-        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sorting
         :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3455,11 +3798,11 @@ class FlowsApi(object):
     def get_flow_action_messages_with_http_info(        
         self,
         id: StrictStr,
-        fields_flow_message: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`<br>`name`: `contains`, `ends-with`, `equals`, `starts-with`<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
+        fields_flow_message: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any` (string)<br>`name`: `contains`, `ends-with`, `equals`, `starts-with` (string)<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than` (date-time)<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than` (date-time)")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination")] = None,
         page_size: Annotated[Optional[Annotated[int, Field(le=50, strict=True, ge=1)]], Field(description="Default: 50. Min: 1. Max: 50.")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3480,15 +3823,15 @@ class FlowsApi(object):
 
         :param id:  (required)
         :type id: str
-        :param fields_flow_message: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow_message: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_flow_message: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`<br>`name`: `contains`, `ends-with`, `equals`, `starts-with`<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any` (string)<br>`name`: `contains`, `ends-with`, `equals`, `starts-with` (string)<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than` (date-time)<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than` (date-time)
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination
         :type page_cursor: str
         :param page_size: Default: 50. Min: 1. Max: 50.
         :type page_size: int
-        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sorting
         :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3558,11 +3901,11 @@ class FlowsApi(object):
     def get_flow_action_messages_without_preload_content(
         self,
         id: StrictStr,
-        fields_flow_message: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`<br>`name`: `contains`, `ends-with`, `equals`, `starts-with`<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
+        fields_flow_message: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any` (string)<br>`name`: `contains`, `ends-with`, `equals`, `starts-with` (string)<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than` (date-time)<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than` (date-time)")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination")] = None,
         page_size: Annotated[Optional[Annotated[int, Field(le=50, strict=True, ge=1)]], Field(description="Default: 50. Min: 1. Max: 50.")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3581,15 +3924,15 @@ class FlowsApi(object):
 
         :param id:  (required)
         :type id: str
-        :param fields_flow_message: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow_message: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_flow_message: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`<br>`name`: `contains`, `ends-with`, `equals`, `starts-with`<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any` (string)<br>`name`: `contains`, `ends-with`, `equals`, `starts-with` (string)<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than` (date-time)<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than` (date-time)
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination
         :type page_cursor: str
         :param page_size: Default: 50. Min: 1. Max: 50.
         :type page_size: int
-        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sorting
         :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3770,7 +4113,7 @@ class FlowsApi(object):
     def get_flow_for_flow_action(        
         self,
         id: StrictStr,
-        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3791,7 +4134,7 @@ class FlowsApi(object):
 
         :param id:  (required)
         :type id: str
-        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_flow: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3859,7 +4202,7 @@ class FlowsApi(object):
     def get_flow_for_flow_action_with_http_info(        
         self,
         id: StrictStr,
-        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3880,7 +4223,7 @@ class FlowsApi(object):
 
         :param id:  (required)
         :type id: str
-        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_flow: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3946,7 +4289,7 @@ class FlowsApi(object):
     def get_flow_for_flow_action_without_preload_content(
         self,
         id: StrictStr,
-        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3965,7 +4308,7 @@ class FlowsApi(object):
 
         :param id:  (required)
         :type id: str
-        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_flow: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -4429,10 +4772,10 @@ class FlowsApi(object):
     def get_flow_message(        
         self,
         id: StrictStr,
-        fields_flow_action: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_flow_message: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_template: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships")] = None,
+        fields_flow_action: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_flow_message: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_template: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4453,13 +4796,13 @@ class FlowsApi(object):
 
         :param id:  (required)
         :type id: str
-        :param fields_flow_action: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow_action: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_flow_action: List[str]
-        :param fields_flow_message: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow_message: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_flow_message: List[str]
-        :param fields_template: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_template: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_template: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -4527,10 +4870,10 @@ class FlowsApi(object):
     def get_flow_message_with_http_info(        
         self,
         id: StrictStr,
-        fields_flow_action: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_flow_message: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_template: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships")] = None,
+        fields_flow_action: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_flow_message: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_template: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4551,13 +4894,13 @@ class FlowsApi(object):
 
         :param id:  (required)
         :type id: str
-        :param fields_flow_action: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow_action: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_flow_action: List[str]
-        :param fields_flow_message: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow_message: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_flow_message: List[str]
-        :param fields_template: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_template: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_template: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -4623,10 +4966,10 @@ class FlowsApi(object):
     def get_flow_message_without_preload_content(
         self,
         id: StrictStr,
-        fields_flow_action: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_flow_message: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_template: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships")] = None,
+        fields_flow_action: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_flow_message: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_template: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#relationships")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4645,13 +4988,13 @@ class FlowsApi(object):
 
         :param id:  (required)
         :type id: str
-        :param fields_flow_action: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow_action: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_flow_action: List[str]
-        :param fields_flow_message: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow_message: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_flow_message: List[str]
-        :param fields_template: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_template: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_template: List[str]
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#relationships
         :type include: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -4819,14 +5162,14 @@ class FlowsApi(object):
     @validate_call
     def get_flows(        
         self,
-        fields_flow_action: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_tag: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`<br>`name`: `contains`, `ends-with`, `equals`, `starts-with`<br>`status`: `equals`<br>`archived`: `equals`<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`trigger_type`: `equals`")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
+        fields_flow_action: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_tag: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any` (string)<br>`name`: `contains`, `ends-with`, `equals`, `starts-with` (string)<br>`status`: `equals` (string)<br>`archived`: `equals` (boolean)<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than` (date-time)<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than` (date-time)<br>`trigger_type`: `equals` (allowed values: `'Metric'`, `'Added to List'`, `'Unconfigured'`, `'Date Based'`, `'Price Drop'`, `'Low Inventory'`)")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#relationships")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination")] = None,
         page_size: Annotated[Optional[Annotated[int, Field(le=50, strict=True, ge=1)]], Field(description="Default: 50. Min: 1. Max: 50.")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4845,21 +5188,21 @@ class FlowsApi(object):
 
         Get all flows in an account.  Returns a maximum of 50 flows per request, which can be paginated with cursor-based pagination.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `flows:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_flows.json)
 
-        :param fields_flow_action: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow_action: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_flow_action: List[str]
-        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_flow: List[str]
-        :param fields_tag: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_tag: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_tag: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`<br>`name`: `contains`, `ends-with`, `equals`, `starts-with`<br>`status`: `equals`<br>`archived`: `equals`<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`trigger_type`: `equals`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any` (string)<br>`name`: `contains`, `ends-with`, `equals`, `starts-with` (string)<br>`status`: `equals` (string)<br>`archived`: `equals` (boolean)<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than` (date-time)<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than` (date-time)<br>`trigger_type`: `equals` (allowed values: `'Metric'`, `'Added to List'`, `'Unconfigured'`, `'Date Based'`, `'Price Drop'`, `'Low Inventory'`)
         :type filter: str
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#relationships
         :type include: List[str]
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination
         :type page_cursor: str
         :param page_size: Default: 50. Min: 1. Max: 50.
         :type page_size: int
-        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sorting
         :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -4929,14 +5272,14 @@ class FlowsApi(object):
     @validate_call
     def get_flows_with_http_info(        
         self,
-        fields_flow_action: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_tag: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`<br>`name`: `contains`, `ends-with`, `equals`, `starts-with`<br>`status`: `equals`<br>`archived`: `equals`<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`trigger_type`: `equals`")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
+        fields_flow_action: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_tag: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any` (string)<br>`name`: `contains`, `ends-with`, `equals`, `starts-with` (string)<br>`status`: `equals` (string)<br>`archived`: `equals` (boolean)<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than` (date-time)<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than` (date-time)<br>`trigger_type`: `equals` (allowed values: `'Metric'`, `'Added to List'`, `'Unconfigured'`, `'Date Based'`, `'Price Drop'`, `'Low Inventory'`)")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#relationships")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination")] = None,
         page_size: Annotated[Optional[Annotated[int, Field(le=50, strict=True, ge=1)]], Field(description="Default: 50. Min: 1. Max: 50.")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4955,21 +5298,21 @@ class FlowsApi(object):
 
         Get all flows in an account.  Returns a maximum of 50 flows per request, which can be paginated with cursor-based pagination.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `flows:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_flows.json)
 
-        :param fields_flow_action: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow_action: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_flow_action: List[str]
-        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_flow: List[str]
-        :param fields_tag: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_tag: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_tag: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`<br>`name`: `contains`, `ends-with`, `equals`, `starts-with`<br>`status`: `equals`<br>`archived`: `equals`<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`trigger_type`: `equals`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any` (string)<br>`name`: `contains`, `ends-with`, `equals`, `starts-with` (string)<br>`status`: `equals` (string)<br>`archived`: `equals` (boolean)<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than` (date-time)<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than` (date-time)<br>`trigger_type`: `equals` (allowed values: `'Metric'`, `'Added to List'`, `'Unconfigured'`, `'Date Based'`, `'Price Drop'`, `'Low Inventory'`)
         :type filter: str
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#relationships
         :type include: List[str]
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination
         :type page_cursor: str
         :param page_size: Default: 50. Min: 1. Max: 50.
         :type page_size: int
-        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sorting
         :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -5037,14 +5380,14 @@ class FlowsApi(object):
     @validate_call
     def get_flows_without_preload_content(
         self,
-        fields_flow_action: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
-        fields_tag: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`<br>`name`: `contains`, `ends-with`, `equals`, `starts-with`<br>`status`: `equals`<br>`archived`: `equals`<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`trigger_type`: `equals`")] = None,
-        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
+        fields_flow_action: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_tag: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any` (string)<br>`name`: `contains`, `ends-with`, `equals`, `starts-with` (string)<br>`status`: `equals` (string)<br>`archived`: `equals` (boolean)<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than` (date-time)<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than` (date-time)<br>`trigger_type`: `equals` (allowed values: `'Metric'`, `'Added to List'`, `'Unconfigured'`, `'Date Based'`, `'Price Drop'`, `'Low Inventory'`)")] = None,
+        include: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#relationships")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination")] = None,
         page_size: Annotated[Optional[Annotated[int, Field(le=50, strict=True, ge=1)]], Field(description="Default: 50. Min: 1. Max: 50.")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5061,21 +5404,21 @@ class FlowsApi(object):
 
         Get all flows in an account.  Returns a maximum of 50 flows per request, which can be paginated with cursor-based pagination.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `60/m`  **Scopes:** `flows:read`  [OpenAPI Spec](https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable/apis/get_flows.json)
 
-        :param fields_flow_action: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow_action: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_flow_action: List[str]
-        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_flow: List[str]
-        :param fields_tag: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_tag: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_tag: List[str]
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any`<br>`name`: `contains`, `ends-with`, `equals`, `starts-with`<br>`status`: `equals`<br>`archived`: `equals`<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`trigger_type`: `equals`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`id`: `any` (string)<br>`name`: `contains`, `ends-with`, `equals`, `starts-with` (string)<br>`status`: `equals` (string)<br>`archived`: `equals` (boolean)<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than` (date-time)<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than` (date-time)<br>`trigger_type`: `equals` (allowed values: `'Metric'`, `'Added to List'`, `'Unconfigured'`, `'Date Based'`, `'Price Drop'`, `'Low Inventory'`)
         :type filter: str
-        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#relationships
+        :param include: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#relationships
         :type include: List[str]
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination
         :type page_cursor: str
         :param page_size: Default: 50. Min: 1. Max: 50.
         :type page_size: int
-        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sorting
         :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -5276,10 +5619,10 @@ class FlowsApi(object):
     def get_message_ids_for_flow_action(        
         self,
         id: StrictStr,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`name`: `contains`, `ends-with`, `equals`, `starts-with`<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`name`: `contains`, `ends-with`, `equals`, `starts-with` (string)<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than` (date-time)<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than` (date-time)")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination")] = None,
         page_size: Annotated[Optional[Annotated[int, Field(le=50, strict=True, ge=1)]], Field(description="Default: 50. Min: 1. Max: 50.")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5300,13 +5643,13 @@ class FlowsApi(object):
 
         :param id:  (required)
         :type id: str
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`name`: `contains`, `ends-with`, `equals`, `starts-with`<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`name`: `contains`, `ends-with`, `equals`, `starts-with` (string)<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than` (date-time)<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than` (date-time)
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination
         :type page_cursor: str
         :param page_size: Default: 50. Min: 1. Max: 50.
         :type page_size: int
-        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sorting
         :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -5377,10 +5720,10 @@ class FlowsApi(object):
     def get_message_ids_for_flow_action_with_http_info(        
         self,
         id: StrictStr,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`name`: `contains`, `ends-with`, `equals`, `starts-with`<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`name`: `contains`, `ends-with`, `equals`, `starts-with` (string)<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than` (date-time)<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than` (date-time)")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination")] = None,
         page_size: Annotated[Optional[Annotated[int, Field(le=50, strict=True, ge=1)]], Field(description="Default: 50. Min: 1. Max: 50.")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5401,13 +5744,13 @@ class FlowsApi(object):
 
         :param id:  (required)
         :type id: str
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`name`: `contains`, `ends-with`, `equals`, `starts-with`<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`name`: `contains`, `ends-with`, `equals`, `starts-with` (string)<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than` (date-time)<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than` (date-time)
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination
         :type page_cursor: str
         :param page_size: Default: 50. Min: 1. Max: 50.
         :type page_size: int
-        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sorting
         :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -5476,10 +5819,10 @@ class FlowsApi(object):
     def get_message_ids_for_flow_action_without_preload_content(
         self,
         id: StrictStr,
-        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`name`: `contains`, `ends-with`, `equals`, `starts-with`<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
+        filter: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`name`: `contains`, `ends-with`, `equals`, `starts-with` (string)<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than` (date-time)<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than` (date-time)")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination")] = None,
         page_size: Annotated[Optional[Annotated[int, Field(le=50, strict=True, ge=1)]], Field(description="Default: 50. Min: 1. Max: 50.")] = None,
-        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sorting")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5498,13 +5841,13 @@ class FlowsApi(object):
 
         :param id:  (required)
         :type id: str
-        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`name`: `contains`, `ends-with`, `equals`, `starts-with`<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than`
+        :param filter: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#filtering<br>Allowed field(s)/operator(s):<br>`name`: `contains`, `ends-with`, `equals`, `starts-with` (string)<br>`created`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than` (date-time)<br>`updated`: `equals`, `greater-or-equal`, `greater-than`, `less-or-equal`, `less-than` (date-time)
         :type filter: str
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination
         :type page_cursor: str
         :param page_size: Default: 50. Min: 1. Max: 50.
         :type page_size: int
-        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sorting
+        :param sort: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sorting
         :type sort: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -5994,7 +6337,7 @@ class FlowsApi(object):
     def get_tags_for_flow(        
         self,
         id: StrictStr,
-        fields_tag: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_tag: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6015,7 +6358,7 @@ class FlowsApi(object):
 
         :param id:  (required)
         :type id: str
-        :param fields_tag: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_tag: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_tag: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -6083,7 +6426,7 @@ class FlowsApi(object):
     def get_tags_for_flow_with_http_info(        
         self,
         id: StrictStr,
-        fields_tag: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_tag: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6104,7 +6447,7 @@ class FlowsApi(object):
 
         :param id:  (required)
         :type id: str
-        :param fields_tag: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_tag: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_tag: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -6170,7 +6513,7 @@ class FlowsApi(object):
     def get_tags_for_flow_without_preload_content(
         self,
         id: StrictStr,
-        fields_tag: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_tag: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6189,7 +6532,7 @@ class FlowsApi(object):
 
         :param id:  (required)
         :type id: str
-        :param fields_tag: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_tag: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_tag: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -6334,7 +6677,7 @@ class FlowsApi(object):
     def get_template_for_flow_message(        
         self,
         id: StrictStr,
-        fields_template: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_template: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6355,7 +6698,7 @@ class FlowsApi(object):
 
         :param id:  (required)
         :type id: str
-        :param fields_template: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_template: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_template: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -6423,7 +6766,7 @@ class FlowsApi(object):
     def get_template_for_flow_message_with_http_info(        
         self,
         id: StrictStr,
-        fields_template: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_template: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6444,7 +6787,7 @@ class FlowsApi(object):
 
         :param id:  (required)
         :type id: str
-        :param fields_template: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_template: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_template: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -6510,7 +6853,7 @@ class FlowsApi(object):
     def get_template_for_flow_message_without_preload_content(
         self,
         id: StrictStr,
-        fields_template: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_template: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6529,7 +6872,7 @@ class FlowsApi(object):
 
         :param id:  (required)
         :type id: str
-        :param fields_template: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_template: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_template: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -6994,7 +7337,7 @@ class FlowsApi(object):
         self,
         id: Annotated[StrictStr, Field(description="ID of the Flow to update. Ex: XVTP5Q")],
         flow_update_query: FlowUpdateQuery,
-        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7017,7 +7360,7 @@ class FlowsApi(object):
         :type id: str
         :param flow_update_query: (required)
         :type flow_update_query: FlowUpdateQuery
-        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_flow: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -7084,7 +7427,7 @@ class FlowsApi(object):
         self,
         id: Annotated[StrictStr, Field(description="ID of the Flow to update. Ex: XVTP5Q")],
         flow_update_query: FlowUpdateQuery,
-        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7107,7 +7450,7 @@ class FlowsApi(object):
         :type id: str
         :param flow_update_query: (required)
         :type flow_update_query: FlowUpdateQuery
-        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_flow: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -7172,7 +7515,7 @@ class FlowsApi(object):
         self,
         id: Annotated[StrictStr, Field(description="ID of the Flow to update. Ex: XVTP5Q")],
         flow_update_query: FlowUpdateQuery,
-        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_flow: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7193,7 +7536,7 @@ class FlowsApi(object):
         :type id: str
         :param flow_update_query: (required)
         :type flow_update_query: FlowUpdateQuery
-        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_flow: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -7350,7 +7693,7 @@ class FlowsApi(object):
         self,
         id: StrictStr,
         flow_action_update_query: FlowActionUpdateQuery,
-        fields_flow_action: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_flow_action: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7373,7 +7716,7 @@ class FlowsApi(object):
         :type id: str
         :param flow_action_update_query: (required)
         :type flow_action_update_query: FlowActionUpdateQuery
-        :param fields_flow_action: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow_action: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_flow_action: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -7440,7 +7783,7 @@ class FlowsApi(object):
         self,
         id: StrictStr,
         flow_action_update_query: FlowActionUpdateQuery,
-        fields_flow_action: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_flow_action: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7463,7 +7806,7 @@ class FlowsApi(object):
         :type id: str
         :param flow_action_update_query: (required)
         :type flow_action_update_query: FlowActionUpdateQuery
-        :param fields_flow_action: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow_action: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_flow_action: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -7528,7 +7871,7 @@ class FlowsApi(object):
         self,
         id: StrictStr,
         flow_action_update_query: FlowActionUpdateQuery,
-        fields_flow_action: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_flow_action: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7549,7 +7892,7 @@ class FlowsApi(object):
         :type id: str
         :param flow_action_update_query: (required)
         :type flow_action_update_query: FlowActionUpdateQuery
-        :param fields_flow_action: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow_action: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_flow_action: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request

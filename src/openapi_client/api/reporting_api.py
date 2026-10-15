@@ -61,8 +61,8 @@ class ReportingApi(object):
     def query_campaign_values(        
         self,
         campaign_values_request_dto: CampaignValuesRequestDTO,
-        fields_campaign_values_report: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
+        fields_campaign_values_report: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -83,9 +83,9 @@ class ReportingApi(object):
 
         :param campaign_values_request_dto: (required)
         :type campaign_values_request_dto: CampaignValuesRequestDTO
-        :param fields_campaign_values_report: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_campaign_values_report: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_campaign_values_report: List[str]
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination
         :type page_cursor: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -157,8 +157,8 @@ class ReportingApi(object):
     def query_campaign_values_with_http_info(        
         self,
         campaign_values_request_dto: CampaignValuesRequestDTO,
-        fields_campaign_values_report: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
+        fields_campaign_values_report: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -179,9 +179,9 @@ class ReportingApi(object):
 
         :param campaign_values_request_dto: (required)
         :type campaign_values_request_dto: CampaignValuesRequestDTO
-        :param fields_campaign_values_report: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_campaign_values_report: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_campaign_values_report: List[str]
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination
         :type page_cursor: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -251,8 +251,8 @@ class ReportingApi(object):
     def query_campaign_values_without_preload_content(
         self,
         campaign_values_request_dto: CampaignValuesRequestDTO,
-        fields_campaign_values_report: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
+        fields_campaign_values_report: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -271,9 +271,9 @@ class ReportingApi(object):
 
         :param campaign_values_request_dto: (required)
         :type campaign_values_request_dto: CampaignValuesRequestDTO
-        :param fields_campaign_values_report: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_campaign_values_report: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_campaign_values_report: List[str]
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination
         :type page_cursor: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -446,8 +446,8 @@ class ReportingApi(object):
     def query_flow_series(        
         self,
         flow_series_request_dto: FlowSeriesRequestDTO,
-        fields_flow_series_report: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
+        fields_flow_series_report: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -468,9 +468,9 @@ class ReportingApi(object):
 
         :param flow_series_request_dto: (required)
         :type flow_series_request_dto: FlowSeriesRequestDTO
-        :param fields_flow_series_report: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow_series_report: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_flow_series_report: List[str]
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination
         :type page_cursor: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -542,8 +542,8 @@ class ReportingApi(object):
     def query_flow_series_with_http_info(        
         self,
         flow_series_request_dto: FlowSeriesRequestDTO,
-        fields_flow_series_report: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
+        fields_flow_series_report: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -564,9 +564,9 @@ class ReportingApi(object):
 
         :param flow_series_request_dto: (required)
         :type flow_series_request_dto: FlowSeriesRequestDTO
-        :param fields_flow_series_report: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow_series_report: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_flow_series_report: List[str]
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination
         :type page_cursor: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -636,8 +636,8 @@ class ReportingApi(object):
     def query_flow_series_without_preload_content(
         self,
         flow_series_request_dto: FlowSeriesRequestDTO,
-        fields_flow_series_report: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
+        fields_flow_series_report: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -656,9 +656,9 @@ class ReportingApi(object):
 
         :param flow_series_request_dto: (required)
         :type flow_series_request_dto: FlowSeriesRequestDTO
-        :param fields_flow_series_report: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow_series_report: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_flow_series_report: List[str]
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination
         :type page_cursor: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -831,8 +831,8 @@ class ReportingApi(object):
     def query_flow_values(        
         self,
         flow_values_request_dto: FlowValuesRequestDTO,
-        fields_flow_values_report: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
+        fields_flow_values_report: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -853,9 +853,9 @@ class ReportingApi(object):
 
         :param flow_values_request_dto: (required)
         :type flow_values_request_dto: FlowValuesRequestDTO
-        :param fields_flow_values_report: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow_values_report: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_flow_values_report: List[str]
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination
         :type page_cursor: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -927,8 +927,8 @@ class ReportingApi(object):
     def query_flow_values_with_http_info(        
         self,
         flow_values_request_dto: FlowValuesRequestDTO,
-        fields_flow_values_report: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
+        fields_flow_values_report: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -949,9 +949,9 @@ class ReportingApi(object):
 
         :param flow_values_request_dto: (required)
         :type flow_values_request_dto: FlowValuesRequestDTO
-        :param fields_flow_values_report: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow_values_report: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_flow_values_report: List[str]
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination
         :type page_cursor: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1021,8 +1021,8 @@ class ReportingApi(object):
     def query_flow_values_without_preload_content(
         self,
         flow_values_request_dto: FlowValuesRequestDTO,
-        fields_flow_values_report: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
-        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination")] = None,
+        fields_flow_values_report: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
+        page_cursor: Annotated[Optional[StrictStr], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1041,9 +1041,9 @@ class ReportingApi(object):
 
         :param flow_values_request_dto: (required)
         :type flow_values_request_dto: FlowValuesRequestDTO
-        :param fields_flow_values_report: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_flow_values_report: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_flow_values_report: List[str]
-        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#pagination
+        :param page_cursor: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#pagination
         :type page_cursor: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1216,7 +1216,7 @@ class ReportingApi(object):
     def query_form_series(        
         self,
         form_series_request_dto: FormSeriesRequestDTO,
-        fields_form_series_report: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_form_series_report: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1237,7 +1237,7 @@ class ReportingApi(object):
 
         :param form_series_request_dto: (required)
         :type form_series_request_dto: FormSeriesRequestDTO
-        :param fields_form_series_report: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_form_series_report: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_form_series_report: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1308,7 +1308,7 @@ class ReportingApi(object):
     def query_form_series_with_http_info(        
         self,
         form_series_request_dto: FormSeriesRequestDTO,
-        fields_form_series_report: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_form_series_report: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1329,7 +1329,7 @@ class ReportingApi(object):
 
         :param form_series_request_dto: (required)
         :type form_series_request_dto: FormSeriesRequestDTO
-        :param fields_form_series_report: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_form_series_report: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_form_series_report: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1398,7 +1398,7 @@ class ReportingApi(object):
     def query_form_series_without_preload_content(
         self,
         form_series_request_dto: FormSeriesRequestDTO,
-        fields_form_series_report: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_form_series_report: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1417,7 +1417,7 @@ class ReportingApi(object):
 
         :param form_series_request_dto: (required)
         :type form_series_request_dto: FormSeriesRequestDTO
-        :param fields_form_series_report: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_form_series_report: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_form_series_report: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1581,7 +1581,7 @@ class ReportingApi(object):
     def query_form_values(        
         self,
         form_values_request_dto: FormValuesRequestDTO,
-        fields_form_values_report: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_form_values_report: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1602,7 +1602,7 @@ class ReportingApi(object):
 
         :param form_values_request_dto: (required)
         :type form_values_request_dto: FormValuesRequestDTO
-        :param fields_form_values_report: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_form_values_report: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_form_values_report: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1673,7 +1673,7 @@ class ReportingApi(object):
     def query_form_values_with_http_info(        
         self,
         form_values_request_dto: FormValuesRequestDTO,
-        fields_form_values_report: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_form_values_report: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1694,7 +1694,7 @@ class ReportingApi(object):
 
         :param form_values_request_dto: (required)
         :type form_values_request_dto: FormValuesRequestDTO
-        :param fields_form_values_report: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_form_values_report: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_form_values_report: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1763,7 +1763,7 @@ class ReportingApi(object):
     def query_form_values_without_preload_content(
         self,
         form_values_request_dto: FormValuesRequestDTO,
-        fields_form_values_report: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_form_values_report: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1782,7 +1782,7 @@ class ReportingApi(object):
 
         :param form_values_request_dto: (required)
         :type form_values_request_dto: FormValuesRequestDTO
-        :param fields_form_values_report: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_form_values_report: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_form_values_report: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1946,7 +1946,7 @@ class ReportingApi(object):
     def query_segment_series(        
         self,
         segment_series_request_dto: SegmentSeriesRequestDTO,
-        fields_segment_series_report: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_segment_series_report: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1967,7 +1967,7 @@ class ReportingApi(object):
 
         :param segment_series_request_dto: (required)
         :type segment_series_request_dto: SegmentSeriesRequestDTO
-        :param fields_segment_series_report: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_segment_series_report: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_segment_series_report: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2038,7 +2038,7 @@ class ReportingApi(object):
     def query_segment_series_with_http_info(        
         self,
         segment_series_request_dto: SegmentSeriesRequestDTO,
-        fields_segment_series_report: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_segment_series_report: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2059,7 +2059,7 @@ class ReportingApi(object):
 
         :param segment_series_request_dto: (required)
         :type segment_series_request_dto: SegmentSeriesRequestDTO
-        :param fields_segment_series_report: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_segment_series_report: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_segment_series_report: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2128,7 +2128,7 @@ class ReportingApi(object):
     def query_segment_series_without_preload_content(
         self,
         segment_series_request_dto: SegmentSeriesRequestDTO,
-        fields_segment_series_report: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_segment_series_report: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2147,7 +2147,7 @@ class ReportingApi(object):
 
         :param segment_series_request_dto: (required)
         :type segment_series_request_dto: SegmentSeriesRequestDTO
-        :param fields_segment_series_report: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_segment_series_report: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_segment_series_report: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2311,7 +2311,7 @@ class ReportingApi(object):
     def query_segment_values(        
         self,
         segment_values_request_dto: SegmentValuesRequestDTO,
-        fields_segment_values_report: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_segment_values_report: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2332,7 +2332,7 @@ class ReportingApi(object):
 
         :param segment_values_request_dto: (required)
         :type segment_values_request_dto: SegmentValuesRequestDTO
-        :param fields_segment_values_report: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_segment_values_report: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_segment_values_report: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2403,7 +2403,7 @@ class ReportingApi(object):
     def query_segment_values_with_http_info(        
         self,
         segment_values_request_dto: SegmentValuesRequestDTO,
-        fields_segment_values_report: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_segment_values_report: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2424,7 +2424,7 @@ class ReportingApi(object):
 
         :param segment_values_request_dto: (required)
         :type segment_values_request_dto: SegmentValuesRequestDTO
-        :param fields_segment_values_report: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_segment_values_report: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_segment_values_report: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2493,7 +2493,7 @@ class ReportingApi(object):
     def query_segment_values_without_preload_content(
         self,
         segment_values_request_dto: SegmentValuesRequestDTO,
-        fields_segment_values_report: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        fields_segment_values_report: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2512,7 +2512,7 @@ class ReportingApi(object):
 
         :param segment_values_request_dto: (required)
         :type segment_values_request_dto: SegmentValuesRequestDTO
-        :param fields_segment_values_report: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_segment_values_report: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_segment_values_report: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request

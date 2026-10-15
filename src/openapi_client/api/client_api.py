@@ -48,9 +48,9 @@ class ClientApi(object):
     def get_client_ip_allowlist(        
         self,
         id: StrictStr,
-        company_id: Annotated[StrictStr, Field(description="Your Public API Key / Site ID. See [this article](https://help.klaviyo.com/hc/en-us/articles/115005062267) for more details.")],
-        revision: Annotated[StrictStr, Field(description="API endpoint revision (format: YYYY-MM-DD[.suffix])")],
-        fields_ip_allowlist: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        company_id: Annotated[Optional[StrictStr], Field(description="Your Public API Key / Site ID. See [this article](https://help.klaviyo.com/hc/en-us/articles/115005062267) for more details.")] = None,
+        fields_ip_allowlist: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
+        revision: Annotated[Optional[StrictStr], Field(description="API endpoint revision (format: YYYY-MM-DD[.suffix])")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -71,12 +71,12 @@ class ClientApi(object):
 
         :param id: (required)
         :type id: str
-        :param company_id: Your Public API Key / Site ID. See [this article](https://help.klaviyo.com/hc/en-us/articles/115005062267) for more details. (required)
+        :param company_id: Your Public API Key / Site ID. See [this article](https://help.klaviyo.com/hc/en-us/articles/115005062267) for more details.
         :type company_id: str
-        :param revision: API endpoint revision (format: YYYY-MM-DD[.suffix]) (required)
-        :type revision: str
-        :param fields_ip_allowlist: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_ip_allowlist: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_ip_allowlist: List[str]
+        :param revision: API endpoint revision (format: YYYY-MM-DD[.suffix])
+        :type revision: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -102,8 +102,8 @@ class ClientApi(object):
         _param = self._get_client_ip_allowlist_serialize(
             id=id,
             company_id=company_id,
-            revision=revision,
             fields_ip_allowlist=fields_ip_allowlist,
+            revision=revision,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -142,9 +142,9 @@ class ClientApi(object):
     def get_client_ip_allowlist_with_http_info(        
         self,
         id: StrictStr,
-        company_id: Annotated[StrictStr, Field(description="Your Public API Key / Site ID. See [this article](https://help.klaviyo.com/hc/en-us/articles/115005062267) for more details.")],
-        revision: Annotated[StrictStr, Field(description="API endpoint revision (format: YYYY-MM-DD[.suffix])")],
-        fields_ip_allowlist: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        company_id: Annotated[Optional[StrictStr], Field(description="Your Public API Key / Site ID. See [this article](https://help.klaviyo.com/hc/en-us/articles/115005062267) for more details.")] = None,
+        fields_ip_allowlist: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
+        revision: Annotated[Optional[StrictStr], Field(description="API endpoint revision (format: YYYY-MM-DD[.suffix])")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -165,12 +165,12 @@ class ClientApi(object):
 
         :param id: (required)
         :type id: str
-        :param company_id: Your Public API Key / Site ID. See [this article](https://help.klaviyo.com/hc/en-us/articles/115005062267) for more details. (required)
+        :param company_id: Your Public API Key / Site ID. See [this article](https://help.klaviyo.com/hc/en-us/articles/115005062267) for more details.
         :type company_id: str
-        :param revision: API endpoint revision (format: YYYY-MM-DD[.suffix]) (required)
-        :type revision: str
-        :param fields_ip_allowlist: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_ip_allowlist: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_ip_allowlist: List[str]
+        :param revision: API endpoint revision (format: YYYY-MM-DD[.suffix])
+        :type revision: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -196,8 +196,8 @@ class ClientApi(object):
         _param = self._get_client_ip_allowlist_serialize(
             id=id,
             company_id=company_id,
-            revision=revision,
             fields_ip_allowlist=fields_ip_allowlist,
+            revision=revision,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -234,9 +234,9 @@ class ClientApi(object):
     def get_client_ip_allowlist_without_preload_content(
         self,
         id: StrictStr,
-        company_id: Annotated[StrictStr, Field(description="Your Public API Key / Site ID. See [this article](https://help.klaviyo.com/hc/en-us/articles/115005062267) for more details.")],
-        revision: Annotated[StrictStr, Field(description="API endpoint revision (format: YYYY-MM-DD[.suffix])")],
-        fields_ip_allowlist: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets")] = None,
+        company_id: Annotated[Optional[StrictStr], Field(description="Your Public API Key / Site ID. See [this article](https://help.klaviyo.com/hc/en-us/articles/115005062267) for more details.")] = None,
+        fields_ip_allowlist: Annotated[Optional[List[StrictStr]], Field(description="For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets")] = None,
+        revision: Annotated[Optional[StrictStr], Field(description="API endpoint revision (format: YYYY-MM-DD[.suffix])")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -255,12 +255,12 @@ class ClientApi(object):
 
         :param id: (required)
         :type id: str
-        :param company_id: Your Public API Key / Site ID. See [this article](https://help.klaviyo.com/hc/en-us/articles/115005062267) for more details. (required)
+        :param company_id: Your Public API Key / Site ID. See [this article](https://help.klaviyo.com/hc/en-us/articles/115005062267) for more details.
         :type company_id: str
-        :param revision: API endpoint revision (format: YYYY-MM-DD[.suffix]) (required)
-        :type revision: str
-        :param fields_ip_allowlist: For more information please visit https://developers.klaviyo.com/en/v2026-07-15/reference/api-overview#sparse-fieldsets
+        :param fields_ip_allowlist: For more information please visit https://developers.klaviyo.com/en/v2026-10-15/reference/api-overview#sparse-fieldsets
         :type fields_ip_allowlist: List[str]
+        :param revision: API endpoint revision (format: YYYY-MM-DD[.suffix])
+        :type revision: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -286,8 +286,8 @@ class ClientApi(object):
         _param = self._get_client_ip_allowlist_serialize(
             id=id,
             company_id=company_id,
-            revision=revision,
             fields_ip_allowlist=fields_ip_allowlist,
+            revision=revision,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -329,8 +329,8 @@ class ClientApi(object):
         self,
         id,
         company_id,
-        revision,
         fields_ip_allowlist,
+        revision,
         _request_auth,
         _content_type,
         _headers,

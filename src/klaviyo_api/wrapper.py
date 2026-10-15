@@ -19,7 +19,7 @@ class KlaviyoAPI:
     options: Dict[str, Any] = field(default_factory=dict)
 
 
-    _REVISION = "2026-07-15"
+    _REVISION = "2026-10-15"
 
     _STATUS_CODE_CONNECTION_RESET_BY_PEER = 104
     _STATUS_CODE_TOO_MANY_REQUESTS = 429
@@ -82,6 +82,55 @@ class KlaviyoAPI:
         return Accounts
     
     @property
+    def Billing(self):
+        from openapi_client.api import billing_api
+
+        ## Adding Billing to Client
+        Billing=billing_api.BillingApi(self.api_client)
+
+        ## Applying retry decorator to each endpoint in Billing
+        Billing.get_billing_usage=self._page_cursor_update(self.retry_logic(Billing.get_billing_usage))
+        Billing.list_billing_usage=self._page_cursor_update(self.retry_logic(Billing.list_billing_usage))
+        
+        return Billing
+    
+    @property
+    def Brands(self):
+        from openapi_client.api import brands_api
+
+        ## Adding Brands to Client
+        Brands=brands_api.BrandsApi(self.api_client)
+
+        ## Applying retry decorator to each endpoint in Brands
+        Brands.create_brand_button=self._page_cursor_update(self.retry_logic(Brands.create_brand_button))
+        Brands.create_brand_color=self._page_cursor_update(self.retry_logic(Brands.create_brand_color))
+        Brands.create_brand_logo=self._page_cursor_update(self.retry_logic(Brands.create_brand_logo))
+        Brands.create_brand_social_group=self._page_cursor_update(self.retry_logic(Brands.create_brand_social_group))
+        Brands.delete_brand_button=self._page_cursor_update(self.retry_logic(Brands.delete_brand_button))
+        Brands.delete_brand_color=self._page_cursor_update(self.retry_logic(Brands.delete_brand_color))
+        Brands.delete_brand_logo=self._page_cursor_update(self.retry_logic(Brands.delete_brand_logo))
+        Brands.delete_brand_social_group=self._page_cursor_update(self.retry_logic(Brands.delete_brand_social_group))
+        Brands.get_brand_button=self._page_cursor_update(self.retry_logic(Brands.get_brand_button))
+        Brands.get_brand_buttons=self._page_cursor_update(self.retry_logic(Brands.get_brand_buttons))
+        Brands.get_brand_color=self._page_cursor_update(self.retry_logic(Brands.get_brand_color))
+        Brands.get_brand_colors=self._page_cursor_update(self.retry_logic(Brands.get_brand_colors))
+        Brands.get_brand_email_default=self._page_cursor_update(self.retry_logic(Brands.get_brand_email_default))
+        Brands.get_brand_email_defaults=self._page_cursor_update(self.retry_logic(Brands.get_brand_email_defaults))
+        Brands.get_brand_logo=self._page_cursor_update(self.retry_logic(Brands.get_brand_logo))
+        Brands.get_brand_logos=self._page_cursor_update(self.retry_logic(Brands.get_brand_logos))
+        Brands.get_brand_social_group=self._page_cursor_update(self.retry_logic(Brands.get_brand_social_group))
+        Brands.get_brand_social_groups=self._page_cursor_update(self.retry_logic(Brands.get_brand_social_groups))
+        Brands.get_brand_voice=self._page_cursor_update(self.retry_logic(Brands.get_brand_voice))
+        Brands.update_brand_button=self._page_cursor_update(self.retry_logic(Brands.update_brand_button))
+        Brands.update_brand_color=self._page_cursor_update(self.retry_logic(Brands.update_brand_color))
+        Brands.update_brand_email_default=self._page_cursor_update(self.retry_logic(Brands.update_brand_email_default))
+        Brands.update_brand_logo=self._page_cursor_update(self.retry_logic(Brands.update_brand_logo))
+        Brands.update_brand_social_group=self._page_cursor_update(self.retry_logic(Brands.update_brand_social_group))
+        Brands.update_brand_voice=self._page_cursor_update(self.retry_logic(Brands.update_brand_voice))
+        
+        return Brands
+    
+    @property
     def Campaigns(self):
         from openapi_client.api import campaigns_api
 
@@ -93,44 +142,101 @@ class KlaviyoAPI:
         Campaigns.create_campaign_message_assign_template=self._page_cursor_update(self.retry_logic(Campaigns.create_campaign_message_assign_template))
         Campaigns.cancel_campaign_send=self._page_cursor_update(self.retry_logic(Campaigns.cancel_campaign_send))
         Campaigns.update_campaign_send_job=self._page_cursor_update(self.retry_logic(Campaigns.update_campaign_send_job))
-        Campaigns.create_campaign=self._page_cursor_update(self.retry_logic(Campaigns.create_campaign))
-        Campaigns.create_campaign_clone=self._page_cursor_update(self.retry_logic(Campaigns.create_campaign_clone))
         Campaigns.clone_campaign=self._page_cursor_update(self.retry_logic(Campaigns.clone_campaign))
+        Campaigns.create_campaign_clone=self._page_cursor_update(self.retry_logic(Campaigns.create_campaign_clone))
+        Campaigns.clone_campaign_audience=self._page_cursor_update(self.retry_logic(Campaigns.clone_campaign_audience))
+        Campaigns.create_campaign_audience_clone=self._page_cursor_update(self.retry_logic(Campaigns.create_campaign_audience_clone))
+        Campaigns.clone_campaign_message=self._page_cursor_update(self.retry_logic(Campaigns.clone_campaign_message))
+        Campaigns.create_campaign_message_clone=self._page_cursor_update(self.retry_logic(Campaigns.create_campaign_message_clone))
+        Campaigns.create_campaign=self._page_cursor_update(self.retry_logic(Campaigns.create_campaign))
+        Campaigns.create_campaign_audience=self._page_cursor_update(self.retry_logic(Campaigns.create_campaign_audience))
+        Campaigns.create_campaign_message=self._page_cursor_update(self.retry_logic(Campaigns.create_campaign_message))
+        Campaigns.create_campaign_variation=self._page_cursor_update(self.retry_logic(Campaigns.create_campaign_variation))
         Campaigns.delete_campaign=self._page_cursor_update(self.retry_logic(Campaigns.delete_campaign))
+        Campaigns.delete_campaign_audience=self._page_cursor_update(self.retry_logic(Campaigns.delete_campaign_audience))
+        Campaigns.delete_campaign_message=self._page_cursor_update(self.retry_logic(Campaigns.delete_campaign_message))
+        Campaigns.delete_campaign_variation=self._page_cursor_update(self.retry_logic(Campaigns.delete_campaign_variation))
+        Campaigns.get_audience_for_campaign_message=self._page_cursor_update(self.retry_logic(Campaigns.get_audience_for_campaign_message))
+        Campaigns.get_campaign_message_audience=self._page_cursor_update(self.retry_logic(Campaigns.get_campaign_message_audience))
+        Campaigns.get_audience_id_for_campaign_message=self._page_cursor_update(self.retry_logic(Campaigns.get_audience_id_for_campaign_message))
+        Campaigns.get_campaign_message_relationships_audience=self._page_cursor_update(self.retry_logic(Campaigns.get_campaign_message_relationships_audience))
+        Campaigns.get_audience_ids_for_campaign=self._page_cursor_update(self.retry_logic(Campaigns.get_audience_ids_for_campaign))
+        Campaigns.get_campaign_relationships_audiences=self._page_cursor_update(self.retry_logic(Campaigns.get_campaign_relationships_audiences))
         Campaigns.get_campaign=self._page_cursor_update(self.retry_logic(Campaigns.get_campaign))
+        Campaigns.get_campaign_audience=self._page_cursor_update(self.retry_logic(Campaigns.get_campaign_audience))
+        Campaigns.get_campaign_audiences_for_campaign=self._page_cursor_update(self.retry_logic(Campaigns.get_campaign_audiences_for_campaign))
+        Campaigns.get_audiences_for_campaign=self._page_cursor_update(self.retry_logic(Campaigns.get_audiences_for_campaign))
+        Campaigns.get_campaign_audiences=self._page_cursor_update(self.retry_logic(Campaigns.get_campaign_audiences))
+        Campaigns.get_campaign_for_campaign_audience=self._page_cursor_update(self.retry_logic(Campaigns.get_campaign_for_campaign_audience))
+        Campaigns.get_campaign_audience_campaign=self._page_cursor_update(self.retry_logic(Campaigns.get_campaign_audience_campaign))
         Campaigns.get_campaign_for_campaign_message=self._page_cursor_update(self.retry_logic(Campaigns.get_campaign_for_campaign_message))
         Campaigns.get_campaign_message_campaign=self._page_cursor_update(self.retry_logic(Campaigns.get_campaign_message_campaign))
+        Campaigns.get_campaign_id_for_campaign_audience=self._page_cursor_update(self.retry_logic(Campaigns.get_campaign_id_for_campaign_audience))
+        Campaigns.get_campaign_audience_relationships_campaign=self._page_cursor_update(self.retry_logic(Campaigns.get_campaign_audience_relationships_campaign))
         Campaigns.get_campaign_id_for_campaign_message=self._page_cursor_update(self.retry_logic(Campaigns.get_campaign_id_for_campaign_message))
         Campaigns.get_campaign_message_relationships_campaign=self._page_cursor_update(self.retry_logic(Campaigns.get_campaign_message_relationships_campaign))
         Campaigns.get_campaign_message=self._page_cursor_update(self.retry_logic(Campaigns.get_campaign_message))
+        Campaigns.get_campaign_messages=self._page_cursor_update(self.retry_logic(Campaigns.get_campaign_messages))
+        Campaigns.get_campaign_messages_for_campaign_audience=self._page_cursor_update(self.retry_logic(Campaigns.get_campaign_messages_for_campaign_audience))
+        Campaigns.get_campaign_audience_messages=self._page_cursor_update(self.retry_logic(Campaigns.get_campaign_audience_messages))
+        Campaigns.get_messages_for_campaign_audience=self._page_cursor_update(self.retry_logic(Campaigns.get_messages_for_campaign_audience))
         Campaigns.get_campaign_recipient_estimation=self._page_cursor_update(self.retry_logic(Campaigns.get_campaign_recipient_estimation))
         Campaigns.get_campaign_recipient_estimation_job=self._page_cursor_update(self.retry_logic(Campaigns.get_campaign_recipient_estimation_job))
         Campaigns.get_campaign_send_job=self._page_cursor_update(self.retry_logic(Campaigns.get_campaign_send_job))
+        Campaigns.get_campaign_variation=self._page_cursor_update(self.retry_logic(Campaigns.get_campaign_variation))
         Campaigns.get_campaigns=self._page_cursor_update(self.retry_logic(Campaigns.get_campaigns))
         Campaigns.get_image_for_campaign_message=self._page_cursor_update(self.retry_logic(Campaigns.get_image_for_campaign_message))
         Campaigns.get_campaign_message_image=self._page_cursor_update(self.retry_logic(Campaigns.get_campaign_message_image))
+        Campaigns.get_image_for_campaign_variation=self._page_cursor_update(self.retry_logic(Campaigns.get_image_for_campaign_variation))
+        Campaigns.get_campaign_variation_image=self._page_cursor_update(self.retry_logic(Campaigns.get_campaign_variation_image))
         Campaigns.get_image_id_for_campaign_message=self._page_cursor_update(self.retry_logic(Campaigns.get_image_id_for_campaign_message))
         Campaigns.get_campaign_message_relationships_image=self._page_cursor_update(self.retry_logic(Campaigns.get_campaign_message_relationships_image))
+        Campaigns.get_image_id_for_campaign_variation=self._page_cursor_update(self.retry_logic(Campaigns.get_image_id_for_campaign_variation))
+        Campaigns.get_campaign_variation_relationships_image=self._page_cursor_update(self.retry_logic(Campaigns.get_campaign_variation_relationships_image))
+        Campaigns.get_message_for_campaign_variation=self._page_cursor_update(self.retry_logic(Campaigns.get_message_for_campaign_variation))
+        Campaigns.get_campaign_variation_message=self._page_cursor_update(self.retry_logic(Campaigns.get_campaign_variation_message))
+        Campaigns.get_message_id_for_campaign_variation=self._page_cursor_update(self.retry_logic(Campaigns.get_message_id_for_campaign_variation))
+        Campaigns.get_campaign_variation_relationships_message=self._page_cursor_update(self.retry_logic(Campaigns.get_campaign_variation_relationships_message))
         Campaigns.get_message_ids_for_campaign=self._page_cursor_update(self.retry_logic(Campaigns.get_message_ids_for_campaign))
         Campaigns.get_campaign_relationships_campaign_messages=self._page_cursor_update(self.retry_logic(Campaigns.get_campaign_relationships_campaign_messages))
         Campaigns.get_campaign_relationships_messages=self._page_cursor_update(self.retry_logic(Campaigns.get_campaign_relationships_messages))
+        Campaigns.get_message_ids_for_campaign_audience=self._page_cursor_update(self.retry_logic(Campaigns.get_message_ids_for_campaign_audience))
+        Campaigns.get_campaign_audience_relationships_messages=self._page_cursor_update(self.retry_logic(Campaigns.get_campaign_audience_relationships_messages))
         Campaigns.get_messages_for_campaign=self._page_cursor_update(self.retry_logic(Campaigns.get_messages_for_campaign))
         Campaigns.get_campaign_campaign_messages=self._page_cursor_update(self.retry_logic(Campaigns.get_campaign_campaign_messages))
-        Campaigns.get_campaign_messages=self._page_cursor_update(self.retry_logic(Campaigns.get_campaign_messages))
         Campaigns.get_tag_ids_for_campaign=self._page_cursor_update(self.retry_logic(Campaigns.get_tag_ids_for_campaign))
         Campaigns.get_campaign_relationships_tags=self._page_cursor_update(self.retry_logic(Campaigns.get_campaign_relationships_tags))
+        Campaigns.get_tag_ids_for_campaign_message=self._page_cursor_update(self.retry_logic(Campaigns.get_tag_ids_for_campaign_message))
+        Campaigns.get_campaign_message_relationships_tags=self._page_cursor_update(self.retry_logic(Campaigns.get_campaign_message_relationships_tags))
         Campaigns.get_tags_for_campaign=self._page_cursor_update(self.retry_logic(Campaigns.get_tags_for_campaign))
         Campaigns.get_campaign_tags=self._page_cursor_update(self.retry_logic(Campaigns.get_campaign_tags))
+        Campaigns.get_tags_for_campaign_message=self._page_cursor_update(self.retry_logic(Campaigns.get_tags_for_campaign_message))
+        Campaigns.get_campaign_message_tags=self._page_cursor_update(self.retry_logic(Campaigns.get_campaign_message_tags))
         Campaigns.get_template_for_campaign_message=self._page_cursor_update(self.retry_logic(Campaigns.get_template_for_campaign_message))
         Campaigns.get_campaign_message_template=self._page_cursor_update(self.retry_logic(Campaigns.get_campaign_message_template))
         Campaigns.get_template_id_for_campaign_message=self._page_cursor_update(self.retry_logic(Campaigns.get_template_id_for_campaign_message))
         Campaigns.get_campaign_message_relationships_template=self._page_cursor_update(self.retry_logic(Campaigns.get_campaign_message_relationships_template))
+        Campaigns.get_translation_for_campaign_variation=self._page_cursor_update(self.retry_logic(Campaigns.get_translation_for_campaign_variation))
+        Campaigns.get_campaign_variation_translation=self._page_cursor_update(self.retry_logic(Campaigns.get_campaign_variation_translation))
+        Campaigns.get_translation_id_for_campaign_variation=self._page_cursor_update(self.retry_logic(Campaigns.get_translation_id_for_campaign_variation))
+        Campaigns.get_campaign_variation_relationships_translation=self._page_cursor_update(self.retry_logic(Campaigns.get_campaign_variation_relationships_translation))
+        Campaigns.get_variation_ids_for_campaign_message=self._page_cursor_update(self.retry_logic(Campaigns.get_variation_ids_for_campaign_message))
+        Campaigns.get_campaign_message_relationships_variations=self._page_cursor_update(self.retry_logic(Campaigns.get_campaign_message_relationships_variations))
+        Campaigns.get_variations_for_campaign_message=self._page_cursor_update(self.retry_logic(Campaigns.get_variations_for_campaign_message))
+        Campaigns.get_campaign_message_variations=self._page_cursor_update(self.retry_logic(Campaigns.get_campaign_message_variations))
         Campaigns.refresh_campaign_recipient_estimation=self._page_cursor_update(self.retry_logic(Campaigns.refresh_campaign_recipient_estimation))
         Campaigns.create_campaign_recipient_estimation_job=self._page_cursor_update(self.retry_logic(Campaigns.create_campaign_recipient_estimation_job))
+        Campaigns.schedule_campaign=self._page_cursor_update(self.retry_logic(Campaigns.schedule_campaign))
+        Campaigns.create_campaign_schedule=self._page_cursor_update(self.retry_logic(Campaigns.create_campaign_schedule))
+        Campaigns.schedule_campaign_message=self._page_cursor_update(self.retry_logic(Campaigns.schedule_campaign_message))
+        Campaigns.create_campaign_message_schedule=self._page_cursor_update(self.retry_logic(Campaigns.create_campaign_message_schedule))
         Campaigns.send_campaign=self._page_cursor_update(self.retry_logic(Campaigns.send_campaign))
         Campaigns.create_campaign_send_job=self._page_cursor_update(self.retry_logic(Campaigns.create_campaign_send_job))
         Campaigns.update_campaign=self._page_cursor_update(self.retry_logic(Campaigns.update_campaign))
+        Campaigns.update_campaign_audience=self._page_cursor_update(self.retry_logic(Campaigns.update_campaign_audience))
         Campaigns.update_campaign_message=self._page_cursor_update(self.retry_logic(Campaigns.update_campaign_message))
+        Campaigns.update_campaign_message_schedule=self._page_cursor_update(self.retry_logic(Campaigns.update_campaign_message_schedule))
+        Campaigns.update_campaign_variation=self._page_cursor_update(self.retry_logic(Campaigns.update_campaign_variation))
         Campaigns.update_image_for_campaign_message=self._page_cursor_update(self.retry_logic(Campaigns.update_image_for_campaign_message))
         Campaigns.update_campaign_message_relationships_image=self._page_cursor_update(self.retry_logic(Campaigns.update_campaign_message_relationships_image))
         
@@ -465,6 +571,7 @@ class KlaviyoAPI:
 
         ## Applying retry decorator to each endpoint in Flows
         Flows.create_flow=self._page_cursor_update(self.retry_logic(Flows.create_flow))
+        Flows.create_flow_action=self._page_cursor_update(self.retry_logic(Flows.create_flow_action))
         Flows.delete_flow=self._page_cursor_update(self.retry_logic(Flows.delete_flow))
         Flows.delete_flow_action=self._page_cursor_update(self.retry_logic(Flows.delete_flow_action))
         Flows.get_action_for_flow_message=self._page_cursor_update(self.retry_logic(Flows.get_action_for_flow_message))
@@ -525,6 +632,11 @@ class KlaviyoAPI:
         Forms.get_versions_for_form=self._page_cursor_update(self.retry_logic(Forms.get_versions_for_form))
         Forms.get_form_form_versions=self._page_cursor_update(self.retry_logic(Forms.get_form_form_versions))
         Forms.get_form_versions=self._page_cursor_update(self.retry_logic(Forms.get_form_versions))
+        Forms.publish_form=self._page_cursor_update(self.retry_logic(Forms.publish_form))
+        Forms.create_form_publish_job=self._page_cursor_update(self.retry_logic(Forms.create_form_publish_job))
+        Forms.unpublish_form=self._page_cursor_update(self.retry_logic(Forms.unpublish_form))
+        Forms.create_form_unpublish_job=self._page_cursor_update(self.retry_logic(Forms.create_form_unpublish_job))
+        Forms.update_form=self._page_cursor_update(self.retry_logic(Forms.update_form))
         
         return Forms
     
@@ -885,7 +997,10 @@ class KlaviyoAPI:
         ## Applying retry decorator to each endpoint in Templates
         Templates.clone_template=self._page_cursor_update(self.retry_logic(Templates.clone_template))
         Templates.create_template_clone=self._page_cursor_update(self.retry_logic(Templates.create_template_clone))
+        Templates.clone_universal_content=self._page_cursor_update(self.retry_logic(Templates.clone_universal_content))
+        Templates.create_template_universal_content_clone=self._page_cursor_update(self.retry_logic(Templates.create_template_universal_content_clone))
         Templates.create_template=self._page_cursor_update(self.retry_logic(Templates.create_template))
+        Templates.create_template_preview_send_job=self._page_cursor_update(self.retry_logic(Templates.create_template_preview_send_job))
         Templates.create_universal_content=self._page_cursor_update(self.retry_logic(Templates.create_universal_content))
         Templates.create_template_universal_content=self._page_cursor_update(self.retry_logic(Templates.create_template_universal_content))
         Templates.delete_template=self._page_cursor_update(self.retry_logic(Templates.delete_template))
@@ -905,6 +1020,28 @@ class KlaviyoAPI:
         return Templates
     
     @property
+    def Text_Messaging(self):
+        from openapi_client.api import text_messaging_api
+
+        ## Adding Text_Messaging to Client
+        Text_Messaging=text_messaging_api.TextMessagingApi(self.api_client)
+
+        ## Applying retry decorator to each endpoint in Text_Messaging
+        Text_Messaging.create_text_messaging_configuration=self._page_cursor_update(self.retry_logic(Text_Messaging.create_text_messaging_configuration))
+        Text_Messaging.create_text_messaging_sender=self._page_cursor_update(self.retry_logic(Text_Messaging.create_text_messaging_sender))
+        Text_Messaging.create_text_messaging_sender_registration=self._page_cursor_update(self.retry_logic(Text_Messaging.create_text_messaging_sender_registration))
+        Text_Messaging.get_messaging_sender_registration_for_text_messaging_sender=self._page_cursor_update(self.retry_logic(Text_Messaging.get_messaging_sender_registration_for_text_messaging_sender))
+        Text_Messaging.get_text_messaging_sender_messaging_sender_registration=self._page_cursor_update(self.retry_logic(Text_Messaging.get_text_messaging_sender_messaging_sender_registration))
+        Text_Messaging.get_messaging_sender_registration_id_for_text_messaging_sender=self._page_cursor_update(self.retry_logic(Text_Messaging.get_messaging_sender_registration_id_for_text_messaging_sender))
+        Text_Messaging.get_text_messaging_sender_relationships_messaging_sender_registration=self._page_cursor_update(self.retry_logic(Text_Messaging.get_text_messaging_sender_relationships_messaging_sender_registration))
+        Text_Messaging.get_text_messaging_configuration=self._page_cursor_update(self.retry_logic(Text_Messaging.get_text_messaging_configuration))
+        Text_Messaging.get_text_messaging_sender=self._page_cursor_update(self.retry_logic(Text_Messaging.get_text_messaging_sender))
+        Text_Messaging.get_text_messaging_sender_registration=self._page_cursor_update(self.retry_logic(Text_Messaging.get_text_messaging_sender_registration))
+        Text_Messaging.get_text_messaging_senders=self._page_cursor_update(self.retry_logic(Text_Messaging.get_text_messaging_senders))
+        
+        return Text_Messaging
+    
+    @property
     def Tracking_Settings(self):
         from openapi_client.api import tracking_settings_api
 
@@ -917,6 +1054,38 @@ class KlaviyoAPI:
         Tracking_Settings.update_tracking_setting=self._page_cursor_update(self.retry_logic(Tracking_Settings.update_tracking_setting))
         
         return Tracking_Settings
+    
+    @property
+    def Translations(self):
+        from openapi_client.api import translations_api
+
+        ## Adding Translations to Client
+        Translations=translations_api.TranslationsApi(self.api_client)
+
+        ## Applying retry decorator to each endpoint in Translations
+        Translations.create_translation=self._page_cursor_update(self.retry_logic(Translations.create_translation))
+        Translations.delete_translation=self._page_cursor_update(self.retry_logic(Translations.delete_translation))
+        Translations.get_campaign_variation_for_translation=self._page_cursor_update(self.retry_logic(Translations.get_campaign_variation_for_translation))
+        Translations.get_translation_campaign_variation=self._page_cursor_update(self.retry_logic(Translations.get_translation_campaign_variation))
+        Translations.get_campaign_variation_id_for_translation=self._page_cursor_update(self.retry_logic(Translations.get_campaign_variation_id_for_translation))
+        Translations.get_translation_relationships_campaign_variation=self._page_cursor_update(self.retry_logic(Translations.get_translation_relationships_campaign_variation))
+        Translations.get_flow_message_for_translation=self._page_cursor_update(self.retry_logic(Translations.get_flow_message_for_translation))
+        Translations.get_translation_flow_message=self._page_cursor_update(self.retry_logic(Translations.get_translation_flow_message))
+        Translations.get_flow_message_id_for_translation=self._page_cursor_update(self.retry_logic(Translations.get_flow_message_id_for_translation))
+        Translations.get_translation_relationships_flow_message=self._page_cursor_update(self.retry_logic(Translations.get_translation_relationships_flow_message))
+        Translations.get_template_for_translation=self._page_cursor_update(self.retry_logic(Translations.get_template_for_translation))
+        Translations.get_translation_template=self._page_cursor_update(self.retry_logic(Translations.get_translation_template))
+        Translations.get_template_id_for_translation=self._page_cursor_update(self.retry_logic(Translations.get_template_id_for_translation))
+        Translations.get_translation_relationships_template=self._page_cursor_update(self.retry_logic(Translations.get_translation_relationships_template))
+        Translations.get_template_universal_content_for_translation=self._page_cursor_update(self.retry_logic(Translations.get_template_universal_content_for_translation))
+        Translations.get_translation_template_universal_content=self._page_cursor_update(self.retry_logic(Translations.get_translation_template_universal_content))
+        Translations.get_template_universal_content_id_for_translation=self._page_cursor_update(self.retry_logic(Translations.get_template_universal_content_id_for_translation))
+        Translations.get_translation_relationships_template_universal_content=self._page_cursor_update(self.retry_logic(Translations.get_translation_relationships_template_universal_content))
+        Translations.get_translation=self._page_cursor_update(self.retry_logic(Translations.get_translation))
+        Translations.get_translations=self._page_cursor_update(self.retry_logic(Translations.get_translations))
+        Translations.update_translation=self._page_cursor_update(self.retry_logic(Translations.update_translation))
+        
+        return Translations
     
     @property
     def Web_Feeds(self):

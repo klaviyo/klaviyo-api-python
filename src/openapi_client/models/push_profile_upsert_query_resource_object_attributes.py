@@ -20,7 +20,6 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.profile_location import ProfileLocation
-from openapi_client.models.profile_meta import ProfileMeta
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -39,9 +38,8 @@ class PushProfileUpsertQueryResourceObjectAttributes(BaseModel):
     image: Optional[StrictStr] = Field(default=None, description="URL pointing to the location of a profile image")
     location: Optional[ProfileLocation] = None
     properties: Optional[Dict[str, Any]] = Field(default=None, description="An object containing key/value pairs for any custom properties assigned to this profile")
-    meta: Optional[ProfileMeta] = None
     email: Optional[StrictStr] = Field(default=None, description="Individual's email address")
-    __properties: ClassVar[List[str]] = ["phone_number", "external_id", "_kx", "first_name", "last_name", "organization", "locale", "title", "image", "location", "properties", "meta", "email"]
+    __properties: ClassVar[List[str]] = ["phone_number", "external_id", "_kx", "first_name", "last_name", "organization", "locale", "title", "image", "location", "properties", "email"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -85,9 +83,6 @@ class PushProfileUpsertQueryResourceObjectAttributes(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of location
         if self.location:
             _dict['location'] = self.location.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of meta
-        if self.meta:
-            _dict['meta'] = self.meta.to_dict()
         # set to None if phone_number (nullable) is None
         # and model_fields_set contains the field
         if self.phone_number is None and "phone_number" in self.model_fields_set:
@@ -166,7 +161,6 @@ class PushProfileUpsertQueryResourceObjectAttributes(BaseModel):
             "image": obj.get("image"),
             "location": ProfileLocation.from_dict(obj["location"]) if obj.get("location") is not None else None,
             "properties": obj.get("properties"),
-            "meta": ProfileMeta.from_dict(obj["meta"]) if obj.get("meta") is not None else None,
             "email": obj.get("email")
         })
         return _obj

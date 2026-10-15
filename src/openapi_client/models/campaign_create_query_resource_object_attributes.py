@@ -17,10 +17,11 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.audiences import Audiences
-from openapi_client.models.campaign_create_query_resource_object_attributes_campaign_messages import CampaignCreateQueryResourceObjectAttributesCampaignMessages
+from openapi_client.models.audience_inline_create import AudienceInlineCreate
+from openapi_client.models.campaign_definition import CampaignDefinition
+from openapi_client.models.message_inline_create import MessageInlineCreate
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,13 +29,10 @@ class CampaignCreateQueryResourceObjectAttributes(BaseModel):
     """
     CampaignCreateQueryResourceObjectAttributes
     """ # noqa: E501
-    name: StrictStr = Field(description="The campaign name")
-    audiences: Audiences
-    send_strategy: Optional[Dict[str, Any]] = Field(default=None, description="The send strategy the campaign will send with. Defaults to 'Immediate' send strategy.")
-    send_options: Optional[Dict[str, Any]] = Field(default=None, description="Options to use when sending a campaign")
-    tracking_options: Optional[Dict[str, Any]] = Field(default=None, description="The tracking options associated with the campaign")
-    campaign_messages: CampaignCreateQueryResourceObjectAttributesCampaignMessages = Field(alias="campaign-messages")
-    __properties: ClassVar[List[str]] = ["name", "audiences", "send_strategy", "send_options", "tracking_options", "campaign-messages"]
+    definition: CampaignDefinition
+    messages: Optional[List[MessageInlineCreate]] = Field(default=None, description="Messages to create on this campaign. Each references an audience via audience_temporary_id.")
+    audiences: Optional[List[AudienceInlineCreate]] = Field(default=None, description="Audiences to create on this campaign. Each references a message via audience_temporary_id.")
+    __properties: ClassVar[List[str]] = ["definition", "messages", "audiences"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -75,26 +73,32 @@ class CampaignCreateQueryResourceObjectAttributes(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of audiences
+        # override the default output from pydantic by calling `to_dict()` of definition
+        if self.definition:
+            _dict['definition'] = self.definition.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in messages (list)
+        _items = []
+        if self.messages:
+            for _item in self.messages:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['messages'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in audiences (list)
+        _items = []
         if self.audiences:
-            _dict['audiences'] = self.audiences.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of campaign_messages
-        if self.campaign_messages:
-            _dict['campaign-messages'] = self.campaign_messages.to_dict()
-        # set to None if send_strategy (nullable) is None
+            for _item in self.audiences:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['audiences'] = _items
+        # set to None if messages (nullable) is None
         # and model_fields_set contains the field
-        if self.send_strategy is None and "send_strategy" in self.model_fields_set:
-            _dict['send_strategy'] = None
+        if self.messages is None and "messages" in self.model_fields_set:
+            _dict['messages'] = None
 
-        # set to None if send_options (nullable) is None
+        # set to None if audiences (nullable) is None
         # and model_fields_set contains the field
-        if self.send_options is None and "send_options" in self.model_fields_set:
-            _dict['send_options'] = None
-
-        # set to None if tracking_options (nullable) is None
-        # and model_fields_set contains the field
-        if self.tracking_options is None and "tracking_options" in self.model_fields_set:
-            _dict['tracking_options'] = None
+        if self.audiences is None and "audiences" in self.model_fields_set:
+            _dict['audiences'] = None
 
         return _dict
 
@@ -108,12 +112,9 @@ class CampaignCreateQueryResourceObjectAttributes(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "name": obj.get("name"),
-            "audiences": Audiences.from_dict(obj["audiences"]) if obj.get("audiences") is not None else None,
-            "send_strategy": obj.get("send_strategy"),
-            "send_options": obj.get("send_options"),
-            "tracking_options": obj.get("tracking_options"),
-            "campaign-messages": CampaignCreateQueryResourceObjectAttributesCampaignMessages.from_dict(obj["campaign-messages"]) if obj.get("campaign-messages") is not None else None
+            "definition": CampaignDefinition.from_dict(obj["definition"]) if obj.get("definition") is not None else None,
+            "messages": [MessageInlineCreate.from_dict(_item) for _item in obj["messages"]] if obj.get("messages") is not None else None,
+            "audiences": [AudienceInlineCreate.from_dict(_item) for _item in obj["audiences"]] if obj.get("audiences") is not None else None
         })
         return _obj
 

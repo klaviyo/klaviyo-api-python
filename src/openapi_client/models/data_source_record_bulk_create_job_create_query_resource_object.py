@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from openapi_client.models.data_source_record_bulk_create_job_create_query_resource_object_attributes import DataSourceRecordBulkCreateJobCreateQueryResourceObjectAttributes
 from openapi_client.models.data_source_record_bulk_create_job_create_query_resource_object_relationships import DataSourceRecordBulkCreateJobCreateQueryResourceObjectRelationships
 from openapi_client.models.data_source_record_bulk_create_job_enum import DataSourceRecordBulkCreateJobEnum
@@ -31,7 +31,7 @@ class DataSourceRecordBulkCreateJobCreateQueryResourceObject(BaseModel):
     """ # noqa: E501
     type: DataSourceRecordBulkCreateJobEnum
     attributes: DataSourceRecordBulkCreateJobCreateQueryResourceObjectAttributes
-    relationships: Optional[DataSourceRecordBulkCreateJobCreateQueryResourceObjectRelationships] = None
+    relationships: DataSourceRecordBulkCreateJobCreateQueryResourceObjectRelationships
     __properties: ClassVar[List[str]] = ["type", "attributes", "relationships"]
 
     model_config = ConfigDict(
