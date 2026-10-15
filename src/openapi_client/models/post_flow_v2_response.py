@@ -21,6 +21,7 @@ from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.object_links import ObjectLinks
 from openapi_client.models.post_flow_v2_response_data import PostFlowV2ResponseData
+from openapi_client.models.response_meta import ResponseMeta
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -30,7 +31,8 @@ class PostFlowV2Response(BaseModel):
     """ # noqa: E501
     data: PostFlowV2ResponseData
     links: Optional[ObjectLinks] = None
-    __properties: ClassVar[List[str]] = ["data", "links"]
+    meta: Optional[ResponseMeta] = None
+    __properties: ClassVar[List[str]] = ["data", "links", "meta"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -77,6 +79,9 @@ class PostFlowV2Response(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of links
         if self.links:
             _dict['links'] = self.links.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of meta
+        if self.meta:
+            _dict['meta'] = self.meta.to_dict()
         return _dict
 
     @classmethod
@@ -90,7 +95,8 @@ class PostFlowV2Response(BaseModel):
 
         _obj = cls.model_validate({
             "data": PostFlowV2ResponseData.from_dict(obj["data"]) if obj.get("data") is not None else None,
-            "links": ObjectLinks.from_dict(obj["links"]) if obj.get("links") is not None else None
+            "links": ObjectLinks.from_dict(obj["links"]) if obj.get("links") is not None else None,
+            "meta": ResponseMeta.from_dict(obj["meta"]) if obj.get("meta") is not None else None
         })
         return _obj
 

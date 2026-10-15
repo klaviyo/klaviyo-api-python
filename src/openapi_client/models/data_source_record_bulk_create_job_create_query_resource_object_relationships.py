@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from openapi_client.models.data_source_record_bulk_create_job_create_query_resource_object_relationships_data_source import DataSourceRecordBulkCreateJobCreateQueryResourceObjectRelationshipsDataSource
 from typing import Optional, Set
 from typing_extensions import Self
@@ -27,7 +27,7 @@ class DataSourceRecordBulkCreateJobCreateQueryResourceObjectRelationships(BaseMo
     """
     DataSourceRecordBulkCreateJobCreateQueryResourceObjectRelationships
     """ # noqa: E501
-    data_source: Optional[DataSourceRecordBulkCreateJobCreateQueryResourceObjectRelationshipsDataSource] = Field(default=None, alias="data-source")
+    data_source: DataSourceRecordBulkCreateJobCreateQueryResourceObjectRelationshipsDataSource = Field(alias="data-source")
     __properties: ClassVar[List[str]] = ["data-source"]
 
     model_config = ConfigDict(

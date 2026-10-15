@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from openapi_client.models.data_source_record_bulk_create_job_create_query_resource_object_attributes_data_source_records import DataSourceRecordBulkCreateJobCreateQueryResourceObjectAttributesDataSourceRecords
 from typing import Optional, Set
 from typing_extensions import Self
@@ -27,7 +27,7 @@ class DataSourceRecordBulkCreateJobCreateQueryResourceObjectAttributes(BaseModel
     """
     DataSourceRecordBulkCreateJobCreateQueryResourceObjectAttributes
     """ # noqa: E501
-    data_source_records: Optional[DataSourceRecordBulkCreateJobCreateQueryResourceObjectAttributesDataSourceRecords] = Field(default=None, alias="data-source-records")
+    data_source_records: DataSourceRecordBulkCreateJobCreateQueryResourceObjectAttributesDataSourceRecords = Field(alias="data-source-records")
     __properties: ClassVar[List[str]] = ["data-source-records"]
 
     model_config = ConfigDict(
@@ -72,11 +72,6 @@ class DataSourceRecordBulkCreateJobCreateQueryResourceObjectAttributes(BaseModel
         # override the default output from pydantic by calling `to_dict()` of data_source_records
         if self.data_source_records:
             _dict['data-source-records'] = self.data_source_records.to_dict()
-        # set to None if data_source_records (nullable) is None
-        # and model_fields_set contains the field
-        if self.data_source_records is None and "data_source_records" in self.model_fields_set:
-            _dict['data-source-records'] = None
-
         return _dict
 
     @classmethod

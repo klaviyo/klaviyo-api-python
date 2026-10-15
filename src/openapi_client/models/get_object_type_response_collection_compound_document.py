@@ -22,6 +22,7 @@ from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.collection_links import CollectionLinks
 from openapi_client.models.object_schema_response_object_resource import ObjectSchemaResponseObjectResource
 from openapi_client.models.object_type_response_object_resource import ObjectTypeResponseObjectResource
+from openapi_client.models.response_meta import ResponseMeta
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -31,8 +32,9 @@ class GetObjectTypeResponseCollectionCompoundDocument(BaseModel):
     """ # noqa: E501
     data: List[ObjectTypeResponseObjectResource]
     links: Optional[CollectionLinks] = None
+    meta: Optional[ResponseMeta] = None
     included: Optional[List[ObjectSchemaResponseObjectResource]] = None
-    __properties: ClassVar[List[str]] = ["data", "links", "included"]
+    __properties: ClassVar[List[str]] = ["data", "links", "meta", "included"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -83,6 +85,9 @@ class GetObjectTypeResponseCollectionCompoundDocument(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of links
         if self.links:
             _dict['links'] = self.links.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of meta
+        if self.meta:
+            _dict['meta'] = self.meta.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in included (list)
         _items = []
         if self.included:
@@ -104,6 +109,7 @@ class GetObjectTypeResponseCollectionCompoundDocument(BaseModel):
         _obj = cls.model_validate({
             "data": [ObjectTypeResponseObjectResource.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None,
             "links": CollectionLinks.from_dict(obj["links"]) if obj.get("links") is not None else None,
+            "meta": ResponseMeta.from_dict(obj["meta"]) if obj.get("meta") is not None else None,
             "included": [ObjectSchemaResponseObjectResource.from_dict(_item) for _item in obj["included"]] if obj.get("included") is not None else None
         })
         return _obj

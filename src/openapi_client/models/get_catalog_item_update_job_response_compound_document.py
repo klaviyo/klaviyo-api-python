@@ -22,6 +22,7 @@ from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.catalog_item_response_object_resource import CatalogItemResponseObjectResource
 from openapi_client.models.catalog_item_update_job_response_object_resource import CatalogItemUpdateJobResponseObjectResource
 from openapi_client.models.object_links import ObjectLinks
+from openapi_client.models.response_meta import ResponseMeta
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -32,7 +33,8 @@ class GetCatalogItemUpdateJobResponseCompoundDocument(BaseModel):
     data: CatalogItemUpdateJobResponseObjectResource
     included: Optional[List[CatalogItemResponseObjectResource]] = None
     links: Optional[ObjectLinks] = None
-    __properties: ClassVar[List[str]] = ["data", "included", "links"]
+    meta: Optional[ResponseMeta] = None
+    __properties: ClassVar[List[str]] = ["data", "included", "links", "meta"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -86,6 +88,9 @@ class GetCatalogItemUpdateJobResponseCompoundDocument(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of links
         if self.links:
             _dict['links'] = self.links.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of meta
+        if self.meta:
+            _dict['meta'] = self.meta.to_dict()
         return _dict
 
     @classmethod
@@ -100,7 +105,8 @@ class GetCatalogItemUpdateJobResponseCompoundDocument(BaseModel):
         _obj = cls.model_validate({
             "data": CatalogItemUpdateJobResponseObjectResource.from_dict(obj["data"]) if obj.get("data") is not None else None,
             "included": [CatalogItemResponseObjectResource.from_dict(_item) for _item in obj["included"]] if obj.get("included") is not None else None,
-            "links": ObjectLinks.from_dict(obj["links"]) if obj.get("links") is not None else None
+            "links": ObjectLinks.from_dict(obj["links"]) if obj.get("links") is not None else None,
+            "meta": ResponseMeta.from_dict(obj["meta"]) if obj.get("meta") is not None else None
         })
         return _obj
 

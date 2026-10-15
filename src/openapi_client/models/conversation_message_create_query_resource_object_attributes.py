@@ -17,8 +17,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
-from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,7 +27,8 @@ class ConversationMessageCreateQueryResourceObjectAttributes(BaseModel):
     ConversationMessageCreateQueryResourceObjectAttributes
     """ # noqa: E501
     body: StrictStr
-    __properties: ClassVar[List[str]] = ["body"]
+    message_hierarchy: Optional[List[Dict[str, Any]]] = Field(default=None, description="An ordered RCS and SMS pair to send instead of a plain SMS: the RCS content first, then the SMS fallback delivered when RCS cannot be sent.")
+    __properties: ClassVar[List[str]] = ["body", "message_hierarchy"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -68,6 +69,11 @@ class ConversationMessageCreateQueryResourceObjectAttributes(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # set to None if message_hierarchy (nullable) is None
+        # and model_fields_set contains the field
+        if self.message_hierarchy is None and "message_hierarchy" in self.model_fields_set:
+            _dict['message_hierarchy'] = None
+
         return _dict
 
     @classmethod
@@ -80,7 +86,8 @@ class ConversationMessageCreateQueryResourceObjectAttributes(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "body": obj.get("body")
+            "body": obj.get("body"),
+            "message_hierarchy": obj.get("message_hierarchy")
         })
         return _obj
 

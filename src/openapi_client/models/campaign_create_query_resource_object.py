@@ -18,8 +18,9 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.campaign_create_query_resource_object_attributes import CampaignCreateQueryResourceObjectAttributes
+from openapi_client.models.campaign_create_query_resource_object_relationships import CampaignCreateQueryResourceObjectRelationships
 from openapi_client.models.campaign_enum import CampaignEnum
 from typing import Optional, Set
 from typing_extensions import Self
@@ -30,7 +31,8 @@ class CampaignCreateQueryResourceObject(BaseModel):
     """ # noqa: E501
     type: CampaignEnum
     attributes: CampaignCreateQueryResourceObjectAttributes
-    __properties: ClassVar[List[str]] = ["type", "attributes"]
+    relationships: Optional[CampaignCreateQueryResourceObjectRelationships] = None
+    __properties: ClassVar[List[str]] = ["type", "attributes", "relationships"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -74,6 +76,9 @@ class CampaignCreateQueryResourceObject(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of attributes
         if self.attributes:
             _dict['attributes'] = self.attributes.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of relationships
+        if self.relationships:
+            _dict['relationships'] = self.relationships.to_dict()
         return _dict
 
     @classmethod
@@ -87,7 +92,8 @@ class CampaignCreateQueryResourceObject(BaseModel):
 
         _obj = cls.model_validate({
             "type": obj.get("type"),
-            "attributes": CampaignCreateQueryResourceObjectAttributes.from_dict(obj["attributes"]) if obj.get("attributes") is not None else None
+            "attributes": CampaignCreateQueryResourceObjectAttributes.from_dict(obj["attributes"]) if obj.get("attributes") is not None else None,
+            "relationships": CampaignCreateQueryResourceObjectRelationships.from_dict(obj["relationships"]) if obj.get("relationships") is not None else None
         })
         return _obj
 

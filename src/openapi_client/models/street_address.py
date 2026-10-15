@@ -28,7 +28,7 @@ class StreetAddress(BaseModel):
     """ # noqa: E501
     address1: Optional[StrictStr] = None
     address2: Optional[StrictStr] = None
-    city: StrictStr
+    city: Optional[StrictStr] = None
     region: Optional[StrictStr] = Field(default=None, description="State, province, or region.")
     country: Optional[StrictStr] = Field(default=None, description="Two-letter [ISO country code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes)")
     zip: Optional[StrictStr] = None
@@ -82,6 +82,11 @@ class StreetAddress(BaseModel):
         # and model_fields_set contains the field
         if self.address2 is None and "address2" in self.model_fields_set:
             _dict['address2'] = None
+
+        # set to None if city (nullable) is None
+        # and model_fields_set contains the field
+        if self.city is None and "city" in self.model_fields_set:
+            _dict['city'] = None
 
         # set to None if region (nullable) is None
         # and model_fields_set contains the field

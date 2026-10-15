@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictFloat, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from openapi_client.models.margin import Margin
 from typing import Optional, Set
@@ -33,7 +33,18 @@ class CloseButtonStyle(BaseModel):
     stroke: Optional[Union[StrictFloat, StrictInt]] = 2
     size: Optional[StrictInt] = 20
     margin: Optional[Margin] = None
-    __properties: ClassVar[List[str]] = ["background_color", "outline_color", "color", "stroke", "size", "margin"]
+    position: Optional[StrictStr] = Field(default=None, description="Horizontal position of the close button.")
+    __properties: ClassVar[List[str]] = ["background_color", "outline_color", "color", "stroke", "size", "margin", "position"]
+
+    @field_validator('position')
+    def position_validate_enum(cls, value):
+        """Validates the enum"""
+        if value is None:
+            return value
+
+        if value not in set(['left', 'right']):
+            raise ValueError("must be one of enum values ('left', 'right')")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -77,6 +88,11 @@ class CloseButtonStyle(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of margin
         if self.margin:
             _dict['margin'] = self.margin.to_dict()
+        # set to None if position (nullable) is None
+        # and model_fields_set contains the field
+        if self.position is None and "position" in self.model_fields_set:
+            _dict['position'] = None
+
         return _dict
 
     @classmethod
@@ -94,7 +110,8 @@ class CloseButtonStyle(BaseModel):
             "color": obj.get("color") if obj.get("color") is not None else '#FFFFFF',
             "stroke": obj.get("stroke") if obj.get("stroke") is not None else 2,
             "size": obj.get("size") if obj.get("size") is not None else 20,
-            "margin": Margin.from_dict(obj["margin"]) if obj.get("margin") is not None else None
+            "margin": Margin.from_dict(obj["margin"]) if obj.get("margin") is not None else None,
+            "position": obj.get("position")
         })
         return _obj
 

@@ -26,8 +26,8 @@ class CampaignCloneQueryResourceObjectAttributes(BaseModel):
     """
     CampaignCloneQueryResourceObjectAttributes
     """ # noqa: E501
-    new_name: Optional[StrictStr] = Field(default=None, description="The name for the new cloned campaign")
-    __properties: ClassVar[List[str]] = ["new_name"]
+    name: Optional[StrictStr] = Field(default=None, description="Name for the cloned campaign. Defaults to 'Copy of {source name}'.")
+    __properties: ClassVar[List[str]] = ["name"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -68,10 +68,10 @@ class CampaignCloneQueryResourceObjectAttributes(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if new_name (nullable) is None
+        # set to None if name (nullable) is None
         # and model_fields_set contains the field
-        if self.new_name is None and "new_name" in self.model_fields_set:
-            _dict['new_name'] = None
+        if self.name is None and "name" in self.model_fields_set:
+            _dict['name'] = None
 
         return _dict
 
@@ -85,7 +85,7 @@ class CampaignCloneQueryResourceObjectAttributes(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "new_name": obj.get("new_name")
+            "name": obj.get("name")
         })
         return _obj
 

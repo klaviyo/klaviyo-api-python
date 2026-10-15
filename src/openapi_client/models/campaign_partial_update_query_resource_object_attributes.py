@@ -17,9 +17,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
-from openapi_client.models.audiences_update import AudiencesUpdate
+from pydantic import BaseModel, ConfigDict
+from typing import Any, ClassVar, Dict, List
+from openapi_client.models.campaign_definition import CampaignDefinition
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,12 +27,8 @@ class CampaignPartialUpdateQueryResourceObjectAttributes(BaseModel):
     """
     CampaignPartialUpdateQueryResourceObjectAttributes
     """ # noqa: E501
-    name: Optional[StrictStr] = Field(default=None, description="The campaign name")
-    audiences: Optional[AudiencesUpdate] = None
-    send_options: Optional[Dict[str, Any]] = Field(default=None, description="Options to use when sending a campaign")
-    tracking_options: Optional[Dict[str, Any]] = Field(default=None, description="The tracking options associated with the campaign")
-    send_strategy: Optional[Dict[str, Any]] = Field(default=None, description="The send strategy the campaign will send with")
-    __properties: ClassVar[List[str]] = ["name", "audiences", "send_options", "tracking_options", "send_strategy"]
+    definition: CampaignDefinition
+    __properties: ClassVar[List[str]] = ["definition"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -73,29 +69,9 @@ class CampaignPartialUpdateQueryResourceObjectAttributes(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of audiences
-        if self.audiences:
-            _dict['audiences'] = self.audiences.to_dict()
-        # set to None if name (nullable) is None
-        # and model_fields_set contains the field
-        if self.name is None and "name" in self.model_fields_set:
-            _dict['name'] = None
-
-        # set to None if send_options (nullable) is None
-        # and model_fields_set contains the field
-        if self.send_options is None and "send_options" in self.model_fields_set:
-            _dict['send_options'] = None
-
-        # set to None if tracking_options (nullable) is None
-        # and model_fields_set contains the field
-        if self.tracking_options is None and "tracking_options" in self.model_fields_set:
-            _dict['tracking_options'] = None
-
-        # set to None if send_strategy (nullable) is None
-        # and model_fields_set contains the field
-        if self.send_strategy is None and "send_strategy" in self.model_fields_set:
-            _dict['send_strategy'] = None
-
+        # override the default output from pydantic by calling `to_dict()` of definition
+        if self.definition:
+            _dict['definition'] = self.definition.to_dict()
         return _dict
 
     @classmethod
@@ -108,11 +84,7 @@ class CampaignPartialUpdateQueryResourceObjectAttributes(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "name": obj.get("name"),
-            "audiences": AudiencesUpdate.from_dict(obj["audiences"]) if obj.get("audiences") is not None else None,
-            "send_options": obj.get("send_options"),
-            "tracking_options": obj.get("tracking_options"),
-            "send_strategy": obj.get("send_strategy")
+            "definition": CampaignDefinition.from_dict(obj["definition"]) if obj.get("definition") is not None else None
         })
         return _obj
 

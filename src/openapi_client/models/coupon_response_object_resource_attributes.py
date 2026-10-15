@@ -19,6 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from openapi_client.models.coupon_assigner_configuration import CouponAssignerConfiguration
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,7 +30,8 @@ class CouponResponseObjectResourceAttributes(BaseModel):
     external_id: StrictStr = Field(description="This is the id that is stored in an integration such as Shopify or Magento.")
     description: Optional[StrictStr] = Field(default=None, description="A description of the coupon.")
     monitor_configuration: Optional[Dict[str, Any]] = Field(default=None, description="The monitor configuration for the coupon.")
-    __properties: ClassVar[List[str]] = ["external_id", "description", "monitor_configuration"]
+    assigner_configuration: Optional[CouponAssignerConfiguration] = None
+    __properties: ClassVar[List[str]] = ["external_id", "description", "monitor_configuration", "assigner_configuration"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -70,6 +72,9 @@ class CouponResponseObjectResourceAttributes(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of assigner_configuration
+        if self.assigner_configuration:
+            _dict['assigner_configuration'] = self.assigner_configuration.to_dict()
         # set to None if description (nullable) is None
         # and model_fields_set contains the field
         if self.description is None and "description" in self.model_fields_set:
@@ -94,7 +99,8 @@ class CouponResponseObjectResourceAttributes(BaseModel):
         _obj = cls.model_validate({
             "external_id": obj.get("external_id"),
             "description": obj.get("description"),
-            "monitor_configuration": obj.get("monitor_configuration")
+            "monitor_configuration": obj.get("monitor_configuration"),
+            "assigner_configuration": CouponAssignerConfiguration.from_dict(obj["assigner_configuration"]) if obj.get("assigner_configuration") is not None else None
         })
         return _obj
 

@@ -29,7 +29,7 @@ class CampaignPartialUpdateQueryResourceObject(BaseModel):
     CampaignPartialUpdateQueryResourceObject
     """ # noqa: E501
     type: CampaignEnum
-    id: StrictStr = Field(description="The campaign ID to be retrieved")
+    id: StrictStr = Field(description="The campaign ID to be updated")
     attributes: CampaignPartialUpdateQueryResourceObjectAttributes
     __properties: ClassVar[List[str]] = ["type", "id", "attributes"]
 

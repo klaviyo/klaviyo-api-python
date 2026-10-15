@@ -21,6 +21,7 @@ from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
 from openapi_client.models.collection_links import CollectionLinks
 from openapi_client.models.push_token_response_object_resource import PushTokenResponseObjectResource
+from openapi_client.models.response_meta import ResponseMeta
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -30,7 +31,8 @@ class GetPushTokenResponseCollection(BaseModel):
     """ # noqa: E501
     data: List[PushTokenResponseObjectResource]
     links: Optional[CollectionLinks] = None
-    __properties: ClassVar[List[str]] = ["data", "links"]
+    meta: Optional[ResponseMeta] = None
+    __properties: ClassVar[List[str]] = ["data", "links", "meta"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -81,6 +83,9 @@ class GetPushTokenResponseCollection(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of links
         if self.links:
             _dict['links'] = self.links.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of meta
+        if self.meta:
+            _dict['meta'] = self.meta.to_dict()
         return _dict
 
     @classmethod
@@ -94,7 +99,8 @@ class GetPushTokenResponseCollection(BaseModel):
 
         _obj = cls.model_validate({
             "data": [PushTokenResponseObjectResource.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None,
-            "links": CollectionLinks.from_dict(obj["links"]) if obj.get("links") is not None else None
+            "links": CollectionLinks.from_dict(obj["links"]) if obj.get("links") is not None else None,
+            "meta": ResponseMeta.from_dict(obj["meta"]) if obj.get("meta") is not None else None
         })
         return _obj
 
